@@ -1,10 +1,21 @@
 <template>
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-lg border-b border-transparent transition-colors duration-200">
+  <nav
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+    :class="[
+      (isHome && !isScrolled)
+        ? 'bg-transparent border-b border-transparent'
+        : 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800 shadow-sm'
+    ]"
+  >
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-14">
         <!-- Logo -->
         <NuxtLink to="/" class="flex items-center gap-2.5">
-          <img src="/logo.svg" alt="BuidAI" class="h-8 w-auto" />
+          <img
+            :src="(isHome && !isScrolled) ? '/logo.svg' : '/logo-full.svg'"
+            alt="BuidAI"
+            class="h-8 w-auto"
+          />
         </NuxtLink>
 
         <!-- Desktop Navigation -->
@@ -13,8 +24,12 @@
             v-for="item in navigation"
             :key="item.href"
             :to="item.href"
-            class="text-sm text-[#737373] hover:text-white font-medium transition-colors duration-200"
-            :class="{ 'text-white': $route.path === item.href }"
+            class="text-sm font-medium transition-colors duration-200"
+            :class="[
+              (isHome && !isScrolled)
+                ? ($route.path === item.href ? 'text-white' : 'text-[#737373] hover:text-white')
+                : ($route.path === item.href ? 'text-primary-600 dark:text-primary-400' : 'text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400')
+            ]"
           >
             {{ item.name }}
           </NuxtLink>
@@ -22,7 +37,14 @@
 
         <!-- Right side buttons -->
         <div class="hidden md:flex items-center space-x-4">
-          <button class="text-sm text-[#737373] hover:text-white font-medium px-4 py-2">
+          <button
+            class="text-sm font-medium px-4 py-2 transition-colors duration-200"
+            :class="[
+              (isHome && !isScrolled)
+                ? 'text-[#737373] hover:text-white'
+                : 'text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
+            ]"
+          >
             登录
           </button>
           <button class="text-sm bg-primary-600 text-white px-4 py-2 rounded-full font-medium hover:bg-primary-700 transition-colors shadow-lg shadow-primary-500/30">
@@ -34,7 +56,12 @@
         <div class="md:hidden flex items-center space-x-2">
           <button
             @click="mobileMenuOpen = !mobileMenuOpen"
-            class="p-2 rounded-lg text-white/80 hover:bg-white/10"
+            class="p-2 rounded-lg transition-colors duration-200"
+            :class="[
+              (isHome && !isScrolled)
+                ? 'text-white/80 hover:bg-white/10'
+                : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+            ]"
           >
             <Bars3Icon v-if="!mobileMenuOpen" class="w-6 h-6" />
             <XMarkIcon v-else class="w-6 h-6" />
@@ -51,20 +78,32 @@
         leave-from-class="opacity-100 translate-y-0"
         leave-to-class="opacity-0 -translate-y-4"
       >
-        <div v-if="mobileMenuOpen" class="md:hidden border-t border-gray-200 dark:border-gray-700 py-4">
+        <div
+          v-if="mobileMenuOpen"
+          class="md:hidden border-t py-4"
+          :class="[
+            (isHome && !isScrolled)
+              ? 'border-white/10 bg-black/90 backdrop-blur-xl'
+              : 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900'
+          ]"
+        >
           <div class="flex flex-col space-y-4">
             <NuxtLink
               v-for="item in navigation"
               :key="item.href"
               :to="item.href"
               @click="mobileMenuOpen = false"
-              class="text-sm text-[#737373] hover:text-white font-medium py-2 transition-colors duration-200"
-              :class="{ 'text-white': $route.path === item.href }"
+              class="text-sm font-medium py-2 transition-colors duration-200"
+              :class="[
+                (isHome && !isScrolled)
+                  ? ($route.path === item.href ? 'text-white' : 'text-[#737373] hover:text-white')
+                  : ($route.path === item.href ? 'text-primary-600 dark:text-primary-400' : 'text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400')
+              ]"
             >
               {{ item.name }}
             </NuxtLink>
-            <div class="flex flex-col space-y-3 pt-4 border-t border-gray-200 dark:border-gray-700">
-              <button class="btn-secondary w-full">
+            <div class="flex flex-col space-y-3 pt-4 border-t" :class="(isHome && !isScrolled) ? 'border-white/10' : 'border-gray-200 dark:border-gray-700'">
+              <button class="btn-secondary w-full" :class="(isHome && !isScrolled) ? 'text-white' : ''">
                 Log In
               </button>
               <button class="btn-primary w-full">
@@ -79,9 +118,29 @@
 </template>
 
 <script setup lang="ts">
+import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 
+const route = useRoute()
 const mobileMenuOpen = ref(false)
+const isScrolled = ref(false)
+
+const isHome = computed(() => route.path === '/')
+
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > 10
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+  // Check initial scroll position
+  handleScroll()
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 
 const navigation = [
   { name: '产品', href: '/features' },

@@ -1,3 +1,16 @@
 {
-  "extends": "./.nuxt/tsconfig.json"
+  "extends": "./.nuxt/tsconfig.json",
+  "include": [
+    "env.d.ts",
+    ".nuxt/nuxt.d.ts",
+    "**/*",
+    "stories/**/*"
+  ],
+  "compilerOptions": {
+    "moduleResolution": "Bundler",
+    "types": [
+      "node",
+      "vitest/globals"
+    ]
+  }
 }

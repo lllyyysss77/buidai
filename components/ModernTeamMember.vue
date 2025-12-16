@@ -59,7 +59,7 @@ const getSocialIcon = (platform: string) => {
 }
 
 const getSocialUrl = (platform: string, handle: string) => {
-  const urls = {
+  const urls: Record<string, string> = {
     twitter: `https://twitter.com/${handle.replace('@', '')}`,
     github: `https://github.com/${handle}`,
     linkedin: `https://linkedin.com/in/${handle}`,

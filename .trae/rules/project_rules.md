@@ -34,17 +34,18 @@
 ### 4.2. TypeScript & Documentation
 - **Strict Typing**: Avoid `any` whenever possible. Define interfaces/types for data structures.
 - **Comments**:
+  - **Language**: All comments MUST be in **Chinese**.
   - **Function-Level Comments**: Every function MUST have a comment block explaining:
     - Functionality description.
     - Parameters (name, type, description).
     - Return value (type, description).
   ```typescript
   /**
-   * Calculates the total price including tax.
+   * 计算包含税费的总价。
    *
-   * @param price - The base price of the item.
-   * @param taxRate - The tax rate to apply (e.g., 0.1 for 10%).
-   * @returns The final price with tax included.
+   * @param price - 商品基础价格。
+   * @param taxRate - 适用的税率（例如 0.1 表示 10%）。
+   * @returns 包含税费的最终价格。
    */
   const calculateTotal = (price: number, taxRate: number): number => { ... }
   ```
@@ -63,6 +64,6 @@
 - **Performance**: Use `<NuxtLink>` for internal navigation. Use `<img>` or `<NuxtImg>` (if configured) for images.
 - **Responsiveness**: Design Mobile-First using Tailwind's breakpoints (`sm`, `md`, `lg`, `xl`).
 
-## 6. Git & Version Control
-- Commit messages should be clear and descriptive.
-- Avoid committing large binary files if not necessary.
+## 7. Restrictions
+- **Testing**: Do NOT generate unit tests or test directories (e.g., `tests/`) unless explicitly requested.
+

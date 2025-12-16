@@ -1,97 +1,78 @@
 <template>
-  <div>
+  <div class="bg-white">
     <!-- Hero Section -->
-    <section class="relative section-padding gradient-bg overflow-hidden">
-      <!-- Background decorations -->
-      <div class="absolute inset-0 opacity-10">
-        <div class="absolute top-20 left-20 w-64 h-64 bg-white rounded-full blur-3xl"></div>
-        <div class="absolute bottom-20 right-20 w-80 h-80 bg-accent-300 rounded-full blur-3xl"></div>
+    <section class="relative py-24 bg-black overflow-hidden">
+      <!-- Background Gradients -->
+      <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-purple-900/20 rounded-full blur-[100px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-indigo-900/20 rounded-full blur-[100px]"></div>
       </div>
-      
-      <div class="relative max-w-7xl mx-auto container-padding text-center text-white">
-        <div class="max-w-4xl mx-auto">
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 animate-slide-up">
-            Coding Is
-            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-white to-accent-200">An Art Form</span>
-          </h1>
-          <p class="text-xl text-purple-100 mb-12 leading-relaxed animation-delay-200 animate-slide-up">
-            We believe programming should be joyful, creative, and beautiful. 
-            <span class="block mt-2">Welcome to a platform built for artists who happen to code.</span>
-          </p>
-        </div>
+
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+          关于 <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">BuidAI</span>
+        </h1>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+          赋能每一个团队构建智能未来，让 AI 应用开发变得简单、高效、触手可及。
+        </p>
       </div>
     </section>
 
-    <!-- Philosophy Section -->
-    <section class="section-padding bg-white dark:bg-gray-900">
-      <div class="max-w-7xl mx-auto container-padding">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <div class="inline-flex items-center bg-primary-100 dark:bg-primary-900 px-4 py-2 rounded-full text-primary-700 dark:text-primary-300 text-sm font-medium mb-6">
-              <HeartIcon class="w-4 h-4 mr-2" />
-              Our Philosophy
+    <!-- Mission Section -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row items-center gap-16">
+          <div class="lg:w-1/2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 text-purple-600 text-sm font-medium mb-6">
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
+              </span>
+              我们的使命
             </div>
-            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-              When Code Becomes
-              <span class="gradient-text">Poetry</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              打破技术壁垒，<br />释放 AI 的无限潜能
             </h2>
-            <p class="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-              Programming isn't just about solving problems—it's about expressing ideas, 
-              creating beauty, and bringing imagination to life through elegant solutions.
-            </p>
-            <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-              Vibe Coding was born from the belief that development tools should inspire, 
-              not frustrate. Every feature is crafted to spark creativity and maintain 
-              that magical flow state where your best work happens.
-            </p>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div class="flex items-center">
-                <div class="w-8 h-8 bg-gradient-to-r from-primary-500 to-accent-500 rounded-lg flex items-center justify-center mr-3">
-                  <SparklesIcon class="w-5 h-5 text-white" />
-                </div>
-                <span class="text-gray-700 dark:text-gray-300 font-medium">Beauty in simplicity</span>
-              </div>
-              <div class="flex items-center">
-                <div class="w-8 h-8 bg-gradient-to-r from-accent-500 to-primary-500 rounded-lg flex items-center justify-center mr-3">
-                  <SparklesIcon class="w-5 h-5 text-white" />
-                </div>
-                <span class="text-gray-700 dark:text-gray-300 font-medium">Joy in every interaction</span>
-              </div>
-              <div class="flex items-center">
-                <div class="w-8 h-8 bg-gradient-to-r from-primary-500 to-accent-500 rounded-lg flex items-center justify-center mr-3">
-                  <SparklesIcon class="w-5 h-5 text-white" />
-                </div>
-                <span class="text-gray-700 dark:text-gray-300 font-medium">Flow over friction</span>
-              </div>
-              <div class="flex items-center">
-                <div class="w-8 h-8 bg-gradient-to-r from-accent-500 to-primary-500 rounded-lg flex items-center justify-center mr-3">
-                  <SparklesIcon class="w-5 h-5 text-white" />
-                </div>
-                <span class="text-gray-700 dark:text-gray-300 font-medium">Community over competition</span>
-              </div>
+            <div class="space-y-6 text-lg text-gray-600 leading-relaxed">
+              <p>
+                在人工智能飞速发展的今天，我们看到无数令人惊叹的创意因为技术门槛而被搁置。BuidAI 的诞生，就是为了改变这一现状。
+              </p>
+              <p>
+                我们相信，AI 不应仅是少数技术专家的特权，而应成为每一个开发者、每一个企业手中的利器。通过提供全栈式的 AI 开发平台，我们致力于让复杂的模型训练、部署和应用集成变得像搭积木一样简单。
+              </p>
             </div>
           </div>
-          
-          <div class="relative">
-            <div class="glass-effect rounded-2xl p-8 border border-gray-200 dark:border-gray-700 bg-gradient-to-br from-primary-50 to-accent-50 dark:from-primary-900/20 dark:to-accent-900/20">
-              <div class="text-center">
-                <div class="text-4xl font-bold gradient-text mb-2">✨</div>
-                <div class="text-gray-600 dark:text-gray-400 mb-6 text-lg font-medium">The Vibe Manifesto</div>
-                
-                <div class="space-y-4 text-left">
-                  <div class="bg-white/50 dark:bg-gray-800/50 rounded-lg p-4">
-                    <div class="text-primary-600 dark:text-primary-400 font-medium mb-1">Create</div>
-                    <div class="text-gray-700 dark:text-gray-300 text-sm">Code should be an act of creation, not just computation.</div>
+          <div class="lg:w-1/2 relative">
+            <div class="absolute inset-0 bg-gradient-to-tr from-purple-100 to-indigo-100 rounded-3xl transform rotate-3 scale-105 -z-10"></div>
+            <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 shadow-xl">
+              <div class="grid grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                  <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                    <RocketLaunchIcon class="w-6 h-6 text-purple-600" />
                   </div>
-                  <div class="bg-white/50 dark:bg-gray-800/50 rounded-lg p-4">
-                    <div class="text-accent-600 dark:text-accent-400 font-medium mb-1">Flow</div>
-                    <div class="text-gray-700 dark:text-gray-300 text-sm">Tools should disappear, leaving only you and your ideas.</div>
+                  <h3 class="font-bold text-gray-900 mb-2">快速落地</h3>
+                  <p class="text-sm text-gray-500">从想法到产品，缩短开发周期</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                  <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+                    <UserGroupIcon class="w-6 h-6 text-indigo-600" />
                   </div>
-                  <div class="bg-white/50 dark:bg-gray-800/50 rounded-lg p-4">
-                    <div class="text-purple-600 dark:text-purple-400 font-medium mb-1">Share</div>
-                    <div class="text-gray-700 dark:text-gray-300 text-sm">Beautiful code deserves to be celebrated and shared.</div>
+                  <h3 class="font-bold text-gray-900 mb-2">团队协作</h3>
+                  <p class="text-sm text-gray-500">多角色协同，提升交付效率</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                  <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                    <CommandLineIcon class="w-6 h-6 text-blue-600" />
                   </div>
+                  <h3 class="font-bold text-gray-900 mb-2">开发者友好</h3>
+                  <p class="text-sm text-gray-500">API First，灵活扩展与集成</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                  <div class="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center mb-4">
+                    <HeartIcon class="w-6 h-6 text-pink-600" />
+                  </div>
+                  <h3 class="font-bold text-gray-900 mb-2">开源共建</h3>
+                  <p class="text-sm text-gray-500">拥抱开源社区，共同成长</p>
                 </div>
               </div>
             </div>
@@ -100,193 +81,102 @@
       </div>
     </section>
 
-    <!-- Creative Values -->
-    <section class="section-padding bg-gray-50 dark:bg-gray-800">
-      <div class="max-w-7xl mx-auto container-padding">
+    <!-- Values Section -->
+    <section class="py-24 bg-gray-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-            What Drives Our Creativity
-          </h2>
-          <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            The principles that guide everything we build and every decision we make.
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">核心价值观</h2>
+          <p class="text-gray-500 text-lg max-w-2xl mx-auto">
+            这些原则指引着我们的产品设计和团队发展
           </p>
         </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <CreativeValue
-            v-for="(value, index) in creativeValues"
-            :key="value.title"
-            :icon="value.icon"
-            :title="value.title"
-            :description="value.description"
-            :class="`animation-delay-${index * 100 + 200} animate-slide-up`"
-          />
-        </div>
-      </div>
-    </section>
 
-    <!-- Community Impact -->
-    <section class="section-padding gradient-bg">
-      <div class="max-w-7xl mx-auto container-padding text-center">
-        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-12">
-          Creating Ripples of Inspiration
-        </h2>
-        
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-          <div class="text-center">
-            <div class="text-4xl sm:text-5xl font-bold text-white mb-2">100K+</div>
-            <div class="text-purple-200 font-medium">Creative Coders</div>
-          </div>
-          <div class="text-center">
-            <div class="text-4xl sm:text-5xl font-bold text-white mb-2">1M+</div>
-            <div class="text-purple-200 font-medium">Projects Created</div>
-          </div>
-          <div class="text-center">
-            <div class="text-4xl sm:text-5xl font-bold text-white mb-2">50+</div>
-            <div class="text-purple-200 font-medium">Countries</div>
-          </div>
-          <div class="text-center">
-            <div class="text-4xl sm:text-5xl font-bold text-white mb-2">∞</div>
-            <div class="text-purple-200 font-medium">Possibilities</div>
-          </div>
-        </div>
-        
-        <p class="text-lg text-purple-100 mb-8">
-          Join a global community of creators who believe code can be beautiful, joyful, and inspiring.
-        </p>
-      </div>
-    </section>
-
-    <!-- Creative Workspace -->
-    <section class="section-padding bg-gray-50 dark:bg-gray-800">
-      <div class="max-w-7xl mx-auto container-padding">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-              Built for
-              <span class="gradient-text">Creative Minds</span>
-            </h2>
-            <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-              Every pixel, every interaction, every feature is designed with creativity in mind. 
-              We don't just build tools—we craft experiences that make you excited to code.
-            </p>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <CreativeWorkflow title="Aesthetic First" description="Beautiful interfaces that inspire creativity" />
-              <CreativeWorkflow title="Flow State" description="Features designed to maintain deep focus" />
-              <CreativeWorkflow title="Collaborative" description="Share and create together seamlessly" />
-              <CreativeWorkflow title="Intuitive" description="Tools that feel natural and joyful to use" />
-            </div>
-          </div>
-          
-          <div class="relative">
-            <div class="grid grid-cols-2 gap-4">
-              <div class="space-y-4">
-                <div class="bg-white dark:bg-gray-700 p-4 rounded-xl shadow-lg">
-                  <div class="text-2xl mb-2">🎨</div>
-                  <div class="text-sm font-medium text-gray-900 dark:text-white">Design-Focused</div>
-                </div>
-                <div class="bg-white dark:bg-gray-700 p-4 rounded-xl shadow-lg">
-                  <div class="text-2xl mb-2">🎵</div>
-                  <div class="text-sm font-medium text-gray-900 dark:text-white">Music Integration</div>
-                </div>
-              </div>
-              <div class="space-y-4 mt-8">
-                <div class="bg-white dark:bg-gray-700 p-4 rounded-xl shadow-lg">
-                  <div class="text-2xl mb-2">✨</div>
-                  <div class="text-sm font-medium text-gray-900 dark:text-white">Magical UX</div>
-                </div>
-                <div class="bg-white dark:bg-gray-700 p-4 rounded-xl shadow-lg">
-                  <div class="text-2xl mb-2">🌈</div>
-                  <div class="text-sm font-medium text-gray-900 dark:text-white">Vibrant Community</div>
-                </div>
-              </div>
-            </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div v-for="(value, index) in values" :key="index" class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+            <component :is="value.icon" class="w-10 h-10 text-primary-600 mb-6" />
+            <h3 class="text-xl font-bold text-gray-900 mb-3">{{ value.title }}</h3>
+            <p class="text-gray-600 leading-relaxed">{{ value.desc }}</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Join the Movement -->
-    <section class="section-padding bg-white dark:bg-gray-900">
-      <div class="max-w-4xl mx-auto container-padding text-center">
-        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-          Join the Creative Revolution
-        </h2>
-        <p class="text-lg text-gray-600 dark:text-gray-300 mb-12">
-          Ready to transform your coding experience? Let's create something beautiful together.
-        </p>
-        
-        <div class="flex flex-col sm:flex-row justify-center gap-6">
-          <button class="btn-primary px-10 py-4 text-lg font-semibold">
-            <span class="flex items-center">
-              Start Creating
-              <SparklesIcon class="ml-2 w-5 h-5" />
-            </span>
-          </button>
-          <button class="btn-secondary px-10 py-4 text-lg font-semibold">
-            Explore Community
-          </button>
+    <!-- Stats Section -->
+    <section class="py-20 bg-white border-t border-gray-100">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div v-for="(stat, index) in stats" :key="index">
+            <div class="text-4xl font-bold text-gray-900 mb-2">{{ stat.value }}</div>
+            <div class="text-sm text-gray-500 uppercase tracking-wide">{{ stat.label }}</div>
+          </div>
         </div>
-        
-        <p class="text-gray-500 dark:text-gray-400 text-sm mt-8">
-          Free to join • Always inspiring • Creative vibes only
-        </p>
       </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 bg-black relative overflow-hidden">
+       <div class="absolute inset-0 bg-grid-white/[0.05] bg-[size:32px_32px]"></div>
+       <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+         <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">
+           准备好开始构建了吗？
+         </h2>
+         <div class="flex flex-col sm:flex-row justify-center gap-4">
+           <NuxtLink to="/" class="px-8 py-3.5 bg-white text-black font-medium rounded-full hover:bg-gray-100 transition-colors">
+             立即试用
+           </NuxtLink>
+           <a href="https://github.com/gzyxds/buidai" target="_blank" class="px-8 py-3.5 bg-transparent border border-white/20 text-white font-medium rounded-full hover:bg-white/10 transition-colors">
+             GitHub 源码
+           </a>
+         </div>
+       </div>
     </section>
   </div>
 </template>
 
 <script setup lang="ts">
-import { 
-  HeartIcon, 
-  SparklesIcon,
-  LightBulbIcon, 
-  PaintBrushIcon, 
-  MusicalNoteIcon, 
-  EyeIcon, 
-  BeakerIcon, 
-  CameraIcon 
+import {
+  RocketLaunchIcon,
+  UserGroupIcon,
+  CommandLineIcon,
+  HeartIcon,
+  ShieldCheckIcon,
+  LightBulbIcon,
+  CubeTransparentIcon
 } from '@heroicons/vue/24/outline'
 
-// SEO Meta
 useHead({
-  title: 'About - Vibe Coding | Where Code Becomes Art',
+  title: '关于我们 - BuidAI',
   meta: [
-    { name: 'description', content: 'Learn about Vibe Coding philosophy. We believe programming should be joyful, creative, and beautiful.' }
+    { name: 'description', content: 'BuidAI 致力于降低企业 AI 应用开发门槛，赋能每一个团队构建智能未来。' }
   ]
 })
 
-const creativeValues = [
+const values = [
   {
-    icon: PaintBrushIcon,
-    title: 'Aesthetic Excellence',
-    description: 'Beauty isn\'t superficial—it\'s fundamental to great user experiences and joyful coding.'
+    title: '用户至上',
+    desc: '我们深入理解开发者和企业的痛点，始终将用户体验放在首位，打造真正解决问题的产品。',
+    icon: UserGroupIcon
   },
   {
-    icon: LightBulbIcon,
-    title: 'Creative Innovation',
-    description: 'We push boundaries and challenge conventions to create tools that truly inspire.'
+    title: '技术驱动',
+    desc: '保持对前沿技术的敏锐嗅觉，不断探索 AI 的边界，将最新的研究成果转化为实用的工具。',
+    icon: CommandLineIcon
   },
   {
-    icon: MusicalNoteIcon,
-    title: 'Rhythmic Flow',
-    description: 'Like music, great code has rhythm and harmony. Our tools help you find your groove.'
-  },
-  {
-    icon: EyeIcon,
-    title: 'Visual Storytelling',
-    description: 'Every line of code tells a story. We help you make yours beautiful and meaningful.'
-  },
-  {
-    icon: BeakerIcon,
-    title: 'Experimental Spirit',
-    description: 'Creativity requires experimentation. Our playground encourages bold exploration.'
-  },
-  {
-    icon: CameraIcon,
-    title: 'Share the Joy',
-    description: 'Beautiful creations deserve to be shared, celebrated, and inspire others.'
+    title: '开放共赢',
+    desc: '我们相信开源的力量，致力于构建开放的生态系统，与开发者和合作伙伴共同成长。',
+    icon: CubeTransparentIcon
   }
 ]
+
+const stats = [
+  { value: '100+', label: '企业客户' },
+  { value: '50k+', label: 'API 调用' },
+  { value: '500+', label: '活跃开发者' },
+  { value: '99.9%', label: '服务可用性' }
+]
 </script>
+
+<style scoped>
+/* 可选：添加一些微动画 */
+</style>

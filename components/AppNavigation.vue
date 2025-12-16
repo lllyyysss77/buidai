@@ -7,7 +7,7 @@
         : 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800 shadow-sm'
     ]"
   >
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="w-full px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-14">
         <!-- Logo -->
         <NuxtLink to="/" class="flex items-center gap-2.5">

@@ -4,7 +4,7 @@
     <AppNavigation />
     
     <!-- Main Content -->
-    <main class="pt-16">
+    <main>
       <slot />
     </main>
     

@@ -1,23 +1,20 @@
 <template>
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 transition-all duration-200">
-    <div class="max-w-7xl mx-auto container-padding">
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-md border-b border-white/5 transition-all duration-200">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <!-- Logo -->
-        <NuxtLink to="/" class="flex items-center space-x-3">
-          <div class="w-8 h-8 bg-gradient-to-r from-primary-600 to-accent-500 rounded-lg flex items-center justify-center shadow-lg">
-            <span class="text-white font-bold text-lg">B</span>
-          </div>
-          <span class="font-bold text-xl text-gray-900 dark:text-white">BuildingAI</span>
+        <NuxtLink to="/" class="flex items-center gap-2">
+          <img src="/logo.svg" alt="BuildingAI" class="h-8 w-auto" />
         </NuxtLink>
 
         <!-- Desktop Navigation -->
-        <div class="hidden md:flex items-center space-x-8">
+        <div class="hidden md:flex items-center space-x-8 mr-auto ml-12">
           <NuxtLink
             v-for="item in navigation"
             :key="item.href"
             :to="item.href"
-            class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors duration-200"
-            :class="{ 'text-primary-600 dark:text-primary-400': $route.path === item.href }"
+            class="text-white/80 hover:text-white font-medium transition-colors duration-200"
+            :class="{ 'text-white': $route.path === item.href }"
           >
             {{ item.name }}
           </NuxtLink>
@@ -25,8 +22,7 @@
 
         <!-- Right side buttons -->
         <div class="hidden md:flex items-center space-x-4">
-          <ColorModeButton />
-          <button class="text-gray-600 dark:text-gray-300 hover:text-primary-600 font-medium px-4 py-2">
+          <button class="text-white/80 hover:text-white font-medium px-4 py-2">
             登录
           </button>
           <button class="bg-primary-600 text-white px-5 py-2 rounded-full font-medium hover:bg-primary-700 transition-colors shadow-lg shadow-primary-500/30">
@@ -36,10 +32,9 @@
 
         <!-- Mobile menu button -->
         <div class="md:hidden flex items-center space-x-2">
-          <ColorModeButton />
           <button
             @click="mobileMenuOpen = !mobileMenuOpen"
-            class="p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+            class="p-2 rounded-lg text-white/80 hover:bg-white/10"
           >
             <Bars3Icon v-if="!mobileMenuOpen" class="w-6 h-6" />
             <XMarkIcon v-else class="w-6 h-6" />

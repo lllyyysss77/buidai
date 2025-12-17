@@ -180,143 +180,149 @@
     <!-- 新增卡片网格区域 -->
     <section class="py-12 bg-white">
       <div class="container mx-auto px-4 max-w-[1440px]">
-        <div class="flex flex-wrap gap-4 justify-center">
+        <div class="flex flex-col gap-4">
 
           <!-- 第一行 -->
-          <!-- 卡片 1: PPT -->
-          <div class="group relative w-full md:w-[59%] h-[240px] md:h-[320px] rounded-2xl overflow-hidden cursor-pointer border border-black/5 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-             <div class="absolute inset-0 bg-gradient-to-br from-[#6E58FF] to-[#8B7FFF] p-6 md:p-8 text-white flex flex-col justify-between">
-                <div>
-                   <h3 class="text-xl md:text-2xl font-medium mb-2">十分钟，<br/>做拿得出手的PPT</h3>
-                </div>
-                <!-- 视觉占位符 -->
-                <div class="absolute right-4 bottom-4 md:right-10 md:bottom-8 transform rotate-[-5deg] transition-transform duration-500 group-hover:rotate-0 group-hover:scale-105">
-                    <div class="bg-white/90 backdrop-blur rounded-xl p-4 shadow-lg w-32 md:w-48 border border-white/50">
-                        <div class="text-[#6E58FF] font-serif italic text-2xl md:text-3xl text-center">Portfolio</div>
-                    </div>
-                </div>
+          <div class="flex flex-col md:flex-row gap-4 w-full">
+            <!-- 卡片 1: PPT -->
+            <div class="group relative w-full md:w-[59%] h-[240px] md:h-[320px] rounded-2xl overflow-hidden cursor-pointer border border-black/5 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+               <div class="absolute inset-0 bg-gradient-to-br from-[#6E58FF] to-[#8B7FFF] p-6 md:p-8 text-white flex flex-col justify-between">
+                  <div>
+                     <h3 class="text-xl md:text-2xl font-medium mb-2">十分钟，<br/>做拿得出手的PPT</h3>
+                  </div>
+                  <!-- 视觉占位符 -->
+                  <div class="absolute right-4 bottom-4 md:right-10 md:bottom-8 transform rotate-[-5deg] transition-transform duration-500 group-hover:rotate-0 group-hover:scale-105">
+                      <div class="bg-white/90 backdrop-blur rounded-xl p-4 shadow-lg w-32 md:w-48 border border-white/50">
+                          <div class="text-[#6E58FF] font-serif italic text-2xl md:text-3xl text-center">Portfolio</div>
+                      </div>
+                  </div>
 
-                <button class="w-fit bg-white text-black px-4 py-1.5 rounded-full text-xs md:text-sm font-medium flex items-center gap-1 shadow-sm group-hover:bg-gray-50 transition-colors z-10">
-                   使用 AI PPT <ArrowRightIcon class="w-3 h-3 md:w-4 md:h-4" />
-                </button>
-             </div>
-          </div>
+                  <button class="w-fit bg-white text-black px-4 py-1.5 rounded-full text-xs md:text-sm font-medium flex items-center gap-1 shadow-sm group-hover:bg-gray-50 transition-colors z-10">
+                     使用 AI PPT <ArrowRightIcon class="w-3 h-3 md:w-4 md:h-4" />
+                  </button>
+               </div>
+            </div>
 
-          <!-- 卡片 2: 设计 -->
-          <div class="group relative w-full md:flex-1 h-[240px] md:h-[320px] rounded-2xl overflow-hidden cursor-pointer border border-black/5 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 bg-[#F3F4F6]">
-             <div class="absolute inset-0 p-6 md:p-8 flex flex-col justify-between">
-                <div>
-                   <h3 class="text-xl md:text-2xl font-medium text-gray-900 mb-2">无需技巧，<br/>生成百变设计</h3>
-                </div>
-                <!-- 视觉占位符：网格和圆形 -->
-                <div class="absolute inset-0 overflow-hidden pointer-events-none">
-                    <div class="absolute top-0 right-0 w-full h-full" style="background-image: radial-gradient(#cbd5e1 1px, transparent 1px); background-size: 20px 20px; opacity: 0.5;"></div>
-                    <div class="absolute right-8 bottom-16 w-20 h-20 rounded-full border border-purple-500/30 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
-                       <div class="w-12 h-12 rounded-full border border-purple-600 flex items-center justify-center text-[10px] text-purple-600">00</div>
-                    </div>
-                    <div class="absolute right-20 bottom-24 w-24 h-24 rounded-full border border-gray-400/30"></div>
-                </div>
+            <!-- 卡片 2: 设计 -->
+            <div class="group relative w-full md:flex-1 h-[240px] md:h-[320px] rounded-2xl overflow-hidden cursor-pointer border border-black/5 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 bg-[#F3F4F6]">
+               <div class="absolute inset-0 p-6 md:p-8 flex flex-col justify-between">
+                  <div>
+                     <h3 class="text-xl md:text-2xl font-medium text-gray-900 mb-2">无需技巧，<br/>生成百变设计</h3>
+                  </div>
+                  <!-- 视觉占位符：网格和圆形 -->
+                  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                      <div class="absolute top-0 right-0 w-full h-full" style="background-image: radial-gradient(#cbd5e1 1px, transparent 1px); background-size: 20px 20px; opacity: 0.5;"></div>
+                      <div class="absolute right-8 bottom-16 w-20 h-20 rounded-full border border-purple-500/30 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+                         <div class="w-12 h-12 rounded-full border border-purple-600 flex items-center justify-center text-[10px] text-purple-600">00</div>
+                      </div>
+                      <div class="absolute right-20 bottom-24 w-24 h-24 rounded-full border border-gray-400/30"></div>
+                  </div>
 
-                <button class="w-fit bg-white text-black px-4 py-1.5 rounded-full text-xs md:text-sm font-medium flex items-center gap-1 shadow-sm group-hover:bg-gray-50 transition-colors z-10">
-                   使用 AI 设计 <ArrowRightIcon class="w-3 h-3 md:w-4 md:h-4" />
-                </button>
-             </div>
+                  <button class="w-fit bg-white text-black px-4 py-1.5 rounded-full text-xs md:text-sm font-medium flex items-center gap-1 shadow-sm group-hover:bg-gray-50 transition-colors z-10">
+                     使用 AI 设计 <ArrowRightIcon class="w-3 h-3 md:w-4 md:h-4" />
+                  </button>
+               </div>
+            </div>
           </div>
 
           <!-- 第二行 -->
-          <!-- 卡片 3: 写作 -->
-          <div class="group relative w-full md:w-[39%] h-[240px] md:h-[320px] rounded-2xl overflow-hidden cursor-pointer border border-black/5 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 bg-[#E5E7EB]">
-             <div class="absolute inset-0 p-6 md:p-8 flex flex-col justify-between">
-                <div>
-                   <h3 class="text-xl md:text-2xl font-medium text-gray-900 mb-2">一气呵成，<br/>写出带排版的长文</h3>
-                </div>
-                <!-- 视觉占位符：文本块 -->
-                <div class="absolute right-0 bottom-0 w-2/3 h-2/3 bg-white rounded-tl-xl p-4 shadow-sm opacity-80 transition-transform duration-500 group-hover:translate-y-2">
-                    <div class="text-[10px] text-gray-400 mb-2">TIME.9.26 - 10.28</div>
-                    <div class="space-y-1.5">
-                        <div class="h-2 w-full bg-gray-200 rounded"></div>
-                        <div class="h-2 w-3/4 bg-gray-200 rounded"></div>
-                    </div>
-                    <div class="mt-6 font-mono text-xl text-gray-800 leading-none">COZE<br/>EVENTS<br/>2025...</div>
-                </div>
+          <div class="flex flex-col md:flex-row gap-4 w-full">
+            <!-- 卡片 3: 写作 -->
+            <div class="group relative w-full md:w-[39%] h-[240px] md:h-[320px] rounded-2xl overflow-hidden cursor-pointer border border-black/5 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 bg-[#E5E7EB]">
+               <div class="absolute inset-0 p-6 md:p-8 flex flex-col justify-between">
+                  <div>
+                     <h3 class="text-xl md:text-2xl font-medium text-gray-900 mb-2">一气呵成，<br/>写出带排版的长文</h3>
+                  </div>
+                  <!-- 视觉占位符：文本块 -->
+                  <div class="absolute right-0 bottom-0 w-2/3 h-2/3 bg-white rounded-tl-xl p-4 shadow-sm opacity-80 transition-transform duration-500 group-hover:translate-y-2">
+                      <div class="text-[10px] text-gray-400 mb-2">TIME.9.26 - 10.28</div>
+                      <div class="space-y-1.5">
+                          <div class="h-2 w-full bg-gray-200 rounded"></div>
+                          <div class="h-2 w-3/4 bg-gray-200 rounded"></div>
+                      </div>
+                      <div class="mt-6 font-mono text-xl text-gray-800 leading-none">COZE<br/>EVENTS<br/>2025...</div>
+                  </div>
 
-                <button class="w-fit bg-white text-black px-4 py-1.5 rounded-full text-xs md:text-sm font-medium flex items-center gap-1 shadow-sm group-hover:bg-gray-50 transition-colors z-10">
-                   使用 深度写作 <ArrowRightIcon class="w-3 h-3 md:w-4 md:h-4" />
-                </button>
-             </div>
-          </div>
+                  <button class="w-fit bg-white text-black px-4 py-1.5 rounded-full text-xs md:text-sm font-medium flex items-center gap-1 shadow-sm group-hover:bg-gray-50 transition-colors z-10">
+                     使用 深度写作 <ArrowRightIcon class="w-3 h-3 md:w-4 md:h-4" />
+                  </button>
+               </div>
+            </div>
 
-          <!-- 卡片 4: Excel -->
-          <div class="group relative w-full md:flex-1 h-[240px] md:h-[320px] rounded-2xl overflow-hidden cursor-pointer border border-black/5 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 bg-gradient-to-r from-[#E0E7FF] to-[#Dbeafe]">
-             <div class="absolute inset-0 p-6 md:p-8 flex flex-col justify-between">
-                <div>
-                   <h3 class="text-xl md:text-2xl font-medium text-[#6E58FF] mb-2">告别公式，<br/>智能数据分析处理</h3>
-                </div>
-                <!-- 视觉占位符：曲线 -->
-                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <svg class="w-full h-full opacity-50" viewBox="0 0 200 100" preserveAspectRatio="none">
-                        <path d="M0,80 Q50,90 100,50 T200,20" fill="none" stroke="#6E58FF" stroke-width="1.5" stroke-dasharray="4 4" />
-                        <path d="M0,80 Q50,90 100,50 T200,20" fill="none" stroke="#6E58FF" stroke-width="1.5" class="opacity-30 translate-y-2" />
-                    </svg>
-                    <div class="absolute right-10 top-1/2 text-7xl font-serif italic text-[#6E58FF]/20 transition-transform duration-500 group-hover:scale-110">fx</div>
-                    <div class="absolute left-0 right-0 top-1/2 h-px bg-[#6E58FF]/20 border-t border-dashed border-[#6E58FF]"></div>
-                    <div class="absolute top-0 bottom-0 left-2/3 w-px bg-[#6E58FF]/20 border-l border-dashed border-[#6E58FF]"></div>
-                    <div class="absolute left-2/3 top-1/2 w-3 h-3 border-2 border-[#6E58FF] bg-white rounded-full -translate-x-1.5 -translate-y-1.5 z-10"></div>
-                </div>
+            <!-- 卡片 4: Excel -->
+            <div class="group relative w-full md:flex-1 h-[240px] md:h-[320px] rounded-2xl overflow-hidden cursor-pointer border border-black/5 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 bg-gradient-to-r from-[#E0E7FF] to-[#Dbeafe]">
+               <div class="absolute inset-0 p-6 md:p-8 flex flex-col justify-between">
+                  <div>
+                     <h3 class="text-xl md:text-2xl font-medium text-[#6E58FF] mb-2">告别公式，<br/>智能数据分析处理</h3>
+                  </div>
+                  <!-- 视觉占位符：曲线 -->
+                  <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <svg class="w-full h-full opacity-50" viewBox="0 0 200 100" preserveAspectRatio="none">
+                          <path d="M0,80 Q50,90 100,50 T200,20" fill="none" stroke="#6E58FF" stroke-width="1.5" stroke-dasharray="4 4" />
+                          <path d="M0,80 Q50,90 100,50 T200,20" fill="none" stroke="#6E58FF" stroke-width="1.5" class="opacity-30 translate-y-2" />
+                      </svg>
+                      <div class="absolute right-10 top-1/2 text-7xl font-serif italic text-[#6E58FF]/20 transition-transform duration-500 group-hover:scale-110">fx</div>
+                      <div class="absolute left-0 right-0 top-1/2 h-px bg-[#6E58FF]/20 border-t border-dashed border-[#6E58FF]"></div>
+                      <div class="absolute top-0 bottom-0 left-2/3 w-px bg-[#6E58FF]/20 border-l border-dashed border-[#6E58FF]"></div>
+                      <div class="absolute left-2/3 top-1/2 w-3 h-3 border-2 border-[#6E58FF] bg-white rounded-full -translate-x-1.5 -translate-y-1.5 z-10"></div>
+                  </div>
 
-                <button class="w-fit bg-white text-black px-4 py-1.5 rounded-full text-xs md:text-sm font-medium flex items-center gap-1 shadow-sm group-hover:bg-gray-50 transition-colors z-10">
-                   使用 AI EXCEL <ArrowRightIcon class="w-3 h-3 md:w-4 md:h-4" />
-                </button>
-             </div>
+                  <button class="w-fit bg-white text-black px-4 py-1.5 rounded-full text-xs md:text-sm font-medium flex items-center gap-1 shadow-sm group-hover:bg-gray-50 transition-colors z-10">
+                     使用 AI EXCEL <ArrowRightIcon class="w-3 h-3 md:w-4 md:h-4" />
+                  </button>
+               </div>
+            </div>
           </div>
 
           <!-- 第三行 -->
-          <!-- 卡片 5: 开发 -->
-          <div class="group relative w-full md:w-[34%] h-[240px] md:h-[320px] rounded-2xl overflow-hidden cursor-pointer border border-black/5 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 bg-gray-900">
-             <!-- 图片背景 -->
-             <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500" alt="Dev" />
+          <div class="flex flex-col md:flex-row gap-4 w-full">
+            <!-- 卡片 5: 开发 -->
+            <div class="group relative w-full md:w-[59%] h-[240px] md:h-[320px] rounded-2xl overflow-hidden cursor-pointer border border-black/5 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 bg-gray-900">
+               <!-- 图片背景 -->
+               <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500" alt="Dev" />
 
-             <div class="absolute inset-0 p-6 md:p-8 flex flex-col justify-between relative z-10 text-white">
-                <div>
-                   <h3 class="text-xl md:text-2xl font-medium mb-2">一个想法，<br/>网站即刻上线</h3>
-                </div>
+               <div class="absolute inset-0 p-6 md:p-8 flex flex-col justify-between relative z-10 text-white">
+                  <div>
+                     <h3 class="text-xl md:text-2xl font-medium mb-2">一个想法，<br/>网站即刻上线</h3>
+                  </div>
 
-                <button class="w-fit bg-white text-black px-4 py-1.5 rounded-full text-xs md:text-sm font-medium flex items-center gap-1 shadow-sm group-hover:bg-gray-50 transition-colors">
-                   使用 开发专家 <ArrowRightIcon class="w-3 h-3 md:w-4 md:h-4" />
-                </button>
-             </div>
-          </div>
+                  <button class="w-fit bg-white text-black px-4 py-1.5 rounded-full text-xs md:text-sm font-medium flex items-center gap-1 shadow-sm group-hover:bg-gray-50 transition-colors">
+                     使用 开发专家 <ArrowRightIcon class="w-3 h-3 md:w-4 md:h-4" />
+                  </button>
+               </div>
+            </div>
 
-          <!-- 卡片 6: 播客 -->
-          <div class="group relative w-full md:flex-1 h-[240px] md:h-[320px] rounded-2xl overflow-hidden cursor-pointer border border-black/5 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 bg-[#F3F4F6]">
-             <div class="absolute inset-0 p-6 md:p-8 flex flex-col justify-between">
-                <div>
-                   <h3 class="text-xl md:text-2xl font-medium text-gray-900 mb-2">超拟人，<br/>用听觉解读万物</h3>
-                </div>
-                <!-- 视觉占位符：球体线条 -->
-                <div class="absolute right-[-10%] bottom-[-10%] w-[200px] h-[200px] md:w-[280px] md:h-[280px] opacity-40">
-                     <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" class="text-gray-400 w-full h-full">
-                         <!-- 简化球体线条表示 -->
-                         <circle cx="100" cy="100" r="80" stroke-width="1.5" />
-                         <ellipse cx="100" cy="100" rx="80" ry="20" stroke-width="1.5" />
-                         <ellipse cx="100" cy="100" rx="80" ry="40" stroke-width="1.5" />
-                         <ellipse cx="100" cy="100" rx="80" ry="60" stroke-width="1.5" />
-                         <line x1="100" y1="20" x2="100" y2="180" stroke-width="1.5" />
-                         <line x1="40" y1="40" x2="160" y2="160" stroke-width="1.5" opacity="0.5" />
-                         <line x1="160" y1="40" x2="40" y2="160" stroke-width="1.5" opacity="0.5" />
-                     </svg>
-                </div>
+            <!-- 卡片 6: 播客 -->
+            <div class="group relative w-full md:flex-1 h-[240px] md:h-[320px] rounded-2xl overflow-hidden cursor-pointer border border-black/5 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 bg-[#F3F4F6]">
+               <div class="absolute inset-0 p-6 md:p-8 flex flex-col justify-between">
+                  <div>
+                     <h3 class="text-xl md:text-2xl font-medium text-gray-900 mb-2">超拟人，<br/>用听觉解读万物</h3>
+                  </div>
+                  <!-- 视觉占位符：球体线条 -->
+                  <div class="absolute right-[-10%] bottom-[-10%] w-[200px] h-[200px] md:w-[280px] md:h-[280px] opacity-40">
+                       <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" class="text-gray-400 w-full h-full">
+                           <!-- 简化球体线条表示 -->
+                           <circle cx="100" cy="100" r="80" stroke-width="1.5" />
+                           <ellipse cx="100" cy="100" rx="80" ry="20" stroke-width="1.5" />
+                           <ellipse cx="100" cy="100" rx="80" ry="40" stroke-width="1.5" />
+                           <ellipse cx="100" cy="100" rx="80" ry="60" stroke-width="1.5" />
+                           <line x1="100" y1="20" x2="100" y2="180" stroke-width="1.5" />
+                           <line x1="40" y1="40" x2="160" y2="160" stroke-width="1.5" opacity="0.5" />
+                           <line x1="160" y1="40" x2="40" y2="160" stroke-width="1.5" opacity="0.5" />
+                       </svg>
+                  </div>
 
-                <div class="absolute left-6 md:left-8 bottom-20 flex gap-2">
-                    <div class="w-4 h-4 rounded-full bg-[#6E58FF]"></div>
-                    <div class="w-4 h-4 rounded-full bg-[#D946EF]"></div>
-                    <div class="w-4 h-4 rounded-full bg-white border border-gray-200"></div>
-                </div>
+                  <div class="absolute left-6 md:left-8 bottom-20 flex gap-2">
+                      <div class="w-4 h-4 rounded-full bg-[#6E58FF]"></div>
+                      <div class="w-4 h-4 rounded-full bg-[#D946EF]"></div>
+                      <div class="w-4 h-4 rounded-full bg-white border border-gray-200"></div>
+                  </div>
 
-                <button class="w-fit bg-white text-black px-4 py-1.5 rounded-full text-xs md:text-sm font-medium flex items-center gap-1 shadow-sm group-hover:bg-gray-50 transition-colors z-10">
-                   使用 AI 播客 <ArrowRightIcon class="w-3 h-3 md:w-4 md:h-4" />
-                </button>
-             </div>
+                  <button class="w-fit bg-white text-black px-4 py-1.5 rounded-full text-xs md:text-sm font-medium flex items-center gap-1 shadow-sm group-hover:bg-gray-50 transition-colors z-10">
+                     使用 AI 播客 <ArrowRightIcon class="w-3 h-3 md:w-4 md:h-4" />
+                  </button>
+               </div>
+            </div>
           </div>
 
         </div>

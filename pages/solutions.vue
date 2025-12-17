@@ -14,17 +14,17 @@
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#6E58FF] opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-[#6E58FF]"></span>
           </span>
-          <span class="text-xs font-medium text-gray-600">字节跳动旗下 AI 平台</span>
+          <span class="text-xs font-medium text-gray-600">必定AI旗下 AI 平台</span>
         </div>
 
         <!-- Title -->
         <h1 class="text-4xl md:text-5xl lg:text-[56px] font-bold text-[#0F0F12] tracking-tight leading-[1.15] mb-6">
-          扣子空间你的 <span class="text-[#6E58FF]">AI 办公空间</span>
+          必定AI你的 <span class="text-[#6E58FF]">AI 办公空间</span>
         </h1>
 
         <!-- Subtitle -->
         <p class="text-lg text-[#5A5E6A] max-w-2xl mx-auto mb-10 leading-relaxed">
-          字节跳动旗下新一代 AI 办公平台，让创作与协作更高效
+          必定AI旗下新一代 AI 办公平台，让创作与协作更高效
         </p>
 
         <!-- CTAs -->
@@ -312,7 +312,7 @@
        <div class="relative z-10 container mx-auto px-4 py-24">
           <div class="flex flex-col items-start text-left max-w-3xl">
              <h2 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight">
-               扣子空间你的 AI 办公空间
+               必定AI你的 AI 办公空间
              </h2>
              <div class="flex flex-col sm:flex-row items-center gap-5 w-full sm:w-auto">
                 <button class="w-full sm:w-auto px-8 py-4 rounded-full bg-[#6E58FF] text-white font-bold text-[16px] hover:bg-[#5A43FF] transition-colors shadow-xl">
@@ -423,11 +423,11 @@ const quickStartCards = [
 
 // FAQ Data
 const faqs = ref([
-  { question: '怎么下载导出扣子空间AI生成的PPT、文档、表格、设计？', answer: '扣子空间AI生成好后，你可以直接选择导出下载，支持常见的PPTX、DOCX、PDF、XLSX、JPG、PNG格式。', open: true },
-  { question: '扣子空间是免费使用吗？', answer: '扣子空间提供免费的基础版，包含大部分核心功能。对于高级功能和更多存储空间，我们提供灵活的付费订阅方案。', open: false },
-  { question: '扣子空间可以把PDF/图片/网站/报告/论文内容改成PPT吗？', answer: '可以。您可以上传 PDF、图片或输入网址，AI 会自动提取关键信息并生成结构清晰、设计精美的 PPT 演示文稿。', open: false },
-  { question: '我没有设计基础，可以让扣子空间AI做设计吗？', answer: '完全没问题。扣子空间内置了专业的设计引擎，您只需输入文字描述，AI 就能自动生成海报、Banner、配图等高质量设计作品。', open: false },
-  { question: '扣子空间AI可以帮我创作自媒体内容吗？', answer: '当然。我们提供专门的自媒体创作工具，支持从选题策划、文案生成到排版配图的全流程辅助，助您高效产出爆款内容。', open: false }
+  { question: '怎么下载导出必定AIAI生成的PPT、文档、表格、设计？', answer: '必定AIAI生成好后，你可以直接选择导出下载，支持常见的PPTX、DOCX、PDF、XLSX、JPG、PNG格式。', open: true },
+  { question: '必定AI是免费使用吗？', answer: '必定AI提供免费的基础版，包含大部分核心功能。对于高级功能和更多存储空间，我们提供灵活的付费订阅方案。', open: false },
+  { question: '必定AI可以把PDF/图片/网站/报告/论文内容改成PPT吗？', answer: '可以。您可以上传 PDF、图片或输入网址，AI 会自动提取关键信息并生成结构清晰、设计精美的 PPT 演示文稿。', open: false },
+  { question: '我没有设计基础，可以让必定AIAI做设计吗？', answer: '完全没问题。必定AI内置了专业的设计引擎，您只需输入文字描述，AI 就能自动生成海报、Banner、配图等高质量设计作品。', open: false },
+  { question: '必定AIAI可以帮我创作自媒体内容吗？', answer: '当然。我们提供专门的自媒体创作工具，支持从选题策划、文案生成到排版配图的全流程辅助，助您高效产出爆款内容。', open: false }
 ])
 
 </script>

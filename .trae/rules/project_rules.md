@@ -31,7 +31,15 @@
 - **Props**: Define props using `defineProps<PropsType>()` for better type inference.
 - **Emits**: Define emits using `defineEmits<{ ... }>()`.
 
-### 4.3. Styling (Tailwind CSS)
+### 4.2. Icons
+- **Standard**: Prefer using `@heroicons/vue/24/outline`.
+- **Usage**: MUST import icons as components (e.g., `import { RocketLaunchIcon } from '@heroicons/vue/24/outline'`) rather than using raw SVG strings.
+
+### 4.3. SEO
+- **Standard**: Use `useSeoMeta` for all SEO-related meta tags (title, description, og:*, etc.) instead of `useHead`.
+- **Reasoning**: `useSeoMeta` provides better type safety and a flatter structure.
+
+### 4.4. Styling (Tailwind CSS)
 - Use Utility classes primarily.
 - **Layout Consistency**: Use `container mx-auto px-4` for the main content width of each page section to ensure consistent alignment across the application.
 - Use the configured theme colors in `tailwind.config.js`:
@@ -41,7 +49,7 @@
 - Avoid `<style scoped>` unless necessary for complex animations or pseudo-elements not easily handled by Tailwind.
 - Dark mode is configured via `class` strategy (`darkMode: 'class'`).
 
-### 4.4. Comments & Documentation
+### 4.5. Comments & Documentation
 - **Language**: All comments (including code comments and HTML comments) MUST be in **Chinese**.
 - **Function-Level Comments**: Every function MUST have a comment block explaining:
   - Functionality description.

@@ -15,7 +15,7 @@
         </div>
 
         <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight mb-6 text-gray-900">
-          BuidAI - 企业级 <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">AI Agent</span> 构建平台
+          BuidAI企业级 <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">AIAgent</span>构建平台
         </h1>
 
         <p class="text-lg sm:text-xl text-gray-500 mb-10 max-w-3xl mx-auto">
@@ -24,12 +24,15 @@
 
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
           <button class="px-8 py-3 rounded-full bg-gray-900 text-white font-semibold hover:bg-gray-800 transition-all flex items-center gap-2">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
-            </svg>
-            Github
+            <!-- Rocket Icon -->
+            <RocketLaunchIcon class="w-5 h-5" />
+            立即开始
+            <!-- Arrow Right Icon -->
+            <ArrowRightIcon class="w-4 h-4" />
           </button>
-          <button class="px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold hover:opacity-90 transition-all shadow-[0_4px_14px_rgba(59,130,246,0.3)]">
+          <button class="px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold hover:opacity-90 transition-all shadow-[0_4px_14px_rgba(59,130,246,0.3)] flex items-center gap-2">
+            <!-- Document Icon -->
+            <DocumentTextIcon class="w-5 h-5" />
             查看文档
           </button>
         </div>
@@ -42,7 +45,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div v-for="(item, index) in featureCards" :key="index" class="flex flex-col gap-4">
             <!-- 类别标题药丸 -->
-            <div class="relative w-full text-center bg-[#e6e9ff] rounded-lg p-[8px] md:p-[12px] mb-[24px] text-indigo-900 text-lg font-medium leading-[22px]">
+            <div class="relative w-full text-center bg-[#e6e9ff] rounded-lg p-[8px] md:p-[12px] mb-[24px] text-black text-lg font-medium leading-[22px]">
               {{ item.category }}
               <!-- 底部小三角指示器 -->
               <div class="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#e6e9ff] rotate-45"></div>
@@ -217,15 +220,15 @@ import {
   WrenchIcon,
   WrenchScrewdriverIcon,
   SparklesIcon,
-  PlusIcon
+  PlusIcon,
+  RocketLaunchIcon,
+  ArrowRightIcon
 } from '@heroicons/vue/24/outline'
 
 // SEO Meta
-useHead({
+useSeoMeta({
   title: 'BuidAI - 企业级 AI Agent 构建平台',
-  meta: [
-    { name: 'description', content: 'BuidAI 是一个基于 LLM 大语言模型的知识库问答系统，提供开箱即用的数据处理、模型调用等能力。' }
-  ]
+  description: 'BuidAI 是一个基于 LLM 大语言模型的知识库问答系统，提供开箱即用的数据处理、模型调用等能力。'
 })
 
 /**

@@ -136,11 +136,9 @@
 </template>
 
 <script setup lang="ts">
-useHead({
+useSeoMeta({
   title: '关于我们 - BuidAI',
-  meta: [
-    { name: 'description', content: 'BuidAI 致力于为企业提供安全、可控、高效的 AI 应用开发基础设施。' }
-  ]
+  description: 'BuidAI 致力于为企业提供安全、可控、高效的 AI 应用开发基础设施。'
 })
 </script>
 

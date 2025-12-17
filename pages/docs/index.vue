@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen flex items-center justify-center">
     <div class="text-center">
-      <p class="text-gray-500">Redirecting to documentation...</p>
+      <p class="text-gray-500">BuidAI 文档中心</p>
     </div>
   </div>
 </template>

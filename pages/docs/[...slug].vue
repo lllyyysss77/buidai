@@ -17,8 +17,8 @@
           <article v-if="page" class="prose prose-indigo max-w-none prose-headings:scroll-mt-24">
             <header class="mb-8 border-b border-gray-100 pb-8">
               <!-- <p class="text-sm font-semibold text-[#6541f8] mb-2">{{ page.category }}</p> -->
-              <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-4">{{ page.title }}</h1>
-              <p class="text-xl text-gray-500">{{ page.description }}</p>
+              <h1 class="text-3xl sm:text-4xl font-extrabold text-[#0f172b] tracking-tight mb-4">{{ page.title }}</h1>
+              <p class="text-xl text-[#62748e]">{{ page.description }}</p>
             </header>
 
             <!-- Mobile TOC -->
@@ -26,11 +26,11 @@
               <div class="rounded-lg border border-gray-200 bg-gray-50">
                 <button
                   @click="isTocOpen = !isTocOpen"
-                  class="flex w-full items-center justify-between px-4 py-3 text-left text-sm font-medium text-gray-900 focus:outline-none"
+                  class="flex w-full items-center justify-between px-4 py-3 text-left text-sm font-medium text-[#0f172b] focus:outline-none"
                 >
                   <span>本页目录</span>
                   <ChevronDownIcon
-                    :class="[isTocOpen ? 'rotate-180' : '', 'h-5 w-5 text-gray-500 transition-transform duration-200']"
+                    :class="[isTocOpen ? 'rotate-180' : '', 'h-5 w-5 text-[#62748e] transition-transform duration-200']"
                   />
                 </button>
                 <div v-show="isTocOpen" class="border-t border-gray-200 px-4 pb-4 pt-2">
@@ -39,7 +39,7 @@
                       <a
                         :href="`#${link.id}`"
                         class="block py-1.5 text-sm transition-colors truncate"
-                        :class="activeId === link.id ? 'text-[#6541f8] font-medium' : 'text-gray-500 hover:text-gray-900'"
+                        :class="activeId === link.id ? 'text-[#0f172b] font-medium' : 'text-[#62748e] hover:text-[#0f172b]'"
                         @click.prevent="scrollToHeading(link.id); isTocOpen = false"
                       >
                         {{ link.text }}
@@ -50,7 +50,7 @@
                           :key="child.id"
                           :href="`#${child.id}`"
                           class="block py-1 text-xs transition-colors truncate"
-                          :class="activeId === child.id ? 'text-[#6541f8] font-medium' : 'text-gray-400 hover:text-gray-900'"
+                          :class="activeId === child.id ? 'text-[#0f172b] font-medium' : 'text-[#62748e] hover:text-[#0f172b]'"
                           @click.prevent="scrollToHeading(child.id); isTocOpen = false"
                         >
                           {{ child.text }}
@@ -72,7 +72,7 @@
           <div v-else class="py-12 text-center">
             <h1 class="text-2xl font-bold text-gray-900">文档未找到</h1>
             <p class="text-gray-500 mt-2">请求的页面不存在。</p>
-            <NuxtLink to="/docs" class="text-[#6541f8] mt-4 inline-block hover:underline">返回文档首页</NuxtLink>
+            <NuxtLink to="/docs" class="text-[#0f172b] mt-4 inline-block hover:underline">返回文档首页</NuxtLink>
           </div>
         </main>
 
@@ -85,7 +85,7 @@
                 <a
                   :href="`#${link.id}`"
                   class="block py-1.5 text-sm transition-colors truncate"
-                  :class="activeId === link.id ? 'text-[#6541f8] font-medium border-l-2 border-[#6541f8] pl-2 -ml-2.5' : 'text-gray-500 hover:text-gray-900'"
+                  :class="activeId === link.id ? 'text-[#0f172b] font-medium border-l-2 border-[#0f172b] pl-2 -ml-2.5' : 'text-gray-500 hover:text-gray-900'"
                   @click.prevent="scrollToHeading(link.id)"
                 >
                   {{ link.text }}
@@ -96,7 +96,7 @@
                     :key="child.id"
                     :href="`#${child.id}`"
                     class="block py-1 text-xs transition-colors truncate"
-                    :class="activeId === child.id ? 'text-[#6541f8] font-medium' : 'text-gray-400 hover:text-gray-900'"
+                    :class="activeId === child.id ? 'text-[#0f172b] font-medium' : 'text-gray-400 hover:text-gray-900'"
                     @click.prevent="scrollToHeading(child.id)"
                   >
                     {{ child.text }}
@@ -176,19 +176,19 @@ useSeoMeta({
 <style scoped lang="postcss">
 /* Prose Customization */
 :deep(.prose h2) {
-  @apply scroll-mt-24 text-2xl font-bold text-gray-900 mt-12 mb-6;
+  @apply scroll-mt-24 text-2xl font-bold text-[#0f172b] mt-12 mb-6;
 }
 :deep(.prose h3) {
-  @apply scroll-mt-24 text-xl font-bold text-gray-900 mt-8 mb-4;
+  @apply scroll-mt-24 text-xl font-bold text-[#0f172b] mt-8 mb-4;
 }
 :deep(.prose code) {
-  @apply text-[#6541f8] bg-[#6541f8]/5 px-1.5 py-0.5 rounded text-sm font-mono before:content-[''] after:content-[''];
+  @apply text-[#0f172b] bg-[#0f172b]/5 px-1.5 py-0.5 rounded text-sm font-mono before:content-[''] after:content-[''];
 }
 :deep(.prose pre) {
-  @apply bg-gray-900 text-gray-100 p-4 rounded-xl overflow-x-auto my-6;
+  @apply bg-gray-100 text-[#0f172b] p-4 rounded-xl overflow-x-auto my-6;
 }
 :deep(.prose a) {
-  @apply text-[#6541f8] no-underline hover:underline;
+  @apply text-[#0f172b] no-underline hover:underline;
 }
 :deep(.prose ul) {
   @apply list-disc list-outside ml-6;

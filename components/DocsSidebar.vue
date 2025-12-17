@@ -10,7 +10,7 @@
           <!-- 递归渲染 -->
           <DocsSidebar :navigation="item.children" :level="level + 1" />
         </template>
-        
+
         <!-- 叶子节点 -->
         <NuxtLink
           v-else
@@ -20,7 +20,7 @@
             route.path === item.path
               ? 'bg-[#6541f8]/10 text-[#6541f8] font-medium'
               : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-            level > 0 ? 'ml-0' : '' 
+            level > 0 ? 'ml-0' : ''
           ]"
         >
           {{ item.title }}

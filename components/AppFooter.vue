@@ -21,70 +21,71 @@
           </div>
         </div>
 
-        <div>
-          <h4 class="font-bold text-gray-900 mb-4">产品</h4>
-          <ul class="space-y-3 text-sm text-gray-500">
-            <li><a href="#" class="hover:text-primary-600 transition-colors">功能特性</a></li>
-            <li><a href="#" class="hover:text-primary-600 transition-colors">解决方案</a></li>
-            <li><a href="#" class="hover:text-primary-600 transition-colors">价格方案</a></li>
-            <li><a href="#" class="hover:text-primary-600 transition-colors">更新日志</a></li>
-          </ul>
-        </div>
+        <!-- 移动端风琴菜单 / 桌面端列表 -->
+        <div class="col-span-2 md:col-span-4 lg:col-span-4 xl:col-span-5 grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-8">
+          <div v-for="(group, index) in footerLinks" :key="index" class="border-b md:border-none border-gray-100 last:border-none">
+            <button
+              @click="toggleGroup(index)"
+              class="w-full flex items-center justify-between py-4 md:py-0 text-left group outline-none md:cursor-default"
+            >
+              <h4 class="font-bold text-gray-900 md:mb-4">{{ group.title }}</h4>
+              <span class="md:hidden transform transition-transform duration-200" :class="activeGroups.includes(index) ? 'rotate-180' : ''">
+                <svg class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </span>
+            </button>
+            <div
+              class="overflow-hidden transition-all duration-300 md:h-auto"
+              :class="activeGroups.includes(index) ? 'max-h-96 pb-4' : 'max-h-0 md:max-h-full'"
+            >
+              <ul class="space-y-3 text-sm text-gray-500">
+                <li v-for="(link, lIndex) in group.links" :key="lIndex">
+                  <!-- Custom rendering for "Contact Us" section (last item) -->
+                  <template v-if="group.customContent">
+                    <div v-if="link.type === 'qq'" class="flex items-center space-x-2">
+                      <span class="font-medium">QQ:</span>
+                      <span>{{ link.text }}</span>
+                    </div>
+                    <div v-else-if="link.type === 'social'" class="flex flex-col space-y-2">
+                       <div class="flex items-center space-x-2">
+                        <span class="font-medium">微信:</span>
+                        <span>{{ link.text }}</span>
+                      </div>
+                      <div class="flex space-x-2 pt-2">
+                        <div class="flex flex-col items-center space-y-1">
+                          <img src="/qrcode.png" alt="QQ QR Code" class="w-20 h-20 object-contain bg-gray-50 p-1 rounded border border-gray-100" />
+                          <span class="text-xs text-gray-400">QQ群</span>
+                        </div>
+                        <div class="flex flex-col items-center space-y-1">
+                          <img src="/wechat.png" alt="WeChat QR Code" class="w-20 h-20 object-contain bg-gray-50 p-1 rounded border border-gray-100" />
+                          <span class="text-xs text-gray-400">微信客服</span>
+                        </div>
+                      </div>
+                    </div>
+                  </template>
 
-        <div>
-          <h4 class="font-bold text-gray-900 mb-4">应用市场</h4>
-          <ul class="space-y-3 text-sm text-gray-500">
-            <li><a href="#" class="hover:text-primary-600 transition-colors">独立应用</a></li>
-            <li><a href="#" class="hover:text-primary-600 transition-colors">扩展应用</a></li>
-            <li><a href="#" class="hover:text-primary-600 transition-colors">图像视频</a></li>
-            <li><a href="#" class="hover:text-primary-600 transition-colors">智能写作</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="font-bold text-gray-900 mb-4">资源</h4>
-          <ul class="space-y-3 text-sm text-gray-500">
-            <li><a href="#" class="hover:text-primary-600 transition-colors">文档中心</a></li>
-            <li><a href="#" class="hover:text-primary-600 transition-colors">API 参考</a></li>
-            <li><a href="#" class="hover:text-primary-600 transition-colors">社区论坛</a></li>
-            <li><a href="#" class="hover:text-primary-600 transition-colors">博客文章</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="font-bold text-gray-900 mb-4">公司</h4>
-          <ul class="space-y-3 text-sm text-gray-500">
-            <li><NuxtLink to="/about" class="hover:text-primary-600 transition-colors">关于我们</NuxtLink></li>
-            <li><a href="#" class="hover:text-primary-600 transition-colors">加入我们</a></li>
-            <li><a href="#" class="hover:text-primary-600 transition-colors">联系方式</a></li>
-            <li><a href="#" class="hover:text-primary-600 transition-colors">隐私政策</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="font-bold text-gray-900 mb-4">关注我们</h4>
-          <ul class="space-y-3 text-sm text-gray-500">
-            <li class="flex items-center space-x-2">
-              <span class="font-medium">QQ:</span>
-              <span>236749035</span>
-            </li>
-            <li class="flex flex-col space-y-2">
-              <div class="flex items-center space-x-2">
-                <span class="font-medium">微信:</span>
-                <span>userhlc</span>
-              </div>
-              <div class="flex space-x-2 pt-2">
-                <div class="flex flex-col items-center space-y-1">
-                  <img src="/qrcode.png" alt="QQ QR Code" class="w-20 h-20 object-contain bg-gray-50 p-1 rounded border border-gray-100" />
-                  <span class="text-xs text-gray-400">QQ群</span>
-                </div>
-                <div class="flex flex-col items-center space-y-1">
-                  <img src="/wechat.png" alt="WeChat QR Code" class="w-20 h-20 object-contain bg-gray-50 p-1 rounded border border-gray-100" />
-                  <span class="text-xs text-gray-400">微信客服</span>
-                </div>
-              </div>
-            </li>
-          </ul>
+                  <!-- Standard Links -->
+                  <template v-else>
+                    <NuxtLink
+                      v-if="link.to"
+                      :to="link.to"
+                      class="hover:text-primary-600 transition-colors block py-1 md:py-0"
+                    >
+                      {{ link.text }}
+                    </NuxtLink>
+                    <a
+                      v-else
+                      :href="link.href || '#'"
+                      class="hover:text-primary-600 transition-colors block py-1 md:py-0"
+                    >
+                      {{ link.text }}
+                    </a>
+                  </template>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -101,3 +102,80 @@
     </div>
   </footer>
 </template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const activeGroups = ref<number[]>([4]) // 默认展开第5个（索引4）即“关注我们”
+
+const toggleGroup = (index: number) => {
+  if (window.innerWidth >= 768) return // Disable toggle on desktop
+
+  const idx = activeGroups.value.indexOf(index)
+  if (idx === -1) {
+    activeGroups.value.push(index)
+  } else {
+    activeGroups.value.splice(idx, 1)
+  }
+}
+
+interface FooterLink {
+  text: string;
+  href?: string;
+  to?: string;
+  type?: string;
+}
+
+interface FooterGroup {
+  title: string;
+  links: FooterLink[];
+  customContent?: boolean;
+}
+
+const footerLinks: FooterGroup[] = [
+  {
+    title: '产品',
+    links: [
+      { text: '功能特性', href: '#' },
+      { text: '解决方案', href: '#' },
+      { text: '价格方案', href: '#' },
+      { text: '更新日志', href: '#' }
+    ]
+  },
+  {
+    title: '应用市场',
+    links: [
+      { text: '独立应用', href: '#' },
+      { text: '扩展应用', href: '#' },
+      { text: '图像视频', href: '#' },
+      { text: '智能写作', href: '#' }
+    ]
+  },
+  {
+    title: '资源',
+    links: [
+      { text: '文档中心', href: '#' },
+      { text: 'API 参考', href: '#' },
+      { text: '社区论坛', href: '#' },
+      { text: '博客文章', href: '#' }
+    ]
+  },
+  {
+    title: '公司',
+    links: [
+      { text: '关于我们', to: '/about' },
+      { text: '加入我们', href: '#' },
+      { text: '联系方式', href: '#' },
+      { text: '隐私政策', href: '#' }
+    ]
+  },
+  {
+    title: '关注我们',
+    customContent: true,
+    links: [
+      { type: 'qq', text: '236749035' },
+      { type: 'social', text: 'userhlc' }
+    ]
+  }
+]
+</script>

@@ -1,13 +1,12 @@
 <template>
-  <nav
+  <header
     class="fixed top-0 inset-x-0 z-50 transition-all duration-300 border-b"
-    :class="navClasses"
+    :class="headerClasses"
   >
-    <div class="w-full px-6">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-[72px]">
-        <!-- Left Section: Logo + Nav -->
+        <!-- Left: Logo -->
         <div class="flex items-center gap-10">
-          <!-- Logo -->
           <NuxtLink to="/" class="flex items-center gap-2 shrink-0">
             <img
               :src="isTransparent ? '/logo.svg' : '/logo-full.svg'"
@@ -18,42 +17,45 @@
             />
           </NuxtLink>
 
-          <!-- Desktop Nav -->
-          <div class="hidden md:flex items-center gap-1">
+          <!-- Center: Desktop Navigation -->
+          <nav class="hidden md:flex items-center gap-1">
             <NuxtLink
-              v-for="item in navigation"
-              :key="item.href"
-              :to="item.href"
-              class="h-9 px-4 rounded-full text-[16px] flex items-center justify-center transition-all duration-200"
-              :class="getNavLinkClass(item.href)"
+              v-for="item in items"
+              :key="item.to"
+              :to="item.to"
+              class="h-9 px-4 rounded-full text-[15px] font-medium flex items-center justify-center transition-all duration-200"
+              :class="getItemClass(item)"
             >
-              {{ item.name }}
+              {{ item.label }}
+            </NuxtLink>
+          </nav>
+        </div>
+
+        <!-- Right: Actions & Mobile Toggle -->
+        <div class="flex items-center gap-3">
+          <!-- Desktop Actions -->
+          <div class="hidden md:flex items-center gap-3">
+            <NuxtLink
+              to="/docs"
+              class="h-10 px-6 rounded-full text-[15px] font-medium transition-colors duration-200 flex items-center justify-center"
+              :class="isTransparent ? 'bg-white/10 text-white hover:bg-white/20' : 'bg-indigo-50 text-indigo-900 hover:bg-indigo-100'"
+            >
+              文档中心
+            </NuxtLink>
+            <NuxtLink
+              to="/login"
+              class="h-10 px-6 rounded-full text-[15px] font-medium transition-all duration-200 flex items-center justify-center"
+              :class="isTransparent ? 'bg-white text-gray-900 hover:bg-gray-50' : 'bg-[#1e2129] text-white hover:bg-[#2c2f3a]'"
+            >
+              登录必定
             </NuxtLink>
           </div>
-        </div>
 
-        <!-- Right Buttons -->
-        <div class="hidden md:flex items-center gap-3">
+          <!-- Mobile Menu Toggle -->
           <button
-            class="h-10 px-6 rounded-full text-[15px] transition-colors duration-200 flex items-center justify-center"
-            :class="isTransparent ? 'bg-white/10 text-white hover:bg-white/20' : 'bg-indigo-50 text-indigo-900 hover:bg-indigo-100'"
-          >
-            文档中心
-          </button>
-          <button
-            class="h-10 px-6 rounded-full text-[15px] pt-[2px] transition-all duration-200 flex items-center justify-center leading-none"
-            :class="isTransparent ? 'bg-white text-gray-900 hover:bg-gray-50' : 'bg-[#1e2129] text-white hover:bg-[#2c2f3a]'"
-          >
-            登录必定
-          </button>
-        </div>
-
-        <!-- Mobile Menu Button -->
-        <div class="md:hidden flex items-center">
-          <button
-            @click="mobileMenuOpen = !mobileMenuOpen"
-            class="p-2 rounded-lg transition-colors duration-200"
+            class="md:hidden p-2 rounded-lg transition-colors duration-200"
             :class="isTransparent ? 'text-white/80 hover:bg-white/10' : 'text-gray-600 hover:bg-gray-100'"
+            @click="mobileMenuOpen = !mobileMenuOpen"
             aria-label="Toggle menu"
           >
             <Bars3Icon v-if="!mobileMenuOpen" class="w-6 h-6" />
@@ -61,52 +63,52 @@
           </button>
         </div>
       </div>
+    </div>
 
-      <!-- Mobile Menu -->
-      <Transition
-        enter-active-class="transition-all duration-300 ease-out"
-        enter-from-class="opacity-0 -translate-y-4"
-        enter-to-class="opacity-100 translate-y-0"
-        leave-active-class="transition-all duration-200 ease-in"
-        leave-from-class="opacity-100 translate-y-0"
-        leave-to-class="opacity-0 -translate-y-4"
+    <!-- Mobile Menu -->
+    <Transition
+      enter-active-class="transition-all duration-300 ease-out"
+      enter-from-class="opacity-0 -translate-y-4"
+      enter-to-class="opacity-100 translate-y-0"
+      leave-active-class="transition-all duration-200 ease-in"
+      leave-from-class="opacity-100 translate-y-0"
+      leave-to-class="opacity-0 -translate-y-4"
+    >
+      <div
+        v-show="mobileMenuOpen"
+        class="md:hidden absolute top-full left-0 right-0 border-t py-6 px-6 shadow-xl h-[calc(100vh-72px)] overflow-y-auto"
+        :class="isTransparent ? 'border-white/10 bg-black/95 backdrop-blur-xl' : 'border-gray-200 bg-white'"
       >
-        <div
-          v-show="mobileMenuOpen"
-          class="md:hidden absolute top-full left-0 right-0 border-t py-6 px-6 shadow-xl h-[calc(100vh-72px)] overflow-y-auto"
-          :class="isTransparent ? 'border-white/10 bg-black/95 backdrop-blur-xl' : 'border-gray-200 bg-white'"
-        >
-          <div class="flex flex-col space-y-6">
-            <div class="flex flex-col space-y-2">
-              <NuxtLink
-                v-for="item in navigation"
-                :key="item.href"
-                :to="item.href"
-                class="text-lg font-medium py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-between group min-h-[48px]"
-                :class="getMobileLinkClass(item.href)"
-                @click="mobileMenuOpen = false"
-              >
-                {{ item.name }}
-                <span class="text-xs opacity-50 group-hover:opacity-100 transition-opacity">
-                   →
-                </span>
-              </NuxtLink>
-            </div>
+        <div class="flex flex-col space-y-6">
+          <div class="flex flex-col space-y-2">
+            <NuxtLink
+              v-for="item in items"
+              :key="item.to"
+              :to="item.to"
+              class="text-lg font-medium py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-between group min-h-[48px]"
+              :class="getMobileItemClass(item)"
+              @click="mobileMenuOpen = false"
+            >
+              {{ item.label }}
+              <span class="text-xs opacity-50 group-hover:opacity-100 transition-opacity">
+                 →
+              </span>
+            </NuxtLink>
+          </div>
 
-            <div class="flex flex-col space-y-4 pt-6 border-t" :class="isTransparent ? 'border-white/10' : 'border-gray-100'">
-              <button class="w-full h-12 rounded-xl text-base font-medium transition-colors border active:scale-[0.98] transition-transform"
-                :class="isTransparent ? 'text-white border-white/20 hover:bg-white/10' : 'text-gray-700 border-gray-200 hover:bg-gray-50'">
-                登录必定
-              </button>
-              <button class="w-full h-12 rounded-xl bg-primary-600 text-white text-base font-medium hover:bg-primary-700 active:scale-[0.98] transition-all shadow-lg shadow-primary-600/20">
-                立即体验
-              </button>
-            </div>
+          <div class="flex flex-col space-y-4 pt-6 border-t" :class="isTransparent ? 'border-white/10' : 'border-gray-100'">
+            <button class="w-full h-12 rounded-xl text-base font-medium border active:scale-[0.98] transition-all" 
+              :class="isTransparent ? 'text-white border-white/20 hover:bg-white/10' : 'text-gray-700 border-gray-200 hover:bg-gray-50'">
+              登录必定
+            </button>
+            <button class="w-full h-12 rounded-xl bg-primary-600 text-white text-base font-medium hover:bg-primary-700 active:scale-[0.98] transition-all shadow-lg shadow-primary-600/20">
+              立即体验
+            </button>
           </div>
         </div>
-      </Transition>
-    </div>
-  </nav>
+      </div>
+    </Transition>
+  </header>
 </template>
 
 <script setup lang="ts">
@@ -114,48 +116,53 @@ import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 
+// Types
+interface NavigationItem {
+  label: string
+  to: string
+  active?: boolean
+}
+
 const route = useRoute()
 const mobileMenuOpen = ref(false)
 const isScrolled = ref(false)
 
-// Navigation Data
-const navigation = [
-  { name: '首页', href: '/' },
-  { name: 'BuidAI', href: '/agent' },
-  { name: '必定空间', href: '/solutions' },
-  { name: '应用中心', href: '/plugin' },
-  { name: '产品定价', href: '/pricing' },
-  { name: '资源中心', href: '/resources' },
-]
+// Navigation Configuration
+const items = computed<NavigationItem[]>(() => [
+  { label: '首页', to: '/', active: route.path === '/' },
+  { label: 'BuidAI', to: '/agent', active: route.path.startsWith('/agent') },
+  { label: '必定空间', to: '/solutions', active: route.path.startsWith('/solutions') },
+  { label: '应用中心', to: '/plugin', active: route.path.startsWith('/plugin') },
+  { label: '产品定价', to: '/pricing', active: route.path.startsWith('/pricing') },
+  { label: '资源中心', to: '/resources', active: route.path.startsWith('/resources') }
+])
 
 // Computed States
 const isHome = computed(() => route.path === '/')
 const isTransparent = computed(() => isHome.value && !isScrolled.value)
 
-const navClasses = computed(() =>
+const headerClasses = computed(() => 
   isTransparent.value
     ? 'bg-transparent border-transparent'
     : 'bg-white/80 backdrop-blur-lg border-black/5 shadow-sm'
 )
 
 // Helper Functions
-const getNavLinkClass = (href: string) => {
-  const isActive = route.path === href
+const getItemClass = (item: NavigationItem) => {
   if (isTransparent.value) {
-    return isActive ? 'text-white font-medium' : 'text-white/80 hover:text-white hover:bg-white/10'
+    return item.active ? 'text-white font-bold' : 'text-white/80 hover:text-white hover:bg-white/10'
   }
-  return isActive ? 'text-gray-900 font-medium' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+  return item.active ? 'text-gray-900 font-bold' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
 }
 
-const getMobileLinkClass = (href: string) => {
-  const isActive = route.path === href
+const getMobileItemClass = (item: NavigationItem) => {
   if (isTransparent.value) {
-    return isActive ? 'text-white bg-white/10' : 'text-gray-300 hover:text-white hover:bg-white/5'
+    return item.active ? 'text-white bg-white/10' : 'text-gray-300 hover:text-white hover:bg-white/5'
   }
-  return isActive ? 'text-primary-600 bg-primary-50' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+  return item.active ? 'text-primary-600 bg-primary-50' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
 }
 
-// Optimized Scroll Handler using RequestAnimationFrame
+// Optimized Scroll Handler
 let ticking = false
 const onScroll = () => {
   if (!ticking) {
@@ -170,9 +177,9 @@ const onScroll = () => {
   }
 }
 
+// Lifecycle Hooks
 onMounted(() => {
   window.addEventListener('scroll', onScroll, { passive: true })
-  // Initial check
   if (window.scrollY > 10) isScrolled.value = true
 })
 

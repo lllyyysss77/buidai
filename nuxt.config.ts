@@ -1,3 +1,5 @@
+import { defineNuxtConfig } from 'nuxt/config'
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
   typescript: {
@@ -8,6 +10,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxt/content'
   ],
+  // @ts-ignore
   content: {
     database: {
       type: 'sqlite'
@@ -19,6 +22,7 @@ export default defineNuxtConfig({
       failOnError: false
     }
   },
+  // @ts-ignore
   colorMode: {
     classSuffix: ''
   },

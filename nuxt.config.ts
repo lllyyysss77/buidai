@@ -13,9 +13,6 @@ export default defineNuxtConfig({
       type: 'sqlite'
     }
   },
-  nitro: {
-    preset: 'vercel'
-  },
   colorMode: {
     classSuffix: ''
   },

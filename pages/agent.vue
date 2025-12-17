@@ -1,12 +1,12 @@
 <template>
   <div class="min-h-screen bg-white text-gray-900 font-sans selection:bg-blue-100 relative">
     <!-- 背景装饰：左上角网格 -->
-    <div class="absolute top-0 left-0 w-full h-[600px] bg-[url('/grid.svg')] pointer-events-none [mask-image:linear-gradient(to_bottom,white,transparent)] z-0"></div>
+    <div class="absolute top-0 left-0 w-full h-[400px] md:h-[600px] bg-[url('/grid.svg')] pointer-events-none [mask-image:linear-gradient(to_bottom,white,transparent)] z-0"></div>
 
     <!-- Hero Section -->
-    <section class="pt-48 pb-20 relative overflow-hidden z-10">
+    <section class="pt-32 pb-12 md:pt-48 md:pb-20 relative overflow-hidden z-10">
       <!-- Background Glow -->
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none"></div>
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] md:w-[1000px] h-[300px] md:h-[500px] bg-blue-500/5 blur-[80px] md:blur-[120px] rounded-full pointer-events-none"></div>
 
       <div class="container mx-auto px-4 text-center relative z-10">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 border border-gray-200 text-xs text-gray-600 mb-8">
@@ -14,23 +14,23 @@
           <span>BuidAI V4.6.8 strong release</span>
         </div>
 
-        <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight mb-6 text-gray-900">
-          BuidAI企业级 <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">AIAgent</span>构建平台
+        <h1 class="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight mb-6 text-gray-900 leading-tight">
+          BuidAI企业级 <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 block sm:inline">AIAgent</span>构建平台
         </h1>
 
-        <p class="text-lg sm:text-xl text-gray-500 mb-10 max-w-3xl mx-auto">
+        <p class="text-base sm:text-xl text-gray-500 mb-8 md:mb-10 max-w-3xl mx-auto px-2">
          可视化 Workflow 编排 + 超易用 AI 知识库 + 创新 RAG 检索 + 模板生态 = 轻松构建强大 AI 应用
         </p>
 
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button class="px-8 py-3 rounded-full bg-gray-900 text-white font-semibold hover:bg-gray-800 transition-all flex items-center gap-2">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto px-4 sm:px-0">
+          <button class="w-full sm:w-auto px-8 py-3 rounded-full bg-gray-900 text-white font-semibold hover:bg-gray-800 active:scale-95 transition-all flex items-center justify-center gap-2 touch-manipulation">
             <!-- Rocket Icon -->
             <RocketLaunchIcon class="w-5 h-5" />
             立即开始
             <!-- Arrow Right Icon -->
             <ArrowRightIcon class="w-4 h-4" />
           </button>
-          <button class="px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold hover:opacity-90 transition-all shadow-[0_4px_14px_rgba(59,130,246,0.3)] flex items-center gap-2">
+          <button class="w-full sm:w-auto px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold hover:opacity-90 active:scale-95 transition-all shadow-[0_4px_14px_rgba(59,130,246,0.3)] flex items-center justify-center gap-2 touch-manipulation">
             <!-- Document Icon -->
             <DocumentTextIcon class="w-5 h-5" />
             查看文档
@@ -40,19 +40,19 @@
     </section>
 
     <!-- 演示视频部分(替换为功能卡) -->
-    <section class="py-16 bg-white">
+    <section class="py-10 md:py-16 bg-white">
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div v-for="(item, index) in featureCards" :key="index" class="flex flex-col gap-4">
             <!-- 类别标题药丸 -->
-            <div class="relative w-full text-center bg-[#e6e9ff] rounded-lg p-[8px] md:p-[12px] mb-[24px] text-black text-lg font-medium leading-[22px]">
+            <div class="relative w-full text-center bg-[#e6e9ff] rounded-lg p-[8px] md:p-[12px] mb-[16px] md:mb-[24px] text-black text-lg font-medium leading-[22px]">
               {{ item.category }}
               <!-- 底部小三角指示器 -->
               <div class="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#e6e9ff] rotate-45"></div>
             </div>
 
             <!-- 功能卡片主体 -->
-            <div class="bg-white rounded-[20px] p-6 shadow-[0_2px_12px_rgba(0,0,0,0.04)] border border-gray-100 flex-1 flex flex-col items-center text-center hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-all duration-300 h-full">
+            <div class="bg-white rounded-[20px] p-6 shadow-[0_2px_12px_rgba(0,0,0,0.04)] border border-gray-100 flex-1 flex flex-col items-center text-center hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] active:scale-[0.99] transition-all duration-300 h-full touch-manipulation">
               <!-- Tag -->
               <div class="self-start mb-4">
                 <span class="bg-indigo-50 text-indigo-600 text-[10px] sm:text-xs px-2.5 py-1 rounded-md font-bold">
@@ -70,7 +70,7 @@
 
               <!-- 图像区域-->
               <div class="mt-auto w-full aspect-[4/3] bg-gray-50 rounded-lg overflow-hidden relative group">
-                <img :src="item.image" :alt="item.title" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img :src="item.image" :alt="item.title" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
             </div>
           </div>
@@ -79,24 +79,24 @@
     </section>
 
     <!-- 功能部分 -->
-    <section class="py-24">
+    <section class="py-12 md:py-24">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-16 text-gray-900">Agent释放智能体无限潜能</h2>
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-10 md:mb-16 text-gray-900">Agent释放智能体无限潜能</h2>
 
-        <div class="flex flex-col gap-12">
+        <div class="flex flex-col gap-8 md:gap-12">
           <div v-for="(feature, idx) in features" :key="idx"
-               class="rounded-3xl p-8 lg:p-12 border border-gray-200 bg-white shadow-sm hover:shadow-md transition-all duration-500 group">
-            <div class="flex flex-col lg:flex-row gap-12 items-center justify-between">
+               class="rounded-3xl p-6 md:p-8 lg:p-12 border border-gray-200 bg-white shadow-sm hover:shadow-md transition-all duration-500 group">
+            <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center justify-between">
               <!-- 左侧内容 -->
-              <div class="w-full lg:w-1/3 flex flex-col gap-8 xl:ml-4">
+              <div class="w-full lg:w-1/3 flex flex-col gap-6 md:gap-8 xl:ml-4 text-center lg:text-left">
                 <!-- 图标 -->
-                <div class="w-20 h-20 rounded-3xl bg-gray-50 border border-gray-100 flex items-center justify-center shadow-sm">
-                  <component :is="feature.icon" class="w-10 h-10" :class="feature.iconColor" />
+                <div class="w-16 h-16 md:w-20 md:h-20 rounded-3xl bg-gray-50 border border-gray-100 flex items-center justify-center shadow-sm mx-auto lg:mx-0">
+                  <component :is="feature.icon" class="w-8 h-8 md:w-10 md:h-10" :class="feature.iconColor" />
                 </div>
 
                 <div>
-                  <h3 class="text-3xl font-bold mb-6 text-gray-900">{{ feature.title }}</h3>
-                  <p class="text-lg text-gray-500 leading-relaxed">
+                  <h3 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-gray-900">{{ feature.title }}</h3>
+                  <p class="text-base md:text-lg text-gray-500 leading-relaxed">
                     {{ feature.desc }}
                   </p>
                 </div>
@@ -105,7 +105,7 @@
               <!-- 右侧图像 -->
               <div class="w-full lg:w-2/3">
                 <div class="relative rounded-xl overflow-hidden bg-gray-50">
-                   <img :src="feature.image" :alt="feature.title" class="w-full h-auto" />
+                   <img :src="feature.image" :alt="feature.title" loading="lazy" class="w-full h-auto" />
                    <!-- Overlay Gradient -->
                    <div class="absolute inset-0 bg-gradient-to-t from-white/10 to-transparent pointer-events-none"></div>
                 </div>
@@ -117,11 +117,11 @@
     </section>
 
     <!-- 优势 -->
-    <section class="py-20 bg-gray-50">
+    <section class="py-10 md:py-20 bg-gray-50">
       <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold mb-4 text-gray-900">优势</h2>
-          <p class="text-gray-500">为什么选择 BuidAI?</p>
+        <div class="text-center mb-10 md:mb-16">
+          <h2 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900">优势</h2>
+          <p class="text-gray-500 text-sm md:text-base">为什么选择 BuidAI?</p>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -136,13 +136,13 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-24">
+    <section class="py-12 md:py-24">
       <div class="container mx-auto px-4">
-        <div class="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start">
+        <div class="flex flex-col lg:flex-row gap-8 lg:gap-24 items-start">
           <!-- 左侧：标题 -->
-          <div class="lg:w-1/3">
-            <h2 class="text-3xl md:text-4xl font-bold text-[#0F0F12] mb-4">常见问题</h2>
-            <p class="text-gray-500">关于 BuidAI 的常见疑问解答</p>
+          <div class="lg:w-1/3 w-full text-center lg:text-left">
+            <h2 class="text-2xl md:text-4xl font-bold text-[#0F0F12] mb-4">常见问题</h2>
+            <p class="text-gray-500 text-sm md:text-base">关于 BuidAI 的常见疑问解答</p>
           </div>
 
           <!-- 右侧：FAQ 列表 -->
@@ -154,9 +154,9 @@
             >
               <button
                 @click="toggleFaq(idx)"
-                class="w-full flex items-start justify-between p-6 text-left focus:outline-none hover:bg-gray-50 transition-colors"
+                class="w-full flex items-start justify-between p-6 text-left focus:outline-none hover:bg-gray-50 active:bg-gray-100 transition-colors touch-manipulation min-h-[44px]"
               >
-                <span class="text-lg font-medium text-[#0F0F12] pr-8">{{ faq.question }}</span>
+                <span class="text-base md:text-lg font-medium text-[#0F0F12] pr-4 md:pr-8">{{ faq.question }}</span>
                 <span class="text-gray-400 shrink-0 mt-1 transition-transform duration-300" :class="{ 'rotate-45': activeFaq === idx }">
                   <PlusIcon class="w-5 h-5" />
                 </span>
@@ -166,7 +166,7 @@
                 :class="activeFaq === idx ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
               >
                 <div class="overflow-hidden">
-                  <div class="px-6 pb-6 text-[15px] text-[#5A5E6A] leading-relaxed">
+                  <div class="px-6 pb-6 text-sm md:text-[15px] text-[#5A5E6A] leading-relaxed">
                     {{ faq.answer }}
                   </div>
                 </div>
@@ -178,22 +178,22 @@
     </section>
 
     <!-- Footer -->
-    <section class="py-20 relative overflow-hidden bg-white border-t border-gray-100">
+    <section class="py-10 md:py-20 relative overflow-hidden bg-white border-t border-gray-100">
       <!-- Footer Gradient -->
-      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[300px] bg-gradient-to-t from-blue-50 to-transparent pointer-events-none"></div>
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[200px] md:h-[300px] bg-gradient-to-t from-blue-50 to-transparent pointer-events-none"></div>
 
       <div class="container mx-auto px-4 relative z-10">
-        <div class="flex flex-col lg:flex-row items-center justify-between gap-8 mb-20">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-8 md:gap-8 mb-10 md:mb-20">
           <div class="text-center lg:text-left">
-            <h2 class="text-3xl font-bold mb-4 text-gray-900">现在开始构建您的 AI Agent</h2>
-            <p class="text-lg text-gray-500">BuidAI, 让 AI Agent 构建触手可及</p>
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900">现在开始构建您的 AI Agent</h2>
+            <p class="text-base md:text-lg text-gray-500">BuidAI, 让 AI Agent 构建触手可及</p>
           </div>
 
-          <div class="flex items-center gap-4">
-            <button class="w-[200px] h-[60px] text-[22px] font-semibold px-10 py-3 rounded-full bg-white border border-gray-200 text-gray-900 hover:bg-gray-50 transition-all shadow-sm">
+          <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+            <button class="w-full sm:w-[200px] h-[50px] md:h-[60px] text-lg md:text-[22px] font-semibold px-10 py-3 rounded-full bg-white border border-gray-200 text-gray-900 hover:bg-gray-50 active:scale-95 transition-all shadow-sm flex items-center justify-center">
               立即使用
             </button>
-            <button class="w-[200px] h-[60px] text-[22px] font-semibold px-10 py-3 rounded-full bg-[#080d1ee6] text-white hover:bg-[#080d1e] transition-all shadow-lg">
+            <button class="w-full sm:w-[200px] h-[50px] md:h-[60px] text-lg md:text-[22px] font-semibold px-10 py-3 rounded-full bg-[#080d1ee6] text-white hover:bg-[#080d1e] active:scale-95 transition-all shadow-lg flex items-center justify-center">
               开始使用
             </button>
           </div>

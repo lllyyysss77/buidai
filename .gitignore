@@ -26,4 +26,5 @@ lerna-debug.log*
 .env
 .env.*
 !.env.example
-.参考代码.vue
+.参考PostPage.vue
+文案.txt

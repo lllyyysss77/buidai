@@ -43,7 +43,8 @@
               文档中心
             </NuxtLink>
             <NuxtLink
-              to="/login"
+              to="https://dashboard.buidai.com/login"
+              target="_blank"
               class="h-10 px-6 rounded-full text-[15px] font-medium transition-all duration-200 flex items-center justify-center"
               :class="isTransparent ? 'bg-white text-gray-900 hover:bg-gray-50' : 'bg-[#1e2129] text-white hover:bg-[#2c2f3a]'"
             >
@@ -97,10 +98,14 @@
           </div>
 
           <div class="flex flex-col space-y-4 pt-6 border-t" :class="isTransparent ? 'border-white/10' : 'border-gray-100'">
-            <button class="w-full h-12 rounded-xl text-base font-medium border active:scale-[0.98] transition-all" 
-              :class="isTransparent ? 'text-white border-white/20 hover:bg-white/10' : 'text-gray-700 border-gray-200 hover:bg-gray-50'">
+            <NuxtLink
+              to="https://cloud.buidai.com/login"
+              target="_blank"
+              class="w-full h-12 rounded-xl text-base font-medium border active:scale-[0.98] transition-all flex items-center justify-center"
+              :class="isTransparent ? 'text-white border-white/20 hover:bg-white/10' : 'text-gray-700 border-gray-200 hover:bg-gray-50'"
+            >
               登录必定
-            </button>
+            </NuxtLink>
             <button class="w-full h-12 rounded-xl bg-primary-600 text-white text-base font-medium hover:bg-primary-700 active:scale-[0.98] transition-all shadow-lg shadow-primary-600/20">
               立即体验
             </button>
@@ -141,7 +146,7 @@ const items = computed<NavigationItem[]>(() => [
 const isHome = computed(() => route.path === '/')
 const isTransparent = computed(() => isHome.value && !isScrolled.value)
 
-const headerClasses = computed(() => 
+const headerClasses = computed(() =>
   isTransparent.value
     ? 'bg-transparent border-transparent'
     : 'bg-white/80 backdrop-blur-lg border-black/5 shadow-sm'

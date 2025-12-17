@@ -140,6 +140,7 @@ const items = computed<NavigationItem[]>(() => [
   { label: '应用中心', to: '/plugin', active: route.path.startsWith('/plugin') },
   { label: '产品定价', to: '/pricing', active: route.path.startsWith('/pricing') },
   { label: '更新日志', to: '/changelog', active: route.path.startsWith('/changelog') },
+  { label: '技术博客', to: '/blog', active: route.path.startsWith('/blog') },
   { label: '资源中心', to: '/resources', active: route.path.startsWith('/resources') }
 ])
 

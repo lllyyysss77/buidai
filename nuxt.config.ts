@@ -13,6 +13,12 @@ export default defineNuxtConfig({
       type: 'sqlite'
     }
   },
+  nitro: {
+    preset: 'vercel-static',
+    prerender: {
+      failOnError: false
+    }
+  },
   colorMode: {
     classSuffix: ''
   },

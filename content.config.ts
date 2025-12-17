@@ -11,6 +11,20 @@ export default defineContentConfig({
         date: z.date(),
         image: z.string().optional()
       })
+    }),
+    docs: defineCollection({
+      type: 'page',
+      source: 'docs/**/*.md',
+      schema: z.object({
+        title: z.string(),
+        description: z.string(),
+        links: z.array(z.object({
+          label: z.string(),
+          icon: z.string(),
+          to: z.string(),
+          target: z.string().optional(),
+        })).optional()
+      })
     })
   }
 })

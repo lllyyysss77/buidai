@@ -10,7 +10,13 @@
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex-grow flex flex-col justify-center">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         <!-- Left Content -->
-        <div class="space-y-6 md:space-y-8 animate-slide-up text-center lg:text-left pt-12 lg:pt-0">
+        <div class="relative space-y-6 md:space-y-8 animate-slide-up text-center lg:text-left pt-12 lg:pt-0">
+          <!-- Text Glow Effect -->
+          <div class="absolute inset-0 -z-10 pointer-events-none overflow-visible">
+            <div class="absolute top-[-20%] left-[-20%] w-[80%] h-[80%] bg-indigo-500/20 rounded-full blur-[80px] opacity-60 mix-blend-screen animate-pulse"></div>
+            <div class="absolute bottom-[-20%] right-[-10%] w-[70%] h-[70%] bg-fuchsia-600/15 rounded-full blur-[90px] opacity-50 mix-blend-screen"></div>
+          </div>
+
           <!-- Badge -->
           <div class="flex justify-center lg:justify-start">
             <div class="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm transition-all hover:bg-white/10 cursor-default">

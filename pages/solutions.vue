@@ -281,7 +281,7 @@
                <!-- 图片背景 -->
                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500" alt="Dev" />
 
-               <div class="absolute inset-0 p-6 md:p-8 flex flex-col justify-between relative z-10 text-white">
+               <div class="absolute inset-0 p-6 md:p-8 flex flex-col justify-between z-10 text-white">
                   <div>
                      <h3 class="text-xl md:text-2xl font-medium mb-2">一个想法，<br/>网站即刻上线</h3>
                   </div>

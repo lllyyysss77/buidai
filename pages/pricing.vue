@@ -1,14 +1,15 @@
 <template>
-  <div class="pt-48 pb-24 bg-white min-h-screen font-sans">
-    <div class="container mx-auto px-4">
-      <!-- Header -->
+  <div class="pt-48 pb-24 bg-white min-h-screen font-sans relative">
+    <!-- 背景装饰：左上角网格 -->
+    <div class="absolute top-0 left-0 w-full h-[600px] bg-[url('/grid.svg')] pointer-events-none [mask-image:linear-gradient(to_bottom,white,transparent)]"></div>
+
+    <div class="container mx-auto px-4 relative z-10">
+      <!-- 标题部分 -->
       <div class="text-center mb-16">
-        <h1 class="text-4xl md:text-6xl font-bold mb-4">
-          <span class="text-blue-600">
-            选择更适合你的版本
-          </span>
+        <h1 class="text-4xl md:text-5xl lg:text-[56px] font-bold text-[#0F0F12] tracking-tight leading-[1.15] mb-6">
+          选择更适合 <span class="text-[#6E58FF]">你的版本</span>
         </h1>
-        <p class="text-gray-500 text-lg mb-8">
+        <p class="text-lg text-[#5A5E6A] max-w-2xl mx-auto mb-10 leading-relaxed">
           免费使用或升级更高的套餐
         </p>
 
@@ -56,9 +57,9 @@
         </div>
       </div>
 
-      <!-- Cloud Plans Grid -->
-      <div v-if="activeTab === 'cloud'" class="grid md:grid-cols-4 gap-6 max-w-7xl mx-auto mb-24">
-        <!-- Free Plan -->
+      <!-- 云服务计划网格 -->
+      <div v-if="activeTab === 'cloud'" class="grid md:grid-cols-4 gap-6 container mx-auto mb-24">
+        <!-- 免费版 -->
         <div class="bg-white rounded-2xl p-6 border border-gray-200 flex flex-col transition-colors shadow-sm hover:shadow-md">
           <h3 class="text-gray-900 font-bold mb-2">免费版</h3>
           <div class="text-4xl font-bold text-gray-900 mb-4">¥0</div>
@@ -76,7 +77,7 @@
           </ul>
         </div>
 
-        <!-- Basic Plan -->
+        <!-- 基础版 -->
         <div class="bg-white rounded-2xl p-6 border border-gray-200 flex flex-col transition-colors shadow-sm hover:shadow-md">
           <h3 class="text-gray-900 font-bold mb-2">基础版</h3>
           <div class="text-4xl font-bold text-gray-900 mb-4">¥{{ isYearly ? 990 : 99 }}</div>
@@ -94,7 +95,7 @@
           </ul>
         </div>
 
-        <!-- Premium Plan -->
+        <!-- 高级版 -->
         <div class="bg-white rounded-2xl p-6 border border-gray-200 flex flex-col transition-colors shadow-sm hover:shadow-md">
           <h3 class="text-gray-900 font-bold mb-2">高级版</h3>
           <div class="text-4xl font-bold text-gray-900 mb-4">¥{{ isYearly ? 5990 : 599 }}</div>
@@ -112,7 +113,7 @@
           </ul>
         </div>
 
-        <!-- Custom Plan -->
+        <!-- 定制版 -->
         <div class="bg-white rounded-2xl p-6 border border-gray-200 flex flex-col transition-colors shadow-sm hover:shadow-md">
           <h3 class="text-gray-900 font-bold mb-2">定制版</h3>
           <div class="text-4xl font-bold text-gray-900 mb-4 tracking-tighter">定制化计费</div>
@@ -131,7 +132,7 @@
         </div>
       </div>
 
-      <!-- Self-hosted Plan (Placeholder based on design logic) -->
+      <!-- 私有化部署计划 (基于设计逻辑的占位符) -->
       <div v-if="activeTab === 'self'" class="flex justify-center mb-24">
         <div class="bg-white rounded-2xl p-8 border border-gray-200 max-w-md w-full transition-colors text-center shadow-sm hover:shadow-md">
 
@@ -158,29 +159,40 @@
       </div>
 
       <!-- FAQ Section -->
-      <div class="max-w-3xl mx-auto">
-        <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">FAQ</h2>
-        <div class="space-y-4">
-          <div
-            v-for="(item, index) in faqs"
-            :key="index"
-            class="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden hover:bg-gray-100 transition-colors"
-          >
-            <button
-              @click="toggleFaq(index)"
-              class="w-full px-6 py-4 flex items-center justify-between text-left focus:outline-none"
-            >
-              <span class="text-gray-900 font-medium">{{ item.question }}</span>
-              <span class="text-gray-500 transition-transform duration-200" :class="{ 'rotate-180': item.isOpen }">
-                <MinusIcon v-if="item.isOpen" class="w-5 h-5" />
-                <PlusIcon v-else class="w-5 h-5" />
-              </span>
-            </button>
+      <div class="py-24">
+        <div class="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start">
+          <!-- 左侧：标题 -->
+          <div class="lg:w-1/3">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#0F0F12]">常见问题</h2>
+          </div>
+
+          <!-- 右侧：FAQ 列表 -->
+          <div class="lg:w-2/3 w-full space-y-4">
             <div
-              v-show="item.isOpen"
-              class="px-6 pb-4 text-gray-600 text-sm leading-relaxed"
+              v-for="(item, index) in faqs"
+              :key="index"
+              class="bg-white rounded-2xl transition-all duration-300 overflow-hidden border border-gray-100"
             >
-              {{ item.answer }}
+              <button
+                @click="toggleFaq(index)"
+                class="w-full flex items-start justify-between p-6 text-left focus:outline-none hover:bg-gray-50 transition-colors"
+              >
+                <span class="text-lg font-medium text-[#0F0F12] pr-8">{{ item.question }}</span>
+                <span class="text-gray-400 shrink-0 mt-1 transition-transform duration-300" :class="{ 'rotate-180': item.isOpen }">
+                  <MinusIcon v-if="item.isOpen" class="w-5 h-5" />
+                  <PlusIcon v-else class="w-5 h-5" />
+                </span>
+              </button>
+              <div
+                class="grid transition-all duration-300 ease-in-out"
+                :class="item.isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
+              >
+                <div class="overflow-hidden">
+                  <div class="px-6 pb-6 text-[15px] text-[#5A5E6A] leading-relaxed">
+                    {{ item.answer }}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

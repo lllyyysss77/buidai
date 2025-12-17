@@ -27,7 +27,7 @@
               v-for="item in navigation"
               :key="item.href"
               :to="item.href"
-              class="h-9 px-4 rounded-lg text-[15px] font-medium flex items-center justify-center transition-all duration-200"
+              class="h-9 px-4 rounded-lg text-[18px] font-medium flex items-center justify-center transition-all duration-200"
               :class="[
                 (isHome && !isScrolled)
                   ? ($route.path === item.href ? 'text-white font-semibold' : 'text-white/80 hover:text-white hover:bg-white/10')
@@ -42,7 +42,7 @@
         <!-- Right side buttons -->
         <div class="hidden md:flex items-center gap-3">
           <button
-            class="h-9 px-6 rounded-lg text-[14px] font-medium transition-colors duration-200 outline-none flex items-center justify-center"
+            class="h-9 px-6 rounded-lg text-[16px] font-medium transition-colors duration-200 outline-none flex items-center justify-center"
             :class="[
               (isHome && !isScrolled)
                 ? 'bg-white/10 text-white hover:bg-white/20'
@@ -53,7 +53,7 @@
           </button>
           <div>
             <button
-              class="h-9 px-6 rounded-lg text-[14px] font-medium leading-none pt-[2px] transition-all duration-200 outline-none flex items-center justify-center"
+              class="h-9 px-6 rounded-lg text-[16px] font-medium leading-none pt-[2px] transition-all duration-200 outline-none flex items-center justify-center"
               :class="[
                 (isHome && !isScrolled)
                   ? 'bg-white text-gray-900 hover:bg-gray-50'
@@ -157,9 +157,9 @@ onUnmounted(() => {
 
 const navigation = [
   { name: '首页', href: '/' },
-  { name: '应用市场', href: '/plugin' },
-  { name: '产品', href: '/features' },
-  { name: '解决方案', href: '/solutions' },
+  { name: '应用', href: '/plugin' },
+  { name: '必定', href: '/features' },
+  { name: '空间', href: '/solutions' },
   { name: '定价', href: '/pricing' },
   { name: '资源', href: '/resources' },
 ]

@@ -31,33 +31,32 @@
 - **Props**: Define props using `defineProps<PropsType>()` for better type inference.
 - **Emits**: Define emits using `defineEmits<{ ... }>()`.
 
-### 4.2. TypeScript & Documentation
-- **Strict Typing**: Avoid `any` whenever possible. Define interfaces/types for data structures.
-- **Comments**:
-  - **Language**: All comments MUST be in **Chinese**.
-  - **Function-Level Comments**: Every function MUST have a comment block explaining:
-    - Functionality description.
-    - Parameters (name, type, description).
-    - Return value (type, description).
-  ```typescript
-  /**
-   * 计算包含税费的总价。
-   *
-   * @param price - 商品基础价格。
-   * @param taxRate - 适用的税率（例如 0.1 表示 10%）。
-   * @returns 包含税费的最终价格。
-   */
-  const calculateTotal = (price: number, taxRate: number): number => { ... }
-  ```
-
 ### 4.3. Styling (Tailwind CSS)
 - Use Utility classes primarily.
+- **Layout Consistency**: Use `container mx-auto px-4` for the main content width of each page section to ensure consistent alignment across the application.
 - Use the configured theme colors in `tailwind.config.js`:
   - `primary`: Main brand colors.
   - `accent`: Accent/Highlight colors.
   - `secondary`: Neutral/Background colors.
 - Avoid `<style scoped>` unless necessary for complex animations or pseudo-elements not easily handled by Tailwind.
 - Dark mode is configured via `class` strategy (`darkMode: 'class'`).
+
+### 4.4. Comments & Documentation
+- **Language**: All comments (including code comments and HTML comments) MUST be in **Chinese**.
+- **Function-Level Comments**: Every function MUST have a comment block explaining:
+  - Functionality description.
+  - Parameters (name, type, description).
+  - Return value (type, description).
+```typescript
+/**
+ * 计算包含税费的总价。
+ *
+ * @param price - 商品基础价格。
+ * @param taxRate - 适用的税率（例如 0.1 表示 10%）。
+ * @returns 包含税费的最终价格。
+ */
+const calculateTotal = (price: number, taxRate: number): number => { ... }
+```
 
 ## 5. Best Practices
 - **Auto-imports**: Leverage Nuxt's auto-import feature for Vue composables (`ref`, `computed`, etc.) and Nuxt utils (`useRouter`, `useState`).

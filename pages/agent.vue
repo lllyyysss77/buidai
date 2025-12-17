@@ -81,7 +81,7 @@
     <!-- 功能部分 -->
     <section class="py-24">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-16 text-gray-900">产品特性介绍</h2>
+        <h2 class="text-3xl font-bold text-center mb-16 text-gray-900">Agent释放智能体无限潜能</h2>
 
         <div class="flex flex-col gap-12">
           <div v-for="(feature, idx) in features" :key="idx"
@@ -190,10 +190,10 @@
           </div>
 
           <div class="flex items-center gap-4">
-            <button class="px-8 py-3 rounded-full bg-white border border-gray-200 text-gray-900 font-semibold hover:bg-gray-50 transition-all shadow-sm">
-              演示环境
+            <button class="w-[200px] h-[60px] text-[22px] font-semibold px-10 py-3 rounded-full bg-white border border-gray-200 text-gray-900 hover:bg-gray-50 transition-all shadow-sm">
+              立即使用
             </button>
-            <button class="px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold hover:opacity-90 transition-all shadow-lg shadow-blue-500/20">
+            <button class="w-[200px] h-[60px] text-[22px] font-semibold px-10 py-3 rounded-full bg-[#080d1ee6] text-white hover:bg-[#080d1e] transition-all shadow-lg">
               开始使用
             </button>
           </div>
@@ -270,36 +270,28 @@ const featureCards = [
  */
 const features = [
   {
-    title: '特定领域 AI 客服',
-    desc: '通过导入文档或问答对来训练 AI 模型，使其能够基于特定领域知识库进行交互式对话，构建特定领域的 AI 智能客服。',
-    icon: ChatBubbleBottomCenterTextIcon,
+    title: '必定开发平台',
+    desc: '零基础开启 Agent 专业开发。必定开发平台是一站式 Al Agent 开发工具。提供各类最新大模型和工具、多种开发模式和框架，从开发到部署，为你提供最便捷的 Agent 开发环境。上万家企业、数百万开发者正在使用必定开发平台。',
+    icon: CubeIcon,
     iconColor: 'text-blue-500',
     iconBg: 'bg-blue-50',
-    image: '/plugin/智能客服助手.png'
+    image: '/agent-1.png'
   },
   {
-    title: '自动化数据预处理',
-    desc: '提供手动输入、直接分段、LLM 自动处理等多种数据导入方式，自动完成文本预处理、向量化和 QA 分割，节省手动训练时间，提高效率。',
-    icon: CircleStackIcon,
+    title: '必定罗盘',
+    desc: '让 Agent 开发调优不再迷航。必定罗盘是一个面向开发者，专注于 Al Agent 开发与运维的平台级解决方案。它可以解决 AlAgent 开发过程中面临的各种挑战，提供从开发、调试、评估、到监控的全生命周期管理能力。',
+    icon: WrenchScrewdriverIcon,
     iconColor: 'text-purple-500',
     iconBg: 'bg-purple-50',
-    image: '/2.png'
+    image: '/agent-2.gif'
   },
   {
-    title: '工作流编排',
-    desc: '支持工作流（AI Workflow）编排，可以基于可视化的拖拽界面设计更加复杂的问答流程，如查询数据库、查询库存、预约实验室等。',
-    icon: ArrowsRightLeftIcon,
+    title: 'Eino 框架',
+    desc: '让 Agent 开发从未如此简单。Eino 是基于Go 语言的 Al Agent 开源开发框架，提供了丰富的辅助 Al Agent 开发的原子组件、集成组件、组件编排、切面扩展等能力，可以帮助开发者更加简单便捷地开发出架构清晰、易维护、高可用的 Al Agent 和各类AI 应用。',
+    icon: PuzzlePieceIcon,
     iconColor: 'text-yellow-500',
     iconBg: 'bg-yellow-50',
-    image: '/3.png'
-  },
-  {
-    title: '强大的 API 集成',
-    desc: '提供与 OpenAI 官方接口对齐的 API，直接接入现有 GPT 应用，轻松集成企业微信、公众号、飞书等平台。',
-    icon: CommandLineIcon,
-    iconColor: 'text-green-500',
-    iconBg: 'bg-green-50',
-    image: '/4.png'
+    image: '/agent-3.png'
   }
 ]
 

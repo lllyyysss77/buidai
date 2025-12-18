@@ -13,29 +13,29 @@
     "agent/index.html": {
       "path": "agent"
     },
-    "solutions/index.html": {
-      "path": "solutions"
-    },
     "pricing/index.html": {
       "path": "pricing"
-    },
-    "changelog/index.html": {
-      "path": "changelog"
     },
     "plugin/index.html": {
       "path": "plugin"
     },
-    "about/index.html": {
-      "path": "about"
-    },
-    "resources/index.html": {
-      "path": "resources"
+    "solutions/index.html": {
+      "path": "solutions"
     },
     "blog/index.html": {
       "path": "blog"
     },
+    "changelog/index.html": {
+      "path": "changelog"
+    },
+    "resources/index.html": {
+      "path": "resources"
+    },
     "docs/index.html": {
       "path": "docs"
+    },
+    "about/index.html": {
+      "path": "about"
     },
     "blog/tailwind-responsive/index.html": {
       "path": "blog/tailwind-responsive"
@@ -48,6 +48,96 @@
     },
     "blog/start/index.html": {
       "path": "blog/start"
+    },
+    "docs/introduce/index.html": {
+      "path": "docs/introduce"
+    },
+    "docs/introduce/migration/index.html": {
+      "path": "docs/introduce/migration"
+    },
+    "docs/introduce/installation/index.html": {
+      "path": "docs/introduce/installation"
+    },
+    "docs/introduce/configuration/index.html": {
+      "path": "docs/introduce/configuration"
+    },
+    "docs/deploy/cloudflare-workers/index.html": {
+      "path": "docs/deploy/cloudflare-workers"
+    },
+    "docs/deploy/cloudflare-pages/index.html": {
+      "path": "docs/deploy/cloudflare-pages"
+    },
+    "docs/components/prose/index.html": {
+      "path": "docs/components/prose"
+    },
+    "docs/studio/introduction/index.html": {
+      "path": "docs/studio/introduction"
+    },
+    "docs/files/markdown/index.html": {
+      "path": "docs/files/markdown"
+    },
+    "docs/files/yaml/index.html": {
+      "path": "docs/files/yaml"
+    },
+    "docs/deploy/server/index.html": {
+      "path": "docs/deploy/server"
+    },
+    "docs/advanced/raw-content/index.html": {
+      "path": "docs/advanced/raw-content"
+    },
+    "docs/collections/sources/index.html": {
+      "path": "docs/collections/sources"
+    },
+    "docs/utils/query-collection/index.html": {
+      "path": "docs/utils/query-collection"
+    },
+    "docs/integrations/i18n/index.html": {
+      "path": "docs/integrations/i18n"
+    },
+    "docs/components/slot/index.html": {
+      "path": "docs/components/slot"
+    },
+    "docs/files/json/index.html": {
+      "path": "docs/files/json"
+    },
+    "docs/deploy/nuxthub/index.html": {
+      "path": "docs/deploy/nuxthub"
+    },
+    "docs/files/csv/index.html": {
+      "path": "docs/files/csv"
+    },
+    "docs/files/files/index.html": {
+      "path": "docs/files/files"
+    },
+    "docs/collections/validators/index.html": {
+      "path": "docs/collections/validators"
+    },
+    "docs/advanced/fulltext-search/index.html": {
+      "path": "docs/advanced/fulltext-search"
+    },
+    "docs/collections/define/index.html": {
+      "path": "docs/collections/define"
+    },
+    "docs/studio/setup/index.html": {
+      "path": "docs/studio/setup"
+    },
+    "docs/integrations/llms/index.html": {
+      "path": "docs/integrations/llms"
+    },
+    "docs/collections/inherit-schema-from-component/index.html": {
+      "path": "docs/collections/inherit-schema-from-component"
+    },
+    "docs/deploy/serverless/index.html": {
+      "path": "docs/deploy/serverless"
+    },
+    "docs/studio/providers/index.html": {
+      "path": "docs/studio/providers"
+    },
+    "docs/collections/types/index.html": {
+      "path": "docs/collections/types"
+    },
+    "docs/components/content-renderer/index.html": {
+      "path": "docs/components/content-renderer"
     }
   },
   "routes": [

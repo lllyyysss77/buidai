@@ -1,4 +1,35 @@
 import { defineNuxtConfig } from 'nuxt/config'
+import fs from 'node:fs'
+import path from 'node:path'
+
+// 用于生成内容文件路由以进行预渲染的辅助函数
+const getDocsRoutes = () => {
+  const routes: string[] = []
+  const docsDir = path.resolve(process.cwd(), 'content/docs')
+
+  if (!fs.existsSync(docsDir)) return routes
+
+  const traverse = (dir: string, urlPrefix: string) => {
+    const entries = fs.readdirSync(dir, { withFileTypes: true })
+
+    for (const entry of entries) {
+      if (entry.isDirectory()) {
+        const cleanName = entry.name.replace(/^\d+\./, '')
+        traverse(path.join(dir, entry.name), `${urlPrefix}/${cleanName}`)
+      } else if (entry.name.endsWith('.md')) {
+        const cleanName = entry.name.replace(/^\d+\./, '').replace(/\.md$/, '')
+        if (cleanName === 'index') {
+          routes.push(urlPrefix)
+        } else {
+          routes.push(`${urlPrefix}/${cleanName}`)
+        }
+      }
+    }
+  }
+
+  traverse(docsDir, '/docs')
+  return routes
+}
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
@@ -19,7 +50,8 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'vercel-static',
     prerender: {
-      failOnError: false
+      failOnError: false,
+      routes: getDocsRoutes()
     }
   },
   // @ts-ignore

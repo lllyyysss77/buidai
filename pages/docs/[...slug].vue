@@ -13,110 +13,120 @@
 
         <!-- Main Content -->
         <main class="lg:col-span-9 xl:col-span-8 min-w-0 py-8 lg:px-4">
-          <article v-if="page" class="prose prose-slate max-w-none dark:prose-invert">
-            <!-- Breadcrumbs -->
-            <nav class="flex items-center text-sm text-gray-500 mb-6 not-prose">
-              <NuxtLink to="/docs" class="hover:text-gray-900 transition-colors">Docs</NuxtLink>
-              <ChevronRightIcon class="h-4 w-4 mx-2 text-gray-400" />
-              <span class="font-medium text-gray-900 truncate">{{ page.title }}</span>
-            </nav>
+          <NuxtErrorBoundary>
+            <article v-if="page" class="prose prose-slate max-w-none dark:prose-invert">
+              <!-- Breadcrumbs -->
+              <nav class="flex items-center text-sm text-gray-500 mb-6 not-prose">
+                <NuxtLink to="/docs" class="hover:text-gray-900 transition-colors">Docs</NuxtLink>
+                <ChevronRightIcon class="h-4 w-4 mx-2 text-gray-400" />
+                <span class="font-medium text-gray-900 truncate">{{ page.title }}</span>
+              </nav>
 
-            <header class="mb-10 border-b border-gray-100 pb-10 not-prose">
-              <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-6">{{ page.title }}</h1>
-              <p class="text-xl text-gray-500 leading-relaxed max-w-3xl">{{ page.description }}</p>
-            </header>
+              <header class="mb-10 border-b border-gray-100 pb-10 not-prose">
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-6">{{ page.title }}</h1>
+                <p class="text-xl text-gray-500 leading-relaxed max-w-3xl">{{ page.description }}</p>
+              </header>
 
-            <!-- Mobile TOC -->
-            <div v-if="page?.body?.toc?.links?.length" class="xl:hidden mb-8 not-prose">
-              <div class="rounded-xl border border-gray-200 bg-gray-50/50 backdrop-blur-sm">
-                <button
-                  @click="isTocOpen = !isTocOpen"
-                  class="flex w-full items-center justify-between px-4 py-3 text-left text-sm font-medium text-gray-900 focus:outline-none"
-                >
-                  <span>On this page</span>
-                  <ChevronDownIcon
-                    :class="[isTocOpen ? 'rotate-180' : '', 'h-5 w-5 text-gray-500 transition-transform duration-200']"
-                  />
-                </button>
-                <div v-show="isTocOpen" class="border-t border-gray-200 px-4 pb-4 pt-2">
-                  <nav class="space-y-1">
-                    <div v-for="link in page.body.toc.links" :key="link.id">
-                      <a
-                        :href="`#${link.id}`"
-                        class="block py-1.5 text-sm transition-colors truncate"
-                        :class="activeId === link.id ? 'text-primary-600 font-medium' : 'text-gray-500 hover:text-gray-900'"
-                        @click.prevent="scrollToHeading(link.id); isTocOpen = false"
-                      >
-                        {{ link.text }}
-                      </a>
-                      <div v-if="link.children" class="pl-4 mt-1 space-y-1">
+              <!-- Mobile TOC -->
+              <div v-if="page?.body?.toc?.links?.length" class="xl:hidden mb-8 not-prose">
+                <div class="rounded-xl border border-gray-200 bg-gray-50/50 backdrop-blur-sm">
+                  <button
+                    @click="isTocOpen = !isTocOpen"
+                    class="flex w-full items-center justify-between px-4 py-3 text-left text-sm font-medium text-gray-900 focus:outline-none"
+                  >
+                    <span>On this page</span>
+                    <ChevronDownIcon
+                      :class="[isTocOpen ? 'rotate-180' : '', 'h-5 w-5 text-gray-500 transition-transform duration-200']"
+                    />
+                  </button>
+                  <div v-show="isTocOpen" class="border-t border-gray-200 px-4 pb-4 pt-2">
+                    <nav class="space-y-1">
+                      <div v-for="link in page.body.toc.links" :key="link.id">
                         <a
-                          v-for="child in link.children"
-                          :key="child.id"
-                          :href="`#${child.id}`"
-                          class="block py-1 text-xs transition-colors truncate"
-                          :class="activeId === child.id ? 'text-primary-600 font-medium' : 'text-gray-500 hover:text-gray-900'"
-                          @click.prevent="scrollToHeading(child.id); isTocOpen = false"
+                          :href="`#${link.id}`"
+                          class="block py-1.5 text-sm transition-colors truncate"
+                          :class="activeId === link.id ? 'text-primary-600 font-medium' : 'text-gray-500 hover:text-gray-900'"
+                          @click.prevent="scrollToHeading(link.id); isTocOpen = false"
                         >
-                          {{ child.text }}
+                          {{ link.text }}
                         </a>
+                        <div v-if="link.children" class="pl-4 mt-1 space-y-1">
+                          <a
+                            v-for="child in link.children"
+                            :key="child.id"
+                            :href="`#${child.id}`"
+                            class="block py-1 text-xs transition-colors truncate"
+                            :class="activeId === child.id ? 'text-primary-600 font-medium' : 'text-gray-500 hover:text-gray-900'"
+                            @click.prevent="scrollToHeading(child.id); isTocOpen = false"
+                          >
+                            {{ child.text }}
+                          </a>
+                        </div>
                       </div>
-                    </div>
-                  </nav>
+                    </nav>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Content Renderer -->
-            <div class="doc-content">
-              <ContentRenderer :value="page" />
-            </div>
-
-            <!-- Footer: Edit Link & Navigation -->
-            <div class="mt-16 pt-8 border-t border-gray-100 not-prose">
-              <div class="mb-8 flex justify-end">
-                <a href="#" class="text-sm text-gray-500 hover:text-primary-600 flex items-center transition-colors font-medium">
-                  <PencilIcon class="h-4 w-4 mr-1.5" />
-                  Edit this page on GitHub
-                </a>
+              <!-- Content Renderer -->
+              <div class="doc-content">
+                <ContentRenderer :value="page" />
               </div>
 
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <!-- Prev -->
-                <NuxtLink
-                  v-if="surround?.[0]"
-                  :to="surround[0].path"
-                  class="group border border-gray-200 rounded-xl p-6 hover:border-primary-500/50 hover:shadow-sm hover:bg-primary-50/30 transition-all block"
-                >
-                  <div class="flex items-center text-sm text-gray-500 mb-2 group-hover:text-primary-600">
-                    <ArrowLeftIcon class="h-4 w-4 mr-1" />
-                    Previous
-                  </div>
-                  <div class="font-semibold text-gray-900 group-hover:text-primary-700">{{ surround[0].title }}</div>
-                </NuxtLink>
-                <div v-else></div>
+              <!-- Footer: Edit Link & Navigation -->
+              <div class="mt-16 pt-8 border-t border-gray-100 not-prose">
+                <div class="mb-8 flex justify-end">
+                  <a href="#" class="text-sm text-gray-500 hover:text-primary-600 flex items-center transition-colors font-medium">
+                    <PencilIcon class="h-4 w-4 mr-1.5" />
+                    Edit this page on GitHub
+                  </a>
+                </div>
 
-                <!-- Next -->
-                <NuxtLink
-                  v-if="surround?.[1]"
-                  :to="surround[1].path"
-                  class="group border border-gray-200 rounded-xl p-6 hover:border-primary-500/50 hover:shadow-sm hover:bg-primary-50/30 transition-all block text-right"
-                >
-                  <div class="flex items-center justify-end text-sm text-gray-500 mb-2 group-hover:text-primary-600">
-                    Next
-                    <ArrowRightIcon class="h-4 w-4 ml-1" />
-                  </div>
-                  <div class="font-semibold text-gray-900 group-hover:text-primary-700">{{ surround[1].title }}</div>
-                </NuxtLink>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <!-- Prev -->
+                  <NuxtLink
+                    v-if="surround?.[0]"
+                    :to="surround[0].path"
+                    class="group border border-gray-200 rounded-xl p-6 hover:border-primary-500/50 hover:shadow-sm hover:bg-primary-50/30 transition-all block"
+                  >
+                    <div class="flex items-center text-sm text-gray-500 mb-2 group-hover:text-primary-600">
+                      <ArrowLeftIcon class="h-4 w-4 mr-1" />
+                      Previous
+                    </div>
+                    <div class="font-semibold text-gray-900 group-hover:text-primary-700">{{ surround[0].title }}</div>
+                  </NuxtLink>
+                  <div v-else></div>
+
+                  <!-- Next -->
+                  <NuxtLink
+                    v-if="surround?.[1]"
+                    :to="surround[1].path"
+                    class="group border border-gray-200 rounded-xl p-6 hover:border-primary-500/50 hover:shadow-sm hover:bg-primary-50/30 transition-all block text-right"
+                  >
+                    <div class="flex items-center justify-end text-sm text-gray-500 mb-2 group-hover:text-primary-600">
+                      Next
+                      <ArrowRightIcon class="h-4 w-4 ml-1" />
+                    </div>
+                    <div class="font-semibold text-gray-900 group-hover:text-primary-700">{{ surround[1].title }}</div>
+                  </NuxtLink>
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
 
-          <div v-else class="py-12 text-center">
-            <h1 class="text-2xl font-bold text-gray-900">文档未找到</h1>
-            <p class="text-gray-500 mt-2">请求的页面不存在。</p>
-            <NuxtLink to="/docs" class="text-primary-600 mt-4 inline-block hover:underline">返回文档首页</NuxtLink>
-          </div>
+            <div v-else class="py-12 text-center">
+              <h1 class="text-2xl font-bold text-gray-900">文档未找到</h1>
+              <p class="text-gray-500 mt-2">请求的页面不存在。</p>
+              <NuxtLink to="/docs" class="text-primary-600 mt-4 inline-block hover:underline">返回文档首页</NuxtLink>
+            </div>
+
+            <template #error="{ error, clearError }">
+              <div class="py-12 text-center">
+                <h1 class="text-2xl font-bold text-gray-900">加载文档出错</h1>
+                <p class="text-gray-500 mt-2">{{ error }}</p>
+                <button @click="clearError" class="text-primary-600 mt-4 inline-block hover:underline">重试</button>
+              </div>
+            </template>
+          </NuxtErrorBoundary>
         </main>
 
         <!-- Right Sidebar (TOC) -->
@@ -179,6 +189,11 @@ const [{ data: page }, { data: surround }] = await Promise.all([
     fields: ['title', 'path']
   }))
 ])
+
+// Handle 404
+if (!page.value) {
+  setResponseStatus(404)
+}
 
 const activeId = ref('')
 const isTocOpen = ref(false)

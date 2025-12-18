@@ -8,6 +8,7 @@
 
 <script setup lang="ts">
 const { data: navigation } = await useAsyncData('docs-nav-root', () => {
+  // @ts-ignore: Nuxt Content v3 Alpha type mismatch
   return queryCollectionNavigation('docs')
 })
 

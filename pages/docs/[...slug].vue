@@ -7,30 +7,35 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
 
         <!-- Left Sidebar (Navigation) -->
-        <!-- 使用 sticky 定位替代 fixed，避免复杂的 left 计算问题 -->
-        <aside class="hidden lg:block lg:col-span-3 xl:col-span-2 sticky top-[72px] h-[calc(100vh-72px)] overflow-y-auto py-8 pr-4 border-r border-gray-100">
+        <aside class="hidden lg:block lg:col-span-3 xl:col-span-2 sticky top-[72px] h-[calc(100vh-72px)] overflow-y-auto py-8 pr-4 border-r border-gray-100 scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-transparent">
           <DocsSidebar :navigation="navigation ?? []" />
         </aside>
 
         <!-- Main Content -->
         <main class="lg:col-span-9 xl:col-span-8 min-w-0 py-8 lg:px-4">
-          <article v-if="page" class="prose prose-indigo max-w-none prose-headings:scroll-mt-24">
-            <header class="mb-8 border-b border-gray-100 pb-8">
-              <!-- <p class="text-sm font-semibold text-[#6541f8] mb-2">{{ page.category }}</p> -->
-              <h1 class="text-3xl sm:text-4xl font-extrabold text-[#0f172b] tracking-tight mb-4">{{ page.title }}</h1>
-              <p class="text-xl text-[#62748e]">{{ page.description }}</p>
+          <article v-if="page" class="prose prose-slate max-w-none dark:prose-invert">
+            <!-- Breadcrumbs -->
+            <nav class="flex items-center text-sm text-gray-500 mb-6 not-prose">
+              <NuxtLink to="/docs" class="hover:text-gray-900 transition-colors">Docs</NuxtLink>
+              <ChevronRightIcon class="h-4 w-4 mx-2 text-gray-400" />
+              <span class="font-medium text-gray-900 truncate">{{ page.title }}</span>
+            </nav>
+
+            <header class="mb-10 border-b border-gray-100 pb-10 not-prose">
+              <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-6">{{ page.title }}</h1>
+              <p class="text-xl text-gray-500 leading-relaxed max-w-3xl">{{ page.description }}</p>
             </header>
 
             <!-- Mobile TOC -->
-            <div v-if="page?.body?.toc?.links?.length" class="xl:hidden mb-8">
-              <div class="rounded-lg border border-gray-200 bg-gray-50">
+            <div v-if="page?.body?.toc?.links?.length" class="xl:hidden mb-8 not-prose">
+              <div class="rounded-xl border border-gray-200 bg-gray-50/50 backdrop-blur-sm">
                 <button
                   @click="isTocOpen = !isTocOpen"
-                  class="flex w-full items-center justify-between px-4 py-3 text-left text-sm font-medium text-[#0f172b] focus:outline-none"
+                  class="flex w-full items-center justify-between px-4 py-3 text-left text-sm font-medium text-gray-900 focus:outline-none"
                 >
-                  <span>本页目录</span>
+                  <span>On this page</span>
                   <ChevronDownIcon
-                    :class="[isTocOpen ? 'rotate-180' : '', 'h-5 w-5 text-[#62748e] transition-transform duration-200']"
+                    :class="[isTocOpen ? 'rotate-180' : '', 'h-5 w-5 text-gray-500 transition-transform duration-200']"
                   />
                 </button>
                 <div v-show="isTocOpen" class="border-t border-gray-200 px-4 pb-4 pt-2">
@@ -39,7 +44,7 @@
                       <a
                         :href="`#${link.id}`"
                         class="block py-1.5 text-sm transition-colors truncate"
-                        :class="activeId === link.id ? 'text-[#0f172b] font-medium' : 'text-[#62748e] hover:text-[#0f172b]'"
+                        :class="activeId === link.id ? 'text-primary-600 font-medium' : 'text-gray-500 hover:text-gray-900'"
                         @click.prevent="scrollToHeading(link.id); isTocOpen = false"
                       >
                         {{ link.text }}
@@ -50,7 +55,7 @@
                           :key="child.id"
                           :href="`#${child.id}`"
                           class="block py-1 text-xs transition-colors truncate"
-                          :class="activeId === child.id ? 'text-[#0f172b] font-medium' : 'text-[#62748e] hover:text-[#0f172b]'"
+                          :class="activeId === child.id ? 'text-primary-600 font-medium' : 'text-gray-500 hover:text-gray-900'"
                           @click.prevent="scrollToHeading(child.id); isTocOpen = false"
                         >
                           {{ child.text }}
@@ -62,41 +67,79 @@
               </div>
             </div>
 
-            <ContentRenderer :value="page" />
+            <!-- Content Renderer -->
+            <div class="doc-content">
+              <ContentRenderer :value="page" />
+            </div>
 
-            <div class="mt-12 pt-8 border-t border-gray-100 flex justify-between">
-               <!-- Prev/Next Navigation placeholder, can be implemented similar to blog -->
+            <!-- Footer: Edit Link & Navigation -->
+            <div class="mt-16 pt-8 border-t border-gray-100 not-prose">
+              <div class="mb-8 flex justify-end">
+                <a href="#" class="text-sm text-gray-500 hover:text-primary-600 flex items-center transition-colors font-medium">
+                  <PencilIcon class="h-4 w-4 mr-1.5" />
+                  Edit this page on GitHub
+                </a>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <!-- Prev -->
+                <NuxtLink
+                  v-if="surround?.[0]"
+                  :to="surround[0].path"
+                  class="group border border-gray-200 rounded-xl p-6 hover:border-primary-500/50 hover:shadow-sm hover:bg-primary-50/30 transition-all block"
+                >
+                  <div class="flex items-center text-sm text-gray-500 mb-2 group-hover:text-primary-600">
+                    <ArrowLeftIcon class="h-4 w-4 mr-1" />
+                    Previous
+                  </div>
+                  <div class="font-semibold text-gray-900 group-hover:text-primary-700">{{ surround[0].title }}</div>
+                </NuxtLink>
+                <div v-else></div>
+
+                <!-- Next -->
+                <NuxtLink
+                  v-if="surround?.[1]"
+                  :to="surround[1].path"
+                  class="group border border-gray-200 rounded-xl p-6 hover:border-primary-500/50 hover:shadow-sm hover:bg-primary-50/30 transition-all block text-right"
+                >
+                  <div class="flex items-center justify-end text-sm text-gray-500 mb-2 group-hover:text-primary-600">
+                    Next
+                    <ArrowRightIcon class="h-4 w-4 ml-1" />
+                  </div>
+                  <div class="font-semibold text-gray-900 group-hover:text-primary-700">{{ surround[1].title }}</div>
+                </NuxtLink>
+              </div>
             </div>
           </article>
 
           <div v-else class="py-12 text-center">
             <h1 class="text-2xl font-bold text-gray-900">文档未找到</h1>
             <p class="text-gray-500 mt-2">请求的页面不存在。</p>
-            <NuxtLink to="/docs" class="text-[#0f172b] mt-4 inline-block hover:underline">返回文档首页</NuxtLink>
+            <NuxtLink to="/docs" class="text-primary-600 mt-4 inline-block hover:underline">返回文档首页</NuxtLink>
           </div>
         </main>
 
         <!-- Right Sidebar (TOC) -->
-        <aside class="hidden xl:block xl:col-span-2 sticky top-[72px] h-[calc(100vh-72px)] overflow-y-auto py-8 pl-4 border-l border-gray-100/50">
+        <aside class="hidden xl:block xl:col-span-2 sticky top-[72px] h-[calc(100vh-72px)] overflow-y-auto py-8 pl-4 border-l border-gray-100/50 scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-transparent">
           <div v-if="page?.body?.toc?.links?.length">
-            <h3 class="text-xs font-bold text-gray-400 mb-4 uppercase tracking-wider">本页目录</h3>
-            <nav class="space-y-1">
+            <h3 class="text-xs font-bold text-gray-900 mb-4 uppercase tracking-wider">On this page</h3>
+            <nav class="space-y-1 relative">
               <div v-for="link in page.body.toc.links" :key="link.id">
                 <a
                   :href="`#${link.id}`"
                   class="block py-1.5 text-sm transition-colors truncate"
-                  :class="activeId === link.id ? 'text-[#0f172b] font-medium border-l-2 border-[#0f172b] pl-2 -ml-2.5' : 'text-gray-500 hover:text-gray-900'"
+                  :class="activeId === link.id ? 'text-primary-600 font-medium pl-3 border-l-2 border-primary-600 -ml-[17px]' : 'text-gray-500 hover:text-gray-900'"
                   @click.prevent="scrollToHeading(link.id)"
                 >
                   {{ link.text }}
                 </a>
-                <div v-if="link.children" class="pl-4 mt-1 space-y-1">
+                <div v-if="link.children" class="pl-3 mt-1 space-y-1">
                   <a
                     v-for="child in link.children"
                     :key="child.id"
                     :href="`#${child.id}`"
                     class="block py-1 text-xs transition-colors truncate"
-                    :class="activeId === child.id ? 'text-[#0f172b] font-medium' : 'text-gray-400 hover:text-gray-900'"
+                    :class="activeId === child.id ? 'text-primary-600 font-medium' : 'text-gray-400 hover:text-gray-900'"
                     @click.prevent="scrollToHeading(child.id)"
                   >
                     {{ child.text }}
@@ -112,24 +155,40 @@
 </template>
 
 <script setup lang="ts">
-import { ChevronDownIcon } from '@heroicons/vue/24/outline'
+import { ChevronDownIcon, ChevronRightIcon, PencilIcon, ArrowLeftIcon, ArrowRightIcon } from '@heroicons/vue/24/outline'
 
 const route = useRoute()
-
-// Fetch Page
-const { data: page } = await useAsyncData(route.path, () => {
-  return queryCollection('docs').path(route.path).first()
+const currentPath = computed(() => {
+  const path = route.path
+  // 处理 URL 编码 (例如中文路径)
+  const decodedPath = decodeURIComponent(path)
+  // 移除尾部斜杠 (除非是根路径)
+  return decodedPath.endsWith('/') && decodedPath !== '/'
+    ? decodedPath.slice(0, -1)
+    : decodedPath
 })
 
-// Fetch Navigation
-const { data: navigation } = await useAsyncData('docs-nav', () => {
-  return queryCollectionNavigation('docs')
-})
+// Parallel Data Fetching
+const { data: navigation } = await useAsyncData('docs-navigation', () => queryCollectionNavigation('docs'))
+
+const [{ data: page }, { data: surround }] = await Promise.all([
+  // @ts-ignore: Nuxt Content v3 Alpha type mismatch
+  useAsyncData(`docs-${currentPath.value}`, () => queryCollection('docs').path(currentPath.value).first()),
+  // @ts-ignore: Nuxt Content v3 Alpha type mismatch
+  useAsyncData(`docs-surround-${currentPath.value}`, () => queryCollectionItemSurroundings('docs', currentPath.value, {
+    fields: ['title', 'path']
+  }))
+])
 
 const activeId = ref('')
 const isTocOpen = ref(false)
+let observer: IntersectionObserver | null = null
 
-// Scroll Handling
+/**
+ * 平滑滚动到指定的标题元素。
+ *
+ * @param id - 目标标题元素的 ID。
+ */
 const scrollToHeading = (id: string) => {
   const element = document.getElementById(id)
   if (element) {
@@ -151,7 +210,7 @@ const scrollToHeading = (id: string) => {
 
 // Observer for TOC
 onMounted(() => {
-  const observer = new IntersectionObserver(
+  observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -163,8 +222,15 @@ onMounted(() => {
   )
 
   document.querySelectorAll('h2, h3').forEach((section) => {
-    observer.observe(section)
+    observer?.observe(section)
   })
+})
+
+onUnmounted(() => {
+  if (observer) {
+    observer.disconnect()
+    observer = null
+  }
 })
 
 useSeoMeta({
@@ -173,24 +239,65 @@ useSeoMeta({
 })
 </script>
 
-<style scoped lang="postcss">
-/* Prose Customization */
-:deep(.prose h2) {
-  @apply scroll-mt-24 text-2xl font-bold text-[#0f172b] mt-12 mb-6;
+<style lang="postcss" scoped>
+/* Custom Prose Styles for Nuxt-like feel */
+:deep(.doc-content) {
+  @apply text-gray-700 dark:text-gray-300;
 }
-:deep(.prose h3) {
-  @apply scroll-mt-24 text-xl font-bold text-[#0f172b] mt-8 mb-4;
+
+:deep(.doc-content h2) {
+  @apply text-2xl font-bold text-gray-900 dark:text-gray-100 mt-12 mb-6 scroll-mt-24 tracking-tight border-b border-gray-100 dark:border-gray-800 pb-2;
 }
-:deep(.prose code) {
-  @apply text-[#0f172b] bg-[#0f172b]/5 px-1.5 py-0.5 rounded text-sm font-mono before:content-[''] after:content-[''];
+
+:deep(.doc-content h3) {
+  @apply text-xl font-bold text-gray-900 dark:text-gray-100 mt-8 mb-4 scroll-mt-24 tracking-tight;
 }
-:deep(.prose pre) {
-  @apply bg-gray-100 text-[#0f172b] p-4 rounded-xl overflow-x-auto my-6;
+
+:deep(.doc-content p) {
+  @apply leading-7 mb-5;
 }
-:deep(.prose a) {
-  @apply text-[#0f172b] no-underline hover:underline;
+
+:deep(.doc-content ul) {
+  @apply list-disc list-outside ml-6 mb-5 space-y-1;
 }
-:deep(.prose ul) {
-  @apply list-disc list-outside ml-6;
+
+:deep(.doc-content ol) {
+  @apply list-decimal list-outside ml-6 mb-5 space-y-1;
+}
+
+:deep(.doc-content a) {
+  @apply text-primary-600 dark:text-primary-400 font-medium no-underline border-b border-primary-600/30 dark:border-primary-400/30 hover:border-primary-600 dark:hover:border-primary-400 transition-colors;
+}
+
+:deep(.doc-content code) {
+  @apply font-mono text-sm text-primary-700 bg-primary-50 dark:text-primary-300 dark:bg-primary-900/30 px-1.5 py-0.5 rounded-md before:content-[''] after:content-[''] border border-primary-100 dark:border-primary-800;
+}
+
+:deep(.doc-content pre) {
+  @apply bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-50 rounded-xl p-5 overflow-x-auto mb-8 border border-slate-200 dark:border-slate-800 shadow-sm;
+}
+
+:deep(.doc-content pre code) {
+  @apply bg-transparent p-0 text-inherit border-none text-sm;
+}
+
+:deep(.doc-content blockquote) {
+  @apply border-l-4 border-primary-500 bg-primary-50/30 pl-4 py-1 pr-4 my-6 rounded-r-lg italic text-gray-700;
+}
+
+:deep(.doc-content img) {
+  @apply rounded-xl border border-gray-100 shadow-sm my-8;
+}
+
+:deep(.doc-content table) {
+  @apply w-full text-left border-collapse my-8;
+}
+
+:deep(.doc-content th) {
+  @apply border-b border-gray-200 py-3 px-4 text-sm font-semibold text-gray-900 bg-gray-50;
+}
+
+:deep(.doc-content td) {
+  @apply border-b border-gray-100 py-3 px-4 text-sm text-gray-600;
 }
 </style>

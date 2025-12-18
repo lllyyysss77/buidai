@@ -305,7 +305,9 @@ const faqs = ref([
  * @param index - 要切换的 FAQ 项目在数组中的索引。
  */
 const toggleFaq = (index: number) => {
-  faqs.value[index].isOpen = !faqs.value[index].isOpen
+  if (faqs.value[index]) {
+    faqs.value[index].isOpen = !faqs.value[index].isOpen
+  }
 }
 </script>
 

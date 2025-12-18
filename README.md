@@ -79,6 +79,14 @@ npm run build
 npm run preview
 ```
 
+### 类型检查
+
+运行 TypeScript 类型检查：
+
+```bash
+npm run typecheck
+```
+
 ## 🛠 技术栈概览
 
 | 类别 | 技术 | 说明 |

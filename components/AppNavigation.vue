@@ -6,7 +6,7 @@
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-[72px]">
         <!-- Left: Logo -->
-        <div class="flex items-center gap-10">
+        <div class="flex items-center gap-10 flex-1">
           <NuxtLink to="/" class="flex items-center gap-2 shrink-0">
             <img
               :src="isTransparent ? '/logo.svg' : '/logo-full.svg'"
@@ -19,50 +19,54 @@
 
           <!-- Center: Desktop Navigation -->
           <nav class="hidden md:flex items-center gap-1">
-            <NuxtLink
-              v-for="item in items"
-              :key="item.to"
-              :to="item.to"
-              class="h-9 px-4 rounded-full text-[15px] font-medium flex items-center justify-center transition-all duration-200"
-              :class="getItemClass(item)"
-            >
-              {{ item.label }}
-            </NuxtLink>
+            <UNavigationMenu
+              highlight
+              highlight-color="primary"
+              orientation="horizontal"
+              :items="items"
+              :ui="navigationMenuUi"
+              class="justify-center data-[orientation=horizontal]:border-b border-transparent"
+            />
           </nav>
         </div>
 
         <!-- Right: Actions & Mobile Toggle -->
-        <div class="flex items-center gap-3">
-          <!-- Desktop Actions -->
-          <div class="hidden md:flex items-center gap-3">
-            <NuxtLink
-              to="/docs"
-              class="h-10 px-6 rounded-full text-[15px] font-medium transition-colors duration-200 flex items-center justify-center"
-              :class="isTransparent ? 'bg-white/10 text-white hover:bg-white/20' : 'bg-indigo-50 text-indigo-900 hover:bg-indigo-100'"
-            >
-              文档中心
-            </NuxtLink>
-            <NuxtLink
-              to="https://cloud.buidai.com/login"
-              target="_blank"
-              class="h-10 px-6 rounded-full text-[15px] font-medium transition-all duration-200 flex items-center justify-center"
-              :class="isTransparent ? 'bg-white text-gray-900 hover:bg-gray-50' : 'bg-[#1e2129] text-white hover:bg-[#2c2f3a]'"
-            >
-              登录必定
-            </NuxtLink>
-          </div>
-
-          <!-- Mobile Menu Toggle -->
-          <button
-            class="md:hidden p-2 rounded-lg transition-colors duration-200"
-            :class="isTransparent ? 'text-white/80 hover:bg-white/10' : 'text-gray-600 hover:bg-gray-100'"
-            @click="mobileMenuOpen = !mobileMenuOpen"
-            aria-label="Toggle menu"
+      <div class="flex items-center gap-3">
+        <!-- Desktop Actions -->
+        <div class="hidden md:flex items-center gap-3">
+          <NuxtLink
+            to="/docs"
+            class="h-10 px-6 rounded-full text-[15px] font-medium transition-colors duration-200 flex items-center justify-center gap-2"
+            :class="isTransparent ? 'bg-white/10 text-white hover:bg-white/20' : 'bg-white border border-gray-200 text-gray-700 hover:bg-gray-50'"
           >
-            <Bars3Icon v-if="!mobileMenuOpen" class="w-6 h-6" />
-            <XMarkIcon v-else class="w-6 h-6" />
-          </button>
+            <BookOpenIcon class="w-4 h-4" />
+            文档中心
+          </NuxtLink>
+          <NuxtLink
+            to="https://cloud.buidai.com/login"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="h-10 px-6 rounded-full text-[15px] font-medium transition-all duration-200 flex items-center justify-center gap-2"
+            :class="isTransparent ? 'bg-white text-gray-900 hover:bg-gray-50' : 'bg-black text-white hover:bg-gray-800'"
+          >
+            <ArrowRightOnRectangleIcon class="w-4 h-4" />
+            登录必定
+          </NuxtLink>
         </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button
+          class="md:hidden p-2 rounded-lg transition-colors duration-200"
+          :class="isTransparent ? 'text-white/80 hover:bg-white/10' : 'text-gray-600 hover:bg-gray-100'"
+          @click="mobileMenuOpen = !mobileMenuOpen"
+          aria-label="Toggle menu"
+          :aria-expanded="mobileMenuOpen ? 'true' : 'false'"
+          aria-controls="mobile-menu-panel"
+        >
+          <Bars3Icon v-if="!mobileMenuOpen" class="w-6 h-6" />
+          <XMarkIcon v-else class="w-6 h-6" />
+        </button>
+      </div>
       </div>
     </div>
 
@@ -77,38 +81,34 @@
     >
       <div
         v-show="mobileMenuOpen"
-        class="md:hidden absolute top-full left-0 right-0 border-t py-6 px-6 shadow-xl h-[calc(100vh-72px)] overflow-y-auto"
-        :class="isTransparent ? 'border-white/10 bg-black/95 backdrop-blur-xl' : 'border-gray-200 bg-white'"
+        id="mobile-menu-panel"
+        class="md:hidden absolute top-full left-0 right-0 border-t border-gray-200 bg-white shadow-xl h-[calc(100dvh-72px)] overflow-y-auto pb-[env(safe-area-inset-bottom)]"
       >
-        <div class="flex flex-col space-y-6">
-          <div class="flex flex-col space-y-2">
-            <NuxtLink
-              v-for="item in items"
-              :key="item.to"
-              :to="item.to"
-              class="text-lg font-medium py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-between group min-h-[48px]"
-              :class="getMobileItemClass(item)"
-              @click="mobileMenuOpen = false"
-            >
-              {{ item.label }}
-              <span class="text-xs opacity-50 group-hover:opacity-100 transition-opacity">
-                 →
-              </span>
-            </NuxtLink>
-          </div>
+        <div class="flex flex-col space-y-4 p-4">
+          <UNavigationMenu
+            orientation="vertical"
+            :items="items"
+            :ui="mobileNavigationMenuUi"
+            class="w-full"
+          />
 
-          <div class="flex flex-col space-y-4 pt-6 border-t" :class="isTransparent ? 'border-white/10' : 'border-gray-100'">
+          <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+            <NuxtLink
+              to="/docs"
+              class="flex-1 h-12 rounded-xl text-base font-medium border border-gray-200 text-gray-700 hover:bg-gray-50 active:scale-[0.98] transition-all flex items-center justify-center gap-2 leading-relaxed"
+            >
+              <BookOpenIcon class="w-5 h-5" />
+              文档中心
+            </NuxtLink>
             <NuxtLink
               to="https://cloud.buidai.com/login"
               target="_blank"
-              class="w-full h-12 rounded-xl text-base font-medium border active:scale-[0.98] transition-all flex items-center justify-center"
-              :class="isTransparent ? 'text-white border-white/20 hover:bg-white/10' : 'text-gray-700 border-gray-200 hover:bg-gray-50'"
+              rel="noopener noreferrer"
+              class="flex-1 h-12 rounded-xl bg-black text-white text-base font-medium hover:bg-gray-800 active:scale-[0.98] transition-all flex items-center justify-center gap-2 leading-relaxed"
             >
+              <ArrowRightOnRectangleIcon class="w-5 h-5" />
               登录必定
             </NuxtLink>
-            <button class="w-full h-12 rounded-xl bg-primary-600 text-white text-base font-medium hover:bg-primary-700 active:scale-[0.98] transition-all shadow-lg shadow-primary-600/20">
-              立即体验
-            </button>
           </div>
         </div>
       </div>
@@ -119,56 +119,102 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
-
-// Types
-interface NavigationItem {
-  label: string
-  to: string
-  active?: boolean
-}
+import { Bars3Icon, XMarkIcon, BookOpenIcon, ArrowRightOnRectangleIcon } from '@heroicons/vue/24/outline'
+import type { NavigationMenuItem } from '@nuxt/ui'
 
 const route = useRoute()
 const mobileMenuOpen = ref(false)
 const isScrolled = ref(false)
 
-// Navigation Configuration
-const items = computed<NavigationItem[]>(() => [
-  { label: '首页', to: '/', active: route.path === '/' },
-  { label: 'BuidAI', to: '/agent', active: route.path.startsWith('/agent') },
-  { label: '必定空间', to: '/solutions', active: route.path.startsWith('/solutions') },
-  { label: '应用中心', to: '/plugin', active: route.path.startsWith('/plugin') },
-  { label: '产品定价', to: '/pricing', active: route.path.startsWith('/pricing') },
-  { label: '更新日志', to: '/changelog', active: route.path.startsWith('/changelog') },
-  { label: '技术博客', to: '/blog', active: route.path.startsWith('/blog') },
-  { label: '文档中心', to: '/docs', active: route.path.startsWith('/docs') },
-  { label: '资源中心', to: '/resources', active: route.path.startsWith('/resources') }
+// Navigation Configuration for UNavigationMenu
+const items = computed<NavigationMenuItem[][]>(() => [
+  [
+    { label: '首页', to: '/', icon: 'i-lucide-house' },
+    { label: 'BuidAI', to: '/agent', icon: 'i-lucide-bot' },
+    {
+      label: '必定空间',
+      icon: 'i-lucide-box',
+      children: [
+        {
+          label: '解决方案',
+          description: '探索 BuidAI 的行业解决方案',
+          icon: 'i-lucide-lightbulb',
+          to: '/solutions'
+        },
+        {
+          label: '应用中心',
+          description: '丰富的 AI 应用插件',
+          icon: 'i-lucide-grid',
+          to: '/plugin'
+        }
+      ]
+    },
+    { label: '产品定价', to: '/pricing', icon: 'i-lucide-tag' },
+    {
+      label: '资源中心',
+      icon: 'i-lucide-library',
+      children: [
+        {
+          label: '更新日志',
+          description: '查看产品最新动态',
+          icon: 'i-lucide-history',
+          to: '/changelog'
+        },
+        {
+          label: '技术博客',
+          description: '深入了解 AI 技术与实践',
+          icon: 'i-lucide-newspaper',
+          to: '/blog'
+        },
+        {
+          label: '文档中心',
+          description: '详细的使用指南和开发文档',
+          icon: 'i-lucide-book-open',
+          to: '/docs'
+        },
+        {
+          label: '资源下载',
+          description: '获取设计资源和开发工具',
+          icon: 'i-lucide-download',
+          to: '/resources'
+        }
+      ]
+    }
+  ]
 ])
 
-// Computed States
-const isHome = computed(() => route.path === '/')
-const isTransparent = computed(() => isHome.value && !isScrolled.value)
+// Removed unused mobileItems
 
-const headerClasses = computed(() =>
-  isTransparent.value
-    ? 'bg-transparent border-transparent'
-    : 'bg-white/80 backdrop-blur-lg border-black/5 shadow-sm'
-)
+// Computed States
+const isHome = computed(() => false)
+const isTransparent = computed(() => false)
+
+const headerClasses = computed(() => 'bg-white border-black/5')
+
+// UI Config for UNavigationMenu to match previous styles
+const navigationMenuUi = computed(() => ({
+  link: isTransparent.value
+    ? 'text-base text-white/80 hover:text-white hover:bg-white/10 font-medium rounded-lg'
+    : 'text-base text-gray-600 hover:text-gray-900 hover:bg-gray-50 font-medium rounded-lg',
+  linkActive: isTransparent.value
+    ? 'text-white font-bold bg-white/10 rounded-lg'
+    : 'text-ui-primary font-bold bg-ui-primary-weak rounded-lg',
+  linkLeadingIcon: isTransparent.value
+    ? 'text-white/60 group-hover:text-white'
+    : 'text-gray-400 group-hover:text-gray-500 group-[.router-link-active]:text-black dark:group-[.router-link-active]:text-white',
+  childLinkDescription: 'text-xs text-gray-500'
+}))
+
+// Dedicated Mobile UI Config for cleaner look and larger touch targets
+const mobileNavigationMenuUi = computed(() => ({
+  link: 'text-base text-gray-700 hover:text-gray-900 hover:bg-gray-50 font-medium rounded-lg px-3 py-3 min-h-[48px] flex items-center leading-relaxed',
+  linkActive: 'text-ui-primary font-bold bg-ui-primary-weak rounded-lg px-3 py-3 min-h-[48px] flex items-center',
+  linkLeadingIcon: 'text-gray-400 group-hover:text-gray-500 group-[.router-link-active]:text-black dark:group-[.router-link-active]:text-white w-5 h-5 mr-3',
+  childLinkDescription: 'text-sm text-gray-500 mt-1'
+}))
 
 // Helper Functions
-const getItemClass = (item: NavigationItem) => {
-  if (isTransparent.value) {
-    return item.active ? 'text-white font-bold' : 'text-white/80 hover:text-white hover:bg-white/10'
-  }
-  return item.active ? 'text-gray-900 font-bold' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-}
-
-const getMobileItemClass = (item: NavigationItem) => {
-  if (isTransparent.value) {
-    return item.active ? 'text-white bg-white/10' : 'text-gray-300 hover:text-white hover:bg-white/5'
-  }
-  return item.active ? 'text-primary-600 bg-primary-50' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
-}
+// getMobileItemClass removed as it's no longer used
 
 // Optimized Scroll Handler
 let ticking = false
@@ -186,17 +232,17 @@ const onScroll = () => {
 }
 
 // Lifecycle Hooks
-onMounted(() => {
-  window.addEventListener('scroll', onScroll, { passive: true })
-  if (window.scrollY > 10) isScrolled.value = true
-})
+onMounted(() => {})
 
-onUnmounted(() => {
-  window.removeEventListener('scroll', onScroll)
-})
+onUnmounted(() => {})
 
 // Route Watcher
 watch(() => route.path, () => {
   mobileMenuOpen.value = false
+})
+watch(mobileMenuOpen, (open) => {
+  if (typeof document !== 'undefined') {
+    document.body.style.overflow = open ? 'hidden' : ''
+  }
 })
 </script>

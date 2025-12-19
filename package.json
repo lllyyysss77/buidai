@@ -12,9 +12,12 @@
   "devDependencies": {
     "@headlessui/vue": "^1.7.22",
     "@heroicons/vue": "^2.1.5",
+    "@iconify-json/lucide": "^1.2.81",
+    "@iconify-json/ph": "^1.2.2",
+    "@iconify-json/simple-icons": "^1.2.63",
     "@nuxt/devtools": "^1.0.8",
+    "@nuxt/fonts": "^0.12.1",
     "@nuxt/test-utils": "^3.21.0",
-    "@nuxtjs/tailwindcss": "^6.12.0",
     "@storybook/vue3": "^10.1.9",
     "@tailwindcss/typography": "^0.5.19",
     "@types/node": "^25.0.2",
@@ -29,8 +32,11 @@
   },
   "dependencies": {
     "@nuxt/content": "^3.0.0-alpha.8",
+    "@nuxt/ui": "^4.3.0",
     "@nuxtjs/color-mode": "^3.4.2",
+    "@tailwindcss/vite": "^4.1.18",
     "lucide-vue-next": "^0.561.0",
+    "tailwindcss": "^4.1.18",
     "vue": "^3.4.31",
     "vue-router": "^4.4.0"
   }

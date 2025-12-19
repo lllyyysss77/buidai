@@ -4,7 +4,7 @@ description: '🎨 复古胶片风格 | 📱 公众号封面生成器 | 🖥️ 
 date: 2025-12-18
 category: '开源项目'
 tags: ['React', 'Tauri', 'Vite', 'TailwindCSS', '设计工具']
-image: 'https://nuxt.com/assets/design-kit/icon-green.png'
+image: 'https://ui.nuxt.com/_ipx/s_1308x736/assets/templates/vue/dashboard-light.png'
 ---
 
 # 📽️ 大字报·Pro - Cover Generator

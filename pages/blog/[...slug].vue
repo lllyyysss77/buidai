@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-white pb-24">
     <!-- 进度条 -->
-    <div class="fixed top-0 left-0 h-1 bg-[#6541f8] z-50 transition-all duration-300" :style="{ width: `${scrollProgress}%` }"></div>
+    <div class="fixed top-0 left-0 h-1 bg-primary-600 z-50 transition-all duration-300" :style="{ width: `${scrollProgress}%` }"></div>
 
     <div class="container mx-auto px-4 pt-24">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -10,9 +10,9 @@
         <main class="lg:col-span-8">
           <!-- 面包屑导航 -->
           <nav class="flex items-center text-sm text-gray-500 mb-8 overflow-x-auto whitespace-nowrap">
-            <NuxtLink to="/" class="hover:text-[#6541f8] transition-colors">首页</NuxtLink>
+            <NuxtLink to="/" class="hover:text-primary-600 transition-colors">首页</NuxtLink>
             <span class="mx-2 text-gray-300">/</span>
-            <NuxtLink to="/blog" class="hover:text-[#6541f8] transition-colors flex items-center gap-1">
+            <NuxtLink to="/blog" class="hover:text-primary-600 transition-colors flex items-center gap-1">
               <BookOpenIcon class="w-4 h-4" />
               技术博客
             </NuxtLink>
@@ -24,7 +24,7 @@
             <!-- 文章头部 Header -->
             <header class="mb-10 border-b border-gray-100 pb-10">
               <div class="flex flex-wrap items-center gap-3 mb-6">
-                <span class="px-3 py-1 rounded-full text-xs font-medium bg-[#6541f8]/10 text-[#6541f8] border border-[#6541f8]/20">
+                <span class="px-3 py-1 rounded-full text-xs font-medium bg-primary-500/10 text-primary-600 border border-primary-500/20">
                   {{ post.category }}
                 </span>
                 <time class="text-sm text-gray-500 flex items-center gap-1">
@@ -72,7 +72,7 @@
             <div class="mt-12 pt-8 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-6">
               <NuxtLink
                 to="/blog"
-                class="inline-flex items-center text-sm font-medium text-gray-600 hover:text-[#6541f8] transition-colors"
+                class="inline-flex items-center text-sm font-medium text-gray-600 hover:text-primary-600 transition-colors"
               >
                 <ArrowLeftIcon class="w-4 h-4 mr-2" />
                 返回博客列表
@@ -104,13 +104,13 @@
               <NuxtLink
                 v-if="surround.newer"
                 :to="surround.newer.path"
-                class="group p-6 rounded-xl border border-gray-200 hover:border-[#6541f8]/30 hover:shadow-md transition-all text-left block"
+                class="group p-6 rounded-xl border border-gray-200 hover:border-primary-500/30 hover:shadow-md transition-all text-left block"
               >
                 <div class="text-xs text-gray-500 mb-2 flex items-center gap-1">
                   <ArrowLeftIcon class="w-3 h-3 group-hover:-translate-x-1 transition-transform" />
                   上一篇
                 </div>
-                <div class="font-bold text-gray-900 group-hover:text-[#6541f8] transition-colors line-clamp-2">
+                <div class="font-bold text-gray-900 group-hover:text-primary-600 transition-colors line-clamp-2">
                   {{ surround.newer.title }}
                 </div>
               </NuxtLink>
@@ -119,13 +119,13 @@
               <NuxtLink
                 v-if="surround.older"
                 :to="surround.older.path"
-                class="group p-6 rounded-xl border border-gray-200 hover:border-[#6541f8]/30 hover:shadow-md transition-all text-right block"
+                class="group p-6 rounded-xl border border-gray-200 hover:border-primary-500/30 hover:shadow-md transition-all text-right block"
               >
                 <div class="text-xs text-gray-500 mb-2 flex items-center gap-1 justify-end">
                   下一篇
                   <ArrowRightIcon class="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                 </div>
-                <div class="font-bold text-gray-900 group-hover:text-[#6541f8] transition-colors line-clamp-2">
+                <div class="font-bold text-gray-900 group-hover:text-primary-600 transition-colors line-clamp-2">
                   {{ surround.older.title }}
                 </div>
               </NuxtLink>
@@ -135,7 +135,7 @@
 
           <div v-else class="py-20 text-center">
             <h1 class="text-2xl font-bold text-gray-900 mb-2">文章未找到</h1>
-            <NuxtLink to="/blog" class="text-[#6541f8] hover:underline">返回博客首页</NuxtLink>
+            <NuxtLink to="/blog" class="text-primary-600 hover:underline">返回博客首页</NuxtLink>
           </div>
         </main>
 
@@ -144,19 +144,19 @@
           <div class="sticky top-32">
             <div class="bg-gray-50/50 rounded-2xl p-6 border border-gray-100 backdrop-blur-sm">
               <div class="flex items-center gap-2 text-gray-900 font-bold mb-6">
-                <ListBulletIcon class="w-5 h-5 text-[#6541f8]" />
+                <ListBulletIcon class="w-5 h-5 text-primary-600" />
                 目录导航
               </div>
 
               <nav v-if="post?.body?.toc?.links?.length" class="space-y-1 relative">
                 <!-- 激活指示条 (可选) -->
-                <!-- <div class="absolute left-0 w-0.5 bg-[#6541f8] transition-all duration-300" :style="{ top: activeTop + 'px', height: activeHeight + 'px' }"></div> -->
+                <!-- <div class="absolute left-0 w-0.5 bg-primary-600 transition-all duration-300" :style="{ top: activeTop + 'px', height: activeHeight + 'px' }"></div> -->
 
                 <div v-for="link in post.body.toc.links" :key="link.id">
                   <a
                     :href="`#${link.id}`"
                     class="block py-1.5 px-3 text-sm rounded-lg transition-colors duration-200"
-                    :class="activeId === link.id ? 'bg-[#6541f8]/10 text-[#6541f8] font-medium' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'"
+                    :class="activeId === link.id ? 'bg-primary-500/10 text-primary-600 font-medium' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'"
                     @click.prevent="scrollToHeading(link.id)"
                   >
                     {{ link.text }}
@@ -167,7 +167,7 @@
                       :key="child.id"
                       :href="`#${child.id}`"
                       class="block py-1 text-xs transition-colors duration-200"
-                      :class="activeId === child.id ? 'text-[#6541f8] font-medium' : 'text-gray-500 hover:text-gray-900'"
+                      :class="activeId === child.id ? 'text-primary-600 font-medium' : 'text-gray-500 hover:text-gray-900'"
                       @click.prevent="scrollToHeading(child.id)"
                     >
                       {{ child.text }}
@@ -183,11 +183,11 @@
               <div class="mt-8 pt-6 border-t border-gray-200/60">
                 <div class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">关注我们</div>
                 <div class="space-y-3">
-                  <a href="#" class="flex items-center text-sm text-gray-600 hover:text-[#6541f8] transition-colors">
+                  <a href="#" class="flex items-center text-sm text-gray-600 hover:text-primary-600 transition-colors">
                     <span class="w-8 flex justify-center"><i class="i-lucide-github w-4 h-4"></i></span> <!-- 假定有图标类名，或者用文字 -->
                     <span class="font-medium">Github</span>
                   </a>
-                   <a href="#" class="flex items-center text-sm text-gray-600 hover:text-[#6541f8] transition-colors">
+                   <a href="#" class="flex items-center text-sm text-gray-600 hover:text-primary-600 transition-colors">
                     <span class="w-8 flex justify-center">𝕏</span>
                     <span class="font-medium">Twitter</span>
                   </a>
@@ -354,12 +354,12 @@ const formatDate = (dateString: string | Date) => {
   @apply bg-gray-900 text-gray-100 p-6 rounded-xl overflow-x-auto mb-8;
 }
 :deep(.prose code) {
-  @apply text-[#6541f8] bg-[#6541f8]/5 px-1.5 py-0.5 rounded text-sm font-mono;
+  @apply text-primary-600 bg-primary-500/5 px-1.5 py-0.5 rounded text-sm font-mono;
 }
 :deep(.prose pre code) {
   @apply text-inherit bg-transparent p-0;
 }
 :deep(.prose blockquote) {
-  @apply border-l-4 border-[#6541f8] pl-6 italic text-gray-700 my-8 bg-gray-50 py-4 pr-4 rounded-r-lg;
+  @apply border-l-4 border-primary-500 pl-6 italic text-gray-700 my-8 bg-gray-50 py-4 pr-4 rounded-r-lg;
 }
 </style>

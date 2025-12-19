@@ -1,61 +1,131 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "@nuxt/ui";
 
+/**
+ * 全局变量定义
+ * 覆盖 Nuxt UI 的默认 CSS 变量
+ */
+:root {
+  /* 浅色模式下的主品牌色 (黑色) */
+  --ui-primary: oklch(58.5% .233 277.117);
+  /* 统一圆角半径，映射 Nuxt UI 组件默认半径 */
+  --ui-radius: 0.375rem;
+}
+
+/* 深色模式覆盖 */
+.dark {
+  /* 深色模式下的主品牌色 (白色) */
+  --ui-primary: white;
+}
+
+/**
+ * 基础样式重置 (@layer base)
+ * 针对 HTML 元素和全局行为的设置
+ */
 @layer base {
   html {
+    /* 启用平滑滚动 */
     scroll-behavior: smooth;
   }
 
   body {
-    font-family: 'Inter', sans-serif;
+    /* 使用无衬线字体 */
+    font-family: var(--font-sans);
+    /* 优化字体特性设置 */
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    /* 默认背景色和文字颜色 */
     @apply bg-white text-gray-900;
   }
 }
 
+/**
+ * 自定义组件类 (@layer components)
+ * 可复用的 UI 组件样式抽象
+ */
 @layer components {
+  .text-ui-primary {
+    color: var(--ui-primary);
+  }
+  .border-ui-primary {
+    border-color: var(--ui-primary);
+  }
+  .bg-ui-primary-weak {
+    background-color: color-mix(in oklab, var(--ui-primary) 12%, transparent);
+  }
+  .bg-ui-primary-glow-weak {
+    background-color: color-mix(in oklab, var(--ui-primary) 5%, transparent);
+  }
+  .bg-ui-primary-glow-medium {
+    background-color: color-mix(in oklab, var(--ui-primary) 10%, transparent);
+  }
+  .bg-ui-primary-glow-strong {
+    background-color: color-mix(in oklab, var(--ui-primary) 15%, transparent);
+  }
+  .bg-ui-primary {
+    background-color: var(--ui-primary);
+  }
+  .ring-ui-primary {
+    --tw-ring-color: var(--ui-primary);
+  }
+  /* 主要按钮样式 */
   .btn-primary {
     @apply inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-200 ease-in-out;
   }
 
+  /* 次要按钮样式 */
   .btn-secondary {
     @apply inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-200 ease-in-out;
   }
 
+  /* 幽灵按钮样式 (无背景) */
   .btn-ghost {
     @apply inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-lg transition-all duration-200 ease-in-out;
   }
 
+  /* 基础卡片样式 */
   .card {
     @apply bg-white rounded-xl shadow-sm border border-gray-200 transition-all duration-200 ease-in-out;
   }
 
+  /* 卡片悬停效果 (阴影加深 + 上浮) */
   .card-hover {
     @apply hover:shadow-lg hover:border-primary-200 hover:-translate-y-1;
   }
 
-  /* Simplified utility classes for clean design */
+  /* 简化的设计工具类 */
+
+  /* 统一的区块垂直内边距 */
   .section-padding {
     @apply py-16 sm:py-20 lg:py-24;
   }
 
+  /* 统一的容器水平内边距 */
   .container-padding {
     @apply px-4 sm:px-6 lg:px-8;
   }
 }
 
+/**
+ * 工具类 (@layer utilities)
+ * 辅助性的单一功能类
+ */
 @layer utilities {
+  /* 文本平衡换行 (防止标题孤儿词) */
   .text-balance {
     text-wrap: balance;
   }
+  .decoration-ui-primary-40 {
+    text-decoration-color: color-mix(in oklab, var(--ui-primary) 40%, transparent);
+  }
 
+  /* 上滑淡入动画 */
   .animate-slide-up {
     animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     opacity: 0;
     transform: translateY(20px);
   }
 
+  /* 上滑关键帧定义 */
   @keyframes slideUp {
     to {
       opacity: 1;
@@ -63,6 +133,7 @@
     }
   }
 
+  /* 动画延迟工具类 */
   .animation-delay-200 {
     animation-delay: 200ms;
   }

@@ -1,0 +1,45 @@
+<script setup lang="ts">
+const features = ref([
+  {
+    title: 'One developer',
+    icon: 'i-lucide-user'
+  },
+  {
+    title: 'Unlimited projects',
+    icon: 'i-lucide-infinity'
+  },
+  {
+    title: 'Access to GitHub repository',
+    icon: 'i-lucide-github'
+  },
+  {
+    title: 'Unlimited patch & minor updates',
+    icon: 'i-lucide-refresh-cw'
+  },
+  {
+    title: 'Lifetime access',
+    icon: 'i-lucide-clock'
+  }
+])
+</script>
+
+<template>
+  <UPricingPlan
+    title="Solo"
+    description="For bootstrappers and indie hackers."
+    price="$249"
+    :features="features"
+  />
+</template>
+
+
+<template>
+  <UMarquee :overlay="false">
+    <UIcon name="i-simple-icons-github" class="size-10 shrink-0" />
+    <UIcon name="i-simple-icons-discord" class="size-10 shrink-0" />
+    <UIcon name="i-simple-icons-x" class="size-10 shrink-0" />
+    <UIcon name="i-simple-icons-instagram" class="size-10 shrink-0" />
+    <UIcon name="i-simple-icons-linkedin" class="size-10 shrink-0" />
+    <UIcon name="i-simple-icons-facebook" class="size-10 shrink-0" />
+  </UMarquee>
+</template>

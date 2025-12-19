@@ -32,15 +32,22 @@ const getDocsRoutes = () => {
 }
 
 export default defineNuxtConfig({
+  compatibilityDate: '2025-12-19',
   devtools: { enabled: true },
   typescript: {
     typeCheck: false
   },
   modules: [
-    '@nuxtjs/tailwindcss',
-    '@nuxtjs/color-mode',
+    '@nuxt/ui',
     '@nuxt/content'
   ],
+  // @ts-ignore
+  fonts: {
+    providers: {
+      google: false,
+      googleicons: false
+    }
+  },
   // @ts-ignore
   content: {
     database: {
@@ -74,7 +81,7 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-        { href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap', rel: 'stylesheet' }
+        { href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap', rel: 'stylesheet' }
       ]
     }
   },

@@ -8,7 +8,7 @@
         <div class="flex flex-col sm:flex-row justify-center gap-4">
           <NuxtLink
             to="/docs"
-            class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#6541f8] hover:bg-[#5335c9] transition-colors"
+            class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors"
           >
             <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
@@ -35,11 +35,11 @@
           :to="resource.to"
           class="group bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col items-start"
         >
-          <div class="mb-6 p-3 rounded-xl bg-[#6541f8]/10 text-[#6541f8] group-hover:bg-[#6541f8]/20 transition-colors">
+          <div class="mb-6 p-3 rounded-xl bg-primary-500/10 text-primary-600 group-hover:bg-primary-500/20 transition-colors">
             <component :is="resource.icon" class="w-8 h-8" />
           </div>
 
-          <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#6541f8] transition-colors">
+          <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
             {{ resource.title }}
           </h3>
 
@@ -47,7 +47,7 @@
             {{ resource.description }}
           </p>
 
-          <div class="text-[#6541f8] font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
+          <div class="text-primary-600 font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
             了解详情
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />

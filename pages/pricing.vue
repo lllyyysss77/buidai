@@ -1,152 +1,181 @@
 <script setup lang="ts">
+/**
+ * 定价页面组件
+ * 展示不同等级的订阅计划及其功能对比，包含计费周期切换、FAQ 等模块。
+ */
 import { ref, computed } from 'vue'
-import { CheckCircleIcon } from '@heroicons/vue/24/solid'
+import { CheckIcon, XMarkIcon, QuestionMarkCircleIcon } from '@heroicons/vue/24/solid'
 
-interface PricingButton {
+// 类型定义
+interface PricingFeature {
   label: string
-  to?: string
-  variant?: 'solid' | 'outline' | 'subtle' | 'ghost' | 'link' | 'soft'
-  color?: 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error' | 'neutral'
-  click?: () => void
+  key: string
+  tooltip?: string
 }
 
 interface PricingPlan {
   title: string
-  description?: string
-  price: string
-  billingCycle?: string
-  features?: string[]
-  button?: PricingButton
+  price: {
+    monthly: string
+    yearly: string
+  }
+  description: string
+  button: {
+    label: string
+    variant: 'solid' | 'outline' | 'soft' | 'ghost' | 'link'
+    color: any
+  }
   highlight?: boolean
   badge?: string
+  features: Record<string, string | boolean>
+}
+
+/**
+ * 切换计费周期
+ * @param {boolean} value - 是否为年付
+ */
+const toggleBilling = (value: boolean) => {
+  isYearly.value = value
 }
 
 // 状态管理
-const activeTab = ref('cloud')
-const isYearly = ref(false)
+const isYearly = ref(true)
 
-// 静态数据
-const tabs = [
-  { name: '云服务', key: 'cloud' },
-  { name: '私有部署', key: 'self' }
+// 功能项定义（左侧Label列）
+const featuresList: PricingFeature[] = [
+  { label: 'AI积分', key: 'ai_points', tooltip: '用于调用AI模型的积分消耗' },
+  { label: '自定义AI大模型', key: 'custom_model', tooltip: '支持接入私有大模型' },
+  { label: '应用', key: 'apps' },
+  { label: '知识库文件容量', key: 'kb_capacity', tooltip: '上传文件的总大小限制' },
+  { label: '知识库条数', key: 'kb_count' },
+  { label: '知识库导入限制', key: 'kb_import_limit' },
+  { label: '内置数据库行数', key: 'db_rows' },
+  { label: '远程数据库', key: 'remote_db' },
+  { label: '自定义插件', key: 'plugins' },
+  { label: '工作流', key: 'workflows' },
+  { label: '数据看板', key: 'dashboard' },
+  { label: '渠道接入', key: 'channels' },
+  { label: '客户端管理', key: 'client_mgmt' },
+  { label: '对话限流配置', key: 'rate_limit' },
+  { label: '智能转人工', key: 'human_handoff' },
+  { label: '聚合对话管理', key: 'conversation_mgmt' },
+  { label: '团队空间', key: 'team_space' },
+  { label: '开放 API', key: 'api' },
+  { label: '服务', key: 'support' }
 ]
 
-const featuresData = {
-  free: [
-    '100 AI 积分',
-    '600 组知识库索引',
-    '1 个团队成员',
-    '3 个知识库',
-    '30 天对话记录保留',
-    '30 QPM'
-  ],
-  basic: [
-    '4000 AI 积分',
-    '6000 组知识库索引',
-    '5 个团队成员',
-    '50 个 Agent',
-    '30 个知识库',
-    '180 天对话记录保留',
-    '300 QPM',
-    '站点同步最大 500 页',
-    '48 小时工单支持响应'
-  ],
-  premium: [
-    '25000 AI 积分',
-    '36000 组知识库索引',
-    '50 个团队成员',
-    '200 个 Agent',
-    '100 个知识库',
-    '360 天对话记录保留',
-    '720 天团队操作日志记录',
-    '1500 QPM',
-    '站点同步最大 500 页',
-    '24 小时工单支持响应',
-    '3 个应用备案'
-  ],
-  custom: [
-    '优先深度技术支持',
-    '弹性资源配置',
-    '安全可控',
-    '专属客户经理'
-  ],
-  selfHosted: [
-    '源码交付 / 镜像部署',
-    '专属品牌定制',
-    '企业级权限管理'
-  ]
-}
-
-// 价格方案计算
-const cloudPlans = computed<PricingPlan[]>(() => [
-  {
-    title: '免费版',
-    price: '¥0',
-    description: '核心功能免费试用。30 天未登录，将会清空知识库。',
-    features: featuresData.free,
-    button: { label: '开始使用', variant: 'soft', color: 'primary' }
-  },
+// 价格方案数据
+const plans: PricingPlan[] = [
   {
     title: '基础版',
-    price: `¥${isYearly.value ? 990 : 99}`,
-    billingCycle: isYearly.value ? '/年' : '/月',
-    description: '可解锁 BuidAI 完整功能',
-    features: featuresData.basic,
-    button: { label: '升级套餐', variant: 'soft', color: 'primary' }
+    price: { monthly: '¥0', yearly: '¥0' },
+    description: '先人一步体验 AI 生产力',
+    button: { label: '开始使用', variant: 'soft', color: 'primary' },
+    features: {
+      ai_points: '每日签到',
+      custom_model: false,
+      apps: '3个',
+      kb_capacity: '100M',
+      kb_count: '2,000条',
+      kb_import_limit: false,
+      db_rows: '5千行',
+      remote_db: false,
+      plugins: '3个',
+      workflows: '2个',
+      dashboard: false,
+      channels: false,
+      client_mgmt: false,
+      rate_limit: false,
+      human_handoff: false,
+      conversation_mgmt: false,
+      team_space: false,
+      api: false, // 基础
+      support: '社区支持'
+    }
   },
   {
-    title: '高级版',
-    price: `¥${isYearly.value ? 5990 : 599}`,
-    billingCycle: isYearly.value ? '/年' : '/月',
-    description: '适合企业级的生产工具',
-    features: featuresData.premium,
+    title: '标准版',
+    price: { monthly: '¥268', yearly: '¥2680' },
+    description: '适合开发者和小型团队',
+    button: { label: '开始使用', variant: 'solid', color: 'primary' },
     highlight: true,
-    badge: '最受欢迎',
-    button: { label: '升级套餐', variant: 'solid', color: 'primary' }
+    features: {
+      ai_points: '36万',
+      custom_model: true,
+      apps: '10个',
+      kb_capacity: '500M',
+      kb_count: '20,000条',
+      kb_import_limit: false,
+      db_rows: '5万行',
+      remote_db: false,
+      plugins: '10个',
+      workflows: '6个',
+      dashboard: true,
+      channels: true,
+      client_mgmt: true,
+      rate_limit: true,
+      human_handoff: false,
+      conversation_mgmt: false,
+      team_space: false,
+      api: true, // 高级
+      support: '客服支持'
+    }
   },
   {
-    title: '定制版',
-    price: '联系商务',
-    description: '助力中大型企业构建核心竞争力',
-    features: featuresData.custom,
-    button: { label: '联系商务', variant: 'soft', color: 'primary' }
-  }
-])
-
-const selfHostedPlans: PricingPlan[] = [
+    title: '专业版',
+    price: { monthly: '¥998', yearly: '¥9980' },
+    description: '专业团队和组织首选',
+    button: { label: '开始使用', variant: 'solid', color: 'primary' },
+    features: {
+      ai_points: '100万',
+      custom_model: true,
+      apps: '30个',
+      kb_capacity: '3G',
+      kb_count: '100,000条',
+      kb_import_limit: false,
+      db_rows: '20万行',
+      remote_db: true,
+      plugins: '30个',
+      workflows: '15个',
+      dashboard: true,
+      channels: true, // 图标展示
+      client_mgmt: true,
+      rate_limit: true,
+      human_handoff: true,
+      conversation_mgmt: true,
+      team_space: '10人',
+      api: true, // 高级
+      support: '专属服务群'
+    }
+  },
   {
-    title: '企业私有化部署',
-    price: '咨询报价',
-    description: '数据安全，专属定制',
-    features: featuresData.selfHosted,
-    button: { label: '咨询详情', variant: 'solid', color: 'primary' },
-    highlight: true
+    title: '企业版',
+    price: { monthly: '咨询顾问', yearly: '咨询顾问' },
+    description: '中大型企业拥抱 AI 的最佳选择',
+    button: { label: '立即咨询', variant: 'solid', color: 'primary' },
+    features: {
+      ai_points: '专业版所有权益', // 特殊处理
+      custom_model: true,
+      apps: '接入渠道客户管理',
+      kb_capacity: '自定义企业LOGO',
+      kb_count: '自定义企业应用广场',
+      kb_import_limit: '按需定制空间成员数量',
+      db_rows: '按需定制功能权益容量',
+      remote_db: '最高优先级性能保障',
+      plugins: '智能训练调优服务',
+      workflows: '可支持私有化部署',
+      dashboard: true,
+      channels: true,
+      client_mgmt: true,
+      rate_limit: true,
+      human_handoff: true,
+      conversation_mgmt: true,
+      team_space: true,
+      api: true,
+      support: '优先性能保障'
+    }
   }
 ]
-
-/**
- * 根据当前 Tab 计算显示的方案列表
- */
-const currentPlans = computed(() => activeTab.value === 'cloud' ? cloudPlans.value : selfHostedPlans)
-
-/**
- * 切换 Tab 并滚动到顶部
- */
-const handleTabChange = (key: string) => {
-  activeTab.value = key
-  if (import.meta.client) {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
-}
-
-/**
- * 动态网格布局类
- */
-const gridClass = computed(() =>
-  activeTab.value === 'cloud'
-    ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4'
-    : 'grid-cols-1 lg:grid-cols-1 max-w-sm mx-auto'
-)
 
 // FAQ 数据
 const faqItems = [
@@ -163,31 +192,15 @@ const faqItems = [
     content: '每次调用AI模型时，将会消耗一定AI积分。具体计算标准参考上方的“AI积分计算标准”。系统会优先采用模型厂商的高级Token计费方式，Token=0.75中文汉字=0.9英文单词。'
   },
   {
-    label: 'AI积分过期怎么办？',
-    content: '会过期。当前套餐过期后，AI积分将会清零，并重置为新套餐的AI积分。年度套餐的AI积分时长为1年，而不是每个月。'
-  },
-  {
     label: '知识库存储怎么计算？',
     content: '1条知识库存储等于1条知识库索引。一条分块数据，通常对应多条索引，可以在单个知识库集合中查阅“W组索引”。'
-  },
-  {
-    label: '知识库索引超出删除了么？',
-    content: '不会。但知识库索引超出时，无法插入和更新知识库内容。'
-  },
-  {
-    label: '额外资源包可以叠加么？',
-    content: '可以的。每次购买的资源包都是独立的，在其有效期内将会叠加使用。AI积分会优先扣除最大过期的资源包。'
-  },
-  {
-    label: '免费版数据会清除么？',
-    content: '免费版团队（免费版且未购买额外套餐）连续 30 天未登录系统，系统会自动清除该团队下所有知识库内容。'
   }
 ]
 </script>
 
 <template>
   <div class="py-24 sm:py-32 bg-white dark:bg-gray-950 min-h-screen relative overflow-hidden font-sans">
-    <!-- Background Decoration -->
+    <!-- 背景装饰 -->
     <div class="absolute inset-0 z-0 pointer-events-none">
       <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
         <div class="relative left-[calc(50%-11rem)] aspect-1155/678 w-144.5 -translate-x-1/2 rotate-30 bg-linear-to-tr from-primary-200 to-primary-400 opacity-30 sm:left-[calc(50%-30rem)] sm:w-288.75" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" />
@@ -195,158 +208,174 @@ const faqItems = [
     </div>
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="mx-auto max-w-4xl text-center">
-        <h2 class="text-base font-semibold leading-7 text-ui-primary uppercase tracking-wide">定价方案</h2>
-        <p class="mt-2 text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
-          选择更适合 <span class="text-ui-primary">你的版本</span>
-        </p>
-        <p class="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-          免费使用或升级更高的套餐，满足不同阶段的业务需求
-        </p>
-      </div>
-
-      <!-- Tabs -->
-      <div class="mt-16 flex justify-center">
-        <div class="grid grid-cols-2 gap-x-1 rounded-full p-1.5 text-center text-sm font-semibold leading-5 ring-1 ring-inset ring-gray-200 dark:ring-gray-800 bg-gray-50 dark:bg-gray-900/50 backdrop-blur-sm">
-          <div
-            v-for="tab in tabs"
-            :key="tab.key"
-            @click="handleTabChange(tab.key)"
-            class="cursor-pointer rounded-full px-8 py-2.5 transition-all duration-300 select-none"
-            :class="[
-              activeTab === tab.key
-                ? 'bg-white dark:bg-gray-800 text-ui-primary shadow-sm ring-1 ring-gray-200 dark:ring-gray-700'
-                : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
-            ]"
-          >
-            {{ tab.name }}
-          </div>
+      <!-- 头部 Hero 区域 -->
+      <div class="text-center py-12 md:py-20 relative z-10">
+        <div class="mb-4 inline-flex items-center gap-2 px-3 py-1 rounded-md bg-ui-primary-weak border border-ui-primary/20">
+          <span class="text-xs font-semibold text-ui-primary">定价方案</span>
         </div>
+        <h1 class="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl mb-6">
+          简单的定价 <span class="text-ui-primary">伴随你成长</span>
+        </h1>
+        <p class="text-lg leading-8 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          选择适合您团队的计划，开启 AI 生产力之旅
+        </p>
       </div>
 
-      <!-- Billing Toggle -->
-      <div v-show="activeTab === 'cloud'" class="mt-10 flex justify-center transition-opacity duration-300">
-        <div class="relative flex items-center">
-          <div class="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-sm font-semibold leading-5 ring-1 ring-inset ring-gray-200 dark:ring-gray-800 bg-gray-50 dark:bg-gray-900/50 backdrop-blur-sm">
+      <!-- 定价卡片区域 -->
+      <div class="flex flex-col items-center">
+        <!-- 计费周期切换 -->
+        <div class="relative flex items-center justify-center mb-12">
+          <div class="grid grid-cols-2 gap-x-1 rounded-md p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200 dark:ring-gray-800 bg-gray-50 dark:bg-gray-900/50 backdrop-blur-sm">
             <button
               @click="isYearly = false"
-              class="cursor-pointer rounded-full px-6 py-2 transition-all duration-300 select-none outline-none focus:ring-2 focus:ring-primary-500/20"
+              class="cursor-pointer rounded-md px-4 py-2 transition-all duration-300 select-none outline-none focus:ring-2 focus:ring-primary-500/20"
               :class="[
                 !isYearly
                   ? 'bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm ring-1 ring-gray-200 dark:ring-gray-700'
                   : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
               ]"
             >
-              按月
+              按月付费
             </button>
             <button
               @click="isYearly = true"
-              class="cursor-pointer rounded-full px-6 py-2 transition-all duration-300 select-none outline-none focus:ring-2 focus:ring-primary-500/20"
+              class="cursor-pointer rounded-md px-4 py-2 transition-all duration-300 select-none outline-none focus:ring-2 focus:ring-primary-500/20"
               :class="[
                 isYearly
                   ? 'bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm ring-1 ring-gray-200 dark:ring-gray-700'
                   : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
               ]"
             >
-              按年
+              按年付费
             </button>
           </div>
+          <div class="absolute -top-6 -right-12">
+             <span class="text-xs font-semibold text-orange-500 transform rotate-12 inline-block">按年节省25%</span>
+          </div>
+        </div>
 
-          <div class="absolute left-full top-1/2 -translate-y-1/2 ml-4 w-max hidden sm:block">
-            <UBadge label="支付10个月，畅享一年！" variant="subtle" color="primary" size="sm" class="rounded-full" />
+        <!-- 卡片网格 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 w-full max-w-7xl">
+          <div
+            v-for="(plan, index) in plans"
+            :key="plan.title"
+            class="flex flex-col rounded-md bg-white dark:bg-gray-900 transition-all duration-300 overflow-hidden relative"
+            :class="[
+              plan.highlight
+                ? 'ring-2 ring-ui-primary shadow-xl shadow-primary-500/10 z-10 scale-105 md:scale-100 xl:scale-105'
+                : 'ring-1 ring-gray-200 dark:ring-gray-800 shadow-sm hover:shadow-lg'
+            ]"
+          >
+            <!-- 标准版高亮标识 -->
+            <div v-if="plan.highlight" class="absolute top-0 inset-x-0 h-1 bg-ui-primary"></div>
+            <div v-if="plan.highlight" class="absolute top-4 right-4">
+              <span class="inline-flex items-center rounded-md bg-ui-primary-weak px-2.5 py-0.5 text-xs font-medium text-ui-primary border border-ui-primary/20">
+                最受欢迎
+              </span>
+            </div>
+
+            <!-- 卡片头部 -->
+            <div class="p-8 text-center border-b border-gray-100 dark:border-gray-800">
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white">{{ plan.title }}</h3>
+
+              <div class="mt-4 flex items-baseline justify-center gap-x-1">
+                <span class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
+                  {{ isYearly ? plan.price.yearly : plan.price.monthly }}
+                </span>
+                <span v-if="plan.price.monthly !== '咨询顾问'" class="text-sm font-semibold leading-6 text-gray-500">
+                  /{{ isYearly ? '年' : '月' }}
+                </span>
+              </div>
+
+              <p class="mt-2 text-sm leading-6 text-gray-500 h-6">{{ plan.description }}</p>
+
+              <div class="mt-6">
+                 <UButton
+                  block
+                  size="lg"
+                  :label="plan.button.label"
+                  :variant="plan.button.variant"
+                  :color="plan.button.color"
+                  class="w-full"
+                />
+              </div>
+            </div>
+
+            <!-- 功能列表 -->
+            <div class="flex-1 p-8 text-sm leading-6 bg-gray-50/50 dark:bg-gray-800/50">
+              <ul role="list" class="space-y-4">
+                <!-- 常规功能项 -->
+                <li v-for="feature in featuresList" :key="feature.key" class="flex justify-between items-center gap-x-2">
+                  <div class="flex items-center gap-1 min-w-0">
+                    <span class="text-gray-500 dark:text-gray-400 truncate">{{ feature.label }}</span>
+                    <QuestionMarkCircleIcon v-if="feature.tooltip" class="h-4 w-4 text-gray-400 cursor-help" :title="feature.tooltip" />
+                  </div>
+
+                  <div class="text-right shrink-0">
+                    <!-- 企业版特殊内容处理 -->
+                    <template v-if="index === 3">
+                      <span class="font-medium text-gray-900 dark:text-white">{{ plan.features[feature.key] === true ? '支持' : (plan.features[feature.key] || '定制') }}</span>
+                    </template>
+                    <!-- 普通版本内容展示 -->
+                    <template v-else>
+                      <template v-if="typeof plan.features[feature.key] === 'string'">
+                        <span class="font-medium text-gray-900 dark:text-white">{{ plan.features[feature.key] }}</span>
+                      </template>
+                      <template v-else-if="plan.features[feature.key] === true">
+                        <CheckIcon class="h-5 w-5 text-green-500" />
+                      </template>
+                      <template v-else>
+                        <XMarkIcon class="h-5 w-5 text-gray-300 dark:text-gray-600" />
+                      </template>
+                    </template>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Plans -->
-      <div class="mt-16 grid gap-8 lg:gap-8 transition-all duration-500 ease-in-out" :class="gridClass">
-        <UCard
-          v-for="(plan, index) in currentPlans"
-          :key="`${activeTab}-${index}`"
-          :ui="{
-            root: 'relative flex flex-col overflow-hidden transition-all duration-300 h-full hover:-translate-y-1',
-            body: 'flex-1 flex flex-col gap-8 p-8 sm:p-10',
-            header: 'px-8 pt-8 pb-0 sm:px-10'
-          }"
-          :class="[
-            'rounded-2xl',
-            'bg-white dark:bg-gray-900',
-            plan.highlight ? 'ring-2 ring-ui-primary' : 'ring-1 ring-gray-200 dark:ring-gray-800',
-            plan.highlight ? 'shadow-xl shadow-primary-500/10' : 'shadow-sm hover:shadow-xl hover:shadow-gray-200/50 dark:hover:shadow-gray-900/50'
-          ]"
-        >
-          <!-- Header Section -->
-          <div class="flex flex-col gap-3">
-            <div class="flex items-center justify-between gap-4">
-              <h3 class="text-xl font-bold text-gray-900 dark:text-white">
-                {{ plan.title }}
-              </h3>
-              <UBadge v-if="plan.badge" :label="plan.badge" variant="subtle" color="primary" class="rounded-full" />
-            </div>
-            <p v-if="plan.description" class="text-sm leading-6 text-gray-500 dark:text-gray-400 min-h-12">
-              {{ plan.description }}
-            </p>
-          </div>
-
-          <!-- Price Section -->
-          <div class="flex items-baseline gap-1">
-            <span class="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
-              {{ plan.price }}
-            </span>
-            <span v-if="plan.billingCycle" class="text-sm font-semibold leading-6 text-gray-500 dark:text-gray-400 truncate">
-              {{ plan.billingCycle }}
-            </span>
-          </div>
-
-          <!-- Features List -->
-          <div v-if="plan.features?.length" class="flex-1">
-            <ul class="space-y-3">
-              <li v-for="(feature, i) in plan.features" :key="i" class="flex items-start gap-3">
-                <CheckCircleIcon class="w-5 h-5 text-ui-primary shrink-0 mt-0.5" aria-hidden="true" />
-                <span class="text-sm leading-6 text-gray-600 dark:text-gray-300">{{ feature }}</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Action Button -->
-          <div v-if="plan.button" class="mt-2">
-            <UButton
-              block
-              size="lg"
-              :label="plan.button.label"
-              :to="plan.button.to"
-              :variant="plan.button.variant || (plan.highlight ? 'solid' : 'soft')"
-              :color="plan.button.color || 'primary'"
-              @click="plan.button.click"
-              class="transition-transform active:scale-95"
-            />
-          </div>
-        </UCard>
+      <!-- 跑马灯展示 -->
+      <div class="mt-24 sm:mt-32">
+        <UMarquee :overlay="false" class="max-w-4xl mx-auto opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+          <UIcon name="i-simple-icons-github" class="size-10 shrink-0 mx-8" />
+          <UIcon name="i-simple-icons-discord" class="size-10 shrink-0 mx-8" />
+          <UIcon name="i-simple-icons-x" class="size-10 shrink-0 mx-8" />
+          <UIcon name="i-simple-icons-instagram" class="size-10 shrink-0 mx-8" />
+          <UIcon name="i-simple-icons-linkedin" class="size-10 shrink-0 mx-8" />
+          <UIcon name="i-simple-icons-facebook" class="size-10 shrink-0 mx-8" />
+        </UMarquee>
       </div>
 
-      <!-- FAQ Section -->
-      <div class="mt-24 sm:mt-32 lg:mt-40">
-        <div class="grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-16">
-          <div class="lg:col-span-5">
-            <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-              常见问题
-            </h2>
-            <p class="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-              如果您有其他问题，请随时联系我们的支持团队。
+      <!-- 常见问题区域 -->
+      <div class="mt-24 sm:mt-32 max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-24">
+          <!-- 左侧标题与描述 -->
+          <div class="lg:col-span-1">
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">常见问题</h2>
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
+              如果您有其他疑问或需要定制化服务，请随时联系我们的客服团队。
             </p>
+            <div class="mt-8">
+              <UButton
+                label="联系我们"
+                variant="link"
+                color="primary"
+                icon="i-heroicons-envelope"
+                class="p-0 font-semibold"
+              />
+            </div>
           </div>
-          <div class="lg:col-span-7">
+
+          <!-- 右侧手风琴列表 -->
+          <div class="lg:col-span-2">
             <UAccordion
               :items="faqItems"
-              color="gray"
-              variant="soft"
-              size="lg"
               :ui="{
-                wrapper: 'space-y-4',
-                item: 'mb-0 rounded-xl px-6 py-4 text-lg font-medium text-gray-900 dark:text-white',
-                default: {
-                  class: 'px-6 pb-4 text-gray-600 dark:text-gray-400 leading-relaxed'
-                }
+                root: 'space-y-4',
+                item: 'mb-0 rounded-md px-6 py-4 text-base font-medium text-gray-900 dark:text-white border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-sm hover:shadow-md transition-shadow',
+                content: 'px-6 pb-4 text-gray-600 dark:text-gray-400 leading-relaxed'
               }"
             />
           </div>

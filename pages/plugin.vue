@@ -4,7 +4,7 @@
       <div class="flex flex-col lg:flex-row gap-8">
 
         <!-- 侧边栏导航 -->
-        <aside class="w-full lg:w-64 flex-shrink-0 space-y-6">
+        <aside class="w-full lg:w-64 shrink-0 space-y-6">
           <!-- 搜索框 -->
           <div class="relative">
             <input
@@ -22,9 +22,9 @@
               v-for="category in categories"
               :key="category.id"
               @click="activeCategory = category.id"
-              class="flex-shrink-0 lg:flex-shrink w-auto lg:w-full text-left px-5 py-2 lg:px-4 lg:py-3 rounded-full lg:rounded-lg text-sm font-medium transition-colors duration-200 flex items-center justify-center lg:justify-between group border lg:border-0"
+              class="shrink-0 lg:shrink w-auto lg:w-full text-left px-5 py-2 lg:px-4 lg:py-3 rounded-full lg:rounded-lg text-sm font-medium transition-colors duration-200 flex items-center justify-center lg:justify-between group border lg:border-0"
               :class="activeCategory === category.id
-                ? 'bg-gray-900 text-white border-gray-900 lg:bg-blue-50 lg:text-blue-600 lg:dark:bg-blue-900/20 lg:dark:text-blue-400 lg:border-transparent'
+                ? 'bg-primary-600 text-white border-primary-600 lg:bg-primary-100 lg:text-primary-700 lg:dark:bg-primary-900/20 lg:dark:text-primary-400 lg:border-transparent'
                 : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50 lg:bg-transparent lg:text-gray-600 lg:dark:text-gray-400 lg:hover:bg-gray-100 lg:dark:hover:bg-gray-800 lg:border-transparent dark:bg-gray-800 dark:border-gray-700 dark:text-gray-300'"
             >
               {{ category.name }}
@@ -36,7 +36,7 @@
         <main class="flex-1 min-w-0">
 
           <!-- 促销横幅 -->
-          <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white p-8 mb-10 shadow-lg group">
+          <div class="relative overflow-hidden rounded-2xl bg-linear-to-r from-blue-600 via-purple-600 to-indigo-600 text-white p-8 mb-10 shadow-lg group">
             <div class="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
               <div class="space-y-2">
                 <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Building应用市场上线啦!</h2>
@@ -56,7 +56,7 @@
             <div class="absolute right-4 bottom-4 lg:right-10 lg:bottom-1/2 lg:translate-y-1/2 opacity-20 lg:opacity-100 pointer-events-none">
               <div class="bg-black/40 backdrop-blur-md rounded-xl p-3 border border-white/10 transform rotate-[-5deg]">
                  <div class="flex items-center gap-2">
-                   <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-purple-400 to-pink-400"></div>
+                   <div class="w-6 h-6 rounded-full bg-linear-to-tr from-purple-400 to-pink-400"></div>
                    <span class="font-bold italic">Building AI</span>
                  </div>
               </div>
@@ -78,7 +78,7 @@
               <!-- App Preview Image -->
               <div class="aspect-video bg-gray-100 dark:bg-gray-700 relative overflow-hidden">
                 <!-- Placeholder Pattern -->
-                <div class="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600"></div>
+                <div class="absolute inset-0 bg-linear-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600"></div>
                  <div class="absolute inset-0 flex items-center justify-center text-gray-400">
                     <img
                       :src="app.image"
@@ -94,7 +94,7 @@
               <div class="p-5 flex-1 flex flex-col">
                 <div class="flex items-start justify-between gap-3 mb-3">
                   <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-lg bg-gray-900 text-white flex items-center justify-center flex-shrink-0">
+                    <div class="w-10 h-10 rounded-lg bg-gray-900 text-white flex items-center justify-center shrink-0">
                        <component :is="app.icon" class="w-6 h-6" />
                     </div>
                     <h3 class="font-bold text-gray-900 dark:text-white line-clamp-1">{{ app.name }}</h3>

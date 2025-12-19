@@ -4,12 +4,12 @@ description: 'BuidAI 是一款面向AI开发者、AI创业者和先进组织打�
 date: 2024-12-17
 category: '产品动态'
 tags: ['BuidAI', '开源', 'AI Agent', '智能体']
-image: 'https://nuxt.com/assets/design-kit/icon-green.png'
+image: 'https://ui.nuxt.com/_ipx/s_1308x736/assets/templates/vue/dashboard-light.png'
 authors:
   - name: 'BuidAI 团队'
     username: 'BuidAI'
     avatar:
-      src: 'https://avatars.githubusercontent.com/u/1?v=4'
+      src: '/logo.png'
 ---
 
 # 欢迎使用 BuidAI

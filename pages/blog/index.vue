@@ -14,7 +14,7 @@
               v-model="searchQuery"
               type="text"
               placeholder="搜索文章..."
-              class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 focus:border-[#6541f8] focus:ring-2 focus:ring-[#6541f8]/20 outline-none transition-all"
+              class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
             />
             <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -27,7 +27,7 @@
               :key="cat"
               @click="selectedCategory = cat"
               class="px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap"
-              :class="selectedCategory === cat ? 'bg-[#6541f8] text-white' : 'bg-white text-gray-600 hover:bg-gray-100'"
+              :class="selectedCategory === cat ? 'bg-primary-600 text-white' : 'bg-white text-gray-600 hover:bg-gray-100'"
             >
               {{ cat }}
             </button>
@@ -49,13 +49,13 @@
                 :alt="post.title"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div v-else class="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#6541f8]/5 to-purple-500/5">
-                <svg class="w-12 h-12 text-[#6541f8]/30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div v-else class="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-500/5 to-purple-500/5">
+                <svg class="w-12 h-12 text-primary-500/30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
               </div>
               <div class="absolute top-4 left-4">
-                <span class="px-3 py-1 rounded-full text-xs font-medium bg-white/90 backdrop-blur-sm text-[#6541f8] shadow-sm">
+                <span class="px-3 py-1 rounded-full text-xs font-medium bg-white/90 backdrop-blur-sm text-primary-600 shadow-sm">
                   {{ post.category }}
                 </span>
               </div>
@@ -70,7 +70,7 @@
                 </div>
               </div>
 
-              <h2 class="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-[#6541f8] transition-colors">
+              <h2 class="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-primary-600 transition-colors">
                 {{ post.title }}
               </h2>
 
@@ -78,7 +78,7 @@
                 {{ post.description }}
               </p>
 
-              <div class="flex items-center text-[#6541f8] text-sm font-medium group-hover:gap-2 transition-all">
+              <div class="flex items-center text-primary-600 text-sm font-medium group-hover:gap-2 transition-all">
                 阅读全文
                 <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />

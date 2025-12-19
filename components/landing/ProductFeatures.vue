@@ -15,52 +15,59 @@
       <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none"></div>
 
       <!-- Row 1 -->
-      <div class="flex overflow-hidden group">
-        <div class="flex gap-4 animate-scroll-left hover:pause">
-          <div
-            v-for="(item, index) in [...row1, ...row1]"
-            :key="`r1-${index}`"
-            class="flex items-center gap-2 px-6 py-3 bg-white rounded-xl shadow-sm border border-gray-100 min-w-max hover:shadow-md transition-shadow duration-300"
-          >
-            <span class="p-1.5 rounded-lg" :class="item.colorBg">
-              <component :is="item.icon" class="w-5 h-5" :class="item.colorText" />
-            </span>
-            <span class="font-medium text-gray-700">{{ item.name }}</span>
-          </div>
+      <UMarquee
+        pause-on-hover
+        :overlay="false"
+        :ui="{ root: '[--gap:--spacing(4)]', content: 'py-2' }"
+      >
+        <div
+          v-for="(item, index) in row1"
+          :key="`r1-${index}`"
+          class="flex items-center gap-2 px-6 py-3 bg-white rounded-xl shadow-sm border border-gray-100 min-w-max hover:shadow-md transition-shadow duration-300 mx-2"
+        >
+          <span class="p-1.5 rounded-lg" :class="item.colorBg">
+            <component :is="item.icon" class="w-5 h-5" :class="item.colorText" />
+          </span>
+          <span class="font-medium text-gray-700">{{ item.name }}</span>
         </div>
-      </div>
+      </UMarquee>
 
       <!-- Row 2 -->
-      <div class="flex overflow-hidden group">
-        <div class="flex gap-4 animate-scroll-right hover:pause">
-          <div
-            v-for="(item, index) in [...row2, ...row2]"
-            :key="`r2-${index}`"
-            class="flex items-center gap-2 px-6 py-3 bg-white rounded-xl shadow-sm border border-gray-100 min-w-max hover:shadow-md transition-shadow duration-300"
-          >
-            <span class="p-1.5 rounded-lg" :class="item.colorBg">
-              <component :is="item.icon" class="w-5 h-5" :class="item.colorText" />
-            </span>
-            <span class="font-medium text-gray-700">{{ item.name }}</span>
-          </div>
+      <UMarquee
+        pause-on-hover
+        reverse
+        :overlay="false"
+        :ui="{ root: '[--gap:--spacing(4)]', content: 'py-2' }"
+      >
+        <div
+          v-for="(item, index) in row2"
+          :key="`r2-${index}`"
+          class="flex items-center gap-2 px-6 py-3 bg-white rounded-xl shadow-sm border border-gray-100 min-w-max hover:shadow-md transition-shadow duration-300 mx-2"
+        >
+          <span class="p-1.5 rounded-lg" :class="item.colorBg">
+            <component :is="item.icon" class="w-5 h-5" :class="item.colorText" />
+          </span>
+          <span class="font-medium text-gray-700">{{ item.name }}</span>
         </div>
-      </div>
+      </UMarquee>
 
       <!-- Row 3 -->
-      <div class="flex overflow-hidden group">
-        <div class="flex gap-4 animate-scroll-left hover:pause">
-          <div
-            v-for="(item, index) in [...row3, ...row3]"
-            :key="`r3-${index}`"
-            class="flex items-center gap-2 px-6 py-3 bg-white rounded-xl shadow-sm border border-gray-100 min-w-max hover:shadow-md transition-shadow duration-300"
-          >
-            <span class="p-1.5 rounded-lg" :class="item.colorBg">
-              <component :is="item.icon" class="w-5 h-5" :class="item.colorText" />
-            </span>
-            <span class="font-medium text-gray-700">{{ item.name }}</span>
-          </div>
+      <UMarquee
+        pause-on-hover
+        :overlay="false"
+        :ui="{ root: '[--gap:--spacing(4)]', content: 'py-2' }"
+      >
+        <div
+          v-for="(item, index) in row3"
+          :key="`r3-${index}`"
+          class="flex items-center gap-2 px-6 py-3 bg-white rounded-xl shadow-sm border border-gray-100 min-w-max hover:shadow-md transition-shadow duration-300 mx-2"
+        >
+          <span class="p-1.5 rounded-lg" :class="item.colorBg">
+            <component :is="item.icon" class="w-5 h-5" :class="item.colorText" />
+          </span>
+          <span class="font-medium text-gray-700">{{ item.name }}</span>
         </div>
-      </div>
+      </UMarquee>
     </div>
   </section>
 </template>
@@ -153,29 +160,3 @@ const row3 = [
   { name: '声音合成', icon: Icons.Mic, colorBg: 'bg-green-100', colorText: 'text-green-700' },
 ]
 </script>
-
-<style scoped>
-@keyframes scroll-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-@keyframes scroll-right {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
-}
-
-.animate-scroll-left {
-  animation: scroll-left 40s linear infinite;
-  width: max-content;
-}
-
-.animate-scroll-right {
-  animation: scroll-right 40s linear infinite;
-  width: max-content;
-}
-
-.hover\:pause:hover {
-  animation-play-state: paused;
-}
-</style>

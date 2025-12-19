@@ -1,10 +1,10 @@
 <template>
-  <section class="py-16 md:py-24 bg-black overflow-hidden relative">
+  <section class="py-16 md:py-24 bg-white overflow-hidden relative">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 mb-12 md:mb-20 text-center">
-      <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4 md:mb-6 tracking-tight">
+      <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6 tracking-tight">
         BuidAI 可以帮你做什么
       </h2>
-      <p class="text-gray-400 text-sm sm:text-lg tracking-wide max-w-xl mx-auto">
+      <p class="text-gray-500 text-sm sm:text-lg tracking-wide max-w-xl mx-auto">
         部署 BuidAI 无限拓展应用场景
       </p>
     </div>
@@ -14,11 +14,11 @@
       <!--
         移动端适配说明:
         1. px-[7.5vw]: 配合 w-[85vw] 实现单卡片居中 (100-85)/2 = 7.5
-        2. snap-x snap-mandatory: 启用原生滚动捕捉
+        2. 去除 snap-x 以实现平滑的 auto-scroll 跑马灯效果
         3. touch-pan-x: 明确声明允许横向触控滚动
       -->
       <div
-        class="flex gap-4 sm:gap-8 overflow-x-auto pb-12 pt-8 md:pb-20 md:pt-10 px-[7.5vw] sm:px-[50vw] scrollbar-hide perspective-container select-none snap-x snap-mandatory touch-pan-x"
+        class="flex gap-4 sm:gap-8 overflow-x-auto pb-12 pt-8 md:pb-20 md:pt-10 px-[7.5vw] sm:px-[50vw] scrollbar-hide perspective-container select-none touch-pan-x"
         :class="{ 'cursor-grab': !isDragging, 'cursor-grabbing': isDragging }"
         ref="scrollContainer"
         @scroll="handleScroll"
@@ -32,7 +32,7 @@
         <div
           v-for="(card, index) in cards"
           :key="index"
-          class="flex-shrink-0 w-[85vw] sm:w-[360px] perspective-item will-change-transform snap-center"
+          class="flex-shrink-0 w-[85vw] sm:w-[360px] perspective-item will-change-transform"
           :ref="(el) => { if(el) cardRefs[index] = el as HTMLElement }"
         >
           <div
@@ -64,9 +64,9 @@
         </div>
       </div>
 
-      <!-- 淡入边缘（暗）- 移动端减小遮罩宽度以免遮挡内容 -->
-      <div class="absolute inset-y-0 left-0 w-8 md:w-64 bg-gradient-to-r from-black via-black/80 to-transparent pointer-events-none z-10"></div>
-      <div class="absolute inset-y-0 right-0 w-8 md:w-64 bg-gradient-to-l from-black via-black/80 to-transparent pointer-events-none z-10"></div>
+      <!-- 淡入边缘（亮）- 移动端减小遮罩宽度以免遮挡内容 -->
+      <div class="absolute inset-y-0 left-0 w-8 md:w-64 bg-gradient-to-r from-white via-white/80 to-transparent pointer-events-none z-10"></div>
+      <div class="absolute inset-y-0 right-0 w-8 md:w-64 bg-gradient-to-l from-white via-white/80 to-transparent pointer-events-none z-10"></div>
     </div>
   </section>
 </template>
@@ -93,12 +93,21 @@ const gradients = [
   'from-[#ECFCCB] to-[#D9F99D]'  // Lime
 ]
 
-const cards = apps.map((app, index) => ({
+const originalCards = apps.map((app, index) => ({
   title: app.name,
   desc: app.description,
   image: app.image,
   gradient: gradients[index % gradients.length]
 }))
+
+// 复制 5 份以实现无限滚动
+const cards = [
+  ...originalCards,
+  ...originalCards,
+  ...originalCards,
+  ...originalCards,
+  ...originalCards
+]
 
 const scrollContainer = ref<HTMLElement | null>(null)
 const cardRefs = ref<HTMLElement[]>([])
@@ -111,6 +120,7 @@ const initialScrollLeft = ref(0)
 
 const startDrag = (e: MouseEvent) => {
   isDragging.value = true
+  stopAutoPlay()
   if (scrollContainer.value) {
     startX.value = e.pageX - scrollContainer.value.offsetLeft
     initialScrollLeft.value = scrollContainer.value.scrollLeft
@@ -127,14 +137,17 @@ const onDrag = (e: MouseEvent) => {
 
 const handleTouchStart = () => {
   isDragging.value = true // 标记触摸开始，可能用于阻止某些自动逻辑
+  stopAutoPlay()
 }
 
 const handleTouchEnd = () => {
   isDragging.value = false
+  startAutoPlay()
 }
 
 const stopDrag = () => {
   isDragging.value = false
+  startAutoPlay()
 }
 
 const handleScroll = () => {
@@ -144,7 +157,29 @@ const handleScroll = () => {
 
   animationFrameId = requestAnimationFrame(() => {
     updateTransforms()
+    checkInfiniteScroll()
   })
+}
+
+// 检查是否需要重置滚动位置以实现无限循环
+const checkInfiniteScroll = () => {
+  if (!scrollContainer.value || isDragging.value) return
+
+  const container = scrollContainer.value
+  const isMobile = window.innerWidth < 768
+  const gap = isMobile ? 16 : 32
+  const cardWidth = isMobile ? window.innerWidth * 0.85 : 360
+  const itemFullWidth = cardWidth + gap
+  const singleSetWidth = itemFullWidth * originalCards.length
+
+  // 如果滚动到了第 4 组（倒数第 2 组），跳转回第 2 组
+  if (container.scrollLeft > singleSetWidth * 3.5) {
+    container.scrollLeft -= singleSetWidth * 2
+  }
+  // 如果滚动到了第 0 组（第 1 组），跳转回第 2 组
+  else if (container.scrollLeft < singleSetWidth * 0.5) {
+    container.scrollLeft += singleSetWidth * 2
+  }
 }
 
 const updateTransforms = () => {
@@ -179,23 +214,55 @@ const updateTransforms = () => {
   })
 }
 
+// Auto Play (Continuous Scroll) Logic
+let autoScrollFrameId: number | null = null
+const autoScrollSpeed = 0.5 // 像素/帧，调整此值改变速度
+
+const autoScrollLoop = () => {
+  if (scrollContainer.value && !isDragging.value) {
+    scrollContainer.value.scrollLeft += autoScrollSpeed
+  }
+  autoScrollFrameId = requestAnimationFrame(autoScrollLoop)
+}
+
+const startAutoPlay = () => {
+  stopAutoPlay()
+  autoScrollLoop()
+}
+
+const stopAutoPlay = () => {
+  if (autoScrollFrameId) {
+    cancelAnimationFrame(autoScrollFrameId)
+    autoScrollFrameId = null
+  }
+}
+
 onMounted(() => {
   nextTick(() => {
-    // Center the scroll initially
     if (scrollContainer.value) {
       const container = scrollContainer.value
-
       const isMobile = window.innerWidth < 768
+      const gap = isMobile ? 16 : 32
+      const cardWidth = isMobile ? window.innerWidth * 0.85 : 360
+      const itemFullWidth = cardWidth + gap
+
+      // 初始化位置：定位到中间那一组（第 2 组，索引从 0 开始则是第 2 组，即 index 2）
+      // cards 有 5 组: 0, 1, 2, 3, 4
+      // 初始定位到第 2 组开头，并加上偏移量使第一个卡片居中
+      const singleSetWidth = itemFullWidth * originalCards.length
+      const initialSetOffset = singleSetWidth * 2
 
       if (!isMobile) {
-        const cardWidth = 360 + 32 // width + gap
-        container.scrollLeft = (cardWidth * cards.length) / 2 - window.innerWidth / 2 + cardWidth / 2
+         // Desktop centering adjustment
+         container.scrollLeft = initialSetOffset - window.innerWidth / 2 + cardWidth / 2 + 32 // rough center adjustment
       } else {
-        // Mobile: Default allows first item to be centered due to padding
-        // Optionally scroll slightly to hint
+         // Mobile
+         container.scrollLeft = initialSetOffset
       }
 
+      // 强制更新一次
       updateTransforms()
+      startAutoPlay() // 启动自动播放
     }
 
     window.addEventListener('resize', handleScroll)
@@ -207,6 +274,7 @@ onUnmounted(() => {
   if (animationFrameId) {
     cancelAnimationFrame(animationFrameId)
   }
+  stopAutoPlay()
 })
 </script>
 

@@ -16,7 +16,7 @@
           :key="index"
           class="bg-gray-50 rounded-3xl p-8 border border-gray-100 group"
         >
-          <div class="h-64 mb-8 bg-white rounded-2xl border border-gray-100 overflow-hidden relative transition-all duration-300">
+          <div class="aspect-video w-full mb-8 bg-white rounded-2xl border border-gray-100 overflow-hidden relative transition-all duration-300">
              <img :src="card.image" :alt="card.title" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" />
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-3">{{ card.title }}</h3>

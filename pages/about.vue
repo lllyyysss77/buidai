@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-white text-[#0F0F12] font-sans selection:bg-blue-100 relative">
     <!-- 背景装饰：左上角网格 -->
-    <div class="absolute top-0 left-0 w-full h-[600px] bg-[url('/grid.svg')] pointer-events-none [mask-image:linear-gradient(to_bottom,white,transparent)] z-0"></div>
+    <div class="absolute top-0 left-0 w-full h-[600px] bg-[url('/grid.svg')] pointer-events-none mask-[linear-gradient(to_bottom,white,transparent)] z-0"></div>
 
     <!-- Hero Section -->
     <section class="pt-48 pb-20 relative z-10">
@@ -54,7 +54,7 @@
 
           <!-- Visual Content -->
           <div class="lg:w-1/2 w-full">
-            <div class="aspect-[4/3] rounded-2xl overflow-hidden relative">
+            <div class="aspect-4/3 rounded-2xl overflow-hidden relative">
               <img src="/about.png" alt="About BuidAI" class="w-full h-full object-cover" />
             </div>
           </div>

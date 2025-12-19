@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-white text-gray-900 font-sans selection:bg-blue-100 relative">
     <!-- 背景装饰：左上角网格 -->
-    <div class="absolute top-0 left-0 w-full h-[400px] md:h-[600px] bg-[url('/agent.svg')] pointer-events-none [mask-image:linear-gradient(to_bottom,white,transparent)] z-0"></div>
+    <div class="absolute top-0 left-0 w-full h-[400px] md:h-[600px] bg-[url('/agent.svg')] pointer-events-none mask-[linear-gradient(to_bottom,white,transparent)] z-0"></div>
 
     <!-- Hero Section -->
     <section class="pt-32 pb-12 md:pt-48 md:pb-20 relative overflow-hidden z-10">
@@ -15,7 +15,7 @@
         </div>
 
         <h1 class="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight mb-6 text-gray-900 leading-tight">
-          BuidAI企业级 <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 block sm:inline">AIAgent</span>构建平台
+          BuidAI企业级 <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600 block sm:inline">AIAgent</span>构建平台
         </h1>
 
         <p class="text-base sm:text-xl text-gray-500 mb-8 md:mb-10 max-w-3xl mx-auto px-2">
@@ -30,7 +30,7 @@
             <!-- Arrow Right Icon -->
             <ArrowRightIcon class="w-4 h-4" />
           </button>
-          <button class="w-full sm:w-auto px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold hover:opacity-90 active:scale-95 transition-all shadow-[0_4px_14px_rgba(59,130,246,0.3)] flex items-center justify-center gap-2 touch-manipulation">
+          <button class="w-full sm:w-auto px-8 py-3 rounded-full bg-linear-to-r from-blue-600 to-purple-600 text-white font-semibold hover:opacity-90 active:scale-95 transition-all shadow-[0_4px_14px_rgba(59,130,246,0.3)] flex items-center justify-center gap-2 touch-manipulation">
             <!-- Document Icon -->
             <DocumentTextIcon class="w-5 h-5" />
             查看文档
@@ -69,7 +69,7 @@
               </p>
 
               <!-- 图像区域-->
-              <div class="mt-auto w-full aspect-[4/3] bg-gray-50 rounded-lg overflow-hidden relative group">
+              <div class="mt-auto w-full aspect-4/3 bg-gray-50 rounded-lg overflow-hidden relative group">
                 <img :src="item.image" :alt="item.title" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
             </div>
@@ -107,7 +107,7 @@
                 <div class="relative rounded-xl overflow-hidden bg-gray-50">
                    <img :src="feature.image" :alt="feature.title" loading="lazy" class="w-full h-auto" />
                    <!-- Overlay Gradient -->
-                   <div class="absolute inset-0 bg-gradient-to-t from-white/10 to-transparent pointer-events-none"></div>
+                   <div class="absolute inset-0 bg-linear-to-t from-white/10 to-transparent pointer-events-none"></div>
                 </div>
               </div>
             </div>
@@ -180,7 +180,7 @@
     <!-- Footer -->
     <section class="py-10 md:py-20 relative overflow-hidden bg-white border-t border-gray-100">
       <!-- Footer Gradient -->
-      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[200px] md:h-[300px] bg-gradient-to-t from-blue-50 to-transparent pointer-events-none"></div>
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[200px] md:h-[300px] bg-linear-to-t from-blue-50 to-transparent pointer-events-none"></div>
 
       <div class="container mx-auto px-4 relative z-10">
         <div class="flex flex-col lg:flex-row items-center justify-between gap-8 md:gap-8 mb-10 md:mb-20">

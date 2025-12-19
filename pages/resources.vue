@@ -43,7 +43,7 @@
             {{ resource.title }}
           </h3>
 
-          <p class="text-gray-500 leading-relaxed mb-6 flex-grow">
+          <p class="text-gray-500 leading-relaxed mb-6 grow">
             {{ resource.description }}
           </p>
 

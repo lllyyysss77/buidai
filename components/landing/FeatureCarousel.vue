@@ -85,7 +85,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, nextTick } from 'vue'
 // 导入应用数据：从 utils/scene.ts 中获取应用列表，用于生成 3D 轮播卡片
-import { apps } from '~/utils/scene'
+import { sceneApps as apps } from '~/utils/scene'
 
 const gradients = [
   'from-[#E0F2FE] to-[#BAE6FD]', // Sky Blue

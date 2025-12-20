@@ -1,13 +1,13 @@
 /**
  * 应用数据接口定义
  */
-export interface AppData {
+export interface SceneAppData {
   name: string
   description: string
   image: string
 }
 
-export const apps: AppData[] = [
+export const sceneApps: SceneAppData[] = [
   {
     name: 'Sora2短剧视频创作',
     description: 'Sora2短剧视频创作是一款聚焦高效优质短剧创作的AI智能生成工具，它能深度理解用户输入的文字提示词，将创意转化为精彩视频。',

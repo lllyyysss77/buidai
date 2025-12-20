@@ -192,7 +192,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 // 导入应用数据：从 utils/scene.ts 中获取应用列表，用于提取图片生成跑马灯背景
-import { apps } from '~/utils/scene'
+import { sceneApps as apps } from '~/utils/scene'
 
 /**
  * Hero Section Logic

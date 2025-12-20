@@ -7,13 +7,13 @@
       <div class="flex items-center justify-between h-[72px]">
         <!-- Left: Logo -->
         <div class="flex items-center gap-10 flex-1">
-          <NuxtLink to="/" class="flex items-center gap-2 shrink-0">
+          <NuxtLink to="/" class="flex items-center gap-2 shrink-0" aria-label="BuidAI Home">
             <img
               :src="isTransparent ? '/logo.svg' : '/logo-full.svg'"
-              alt="BuidAI"
+              alt="BuidAI Logo"
               width="120"
               height="32"
-              class="h-8 w-auto object-contain"
+              class="h-8 w-auto object-contain transition-opacity duration-300"
             />
           </NuxtLink>
 
@@ -31,42 +31,52 @@
         </div>
 
         <!-- Right: Actions & Mobile Toggle -->
-      <div class="flex items-center gap-3">
-        <!-- Desktop Actions -->
-        <div class="hidden md:flex items-center gap-3">
-          <NuxtLink
-            to="/docs"
-            class="h-10 px-6 rounded-full text-[15px] font-medium transition-colors duration-200 flex items-center justify-center gap-2"
-            :class="isTransparent ? 'bg-white/10 text-white hover:bg-white/20' : 'bg-white border border-gray-200 text-gray-700 hover:bg-gray-50'"
-          >
-            <BookOpenIcon class="w-4 h-4" />
-            文档中心
-          </NuxtLink>
-          <NuxtLink
-            to="https://cloud.buidai.com/login"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="h-10 px-6 rounded-full text-[15px] font-medium transition-all duration-200 flex items-center justify-center gap-2"
-            :class="isTransparent ? 'bg-white text-gray-900 hover:bg-gray-50' : 'bg-black text-white hover:bg-gray-800'"
-          >
-            <ArrowRightOnRectangleIcon class="w-4 h-4" />
-            登录必定
-          </NuxtLink>
-        </div>
+        <div class="flex items-center gap-3">
+          <!-- Desktop Actions -->
+          <div class="hidden md:flex items-center gap-3">
+            <UButton
+              to="/docs"
+              variant="ghost"
+              color="neutral"
+              class="h-10 rounded-full px-4 sm:px-6 font-medium transition-colors duration-200"
+              :class="[isTransparent ? 'bg-white/10 text-white hover:bg-white/20' : 'bg-white border border-gray-200 text-gray-700 hover:bg-gray-50']"
+            >
+              <template #leading>
+                <BookOpenIcon class="w-4 h-4" />
+              </template>
+              文档中心
+            </UButton>
 
-        <!-- Mobile Menu Toggle -->
-        <button
-          class="md:hidden p-2 rounded-lg transition-colors duration-200"
-          :class="isTransparent ? 'text-white/80 hover:bg-white/10' : 'text-gray-600 hover:bg-gray-100'"
-          @click="mobileMenuOpen = !mobileMenuOpen"
-          aria-label="Toggle menu"
-          :aria-expanded="mobileMenuOpen ? 'true' : 'false'"
-          aria-controls="mobile-menu-panel"
-        >
-          <Bars3Icon v-if="!mobileMenuOpen" class="w-6 h-6" />
-          <XMarkIcon v-else class="w-6 h-6" />
-        </button>
-      </div>
+            <UButton
+              to="https://cloud.buidai.com/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="ghost"
+              color="neutral"
+              class="h-10 rounded-full px-4 sm:px-6 font-medium transition-all duration-200"
+              :class="[isTransparent ? 'bg-white text-gray-900 hover:bg-gray-50' : 'bg-black text-white hover:bg-gray-800']"
+            >
+              <template #leading>
+                <ArrowRightOnRectangleIcon class="w-4 h-4" />
+              </template>
+              登录必定
+            </UButton>
+          </div>
+
+          <!-- Mobile Menu Toggle -->
+          <UButton
+            class="md:hidden"
+            variant="ghost"
+            color="neutral"
+            :aria-label="mobileMenuOpen ? 'Close menu' : 'Open menu'"
+            :aria-expanded="mobileMenuOpen"
+            @click="mobileMenuOpen = !mobileMenuOpen"
+            :class="isTransparent ? 'text-white/80 hover:bg-white/10' : 'text-gray-600 hover:bg-gray-100'"
+          >
+            <Bars3Icon v-if="!mobileMenuOpen" class="w-6 h-6" />
+            <XMarkIcon v-else class="w-6 h-6" />
+          </UButton>
+        </div>
       </div>
     </div>
 
@@ -93,22 +103,33 @@
           />
 
           <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
-            <NuxtLink
+            <UButton
               to="/docs"
-              class="flex-1 h-12 rounded-xl text-base font-medium border border-gray-200 text-gray-700 hover:bg-gray-50 active:scale-[0.98] transition-all flex items-center justify-center gap-2 leading-relaxed"
+              block
+              color="neutral"
+              variant="ghost"
+              class="flex-1 h-12 rounded-xl text-base font-medium border border-gray-200 text-gray-700 hover:bg-gray-50 active:scale-[0.98] transition-all leading-relaxed justify-center"
             >
-              <BookOpenIcon class="w-5 h-5" />
+              <template #leading>
+                <BookOpenIcon class="w-5 h-5" />
+              </template>
               文档中心
-            </NuxtLink>
-            <NuxtLink
+            </UButton>
+
+            <UButton
               to="https://cloud.buidai.com/login"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex-1 h-12 rounded-xl bg-black text-white text-base font-medium hover:bg-gray-800 active:scale-[0.98] transition-all flex items-center justify-center gap-2 leading-relaxed"
+              block
+              color="neutral"
+              variant="ghost"
+              class="flex-1 h-12 rounded-xl bg-black text-white text-base font-medium hover:bg-gray-800 active:scale-[0.98] transition-all leading-relaxed justify-center"
             >
-              <ArrowRightOnRectangleIcon class="w-5 h-5" />
+              <template #leading>
+                <ArrowRightOnRectangleIcon class="w-5 h-5" />
+              </template>
               登录必定
-            </NuxtLink>
+            </UButton>
           </div>
         </div>
       </div>
@@ -117,16 +138,28 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
+import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { Bars3Icon, XMarkIcon, BookOpenIcon, ArrowRightOnRectangleIcon } from '@heroicons/vue/24/outline'
 import type { NavigationMenuItem } from '@nuxt/ui'
+
+/**
+ * AppNavigation Component
+ *
+ * Main header navigation for the application.
+ * Features:
+ * - Responsive design (Desktop/Mobile)
+ * - Transparent/Solid background states based on scroll or route
+ * - Mobile menu toggle with transition
+ * - Integrated Nuxt UI components
+ */
 
 const route = useRoute()
 const mobileMenuOpen = ref(false)
 const isScrolled = ref(false)
 
-// Navigation Configuration for UNavigationMenu
+// Navigation Items Configuration
+// Uses nested arrays for grouping if needed, or simple array
 const items = computed<NavigationMenuItem[][]>(() => [
   [
     { label: '首页', to: '/', icon: 'i-lucide-house' },
@@ -183,41 +216,59 @@ const items = computed<NavigationMenuItem[][]>(() => [
   ]
 ])
 
-// Removed unused mobileItems
+/**
+ * Computed state for transparency.
+ * Currently defaults to false, but can be extended to check route meta or scroll position.
+ */
+const isTransparent = computed(() => {
+  // Example: return route.path === '/' && !isScrolled.value
+  return false
+})
 
-// Computed States
-const isHome = computed(() => false)
-const isTransparent = computed(() => false)
+/**
+ * Dynamic header classes based on transparency and scroll state.
+ */
+const headerClasses = computed(() => {
+  if (isTransparent.value) {
+    return isScrolled.value ? 'bg-white/90 backdrop-blur-md border-gray-200/50' : 'bg-transparent border-transparent'
+  }
+  return 'bg-white border-gray-100' // Enterprise clean look
+})
 
-const headerClasses = computed(() => 'bg-white border-black/5')
-
-// UI Config for UNavigationMenu to match previous styles
+/**
+ * UI Configuration for Desktop Navigation Menu
+ * Adapts to transparent/solid states.
+ */
 const navigationMenuUi = computed(() => ({
   link: isTransparent.value
-    ? 'text-base text-white/80 hover:text-white hover:bg-white/10 font-medium rounded-lg'
-    : 'text-base text-gray-600 hover:text-gray-900 hover:bg-gray-50 font-medium rounded-lg',
+    ? 'text-base text-white/80 hover:text-white hover:bg-white/10 font-medium rounded-lg px-3 py-2'
+    : 'text-base text-gray-600 hover:text-gray-900 hover:bg-gray-50 font-medium rounded-lg px-3 py-2',
   linkActive: isTransparent.value
     ? 'text-white font-bold bg-white/10 rounded-lg'
-    : 'text-ui-primary font-bold bg-ui-primary-weak rounded-lg',
+    : 'text-primary font-bold bg-primary-50 text-primary-600 rounded-lg',
   linkLeadingIcon: isTransparent.value
     ? 'text-white/60 group-hover:text-white'
-    : 'text-gray-400 group-hover:text-gray-500 group-[.router-link-active]:text-black dark:group-[.router-link-active]:text-white',
+    : 'text-gray-400 group-hover:text-gray-500 group-[.router-link-active]:text-primary-600',
   childLinkDescription: 'text-xs text-gray-500'
 }))
 
-// Dedicated Mobile UI Config for cleaner look and larger touch targets
+/**
+ * UI Configuration for Mobile Navigation Menu
+ * Larger touch targets and cleaner spacing.
+ */
 const mobileNavigationMenuUi = computed(() => ({
   link: 'text-base text-gray-700 hover:text-gray-900 hover:bg-gray-50 font-medium rounded-lg px-3 py-3 min-h-[48px] flex items-center leading-relaxed',
-  linkActive: 'text-ui-primary font-bold bg-ui-primary-weak rounded-lg px-3 py-3 min-h-[48px] flex items-center',
-  linkLeadingIcon: 'text-gray-400 group-hover:text-gray-500 group-[.router-link-active]:text-black dark:group-[.router-link-active]:text-white w-5 h-5 mr-3',
+  linkActive: 'text-primary-600 font-bold bg-primary-50 rounded-lg px-3 py-3 min-h-[48px] flex items-center',
+  linkLeadingIcon: 'text-gray-400 group-hover:text-gray-500 group-[.router-link-active]:text-primary-600 w-5 h-5 mr-3',
   childLinkDescription: 'text-sm text-gray-500 mt-1'
 }))
 
-// Helper Functions
-// getMobileItemClass removed as it's no longer used
+// --- Scroll Handling ---
 
-// Optimized Scroll Handler
 let ticking = false
+/**
+ * Optimized scroll handler using requestAnimationFrame
+ */
 const onScroll = () => {
   if (!ticking) {
     window.requestAnimationFrame(() => {
@@ -231,15 +282,23 @@ const onScroll = () => {
   }
 }
 
-// Lifecycle Hooks
-onMounted(() => {})
+// --- Lifecycle & Watchers ---
 
-onUnmounted(() => {})
+onMounted(() => {
+  window.addEventListener('scroll', onScroll, { passive: true })
+  onScroll() // Initial check
+})
 
-// Route Watcher
+onUnmounted(() => {
+  window.removeEventListener('scroll', onScroll)
+})
+
+// Close mobile menu on route change
 watch(() => route.path, () => {
   mobileMenuOpen.value = false
 })
+
+// Lock body scroll when mobile menu is open
 watch(mobileMenuOpen, (open) => {
   if (typeof document !== 'undefined') {
     document.body.style.overflow = open ? 'hidden' : ''

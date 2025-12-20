@@ -1,0 +1,928 @@
+20:20:32.227 Running build in Washington, D.C., USA (East) – iad1
+20:20:32.232 Build machine configuration: 2 cores, 8 GB
+20:20:32.507 Cloning github.com/gzyxds/buidai (Branch: main, Commit: 00c452e)
+20:20:32.509 Previous build caches not available.
+20:20:34.310 Cloning completed: 1.803s
+20:20:34.803 Running "vercel build"
+20:20:35.264 Vercel CLI 50.1.3
+20:20:35.848 Installing dependencies...
+20:22:05.963 
+20:22:05.964 added 1217 packages in 1m
+20:22:05.964 
+20:22:05.965 351 packages are looking for funding
+20:22:05.966   run `npm fund` for details
+20:22:06.021 Running "npm run build"
+20:22:06.124 
+20:22:06.124 > buidai@1.0.0 build
+20:22:06.125 > nuxt generate
+20:22:06.125 
+20:22:06.530 [90m┌[39m  Building Nuxt for production...
+20:22:06.787 [90m│[39m
+20:22:06.788 [34m●[39m  Nuxt 4.2.2 (with Nitro 2.12.9, Vite 7.3.0 and Vue 3.5.26)
+20:22:10.612 [success] [@nuxt/content] Processed 4 collections and 17 files in 1777.86ms (0 cached, 17 parsed)
+20:22:11.018 [info] Nuxt Icon server bundle mode is set to `local`
+20:22:11.020 [warn] [@nuxt/content] Deploying sqlite database to Vercel is possible only in `/tmp` directory. Using `/tmp/contents.sqlite` instead.
+20:22:11.166 [90m│[39m
+20:22:11.167 [34m●[39m  Nitro preset: vercel-static
+20:22:12.231 [info] Building client...
+20:22:12.256 [info] [36mvite v7.3.0 [32mbuilding client environment for production...[36m[39m
+20:22:12.328 [info] transforming...
+20:22:13.964 [warn] 
+20:22:13.964 'https://placehold.co/300x200/e2e8f0/94a3b8?text=Writing' referenced in 'https://placehold.co/300x200/e2e8f0/94a3b8?text=Writing' didn't resolve at build time, it will remain unchanged to be resolved at runtime
+20:22:14.989 [warn] [33m[vite:css][postcss] Gradient has outdated direction syntax. New syntax is like `closest-side at 0 0` instead of `0 0, closest-side`.
+20:22:14.990 1  |  /*! tailwindcss v4.1.18 | MIT License | https://tailwindcss.com */
+20:22:14.990 2  |  ...70\%\,transparent_100\%\)\]{-webkit-mask-image:radial-gradient(60% 60%,#000 70%,#0000 100%);mask-image:radial-grad...
+20:22:14.990    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[39m
+20:22:14.991 [warn] [33m[vite:css][postcss] Gradient has outdated direction syntax. New syntax is like `closest-side at 0 0` instead of `0 0, closest-side`.
+20:22:14.991 1  |  /*! tailwindcss v4.1.18 | MIT License | https://tailwindcss.com */
+20:22:14.991 2  |  ...ent(60% 60%,#000 70%,#0000 100%);mask-image:radial-gradient(60% 60%,#000 70%,#0000 100%)}.mask-\[linear-gradient\(...
+20:22:14.992    |                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[39m
+20:22:26.926 [info] [32m✓[39m 3679 modules transformed.
+20:22:27.349 [info] rendering chunks...
+20:22:27.419 [warn] [33m[esbuild css minify]
+20:22:27.419 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:27.420 
+20:22:27.420     <stdin>:1:70:
+20:22:27.420       1 │ ...text-gray-700 dark:text-gray-300}[data-v-208fd16f] .doc-content ...
+20:22:27.420         │                                    ^
+20:22:27.420         ╵                                    ;
+20:22:27.421 
+20:22:27.421 
+20:22:27.421 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:27.421 
+20:22:27.421     <stdin>:1:253:
+20:22:27.421       1 │ ...ay-100 dark:border-gray-800 pb-2}[data-v-208fd16f] .doc-content ...
+20:22:27.421         │                                    ^
+20:22:27.421         ╵                                    ;
+20:22:27.422 
+20:22:27.422 
+20:22:27.422 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:27.422 
+20:22:27.422     <stdin>:1:383:
+20:22:27.422       1 │ ...mb-4 scroll-mt-24 tracking-tight}[data-v-208fd16f] .doc-content ...
+20:22:27.422         │                                    ^
+20:22:27.422         ╵                                    ;
+20:22:27.423 
+20:22:27.423 
+20:22:27.423 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:27.423 
+20:22:27.423     <stdin>:1:438:
+20:22:27.423       1 │ ...-content p{@apply leading-7 mb-5}[data-v-208fd16f] .doc-content ...
+20:22:27.423         │                                    ^
+20:22:27.423         ╵                                    ;
+20:22:27.424 
+20:22:27.424 
+20:22:27.424 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:27.424 
+20:22:27.424     <stdin>:1:522:
+20:22:27.424       1 │ ...list-outside ml-6 mb-5 space-y-1}[data-v-208fd16f] .doc-content ...
+20:22:27.424         │                                    ^
+20:22:27.424         ╵                                    ;
+20:22:27.424 
+20:22:27.425 
+20:22:27.425 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:27.425 
+20:22:27.425     <stdin>:1:609:
+20:22:27.425       1 │ ...list-outside ml-6 mb-5 space-y-1}[data-v-208fd16f] .doc-content ...
+20:22:27.425         │                                    ^
+20:22:27.425         ╵                                    ;
+20:22:27.426 
+20:22:27.426 
+20:22:27.426 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:27.426 
+20:22:27.426     <stdin>:1:844:
+20:22:27.426       1 │ ...er-primary-400 transition-colors}[data-v-208fd16f] .doc-content ...
+20:22:27.426         │                                    ^
+20:22:27.426         ╵                                    ;
+20:22:27.427 
+20:22:27.427 
+20:22:27.427 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:27.427 
+20:22:27.427     <stdin>:1:1095:
+20:22:27.427       1 │ ...mary-100 dark:border-primary-800}[data-v-208fd16f] .doc-content ...
+20:22:27.427         │                                    ^
+20:22:27.427         ╵                                    ;
+20:22:27.428 
+20:22:27.428 
+20:22:27.428 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:27.428 
+20:22:27.431     <stdin>:1:1293:
+20:22:27.432       1 │ ... dark:border-slate-800 shadow-sm}[data-v-208fd16f] .doc-content ...
+20:22:27.432         │                                    ^
+20:22:27.432         ╵                                    ;
+20:22:27.432 
+20:22:27.432 
+20:22:27.432 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:27.432 
+20:22:27.433     <stdin>:1:1392:
+20:22:27.433       1 │ ...text-inherit border-none text-sm}[data-v-208fd16f] .doc-content ...
+20:22:27.433         │                                    ^
+20:22:27.433         ╵                                    ;
+20:22:27.433 
+20:22:27.433 
+20:22:27.433 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:27.434 
+20:22:27.434     <stdin>:1:1542:
+20:22:27.435       1 │ ...ounded-r-lg italic text-gray-700}[data-v-208fd16f] .doc-content ...
+20:22:27.435         │                                    ^
+20:22:27.436         ╵                                    ;
+20:22:27.436 
+20:22:27.436 
+20:22:27.436 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:27.436 
+20:22:27.436     <stdin>:1:1633:
+20:22:27.436       1 │ ...r border-gray-100 shadow-sm my-8}[data-v-208fd16f] .doc-content ...
+20:22:27.436         │                                    ^
+20:22:27.437         ╵                                    ;
+20:22:27.437 
+20:22:27.437 
+20:22:27.437 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:27.437 
+20:22:27.437     <stdin>:1:1715:
+20:22:27.437       1 │ ...l text-left border-collapse my-8}[data-v-208fd16f] .doc-content ...
+20:22:27.445         │                                    ^
+20:22:27.446         ╵                                    ;
+20:22:27.446 
+20:22:27.446 
+20:22:27.446 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:27.446 
+20:22:27.446     <stdin>:1:1838:
+20:22:27.447       1 │ ...emibold text-gray-900 bg-gray-50}[data-v-208fd16f] .doc-content ...
+20:22:27.447         │                                    ^
+20:22:27.447         ╵                                    ;
+20:22:27.447 
+20:22:27.447 
+20:22:27.447 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:27.447 
+20:22:27.447     <stdin>:1:1936:
+20:22:27.448       1 │ ...td{@apply border-b border-gray-100 py-3 px-4 text-sm text-gray-600}
+20:22:27.448         │                                                                      ^
+20:22:27.448         ╵                                                                      ;
+20:22:27.448 
+20:22:27.448 [39m
+20:22:27.489 [warn] [33m[esbuild css minify]
+20:22:27.489 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:27.490 
+20:22:27.490     <stdin>:1:91:
+20:22:27.491       1 │ ...gray-900 mt-12 mb-6 scroll-mt-32}[data-v-c243b2cd] .prose h3{@ap...
+20:22:27.491         │                                    ^
+20:22:27.491         ╵                                    ;
+20:22:27.491 
+20:22:27.491 
+20:22:27.491 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:27.492 
+20:22:27.492     <stdin>:1:181:
+20:22:27.492       1 │ ...-gray-900 mt-8 mb-4 scroll-mt-32}[data-v-c243b2cd] .prose p{@app...
+20:22:27.492         │                                    ^
+20:22:27.492         ╵                                    ;
+20:22:27.492 
+20:22:27.493 
+20:22:27.493 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:27.493 
+20:22:27.493     <stdin>:1:244:
+20:22:27.493       1 │ ...ply text-gray-600 leading-8 mb-6}[data-v-c243b2cd] .prose ul{@ap...
+20:22:27.493         │                                    ^
+20:22:27.497         ╵                                    ;
+20:22:27.497 
+20:22:27.498 
+20:22:27.498 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:27.498 
+20:22:27.498     <stdin>:1:326:
+20:22:27.501       1 │ ...-outside ml-6 mb-6 text-gray-600}[data-v-c243b2cd] .prose pre{@a...
+20:22:27.501         │                                    ^
+20:22:27.501         ╵                                    ;
+20:22:27.501 
+20:22:27.501 
+20:22:27.502 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:27.502 
+20:22:27.502     <stdin>:1:424:
+20:22:27.502       1 │ ... rounded-xl overflow-x-auto mb-8}[data-v-c243b2cd] .prose code{@...
+20:22:27.502         │                                    ^
+20:22:27.503         ╵                                    ;
+20:22:27.503 
+20:22:27.503 
+20:22:27.503 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:27.503 
+20:22:27.503     <stdin>:1:535:
+20:22:27.504       1 │ ...py-0.5 rounded text-sm font-mono}[data-v-c243b2cd] .prose pre co...
+20:22:27.504         │                                    ^
+20:22:27.504         ╵                                    ;
+20:22:27.504 
+20:22:27.504 
+20:22:27.504 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:27.505 
+20:22:27.505     <stdin>:1:608:
+20:22:27.505       1 │ ... text-inherit bg-transparent p-0}[data-v-c243b2cd] .prose blockq...
+20:22:27.505         │                                    ^
+20:22:27.505         ╵                                    ;
+20:22:27.505 
+20:22:27.505 
+20:22:27.506 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:27.511 
+20:22:27.512     <stdin>:1:746:
+20:22:27.512       1 │ ...0 pl-6 italic text-gray-700 my-8 bg-gray-50 py-4 pr-4 rounded-r-lg}
+20:22:27.512         │                                                                      ^
+20:22:27.512         ╵                                                                      ;
+20:22:27.513 
+20:22:27.513 [39m
+20:22:28.257 [info] computing gzip size...
+20:22:28.355 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[32msqlite3-opfs-async-proxy-C_otN2ZJ.js          [39m[1m[2m  9.45 kB[22m[1m[22m
+20:22:28.355 [info] [2m.nuxt/dist/client/[22m[32mmanifest.json                                       [39m[1m[2m 42.70 kB[22m[1m[22m[2m │ gzip:   4.26 kB[22m
+20:22:28.355 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[32msqlite3-worker1-bundler-friendly-Bv6ABw9v.js  [39m[1m[2m196.87 kB[22m[1m[22m
+20:22:28.356 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[32msqlite3.DBpDb1lf.wasm                         [39m[1m[2m856.45 kB[22m[1m[22m[2m │ gzip: 393.51 kB[22m
+20:22:28.356 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[32msqlite3-DBpDb1lf.wasm                         [39m[1m[2m856.45 kB[22m[1m[22m[2m │ gzip: 393.51 kB[22m
+20:22:28.356 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[35mabout.tn0RQdqM.css                            [39m[1m[2m  0.00 kB[22m[1m[22m[2m │ gzip:   0.02 kB[22m
+20:22:28.356 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[35mPre.DmpPSE9a.css                              [39m[1m[2m  0.27 kB[22m[1m[22m[2m │ gzip:   0.18 kB[22m
+20:22:28.357 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[35mplugin.CwGs-3Ut.css                           [39m[1m[2m  0.29 kB[22m[1m[22m[2m │ gzip:   0.16 kB[22m
+20:22:28.357 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[35msolutions.aKq3Nxa7.css                        [39m[1m[2m  0.44 kB[22m[1m[22m[2m │ gzip:   0.26 kB[22m
+20:22:28.357 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[35m_...C4t5RnV0.css                              [39m[1m[2m  0.76 kB[22m[1m[22m[2m │ gzip:   0.32 kB[22m
+20:22:28.357 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[35mchangelog.CIB_VoD8.css                        [39m[1m[2m  1.51 kB[22m[1m[22m[2m │ gzip:   0.64 kB[22m
+20:22:28.358 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[35merror-500.DqdIhFrl.css                        [39m[1m[2m  1.91 kB[22m[1m[22m[2m │ gzip:   0.73 kB[22m
+20:22:28.358 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[35m_...DbYEoYOb.css                              [39m[1m[2m  1.95 kB[22m[1m[22m[2m │ gzip:   0.59 kB[22m
+20:22:28.358 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[35mindex.DAQFdBR1.css                            [39m[1m[2m  2.01 kB[22m[1m[22m[2m │ gzip:   0.61 kB[22m
+20:22:28.358 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[35merror-404.2GhCpCfF.css                        [39m[1m[2m  2.43 kB[22m[1m[22m[2m │ gzip:   0.86 kB[22m
+20:22:28.359 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[35mentry.CeYbu1-A.css                            [39m[1m[2m292.88 kB[22m[1m[22m[2m │ gzip:  38.29 kB[22m
+20:22:28.359 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mC3w5kFu9.js                                   [39m[1m[2m  0.03 kB[22m[1m[22m[2m │ gzip:   0.05 kB[22m
+20:22:28.359 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mDk8UJXEi.js                                   [39m[1m[2m  0.07 kB[22m[1m[22m[2m │ gzip:   0.09 kB[22m
+20:22:28.359 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mDlAUqK2U.js                                   [39m[1m[2m  0.09 kB[22m[1m[22m[2m │ gzip:   0.10 kB[22m
+20:22:28.359 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mChOKVcqp.js                                   [39m[1m[2m  0.18 kB[22m[1m[22m[2m │ gzip:   0.16 kB[22m
+20:22:28.359 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mDnBGTPsW.js                                   [39m[1m[2m  0.19 kB[22m[1m[22m[2m │ gzip:   0.16 kB[22m
+20:22:28.360 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mFUKBWQwh.js                                   [39m[1m[2m  0.19 kB[22m[1m[22m[2m │ gzip:   0.13 kB[22m
+20:22:28.360 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36muZsW8A0j.js                                   [39m[1m[2m  0.21 kB[22m[1m[22m[2m │ gzip:   0.18 kB[22m
+20:22:28.360 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mqikvNeq-.js                                   [39m[1m[2m  0.34 kB[22m[1m[22m[2m │ gzip:   0.27 kB[22m
+20:22:28.360 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mCgH3KsjI.js                                   [39m[1m[2m  0.35 kB[22m[1m[22m[2m │ gzip:   0.28 kB[22m
+20:22:28.360 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mDfKabA9V.js                                   [39m[1m[2m  0.35 kB[22m[1m[22m[2m │ gzip:   0.28 kB[22m
+20:22:28.361 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mgIXdQ0_v.js                                   [39m[1m[2m  0.37 kB[22m[1m[22m[2m │ gzip:   0.28 kB[22m
+20:22:28.361 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mCq2G8VFx.js                                   [39m[1m[2m  0.37 kB[22m[1m[22m[2m │ gzip:   0.28 kB[22m
+20:22:28.361 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mDQ_9sTeh.js                                   [39m[1m[2m  0.37 kB[22m[1m[22m[2m │ gzip:   0.28 kB[22m
+20:22:28.361 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mBTOe8o4D.js                                   [39m[1m[2m  0.37 kB[22m[1m[22m[2m │ gzip:   0.28 kB[22m
+20:22:28.361 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mwQ2HGCTU.js                                   [39m[1m[2m  0.38 kB[22m[1m[22m[2m │ gzip:   0.29 kB[22m
+20:22:28.361 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mByK3Ne3_.js                                   [39m[1m[2m  0.38 kB[22m[1m[22m[2m │ gzip:   0.29 kB[22m
+20:22:28.362 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mBa_wzpkK.js                                   [39m[1m[2m  0.39 kB[22m[1m[22m[2m │ gzip:   0.30 kB[22m
+20:22:28.362 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mBnDM3ywN.js                                   [39m[1m[2m  0.39 kB[22m[1m[22m[2m │ gzip:   0.30 kB[22m
+20:22:28.362 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mTkGYyd8C.js                                   [39m[1m[2m  0.40 kB[22m[1m[22m[2m │ gzip:   0.31 kB[22m
+20:22:28.362 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mBFe-UsG7.js                                   [39m[1m[2m  0.41 kB[22m[1m[22m[2m │ gzip:   0.31 kB[22m
+20:22:28.362 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mi7EpqMVf.js                                   [39m[1m[2m  0.41 kB[22m[1m[22m[2m │ gzip:   0.27 kB[22m
+20:22:28.363 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mC1A7bI3E.js                                   [39m[1m[2m  0.42 kB[22m[1m[22m[2m │ gzip:   0.32 kB[22m
+20:22:28.363 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mCWx3NT5a.js                                   [39m[1m[2m  0.42 kB[22m[1m[22m[2m │ gzip:   0.31 kB[22m
+20:22:28.364 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mCot9XPPd.js                                   [39m[1m[2m  0.43 kB[22m[1m[22m[2m │ gzip:   0.32 kB[22m
+20:22:28.364 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mClDWWVV6.js                                   [39m[1m[2m  0.46 kB[22m[1m[22m[2m │ gzip:   0.34 kB[22m
+20:22:28.365 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mCICr56Dy.js                                   [39m[1m[2m  0.48 kB[22m[1m[22m[2m │ gzip:   0.33 kB[22m
+20:22:28.365 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mCTUW2xjh.js                                   [39m[1m[2m  0.49 kB[22m[1m[22m[2m │ gzip:   0.34 kB[22m
+20:22:28.365 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mBkiHgHp-.js                                   [39m[1m[2m  0.49 kB[22m[1m[22m[2m │ gzip:   0.34 kB[22m
+20:22:28.365 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mBhcDFXh5.js                                   [39m[1m[2m  0.50 kB[22m[1m[22m[2m │ gzip:   0.34 kB[22m
+20:22:28.366 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mCXZ-_BHG.js                                   [39m[1m[2m  0.50 kB[22m[1m[22m[2m │ gzip:   0.32 kB[22m
+20:22:28.366 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mB-e7HBKz.js                                   [39m[1m[2m  0.53 kB[22m[1m[22m[2m │ gzip:   0.36 kB[22m
+20:22:28.366 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mCCOWJUy2.js                                   [39m[1m[2m  0.53 kB[22m[1m[22m[2m │ gzip:   0.36 kB[22m
+20:22:28.366 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mBJcu4V0D.js                                   [39m[1m[2m  0.53 kB[22m[1m[22m[2m │ gzip:   0.34 kB[22m
+20:22:28.366 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mDO7ImKTn.js                                   [39m[1m[2m  0.54 kB[22m[1m[22m[2m │ gzip:   0.33 kB[22m
+20:22:28.367 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mC6U2ewO7.js                                   [39m[1m[2m  0.55 kB[22m[1m[22m[2m │ gzip:   0.37 kB[22m
+20:22:28.367 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mDD3aXr9B.js                                   [39m[1m[2m  0.55 kB[22m[1m[22m[2m │ gzip:   0.38 kB[22m
+20:22:28.367 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mDmjVHXkE.js                                   [39m[1m[2m  0.56 kB[22m[1m[22m[2m │ gzip:   0.36 kB[22m
+20:22:28.367 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36meH0BXJ61.js                                   [39m[1m[2m  0.58 kB[22m[1m[22m[2m │ gzip:   0.36 kB[22m
+20:22:28.367 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mCE0N6Lzx.js                                   [39m[1m[2m  0.58 kB[22m[1m[22m[2m │ gzip:   0.36 kB[22m
+20:22:28.368 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mC8-bjMk2.js                                   [39m[1m[2m  0.58 kB[22m[1m[22m[2m │ gzip:   0.39 kB[22m
+20:22:28.368 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mBajxXUd1.js                                   [39m[1m[2m  0.58 kB[22m[1m[22m[2m │ gzip:   0.39 kB[22m
+20:22:28.368 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mji8POUAE.js                                   [39m[1m[2m  0.58 kB[22m[1m[22m[2m │ gzip:   0.36 kB[22m
+20:22:28.368 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mD2YXeeRX.js                                   [39m[1m[2m  0.58 kB[22m[1m[22m[2m │ gzip:   0.36 kB[22m
+20:22:28.368 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mBuNmUIIC.js                                   [39m[1m[2m  0.60 kB[22m[1m[22m[2m │ gzip:   0.39 kB[22m
+20:22:28.369 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mD8fTqAjY.js                                   [39m[1m[2m  0.63 kB[22m[1m[22m[2m │ gzip:   0.39 kB[22m
+20:22:28.369 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mfyc6EzgH.js                                   [39m[1m[2m  0.70 kB[22m[1m[22m[2m │ gzip:   0.45 kB[22m
+20:22:28.369 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mCBmy-OtW.js                                   [39m[1m[2m  0.75 kB[22m[1m[22m[2m │ gzip:   0.41 kB[22m
+20:22:28.369 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mBGJsEnk4.js                                   [39m[1m[2m  0.77 kB[22m[1m[22m[2m │ gzip:   0.39 kB[22m
+20:22:28.370 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mDW3INiwU.js                                   [39m[1m[2m  0.81 kB[22m[1m[22m[2m │ gzip:   0.48 kB[22m
+20:22:28.370 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mJX4qzOcr.js                                   [39m[1m[2m  0.84 kB[22m[1m[22m[2m │ gzip:   0.48 kB[22m
+20:22:28.370 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mCi2OQ9PO.js                                   [39m[1m[2m  0.86 kB[22m[1m[22m[2m │ gzip:   0.54 kB[22m
+20:22:28.370 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mCnE4UaPE.js                                   [39m[1m[2m  0.89 kB[22m[1m[22m[2m │ gzip:   0.55 kB[22m
+20:22:28.371 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mj1zm8zCr.js                                   [39m[1m[2m  0.93 kB[22m[1m[22m[2m │ gzip:   0.48 kB[22m
+20:22:28.371 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mBUzd_g7v.js                                   [39m[1m[2m  1.01 kB[22m[1m[22m[2m │ gzip:   0.53 kB[22m
+20:22:28.380 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mC9UiGkNR.js                                   [39m[1m[2m  1.02 kB[22m[1m[22m[2m │ gzip:   0.53 kB[22m
+20:22:28.381 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mBN_7HF1G.js                                   [39m[1m[2m  1.09 kB[22m[1m[22m[2m │ gzip:   0.52 kB[22m
+20:22:28.381 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mDPEHZaFW.js                                   [39m[1m[2m  1.25 kB[22m[1m[22m[2m │ gzip:   0.72 kB[22m
+20:22:28.382 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mDh2KzKCr.js                                   [39m[1m[2m  1.43 kB[22m[1m[22m[2m │ gzip:   0.73 kB[22m
+20:22:28.382 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mB7QL8tE8.js                                   [39m[1m[2m  1.59 kB[22m[1m[22m[2m │ gzip:   0.85 kB[22m
+20:22:28.382 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mBe9x908D.js                                   [39m[1m[2m  1.59 kB[22m[1m[22m[2m │ gzip:   0.85 kB[22m
+20:22:28.382 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mC_2aOyZM.js                                   [39m[1m[2m  1.72 kB[22m[1m[22m[2m │ gzip:   0.77 kB[22m
+20:22:28.383 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mBLimIC_z.js                                   [39m[1m[2m  1.93 kB[22m[1m[22m[2m │ gzip:   0.65 kB[22m
+20:22:28.383 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mBtJNEerD.js                                   [39m[1m[2m  1.96 kB[22m[1m[22m[2m │ gzip:   0.96 kB[22m
+20:22:28.383 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mDnazOnLK.js                                   [39m[1m[2m  2.28 kB[22m[1m[22m[2m │ gzip:   1.10 kB[22m
+20:22:28.383 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mrseTNsD6.js                                   [39m[1m[2m  2.32 kB[22m[1m[22m[2m │ gzip:   1.11 kB[22m
+20:22:28.384 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mDjQxbkRJ.js                                   [39m[1m[2m  2.61 kB[22m[1m[22m[2m │ gzip:   1.03 kB[22m
+20:22:28.384 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mBJ2ClxiI.js                                   [39m[1m[2m  2.63 kB[22m[1m[22m[2m │ gzip:   1.11 kB[22m
+20:22:28.384 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36myQi2ZCNi.js                                   [39m[1m[2m  2.78 kB[22m[1m[22m[2m │ gzip:   1.33 kB[22m
+20:22:28.384 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mpEpsrOsF.js                                   [39m[1m[2m  2.83 kB[22m[1m[22m[2m │ gzip:   1.36 kB[22m
+20:22:28.384 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mBe-fuyfV.js                                   [39m[1m[2m  2.86 kB[22m[1m[22m[2m │ gzip:   1.26 kB[22m
+20:22:28.384 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mFUmldo-h.js                                   [39m[1m[2m  3.16 kB[22m[1m[22m[2m │ gzip:   1.48 kB[22m
+20:22:28.384 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mCMEf1P1p.js                                   [39m[1m[2m  3.19 kB[22m[1m[22m[2m │ gzip:   1.49 kB[22m
+20:22:28.385 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36m2HZ9cuZr.js                                   [39m[1m[2m  3.39 kB[22m[1m[22m[2m │ gzip:   0.95 kB[22m
+20:22:28.387 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mCXF0tAzl.js                                   [39m[1m[2m  3.45 kB[22m[1m[22m[2m │ gzip:   1.36 kB[22m
+20:22:28.387 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mDDhZiVZG.js                                   [39m[1m[2m  3.50 kB[22m[1m[22m[2m │ gzip:   1.56 kB[22m
+20:22:28.387 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mBCb1VvBl.js                                   [39m[1m[2m  3.71 kB[22m[1m[22m[2m │ gzip:   1.44 kB[22m
+20:22:28.387 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mCdTVs1Bi.js                                   [39m[1m[2m  3.82 kB[22m[1m[22m[2m │ gzip:   1.72 kB[22m
+20:22:28.387 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mfHo2tuyV.js                                   [39m[1m[2m  4.04 kB[22m[1m[22m[2m │ gzip:   1.34 kB[22m
+20:22:28.387 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mKx4ZFS-P.js                                   [39m[1m[2m  4.20 kB[22m[1m[22m[2m │ gzip:   1.63 kB[22m
+20:22:28.387 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mDTwkCI1V.js                                   [39m[1m[2m  4.28 kB[22m[1m[22m[2m │ gzip:   1.76 kB[22m
+20:22:28.387 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mDHSIGc0L.js                                   [39m[1m[2m  5.11 kB[22m[1m[22m[2m │ gzip:   1.84 kB[22m
+20:22:28.387 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mCQJKeEdp.js                                   [39m[1m[2m  5.12 kB[22m[1m[22m[2m │ gzip:   2.00 kB[22m
+20:22:28.387 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mwyA1mR88.js                                   [39m[1m[2m  5.17 kB[22m[1m[22m[2m │ gzip:   2.46 kB[22m
+20:22:28.387 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36m8xSo9Eqy.js                                   [39m[1m[2m  5.70 kB[22m[1m[22m[2m │ gzip:   1.59 kB[22m
+20:22:28.388 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mDxftvBVz.js                                   [39m[1m[2m  5.78 kB[22m[1m[22m[2m │ gzip:   2.16 kB[22m
+20:22:28.388 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mDcvyB1rL.js                                   [39m[1m[2m  5.95 kB[22m[1m[22m[2m │ gzip:   2.72 kB[22m
+20:22:28.388 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mBzVl06yp.js                                   [39m[1m[2m  5.95 kB[22m[1m[22m[2m │ gzip:   2.50 kB[22m
+20:22:28.388 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mDG_Fz2_w.js                                   [39m[1m[2m  6.13 kB[22m[1m[22m[2m │ gzip:   1.72 kB[22m
+20:22:28.388 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mOXRiXnwn.js                                   [39m[1m[2m  6.28 kB[22m[1m[22m[2m │ gzip:   2.27 kB[22m
+20:22:28.388 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mD_2wjDCx.js                                   [39m[1m[2m  6.44 kB[22m[1m[22m[2m │ gzip:   2.26 kB[22m
+20:22:28.388 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mDJLbCP21.js                                   [39m[1m[2m  6.94 kB[22m[1m[22m[2m │ gzip:   3.16 kB[22m
+20:22:28.388 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mCJ9qCCNV.js                                   [39m[1m[2m  6.96 kB[22m[1m[22m[2m │ gzip:   2.93 kB[22m
+20:22:28.388 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mCwJfgMXf.js                                   [39m[1m[2m  7.70 kB[22m[1m[22m[2m │ gzip:   3.33 kB[22m
+20:22:28.388 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mBWvOXrNh.js                                   [39m[1m[2m  7.71 kB[22m[1m[22m[2m │ gzip:   2.87 kB[22m
+20:22:28.388 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mBxPF8OQp.js                                   [39m[1m[2m  7.86 kB[22m[1m[22m[2m │ gzip:   3.30 kB[22m
+20:22:28.388 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mCFVuS8mf.js                                   [39m[1m[2m  9.88 kB[22m[1m[22m[2m │ gzip:   2.91 kB[22m
+20:22:28.388 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mDiZ9zAuj.js                                   [39m[1m[2m 10.33 kB[22m[1m[22m[2m │ gzip:   3.70 kB[22m
+20:22:28.388 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mCbICw5nm.js                                   [39m[1m[2m 11.50 kB[22m[1m[22m[2m │ gzip:   4.06 kB[22m
+20:22:28.388 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mCHjtRFdW.js                                   [39m[1m[2m 11.96 kB[22m[1m[22m[2m │ gzip:   4.33 kB[22m
+20:22:28.392 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mCTMn8s4C.js                                   [39m[1m[2m 12.10 kB[22m[1m[22m[2m │ gzip:   5.08 kB[22m
+20:22:28.396 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mCqAJLIro.js                                   [39m[1m[2m 13.52 kB[22m[1m[22m[2m │ gzip:   5.03 kB[22m
+20:22:28.396 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mDMf-p05H.js                                   [39m[1m[2m 14.99 kB[22m[1m[22m[2m │ gzip:   5.75 kB[22m
+20:22:28.396 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mBE5mnmGd.js                                   [39m[1m[2m 15.95 kB[22m[1m[22m[2m │ gzip:   6.23 kB[22m
+20:22:28.396 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mC-WeJj3x.js                                   [39m[1m[2m 16.36 kB[22m[1m[22m[2m │ gzip:   3.07 kB[22m
+20:22:28.396 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mSlgEYurn.js                                   [39m[1m[2m 17.71 kB[22m[1m[22m[2m │ gzip:   7.13 kB[22m
+20:22:28.396 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mXA5Rs7AY.js                                   [39m[1m[2m 27.75 kB[22m[1m[22m[2m │ gzip:   9.76 kB[22m
+20:22:28.396 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mDMoBsCaI.js                                   [39m[1m[2m 29.31 kB[22m[1m[22m[2m │ gzip:   8.68 kB[22m
+20:22:28.396 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mw3UUEa-4.js                                   [39m[1m[2m 31.19 kB[22m[1m[22m[2m │ gzip:  10.32 kB[22m
+20:22:28.396 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mD8psUd14.js                                   [39m[1m[2m 40.79 kB[22m[1m[22m[2m │ gzip:  13.46 kB[22m
+20:22:28.396 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mDB6Dy8MI.js                                   [39m[1m[2m 62.12 kB[22m[1m[22m[2m │ gzip:  19.05 kB[22m
+20:22:28.396 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mB6HWfHws.js                                   [39m[1m[2m 63.81 kB[22m[1m[22m[2m │ gzip:  17.36 kB[22m
+20:22:28.396 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mCYFK41mN.js                                   [39m[1m[2m133.08 kB[22m[1m[22m[2m │ gzip:  43.69 kB[22m
+20:22:28.396 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mw4vLNXAB.js                                   [39m[1m[2m199.77 kB[22m[1m[22m[2m │ gzip:  59.04 kB[22m
+20:22:28.397 [info] [2m.nuxt/dist/client/[22m[2m_nuxt/[22m[36mk4ZSgAnd.js                                   [39m[1m[2m226.68 kB[22m[1m[22m[2m │ gzip:  84.84 kB[22m
+20:22:28.397 [info] [32m✓ built in 16.11s[39m
+20:22:28.397 [success] Client built in 16134ms
+20:22:28.397 [info] Building server...
+20:22:28.397 [info] [36mvite v7.3.0 [32mbuilding ssr environment for production...[36m[39m
+20:22:28.398 [info] transforming...
+20:22:30.128 [warn] 
+20:22:30.128 'https://placehold.co/300x200/e2e8f0/94a3b8?text=Writing' referenced in 'https://placehold.co/300x200/e2e8f0/94a3b8?text=Writing' didn't resolve at build time, it will remain unchanged to be resolved at runtime
+20:22:30.993 [warn] [33m[vite:css][postcss] Gradient has outdated direction syntax. New syntax is like `closest-side at 0 0` instead of `0 0, closest-side`.
+20:22:30.994 1  |  /*! tailwindcss v4.1.18 | MIT License | https://tailwindcss.com */
+20:22:30.996 2  |  ...70\%\,transparent_100\%\)\]{-webkit-mask-image:radial-gradient(60% 60%,#000 70%,#0000 100%);mask-image:radial-grad...
+20:22:30.996    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[39m
+20:22:30.996 [warn] [33m[vite:css][postcss] Gradient has outdated direction syntax. New syntax is like `closest-side at 0 0` instead of `0 0, closest-side`.
+20:22:30.997 1  |  /*! tailwindcss v4.1.18 | MIT License | https://tailwindcss.com */
+20:22:30.997 2  |  ...ent(60% 60%,#000 70%,#0000 100%);mask-image:radial-gradient(60% 60%,#000 70%,#0000 100%)}.mask-\[linear-gradient\(...
+20:22:30.997    |                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[39m
+20:22:31.702 [warn] [33m[esbuild css minify]
+20:22:31.703 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:31.703 
+20:22:31.703     <stdin>:1:91:
+20:22:31.704       1 │ ...gray-900 mt-12 mb-6 scroll-mt-32}[data-v-c243b2cd] .prose h3{@ap...
+20:22:31.704         │                                    ^
+20:22:31.704         ╵                                    ;
+20:22:31.704 
+20:22:31.704 
+20:22:31.704 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:31.705 
+20:22:31.705     <stdin>:1:181:
+20:22:31.705       1 │ ...-gray-900 mt-8 mb-4 scroll-mt-32}[data-v-c243b2cd] .prose p{@app...
+20:22:31.705         │                                    ^
+20:22:31.705         ╵                                    ;
+20:22:31.705 
+20:22:31.706 
+20:22:31.706 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:31.706 
+20:22:31.706     <stdin>:1:244:
+20:22:31.706       1 │ ...ply text-gray-600 leading-8 mb-6}[data-v-c243b2cd] .prose ul{@ap...
+20:22:31.707         │                                    ^
+20:22:31.707         ╵                                    ;
+20:22:31.707 
+20:22:31.707 
+20:22:31.707 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:31.707 
+20:22:31.708     <stdin>:1:326:
+20:22:31.708       1 │ ...-outside ml-6 mb-6 text-gray-600}[data-v-c243b2cd] .prose pre{@a...
+20:22:31.708         │                                    ^
+20:22:31.708         ╵                                    ;
+20:22:31.708 
+20:22:31.709 
+20:22:31.709 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:31.709 
+20:22:31.709     <stdin>:1:424:
+20:22:31.710       1 │ ... rounded-xl overflow-x-auto mb-8}[data-v-c243b2cd] .prose code{@...
+20:22:31.710         │                                    ^
+20:22:31.711         ╵                                    ;
+20:22:31.711 
+20:22:31.712 
+20:22:31.712 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:31.713 
+20:22:31.713     <stdin>:1:535:
+20:22:31.713       1 │ ...py-0.5 rounded text-sm font-mono}[data-v-c243b2cd] .prose pre co...
+20:22:31.713         │                                    ^
+20:22:31.714         ╵                                    ;
+20:22:31.714 
+20:22:31.714 
+20:22:31.714 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:31.714 
+20:22:31.714     <stdin>:1:608:
+20:22:31.715       1 │ ... text-inherit bg-transparent p-0}[data-v-c243b2cd] .prose blockq...
+20:22:31.715         │                                    ^
+20:22:31.715         ╵                                    ;
+20:22:31.715 
+20:22:31.715 
+20:22:31.716 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:31.716 
+20:22:31.716     <stdin>:1:746:
+20:22:31.716       1 │ ...0 pl-6 italic text-gray-700 my-8 bg-gray-50 py-4 pr-4 rounded-r-lg}
+20:22:31.716         │                                                                      ^
+20:22:31.716         ╵                                                                      ;
+20:22:31.716 
+20:22:31.717 [39m
+20:22:31.720 [warn] [33m[esbuild css minify]
+20:22:31.726 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:31.726 
+20:22:31.726     <stdin>:1:70:
+20:22:31.727       1 │ ...text-gray-700 dark:text-gray-300}[data-v-208fd16f] .doc-content ...
+20:22:31.727         │                                    ^
+20:22:31.727         ╵                                    ;
+20:22:31.728 
+20:22:31.728 
+20:22:31.728 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:31.729 
+20:22:31.729     <stdin>:1:253:
+20:22:31.729       1 │ ...ay-100 dark:border-gray-800 pb-2}[data-v-208fd16f] .doc-content ...
+20:22:31.731         │                                    ^
+20:22:31.731         ╵                                    ;
+20:22:31.731 
+20:22:31.731 
+20:22:31.732 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:31.732 
+20:22:31.732     <stdin>:1:383:
+20:22:31.732       1 │ ...mb-4 scroll-mt-24 tracking-tight}[data-v-208fd16f] .doc-content ...
+20:22:31.733         │                                    ^
+20:22:31.733         ╵                                    ;
+20:22:31.733 
+20:22:31.733 
+20:22:31.735 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:31.735 
+20:22:31.735     <stdin>:1:438:
+20:22:31.736       1 │ ...-content p{@apply leading-7 mb-5}[data-v-208fd16f] .doc-content ...
+20:22:31.736         │                                    ^
+20:22:31.736         ╵                                    ;
+20:22:31.736 
+20:22:31.736 
+20:22:31.736 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:31.737 
+20:22:31.737     <stdin>:1:522:
+20:22:31.737       1 │ ...list-outside ml-6 mb-5 space-y-1}[data-v-208fd16f] .doc-content ...
+20:22:31.737         │                                    ^
+20:22:31.737         ╵                                    ;
+20:22:31.737 
+20:22:31.738 
+20:22:31.738 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:31.739 
+20:22:31.739     <stdin>:1:609:
+20:22:31.739       1 │ ...list-outside ml-6 mb-5 space-y-1}[data-v-208fd16f] .doc-content ...
+20:22:31.739         │                                    ^
+20:22:31.740         ╵                                    ;
+20:22:31.740 
+20:22:31.740 
+20:22:31.740 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:31.740 
+20:22:31.741     <stdin>:1:844:
+20:22:31.741       1 │ ...er-primary-400 transition-colors}[data-v-208fd16f] .doc-content ...
+20:22:31.741         │                                    ^
+20:22:31.741         ╵                                    ;
+20:22:31.741 
+20:22:31.742 
+20:22:31.742 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:31.742 
+20:22:31.742     <stdin>:1:1095:
+20:22:31.742       1 │ ...mary-100 dark:border-primary-800}[data-v-208fd16f] .doc-content ...
+20:22:31.742         │                                    ^
+20:22:31.743         ╵                                    ;
+20:22:31.743 
+20:22:31.743 
+20:22:31.743 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:31.743 
+20:22:31.744     <stdin>:1:1293:
+20:22:31.744       1 │ ... dark:border-slate-800 shadow-sm}[data-v-208fd16f] .doc-content ...
+20:22:31.744         │                                    ^
+20:22:31.744         ╵                                    ;
+20:22:31.744 
+20:22:31.745 
+20:22:31.745 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:31.745 
+20:22:31.745     <stdin>:1:1392:
+20:22:31.745       1 │ ...text-inherit border-none text-sm}[data-v-208fd16f] .doc-content ...
+20:22:31.745         │                                    ^
+20:22:31.746         ╵                                    ;
+20:22:31.746 
+20:22:31.746 
+20:22:31.746 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:31.746 
+20:22:31.746     <stdin>:1:1542:
+20:22:31.747       1 │ ...ounded-r-lg italic text-gray-700}[data-v-208fd16f] .doc-content ...
+20:22:31.747         │                                    ^
+20:22:31.747         ╵                                    ;
+20:22:31.747 
+20:22:31.747 
+20:22:31.748 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:31.748 
+20:22:31.748     <stdin>:1:1633:
+20:22:31.748       1 │ ...r border-gray-100 shadow-sm my-8}[data-v-208fd16f] .doc-content ...
+20:22:31.748         │                                    ^
+20:22:31.749         ╵                                    ;
+20:22:31.749 
+20:22:31.749 
+20:22:31.749 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:31.749 
+20:22:31.750     <stdin>:1:1715:
+20:22:31.750       1 │ ...l text-left border-collapse my-8}[data-v-208fd16f] .doc-content ...
+20:22:31.750         │                                    ^
+20:22:31.750         ╵                                    ;
+20:22:31.750 
+20:22:31.751 
+20:22:31.751 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:31.751 
+20:22:31.751     <stdin>:1:1838:
+20:22:31.751       1 │ ...emibold text-gray-900 bg-gray-50}[data-v-208fd16f] .doc-content ...
+20:22:31.751         │                                    ^
+20:22:31.752         ╵                                    ;
+20:22:31.752 
+20:22:31.752 
+20:22:31.752 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:31.752 
+20:22:31.753     <stdin>:1:1936:
+20:22:31.753       1 │ ...td{@apply border-b border-gray-100 py-3 px-4 text-sm text-gray-600}
+20:22:31.753         │                                                                      ^
+20:22:31.753         ╵                                                                      ;
+20:22:31.753 
+20:22:31.754 [39m
+20:22:33.790 [info] [32m✓[39m 402 modules transformed.
+20:22:33.971 [info] rendering chunks...
+20:22:33.979 [warn] [33m[plugin @tailwindcss/vite:generate:build] Sourcemap is likely to be incorrect: a plugin (@tailwindcss/vite:generate:build) was used to transform files, but didn't generate a sourcemap for the transformation. Consult the plugin documentation for help[39m
+20:22:33.981 [warn] [33m[plugin @tailwindcss/vite:generate:build] Sourcemap is likely to be incorrect: a plugin (@tailwindcss/vite:generate:build) was used to transform files, but didn't generate a sourcemap for the transformation. Consult the plugin documentation for help[39m (x2)
+20:22:33.985 [warn] [33m[plugin @tailwindcss/vite:generate:build] Sourcemap is likely to be incorrect: a plugin (@tailwindcss/vite:generate:build) was used to transform files, but didn't generate a sourcemap for the transformation. Consult the plugin documentation for help[39m (x3)
+20:22:33.987 [warn] [33m[plugin @tailwindcss/vite:generate:build] Sourcemap is likely to be incorrect: a plugin (@tailwindcss/vite:generate:build) was used to transform files, but didn't generate a sourcemap for the transformation. Consult the plugin documentation for help[39m (x4)
+20:22:33.988 [warn] [33m[plugin @tailwindcss/vite:generate:build] Sourcemap is likely to be incorrect: a plugin (@tailwindcss/vite:generate:build) was used to transform files, but didn't generate a sourcemap for the transformation. Consult the plugin documentation for help[39m (x5)
+20:22:33.989 [warn] [33m[plugin @tailwindcss/vite:generate:build] Sourcemap is likely to be incorrect: a plugin (@tailwindcss/vite:generate:build) was used to transform files, but didn't generate a sourcemap for the transformation. Consult the plugin documentation for help[39m (x6)
+20:22:33.991 [warn] [33m[plugin @tailwindcss/vite:generate:build] Sourcemap is likely to be incorrect: a plugin (@tailwindcss/vite:generate:build) was used to transform files, but didn't generate a sourcemap for the transformation. Consult the plugin documentation for help[39m (x7)
+20:22:33.992 [warn] [33m[plugin @tailwindcss/vite:generate:build] Sourcemap is likely to be incorrect: a plugin (@tailwindcss/vite:generate:build) was used to transform files, but didn't generate a sourcemap for the transformation. Consult the plugin documentation for help[39m (x8)
+20:22:34.212 [warn] [33m[plugin @tailwindcss/vite:generate:build] Sourcemap is likely to be incorrect: a plugin (@tailwindcss/vite:generate:build) was used to transform files, but didn't generate a sourcemap for the transformation. Consult the plugin documentation for help[39m (x9)
+20:22:34.213 [warn] [33m[esbuild css minify]
+20:22:34.213 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:34.214 
+20:22:34.214     <stdin>:1:70:
+20:22:34.214       1 │ ...text-gray-700 dark:text-gray-300}[data-v-208fd16f] .doc-content ...
+20:22:34.214         │                                    ^
+20:22:34.214         ╵                                    ;
+20:22:34.214 
+20:22:34.215 
+20:22:34.215 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:34.215 
+20:22:34.215     <stdin>:1:253:
+20:22:34.215       1 │ ...ay-100 dark:border-gray-800 pb-2}[data-v-208fd16f] .doc-content ...
+20:22:34.215         │                                    ^
+20:22:34.216         ╵                                    ;
+20:22:34.216 
+20:22:34.216 
+20:22:34.216 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:34.216 
+20:22:34.216     <stdin>:1:383:
+20:22:34.217       1 │ ...mb-4 scroll-mt-24 tracking-tight}[data-v-208fd16f] .doc-content ...
+20:22:34.217         │                                    ^
+20:22:34.217         ╵                                    ;
+20:22:34.217 
+20:22:34.217 
+20:22:34.217 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:34.218 
+20:22:34.218     <stdin>:1:438:
+20:22:34.218       1 │ ...-content p{@apply leading-7 mb-5}[data-v-208fd16f] .doc-content ...
+20:22:34.218         │                                    ^
+20:22:34.218         ╵                                    ;
+20:22:34.218 
+20:22:34.219 
+20:22:34.219 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:34.219 
+20:22:34.219     <stdin>:1:522:
+20:22:34.219       1 │ ...list-outside ml-6 mb-5 space-y-1}[data-v-208fd16f] .doc-content ...
+20:22:34.219         │                                    ^
+20:22:34.220         ╵                                    ;
+20:22:34.220 
+20:22:34.220 
+20:22:34.220 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:34.220 
+20:22:34.221     <stdin>:1:609:
+20:22:34.221       1 │ ...list-outside ml-6 mb-5 space-y-1}[data-v-208fd16f] .doc-content ...
+20:22:34.221         │                                    ^
+20:22:34.221         ╵                                    ;
+20:22:34.221 
+20:22:34.221 
+20:22:34.222 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:34.222 
+20:22:34.222     <stdin>:1:844:
+20:22:34.222       1 │ ...er-primary-400 transition-colors}[data-v-208fd16f] .doc-content ...
+20:22:34.222         │                                    ^
+20:22:34.223         ╵                                    ;
+20:22:34.223 
+20:22:34.223 
+20:22:34.223 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:34.223 
+20:22:34.223     <stdin>:1:1095:
+20:22:34.224       1 │ ...mary-100 dark:border-primary-800}[data-v-208fd16f] .doc-content ...
+20:22:34.224         │                                    ^
+20:22:34.224         ╵                                    ;
+20:22:34.230 
+20:22:34.230 
+20:22:34.231 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:34.231 
+20:22:34.231     <stdin>:1:1293:
+20:22:34.231       1 │ ... dark:border-slate-800 shadow-sm}[data-v-208fd16f] .doc-content ...
+20:22:34.231         │                                    ^
+20:22:34.232         ╵                                    ;
+20:22:34.232 
+20:22:34.232 
+20:22:34.232 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:34.232 
+20:22:34.232     <stdin>:1:1392:
+20:22:34.233       1 │ ...text-inherit border-none text-sm}[data-v-208fd16f] .doc-content ...
+20:22:34.233         │                                    ^
+20:22:34.233         ╵                                    ;
+20:22:34.233 
+20:22:34.233 
+20:22:34.233 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:34.234 
+20:22:34.234     <stdin>:1:1542:
+20:22:34.234       1 │ ...ounded-r-lg italic text-gray-700}[data-v-208fd16f] .doc-content ...
+20:22:34.234         │                                    ^
+20:22:34.234         ╵                                    ;
+20:22:34.235 
+20:22:34.235 
+20:22:34.235 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:34.235 
+20:22:34.235     <stdin>:1:1633:
+20:22:34.235       1 │ ...r border-gray-100 shadow-sm my-8}[data-v-208fd16f] .doc-content ...
+20:22:34.236         │                                    ^
+20:22:34.236         ╵                                    ;
+20:22:34.236 
+20:22:34.236 
+20:22:34.237 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:34.237 
+20:22:34.237     <stdin>:1:1715:
+20:22:34.237       1 │ ...l text-left border-collapse my-8}[data-v-208fd16f] .doc-content ...
+20:22:34.237         │                                    ^
+20:22:34.238         ╵                                    ;
+20:22:34.238 
+20:22:34.238 
+20:22:34.238 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:34.238 
+20:22:34.238     <stdin>:1:1838:
+20:22:34.239       1 │ ...emibold text-gray-900 bg-gray-50}[data-v-208fd16f] .doc-content ...
+20:22:34.239         │                                    ^
+20:22:34.239         ╵                                    ;
+20:22:34.239 
+20:22:34.239 
+20:22:34.240 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:34.240 
+20:22:34.240     <stdin>:1:1936:
+20:22:34.240       1 │ ...td{@apply border-b border-gray-100 py-3 px-4 text-sm text-gray-600}
+20:22:34.240         │                                                                      ^
+20:22:34.241         ╵                                                                      ;
+20:22:34.241 
+20:22:34.241 [39m
+20:22:34.247 [warn] [33m[plugin @tailwindcss/vite:generate:build] Sourcemap is likely to be incorrect: a plugin (@tailwindcss/vite:generate:build) was used to transform files, but didn't generate a sourcemap for the transformation. Consult the plugin documentation for help[39m
+20:22:34.278 [warn] [33m[esbuild css minify]
+20:22:34.281 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:34.282 
+20:22:34.282     <stdin>:1:91:
+20:22:34.282       1 │ ...gray-900 mt-12 mb-6 scroll-mt-32}[data-v-c243b2cd] .prose h3{@ap...
+20:22:34.282         │                                    ^
+20:22:34.282         ╵                                    ;
+20:22:34.283 
+20:22:34.283 
+20:22:34.283 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:34.283 
+20:22:34.283     <stdin>:1:181:
+20:22:34.283       1 │ ...-gray-900 mt-8 mb-4 scroll-mt-32}[data-v-c243b2cd] .prose p{@app...
+20:22:34.284         │                                    ^
+20:22:34.284         ╵                                    ;
+20:22:34.284 
+20:22:34.285 
+20:22:34.285 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:34.285 
+20:22:34.285     <stdin>:1:244:
+20:22:34.285       1 │ ...ply text-gray-600 leading-8 mb-6}[data-v-c243b2cd] .prose ul{@ap...
+20:22:34.285         │                                    ^
+20:22:34.286         ╵                                    ;
+20:22:34.286 
+20:22:34.286 
+20:22:34.286 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:34.286 
+20:22:34.286     <stdin>:1:326:
+20:22:34.286       1 │ ...-outside ml-6 mb-6 text-gray-600}[data-v-c243b2cd] .prose pre{@a...
+20:22:34.287         │                                    ^
+20:22:34.287         ╵                                    ;
+20:22:34.287 
+20:22:34.287 
+20:22:34.287 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:34.287 
+20:22:34.288     <stdin>:1:424:
+20:22:34.288       1 │ ... rounded-xl overflow-x-auto mb-8}[data-v-c243b2cd] .prose code{@...
+20:22:34.288         │                                    ^
+20:22:34.288         ╵                                    ;
+20:22:34.288 
+20:22:34.289 
+20:22:34.289 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:34.289 
+20:22:34.289     <stdin>:1:535:
+20:22:34.289       1 │ ...py-0.5 rounded text-sm font-mono}[data-v-c243b2cd] .prose pre co...
+20:22:34.290         │                                    ^
+20:22:34.290         ╵                                    ;
+20:22:34.290 
+20:22:34.290 
+20:22:34.290 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:34.290 
+20:22:34.291     <stdin>:1:608:
+20:22:34.291       1 │ ... text-inherit bg-transparent p-0}[data-v-c243b2cd] .prose blockq...
+20:22:34.291         │                                    ^
+20:22:34.291         ╵                                    ;
+20:22:34.291 
+20:22:34.291 
+20:22:34.292 ▲ [WARNING] Expected ";" but found "}" [css-syntax-error]
+20:22:34.292 
+20:22:34.292     <stdin>:1:746:
+20:22:34.292       1 │ ...0 pl-6 italic text-gray-700 my-8 bg-gray-50 py-4 pr-4 rounded-r-lg}
+20:22:34.292         │                                                                      ^
+20:22:34.292         ╵                                                                      ;
+20:22:34.293 
+20:22:34.294 [39m
+20:22:34.299 [warn] [33m[plugin @tailwindcss/vite:generate:build] Sourcemap is likely to be incorrect: a plugin (@tailwindcss/vite:generate:build) was used to transform files, but didn't generate a sourcemap for the transformation. Consult the plugin documentation for help[39m
+20:22:34.299 [warn] [33m[plugin @tailwindcss/vite:generate:build] Sourcemap is likely to be incorrect: a plugin (@tailwindcss/vite:generate:build) was used to transform files, but didn't generate a sourcemap for the transformation. Consult the plugin documentation for help[39m (x2)
+20:22:34.623 [info] [32m✓ built in 6.24s[39m
+20:22:34.649 [success] Server built in 6277ms
+20:22:34.652 [info] [nitro] Initializing prerenderer
+20:22:40.013 [info] [nitro] Prerendering 17 initial routes with crawler
+20:22:42.116 [log] [nitro]   ├─ /docs/framework/types (2077ms)
+20:22:42.215 [log] [nitro]   ├─ /docs/framework (2075ms)
+20:22:42.259 [log] [nitro]   ├─ /docs/framework/sources (2078ms)
+20:22:42.301 [log] [nitro]   ├─ /docs/framework/validators (2079ms)
+20:22:42.495 [log] [nitro]   ├─ /docs/framework/prerequisites (2079ms)
+20:22:42.504 [log] [nitro]   ├─ /docs/framework/define (2082ms)
+20:22:42.520 [log] [nitro]   ├─ /docs/introduce/configuration (2082ms)
+20:22:42.632 [log] [nitro]   ├─ /docs/introduce (2075ms)
+20:22:42.695 [log] [nitro]   ├─ /200.html (7ms)
+20:22:42.696 [log] [nitro]   ├─ /docs/introduce/migration (438ms)
+20:22:42.696 [log] [nitro]   ├─ /docs/framework/types/_payload.json?98e9e612-503f-4a39-b350-74a2dfadfcfc (4ms) (skipped)
+20:22:42.731 [log] [nitro]   ├─ /docs (395ms)
+20:22:43.025 [log] [nitro]   ├─ /__nuxt_content/blog/sql_dump.txt (164ms)
+20:22:43.064 [log] [nitro]   ├─ /__nuxt_content/docs/sql_dump.txt (155ms)
+20:22:43.088 [log] [nitro]   ├─ /__nuxt_content/update/sql_dump.txt (139ms)
+20:22:43.118 [log] [nitro]   ├─ /404.html (4ms)
+20:22:43.201 [log] [nitro]   ├─ /agent (492ms)
+20:22:43.233 [log] [nitro]   ├─ /docs/utils/query-collection (169ms)
+20:22:43.234   │ ├── [404] 
+20:22:43.234   │ └── Linked from /docs/framework/types
+20:22:43.234   │ └── Linked from /docs/framework/define
+20:22:43.257 [log] [nitro]   ├─ /docs/files/markdown (169ms)
+20:22:43.257   │ ├── [404] 
+20:22:43.258   │ └── Linked from /docs/framework/types
+20:22:43.305 [log] [nitro]   ├─ /docs/files/yaml (187ms)
+20:22:43.306   │ ├── [404] 
+20:22:43.306   │ └── Linked from /docs/framework/types
+20:22:43.349 [log] [nitro]   ├─ /about (161ms)
+20:22:43.427 [log] [nitro]   ├─ /docs/introduce/installation (1081ms)
+20:22:43.463 [log] [nitro]   ├─ /docs/files/json (262ms)
+20:22:43.464   │ ├── [404] 
+20:22:43.464   │ └── Linked from /docs/framework/types
+20:22:43.512 [log] [nitro]   ├─ /docs/utils/query-collection-navigation (279ms)
+20:22:43.513   │ ├── [404] 
+20:22:43.513   │ └── Linked from /docs/framework/types
+20:22:43.535 [log] [nitro]   ├─ / (1119ms)
+20:22:43.539 [log] [nitro]   ├─ /docs/framework/_payload.json?98e9e612-503f-4a39-b350-74a2dfadfcfc (3ms) (skipped)
+20:22:43.547 [log] [nitro]   ├─ /plugin (205ms)
+20:22:43.551 [log] [nitro]   ├─ /docs/framework/sources/_payload.json?98e9e612-503f-4a39-b350-74a2dfadfcfc (4ms) (skipped)
+20:22:43.555 [log] [nitro]   ├─ /resources (162ms)
+20:22:43.557 [log] [nitro]   ├─ /docs/framework/validators/_payload.json?98e9e612-503f-4a39-b350-74a2dfadfcfc (2ms) (skipped)
+20:22:43.594 [log] [nitro]   ├─ /changelog (209ms)
+20:22:43.627 [log] [nitro]   ├─ /solutions (91ms)
+20:22:43.636 [log] [nitro]   ├─ /pricing (807ms)
+20:22:43.637 [log] [nitro]   ├─ /docs/framework/types/_payload.json (5ms)
+20:22:43.644 [log] [nitro]   ├─ /docs/framework/prerequisites/_payload.json?98e9e612-503f-4a39-b350-74a2dfadfcfc (17ms) (skipped)
+20:22:43.668 [log] [nitro]   ├─ /docs/framework/define/_payload.json?98e9e612-503f-4a39-b350-74a2dfadfcfc (30ms) (skipped)
+20:22:43.697 [log] [nitro]   ├─ /blog (89ms)
+20:22:43.698 [log] [nitro]   ├─ /docs/framework/_payload.json (12ms)
+20:22:43.711 [log] [nitro]   ├─ /docs/introduce/configuration/_payload.json?98e9e612-503f-4a39-b350-74a2dfadfcfc (12ms) (skipped)
+20:22:43.734 [log] [nitro]   ├─ /docs/framework/sources/_payload.json (5ms)
+20:22:43.765 [log] [nitro]   ├─ /docs/studio/content (208ms)
+20:22:43.766   │ ├── [404] 
+20:22:43.766   │ └── Linked from /docs/framework/validators
+20:22:43.767 [log] [nitro]   ├─ /docs/framework/validators/_payload.json (26ms)
+20:22:43.787 [log] [nitro]   ├─ /docs/introduce/_payload.json?98e9e612-503f-4a39-b350-74a2dfadfcfc (20ms) (skipped)
+20:22:43.788 [log] [nitro]   ├─ /docs/framework/prerequisites/_payload.json (31ms)
+20:22:43.798 [log] [nitro]   ├─ /docs/introduce/migration/_payload.json?98e9e612-503f-4a39-b350-74a2dfadfcfc (10ms) (skipped)
+20:22:43.824 [log] [nitro]   ├─ /docs/collections/types (179ms)
+20:22:43.827   │ ├── [404] 
+20:22:43.827   │ └── Linked from /docs/framework/define
+20:22:43.828   │ └── Linked from /docs/introduce/migration
+20:22:43.850 [log] [nitro]   ├─ /docs/collections/sources (183ms)
+20:22:43.851   │ ├── [404] 
+20:22:43.851   │ └── Linked from /docs/framework/define
+20:22:43.851   │ └── Linked from /docs/introduce/migration
+20:22:43.903 [log] [nitro]   ├─ /docs/framework/define/_payload.json (13ms)
+20:22:43.953 [log] [nitro]   ├─ /docs/components/prose (241ms)
+20:22:43.953   │ ├── [404] 
+20:22:43.954   │ └── Linked from /docs/introduce/configuration
+20:22:43.955 [log] [nitro]   ├─ /docs/advanced/transformers (221ms)
+20:22:43.956   │ ├── [404] 
+20:22:43.956   │ └── Linked from /docs/introduce/configuration
+20:22:43.965 [log] [nitro]   ├─ /docs/_payload.json?98e9e612-503f-4a39-b350-74a2dfadfcfc (8ms) (skipped)
+20:22:43.966 [log] [nitro]   ├─ /docs/introduce/configuration/_payload.json (21ms)
+20:22:43.969 [log] [nitro]   ├─ /agent/_payload.json?98e9e612-503f-4a39-b350-74a2dfadfcfc (3ms) (skipped)
+20:22:43.970 [log] [nitro]   ├─ /docs/introduce/_payload.json (10ms)
+20:22:43.976 [log] [nitro]   ├─ /about/_payload.json?98e9e612-503f-4a39-b350-74a2dfadfcfc (6ms) (skipped)
+20:22:43.979 [log] [nitro]   ├─ /docs/collections/define (179ms)
+20:22:43.979   │ ├── [404] 
+20:22:43.979   │ └── Linked from /docs/introduce/migration
+20:22:43.980   │ └── Linked from /docs/introduce/installation
+20:22:43.981 [log] [nitro]   ├─ /docs/components/content-renderer (156ms)
+20:22:43.982   │ ├── [404] 
+20:22:43.983   │ └── Linked from /docs/introduce/migration
+20:22:43.983 [log] [nitro]   ├─ /docs/advanced/fulltext-search (133ms)
+20:22:43.983   │ ├── [404] 
+20:22:43.983   │ └── Linked from /docs/introduce/migration
+20:22:43.987 [log] [nitro]   ├─ /docs/introduce/installation/_payload.json?98e9e612-503f-4a39-b350-74a2dfadfcfc (8ms) (skipped)
+20:22:43.988 [log] [nitro]   ├─ /_payload.json?98e9e612-503f-4a39-b350-74a2dfadfcfc (5ms) (skipped)
+20:22:43.994 [log] [nitro]   ├─ /docs/getting-started/configuration (88ms)
+20:22:43.994   │ ├── [404] 
+20:22:43.994   │ └── Linked from /docs/introduce/migration
+20:22:43.995   │ └── Linked from /docs/introduce/installation
+20:22:43.997 [log] [nitro]   ├─ /plugin/_payload.json?98e9e612-503f-4a39-b350-74a2dfadfcfc (5ms) (skipped)
+20:22:43.997 [log] [nitro]   ├─ /docs/introduce/migration/_payload.json (9ms)
+20:22:43.997 [log] [nitro]   ├─ /resources/_payload.json?98e9e612-503f-4a39-b350-74a2dfadfcfc (4ms) (skipped)
+20:22:43.999 [log] [nitro]   ├─ /docs/_payload.json (5ms)
+20:22:44.000 [log] [nitro]   ├─ /changelog/_payload.json?98e9e612-503f-4a39-b350-74a2dfadfcfc (3ms) (skipped)
+20:22:44.001 [log] [nitro]   ├─ /agent/_payload.json (7ms)
+20:22:44.002 [log] [nitro]   ├─ /solutions/_payload.json?98e9e612-503f-4a39-b350-74a2dfadfcfc (2ms) (skipped)
+20:22:44.004 [log] [nitro]   ├─ /about/_payload.json (10ms)
+20:22:44.006 [log] [nitro]   ├─ /docs/introduce/installation/_payload.json (7ms)
+20:22:44.006 [log] [nitro]   ├─ /pricing/_payload.json?98e9e612-503f-4a39-b350-74a2dfadfcfc (4ms) (skipped)
+20:22:44.035 [log] [nitro]   ├─ /blog/_payload.json?98e9e612-503f-4a39-b350-74a2dfadfcfc (30ms) (skipped)
+20:22:44.057 [log] [nitro]   ├─ /_payload.json (6ms)
+20:22:44.106 [log] [nitro]   ├─ /plugin/_payload.json (4ms)
+20:22:44.441 [log] [nitro]   ├─ /resources/_payload.json (4ms)
+20:22:44.449 [log] [nitro]   ├─ /changelog/_payload.json (2ms)
+20:22:44.450 [log] [nitro]   ├─ /solutions/_payload.json (2ms)
+20:22:44.450 [log] [nitro]   ├─ /pricing/_payload.json (31ms)
+20:22:44.464 [log] [nitro]   ├─ /blog/_payload.json (8ms)
+20:22:44.472 [log] [nitro]   ├─ /blog/2 (425ms)
+20:22:44.474 [log] [nitro]   ├─ /blog/2/_payload.json?98e9e612-503f-4a39-b350-74a2dfadfcfc (2ms) (skipped)
+20:22:44.484 [log] [nitro]   ├─ /blog/4 (453ms)
+20:22:44.515 [log] [nitro]   ├─ /blog/1 (404ms)
+20:22:44.521 [log] [nitro]   ├─ /blog/3 (357ms)
+20:22:44.544 [log] [nitro]   ├─ /blog/4/_payload.json?98e9e612-503f-4a39-b350-74a2dfadfcfc (60ms) (skipped)
+20:22:44.547 [log] [nitro]   ├─ /blog/1/_payload.json?98e9e612-503f-4a39-b350-74a2dfadfcfc (32ms) (skipped)
+20:22:44.547 [log] [nitro]   ├─ /blog/3/_payload.json?98e9e612-503f-4a39-b350-74a2dfadfcfc (26ms) (skipped)
+20:22:44.550 [log] [nitro]   ├─ /blog/2/_payload.json (3ms)
+20:22:44.552 [log] [nitro]   ├─ /blog/4/_payload.json (61ms)
+20:22:44.553 [log] [nitro]   ├─ /blog/1/_payload.json (32ms)
+20:22:44.553 [log] [nitro]   ├─ /blog/3/_payload.json (27ms)
+20:22:44.557 [log] [nitro]   ├─ /blog/LICENSE (70ms)
+20:22:44.560 [log] [nitro]   ├─ /blog/LICENSE/_payload.json?98e9e612-503f-4a39-b350-74a2dfadfcfc (3ms) (skipped)
+20:22:44.561 [log] [nitro]   ├─ /blog/LICENSE/_payload.json (3ms)
+20:22:44.562 [info] [nitro] Prerendered 55 routes in 9.826 seconds
+20:22:44.679 [success] [nitro] Generated public dist
+20:22:44.704 [success] [nitro] You can preview this build using `npx serve dist`
+20:22:44.705 [success] [nitro] You can deploy this build using `npx vercel deploy --prebuilt`
+20:22:44.709 [log] [90m│[39m
+20:22:44.709 [90m└[39m  ✨ You can now deploy dist to any static hosting!
+20:22:45.145 Build Completed in /vercel/output [2m]
+20:22:45.236 Warning: Override path "docs/framework/types/index.html" was not detected as an output path
+20:22:45.236 Warning: Override path "docs/framework/index.html" was not detected as an output path
+20:22:45.237 Warning: Override path "docs/framework/sources/index.html" was not detected as an output path
+20:22:45.237 Warning: Override path "docs/framework/validators/index.html" was not detected as an output path
+20:22:45.237 Warning: Override path "docs/framework/prerequisites/index.html" was not detected as an output path
+20:22:45.237 Warning: Override path "docs/framework/define/index.html" was not detected as an output path
+20:22:45.237 Warning: Override path "docs/introduce/configuration/index.html" was not detected as an output path
+20:22:45.238 Warning: Override path "docs/introduce/index.html" was not detected as an output path
+20:22:45.238 Warning: Override path "docs/introduce/migration/index.html" was not detected as an output path
+20:22:45.238 Warning: Override path "docs/index.html" was not detected as an output path
+20:22:45.238 Warning: Override path "agent/index.html" was not detected as an output path
+20:22:45.238 Warning: Override path "about/index.html" was not detected as an output path
+20:22:45.239 Warning: Override path "docs/introduce/installation/index.html" was not detected as an output path
+20:22:45.239 Warning: Override path "index.html" was not detected as an output path
+20:22:45.239 Warning: Override path "plugin/index.html" was not detected as an output path
+20:22:45.239 Warning: Override path "resources/index.html" was not detected as an output path
+20:22:45.239 Warning: Override path "changelog/index.html" was not detected as an output path
+20:22:45.240 Warning: Override path "solutions/index.html" was not detected as an output path
+20:22:45.240 Warning: Override path "pricing/index.html" was not detected as an output path
+20:22:45.240 Warning: Override path "blog/index.html" was not detected as an output path
+20:22:45.240 Warning: Override path "blog/2/index.html" was not detected as an output path
+20:22:45.240 Warning: Override path "blog/4/index.html" was not detected as an output path
+20:22:45.240 Warning: Override path "blog/1/index.html" was not detected as an output path
+20:22:45.240 Warning: Override path "blog/3/index.html" was not detected as an output path
+20:22:45.241 Warning: Override path "blog/LICENSE/index.html" was not detected as an output path
+20:22:45.243 Deploying outputs...
+20:22:47.571 Deployment completed
+20:22:48.512 Creating build cache...
+20:23:11.373 Created build cache: 22.855s
+20:23:11.373 Uploading build cache [103.09 MB]
+20:23:12.669 Build cache uploaded: 1.300s

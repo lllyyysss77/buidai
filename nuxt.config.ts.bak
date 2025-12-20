@@ -39,7 +39,7 @@ export default defineNuxtConfig({
 
   // Nitro 服务端引擎配置
   nitro: {
-    preset: 'static', // 强制使用通用静态输出，禁用 Vercel 自动检测
+    // preset: 'vercel-static', // 已禁用 Vercel 预设，改用通用静态输出
     output: {
       publicDir: 'dist' // 强制输出目录为 'dist' 以适配 Vercel 默认配置
     },

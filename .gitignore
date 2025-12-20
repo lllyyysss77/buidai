@@ -27,3 +27,4 @@ lerna-debug.log*
 .env.*
 .env.example
 .备份目录
+备份目录/

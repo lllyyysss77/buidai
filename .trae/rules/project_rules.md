@@ -24,6 +24,70 @@
 - 需要启动开发服务器进行交互验证时：`npm run dev`
 - 严禁将任何密钥、Token、私有配置提交到仓库（参考 `.gitignore`）
 
+## 目录结构规范
+
+参考标准 Nuxt.js 项目目录结构：
+
+```text
+my-nuxt-app/
+├── .nuxt/                     # Nuxt.js 内部生成的文件，通常不需要手动修改
+├── assets/                    # 静态资源，如图片、样式文件等
+│   ├── images/
+│   │   ├── logo.png
+│   │   └── ...
+│   ├── styles/
+│   │   ├── main.css
+│   │   └── ...
+│   └── ...
+├── components/                # Vue 组件
+│   ├── BlogPost.vue           # 博客文章组件
+│   ├── BlogList.vue           # 博客列表组件
+│   └── ...
+├── content/                   # 内容文件，如 Markdown、YAML 等（使用 Nuxt Content 模块时）
+│   ├── docs/                  # 文档目录
+│   │   ├── 1.intro/
+│   │   │   ├── index.md       # 文档入口页面
+│   │   │   └── ...
+│   │   ├── 2.getting-started/
+│   │   │   ├── index.md       # 文档页面
+│   │   │   └── ...
+│   │   └── ...
+│   └── ...
+├── layouts/                   # 页面布局
+│   ├── default.vue            # 默认布局
+│   ├── auth.vue               # 认证布局
+│   └── ...
+├── middleware/                # 中间件
+│   ├── auth.ts                # 认证中间件
+│   └── ...
+├── pages/                     # 页面文件，用于定义路由
+│   ├── index.vue              # 首页
+│   ├── about.vue              # 关于页面
+│   ├── docs/
+│   │   ├── _slug.vue          # 动态文档页面
+│   │   └── ...
+│   └── ...
+├── plugins/                   # 插件
+│   ├── blog.ts                # 博客相关插件
+│   └── ...
+├── public/                    # 静态资源，如图片、字体等（Nuxt 3/4 标准）
+│   ├── favicon.ico
+│   └── ...
+├── store/                     # Vuex 状态管理
+│   ├── index.ts               # Vuex 状态管理入口
+│   └── ...
+├── types/                     # TypeScript 类型定义
+│   ├── blog.ts                # 博客相关的类型定义
+│   └── ...
+├── utils/                     # 工具函数
+│   ├── getDocsRoutes.ts       # 用于生成文档路由列表的工具函数
+│   └── ...
+├── nuxt.config.ts             # Nuxt.js 配置文件
+├── package.json               # 项目依赖和配置
+├── tsconfig.json              # TypeScript 配置文件
+└── .gitignore                 # Git 忽略文件
+```
+
 ## 代码风格与结构
 
 - 组件与页面使用 Vue 3 Composition API

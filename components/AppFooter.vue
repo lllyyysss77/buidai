@@ -90,9 +90,14 @@
       </div>
 
       <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-gray-400 text-sm">
-          © 2024 BuidAI. All rights reserved.
-        </p>
+        <div class="flex flex-col md:flex-row items-center gap-2 md:gap-6">
+          <p class="text-gray-400 text-sm">
+            © 2026 必定AI BuidAI. All rights reserved.
+          </p>
+          <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" class="text-gray-400 text-sm hover:text-primary-600 transition-colors">
+           赣ICP备2023002309号
+          </a>
+        </div>
         <div class="flex space-x-6 text-sm text-gray-400">
           <a href="#" class="hover:text-primary-600 transition-colors">服务条款</a>
           <a href="#" class="hover:text-primary-600 transition-colors">隐私政策</a>

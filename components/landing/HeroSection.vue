@@ -191,6 +191,8 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from 'vue'
+// 导入应用数据：从 utils/scene.ts 中获取应用列表，用于提取图片生成跑马灯背景
+import { apps } from '~/utils/scene'
 
 /**
  * Hero Section Logic
@@ -289,30 +291,8 @@ const typeWriter = () => {
   typeTimeout = setTimeout(typeWriter, typeSpeed)
 }
 
-// 插件图片配置
-const PLUGIN_BASE_PATH = '/plugin/'
-const pluginImageNames = [
-  'aippt.png',
-  'AI证件照.png',
-  'AI合同.png',
-  'AI商图秀.png',
-  'AI直播短视频数字人.png',
-  'AI短剧小说创作.png',
-  'AI简历.png',
-  'GEO优化排名工具.png',
-  '即梦AI绘画.png',
-  '即梦AI视频.png',
-  '大模型擂台.png',
-  '小红书内容复刻.png'
-]
-
-// 所有插件图片列表
-/**
- * 生成完整的插件图片路径列表。
- *
- * @returns 所有插件图片的绝对路径数组。
- */
-const allPluginImages = computed(() => pluginImageNames.map(name => `${PLUGIN_BASE_PATH}${name}`))
+// 插件图片配置 - 直接从 pluginData.ts 获取，实现自动同步
+const allPluginImages = computed(() => apps.map(app => app.image))
 
 /**
  * 随机打乱数组顺序的函数

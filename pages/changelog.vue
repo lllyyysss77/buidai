@@ -42,7 +42,7 @@
                     >
                       <span class="flex items-center gap-2">
                         <span
-                          class="w-2 h-2 rounded-full flex-shrink-0"
+                          class="w-2 h-2 rounded-full shrink-0"
                           :class="version.isMajor ? 'bg-primary-600' : 'bg-gray-300'"
                         ></span>
                         <span class="version-title truncate">{{ version.title }}</span>
@@ -124,7 +124,7 @@ const activeIndex = ref(0)
 const isMobileMenuOpen = ref(false)
 
 const currentVersionTitle = computed(() => {
-  return versions.value[activeIndex.value]?.title || '更新日志'
+  return versions.value?.[activeIndex.value]?.title || '更新日志'
 })
 
 const toggleMobileMenu = () => {
@@ -174,10 +174,12 @@ onMounted(() => {
     })
 
     // Observe all version sections
-    versions.value.forEach((_, index) => {
-      const el = document.getElementById(`version-${index}`)
-      if (el) observer?.observe(el)
-    })
+    if (versions.value) {
+      versions.value.forEach((_, index) => {
+        const el = document.getElementById(`version-${index}`)
+        if (el) observer?.observe(el)
+      })
+    }
   }
 })
 

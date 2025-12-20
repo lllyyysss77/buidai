@@ -1,6 +1,7 @@
 ---
 navigation:
   title: 介绍
+  icon: i-lucide-square-play
 title: BuildingAI 介绍
 description: BuildingAI 是一款面向AI开发者、AI创业者和先进组织打造的企业级开源智能体搭建平台。
 ---

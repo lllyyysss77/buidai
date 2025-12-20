@@ -74,7 +74,7 @@ export default defineNuxtConfig({
       link: [
         // 网站图标配置
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }, // 优先使用 SVG
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }, // 优先使用 SVG
         { rel: 'apple-touch-icon', href: '/logo.svg' }, // iOS 图标
 
         // 字体预连接与加载

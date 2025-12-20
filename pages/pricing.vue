@@ -196,6 +196,13 @@ const faqItems = [
     content: '1条知识库存储等于1条知识库索引。一条分块数据，通常对应多条索引，可以在单个知识库集合中查阅“W组索引”。'
   }
 ]
+
+// SEO 元数据配置
+useSeoMeta({
+  title: '必定AI - 价格方案 - BuidAI | 灵活透明的 AI 平台订阅计划',
+  description: '必定AI-BuidAI提供基础版、标准版、专业版及企业定制版等多种价格方案，满足个人开发者、初创团队及大型企业的不同 AI 应用开发需求。',
+  keywords: '必定AI价格, BuidAI价格, AI平台定价, 订阅计划, 企业级AI, AI积分, 私有化部署, 免费AI工具, 开发者套餐'
+})
 </script>
 
 <template>

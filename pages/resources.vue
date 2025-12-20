@@ -6,25 +6,33 @@
         <p class="text-xl text-gray-600 mb-8">获取最新的文档、教程和开发资源，助力您的 AI 应用开发之旅。</p>
 
         <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <NuxtLink
+          <UButton
             to="/docs"
-            class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors"
+            size="xl"
+            class="justify-center px-6 py-3 text-base font-medium rounded-md"
           >
-            <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
+            <template #leading>
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </template>
             快速开始
-          </NuxtLink>
-          <NuxtLink
+          </UButton>
+          <UButton
             to="/docs"
-            class="inline-flex items-center justify-center px-6 py-3 border border-gray-200 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 transition-colors"
+            size="xl"
+            color="neutral"
+            variant="outline"
+            class="justify-center px-6 py-3 text-base font-medium rounded-md"
           >
             了解更多
-            <svg class="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </NuxtLink>
+            <template #trailing>
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </template>
+          </UButton>
         </div>
       </div>
 
@@ -35,11 +43,11 @@
           :to="resource.to"
           class="group bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col items-start"
         >
-          <div class="mb-6 p-3 rounded-xl bg-primary-500/10 text-primary-600 group-hover:bg-primary-500/20 transition-colors">
+          <div class="mb-6 p-3 rounded-xl bg-ui-primary-glow-medium text-ui-primary group-hover:bg-ui-primary-glow-strong transition-colors">
             <component :is="resource.icon" class="w-8 h-8" />
           </div>
 
-          <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
+          <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-ui-primary transition-colors">
             {{ resource.title }}
           </h3>
 
@@ -47,7 +55,7 @@
             {{ resource.description }}
           </p>
 
-          <div class="text-primary-600 font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
+          <div class="text-ui-primary font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
             了解详情
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -74,8 +82,9 @@ definePageMeta({
 })
 
 useSeoMeta({
-  title: '资源中心 - BuidAI',
-  description: 'BuidAI 官方文档、教程、API 参考及社区资源'
+  title: '必定AI - BuidAI资源中心 - 开发者文档、教程与社区 | AI应用开发指南',
+  description: '访问 BuidAI 资源中心，获取全面的开发文档、API 参考手册、视频教程及 CLI 工具。加入开发者社区，探索技术博客，助力您高效构建企业级 AI 应用。',
+  keywords: 'BuidAI资源中心, AI开发文档, API参考, AI教程, 开发者社区, CLI工具, 技术博客, AI应用开发, 必定AI'
 })
 
 const resources = [

@@ -46,7 +46,7 @@ export interface Category {
 export const categories: Category[] = [
   { id: 'all', name: '全部应用' },
   { id: 'recommend', name: '官方推荐' },
-  { id: 'independent', name: '独立应用' },
+  { id: 'independent', name: '独立系统' },
   { id: 'extension', name: '扩展应用' },
   { id: 'video', name: '图像视频' },
   { id: 'writing', name: '智能写作' },
@@ -101,10 +101,10 @@ export const apps: AppData[] = [
   },
   {
     id: 5,
-    name: 'AI 证件照',
+    name: 'AI证件照',
     description: '各种证件照类型，尺寸自定义，生成图片导出。无需跑照相馆，在家即可轻松制作专业证件照。',
     icon: UserIcon,
-    image: '/plugin/AI 证件照.png',
+    image: '/plugin/AI证件照.png',
     category: 'video',
     originalPrice: 599.00,
     discountPrice: 299.00,
@@ -126,7 +126,7 @@ export const apps: AppData[] = [
     name: 'AI PPT',
     description: '智能生成PPT，一键排版，海量模板，让演示更出彩。告别繁琐的排版工作，专注于内容创作。',
     icon: PresentationIcon,
-    image: '/plugin/AI PPT.png',
+    image: '/plugin/AIPPT.png',
     category: 'efficiency',
     originalPrice: 1299.00,
     discountPrice: 599.00,
@@ -138,7 +138,7 @@ export const apps: AppData[] = [
     description: '智能合同审查与生成，降低法律风险，提高签约效率。专业的法律助手，为您的商业合作保驾护航。',
     icon: FileSignatureIcon,
     image: '/plugin/AI合同.png',
-    category: 'efficiency',
+    category: 'enterprise',
     originalPrice: 2999.00,
     discountPrice: 1499.00,
     date: '2025/11/15'
@@ -263,5 +263,49 @@ export const apps: AppData[] = [
     originalPrice: 499.00,
     discountPrice: 249.00,
     date: '2025/11/15'
+  },
+  {
+    id: 20,
+    name: '企业全能AI知识库「PHP源码版」',
+    description: '全能AI知识库系统PHP版，基于前后端分离架构以及Vue3、uni-app、SpringBoot2.5技术栈',
+    icon: BookOpenIcon,
+    image: '/plugin/work.webp',
+    category: 'independent',
+    originalPrice: 6800.00,
+    discountPrice: 4999.00,
+    date: '2025/12/20'
+  },
+  {
+    id: 21,
+    name: '超级IP数字人SaaS系统「PHP源码版」',
+    description: '为企业主、个人博主打造短视频IP的数字人源码系统，支持真人声音+形象克隆，一键合成',
+    icon: TvIcon,
+    image: '/plugin/saas.webp',
+    category: 'independent',
+    originalPrice: 9800.00,
+    discountPrice: 6600.00,
+    date: '2025/12/20'
+  },
+  {
+    id: 22,
+    name: '艺创AI聊天绘画系统「PHP源码版」',
+    description: '实现了AI对话+AI绘画的融合使用。系统功能包括：AI智能对话、AI创作模型、AI绘画、分销推广',
+    icon: PaletteIcon,
+    image: '/plugin/ai.webp',
+    category: 'independent',
+    originalPrice: 3800.00,
+    discountPrice: 2999.00,
+    date: '2025/12/20'
+  },
+  {
+    id: 23,
+    name: '艺创AI论文写作系统「PHP源码版」',
+    description: '10分钟可生成几万字长文的系统。只需要输入主题关键词，AI即可快速为您生成主题大纲',
+    icon: PenToolIcon,
+    image: '/plugin/lw.svg',
+    category: 'independent',
+    originalPrice: 4698.00,
+    discountPrice: 3200.00,
+    date: '2025/12/20'
   }
 ]

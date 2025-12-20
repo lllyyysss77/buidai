@@ -156,6 +156,13 @@ definePageMeta({
   layout: 'default'
 })
 
+// SEO 元数据配置
+useSeoMeta({
+  title: '必定AI - 应用市场 - BuidAI | 丰富的 AI 插件与独立应用',
+  description: '探索 BuidAI 应用市场，发现和安装各类 AI 插件与独立应用。涵盖智能写作、图像处理、效率工具等多个领域，一键扩展您的 AI 办公能力。',
+  keywords: '必定AI应用市场, AI插件, 独立应用, AI工具商店, 智能办公插件, 效率工具, AI扩展, 开发者市场'
+})
+
 // --- 状态定义 ---
 
 const searchQuery = ref('')

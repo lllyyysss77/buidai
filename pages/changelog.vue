@@ -110,8 +110,9 @@ definePageMeta({
 })
 
 useSeoMeta({
-  title: '更新日志 - BuidAI',
-  description: 'BuidAI 产品版本更新历史与功能迭代记录'
+  title: '必定AI - 更新日志 - BuidAI | 产品迭代历史与新功能发布',
+  description: '查看 BuidAI 的最新版本更新记录，包括新功能上线、性能优化、Bug 修复及未来规划。保持关注，获取第一手产品动态。',
+  keywords: '必定AI更新日志, 版本记录, 产品动态, 新功能发布, 迭代历史, 软件更新, AI平台更新'
 })
 
 const { data: versions } = await useAsyncData('changelog-updates', () => {

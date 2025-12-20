@@ -3,7 +3,7 @@
     <!-- 背景装饰：左上角网格 -->
     <div class="absolute top-0 left-0 w-full h-[400px] md:h-[600px] bg-[url('/agent.svg')] pointer-events-none mask-[linear-gradient(to_bottom,white,transparent)] z-0"></div>
 
-    <!-- Hero Section -->
+    <!-- 英雄区域 -->
     <section class="pt-32 pb-12 md:pt-48 md:pb-20 relative overflow-hidden z-10">
       <div class="container mx-auto px-4 text-center relative z-10">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 border border-gray-200 text-xs text-gray-600 mb-8">
@@ -12,7 +12,7 @@
         </div>
 
         <h1 class="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight mb-6 text-gray-900 leading-tight">
-          BuidAI企业级 <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600 block sm:inline">Agent</span>构建平台
+          必定AI，BuidAI企业级 <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600 block sm:inline">Agent</span>构建平台
         </h1>
 
         <p class="text-base sm:text-xl text-gray-500 mb-8 md:mb-10 max-w-3xl mx-auto px-2">
@@ -254,10 +254,10 @@ interface Faq {
   answer: string
 }
 
-// SEO Meta
+// SEO 元数据配置
 useSeoMeta({
-  title: 'BuidAI - 企业级 AI Agent 构建平台',
-  description: 'BuidAI 是一个基于 LLM 大语言模型的知识库问答系统，提供开箱即用的数据处理、模型调用等能力。'
+  title: '必定AI - BuidAI新一代AI一站式创意生产力平台',
+  description: '探索AI创作的无限可能！必定AI平台提供Sora2视频、香蕉绘画Nanobanana、AI PPT、艺术二维码等前沿创意工具，结合智能体、知识库与AI对话，实现文档问答、文件管理及一键发布至微信生态。无论是AI绘画、视频生成，还是爆款文章创作与内容总结，我们都能助您高效实现创意构想，让灵感轻松落地'
 })
 
 /**

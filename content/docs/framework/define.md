@@ -2,6 +2,7 @@
 title: 定义内容集合
 navigation:
   title: 定义
+  icon: i-lucide-file-text
 description: 了解如何在 Nuxt 应用中定义和配置内容集合。
 ---
 

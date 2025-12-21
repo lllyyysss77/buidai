@@ -1,5 +1,8 @@
 ---
 title: 迁移指南
+navigation:
+  title: 迁移
+  icon: i-lucide-arrow-right
 description: 如何从 v2 迁移到 v3
 ---
 

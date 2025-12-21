@@ -2,6 +2,7 @@
 title: 模式验证器
 navigation:
   title: 验证器
+  icon: i-lucide-check-circle
 description: 使用您首选的验证器定义集合模式，并享受完整的类型安全。
 ---
 

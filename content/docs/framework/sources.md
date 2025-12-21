@@ -2,6 +2,7 @@
 title: 集合源
 navigation:
   title: 源
+  icon: i-lucide-upload
 description: 了解如何在 Nuxt Content 集合中导入文件。
 ---
 

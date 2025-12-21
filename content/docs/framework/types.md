@@ -2,6 +2,7 @@
 title: 集合类型
 navigation:
   title: 类型
+  icon: i-lucide-file-text
 description: 了解您可以在 Nuxt Content 中定义的两种集合类型。
 ---
 

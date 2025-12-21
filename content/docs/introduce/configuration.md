@@ -1,5 +1,8 @@
 ---
 title: 配置
+navigation:
+  title: 配置
+  icon:
 description: Nuxt Content 配置了合理的默认值。
 ---
 
@@ -492,7 +495,7 @@ watch: {
 
 **选项：**
 
-- `enabled` (`boolean`)：编辑内容文件时启用或禁用热重载。  
+- `enabled` (`boolean`)：编辑内容文件时启用或禁用热重载。
   - `true`（默认）：开发期间自动重新加载应用程序中的内容更改。
   - `false`：禁用热重载；更改需要手动刷新。
 

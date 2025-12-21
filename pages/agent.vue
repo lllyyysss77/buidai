@@ -12,7 +12,7 @@
         </div>
 
         <h1 class="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight mb-6 text-gray-900 leading-tight">
-          必定AI，BuidAI企业级 <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600 block sm:inline">Agent</span>构建平台
+          必定AI <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600 block sm:inline">企业级 AI </span>应用构建平台
         </h1>
 
         <p class="text-base sm:text-xl text-gray-500 mb-8 md:mb-10 max-w-3xl mx-auto px-2">
@@ -36,38 +36,113 @@
       </div>
     </section>
 
-    <!-- 演示视频部分(替换为功能卡) -->
-    <section class="py-10 md:py-16 bg-white">
+    <!-- 核心功能 卡片网格 -->
+    <section class="py-12 md:py-20 bg-gray-50/50">
       <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div v-for="(item, index) in featureCards" :key="index" class="flex flex-col gap-4">
-            <!-- 类别标题药丸 -->
-            <div class="relative w-full text-center bg-[#e6e9ff] rounded-lg p-[8px] md:p-[12px] mb-[16px] md:mb-[24px] text-black text-lg font-medium leading-[22px]">
-              {{ item.category }}
-              <!-- 底部小三角指示器 -->
-              <div class="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#e6e9ff] rotate-45"></div>
-            </div>
+        <!-- 标题区域 -->
+        <div class="text-center mb-12 md:mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">核心功能</h2>
+          <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+            全方位赋能企业 AI 转型，打造智能高效的业务闭环
+          </p>
+        </div>
 
-            <!-- 功能卡片主体 -->
-            <div class="bg-white rounded-[20px] p-6 shadow-[0_2px_12px_rgba(0,0,0,0.04)] border border-gray-100 flex-1 flex flex-col items-center text-center hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] active:scale-[0.99] transition-all duration-300 h-full touch-manipulation">
-              <!-- Tag -->
-              <div class="self-start mb-4">
-                <span class="bg-indigo-50 text-indigo-600 text-[10px] sm:text-xs px-2.5 py-1 rounded-md font-bold">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div v-for="(item, index) in featureCards" :key="index" class="group relative flex flex-col h-full">
+
+            <!-- 顶部装饰线条 -->
+            <div class="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-blue-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+            <!-- 卡片主体 -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex-1 flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden z-10">
+
+              <!-- 背景光晕装饰 -->
+              <div class="absolute -top-10 -right-10 w-32 h-32 bg-gray-50 rounded-full blur-3xl group-hover:bg-blue-50/50 transition-colors duration-500 z-0"></div>
+
+              <!-- 头部信息 -->
+              <div class="relative z-10 flex items-start justify-between mb-6">
+                 <!-- 类别标签 -->
+                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
+                  {{ item.category }}
+                </span>
+                <!-- 功能标签 -->
+                <span class="text-xs font-semibold tracking-wide text-gray-400 uppercase">
                   {{ item.tag }}
                 </span>
               </div>
 
-              <!-- Title -->
-              <h3 class="text-lg font-bold text-gray-900 mb-3 px-2">{{ item.title }}</h3>
+              <!-- 标题与描述 -->
+              <div class="relative z-10 mb-6 flex-1">
+                <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                  {{ item.title }}
+                </h3>
+                <p class="text-sm text-gray-500 leading-relaxed line-clamp-3">
+                  {{ item.desc }}
+                </p>
+              </div>
 
-              <!-- 描述 -->
-              <p class="text-xs text-gray-500 leading-relaxed mb-6 line-clamp-4 px-1">
-                {{ item.desc }}
+              <!-- 图像区域 -->
+              <div class="relative z-10 mt-auto rounded-xl overflow-hidden bg-gray-50 border border-gray-100 aspect-video group-hover:border-blue-100 transition-colors duration-300">
+                <img
+                  :src="item.image"
+                  :alt="item.title"
+                  loading="lazy"
+                  class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-500 ease-out"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 全行业解决方案 -->
+    <AIIndustry />
+
+    <!-- 产品优势 -->
+    <section class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16 md:mb-20">
+          <span class="inline-block py-1 px-3 rounded-full bg-ui-primary/10 border border-ui-primary/20 text-ui-primary text-sm font-semibold mb-4">Core Strengths</span>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 tracking-tight">产品核心优势</h2>
+          <p class="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
+            为您提供一站式的 AI 解决方案，助力企业实现业务效率的质变与创新
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-16 md:gap-24">
+          <div v-for="(feature, idx) in features" :key="idx"
+               class="group relative flex flex-col lg:flex-row items-center gap-10 lg:gap-16 xl:gap-24"
+               :class="{ 'lg:flex-row-reverse': idx % 2 === 1 }"
+          >
+            <!-- 文本内容 -->
+            <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
+              <div class="w-16 h-16 rounded-2xl bg-white border border-gray-100 shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <component :is="feature.icon" class="w-8 h-8 text-ui-primary" />
+              </div>
+
+              <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{{ feature.title }}</h3>
+              <p class="text-lg text-gray-500 leading-relaxed mb-8 max-w-lg">
+                {{ feature.desc }}
               </p>
 
-              <!-- 图像区域-->
-              <div class="mt-auto w-full aspect-4/3 bg-gray-50 rounded-lg overflow-hidden relative group">
-                <img :src="item.image" :alt="item.title" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <!-- 装饰线条 -->
+              <div class="w-20 h-1 bg-gray-100 rounded-full group-hover:w-32 group-hover:bg-ui-primary transition-all duration-300"></div>
+            </div>
+
+            <!-- 视频演示 -->
+            <div class="w-full lg:w-1/2">
+              <div class="relative rounded-2xl overflow-hidden shadow-xl shadow-gray-200 border border-gray-100 bg-white aspect-video group-hover:-translate-y-2 transition-transform duration-300">
+                <video
+                  :src="feature.video"
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  class="w-full h-full object-cover"
+                ></video>
+                <!-- 视频遮罩 -->
+                <div class="absolute inset-0 bg-linear-to-tr from-ui-primary/5 to-transparent pointer-events-none"></div>
               </div>
             </div>
           </div>
@@ -75,58 +150,29 @@
       </div>
     </section>
 
-    <!-- 功能部分 -->
-    <section class="py-12 md:py-24">
-      <div class="container mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-bold text-center mb-10 md:mb-16 text-gray-900">Agent释放智能体无限潜能</h2>
-
-        <div class="flex flex-col gap-8 md:gap-12">
-          <div v-for="(feature, idx) in features" :key="idx"
-               class="rounded-3xl p-6 md:p-8 lg:p-12 border border-gray-200 bg-white shadow-sm hover:shadow-md transition-all duration-500 group">
-            <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center justify-between">
-              <!-- 左侧内容 -->
-              <div class="w-full lg:w-1/3 flex flex-col gap-6 md:gap-8 xl:ml-4 text-center lg:text-left">
-                <!-- 图标 -->
-                <div class="w-16 h-16 md:w-20 md:h-20 rounded-3xl bg-gray-50 border border-gray-100 flex items-center justify-center shadow-sm mx-auto lg:mx-0">
-                  <component :is="feature.icon" class="w-8 h-8 md:w-10 md:h-10" :class="feature.iconColor" />
-                </div>
-
-                <div>
-                  <h3 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-gray-900">{{ feature.title }}</h3>
-                  <p class="text-base md:text-lg text-gray-500 leading-relaxed">
-                    {{ feature.desc }}
-                  </p>
-                </div>
-              </div>
-
-              <!-- 右侧图像 -->
-              <div class="w-full lg:w-2/3">
-                <div class="relative rounded-xl overflow-hidden bg-gray-50">
-                   <img :src="feature.image" :alt="feature.title" loading="lazy" class="w-full h-auto" />
-                   <!-- Overlay Gradient -->
-                   <div class="absolute inset-0 bg-linear-to-t from-white/10 to-transparent pointer-events-none"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 优势 -->
-    <section class="py-10 md:py-20 bg-gray-50">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-10 md:mb-16">
-          <h2 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900">优势</h2>
-          <p class="text-gray-500 text-sm md:text-base">为什么选择 BuidAI?</p>
+    <!-- 核心优势 -->
+    <section class="py-16 md:py-24 bg-gray-50/50 dark:bg-gray-900 relative overflow-hidden">
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="text-center mb-16 md:mb-20">
+          <UBadge label="Why BuidAI" variant="subtle" color="neutral" class="mb-4 px-3 py-1" />
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 dark:text-white tracking-tight">为什么选择 BuidAI ?</h2>
+          <p class="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            从底层架构到上层应用，我们提供全栈式的 AI 解决方案，助您在智能时代保持领先
+          </p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div v-for="(adv, idx) in advantages" :key="idx"
-               class="p-6 rounded-2xl bg-white border border-gray-200 hover:shadow transition-all group">
-            <component :is="adv.icon" class="w-10 h-10 text-gray-400 group-hover:text-blue-600 transition-colors mb-4" />
-            <h3 class="text-lg font-bold mb-2 text-gray-900">{{ adv.title }}</h3>
-            <p class="text-sm text-gray-500 group-hover:text-gray-600 transition-colors">{{ adv.desc }}</p>
+               class="group p-8 rounded-3xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200">
+
+            <div class="relative z-10">
+              <div class="w-14 h-14 rounded-2xl bg-gray-100 dark:bg-gray-700 flex items-center justify-center mb-6 group-hover:bg-gray-900 dark:group-hover:bg-white transition-colors duration-200">
+                <component :is="adv.icon" class="w-7 h-7 text-gray-600 dark:text-gray-300 group-hover:text-white dark:group-hover:text-gray-900 transition-colors duration-200" />
+              </div>
+
+              <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-gray-100 transition-colors duration-200">{{ adv.title }}</h3>
+              <p class="text-gray-500 dark:text-gray-400 leading-relaxed">{{ adv.desc }}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -174,29 +220,42 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <section class="py-10 md:py-20 relative overflow-hidden bg-white border-t border-gray-100">
-      <!-- Footer Gradient -->
-      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[200px] md:h-[300px] bg-linear-to-t from-blue-50 to-transparent pointer-events-none"></div>
+    <!-- Footer CTA -->
+    <section class="py-16 md:py-24 relative overflow-hidden bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
+      <!-- 装饰背景 -->
+      <div class="absolute inset-0 bg-linear-to-b from-transparent to-gray-50/50 dark:to-gray-800/50 pointer-events-none"></div>
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-primary-50/40 via-transparent to-transparent pointer-events-none dark:from-primary-900/10"></div>
 
       <div class="container mx-auto px-4 relative z-10">
-        <div class="flex flex-col lg:flex-row items-center justify-between gap-8 md:gap-8 mb-10 md:mb-20">
-          <div class="text-center lg:text-left">
-            <h2 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900">现在开始构建您的 AI Agent</h2>
-            <p class="text-base md:text-lg text-gray-500">BuidAI, 让 AI Agent 构建触手可及</p>
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16">
+          <!-- 左侧文案 -->
+          <div class="text-center lg:text-left max-w-2xl">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 dark:text-white tracking-tight leading-tight">
+              现在开始构建您的 <span class="text-primary-600 dark:text-primary-400">AI Agent</span>
+            </h2>
+            <p class="text-lg md:text-xl text-gray-500 dark:text-gray-400 leading-relaxed">
+              加入数万开发者的行列，使用 BuidAI 释放智能体的无限潜能，让 AI 触手可及。
+            </p>
           </div>
 
-          <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-            <button class="w-full sm:w-[200px] h-[50px] md:h-[60px] text-lg md:text-[22px] font-semibold px-10 py-3 rounded-full bg-white border border-gray-200 text-gray-900 hover:bg-gray-50 active:scale-95 transition-all shadow-sm flex items-center justify-center">
-              立即使用
-            </button>
-            <button class="w-full sm:w-[200px] h-[50px] md:h-[60px] text-lg md:text-[22px] font-semibold px-10 py-3 rounded-full bg-[#080d1ee6] text-white hover:bg-[#080d1e] active:scale-95 transition-all shadow-lg flex items-center justify-center">
-              开始使用
-            </button>
+          <!-- 右侧按钮组 -->
+          <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto shrink-0">
+            <UButton
+              label="立即使用"
+              size="xl"
+              variant="ghost"
+              color="neutral"
+              class="w-full sm:w-auto min-w-[160px] justify-center px-8 py-4 text-lg font-semibold rounded-full border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-200"
+            />
+            <UButton
+              label="开始构建"
+              size="xl"
+              color="primary"
+              class="w-full sm:w-auto min-w-[160px] justify-center px-8 py-4 text-lg font-semibold rounded-full shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40 hover:-translate-y-0.5 transition-all duration-200"
+              icon="i-heroicons-rocket-launch"
+            />
           </div>
         </div>
-
-
       </div>
     </section>
   </div>
@@ -236,9 +295,7 @@ interface Feature {
   title: string
   desc: string
   icon: any // HeroIcon component type
-  iconColor: string
-  iconBg: string
-  image: string
+  video: string
 }
 
 // 类型定义：优势
@@ -266,32 +323,32 @@ useSeoMeta({
  */
 const featureCards: FeatureCard[] = [
   {
-    category: 'AI 写作',
-    tag: '研究报告',
-    title: '中国潮玩调研报告',
-    desc: '写一份关于中国潮玩市场的详细的调研报告，并生成精美的网页',
-    image: '/潮玩.png'
+    category: 'AI 核心',
+    tag: '多模态模型',
+    title: '大语言模型',
+    desc: '集成全球领先的 LLM 模型，支持 GPT-4o、Claude 3.5、Gemini Pro 等主流模型，提供稳定、高速的 API 调用服务，满足对话、写作、翻译等多种场景需求。',
+    image: '/images/大语言模型.jpeg'
   },
   {
-    category: 'AI PPT',
-    tag: '行业调研',
-    title: '二奢行业调研PPT',
-    desc: '围绕 “二手奢侈品交易市场的发展现状” 制作调研 PPT，分析消费者对二手奢侈品的接受度、购买渠道偏好（线上平台、线下门店）及顾虑（真伪鉴定、价格评估等），现有交易平台的运营模式及优缺点，附市场规范发展建议。',
-    image: '/PPT.png'
+    category: '知识管理',
+    tag: '高效检索',
+    title: 'RAF知识库',
+    desc: '构建企业级 RAF 知识库，支持 PDF、Word、Markdown 等多格式文档导入，自动分段与向量化，实现精准的语义检索与问答，让 AI 懂你的业务。',
+    image: '/images/知识库.jpg'
   },
   {
-    category: 'AI 设计',
-    tag: '海报创作',
-    title: '主题活动海报设计',
-    desc: '做一个活动海报，内容： 元气发电站市集 上班暂停，来元气发电站撒野啦 创意宇宙大爆发，美味能量补给站 手作DIY，塔罗占卜，香薰手作，视听盛宴 在这里都将有一场前所未有的体验 这个夏天，让我们一起在市集吃下元气释放无限可能！ 7.30-8.1 16:00-22:00 商业空间 B2北广场 12号线出口处',
-    image: '/海报.png'
+    category: '流程自动化',
+    tag: '可视化编排',
+    title: '工作流编排',
+    desc: '强大的可视化 Workflow 编排引擎，通过拖拽即可将大模型、插件、知识库等组件连接起来，构建复杂的业务流程，实现从简单对话到复杂任务的自动化处理。',
+    image: '/images/工作流编排.jpg'
   },
   {
-    category: 'AI 网站开发',
-    tag: '提效工具',
-    title: '图片主色提取工具',
-    desc: '开发一个在线图片颜色提取工具，用户可以上传图片，工具能自动分析并提取图片中最主要的5-6种颜色，生成可视化调色盘，每个颜色块下方显示其HEX色号，并提供一键复制功能。',
-    image: '/提取.png'
+    category: '协议标准',
+    tag: '模型上下文',
+    title: 'MCP服务',
+    desc: '全面支持 Model Context Protocol (MCP)，实现模型与数据的无缝连接。标准化的接口协议，让智能体能够安全、高效地访问本地文件、数据库及第三方 API 服务。',
+    image: '/images/MCP服务.jpeg'
   }
 ]
 
@@ -301,28 +358,28 @@ const featureCards: FeatureCard[] = [
  */
 const features: Feature[] = [
   {
-    title: '必定开发平台',
-    desc: '零基础开启 Agent 专业开发。必定开发平台是一站式 Al Agent 开发工具。提供各类最新大模型和工具、多种开发模式和框架，从开发到部署，为你提供最便捷的 Agent 开发环境。上万家企业、数百万开发者正在使用必定开发平台。',
+    title: '全栈赋能',
+    desc: '最新的大模型，丰富的资源库，提供 AI Agent 开发所需的全部核心技术。',
     icon: CubeIcon,
-    iconColor: 'text-blue-500',
-    iconBg: 'bg-blue-50',
-    image: '/agent-1.png'
+    video: 'https://portal.volccdn.com/obj/volcfe/bee_prod/biz_950/tos_5947ecf038587e21912f7a7f0c29723a.mp4'
   },
   {
-    title: '多模式推理服务',
-    desc: '高性能、稳定可靠的模型 API 服务，提供在线与批量的模型调用模式，支持多种灵活售卖，满足不同时效性和成本要求。',
+    title: '开箱即用',
+    desc: '健全的应用模板和编排框架，用最低的成本开发最专业的 AI Agent。',
     icon: WrenchScrewdriverIcon,
-    iconColor: 'text-purple-500',
-    iconBg: 'bg-purple-50',
-    image: '/agent-2.gif'
+    video: 'https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/7a2291113013f873_1749556611819.mp4'
   },
   {
-    title: '高效全链路开发',
-    desc: '原生支持通义模型、数据和训练框架，覆盖从数据准备、训练微调、模型评测到部署上线的全流程，降低大模型定制门槛。',
+    title: '安全可信',
+    desc: '覆盖 Agent 开发全生命周期安全保障，满足企业级安全需求。',
     icon: PuzzlePieceIcon,
-    iconColor: 'text-yellow-500',
-    iconBg: 'bg-yellow-50',
-    image: '/agent-3.png'
+    video: 'https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/d2dabbdbb1d7fbae_1765444399839.mp4'
+  },
+  {
+    title: '全网发布',
+    desc: '点击一下，全平台上线！APP、网页、小程序统统搞定。',
+    icon: RocketLaunchIcon,
+    video: 'https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/58508b9898be7111_1749556627094.mp4'
   }
 ]
 

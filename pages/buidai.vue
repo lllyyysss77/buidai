@@ -60,97 +60,107 @@
 
       <div class="container mx-auto px-4">
         <!-- 标题区域 -->
-        <div class="text-center mb-16 md:mb-24 max-w-3xl mx-auto" data-aos="fade-up">
-          <h2 class="text-3xl md:text-5xl font-bold text-neutral-900 mb-6 tracking-tight">全栈式 AI 开发能力</h2>
-          <p class="text-neutral-500 text-lg md:text-xl leading-relaxed">从模型接入、知识库构建到商业化落地，提供开发者所需的一切工具与基础设施。</p>
+        <div class="text-center mb-12 sm:mb-16">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-4 tracking-tight">
+            全栈式 AI 开发能力
+          </h2>
+          <p class="text-lg sm:text-xl text-neutral-500 max-w-3xl mx-auto">
+            从模型接入、知识库构建到商业化落地，提供开发者所需的一切工具与基础设施。
+          </p>
         </div>
 
-        <div class="flex flex-col lg:flex-row gap-12 lg:gap-20 items-stretch">
+        <!-- 主体卡片容器 -->
+        <div
+          class="relative rounded-3xl overflow-hidden border border-neutral-200/50 shadow-2xl shadow-neutral-200/50 flex flex-col lg:flex-row bg-white min-h-[600px] isolate"
+          data-aos="fade-up"
+        >
           <!-- 左侧：功能导航列表 -->
-          <div class="lg:w-5/12 flex flex-col justify-center" data-aos="fade-right">
-            <div class="space-y-2">
+          <div class="w-full lg:w-1/3 border-b lg:border-b-0 lg:border-r border-neutral-100 bg-neutral-50/30 p-4 lg:p-6 flex flex-col z-10">
+            <div class="space-y-2 h-full overflow-y-auto custom-scrollbar">
               <button
                 v-for="(feature, index) in features"
                 :key="feature.title"
                 @click="activeFeatureIndex = index"
                 @mouseenter="activeFeatureIndex = index"
-                class="group w-full flex flex-col text-left px-6 py-5 rounded-2xl transition-all duration-300 relative overflow-hidden border"
-                :class="activeFeatureIndex === index ? 'bg-neutral-100 border-transparent' : 'border-neutral-100 hover:bg-neutral-50 hover:border-neutral-200'"
+                class="group w-full flex flex-col text-left px-5 py-4 rounded-xl transition-all duration-300 relative overflow-hidden outline-none"
+                :class="activeFeatureIndex === index ? 'bg-white shadow-sm ring-1 ring-neutral-200' : 'hover:bg-neutral-100/80'"
               >
-                <!-- 选中状态的左侧指示条 -->
+                <!-- 激活指示条 -->
                 <div
-                  class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-12 bg-neutral-900 rounded-r-full transition-all duration-300"
+                  class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-[#6E58FF] rounded-r-full transition-all duration-300"
                   :class="activeFeatureIndex === index ? 'opacity-100' : 'opacity-0'"
                 ></div>
 
-                <div class="flex gap-5 relative z-10" :class="activeFeatureIndex === index ? 'items-start' : 'items-center'">
+                <div class="flex gap-4 items-center">
                   <div
-                    class="w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-300 shrink-0"
-                    :class="activeFeatureIndex === index ? 'bg-white text-neutral-900 shadow-md scale-110 mt-1' : 'bg-white border border-neutral-100 text-neutral-400 group-hover:border-neutral-200 group-hover:text-neutral-600'"
+                    class="w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 shrink-0"
+                    :class="activeFeatureIndex === index ? 'bg-[#6E58FF] text-white' : 'bg-white border border-neutral-200 text-neutral-400 group-hover:text-neutral-600'"
                   >
-                    <component :is="feature.icon" class="w-6 h-6" />
+                    <component :is="feature.icon" class="w-5 h-5" />
                   </div>
                   <div class="flex-1 min-w-0">
                     <span
-                      class="text-lg md:text-xl font-bold transition-colors block mb-1"
+                      class="text-base font-bold transition-colors block"
                       :class="activeFeatureIndex === index ? 'text-neutral-900' : 'text-neutral-600 group-hover:text-neutral-900'"
                     >
                       {{ feature.title }}
                     </span>
-
-                    <!-- 描述文字：选中时显示，高度动画 -->
-                     <div
-                      class="grid transition-[grid-template-rows] duration-500 ease-in-out"
-                      :class="activeFeatureIndex === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
+                    <p
+                      class="text-xs text-neutral-400 truncate mt-0.5"
+                      :class="activeFeatureIndex === index ? 'text-neutral-500' : ''"
                     >
-                      <div class="overflow-hidden">
-                         <p class="text-neutral-500 text-sm md:text-[15px] leading-relaxed pt-1 transition-colors">
-                          {{ feature.desc }}
-                        </p>
-                      </div>
-                    </div>
+                      {{ feature.desc }}
+                    </p>
                   </div>
+
+                  <!-- 箭头 -->
+                  <ChevronRightIcon
+                    class="w-4 h-4 text-neutral-400 transition-all duration-300 opacity-0 -translate-x-2"
+                    :class="activeFeatureIndex === index ? 'opacity-100 translate-x-0' : ''"
+                  />
                 </div>
               </button>
             </div>
           </div>
 
-          <!-- 右侧：预览图 -->
-          <div class="lg:w-7/12 relative flex flex-col" data-aos="fade-left">
+          <!-- 右侧：预览图 (浏览器窗口样式) -->
+          <div class="flex-1 relative flex flex-col bg-white z-0 overflow-hidden">
              <!-- 背景光晕装饰 -->
-            <div class="absolute -top-20 -right-20 w-[500px] h-[500px] bg-neutral-100/50 rounded-full blur-3xl pointer-events-none mix-blend-multiply opacity-70"></div>
-            <div class="absolute -bottom-20 -left-20 w-[400px] h-[400px] bg-neutral-100/50 rounded-full blur-3xl pointer-events-none mix-blend-multiply opacity-70"></div>
+            <div class="absolute -top-20 -right-20 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl pointer-events-none mix-blend-multiply"></div>
+            <div class="absolute -bottom-20 -left-20 w-96 h-96 bg-purple-100/40 rounded-full blur-3xl pointer-events-none mix-blend-multiply"></div>
 
-            <div class="relative flex-1 rounded-3xl overflow-hidden bg-white border border-neutral-100 shadow-2xl shadow-neutral-200/50 aspect-4/3 lg:aspect-auto min-h-[400px] lg:min-h-[600px] group ring-1 ring-black/5 flex flex-col">
-              <!-- 顶部浏览器栏装饰 -->
-              <div class="h-12 bg-white/90 backdrop-blur-sm border-b border-neutral-100 flex items-center px-6 gap-2 z-20 shrink-0">
-                <div class="w-3 h-3 rounded-full bg-red-400/80"></div>
-                <div class="w-3 h-3 rounded-full bg-yellow-400/80"></div>
-                <div class="w-3 h-3 rounded-full bg-green-400/80"></div>
-                <!-- 模拟地址栏 -->
-                 <div class="ml-4 flex-1 h-6 bg-neutral-50 rounded-md border border-neutral-100/50"></div>
+            <!-- 顶部浏览器栏装饰 -->
+            <div class="h-14 border-b border-neutral-100 flex items-center px-6 gap-3 shrink-0 bg-white/80 backdrop-blur-md z-20">
+              <div class="flex gap-2">
+                <div class="w-3 h-3 rounded-full bg-neutral-200"></div>
+                <div class="w-3 h-3 rounded-full bg-neutral-200"></div>
+                <div class="w-3 h-3 rounded-full bg-neutral-200"></div>
               </div>
+              <!-- 模拟地址栏 -->
+               <div class="ml-4 flex-1 max-w-md h-8 bg-neutral-50 rounded-lg border border-neutral-100 flex items-center px-4 text-xs text-neutral-400 font-mono">
+                  https://buidai.com/preview/{{ currentFeature?.title ? encodeURIComponent(currentFeature.title) : '' }}
+                </div>
+            </div>
 
-              <!-- 图片切换区域 -->
-              <div class="relative flex-1 bg-neutral-50/50 p-8 sm:p-12 flex items-center justify-center overflow-hidden">
-                 <transition
-                  mode="out-in"
-                  enter-active-class="transition duration-500 ease-out"
-                  enter-from-class="opacity-0 scale-95 blur-sm"
-                  enter-to-class="opacity-100 scale-100 blur-0"
-                  leave-active-class="transition duration-300 ease-in"
-                  leave-from-class="opacity-100 scale-100 blur-0"
-                  leave-to-class="opacity-0 scale-105 blur-sm"
-                >
-                  <img
-                    v-if="currentFeature"
-                    :key="activeFeatureIndex"
-                    :src="currentFeature.image"
-                    :alt="currentFeature.title"
-                    class="w-full h-full object-contain drop-shadow-xl"
-                  />
-                </transition>
-              </div>
+            <!-- 图片切换区域 -->
+            <div class="relative flex-1 p-8 sm:p-12 flex items-center justify-center overflow-hidden">
+               <transition
+                mode="out-in"
+                enter-active-class="transition duration-500 ease-out"
+                enter-from-class="opacity-0 scale-95 blur-sm"
+                enter-to-class="opacity-100 scale-100 blur-0"
+                leave-active-class="transition duration-300 ease-in"
+                leave-from-class="opacity-100 scale-100 blur-0"
+                leave-to-class="opacity-0 scale-105 blur-sm"
+              >
+                <img
+                  v-if="currentFeature"
+                  :key="activeFeatureIndex"
+                  :src="currentFeature.image"
+                  :alt="currentFeature.title"
+                  class="w-full h-full object-contain drop-shadow-2xl"
+                />
+              </transition>
             </div>
           </div>
         </div>

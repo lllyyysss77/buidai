@@ -4,7 +4,7 @@
       <!-- 顶部标题 -->
       <div class="text-center mb-12 sm:mb-16">
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-4 tracking-tight">
-          全场景 <span class="text-transparent bg-clip-text bg-linear-to-r from-neutral-900 to-neutral-600">AI 解决方案</span>
+          全场景 <span class="text-transparent bg-clip-text bg-[linear-gradient(to_right,#2055FA,#1B52F8,#A07CFE,#ADB9FF)]">AI 解决方案</span>
         </h2>
         <p class="text-lg sm:text-xl text-neutral-500 max-w-3xl mx-auto">
           赋能企业与个人的超级智能体平台，助力业务数智化升级

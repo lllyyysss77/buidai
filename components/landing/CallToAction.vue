@@ -1,32 +1,44 @@
+<script setup lang="ts">
+import {
+  RocketLaunchIcon,
+  SparklesIcon,
+  CommandLineIcon,
+  CpuChipIcon,
+  CloudIcon,
+  CubeTransparentIcon,
+  BoltIcon
+} from '@heroicons/vue/24/outline'
+</script>
+
 <template>
   <section class="py-24 bg-[#F9FAFB] relative overflow-hidden flex flex-col items-center justify-center min-h-[500px]">
-    <!-- Floating Avatars Background -->
+    <!-- Floating Icons Background -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
       <!-- Top Left -->
-      <div class="absolute top-[15%] left-[15%] w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-lg opacity-60 animate-float-slow">
-        <img src="/1.png" alt="User" class="w-full h-full object-cover" />
+      <div class="absolute top-[15%] left-[15%] w-12 h-12 rounded-full bg-white flex items-center justify-center border border-neutral-200 shadow-sm opacity-60 animate-float-slow text-purple-500">
+        <RocketLaunchIcon class="w-6 h-6" />
       </div>
-      <div class="absolute top-[25%] left-[5%] w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-lg opacity-40 animate-float-slower">
-        <img src="/2.png" alt="User" class="w-full h-full object-cover" />
+      <div class="absolute top-[25%] left-[5%] w-10 h-10 rounded-full bg-white flex items-center justify-center border border-neutral-200 shadow-sm opacity-40 animate-float-slower text-blue-500">
+        <SparklesIcon class="w-5 h-5" />
       </div>
 
       <!-- Top Right -->
-      <div class="absolute top-[10%] right-[20%] w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-lg opacity-50 animate-float">
-        <img src="/3.png" alt="User" class="w-full h-full object-cover" />
+      <div class="absolute top-[10%] right-[20%] w-14 h-14 rounded-full bg-white flex items-center justify-center border border-neutral-200 shadow-sm opacity-50 animate-float text-cyan-500">
+        <CommandLineIcon class="w-7 h-7" />
       </div>
-      <div class="absolute top-[30%] right-[10%] w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-lg opacity-30 animate-float-slow">
-        <img src="/4.png" alt="User" class="w-full h-full object-cover" />
+      <div class="absolute top-[30%] right-[10%] w-10 h-10 rounded-full bg-white flex items-center justify-center border border-neutral-200 shadow-sm opacity-30 animate-float-slow text-pink-500">
+        <CpuChipIcon class="w-5 h-5" />
       </div>
 
       <!-- Bottom Areas -->
-      <div class="absolute bottom-[20%] left-[20%] w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-lg opacity-40 animate-float-reverse">
-        <img src="/1.png" alt="User" class="w-full h-full object-cover" />
+      <div class="absolute bottom-[20%] left-[20%] w-10 h-10 rounded-full bg-white flex items-center justify-center border border-neutral-200 shadow-sm opacity-40 animate-float-reverse text-indigo-500">
+        <CloudIcon class="w-5 h-5" />
       </div>
-      <div class="absolute bottom-[15%] right-[25%] w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-lg opacity-50 animate-float-slow">
-        <img src="/2.png" alt="User" class="w-full h-full object-cover" />
+      <div class="absolute bottom-[15%] right-[25%] w-12 h-12 rounded-full bg-white flex items-center justify-center border border-neutral-200 shadow-sm opacity-50 animate-float-slow text-orange-500">
+        <CubeTransparentIcon class="w-6 h-6" />
       </div>
-      <div class="absolute bottom-[30%] left-[50%] -translate-x-1/2 w-8 h-8 rounded-full overflow-hidden border-2 border-white shadow-lg opacity-20 animate-pulse">
-        <img src="/3.png" alt="User" class="w-full h-full object-cover" />
+      <div class="absolute bottom-[30%] left-[50%] -translate-x-1/2 w-8 h-8 rounded-full bg-white flex items-center justify-center border border-neutral-200 shadow-sm opacity-20 animate-pulse text-yellow-500">
+        <BoltIcon class="w-4 h-4" />
       </div>
     </div>
 

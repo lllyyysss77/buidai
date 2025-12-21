@@ -1,33 +1,33 @@
 <template>
-  <div class="min-h-screen bg-white text-gray-900 font-sans selection:bg-blue-100 relative">
+  <div class="min-h-screen bg-white text-neutral-900 font-sans selection:bg-neutral-100 relative">
     <!-- 背景装饰：左上角网格 -->
     <div class="absolute top-0 left-0 w-full h-[400px] md:h-[600px] bg-[url('/agent.svg')] pointer-events-none mask-[linear-gradient(to_bottom,white,transparent)] z-0"></div>
 
     <!-- 英雄区域 -->
     <section class="pt-32 pb-12 md:pt-48 md:pb-20 relative overflow-hidden z-10">
       <div class="container mx-auto px-4 text-center relative z-10">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 border border-gray-200 text-xs text-gray-600 mb-8">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-50 border border-neutral-200 text-xs text-neutral-600 mb-8">
           <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
           <span>BuidAI V4.6.8 strong release</span>
         </div>
 
-        <h1 class="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight mb-6 text-gray-900 leading-tight">
-          一站式AI <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600 block sm:inline">企业级AI </span>轻松构建
+        <h1 class="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight mb-6 text-neutral-900 leading-tight">
+          一站式AI <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-500 to-blue-700 block sm:inline">企业级AI </span>轻松构建
         </h1>
 
-        <p class="text-base sm:text-xl text-gray-500 mb-8 md:mb-10 max-w-3xl mx-auto px-2">
+        <p class="text-base sm:text-xl text-neutral-500 mb-8 md:mb-10 max-w-3xl mx-auto px-2">
          可视化 Workflow 编排 + 超易用 AI 知识库 + 创新 RAG 检索 + 模板生态+ 应用市场 = 轻松构建强大 AI 应用
         </p>
 
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto px-4 sm:px-0">
-          <button class="w-full sm:w-auto px-8 py-3 rounded-full bg-gray-900 text-white font-semibold hover:bg-gray-800 active:scale-95 transition-all flex items-center justify-center gap-2 touch-manipulation">
+          <button class="w-full sm:w-auto px-8 py-3 rounded-full bg-neutral-900 text-white font-semibold hover:bg-neutral-800 active:scale-95 transition-all flex items-center justify-center gap-2 touch-manipulation">
             <!-- Rocket Icon -->
             <RocketLaunchIcon class="w-5 h-5" />
             立即开始
             <!-- Arrow Right Icon -->
             <ArrowRightIcon class="w-4 h-4" />
           </button>
-          <button class="w-full sm:w-auto px-8 py-3 rounded-full bg-linear-to-r from-blue-600 to-purple-600 text-white font-semibold hover:opacity-90 active:scale-95 transition-all shadow-[0_4px_14px_rgba(59,130,246,0.3)] flex items-center justify-center gap-2 touch-manipulation">
+          <button class="w-full sm:w-auto px-8 py-3 rounded-full bg-white border border-neutral-200 text-neutral-900 font-semibold hover:bg-neutral-50 active:scale-95 transition-all shadow-sm flex items-center justify-center gap-2 touch-manipulation">
             <!-- Document Icon -->
             <DocumentTextIcon class="w-5 h-5" />
             查看文档
@@ -40,7 +40,7 @@
     <section class="py-20 md:py-32 bg-white overflow-hidden relative isolate">
       <!-- 背景网格装饰 -->
       <svg
-        class="absolute inset-0 -z-10 h-full w-full stroke-gray-400/30 mask-[radial-gradient(100%_100%_at_top_right,white,transparent)]"
+        class="absolute inset-0 -z-10 h-full w-full stroke-neutral-400/30 mask-[radial-gradient(100%_100%_at_top_right,white,transparent)]"
         aria-hidden="true"
       >
         <defs>
@@ -61,8 +61,8 @@
       <div class="container mx-auto px-4">
         <!-- 标题区域 -->
         <div class="text-center mb-16 md:mb-24 max-w-3xl mx-auto" data-aos="fade-up">
-          <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">全栈式 AI 开发能力</h2>
-          <p class="text-gray-500 text-lg md:text-xl leading-relaxed">从模型接入、知识库构建到商业化落地，提供开发者所需的一切工具与基础设施。</p>
+          <h2 class="text-3xl md:text-5xl font-bold text-neutral-900 mb-6 tracking-tight">全栈式 AI 开发能力</h2>
+          <p class="text-neutral-500 text-lg md:text-xl leading-relaxed">从模型接入、知识库构建到商业化落地，提供开发者所需的一切工具与基础设施。</p>
         </div>
 
         <div class="flex flex-col lg:flex-row gap-12 lg:gap-20 items-stretch">
@@ -75,25 +75,25 @@
                 @click="activeFeatureIndex = index"
                 @mouseenter="activeFeatureIndex = index"
                 class="group w-full flex flex-col text-left px-6 py-5 rounded-2xl transition-all duration-300 relative overflow-hidden border"
-                :class="activeFeatureIndex === index ? 'bg-gray-100 border-transparent' : 'border-gray-100 hover:bg-gray-50 hover:border-gray-200'"
+                :class="activeFeatureIndex === index ? 'bg-neutral-100 border-transparent' : 'border-neutral-100 hover:bg-neutral-50 hover:border-neutral-200'"
               >
                 <!-- 选中状态的左侧指示条 -->
                 <div
-                  class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-12 bg-gray-900 rounded-r-full transition-all duration-300"
+                  class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-12 bg-neutral-900 rounded-r-full transition-all duration-300"
                   :class="activeFeatureIndex === index ? 'opacity-100' : 'opacity-0'"
                 ></div>
 
                 <div class="flex gap-5 relative z-10" :class="activeFeatureIndex === index ? 'items-start' : 'items-center'">
                   <div
                     class="w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-300 shrink-0"
-                    :class="activeFeatureIndex === index ? 'bg-white text-gray-900 shadow-md scale-110 mt-1' : 'bg-white border border-gray-100 text-gray-400 group-hover:border-gray-200 group-hover:text-gray-600'"
+                    :class="activeFeatureIndex === index ? 'bg-white text-neutral-900 shadow-md scale-110 mt-1' : 'bg-white border border-neutral-100 text-neutral-400 group-hover:border-neutral-200 group-hover:text-neutral-600'"
                   >
                     <component :is="feature.icon" class="w-6 h-6" />
                   </div>
                   <div class="flex-1 min-w-0">
                     <span
                       class="text-lg md:text-xl font-bold transition-colors block mb-1"
-                      :class="activeFeatureIndex === index ? 'text-gray-900' : 'text-gray-500 group-hover:text-gray-900'"
+                      :class="activeFeatureIndex === index ? 'text-neutral-900' : 'text-neutral-600 group-hover:text-neutral-900'"
                     >
                       {{ feature.title }}
                     </span>
@@ -104,7 +104,7 @@
                       :class="activeFeatureIndex === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
                     >
                       <div class="overflow-hidden">
-                         <p class="text-gray-500 text-sm md:text-[15px] leading-relaxed pt-1 transition-colors">
+                         <p class="text-neutral-500 text-sm md:text-[15px] leading-relaxed pt-1 transition-colors">
                           {{ feature.desc }}
                         </p>
                       </div>
@@ -118,21 +118,21 @@
           <!-- 右侧：预览图 -->
           <div class="lg:w-7/12 relative flex flex-col" data-aos="fade-left">
              <!-- 背景光晕装饰 -->
-            <div class="absolute -top-20 -right-20 w-[500px] h-[500px] bg-blue-100/50 rounded-full blur-3xl pointer-events-none mix-blend-multiply opacity-70"></div>
-            <div class="absolute -bottom-20 -left-20 w-[400px] h-[400px] bg-purple-100/50 rounded-full blur-3xl pointer-events-none mix-blend-multiply opacity-70"></div>
+            <div class="absolute -top-20 -right-20 w-[500px] h-[500px] bg-neutral-100/50 rounded-full blur-3xl pointer-events-none mix-blend-multiply opacity-70"></div>
+            <div class="absolute -bottom-20 -left-20 w-[400px] h-[400px] bg-neutral-100/50 rounded-full blur-3xl pointer-events-none mix-blend-multiply opacity-70"></div>
 
-            <div class="relative flex-1 rounded-3xl overflow-hidden bg-white border border-gray-100 shadow-2xl shadow-gray-200/50 aspect-4/3 lg:aspect-auto min-h-[400px] lg:min-h-[600px] group ring-1 ring-black/5 flex flex-col">
+            <div class="relative flex-1 rounded-3xl overflow-hidden bg-white border border-neutral-100 shadow-2xl shadow-neutral-200/50 aspect-4/3 lg:aspect-auto min-h-[400px] lg:min-h-[600px] group ring-1 ring-black/5 flex flex-col">
               <!-- 顶部浏览器栏装饰 -->
-              <div class="h-12 bg-white/90 backdrop-blur-sm border-b border-gray-100 flex items-center px-6 gap-2 z-20 shrink-0">
+              <div class="h-12 bg-white/90 backdrop-blur-sm border-b border-neutral-100 flex items-center px-6 gap-2 z-20 shrink-0">
                 <div class="w-3 h-3 rounded-full bg-red-400/80"></div>
                 <div class="w-3 h-3 rounded-full bg-yellow-400/80"></div>
                 <div class="w-3 h-3 rounded-full bg-green-400/80"></div>
                 <!-- 模拟地址栏 -->
-                 <div class="ml-4 flex-1 h-6 bg-gray-50 rounded-md border border-gray-100/50"></div>
+                 <div class="ml-4 flex-1 h-6 bg-neutral-50 rounded-md border border-neutral-100/50"></div>
               </div>
 
               <!-- 图片切换区域 -->
-              <div class="relative flex-1 bg-gray-50/50 p-8 sm:p-12 flex items-center justify-center overflow-hidden">
+              <div class="relative flex-1 bg-neutral-50/50 p-8 sm:p-12 flex items-center justify-center overflow-hidden">
                  <transition
                   mode="out-in"
                   enter-active-class="transition duration-500 ease-out"
@@ -158,11 +158,11 @@
     </section>
 
     <!-- 平台优势 -->
-    <section class="py-16 md:py-24 bg-gray-50">
+    <section class="py-16 md:py-24 bg-neutral-50">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16 max-w-3xl mx-auto">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">平台核心优势</h2>
-          <p class="text-gray-500 text-lg leading-relaxed">构建在先进架构之上的企业级 AI 解决方案，助力企业快速落地 AI 应用</p>
+          <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-6">平台核心优势</h2>
+          <p class="text-neutral-500 text-lg leading-relaxed">构建在先进架构之上的企业级 AI 解决方案，助力企业快速落地 AI 应用</p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -186,7 +186,7 @@
     </section>
 
     <!-- 功能部分: AI赋能企业通用场景 -->
-    <section class="py-12 lg:py-20 bg-gray-50/50">
+    <section class="py-12 lg:py-20 bg-neutral-50/50">
       <div class="container mx-auto px-4">
         <div data-aos="fade-up" data-aos-offset="5" data-aos-delay="0" data-aos-duration="600">
           <h2 class="text-2xl md:text-4xl font-bold text-center mb-10 md:mb-12 text-[#0F0F12]">AI 赋能企业通用场景</h2>
@@ -217,12 +217,12 @@
                    <div class="w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center" :class="scenario.iconBg">
                      <component :is="scenario.icon" class="w-7 h-7 md:w-9 md:h-9" />
                    </div>
-                   <h3 class="text-2xl md:text-3xl font-bold text-gray-900">{{ scenario.title }}</h3>
+                   <h3 class="text-2xl md:text-3xl font-bold text-neutral-900">{{ scenario.title }}</h3>
                 </div>
 
                 <!-- 列表 -->
                 <ul class="space-y-4">
-                  <li v-for="(item, i) in scenario.items" :key="i" class="flex items-start gap-3 text-gray-600 text-base md:text-lg leading-relaxed">
+                  <li v-for="(item, i) in scenario.items" :key="i" class="flex items-start gap-3 text-neutral-600 text-base md:text-lg leading-relaxed">
                     <CheckCircleIcon class="w-6 h-6 text-ui-primary shrink-0 mt-0.5" />
                     <span>{{ item }}</span>
                   </li>
@@ -232,13 +232,13 @@
                 <div class="flex items-center justify-between mt-6 pt-6 border-t border-[rgba(68,83,130,0.15)]">
                   <button
                     type="button"
-                    class="group px-8 py-3 rounded-xl bg-gray-900 text-white text-sm font-semibold hover:bg-gray-800 transition-colors active:scale-95 flex items-center gap-2"
+                    class="group px-8 py-3 rounded-xl bg-neutral-900 text-white text-sm font-semibold hover:bg-neutral-800 transition-colors active:scale-95 flex items-center gap-2"
                     @click="openScenarioOverlay(idx)"
                   >
                     立即体验
                     <ArrowRightIcon class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
-                  <span class="text-6xl font-black text-gray-100 select-none tracking-tighter">{{ scenario.index }}</span>
+                  <span class="text-6xl font-black text-neutral-100 select-none tracking-tighter">{{ scenario.index }}</span>
                 </div>
               </div>
 
@@ -263,9 +263,9 @@
     </section>
 
    <!-- 为什么选择我们 -->
-    <section class="py-16 md:py-24 bg-gray-50/50 relative overflow-hidden">
+    <section class="py-16 md:py-24 bg-neutral-50/50 relative overflow-hidden">
       <svg
-        class="absolute inset-0 -z-10 h-full w-full stroke-gray-400/30 mask-[radial-gradient(100%_100%_at_top_right,white,transparent)]"
+        class="absolute inset-0 -z-10 h-full w-full stroke-neutral-400/30 mask-[radial-gradient(100%_100%_at_top_right,white,transparent)]"
         aria-hidden="true"
       >
         <defs>
@@ -284,8 +284,8 @@
       </svg>
       <div class="container mx-auto px-4">
         <div class="text-center mb-16 max-w-3xl mx-auto">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">为什么选择 BuidAI？</h2>
-          <p class="text-gray-500 text-lg leading-relaxed">从个人开发者探索到企业级部署，BuidAI 提供强大的工作流引擎与多模型集成能力</p>
+          <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-6">为什么选择 BuidAI？</h2>
+          <p class="text-neutral-500 text-lg leading-relaxed">从个人开发者探索到企业级部署，BuidAI 提供强大的工作流引擎与多模型集成能力</p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -318,11 +318,11 @@
     </section>
 
     <!-- 用户评价 -->
-    <section class="py-16 md:py-24 bg-gray-50/50 overflow-hidden">
+    <section class="py-16 md:py-24 bg-neutral-50/50 overflow-hidden">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16 max-w-3xl mx-auto">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">BuidAI 用户评价</h2>
-          <p class="text-gray-500 text-lg leading-relaxed">从个人开发者探索到企业级部署，BuidAI 提供强大的工作流引擎与多模型集成能力</p>
+          <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-6">BuidAI 用户评价</h2>
+          <p class="text-neutral-500 text-lg leading-relaxed">从个人开发者探索到企业级部署，BuidAI 提供强大的工作流引擎与多模型集成能力</p>
         </div>
 
         <div class="relative max-h-[600px] overflow-hidden grid grid-cols-1 md:grid-cols-3 gap-6 mask-[linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]">
@@ -369,8 +369,8 @@
           :links="openSourceLinks"
           :ui="{
             container: '!px-0 !max-w-none',
-            title: 'text-3xl md:text-4xl font-bold text-gray-900',
-            description: 'text-lg text-gray-500 mt-4'
+            title: 'text-3xl md:text-4xl font-bold text-neutral-900',
+            description: 'text-lg text-neutral-500 mt-4'
           }"
         >
           <img
@@ -378,7 +378,7 @@
             width="100%"
             height="100%"
             alt="开源部署示意图"
-            class="w-full rounded-xl shadow-2xl ring-1 ring-gray-900/10"
+            class="w-full rounded-xl shadow-2xl ring-1 ring-neutral-900/10"
           />
         </UPageSection>
       </div>
@@ -391,7 +391,7 @@
           <!-- 左侧：标题 -->
           <div class="lg:w-1/3 w-full text-center lg:text-left">
             <h2 class="text-2xl md:text-4xl font-bold text-[#0F0F12] mb-4">常见问题</h2>
-            <p class="text-gray-500 text-sm md:text-base">关于 BuidAI 的常见疑问解答</p>
+            <p class="text-neutral-500 text-sm md:text-base">关于 BuidAI 的常见疑问解答</p>
           </div>
 
           <!-- 右侧：FAQ 列表 -->
@@ -399,14 +399,14 @@
             <div
               v-for="(faq, idx) in faqs"
               :key="faq.question"
-              class="bg-white rounded-2xl transition-all duration-300 overflow-hidden border border-gray-100"
+              class="bg-white rounded-2xl transition-all duration-300 overflow-hidden border border-neutral-100"
             >
               <button
                 @click="toggleFaq(idx)"
-                class="w-full flex items-start justify-between p-6 text-left focus:outline-none hover:bg-gray-50 active:bg-gray-100 transition-colors touch-manipulation min-h-[44px]"
+                class="w-full flex items-start justify-between p-6 text-left focus:outline-none hover:bg-neutral-50 active:bg-neutral-100 transition-colors touch-manipulation min-h-[44px]"
               >
                 <span class="text-base md:text-lg font-medium text-[#0F0F12] pr-4 md:pr-8">{{ faq.question }}</span>
-                <span class="text-gray-400 shrink-0 mt-1 transition-transform duration-300" :class="{ 'rotate-45': activeFaq === idx }">
+                <span class="text-neutral-400 shrink-0 mt-1 transition-transform duration-300" :class="{ 'rotate-45': activeFaq === idx }">
                   <PlusIcon class="w-5 h-5" />
                 </span>
               </button>
@@ -427,23 +427,29 @@
     </section>
 
     <!-- Footer -->
-    <section class="py-10 md:py-20 relative overflow-hidden bg-white border-t border-gray-100">
-      <!-- Footer Gradient -->
-      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[200px] md:h-[300px] bg-linear-to-t from-blue-50 to-transparent pointer-events-none"></div>
+    <section class="py-16 md:py-24 relative overflow-hidden bg-white border-t border-neutral-100">
+      <!-- 底部渐变背景 -->
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-neutral-50/50 via-transparent to-transparent pointer-events-none"></div>
 
       <div class="container mx-auto px-4 relative z-10">
-        <div class="flex flex-col lg:flex-row items-center justify-between gap-8 md:gap-8 mb-10 md:mb-20">
-          <div class="text-center lg:text-left">
-            <h2 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900">现在开始构建您的 AI Agent</h2>
-            <p class="text-base md:text-lg text-gray-500">BuidAI, 让 AI Agent 构建触手可及</p>
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16">
+          <div class="text-center lg:text-left flex-1 max-w-2xl">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-neutral-900 tracking-tight leading-tight">
+              现在开始构建您的 <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-500 to-blue-700">AI Agent</span>
+            </h2>
+            <p class="text-lg md:text-xl text-neutral-500 leading-relaxed">
+              BuidAI 提供企业级 AI 基础设施，让智能体构建触手可及，助力业务数智化升级。
+            </p>
           </div>
 
-          <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-            <button class="w-full sm:w-[200px] h-[50px] md:h-[60px] text-lg md:text-[22px] font-semibold px-10 py-3 rounded-full bg-white border border-gray-200 text-gray-900 hover:bg-gray-50 active:scale-95 transition-all shadow-sm flex items-center justify-center">
+          <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto shrink-0">
+            <button class="w-full sm:w-auto min-w-[160px] h-[56px] text-lg font-semibold px-8 rounded-full bg-white border border-neutral-200 text-neutral-900 hover:bg-neutral-50 active:scale-95 transition-all shadow-sm flex items-center justify-center group">
               立即使用
+              <ArrowRightIcon class="w-5 h-5 ml-2 text-neutral-400 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button class="w-full sm:w-[200px] h-[50px] md:h-[60px] text-lg md:text-[22px] font-semibold px-10 py-3 rounded-full bg-[#080d1ee6] text-white hover:bg-[#080d1e] active:scale-95 transition-all shadow-lg flex items-center justify-center">
-              开始使用
+            <button class="w-full sm:w-auto min-w-[160px] h-[56px] text-lg font-semibold px-8 rounded-full bg-neutral-900 text-white hover:bg-neutral-800 active:scale-95 transition-all shadow-lg shadow-neutral-200 flex items-center justify-center group">
+              开始构建
+              <RocketLaunchIcon class="w-5 h-5 ml-2 group-hover:-translate-y-1 transition-transform" />
             </button>
           </div>
         </div>
@@ -460,25 +466,25 @@
         aria-modal="true"
         @click.self="closeScenarioOverlay"
       >
-        <div class="w-full max-w-4xl bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
-          <div class="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+        <div class="w-full max-w-4xl bg-white rounded-3xl shadow-2xl border border-neutral-100 overflow-hidden">
+          <div class="flex items-center justify-between px-6 py-4 border-b border-neutral-100">
             <div class="flex items-center gap-3 min-w-0">
               <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" :class="overlayScenario.iconBg">
                 <component :is="overlayScenario.icon" class="w-6 h-6" />
               </div>
               <div class="min-w-0">
-                <div class="text-sm text-gray-500">场景体验</div>
-                <div class="text-lg font-semibold text-gray-900 truncate">{{ overlayScenario.title }}</div>
+                <div class="text-sm text-neutral-500">场景体验</div>
+                <div class="text-lg font-semibold text-neutral-900 truncate">{{ overlayScenario.title }}</div>
               </div>
             </div>
 
             <button
               type="button"
-              class="w-10 h-10 inline-flex items-center justify-center rounded-xl hover:bg-gray-50 active:bg-gray-100 transition-colors"
+              class="w-10 h-10 inline-flex items-center justify-center rounded-xl hover:bg-neutral-50 active:bg-neutral-100 transition-colors"
               @click="closeScenarioOverlay"
               aria-label="关闭"
             >
-              <XMarkIcon class="w-6 h-6 text-gray-500" />
+              <XMarkIcon class="w-6 h-6 text-neutral-500" />
             </button>
           </div>
 
@@ -489,24 +495,24 @@
                   <li
                     v-for="(item, i) in overlayScenario.items"
                     :key="i"
-                    class="flex items-start gap-3 text-gray-600 text-base leading-relaxed"
+                    class="flex items-start gap-3 text-neutral-600 text-base leading-relaxed"
                   >
                     <CheckCircleIcon class="w-6 h-6 text-primary-500 shrink-0 mt-0.5" />
                     <span>{{ item }}</span>
                   </li>
                 </ul>
 
-                <div class="pt-4 border-t border-gray-100 flex flex-wrap gap-3">
+                <div class="pt-4 border-t border-neutral-100 flex flex-wrap gap-3">
                   <button
                     type="button"
-                    class="px-5 py-2.5 rounded-xl bg-gray-900 text-white text-sm font-semibold hover:bg-gray-800 transition-colors"
+                    class="px-5 py-2.5 rounded-xl bg-neutral-900 text-white text-sm font-semibold hover:bg-neutral-800 transition-colors"
                     @click="closeScenarioOverlay"
                   >
                     立即开始
                   </button>
                   <button
                     type="button"
-                    class="px-5 py-2.5 rounded-xl bg-white border border-gray-200 text-gray-700 text-sm font-semibold hover:bg-gray-50 transition-colors"
+                    class="px-5 py-2.5 rounded-xl bg-white border border-neutral-200 text-neutral-700 text-sm font-semibold hover:bg-neutral-50 transition-colors"
                     @click="closeScenarioOverlay"
                   >
                     返回
@@ -514,8 +520,8 @@
                 </div>
               </div>
 
-              <div class="relative rounded-2xl overflow-hidden shadow-xl ring-1 ring-gray-900/5 bg-white">
-                <div class="h-8 bg-gray-50 flex items-center px-4 gap-2 border-b border-gray-200">
+              <div class="relative rounded-2xl overflow-hidden shadow-xl ring-1 ring-neutral-900/5 bg-white">
+                <div class="h-8 bg-neutral-50 flex items-center px-4 gap-2 border-b border-neutral-200">
                   <div class="w-2.5 h-2.5 rounded-full bg-red-400/80"></div>
                   <div class="w-2.5 h-2.5 rounded-full bg-yellow-400/80"></div>
                   <div class="w-2.5 h-2.5 rounded-full bg-green-400/80"></div>

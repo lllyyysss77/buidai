@@ -3,24 +3,24 @@
     <div class="container mx-auto px-4">
       <!-- 顶部标题 -->
       <div class="text-center mb-12 sm:mb-16">
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
-          全场景 <span class="text-transparent bg-clip-text bg-linear-to-r from-violet-600 to-indigo-600">AI 解决方案</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-4 tracking-tight">
+          全场景 <span class="text-transparent bg-clip-text bg-linear-to-r from-neutral-900 to-neutral-600">AI 解决方案</span>
         </h2>
-        <p class="text-lg sm:text-xl text-gray-500 max-w-3xl mx-auto">
+        <p class="text-lg sm:text-xl text-neutral-500 max-w-3xl mx-auto">
           赋能企业与个人的超级智能体平台，助力业务数智化升级
         </p>
       </div>
 
       <!-- 主体卡片容器 -->
       <div
-        class="relative rounded-3xl overflow-hidden border border-white/50 shadow-2xl shadow-gray-200/50 min-h-[600px] flex flex-col lg:flex-row transition-all duration-500 backdrop-blur-xl bg-white/40"
+        class="relative rounded-3xl overflow-hidden border border-white/50 shadow-2xl shadow-neutral-200/50 min-h-[600px] flex flex-col lg:flex-row transition-all duration-500 backdrop-blur-xl bg-white/40"
       >
         <!-- 背景装饰 -->
-        <div class="absolute inset-0 z-0 bg-linear-to-br from-white/60 via-gray-50/40 to-white/60"></div>
+        <div class="absolute inset-0 z-0 bg-linear-to-br from-white/60 via-neutral-50/40 to-white/60"></div>
 
         <!-- 装饰性光晕 -->
-        <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-violet-200/20 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-96 h-96 bg-indigo-200/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-neutral-200/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-96 h-96 bg-neutral-200/20 rounded-full blur-3xl pointer-events-none"></div>
 
         <!-- 导航区域 -->
         <aside class="relative z-10 w-full lg:w-1/4 bg-white/30 border-b lg:border-b-0 lg:border-r border-white/40 backdrop-blur-md flex flex-col">
@@ -35,27 +35,27 @@
                 class="group relative flex items-center px-4 py-3 lg:py-4 rounded-xl transition-all duration-300 min-w-[140px] lg:min-w-0 text-left outline-none"
                 :class="[
                   active === idx
-                    ? 'bg-white text-gray-900 shadow-sm ring-1 ring-gray-200'
-                    : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100'
+                    ? 'bg-white text-neutral-900 shadow-sm ring-1 ring-neutral-200'
+                    : 'text-neutral-500 hover:text-neutral-900 hover:bg-neutral-100'
                 ]"
               >
                 <!-- 激活指示条 -->
                 <div
-                  class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-violet-600 rounded-r-full transition-all duration-300"
+                  class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-neutral-900 rounded-r-full transition-all duration-300"
                   :class="active === idx ? 'opacity-100' : 'opacity-0'"
                 ></div>
 
                 <component
                   :is="t.icon"
                   class="h-5 w-5 mr-3 transition-colors shrink-0"
-                  :class="active === idx ? 'text-violet-600' : 'text-gray-400 group-hover:text-gray-600'"
+                  :class="active === idx ? 'text-neutral-900' : 'text-neutral-400 group-hover:text-neutral-600'"
                 />
                 <span class="text-sm font-medium truncate">{{ t.name }}</span>
 
                 <!-- 箭头 -->
                 <ChevronRightIcon
                   class="ml-auto h-4 w-4 opacity-0 -translate-x-2 transition-all duration-300 hidden lg:block"
-                  :class="active === idx ? 'opacity-100 translate-x-0 text-gray-400' : ''"
+                  :class="active === idx ? 'opacity-100 translate-x-0 text-neutral-400' : ''"
                 />
               </button>
             </div>
@@ -66,10 +66,10 @@
         <section class="relative z-10 flex-1 p-6 sm:p-8 lg:p-12 flex flex-col">
           <!-- 头部信息 -->
           <div class="mb-8 animate-slide-up">
-            <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 flex items-center gap-3">
+            <h3 class="text-2xl sm:text-3xl font-bold text-neutral-900 mb-2 flex items-center gap-3">
               {{ currentTab?.title }}
             </h3>
-            <div class="h-1 w-20 bg-linear-to-r from-violet-600 to-indigo-600 rounded-full"></div>
+            <div class="h-1 w-20 bg-linear-to-r from-neutral-900 to-neutral-600 rounded-full"></div>
           </div>
 
           <!-- 功能网格 -->
@@ -77,28 +77,28 @@
             <div
               v-for="(f, i) in currentTab?.features"
               :key="i"
-              class="group flex gap-4 p-4 -ml-4 rounded-2xl hover:bg-gray-50 transition-colors duration-300 border border-transparent hover:border-gray-100"
+              class="group flex gap-4 p-4 -ml-4 rounded-2xl hover:bg-neutral-50 transition-colors duration-300 border border-transparent hover:border-neutral-100"
             >
               <div class="shrink-0">
-                <div class="w-10 h-10 rounded-xl bg-violet-50 flex items-center justify-center text-violet-600 group-hover:scale-110 transition-transform duration-300">
+                <div class="w-10 h-10 rounded-xl bg-neutral-100 flex items-center justify-center text-neutral-900 group-hover:scale-110 transition-transform duration-300">
                   <component :is="f.icon" class="h-5 w-5" />
                 </div>
               </div>
               <div>
-                <h4 class="font-bold text-lg mb-1 text-gray-900 group-hover:text-violet-700 transition-colors">{{ f.title }}</h4>
-                <p class="text-sm text-gray-500 leading-relaxed">{{ f.desc }}</p>
+                <h4 class="font-bold text-lg mb-1 text-neutral-900 group-hover:text-neutral-900 transition-colors">{{ f.title }}</h4>
+                <p class="text-sm text-neutral-500 leading-relaxed">{{ f.desc }}</p>
               </div>
             </div>
           </div>
 
           <!-- 底部操作栏 -->
-          <div class="mt-auto pt-6 border-t border-gray-100 flex flex-wrap gap-4">
-            <button class="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-white bg-gray-900 hover:bg-gray-800 rounded-full transition-all shadow-lg shadow-gray-200 hover:-translate-y-0.5">
+          <div class="mt-auto pt-6 border-t border-neutral-100 flex flex-wrap gap-4">
+            <button class="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-white bg-neutral-900 hover:bg-neutral-800 rounded-full transition-all shadow-lg shadow-neutral-200 hover:-translate-y-0.5">
               了解方案详情
               <ArrowRightIcon class="ml-2 h-4 w-4" />
             </button>
 
-            <button class="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 border border-gray-200 rounded-full transition-all hover:border-gray-300 hover:-translate-y-0.5 shadow-sm">
+            <button class="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-neutral-700 bg-white hover:bg-neutral-50 border border-neutral-200 rounded-full transition-all hover:border-neutral-300 hover:-translate-y-0.5 shadow-sm">
               联系售前咨询
               <ChatBubbleLeftRightIcon class="ml-2 h-4 w-4" />
             </button>

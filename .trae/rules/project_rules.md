@@ -96,6 +96,8 @@ my-nuxt-app/
 - 样式以 Tailwind 原子类为主，复用 `assets/css/main.css` 中的组件类
 - 主题与颜色统一在 `tailwind.config.js` 与 `app.config.ts` 内管理
 - 主色来源统一为 Nuxt UI：以 `app.config.ts` 的 `ui.colors.primary` 与 CSS 变量 `--ui-primary` 为准；禁止以 Tailwind `primary-*` 作为品牌主色来源。文本、图标与边框的品牌色必须使用 `--ui-primary`（可通过在 `assets/css/main.css` 定义类封装后使用），背景与渐变可使用 Tailwind 调色板作为辅助但不得替代主色来源。
+- 中性色规范：统一优先使用 `neutral-*` 色系作为灰色/中性色（如文本、背景、边框），禁止使用 `gray-*`、`slate-*`、`zinc-*` 等其他灰度色系，以避免在不同显示设备上出现色偏（如偏蓝或偏紫）。
+- 配色限制：严谨使用紫色系（Purple/Violet/Fuchsia）配色。除系统配置的品牌主色（Primary）外，禁止在背景、装饰或非强调性元素中使用紫色系，确保界面风格的专业性与纯净感。
 - 新增代码须添加函数级注释（函数功能、参数与返回值说明）
 - 命名语义化、文件职责清晰；避免过度嵌套与超长组件
 
@@ -111,6 +113,25 @@ my-nuxt-app/
 - 标准：首选使用 `@heroicons/vue/24/outline` 组件。
 - 用法：必须将图标作为组件导入（例如 `import { RocketLaunchIcon } from '@heroicons/vue/24/outline'`），尽量避免使用原始 SVG 字符串，除非是自定义图标。
 - 说明：Nuxt UI 内置的图标别名（如 `i-ph-*`）用于其组件内部场景；业务页面与通用展示优先使用 Heroicons 保持一致性。
+
+### 具体配色方案
+
+基于核心页面（如 `solutions.vue` 和 `agent.vue`）的视觉风格，项目采用以下标准色值：
+
+- **品牌主色 (Primary)**
+  - 核心色值：`#6E58FF` (Indigo/Violet)
+  - 交互变体：`#7A42FF` (Hover), `#5A43FF` (Active)
+  - 辅助色系：Blue-600 到 Blue-400 的线性渐变（用于文本高亮）
+  - 应用场景：核心按钮、文本高亮、选中状态、图标、渐变背景
+
+- **中性色 (Neutrals)**
+  - 页面背景：`#F3F4F6` (浅灰底色), `#FFFFFF` (纯白), `neutral-50/50` (微透浅灰)
+  - 区块背景：`#FFFFFF` (卡片), `#F7F8FC` (浅蓝灰), `#121318` (Footer 深色), `#1E1E2E` (代码/暗色卡片), `neutral-900` (深色按钮)
+  - 文本颜色：`#0F0F12` / `neutral-900` (主要标题), `#5A5E6A` / `neutral-500` (正文/副标题), `neutral-400` (次要信息)
+  - 边框颜色：`#E5E6F0`, `#EAECF2`, `neutral-100`, `neutral-200`
+
+- **功能辅助色**
+  - 状态指示：`green-500` (在线/活跃), `blue-600` (强调)
 
 ### 4.5. 注释与文档
 

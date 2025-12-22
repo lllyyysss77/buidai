@@ -1,542 +1,86 @@
 ---
 category: 入门指南
-title: 配置
+title: 开源与商业化
 navigation:
-  title: 配置
-  icon: i-lucide-settings
-description: Nuxt Content 配置了合理的默认值。
+  title: 商业化
+  icon: i-lucide-dollar-sign
+description: 阐述 必定AI 的开源商业化思路
 ---
 
-要配置内容模块并自定义其行为，您可以在 `nuxt.config` 中使用 `content` 属性：
-
-```ts [nuxt.config.ts]
-export default defineNuxtConfig({
-  content: {
-    // 选项
-  }
-})
-```
-
-::note{to="https://github.com/nuxt-modules/mdc#configurations"}
-除了通过 `content.markdown` 进行配置外，您还可以使用 Markdown 组件 (MDC) 通过 `mdc` 属性自定义 Markdown 元素的渲染。
-::
-
-## `build`
-
-Nuxt Content 在构建时读取并解析所有可用内容。此选项使您可以控制内容解析。
-
-### `markdown`
-
-配置 Markdown 解析器。
-
-#### `toc`
-
-::code-group
-```ts [默认值]
-toc: {
-  depth: 2,
-  searchDepth: 2
-}
-```
-
-```ts [类型定义]
-type Toc = {
-  depth: number
-  searchDepth: number
-}
-```
-::
-
-控制目录生成的行为。
-
-值：
-
-- `depth`：要包含在目录中的最大标题深度。
-- `searchDepth`：搜索标题的嵌套标签的最大深度。
-
-```ts [nuxt.config.ts]
-export default defineNuxtConfig({
-  content: {
-    build: {
-      markdown: {
-        toc: {
-          depth: 3, // 包含 h3 标题
-        }
-      }
-    }
-  }
-})
-```
-
-#### `remarkPlugins`
-
-::code-group
-```ts [默认值]
-remarkPlugins: {}
-```
-
-```ts [类型定义]
-type RemarkPlugins = Record<string, false | MarkdownPlugin>
-```
-::
-
-要使用的 [remark](https://github.com/remarkjs/remark) 插件列表。
-
-```ts [nuxt.config.ts]
-export default defineNuxtConfig({
-  content: {
-    build: {
-      markdown: {
-        // 可以使用对象语法覆盖默认选项
-        remarkPlugins: {
-          // 覆盖 remark-emoji 选项
-          'remark-emoji': {
-            options: {
-              emoticon: true
-            }
-          },
-          // 禁用 remark-gfm
-          'remark-gfm': false,
-          // 添加 remark-oembed
-          'remark-oembed': {
-            // 选项
-          }
-        },
-      }
-    }
-  }
-})
-```
-
-#### `rehypePlugins`
-
-::code-group
-```ts [默认值]
-rehypePlugins: {}
-```
-
-```ts [类型定义]
-type RehypePlugins = object
-```
-::
-
-要使用的 [rehype](https://github.com/remarkjs/remark-rehype) 插件列表。
-
-```ts [nuxt.config.ts]
-export default defineNuxtConfig({
-  content: {
-    build: {
-      markdown: {
-        // 可以使用对象语法覆盖默认选项
-        rehypePlugins: {
-          'rehype-figure': {
-
-          }
-        },
-      }
-    }
-  }
-})
-```
-
-#### `contentHeading`
-
-::code-group
-```ts [默认值]
-contentHeading: true
-```
-
-```ts [类型定义]
-type ContentHeading = boolean
-```
-::
-
-将此选项设置为 `false` 会禁用自动生成 `title` 和 `description` 字段，这些字段通常是从第一个 H1 标题及其后的段落中提取的。
-
-#### `highlight`
-
-::code-group
-```ts [默认值]
-highlight: false
-```
-
-```ts [类型定义]
-type Highlight = false | object
-```
-::
-
-Nuxt Content 使用 [Shiki](https://github.com/shikijs/shiki) 为 [`ProsePre`](/docs/components/prose#prosepre) 和 [`ProseCode`](/docs/components/prose#prosecode) 提供语法高亮。
-
-| 选项 | 类型 | 描述 |
-| - | - | - |
-| `theme` | `ShikiTheme` 或 `Record<string, ShikiTheme>` | 要使用的 [颜色主题](https://github.com/shikijs/shiki/blob/main/docs/themes.md)。 |
-| `langs` | `ShikiLang[]` | 可用于高亮的 [加载语言](https://github.com/shikijs/shiki/blob/main/docs/languages.md)。 |
-
-- `highlight.theme`
-
-主题可以通过单个字符串指定，也支持包含多个主题的对象。
-
-此选项与 [颜色模式模块](https://color-mode.nuxtjs.org/) 兼容。
-
-如果您使用多个主题，建议始终指定 `default` 主题。
-
-```ts [nuxt.config.ts]
-export default defineNuxtConfig({
-  content: {
-    build: {
-      markdown: {
-        highlight: {
-          // 所有配色方案中使用的主题。
-          theme: 'github-light',
-          // 或
-          theme: {
-            // 默认主题（与单个字符串相同）
-            default: 'github-light',
-            // 如果 `html.dark` 使用的主题
-            dark: 'github-dark',
-            // 如果 `html.sepia` 使用的主题
-            sepia: 'monokai'
-          }
-        }
-      }
-    }
-  }
-})
-```
-
-- `highlight.langs`
-
-默认情况下，该模块加载几种语言用于语法高亮：
-
-```ts [默认值]
-['json', 'js', 'ts', 'html', 'css', 'vue', 'shell', 'mdc', 'md', 'yaml']
-```
-
-如果您计划使用其他语言的代码示例，则需要在这些选项中定义该语言。
-
-```ts [nuxt.config.ts]
-export default defineNuxtConfig({
-  content: {
-    build: {
-      markdown: {
-        highlight: {
-          langs: [
-            'c',
-            'cpp',
-            'java'
-          ]
-        }
-      }
-    }
-  }
-})
-```
-
-如果您想为不支持的语言添加高亮显示，可以通过加载该语言的语法文件来实现。
-
-```ts [nuxt.config.ts]
-import { readFileSync } from 'node:fs'
-
-export default defineNuxtConfig({
-  content: {
-    build: {
-      markdown: {
-        highlight: {
-          langs: [
-            // 了解有关 Shiki 语言的更多信息：https://shiki.style/guide/load-lang
-            JSON.parse(
-              readFileSync('./shiki/languages/gdscript.tmLanguage.json', 'utf-8'),
-            ),
-          ]
-        }
-      }
-    }
-  }
-})
-```
-
-在 [Shiki 文档](https://github.com/shikijs/shiki/blob/main/docs/languages.md#adding-grammar) 中了解有关添加语言的更多信息。
-
-### `pathMeta`
-
-内容模块使用文件路径生成 slug、默认标题和内容顺序，您可以使用 `pathMeta` 选项自定义此行为。
-
-#### `pathMeta.forceLeadingSlash`
-
-如果设置为 `true`，路径将以斜杠为前缀。默认值为 `true`。
-
-#### `pathMeta.slugifyOptions`
-
-内容模块使用 [slugify](https://github.com/simov/slugify) 生成 slug，您可以使用此选项自定义 slugify 的行为。
-
-查看 [slugify 选项](https://github.com/simov/slugify#options) 了解更多信息。
-
-### `transformers`
-
-Nuxt Content 为每种内容类型都有特定的转换器，用于解析原始内容并为查询和渲染做好准备。使用此选项，您可以定义自定义转换器来支持新的内容类型或改进支持的内容类型的功能。
-
-::code-group
-```ts [nuxt.config.ts]
-export default defineNuxtConfig({
-  content: {
-    build: {
-      transformers: [
-        '~/transformers/title-suffix',
-      ],
-    },
-  },
-})
-```
-
-```ts [~/transformers/title-suffix.ts]
-import { defineTransformer } from '@nuxt/content'
-
-export default defineTransformer({
-  name: 'title-suffix',
-  extensions: ['.md'],
-  transform(file) {
-    return {
-      ...file,
-      title: file.title + ' (后缀)',
-    }
-  },
-})
-```
-
-::
-
-在 [转换器](/docs/advanced/transformers) 文档中了解有关转换器的更多信息。
-
-## `database`
-
-默认情况下，Nuxt Content 使用本地 SQLite 数据库来存储和查询内容。如果您想使用其他数据库或计划在 Cloudflare Workers 上部署，您可以修改此选项。
-
-以下是支持的数据库适配器列表：
-
-### `SQLite`
-
-如果您想更改默认数据库位置并将其移动到其他地方，可以使用 `sqlite` 适配器。这是 `database` 选项的默认值。根据您的运行时环境，将使用不同的 sqlite 适配器（Node: better-sqlite-3，Bun: bun\:sqlite）。
-
-```ts [nuxt.config.ts]
-export default defineNuxtConfig({
-  content: {
-    database: {
-      type: 'sqlite',
-      filename: 'SQLITE_DB_LOCATION'
-    }
-  }
-})
-```
-
-如果您无法使用正常的文件支持的 SQLite 数据库（例如由于只读文件系统或平台限制），您可以完全在内存中运行 SQLite。Nuxt Content 将在首次查询时从生成的转储中恢复数据库。在无服务器平台上，此数据库将在每次冷启动时重新创建；请尽可能预渲染多个路由以避免重复的运行时初始化。
-
-```ts [nuxt.config.ts]
-export default defineNuxtConfig({
-  content: {
-    database: {
-      type: 'sqlite',
-      filename: ':memory:'
-    }
-  }
-})
-```
-
-### `D1`
-
-如果您计划将应用程序部署到 Cloudflare workers，则需要使用 `d1` 数据库适配器。在 Cloudflare 仪表板中创建 `d1` 绑定并填写 `bindingName` 字段。
-
-```ts [nuxt.config.ts]
-export default defineNuxtConfig({
-  content: {
-    database: {
-      type: 'd1',
-      bindingName: 'CF_BINDING_NAME'
-    }
-  }
-})
-```
-
-### `Postgres`
-
-如果您计划使用 PostgreSQL 数据库部署应用程序，则需要使用 `postgresql` 数据库适配器。
-
-首先，确保安装 `pg` 包：
-
-```bash [终端]
-npm i pg
-```
-
-然后，在 `nuxt.config.ts` 中配置 `postgresql` 适配器：
-
-```ts [nuxt.config.ts]
-export default defineNuxtConfig({
-  content: {
-    database: {
-      type: 'postgresql',
-      url: process.env.POSTGRES_URL,
-      /* 其他 `pg` 选项 */
-    }
-  }
-})
-```
-
-### `LibSQL`
-
-如果您计划使用 LibSQL 数据库部署应用程序，则需要使用 `libsql` 数据库适配器。
-
-首先，确保安装 `@libsql/client` 包：
-
-```bash [终端]
-npm i @libsql/client
-```
-
-然后，在 `nuxt.config.ts` 中配置 `libsql` 适配器：
-
-```ts [nuxt.config.ts]
-export default defineNuxtConfig({
-  content: {
-    database: {
-      type: 'libsql',
-      url: process.env.TURSO_DATABASE_URL,
-      authToken: process.env.TURSO_AUTH_TOKEN,
-    }
-  }
-})
-```
-
-::note
-最流行的 LibSQL 托管服务是 [Turso](https://turso.tech/)。
-::
-
-### `PGlite`
-
-如果您计划使用 PGlite 数据库部署应用程序，则需要使用 `pglite` 数据库适配器。
-
-首先，确保安装 `@electric-sql/pglite` 包：
-
-```bash [终端]
-npm i @electric-sql/pglite
-```
-
-然后，在 `nuxt.config.ts` 中配置 `pglite` 适配器：
-
-```ts [nuxt.config.ts]
-export default defineNuxtConfig({
-  content: {
-    database: {
-      type: 'pglite',
-      dataDir: '.data/content/pglite'
-    }
-  }
-})
-```
-
-::note
-我们建议仅在开发环境中使用 PGlite。
-::
-
-## `renderer`
-
-配置内容渲染器。
-
-### `anchorLinks`
-
-::code-group
-```ts [默认值]
-{ h2: true, h3: true, h4: true }
-```
-
-```ts [类型定义]
-type AnchorLinks = boolean | Record<'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6', boolean>
-```
-::
-
-控制锚点链接生成，默认情况下，它为 `h2`、`h3` 和 `h4` 标题生成锚点链接
-
-值：
-
-- `false`：将禁用链接生成。
-- `true`：将为所有标题启用链接生成。
-
-### `alias`
-
-::code-group
-```ts [默认值]
-alias: {}
-```
-
-```ts [类型定义]
-type Alias = Record<string, string>
-```
-::
-
-别名将用于替换 Markdown 组件并渲染自定义组件而不是默认组件。
-
-```ts [nuxt.config.ts]
-export default defineNuxtConfig({
-  content: {
-    renderer: {
-      alias: {
-        p: 'MyCustomParagraph'
-      }
-    }
-  }
-})
-```
-
-## `watch`
-
-```ts [默认值]
-watch: {
-  enabled: true
-}
-```
-
-控制开发期间是否启用内容热重载。
-
-**选项：**
-
-- `enabled` (`boolean`)：编辑内容文件时启用或禁用热重载。
-  - `true`（默认）：开发期间自动重新加载应用程序中的内容更改。
-  - `false`：禁用热重载；更改需要手动刷新。
-
-::callout
-内容观察器仅在开发环境中运行，并利用 Vite 开发服务器检测内容更新并向您的应用程序发送事件以进行实时更新。
-::
-
-## `experimental`
-
-尚未稳定的实验性功能。
-
-### `experimental.sqliteConnector`
-
-SQLite 连接器在不同环境中有局限性。有些在无服务器环境中工作，而有些则不。Nuxt Content 支持三种不同的 SQLite 连接器来覆盖所有环境：
-
-- `better-sqlite3`：适用于所有 Node 环境、GitHub CI、Vercel CI 和生产环境、Cloudflare CI 管道等。（**不适用于** WebContainers 和 StackBlitz）
-- `sqlite3`：适用于 Node 环境、GitHub CI 和 StackBlitz。（**不适用于** Vercel 或 Cloudflare）
-- `native`：从 Node.js v22.5.0 开始，`node:sqlite` 模块在 Node.js 中原生可用。此连接器适用于 Node.js 版本 22.5.0 或更新版本的所有 Node 环境。
-
-```ts [nuxt.config.ts]
-export default defineNuxtConfig({
-  content: {
-    experimental: { sqliteConnector: 'native' },
-  },
-});
-```
-
-### `experimental.nativeSqlite`（已弃用，使用 `sqliteConnector`）
-
-从 Node.js v22.5.0 开始，`node:sqlite` 模块在 Node.js 中原生可用。
-这允许 Nuxt Content 使用 SQLite 作为数据库，而无需外部包。
-
-```ts [nuxt.config.ts]
-export default defineNuxtConfig({
-  content: {
-    experimental: { nativeSqlite: true },
-  },
-});
-```
-
-::prose-note
-此功能仅在 Node.js v22.5.0 及以上版本中可用。在旧版本中启用此功能不会有任何效果。
-::
+# 开源与商业化
+
+## 前言
+
+很高兴，我们可以持续保持最初设计的方案，采用完全开源的方式推进 必定AI 产品的发展。
+
+正如你的困惑一样，开源如何实现商业化一直是个难题。当下可以不解决，但不能没有计划去解决，毕竟世上没有永动机。
+
+经过反复的思考与讨论，我们得到一个商业化的前提共识，那就是：开源商业化的核心是不断为用户创造价值的同时，找到能够支撑团队发展的收入渠道。它既是对开源精神的延续，也是实现可持续发展的现实路径。
+
+基于此，我们后续的商业化计划大致分为以下几个方向。
+
+## 商业化方向
+
+### 方向一：应用市场
+
+伴随 必定AI 正式版发布，我们会上线应用市场。应用市场支持AI开发者上架自己的AI应用，在线销售。
+
+应用市场作为 「必定AI 一站式开源AI应用平台」 的重要组成部分，可提供许许多多开箱即用的个性化AI应用。在机制完善过程中，我们会陆续邀请AI开发者入驻，销售AI应用。
+
+必定AI 负责招聘全职客服， 进行应用的推广、介绍和销售工作。我们将根据不同应用类型收取不超过 30% 的服务费用。
+
+预计此部分收入未来将构成 必定AI 整体开源收入的 50%。
+
+### 方向二：云服务
+
+必定AI 未来会探索潜在的云服务可能，包含两个方面：
+
+1. 按年的云托管服务，它可以一键部署 必定AI，快速上线站点。帮助各位 Builder 专注于AI应用场景， 减少系统运维、服务购买的烦恼。预计定价在 1800元/年，每天5元钱，不到一杯 luckin coffee。
+
+2. API 托管服务，AI开发者可以将AI应用所需的API托管至此服务，由托管服务提供统一的充值、秘钥管理能力。必定AI 收取少量服务费。
+
+预计此部分收入未来将构成 必定AI 整体开源收入的 20%。
+
+### 方向三：技术服务
+
+作为开源项目，提供技术服务的路线是可行的，我们希望能够联合AI开发者共同提供以下技术服务：
+
+1. AI应用定制服务，二次开发定制服务。
+
+2. 大模型部署、微调服务。
+
+3. 框架部署、运维服务。
+
+但是必须谨慎技术服务带来的非标问题，过早陷入成本负担。这部分收入仅能缓慢增加，预计构成 必定AI 整体开源收入的 20%。
+
+### 方向四：商业授权
+
+为了能够持续面向开源社区做出贡献，并且推动 必定AI 开源项目的健康发展，我们需要多元化可行的收入方向，商业授权是不错的选项之一。
+
+更大型的组织/企业同时存在更多的专业需求，如何部署、如何使用产品等日常解答已无法满足。如何深入二次开发亦或如何在自身业务中顺利实践 必定AI 才是重点问题。
+
+通常此类问题更加个性化，为此我们需要付出更多额外的技术支持成本，那何不让支持来得更专业呢？
+
+为此，我们计划面向更大型的组织/企业收取商业授权费用（含人天工时服务），对于小型/微型团队保持免费商业授权（含学生、个人开发者）。
+
+具体说明：
+
+1. 学生、个人开发者、小型/微型团队：永久免费商业授权。
+
+2. 更大型的组织/企业：一次性商业授权费用（方案待定，价格待定）。
+
+正式方案确定时，已发布 必定AI 版本不受方案影响，完全免费，大家可自由商用。
+
+特别说明: 销售 必定AI 商业授权，需取得 必定AI 商业合作伙伴认证（邀请制，暂未开放）。
+
+预计此部分收入未来将构成 必定AI 整体开源收入的5%。
+
+### 方向五：品牌广告
+
+必定AI 未来会在官网、文档、应用市场等显著流量位置规划联动广告位，以按月出租形式，销售广告位。
+
+预计此部分收入未来将构成 必定AI 整体开源收入的5%。
+
+## 写在最后
+
+开源商业化，关键在于找到既尊重开源精神又能创造经济价值的平衡点。我们会及时动态的更新商业化进程，确保必定AI 一站式开源应用平台的持续迭代发展，陪伴大家迎接每个AI浪潮时刻。

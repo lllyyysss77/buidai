@@ -84,7 +84,10 @@ definePageMeta({
 useSeoMeta({
   title: '必定AI - BuidAI资源中心 - 开发者文档、教程与社区 | AI应用开发指南',
   description: '访问 BuidAI 资源中心，获取全面的开发文档、API 参考手册、视频教程及 CLI 工具。加入开发者社区，探索技术博客，助力您高效构建企业级 AI 应用。',
-  keywords: 'BuidAI资源中心, AI开发文档, API参考, AI教程, 开发者社区, CLI工具, 技术博客, AI应用开发, 必定AI'
+  keywords: 'BuidAI资源中心, AI开发文档, API参考, AI教程, 开发者社区, CLI工具, 技术博客, AI应用开发, 必定AI',
+  ogTitle: '必定AI - BuidAI资源中心 - 开发者文档、教程与社区 | AI应用开发指南',
+  ogDescription: '访问 BuidAI 资源中心，获取全面的开发文档、API 参考手册、视频教程及 CLI 工具。加入开发者社区，探索技术博客，助力您高效构建企业级 AI 应用。',
+  ogType: 'website'
 })
 
 const resources = [

@@ -201,7 +201,10 @@ const faqItems = [
 useSeoMeta({
   title: '必定AI - 价格方案 - BuidAI | 灵活透明的 AI 平台订阅计划',
   description: '必定AI-BuidAI提供基础版、标准版、专业版及企业定制版等多种价格方案，满足个人开发者、初创团队及大型企业的不同 AI 应用开发需求。',
-  keywords: '必定AI价格, BuidAI价格, AI平台定价, 订阅计划, 企业级AI, AI积分, 私有化部署, 免费AI工具, 开发者套餐'
+  keywords: '必定AI价格, BuidAI价格, AI平台定价, 订阅计划, 企业级AI, AI积分, 私有化部署, 免费AI工具, 开发者套餐',
+  ogTitle: '必定AI - 价格方案 - BuidAI | 灵活透明的 AI 平台订阅计划',
+  ogDescription: '必定AI-BuidAI提供基础版、标准版、专业版及企业定制版等多种价格方案，满足个人开发者、初创团队及大型企业的不同 AI 应用开发需求。',
+  ogType: 'website'
 })
 </script>
 

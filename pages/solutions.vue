@@ -458,7 +458,10 @@ definePageMeta({
 useSeoMeta({
   title: '必定AI - 全能AI办公空间 | AI PPT、AI写作、AI设计、AI编程',
   description: '必定AI旗下新一代AI办公平台，集成AI PPT生成、深度写作、智能设计、AI编程及数据分析等功能。让创作与协作更高效，释放你的职场生产力。',
-  keywords: '必定AI, AI办公, AI PPT, AI写作, AI设计, AI编程, 智能办公, 自动化办公, AI工具, 效率工具'
+  keywords: '必定AI, AI办公, AI PPT, AI写作, AI设计, AI编程, 智能办公, 自动化办公, AI工具, 效率工具',
+  ogTitle: '必定AI - 全能AI办公空间 | AI PPT、AI写作、AI设计、AI编程',
+  ogDescription: '必定AI旗下新一代AI办公平台，集成AI PPT生成、深度写作、智能设计、AI编程及数据分析等功能。让创作与协作更高效，释放你的职场生产力。',
+  ogType: 'website'
 })
 
 // --- 类型定义 ---

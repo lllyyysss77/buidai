@@ -221,7 +221,7 @@
                 <button class="w-full sm:w-auto px-8 py-4 rounded-full bg-[#6E58FF] text-white font-bold text-[16px] hover:bg-[#5A43FF] transition-colors shadow-xl">
                    立即体验
                 </button>
-                <button 
+                <button
                   class="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-[#1D2129] font-medium text-[16px] hover:bg-gray-100 transition-colors"
                   @click="navigateTo('/download')"
                 >
@@ -238,7 +238,10 @@
 useSeoMeta({
   title: '关于我们 - 必定AI - BuidAI | 赋能企业构建智能未来',
   description: '必定AI 致力于为企业提供安全、可控、高效的 AI 应用开发基础设施。我们坚持私有化部署优先，降低 AI 应用门槛，帮助企业快速构建、部署和管理 AI 应用，实现数字化转型。',
-  keywords: '必定AI, 关于我们, 企业级AI, 私有化部署, AI基础设施, AI应用开发, 数字化转型, 智能办公'
+  keywords: '必定AI, 关于我们, 企业级AI, 私有化部署, AI基础设施, AI应用开发, 数字化转型, 智能办公',
+  ogTitle: '关于我们 - 必定AI - BuidAI | 赋能企业构建智能未来',
+  ogDescription: '必定AI 致力于为企业提供安全、可控、高效的 AI 应用开发基础设施。我们坚持私有化部署优先，降低 AI 应用门槛，帮助企业快速构建、部署和管理 AI 应用，实现数字化转型。',
+  ogType: 'website'
 })
 </script>
 

@@ -314,8 +314,12 @@ interface Faq {
 
 // SEO 元数据配置
 useSeoMeta({
-  title: '必定AI - BuidAI新一代AI一站式创意生产力平台',
-  description: '探索AI创作的无限可能！必定AI平台提供Sora2视频、香蕉绘画Nanobanana、AI PPT、艺术二维码等前沿创意工具，结合智能体、知识库与AI对话，实现文档问答、文件管理及一键发布至微信生态。无论是AI绘画、视频生成，还是爆款文章创作与内容总结，我们都能助您高效实现创意构想，让灵感轻松落地'
+  title: '必定AI - 企业级 AI Agent 智能体构建平台',
+  description: '必定AI 企业级 AI 应用构建平台。可视化 Workflow 编排 + 超易用 AI 知识库 + 创新 RAG 检索 + 模板生态 = 轻松构建强大 AI 应用。全方位赋能企业 AI 转型，打造智能高效的业务闭环。',
+  keywords: 'AI Agent, 智能体, 企业级AI, AI应用平台, 必定AI, Workflow, RAG',
+  ogTitle: '必定AI - 企业级 AI Agent 智能体构建平台',
+  ogDescription: '必定AI 企业级 AI 应用构建平台。可视化 Workflow 编排 + 超易用 AI 知识库 + 创新 RAG 检索 + 模板生态 = 轻松构建强大 AI 应用。',
+  ogType: 'website'
 })
 
 /**

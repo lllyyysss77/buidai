@@ -135,7 +135,7 @@ import {
 
 /**
  * AI Industry Solutions Component
- * 复刻 Payindustry.tsx 的设计，展示 AI 行业解决方案
+ * 展示 AI 行业解决方案
  */
 
 // 数据源

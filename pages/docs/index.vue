@@ -76,38 +76,53 @@ useSeoMeta({
 })
 
 // Fetch All Docs for Crawling and Index
-const { data: docs, pending, error, refresh } = await useAsyncData('docs-list', () => queryCollection('docs').all())
+const { data: docs, pending, error, refresh } = await useAsyncData('docs-list', () => {
+  return queryCollection('docs')
+    .select('title', 'path', 'category', 'order')
+    .order('order', 'ASC')
+    .all()
+})
 
-// Group by directory (simple implementation)
+// Group by category (consistent with Sidebar logic)
 const navigation = computed(() => {
   if (!docs.value) return []
 
   const groups: Record<string, any[]> = {}
 
   docs.value.forEach(doc => {
-    // Extract section from path (e.g., /docs/section/page -> section)
-    // Clean path first: remove numbers from segments
-    const cleanPath = doc.path.split('/').map(p => p.replace(/^\d+\./, '')).join('/')
-    const parts = cleanPath.split('/').filter(Boolean)
-    const section = parts.length > 1 && parts[1] ? parts[1] : 'General'
+    // Use category from front-matter, fallback to '未分类'
+    const section = doc.category || '未分类'
 
     if (!groups[section]) {
       groups[section] = []
     }
 
-    // Add clean path to doc object for linking
-    // Ensure we don't link to /docs/1.introduce/1.index but /docs/introduce
-    const linkPath = cleanPath.replace(/\/index$/, '')
-
     groups[section].push({
       ...doc,
-      path: linkPath
+      // Ensure path is used as-is (assuming clean paths from file system)
+      path: doc.path
     })
   })
 
-  return Object.entries(groups).map(([title, items]) => ({
-    title: title.charAt(0).toUpperCase() + title.slice(1),
-    children: items
-  }))
+  // Sort logic: Consistent with Sidebar
+  const categoryOrder = ['指南', '框架', '未分类']
+
+  return Object.entries(groups)
+    .sort(([a], [b]) => {
+      const idxA = categoryOrder.indexOf(a)
+      const idxB = categoryOrder.indexOf(b)
+      // If both in list, sort by index
+      if (idxA !== -1 && idxB !== -1) return idxA - idxB
+      // If a in list, it comes first
+      if (idxA !== -1) return -1
+      // If b in list, it comes first
+      if (idxB !== -1) return 1
+      // Otherwise alphabetical
+      return a.localeCompare(b)
+    })
+    .map(([title, items]) => ({
+      title,
+      children: items
+    }))
 })
 </script>

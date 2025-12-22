@@ -185,7 +185,7 @@
           <!-- 左侧：标题 -->
           <div class="lg:w-1/3 w-full text-center lg:text-left">
             <h2 class="text-2xl md:text-4xl font-bold text-neutral-900 mb-4">常见问题</h2>
-            <p class="text-neutral-500 text-sm md:text-base">关于 BuidAI 的常见疑问解答</p>
+            <p class="text-neutral-500 text-sm md:text-base">关于必定AI的常见疑问解答</p>
           </div>
 
           <!-- 右侧：FAQ 列表 -->
@@ -430,20 +430,24 @@ const advantages: Advantage[] = [
  */
 const faqs: Faq[] = [
   {
-    question: '开源版和商业版有什么区别？',
-    answer: '开源版遵循 Apache 2.0 协议，您可以免费用于商业项目。商业版提供更专业的技术支持和企业级特性。'
+    question: '什么是 AI Agent，它与普通聊天机器人有什么区别？',
+    answer: 'AI Agent（智能体）不仅能进行对话，还能自主规划任务、使用工具并执行复杂操作。相比仅能被动回复的聊天机器人，Agent 具备更强的自主性与执行力，能真正协助您完成业务工作。'
   },
   {
-    question: 'BuidAI 私有部署对服务器配置有什么要求？',
-    answer: '基础运行建议 2核 4G 内存以上。如果需要运行本地大模型，则需要高性能 GPU 服务器。'
+    question: '我可以使用自己的企业数据训练 AI 吗？',
+    answer: '可以。BuidAI 提供强大的 RAG（检索增强生成）知识库功能，支持上传 PDF、Word、Excel 等多种格式文档。AI 会基于您的私有数据进行精准回答，无需重新训练模型。'
   },
   {
-    question: 'BuidAI 可以接入微信/飞书/钉钉吗？',
-    answer: '可以。BuidAI 提供了标准的 API 接口，可以方便地接入各类 IM 工具和第三方应用。'
+    question: '构建一个 AI 应用需要编程基础吗？',
+    answer: '完全不需要。BuidAI 提供可视化的 Workflow 编排界面，您只需像搭积木一样拖拽组件，即可构建功能强大的 AI 应用，极大降低了开发门槛。'
   },
   {
-    question: '如何获取 API Key？',
-    answer: '在控制台的应用设置中，您可以创建和管理 API Key。请妥善保管您的 Key。'
+    question: '我的数据安全吗？会不会被用于模型训练？',
+    answer: '您的数据绝对安全。BuidAI 支持私有化部署，数据完全存储在您自己的服务器中。我们严格遵守企业级安全标准，确保您的敏感信息不会被泄露或用于公有模型训练。'
+  },
+  {
+    question: '平台支持哪些大语言模型？',
+    answer: '我们支持主流的商业模型（如 GPT-4、Claude 3.5、Gemini）以及开源模型（如 Llama 3、Qwen、ChatGLM）。您可以根据业务需求灵活切换不同的底层模型。'
   }
 ]
 

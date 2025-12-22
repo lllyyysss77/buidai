@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-white text-neutral-900 font-sans selection:bg-neutral-100 relative">
     <!-- 背景装饰：左上角网格 -->
-    <div class="absolute top-0 left-0 w-full h-[400px] md:h-[600px] bg-[url('/images/buidai.png')] pointer-events-none mask-[linear-gradient(to_bottom,white,transparent)] z-0"></div>
+    <div class="absolute top-0 left-0 w-full h-[400px] md:h-[600px] bg-[url('/images/必定AI.png')] pointer-events-none mask-[linear-gradient(to_bottom,white,transparent)] z-0"></div>
 
     <!-- 动态流星雨背景 -->
     <div class="absolute inset-0 h-[600px] overflow-hidden pointer-events-none z-0">
@@ -24,7 +24,7 @@
       <div class="container mx-auto px-4 text-center relative z-10">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-50 border border-neutral-200 text-xs text-neutral-600 mb-8">
           <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-          <span>BuidAI V4.6.8 strong release</span>
+          <span>必定AI V4.6.8 strong release</span>
         </div>
 
         <h1 class="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight mb-6 text-neutral-900 leading-tight min-h-[1.2em]">
@@ -154,7 +154,7 @@
               </div>
               <!-- 模拟地址栏 -->
                <div class="ml-4 flex-1 max-w-md h-8 bg-neutral-50 rounded-lg border border-neutral-100 flex items-center px-4 text-xs text-neutral-400 font-mono">
-                  https://buidai.com/preview/{{ currentFeature?.title ? encodeURIComponent(currentFeature.title) : '' }}
+                  https://必定AI.com/preview/{{ currentFeature?.title ? encodeURIComponent(currentFeature.title) : '' }}
                 </div>
             </div>
 
@@ -310,8 +310,8 @@
       </svg>
       <div class="container mx-auto px-4">
         <div class="text-center mb-16 max-w-3xl mx-auto">
-          <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-6">为什么选择 BuidAI？</h2>
-          <p class="text-neutral-500 text-lg leading-relaxed">从个人开发者探索到企业级部署，BuidAI 提供强大的工作流引擎与多模型集成能力</p>
+          <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-6">为什么选择 必定AI？</h2>
+          <p class="text-neutral-500 text-lg leading-relaxed">从个人开发者探索到企业级部署，必定AI 提供强大的工作流引擎与多模型集成能力</p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -347,8 +347,8 @@
     <section class="py-16 md:py-24 bg-neutral-50/50 overflow-hidden">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16 max-w-3xl mx-auto">
-          <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-6">BuidAI 用户评价</h2>
-          <p class="text-neutral-500 text-lg leading-relaxed">从个人开发者探索到企业级部署，BuidAI 提供强大的工作流引擎与多模型集成能力</p>
+          <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-6">必定AI 用户评价</h2>
+          <p class="text-neutral-500 text-lg leading-relaxed">从个人开发者探索到企业级部署，必定AI 提供强大的工作流引擎与多模型集成能力</p>
         </div>
 
         <div class="relative max-h-[600px] overflow-hidden grid grid-cols-1 md:grid-cols-3 gap-6 mask-[linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]">
@@ -417,7 +417,7 @@
           <!-- 左侧：标题 -->
           <div class="lg:w-1/3 w-full text-center lg:text-left">
             <h2 class="text-2xl md:text-4xl font-bold text-[#0F0F12] mb-4">常见问题</h2>
-            <p class="text-neutral-500 text-sm md:text-base">关于 BuidAI 的常见疑问解答</p>
+            <p class="text-neutral-500 text-sm md:text-base">关于必定AI的常见疑问解答</p>
           </div>
 
           <!-- 右侧：FAQ 列表 -->
@@ -464,7 +464,7 @@
               现在开始构建您的 <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-500 to-blue-700">AI Agent</span>
             </h2>
             <p class="text-lg md:text-xl text-neutral-500 leading-relaxed">
-              BuidAI 提供企业级 AI 基础设施，让智能体构建触手可及，助力业务数智化升级。
+              必定AI 提供企业级 AI 基础设施，让智能体构建触手可及，助力业务数智化升级。
             </p>
           </div>
 
@@ -707,10 +707,10 @@ interface Faq {
 // SEO 元数据配置
 useSeoMeta({
   title: '必定AI - AI系统源码|企业级开源AI系统源码|私有化部署AI Agent平台',
-  description: 'BuidAI(必定AI)提供全套开源AI系统源码，集成智能体Agent、RAG知识库、多模型管理(LLM)与工作流编排。基于Nuxt 3 + Vue 3开发，支持一键私有化部署，免费下载源代码，是企业构建专属AI中台的最佳选择。',
+  description: '必定AI(必定AI)提供全套开源AI系统源码，集成智能体Agent、RAG知识库、多模型管理(LLM)与工作流编排。基于Nuxt 3 + Vue 3开发，支持一键私有化部署，免费下载源代码，是企业构建专属AI中台的最佳选择。',
   keywords: '开源AI系统源码,AI系统源代码下载,企业级AI源码,AI Agent开发平台,私有化部署AI,RAG知识库源码,LLM大模型管理系统,Nuxt3 AI项目,Vue3 AI后台模板',
   ogTitle: '必定AI - 企业级开源AI系统源码 | 私有化部署AI Agent平台',
-  ogDescription: 'BuidAI(必定AI)提供全套开源AI系统源码，集成智能体Agent、RAG知识库、多模型管理(LLM)与工作流编排。基于Nuxt 3 + Vue 3开发，支持一键私有化部署，免费下载源代码，是企业构建专属AI中台的最佳选择。',
+  ogDescription: '必定AI(必定AI)提供全套开源AI系统源码，集成智能体Agent、RAG知识库、多模型管理(LLM)与工作流编排。基于Nuxt 3 + Vue 3开发，支持一键私有化部署，免费下载源代码，是企业构建专属AI中台的最佳选择。',
   ogType: 'website'
 })
 
@@ -791,7 +791,7 @@ const openSourceFeatures = [
 const openSourceLinks = [
   {
     label: '查看 Demo',
-    to: 'https://demo.buidai.com',
+    to: 'https://demo.必定AI.com',
     target: '_blank',
     color: 'neutral' as const,
     variant: 'solid' as const,
@@ -799,7 +799,7 @@ const openSourceLinks = [
   },
   {
     label: 'GitHub 仓库',
-    to: 'https://github.com/buidai/buidai',
+    to: 'https://github.com/必定AI/必定AI',
     target: '_blank',
     color: 'neutral' as const,
     variant: 'ghost' as const,
@@ -1039,12 +1039,12 @@ const testimonials = [
       description: '全栈工程师 @智慧政务SaaS团队',
       avatar: { src: 'https://api.dicebear.com/7.x/avataaars/svg?seed=张悦', alt: '张悦' }
     },
-    quote: '工作流编排API无缝嵌入省公积金平台，BuidAI引擎承压每日20万笔审批流，异常自愈机制减少运维告警80%'
+    quote: '工作流编排API无缝嵌入省公积金平台，必定AI引擎承压每日20万笔审批流，异常自愈机制减少运维告警80%'
   },
   {
     user: {
       name: '陈涛',
-      description: 'Gitee贡献者 @BuidAI社区',
+      description: 'Gitee贡献者 @必定AI社区',
       avatar: { src: 'https://api.dicebear.com/7.x/avataaars/svg?seed=陈涛', alt: '陈涛' }
     },
     quote: 'RBAC权限体系复用企业AD组策略，部门级知识库隔离配置从3天缩短至1小时'
@@ -1092,20 +1092,24 @@ const testimonialColumns = computed(() => {
  */
 const faqs: Faq[] = [
   {
-    question: '开源版和商业版有什么区别？',
-    answer: '开源版遵循 Apache 2.0 协议，您可以免费用于商业项目。商业版提供更专业的技术支持和企业级特性。'
+    question: '什么是 AI Agent，它与普通聊天机器人有什么区别？',
+    answer: 'AI Agent（智能体）不仅能进行对话，还能自主规划任务、使用工具并执行复杂操作。相比仅能被动回复的聊天机器人，Agent 具备更强的自主性与执行力，能真正协助您完成业务工作。'
   },
   {
-    question: 'BuidAI 私有部署对服务器配置有什么要求？',
-    answer: '基础运行建议 2核 4G 内存以上。如果需要运行本地大模型，则需要高性能 GPU 服务器。'
+    question: '我可以使用自己的企业数据训练 AI 吗？',
+    answer: '可以。必定AI 提供强大的 RAG（检索增强生成）知识库功能，支持上传 PDF、Word、Excel 等多种格式文档。AI 会基于您的私有数据进行精准回答，无需重新训练模型。'
   },
   {
-    question: 'BuidAI 可以接入微信/飞书/钉钉吗？',
-    answer: '可以。BuidAI 提供了标准的 API 接口，可以方便地接入各类 IM 工具和第三方应用。'
+    question: '构建一个 AI 应用需要编程基础吗？',
+    answer: '完全不需要。必定AI 提供可视化的 Workflow 编排界面，您只需像搭积木一样拖拽组件，即可构建功能强大的 AI 应用，极大降低了开发门槛。'
   },
   {
-    question: '如何获取 API Key？',
-    answer: '在控制台的应用设置中，您可以创建和管理 API Key。请妥善保管您的 Key。'
+    question: '我的数据安全吗？会不会被用于模型训练？',
+    answer: '您的数据绝对安全。必定AI 支持私有化部署，数据完全存储在您自己的服务器中。我们严格遵守企业级安全标准，确保您的敏感信息不会被泄露或用于公有模型训练。'
+  },
+  {
+    question: '平台支持哪些大语言模型？',
+    answer: '我们支持主流的商业模型（如 GPT-4、Claude 3.5、Gemini）以及开源模型（如 Llama 3、Qwen、ChatGLM）。您可以根据业务需求灵活切换不同的底层模型。'
   }
 ]
 

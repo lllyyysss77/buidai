@@ -427,7 +427,7 @@
                 <button class="w-full sm:w-auto px-8 py-4 rounded-full bg-[#6E58FF] text-white font-bold text-[16px] hover:bg-[#5A43FF] active:scale-95 transition-all shadow-xl">
                    立即体验
                 </button>
-                <button 
+                <button
                   class="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-[#1D2129] font-medium text-[16px] hover:bg-gray-100 active:scale-95 transition-all"
                   @click="navigateTo('/download')"
                 >
@@ -675,11 +675,11 @@ const quickStartCards: QuickStartCard[] = [
  * FAQ 常见问题数据
  */
 const faqs = ref<FaqItem[]>([
-  { question: '怎么下载导出必定AIAI生成的PPT、文档、表格、设计？', answer: '必定AIAI生成好后，你可以直接选择导出下载，支持常见的PPTX、DOCX、PDF、XLSX、JPG、PNG格式。', open: true },
+  { question: '怎么下载导出必定AI生成的PPT、文档、表格、设计？', answer: '必定AIAI生成好后，你可以直接选择导出下载，支持常见的PPTX、DOCX、PDF、XLSX、JPG、PNG格式。', open: true },
   { question: '必定AI是免费使用吗？', answer: '必定AI提供免费的基础版，包含大部分核心功能。对于高级功能和更多存储空间，我们提供灵活的付费订阅方案。', open: false },
   { question: '必定AI可以把PDF/图片/网站/报告/论文内容改成PPT吗？', answer: '可以。您可以上传 PDF、图片或输入网址，AI 会自动提取关键信息并生成结构清晰、设计精美的 PPT 演示文稿。', open: false },
-  { question: '我没有设计基础，可以让必定AIAI做设计吗？', answer: '完全没问题。必定AI内置了专业的设计引擎，您只需输入文字描述，AI 就能自动生成海报、Banner、配图等高质量设计作品。', open: false },
-  { question: '必定AIAI可以帮我创作自媒体内容吗？', answer: '当然。我们提供专门的自媒体创作工具，支持从选题策划、文案生成到排版配图的全流程辅助，助您高效产出爆款内容。', open: false }
+  { question: '我没有设计基础，可以让必定AI做设计吗？', answer: '完全没问题。必定AI内置了专业的设计引擎，您只需输入文字描述，AI 就能自动生成海报、Banner、配图等高质量设计作品。', open: false },
+  { question: '必定AI可以帮我创作自媒体内容吗？', answer: '当然。我们提供专门的自媒体创作工具，支持从选题策划、文案生成到排版配图的全流程辅助，助您高效产出爆款内容。', open: false }
 ])
 
 </script>

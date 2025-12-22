@@ -1,5 +1,9 @@
 ---
+category: 进阶教程
 title: 安装
+navigation:
+  title: 安装
+  icon: i-lucide-download
 description: 在您的 Nuxt 应用中开始使用 Nuxt Content v3。
 ---
 

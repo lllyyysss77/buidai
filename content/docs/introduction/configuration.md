@@ -1,8 +1,9 @@
 ---
+category: 进阶教程
 title: 配置
 navigation:
   title: 配置
-  icon:
+  icon: i-lucide-settings
 description: Nuxt Content 配置了合理的默认值。
 ---
 

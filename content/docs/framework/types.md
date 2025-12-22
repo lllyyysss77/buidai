@@ -1,4 +1,5 @@
 ---
+category: 框架
 title: 集合类型
 navigation:
   title: 类型

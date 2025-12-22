@@ -1,4 +1,5 @@
 ---
+category: 框架
 title: 模式验证器
 navigation:
   title: 验证器

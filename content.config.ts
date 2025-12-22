@@ -20,6 +20,8 @@ export default defineContentConfig({
       schema: z.object({
         title: z.string(), // 文档标题
         description: z.string(), // 文档描述
+        category: z.string().optional(), // 分类名称
+        order: z.number().optional(), // 排序权重
         links: z.array(z.object({ // 相关链接数组（可选）
           label: z.string(), // 链接文本
           icon: z.string(), // 链接图标

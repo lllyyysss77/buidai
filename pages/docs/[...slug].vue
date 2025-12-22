@@ -8,7 +8,7 @@
 
         <!-- Left Sidebar (Navigation) -->
         <aside class="hidden lg:block lg:col-span-3 xl:col-span-2 sticky top-[72px] h-[calc(100vh-72px)] overflow-y-auto py-8 pr-4 border-r border-gray-100 scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-transparent">
-          <DocsSidebar :navigation="navigation ?? []" />
+          <DocsSidebar />
         </aside>
 
         <!-- Main Content -->
@@ -179,7 +179,8 @@ const currentPath = computed(() => {
 })
 
 // Parallel Data Fetching
-const { data: navigation } = await useAsyncData('docs-navigation', () => queryCollectionNavigation('docs'))
+// Navigation is now handled internally by DocsSidebar
+// const { data: navigation } = await useAsyncData('docs-navigation', () => queryCollectionNavigation('docs'))
 
 const [{ data: page }, { data: surround }] = await Promise.all([
   // @ts-ignore: Nuxt Content v3 Alpha type mismatch

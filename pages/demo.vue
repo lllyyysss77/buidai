@@ -69,9 +69,22 @@ const products: ProductDemo[] = [
       { title: 'API文档', icon: DocumentTextIcon, url: 'https://doc.example.com/art', account: '联系客服', password: '联系客服' }
     ]
   },
+    {
+    id: 'ai-hunma',
+    title: 'AI数字人',
+    description: '集文生图、图生图于一体的创意绘画平台，释放无限创意可能。',
+    icon: PhotoIcon,
+    status: 'beta',
+    platforms: [
+      { title: 'H5演示', icon: DevicePhoneMobileIcon, url: 'https://art.example.com/mobile', account: '自行注册', password: '自行注册' },
+      { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://art.example.com', account: '自行注册', password: '自行注册' },
+      { title: '管理后台', icon: Cog6ToothIcon, url: 'https://art-admin.example.com', account: 'admin', password: '123456' },
+      { title: 'API文档', icon: DocumentTextIcon, url: 'https://doc.example.com/art', account: '联系客服', password: '联系客服' }
+    ]
+  },
   {
     id: 'data-insight',
-    title: 'AI数字人',
+    title: '论文创作',
     description: '自动化数据分析平台，自然语言生成报表，发现数据背后的价值。',
     icon: ChartBarIcon,
     status: 'online',

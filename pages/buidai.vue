@@ -790,20 +790,22 @@ const openSourceFeatures = [
 
 const openSourceLinks = [
   {
-    label: '查看 Demo',
-    to: 'https://demo.必定AI.com',
-    target: '_blank',
+    label: '联系客服',
+    onClick: () => {
+      window.dispatchEvent(new CustomEvent('showQRCodeModal'))
+    },
     color: 'neutral' as const,
     variant: 'solid' as const,
-    trailingIcon: 'i-lucide-external-link'
+    trailingIcon: 'i-lucide-message-circle'
   },
   {
-    label: 'GitHub 仓库',
-    to: 'https://github.com/必定AI/必定AI',
-    target: '_blank',
+    label: '部署服务',
+    onClick: () => {
+      window.dispatchEvent(new CustomEvent('showQRCodeModal'))
+    },
     color: 'neutral' as const,
     variant: 'ghost' as const,
-    trailingIcon: 'i-simple-icons-github'
+    trailingIcon: 'i-lucide-rocket'
   }
 ]
 
@@ -1092,8 +1094,8 @@ const testimonialColumns = computed(() => {
  */
 const faqs: Faq[] = [
   {
-    question: '什么是 AI Agent，它与普通聊天机器人有什么区别？',
-    answer: 'AI Agent（智能体）不仅能进行对话，还能自主规划任务、使用工具并执行复杂操作。相比仅能被动回复的聊天机器人，Agent 具备更强的自主性与执行力，能真正协助您完成业务工作。'
+    question: '官人技术专家能为我做什么？',
+    answer: '我们提供官方认证的技术专家远程服务，可协助您完成 BuildingAI 平台框架的本地或服务器部署，包含环境配置、源码安装、插件调试及后续运维指导，一站式解决部署难题。'
   },
   {
     question: '我可以使用自己的企业数据训练 AI 吗？',
@@ -1110,6 +1112,10 @@ const faqs: Faq[] = [
   {
     question: '平台支持哪些大语言模型？',
     answer: '我们支持主流的商业模型（如 GPT-4、Claude 3.5、Gemini）以及开源模型（如 Llama 3、Qwen、ChatGLM）。您可以根据业务需求灵活切换不同的底层模型。'
+  },
+  {
+    question: '购买付费应用后有哪些注意事项？',
+    answer: '请充分阅读产品说明后购买，如遇问题可咨询官方客服。为坚持开源社区定位，本站付费应用均为开源交付状态。为保护开发者知识产权，促进建立健康的应用市场生态，根据相关法规，源代码类数字化商品下载获取后不支持退款。如无特殊说明，付费应用均为购买后单次安装使用，切勿传播分享已购买付费应用，共同维护开发者权益。'
   }
 ]
 

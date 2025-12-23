@@ -56,6 +56,17 @@ export const categories: Category[] = [
 
 export const apps: AppData[] = [
   {
+    id: 0,
+    name: 'BuidAl部署服务',
+    description: '官人认证的技术专家，远程帮您部署 BuildAl 平台框架，支持本地部署或服务器部署',
+    icon: VideoIcon,
+    image: '/images/部署服务.png',
+    category: 'video',
+    originalPrice: 1398.00,
+    discountPrice: 500.00,
+    date: '2025/11/14'
+  },
+    {
     id: 1,
     name: 'Sora2短剧视频创作',
     description: 'Sora2短剧视频创作是一款聚焦高效优质短剧创作的AI智能生成工具，它能深度理解用户输入的文字提示词，将创意转化为精彩视频。',

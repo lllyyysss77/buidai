@@ -149,7 +149,7 @@ const plans: PricingPlan[] = [
     }
   },
   {
-    title: '企业版',
+    title: '私有部署',
     price: { monthly: '咨询顾问', yearly: '咨询顾问' },
     description: '中大型企业拥抱 AI 的最佳选择',
     button: { label: '立即咨询', variant: 'solid', color: 'primary' },

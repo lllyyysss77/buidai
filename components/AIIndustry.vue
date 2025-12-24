@@ -84,9 +84,14 @@
                   <component :is="f.icon" class="h-5 w-5" />
                 </div>
               </div>
-              <div>
+              <div class="flex-1">
                 <h4 class="font-bold text-lg mb-1 text-neutral-900 group-hover:text-neutral-900 transition-colors">{{ f.title }}</h4>
                 <p class="text-sm text-neutral-500 leading-relaxed">{{ f.desc }}</p>
+              </div>
+              <div class="shrink-0">
+                <a href="https://chat.buidai.com" target="_blank" rel="noopener noreferrer" class="px-3 py-1 text-xs font-medium text-white bg-neutral-900 hover:bg-neutral-800 rounded-full transition-all shadow-sm">
+                  立即创作
+                </a>
               </div>
             </div>
           </div>

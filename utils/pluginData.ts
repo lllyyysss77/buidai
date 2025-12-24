@@ -58,7 +58,7 @@ export const apps: AppData[] = [
   {
     id: 0,
     name: 'BuidAl部署服务',
-    description: '官人认证的技术专家，远程帮您部署 BuildAl 平台框架，支持本地部署或服务器部署',
+    description: '官方技术专家，帮您部署 BuildAl 平台框架，支持本地部署或服务器部署',
     icon: VideoIcon,
     image: '/images/部署服务.png',
     category: 'video',

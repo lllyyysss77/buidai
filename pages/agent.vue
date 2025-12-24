@@ -231,10 +231,10 @@
           <!-- 左侧文案 -->
           <div class="text-center lg:text-left max-w-2xl">
             <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-neutral-900 dark:text-white tracking-tight leading-tight">
-              现在开始构建您的 <span class="text-neutral-900 dark:text-white">AI Agent</span>
+              现在开始构建您的 <span class="text-transparent bg-clip-text bg-[linear-gradient(to_right,#2055FA,#1B52F8,#A07CFE,#ADB9FF)]">AI Agent</span>
             </h2>
             <p class="text-lg md:text-xl text-neutral-500 dark:text-neutral-400 leading-relaxed">
-              加入数万开发者的行列，使用 BuidAI 释放智能体的无限潜能，让 AI 触手可及。
+              加入数万开发者的行列，使用 必定AI 释放智能体的无限潜能，让 AI 触手可及。
             </p>
           </div>
 

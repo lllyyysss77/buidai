@@ -746,13 +746,13 @@ const features: Feature[] = [
     title: '模型管理',
     desc: '支持主流大模型集成，统一API规范',
     icon: CubeIcon,
-    image: '/images/code1.png'
+    image: '/images/code5.png'
   },
   {
     title: '拓展机制',
     desc: '通过安装拓展丰富系统功能和AI能力',
     icon: PuzzlePieceIcon,
-    image: '/images/code2.png'
+    image: '/images/code6.png'
   },
   {
     title: '充值计费',

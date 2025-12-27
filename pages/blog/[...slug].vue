@@ -341,24 +341,31 @@ const formatDate = (dateString: string | Date) => {
 :deep(.prose h2) {
   @apply text-2xl font-bold text-gray-900 mt-12 mb-6 scroll-mt-32;
 }
+
 :deep(.prose h3) {
   @apply text-xl font-bold text-gray-900 mt-8 mb-4 scroll-mt-32;
 }
+
 :deep(.prose p) {
   @apply text-gray-600 leading-8 mb-6;
 }
+
 :deep(.prose ul) {
   @apply list-disc list-outside ml-6 mb-6 text-gray-600;
 }
+
 :deep(.prose pre) {
   @apply bg-gray-900 text-gray-100 p-6 rounded-xl overflow-x-auto mb-8;
 }
+
 :deep(.prose code) {
   @apply text-primary-600 bg-primary-500/5 px-1.5 py-0.5 rounded text-sm font-mono;
 }
+
 :deep(.prose pre code) {
   @apply text-inherit bg-transparent p-0;
 }
+
 :deep(.prose blockquote) {
   @apply border-l-4 border-primary-500 pl-6 italic text-gray-700 my-8 bg-gray-50 py-4 pr-4 rounded-r-lg;
 }

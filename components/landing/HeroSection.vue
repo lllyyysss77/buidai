@@ -278,7 +278,7 @@ const typeWriter = () => {
     charIndex++
   }
 
-  let typeSpeed = isDeleting ? ANIMATION.TYPEWRITER_DELETING_SPEED : ANIMATION.TYPEWRITER_TYPING_SPEED
+  let typeSpeed: number = isDeleting ? ANIMATION.TYPEWRITER_DELETING_SPEED : ANIMATION.TYPEWRITER_TYPING_SPEED
 
   if (!isDeleting && charIndex === currentSentence.length) {
     typeSpeed = ANIMATION.TYPEWRITER_PAUSE_AFTER_COMPLETE // 句子打完后暂停

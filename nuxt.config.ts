@@ -1,5 +1,6 @@
 import { defineNuxtConfig } from 'nuxt/config'
 import { getDocsRoutes } from './utils/getDocsRoutes'
+import { getSitemapRoutes } from './utils/getSitemapRoutes'
 
 export default defineNuxtConfig({
   // Nuxt 兼容性日期，用于锁定默认行为
@@ -16,8 +17,9 @@ export default defineNuxtConfig({
 
   // 启用的 Nuxt 模块
   modules: [
-    '@nuxt/ui',      // UI 组件库 (基于 Tailwind CSS)
-    '@nuxt/content'  // 内容管理模块 (Markdown 支持)
+    '@nuxt/ui',       // UI 组件库 (基于 Tailwind CSS)
+    '@nuxt/content',  // 内容管理模块 (Markdown 支持)
+    '@nuxtjs/sitemap' // 网站地图生成模块
   ],
 
   // @ts-ignore - 字体模块配置
@@ -34,6 +36,59 @@ export default defineNuxtConfig({
     // 使用 SQLite 作为内容数据库
     database: {
       type: 'sqlite'
+    }
+  },
+
+  // Sitemap 网站地图配置
+  site: {
+    url: 'https://www.buidai.com' // 网站基础 URL（请根据实际域名修改）
+  },
+
+  // @ts-ignore - Sitemap 模块配置
+  sitemap: {
+    // 自动生成的路由
+    urls: () => getSitemapRoutes(),
+    // 排除的路由
+    exclude: [
+      '/demo' // 排除演示页面
+    ],
+    // 默认配置
+    defaults: {
+      changefreq: 'daily',
+      priority: 0.7,
+      lastmod: new Date().toISOString()
+    },
+    // 不同类型页面的优先级配置
+    routes: async () => {
+      const routes = getSitemapRoutes()
+      return routes.map(route => {
+        // 设置不同页面的优先级
+        let priority = 0.7
+        let changefreq: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never' = 'daily'
+        
+        if (route === '/') {
+          priority = 1.0
+          changefreq = 'daily'
+        } else if (route.startsWith('/docs')) {
+          priority = 0.9
+          changefreq = 'weekly'
+        } else if (route.startsWith('/blog')) {
+          priority = 0.8
+          changefreq = 'weekly'
+        } else if (route.startsWith('/changelog')) {
+          priority = 0.6
+          changefreq = 'monthly'
+        } else if (['/pricing', '/download', '/contact'].includes(route)) {
+          priority = 0.9
+          changefreq = 'weekly'
+        }
+        
+        return {
+          url: route,
+          priority,
+          changefreq
+        }
+      })
     }
   },
 

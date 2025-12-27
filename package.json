@@ -7,7 +7,8 @@
     "build": "nuxt generate",
     "dev": "nuxt dev",
     "preview": "nuxt preview",
-    "typecheck": "nuxt typecheck"
+    "typecheck": "nuxt typecheck",
+    "test:sitemap": "node scripts/test-sitemap.mjs"
   },
   "devDependencies": {
     "@headlessui/vue": "^1.7.22",
@@ -18,6 +19,7 @@
     "@nuxt/devtools": "^1.0.8",
     "@nuxt/fonts": "^0.12.1",
     "@nuxt/test-utils": "^3.21.0",
+    "@nuxtjs/sitemap": "^7.5.0",
     "@storybook/vue3": "^10.1.9",
     "@tailwindcss/typography": "^0.5.19",
     "@types/aos": "^3.0.7",

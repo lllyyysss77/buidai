@@ -52,14 +52,19 @@ e:\buidai.com\buidai/
 - 构建生产：`npm run build`，输出至 `.output/`
 - 预览生产：`npm run preview`
 - 类型检查：`npm run typecheck`
+- 网站地图测试：`npm run test:sitemap`
 
 ## 配置与架构
 
-- Nuxt 模块：启用 `@nuxt/ui` 与 `@nuxt/content`，见 `nuxt.config.ts:40-43`
-- 预设与预渲染：Nitro `vercel-static` 预设；通过 `getDocsRoutes()` 自动遍历 `content/docs` 生成预渲染路由，见 `nuxt.config.ts:57-63,5-32`
-- 全局 Head：集中配置标题、描述、关键词与 OG 元信息，见 `nuxt.config.ts:68-86`
-- 全局样式：`~/assets/css/main.css` 注入，见 `nuxt.config.ts:88`
-- 类型检查：Nuxt 内联禁用类型检查（提升 Dev 速度），通过脚本独立执行，见 `nuxt.config.ts:37-39` 与 `package.json:6-12`
+- Nuxt 模块：启用 `@nuxt/ui`、`@nuxt/content` 与 `@nuxtjs/sitemap`，见 `nuxt.config.ts:18-23`
+- 预设与预渲染：Nitro `static` 预设；通过 `getDocsRoutes()` 自动遍历 `content/docs` 生成预渲染路由，见 `nuxt.config.ts:47-50`
+- 网站地图：通过 `getSitemapRoutes()` 自动生成所有页面路由，支持优先级配置，见 `nuxt.config.ts:45-91`
+  - 生成路径：`/sitemap.xml`
+  - 测试命令：`npm run test:sitemap`
+  - 配置文件：`utils/getSitemapRoutes.ts`
+- 全局 Head：集中配置标题、描述、关键词与 OG 元信息，见 `nuxt.config.ts:60-85`
+- 全局样式：`~/assets/css/main.css` 注入，见 `nuxt.config.ts:94`
+- 类型检查：Nuxt 内联禁用类型检查（提升 Dev 速度），通过脚本独立执行，见 `nuxt.config.ts:12-15` 与 `package.json:6-12`
 
 ## 内容系统
 

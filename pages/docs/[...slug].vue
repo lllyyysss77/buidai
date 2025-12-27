@@ -78,7 +78,7 @@
                 <div class="mb-8 flex justify-end">
                   <a href="#" class="text-sm text-gray-500 hover:text-primary-600 flex items-center transition-colors font-medium">
                     <PencilIcon class="h-4 w-4 mr-1.5" />
-                    Edit this page on GitHub
+                    在 GitHub 上编辑此页面
                   </a>
                 </div>
 

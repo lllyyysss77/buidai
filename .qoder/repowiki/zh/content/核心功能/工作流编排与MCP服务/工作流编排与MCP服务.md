@@ -1,0 +1,88 @@
+# 工作流编排与MCP服务
+
+<cite>
+**本文档引用文件**  
+- [ProductFeatures.vue](file://components\landing\ProductFeatures.vue)
+- [agent.vue](file://pages\agent.vue)
+- [buidai.vue](file://pages\buidai.vue)
+- [pricing.vue](file://pages\pricing.vue)
+</cite>
+
+## 目录
+1. [工作流编排功能](#工作流编排功能)
+2. [MCP服务功能](#mcp服务功能)
+3. [工作流与本地模型集成](#工作流与本地模型集成)
+4. [工作流与计费系统集成](#工作流与计费系统集成)
+5. [实际工作流示例](#实际工作流示例)
+6. [性能监控与日志追踪](#性能监控与日志追踪)
+7. [调试工具使用指南](#调试工具使用指南)
+
+## 工作流编排功能
+
+buidai平台提供强大的可视化工作流编排引擎，用户可以通过拖拽方式将大模型、插件、知识库等组件连接起来，构建复杂的业务流程。平台使用"Code"图标（在ProductFeatures.vue中定义）表示工作流编排功能，该图标通过SVG路径`M16 18l6-6-6-6 M8 6l-6 6 6 6`创建，代表代码和自动化能力。
+
+工作流编排功能允许用户实现从简单对话到复杂任务的自动化处理，通过可视化界面创建复杂的工作流，实现多个AI能力的串联执行。用户可以在工作流中定义触发条件、执行步骤和输出结果，从而构建出满足特定业务需求的智能应用。
+
+**Section sources**
+- [ProductFeatures.vue](file://components\landing\ProductFeatures.vue#L127)
+- [agent.vue](file://pages\agent.vue#L347)
+
+## MCP服务功能
+
+MCP服务是buidai平台的核心功能之一，全面支持Model Context Protocol (MCP)，实现模型与数据的无缝连接。平台使用"Zap"图标（在ProductFeatures.vue中定义）表示MCP服务，该图标通过SVG路径`M13 2L3 14h9l-1 8 10-12h-9l1-8z`创建，代表快速、高效的连接能力。
+
+MCP服务提供标准化的接口协议，让智能体能够安全、高效地访问本地文件、数据库及第三方API服务。用户可以通过SSE（Server-Sent Events）或StreamableHTTP方式调用MCP工具，实现数据的实时传输和处理。MCP服务的运行时环境支持多种部署方式，包括云部署和私有化部署，确保数据安全和系统稳定性。
+
+**Section sources**
+- [ProductFeatures.vue](file://components\landing\ProductFeatures.vue#L130)
+- [buidai.vue](file://pages\buidai.vue#L740)
+
+## 工作流与本地模型集成
+
+工作流编排功能与本地模型深度集成，用户可以在工作流中直接调用本地部署的大语言模型。这种集成方式不仅提高了数据处理的安全性，还降低了对外部API的依赖，特别适合处理敏感数据和需要高隐私保护的业务场景。
+
+在工作流中，用户可以配置本地模型的参数，如温度、最大生成长度等，并将模型的输出作为后续步骤的输入，实现复杂的多步推理过程。这种集成方式使得工作流能够充分利用本地计算资源，提高处理效率和响应速度。
+
+**Section sources**
+- [ProductFeatures.vue](file://components\landing\ProductFeatures.vue#L128)
+- [pricing.vue](file://pages\pricing.vue#L142)
+
+## 工作流与计费系统集成
+
+工作流编排功能与平台的计费系统紧密集成，确保每个工作流的执行都受到合理的资源管理和计费控制。根据pricing.vue中的定义，不同订阅计划提供不同数量的工作流支持：基础版支持2个工作流，标准版支持6个，专业版支持15个，私有部署版本则可支持私有化部署。
+
+计费系统基于AI积分消耗，用户在创建工作流时需要考虑模型调用的成本。平台提供详细的计费管理功能，包括微信支付和支付宝支付选项，帮助用户实现产品商业化的完整闭环。这种集成方式使得企业能够根据实际使用情况灵活调整预算，优化资源分配。
+
+**Section sources**
+- [pricing.vue](file://pages\pricing.vue#L55)
+- [ProductFeatures.vue](file://components\landing\ProductFeatures.vue#L145)
+
+## 实际工作流示例
+
+buidai平台支持创建从简单到复杂的各种工作流示例。一个典型的自动内容生成+审核+发布流程包括以下步骤：首先使用大语言模型生成内容，然后通过内容审核功能检查内容的合规性，最后将审核通过的内容发布到指定渠道。
+
+这种工作流可以应用于社交媒体管理、新闻稿发布、产品描述生成等场景。用户可以根据具体需求添加更多的步骤，如SEO优化、多语言翻译、数据分析等，构建出满足特定业务需求的自动化流程。平台的可视化界面使得创建和修改工作流变得简单直观，无需编写代码即可完成复杂流程的搭建。
+
+**Section sources**
+- [agent.vue](file://pages\agent.vue#L348)
+- [buidai.vue](file://pages\buidai.vue#L34)
+
+## 性能监控与日志追踪
+
+buidai平台提供完善的性能监控和日志追踪功能，帮助用户了解工作流的执行情况和系统性能。用户可以查看每个工作流的执行时间、资源消耗、错误率等关键指标，及时发现和解决性能瓶颈。
+
+日志追踪功能记录了工作流执行过程中的详细信息，包括每个步骤的输入输出、执行状态和异常信息。这些日志可以帮助用户调试工作流，优化流程设计，提高系统的稳定性和可靠性。平台还支持将日志导出到外部系统，便于进行更深入的分析和审计。
+
+**Section sources**
+- [buidai.vue](file://pages\buidai.vue#L979)
+- [agent.vue](file://pages\agent.vue#L418)
+
+## 调试工具使用指南
+
+平台提供完整的调试工具，方便开发者快速定位问题，优化Prompt。用户可以在工作流编辑界面中启用调试模式，查看每个步骤的详细执行过程和中间结果。调试工具支持断点设置、变量查看和单步执行等功能，大大提高了开发效率。
+
+对于MCP服务的调试，平台提供专门的调试界面，可以模拟API请求和响应，验证接口的正确性和稳定性。用户还可以使用平台提供的日志分析工具，对历史执行记录进行分析，找出潜在的问题和优化点。这些调试工具使得即使是非技术人员也能轻松管理和优化复杂的工作流。
+
+**Section sources**
+- [buidai.vue](file://pages\buidai.vue#L979)
+- [agent.vue](file://pages\agent.vue#L418)

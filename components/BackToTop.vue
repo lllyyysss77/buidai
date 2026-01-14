@@ -1,7 +1,158 @@
+<script setup lang="ts">
+/**
+ * BackToTop 组件
+ *
+ * 功能描述：
+ * 1. 页面滚动超过一定距离显示返回顶部按钮
+ * 2. 提供在线咨询悬浮窗（鼠标悬停显示二维码）
+ * 3. 提供售后/活动入口悬浮窗
+ * 4. 全局二维码弹窗模态框（支持自定义配置，监听 'showQRCodeModal' 事件）
+ */
+
+// ----------------------------------------------------------------------
+// 1. Imports (导入)
+// ----------------------------------------------------------------------
+import { ref, onMounted, onUnmounted } from 'vue'
+import {
+  ChevronUp as ChevronUpIcon,
+  Headphones as HeadphonesIcon,
+  Gift as GiftIcon,
+  User as UserIcon,
+  X as XIcon,
+  Megaphone as MegaphoneIcon
+} from 'lucide-vue-next'
+
+// ----------------------------------------------------------------------
+// 2. Types & Interfaces (类型定义)
+// ----------------------------------------------------------------------
+/**
+ * 二维码弹窗配置接口
+ */
+interface QrCodeConfig {
+  title: string
+  desc: string
+  image: string
+}
+
+/**
+ * 自定义事件详情接口
+ */
+interface CustomEventDetail {
+  title?: string
+  desc?: string
+  image?: string
+}
+
+// ----------------------------------------------------------------------
+// 3. State (状态)
+// ----------------------------------------------------------------------
+// 悬浮按钮组是否可见（滚动超过阈值）
+const isVisible = ref(false)
+
+// 悬停显示的二维码状态
+const showHoverQRCode = ref(false)
+
+// 悬停显示的售后/活动菜单状态
+const showAfterSalesMenu = ref(false)
+
+// 点击弹出的全屏模态框状态
+const showModalQRCode = ref(false)
+
+// 模态框内容配置
+const qrCodeConfig = ref<QrCodeConfig>({
+  title: '联系客服',
+  desc: '扫描二维码添加客服微信',
+  image: '/qrcode.png'
+})
+
+// ----------------------------------------------------------------------
+// 4. Methods (方法)
+// ----------------------------------------------------------------------
+
+/**
+ * 监听滚动事件，控制悬浮按钮组的显示与隐藏
+ * 阈值：300px
+ */
+const handleScroll = () => {
+  isVisible.value = window.pageYOffset > 300
+}
+
+/**
+ * 滚动到页面顶部
+ */
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+}
+
+/**
+ * 监听全局自定义事件，触发二维码模态框
+ * @param e CustomEvent
+ */
+const handleGlobalShowQRCodeModal = (e: Event) => {
+  const customEvent = e as CustomEvent<CustomEventDetail>
+  if (customEvent.detail) {
+    qrCodeConfig.value = {
+      title: customEvent.detail.title || '联系客服',
+      desc: customEvent.detail.desc || '扫描二维码添加客服微信',
+      image: customEvent.detail.image || '/qrcode.png'
+    }
+  }
+  showModalQRCode.value = true
+}
+
+/**
+ * 打开二维码模态框（点击在线咨询按钮）
+ */
+const openModalQRCode = () => {
+  showModalQRCode.value = true
+}
+
+/**
+ * 关闭二维码模态框
+ */
+const closeModalQRCode = () => {
+  showModalQRCode.value = false
+}
+
+/**
+ * 设置悬停二维码显示状态
+ * @param val boolean
+ */
+const setHoverQRCodeVisible = (val: boolean) => {
+  showHoverQRCode.value = val
+}
+
+/**
+ * 设置售后菜单显示状态
+ * @param val boolean
+ */
+const setAfterSalesMenuVisible = (val: boolean) => {
+  showAfterSalesMenu.value = val
+}
+
+// ----------------------------------------------------------------------
+// 5. Lifecycle (生命周期)
+// ----------------------------------------------------------------------
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+  window.addEventListener('showQRCodeModal', handleGlobalShowQRCodeModal)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+  window.removeEventListener('showQRCodeModal', handleGlobalShowQRCodeModal)
+})
+</script>
+
 <template>
   <div>
+    <!-- 悬浮按钮组容器 -->
     <div class="fixed bottom-20 sm:bottom-32 right-4 sm:right-11 z-50 flex flex-col gap-2 sm:gap-3">
-      <!-- 售前咨询按钮 - 蓝色渐变 -->
+
+      <!-- 1. 在线咨询按钮模块 -->
       <Transition
         enter-active-class="transition duration-300 ease-out"
         enter-from-class="opacity-0 scale-50"
@@ -13,13 +164,14 @@
         <div
           v-if="isVisible"
           class="relative"
-          @mouseenter="setShowQRCode(true)"
-          @mouseleave="setShowQRCode(false)"
+          @mouseenter="setHoverQRCodeVisible(true)"
+          @mouseleave="setHoverQRCodeVisible(false)"
         >
+          <!-- 主按钮：蓝色渐变 -->
           <button
             class="w-10 h-20 sm:w-12 sm:h-28 bg-linear-to-b from-blue-500 to-blue-400 text-white shadow-lg flex flex-col items-center justify-center transition-all hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 cursor-pointer"
             aria-label="在线咨询"
-            @click="handleClickQRCode"
+            @click="openModalQRCode"
           >
             <HeadphonesIcon class="h-4 w-4 sm:h-6 sm:w-6 mb-1 sm:mb-2" />
             <div class="text-xs font-medium leading-tight">
@@ -28,7 +180,7 @@
             </div>
           </button>
 
-          <!-- 二维码弹窗 - 悬停显示 -->
+          <!-- 悬停弹出的二维码 -->
           <Transition
             enter-active-class="transition duration-200 ease-out"
             enter-from-class="opacity-0 scale-80 translate-y-2.5"
@@ -38,7 +190,7 @@
             leave-to-class="opacity-0 scale-80 translate-y-2.5"
           >
             <div
-              v-if="showQRCode"
+              v-if="showHoverQRCode"
               class="absolute bottom-0 right-full mr-2 sm:mr-3 bg-white shadow-2xl border border-gray-100 min-w-[160px] sm:min-w-[200px] backdrop-blur-sm"
               style="box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
             >
@@ -55,16 +207,15 @@
                 </div>
               </div>
 
-              <!-- 小三角 -->
+              <!-- 装饰性箭头 -->
               <div class="absolute top-5 left-full w-0 h-0 border-t-6 border-b-6 border-l-6 border-transparent border-l-white"></div>
-              <!-- 装饰性边框 -->
               <div class="absolute inset-0 border border-gray-100/50 pointer-events-none"></div>
             </div>
           </Transition>
         </div>
       </Transition>
 
-      <!-- 售后/活动按钮 - 白色按钮包含两个选项 -->
+      <!-- 2. 售后/活动按钮模块 -->
       <Transition
         enter-active-class="transition duration-300 ease-out delay-100"
         enter-from-class="opacity-0 scale-50"
@@ -76,24 +227,25 @@
         <div
           v-if="isVisible"
           class="relative"
-          @mouseenter="setShowAfterSales(true)"
-          @mouseleave="setShowAfterSales(false)"
+          @mouseenter="setAfterSalesMenuVisible(true)"
+          @mouseleave="setAfterSalesMenuVisible(false)"
         >
+          <!-- 白色双层按钮 -->
           <div class="w-10 h-20 sm:w-12 sm:h-28 bg-white shadow-lg border border-gray-200/50 flex flex-col overflow-hidden">
-            <!-- 售后选项 -->
+            <!-- 上半部分：售后 -->
             <button class="flex-1 flex flex-col items-center justify-center text-gray-700 hover:bg-gray-50 transition-colors border-b border-gray-100 cursor-pointer">
               <UserIcon class="h-3 w-3 sm:h-4 sm:w-4 mb-0.5 sm:mb-1" />
               <span class="text-xs font-medium">售后</span>
             </button>
 
-            <!-- 活动选项 -->
+            <!-- 下半部分：活动 -->
             <button class="flex-1 flex flex-col items-center justify-center text-gray-700 hover:bg-gray-50 transition-colors cursor-pointer">
               <GiftIcon class="h-3 w-3 sm:h-4 sm:w-4 mb-0.5 sm:mb-1" />
               <span class="text-xs font-medium">活动</span>
             </button>
           </div>
 
-          <!-- 售后详情弹窗 -->
+          <!-- 悬停弹出的售后详情 -->
           <Transition
             enter-active-class="transition duration-200 ease-out"
             enter-from-class="opacity-0 scale-80 translate-y-2.5"
@@ -103,7 +255,7 @@
             leave-to-class="opacity-0 scale-80 translate-y-2.5"
           >
             <div
-              v-if="showAfterSales"
+              v-if="showAfterSalesMenu"
               class="absolute bottom-0 right-full mr-2 sm:mr-3 bg-white shadow-2xl border border-gray-100 min-w-[140px] sm:min-w-[180px] backdrop-blur-sm"
             >
               <div class="p-3 sm:p-5">
@@ -113,14 +265,14 @@
                 </div>
               </div>
 
-              <!-- 小三角 -->
+              <!-- 装饰性箭头 -->
               <div class="absolute top-5 left-full w-0 h-0 border-t-6 border-b-6 border-l-6 border-transparent border-l-white"></div>
             </div>
           </Transition>
         </div>
       </Transition>
 
-      <!-- 返回顶部按钮 - 白色圆形 -->
+      <!-- 3. 返回顶部按钮 -->
       <Transition
         enter-active-class="transition duration-300 ease-out delay-200"
         enter-from-class="opacity-0 scale-50"
@@ -140,7 +292,7 @@
       </Transition>
     </div>
 
-    <!-- 新增：点击弹出的二维码模态框 -->
+    <!-- 4. 全局二维码模态框 (点击触发) -->
     <Transition
       enter-active-class="transition duration-300 ease-out"
       enter-from-class="opacity-0"
@@ -150,54 +302,88 @@
       leave-to-class="opacity-0"
     >
       <div
-        v-if="showClickQRCode"
-        class="fixed inset-0 z-60 flex items-center justify-center"
-        @click="handleCloseClickQRCode"
+        v-if="showModalQRCode"
+        class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6"
+        @click="closeModalQRCode"
       >
         <!-- 背景遮罩 -->
-        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+        <div class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
 
         <!-- 模态框内容 -->
         <Transition
           enter-active-class="transition duration-300 ease-out"
-          enter-from-class="opacity-0 scale-80 translate-y-5"
+          enter-from-class="opacity-0 scale-95 translate-y-5"
           enter-to-class="opacity-100 scale-100 translate-y-0"
-          leave-active-class="transition duration-300 ease-in"
+          leave-active-class="transition duration-200 ease-in"
           leave-from-class="opacity-100 scale-100 translate-y-0"
-          leave-to-class="opacity-0 scale-80 translate-y-5"
+          leave-to-class="opacity-0 scale-95 translate-y-5"
         >
           <div
-            v-if="showClickQRCode"
-            class="relative bg-white shadow-2xl max-w-xs sm:max-w-sm w-full mx-4 overflow-hidden"
+            v-if="showModalQRCode"
+            class="relative bg-white shadow-2xl w-full max-w-2xl rounded-2xl overflow-hidden ring-1 ring-black/5"
             @click.stop
           >
-            <!-- 关闭按钮 -->
-            <button
-              @click="handleCloseClickQRCode"
-              class="absolute top-3 right-3 sm:top-4 sm:right-4 w-7 h-7 sm:w-8 sm:h-8 bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors z-10 cursor-pointer"
-              aria-label="关闭"
-            >
-              <XIcon class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-600" />
-            </button>
+            <!-- 顶部公告栏 -->
+            <div class="relative bg-blue-50/80 backdrop-blur-sm px-6 py-3 flex items-center justify-center border-b border-blue-100/50">
+              <div class="flex items-center gap-2.5 text-xs sm:text-sm text-blue-700">
+                <MegaphoneIcon class="w-4 h-4 shrink-0" />
+                <p class="truncate sm:overflow-visible">
+                  公告：<span class="font-semibold cursor-pointer hover:underline hover:text-blue-800">联系客服</span> 体验产品，关注公众号了解 <span class="font-semibold">优惠活动最新动态</span>
+                </p>
+              </div>
+              <button
+                @click="closeModalQRCode"
+                class="absolute right-4 top-1/2 -translate-y-1/2 p-1 rounded-full hover:bg-blue-100/50 text-blue-400 hover:text-blue-600 transition-colors cursor-pointer"
+                aria-label="关闭"
+              >
+                <XIcon class="w-5 h-5" />
+              </button>
+            </div>
 
             <!-- 内容区域 -->
-            <div class="p-6 sm:p-8 text-center">
-              <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ qrCodeConfig.title }}</h3>
-              <p class="text-sm text-gray-600 mb-4 sm:mb-6">{{ qrCodeConfig.desc }}</p>
-
-              <!-- 二维码 -->
-              <div class="flex justify-center mb-3 sm:mb-4">
-                <div class="relative">
-                  <img
-                    :src="qrCodeConfig.image"
-                    :alt="qrCodeConfig.title"
-                    class="w-40 h-40 sm:w-48 sm:h-48 object-contain border border-gray-200 shadow-lg"
-                  />
-                </div>
+            <div class="p-6 sm:p-8">
+              <!-- 标题部分 -->
+              <div class="text-left mb-6 pl-4">
+                <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mb-2">{{ qrCodeConfig.title || '联系客服' }}</h3>
+                <p class="text-sm text-gray-500 leading-relaxed">{{ qrCodeConfig.desc || '扫描二维码添加客服微信，获取专业技术支持' }}</p>
               </div>
 
-              <!-- 提示文字 -->
-              <p class="text-xs text-gray-500">长按二维码保存到相册</p>
+              <!-- 双二维码网格 -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                <!-- 左侧：动态传入的主二维码 -->
+                <div class="flex flex-col items-center group">
+                  <div class="relative bg-white p-4 rounded-2xl border border-gray-100 shadow-sm mb-4 transition-all duration-300 group-hover:shadow-xl group-hover:border-blue-100 group-hover:-translate-y-1">
+                    <img
+                      src="/qrcode.png"
+                      :alt="qrCodeConfig.title"
+                      class="w-40 h-40 sm:w-48 sm:h-48 object-contain"
+                    />
+                    <!-- 装饰角标 -->
+                    <div class="absolute -top-2 -right-2 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white shadow-md scale-0 group-hover:scale-100 transition-transform duration-300 delay-75">
+                        <UserIcon class="w-3.5 h-3.5" />
+                    </div>
+                  </div>
+                  <h4 class="text-base sm:text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">添加客服微信</h4>
+                  <p class="text-xs sm:text-sm text-gray-400">咨询购买 / 技术支持</p>
+                </div>
+
+                <!-- 右侧：固定公众号二维码 -->
+                <div class="flex flex-col items-center group">
+                  <div class="relative bg-white p-4 rounded-2xl border border-gray-100 shadow-sm mb-4 transition-all duration-300 group-hover:shadow-xl group-hover:border-blue-100 group-hover:-translate-y-1">
+                    <img
+                      src="/wechat.png"
+                      alt="关注公众号"
+                      class="w-40 h-40 sm:w-48 sm:h-48 object-contain"
+                    />
+                    <!-- 装饰角标 -->
+                    <div class="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white shadow-md scale-0 group-hover:scale-100 transition-transform duration-300 delay-75">
+                        <GiftIcon class="w-3.5 h-3.5" />
+                    </div>
+                  </div>
+                  <h4 class="text-base sm:text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">关注公众号</h4>
+                  <p class="text-xs sm:text-sm text-gray-400">优惠活动 / 产品更新</p>
+                </div>
+              </div>
             </div>
           </div>
         </Transition>
@@ -206,87 +392,10 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
-import {
-  ChevronUp as ChevronUpIcon,
-  Headphones as HeadphonesIcon,
-  Gift as GiftIcon,
-  User as UserIcon,
-  X as XIcon
-} from 'lucide-vue-next'
-
-const isVisible = ref(false)
-const showQRCode = ref(false)
-const showAfterSales = ref(false)
-// 点击弹出的二维码状态
-const showClickQRCode = ref(false)
-const qrCodeConfig = ref({
-  title: '联系客服',
-  desc: '扫描二维码添加客服微信',
-  image: '/qrcode.png'
-})
-
-// 监听滚动事件，当页面滚动超过300px时显示按钮
-const toggleVisibility = () => {
-  if (window.pageYOffset > 300) {
-    isVisible.value = true
-  } else {
-    isVisible.value = false
-  }
-}
-
-// 监听自定义事件，用于从其他组件触发二维码弹窗
-const handleShowQRCodeModal = (e: Event) => {
-  const customEvent = e as CustomEvent
-  if (customEvent.detail) {
-    qrCodeConfig.value = {
-      title: customEvent.detail.title || '联系客服',
-      desc: customEvent.detail.desc || '扫描二维码添加客服微信',
-      image: customEvent.detail.image || '/qrcode.png'
-    }
-  }
-  showClickQRCode.value = true
-}
-
-// 点击按钮时滚动到顶部
-const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  })
-}
-
-// 新增：处理点击弹出二维码的函数
-const handleClickQRCode = () => {
-  showClickQRCode.value = true
-}
-
-// 新增：关闭点击弹出的二维码
-const handleCloseClickQRCode = () => {
-  showClickQRCode.value = false
-}
-
-// 新增：设置显示状态的辅助函数
-const setShowQRCode = (val: boolean) => {
-  showQRCode.value = val
-}
-
-const setShowAfterSales = (val: boolean) => {
-  showAfterSales.value = val
-}
-
-onMounted(() => {
-  window.addEventListener('scroll', toggleVisibility)
-  window.addEventListener('showQRCodeModal', handleShowQRCodeModal)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', toggleVisibility)
-  window.removeEventListener('showQRCodeModal', handleShowQRCodeModal)
-})
-</script>
-
 <style scoped>
-/* 可以根据需要添加自定义样式，但大部分样式已通过 Tailwind 类实现 */
+/*
+  BackToTop Component Styles
+  大部分样式已通过 Tailwind Utility Classes 实现
+  这里仅保留必要的自定义样式或未来扩展
+*/
 </style>

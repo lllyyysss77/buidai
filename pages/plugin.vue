@@ -4,7 +4,7 @@
       <div class="flex flex-col lg:flex-row gap-8">
 
         <!-- 侧边栏导航 -->
-        <aside class="w-full lg:w-64 shrink-0 space-y-6">
+        <aside class="w-full lg:w-64 shrink-0 space-y-6 lg:sticky lg:top-24 lg:self-start">
           <!-- 搜索框 -->
           <div class="relative">
             <input
@@ -36,10 +36,14 @@
         <main class="flex-1 min-w-0">
 
           <!-- 促销横幅 -->
-          <div class="relative overflow-hidden rounded-2xl bg-linear-to-r from-blue-600 via-purple-600 to-indigo-600 text-white p-8 mb-10 shadow-lg group">
+          <div class="relative overflow-hidden rounded-2xl bg-linear-to-r from-blue-600 to-blue-500 text-white p-8 mb-10 shadow-lg group">
+            <!-- 网格背景 -->
+            <div class="absolute inset-0 opacity-5 pointer-events-none"
+                 style="background-image: linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px); background-size: 24px 24px;">
+            </div>
             <div class="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
               <div class="space-y-2">
-                <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Building应用市场上线啦!</h2>
+                <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">必定AI-BuidAI应用市场上线啦!</h2>
                 <p class="text-blue-100 text-sm sm:text-base">联系客服领取五折优惠码，数量有限，先到先得</p>
               </div>
               <button @click="openQrModal" class="px-6 py-2.5 bg-gray-900 text-white rounded-full font-medium text-sm hover:bg-gray-800 transition-colors shadow-lg whitespace-nowrap flex items-center gap-2">
@@ -65,7 +69,10 @@
 
           <!-- Section Title -->
           <div class="mb-6">
-            <h2 class="text-lg font-bold text-gray-900 dark:text-white">全部应用</h2>
+            <h2 class="text-lg font-bold text-gray-900 dark:text-white">
+              全部应用
+              <span class="ml-2 text-sm font-normal text-gray-500 dark:text-gray-400">({{ filteredApps.length }})</span>
+            </h2>
           </div>
 
           <!-- Apps Grid -->
@@ -119,7 +126,7 @@
                       <CheckBadgeIcon class="w-3.5 h-3.5" />
                       <span>官方认证</span>
                     </div>
-                    <span>{{ app.date }}</span>
+                    <span>永久授权和升级</span>
                   </div>
                 </div>
               </div>

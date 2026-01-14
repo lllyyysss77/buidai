@@ -8,6 +8,21 @@ import {
   CubeTransparentIcon,
   BoltIcon
 } from '@heroicons/vue/24/outline'
+
+/**
+ * 处理 CTA 按钮点击事件
+ * 触发全局二维码弹窗，用于咨询私有化部署
+ */
+const handleCTAClick = () => {
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent('showQRCodeModal', {
+      detail: {
+        title: '咨询私有化部署',
+        desc: '请扫描二维码添加客服微信，咨询私有化部署详情'
+      }
+    }))
+  }
+}
 </script>
 
 <template>
@@ -61,7 +76,10 @@ import {
 
       <!-- CTA Button -->
       <div class="flex justify-center">
-        <button class="px-10 py-3 rounded-full bg-[#8B5CF6] text-white font-medium text-lg hover:bg-[#7C3AED] hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 transform hover:-translate-y-0.5">
+        <button
+          @click="handleCTAClick"
+          class="px-10 py-3 rounded-full bg-[#8B5CF6] text-white font-medium text-lg hover:bg-[#7C3AED] hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 transform hover:-translate-y-0.5"
+        >
           开启私有化部署
         </button>
       </div>

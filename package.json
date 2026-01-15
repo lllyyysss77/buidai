@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "build": "nuxt generate",
+    "generate": "nuxt generate",
     "dev": "nuxt dev",
     "preview": "nuxt preview",
     "typecheck": "nuxt typecheck",

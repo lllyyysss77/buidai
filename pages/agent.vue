@@ -178,7 +178,7 @@
       </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!--常见问题部分 -->
     <section class="py-12 md:py-24">
       <div class="container mx-auto px-4">
         <div class="flex flex-col lg:flex-row gap-8 lg:gap-24 items-start">

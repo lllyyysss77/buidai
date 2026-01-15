@@ -1,15 +1,15 @@
 <template>
   <section class="py-24 bg-[#0B0C15] text-white relative overflow-hidden">
-    <!-- Background Gradient -->
+    <!-- 背景渐变 -->
     <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-900/20 rounded-full blur-[120px] pointer-events-none"></div>
     <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-900/10 rounded-full blur-[100px] pointer-events-none"></div>
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
 
-        <!-- Left Content -->
+        <!-- 左侧内容 -->
         <div class="space-y-8">
-          <!-- Tag -->
+          <!-- 标签 -->
           <div class="flex flex-wrap items-center gap-4">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
               <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
@@ -20,7 +20,7 @@
             </div>
           </div>
 
-          <!-- Headlines -->
+          <!--大字标题 -->
           <div class="space-y-4">
             <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
              开启你的<span class="text-[#6A28F9]">AI大航海之旅</span>
@@ -34,12 +34,12 @@
 
           </div>
 
-          <!-- Description -->
+          <!-- 描述 -->
           <p class="text-lg text-gray-400 max-w-xl leading-relaxed">
             通过让人工智能发挥作用并为你创造收益，来释放你的商业潜力。
           </p>
 
-          <!-- Buttons -->
+          <!-- 按钮 -->
           <div class="flex flex-wrap gap-4 pt-4">
             <button @click="openQrModal('community')" class="px-8 py-3.5 rounded-full bg-white text-gray-900 font-bold hover:bg-gray-100 transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2">
              加入社群

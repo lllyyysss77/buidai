@@ -181,10 +181,82 @@ const items = computed<NavigationMenuItem[][]>(() => [
           to: '/plugin'
         },
         {
-          label: '解决方案',
+          label: '全部解决方案',
           description: '探索 BuidAI 的行业解决方案',
           icon: 'i-lucide-lightbulb',
           to: '/solutions'
+        },
+        {
+          label: '香蕉绘画',
+          description: '开源免费的 AI 图像生成系统',
+          icon: 'i-lucide-palette',
+          to: '/product/banana'
+        },
+        {
+          label: '短剧创作',
+          description: '开源免费的网文短剧写作系统',
+          icon: 'i-lucide-clapperboard',
+          to: '/product/drama'
+        },
+        {
+          label: '数字人系统',
+          description: '开源免费的虚拟形象克隆系统',
+          icon: 'i-lucide-user',
+          to: '/product/human'
+        },
+        {
+          label: '即梦AI视频',
+          description: '开源免费的 AI 视频生成系统',
+          icon: 'i-lucide-video',
+          to: '/product/jimeng'
+        },
+        {
+          label: '即梦AI绘画',
+          description: 'AI绘画系统',
+          icon: 'i-lucide-image',
+          to: '/product/jmdraw'
+        },
+        {
+          label: '电商试衣',
+          description: '开源免费的AI模特换装系统',
+          icon: 'i-lucide-shirt',
+          to: '/product/model'
+        },
+        {
+          label: 'AI音乐',
+          description: '开源免费的 AI 音乐生成系统',
+          icon: 'i-lucide-music',
+          to: '/product/music'
+        },
+        {
+          label: 'AI PPT',
+          description: '开源免费的智能演示文稿制作工具',
+          icon: 'i-lucide-presentation',
+          to: '/product/ppt'
+        },
+        {
+          label: 'AI简历',
+          description: '开源免费的智能简历生成与分析系统',
+          icon: 'i-lucide-file-text',
+          to: '/product/resume'
+        },
+        {
+          label: 'Sora视频',
+          description: '开源免费的 AI 视频创作系统',
+          icon: 'i-lucide-film',
+          to: '/product/sora'
+        },
+        {
+          label: '视频混剪',
+          description: '开源免费的视频剪辑软件',
+          icon: 'i-lucide-scissors',
+          to: '/product/videoclip'
+        },
+        {
+          label: '小红书助手',
+          description: '开源免费的 AI 文案生成系统',
+          icon: 'i-lucide-book-open',
+          to: '/product/xhs'
         }
       ]
     },
@@ -256,29 +328,29 @@ const navigationMenuUi = computed(() => ({
   linkLeadingIcon: isTransparent.value
     ? 'text-white/60 group-hover:text-white'
     : 'text-dimmed group-hover:text-muted group-[.router-link-active]:text-primary',
-  
+
   // 二级菜单下拉面板 - 企业级简洁风格
   content: 'bg-default rounded-xl shadow-xl ring-1 ring-default p-2 min-w-[280px]',
   viewport: 'overflow-hidden',
-  
+
   // 二级菜单列表容器
   childList: 'space-y-1',
-  
+
   // 二级菜单项
   childItem: '',
-  
+
   // 二级菜单链接 - icon和label并排，description换行贴左
   childLink: 'flex flex-wrap items-center gap-x-2 gap-y-1 p-3 rounded-lg hover:bg-elevated transition-colors duration-150 group/child',
-  
+
   // 二级菜单链接包装器 - 让子元素直接参与父级布局
   childLinkWrapper: 'contents',
-  
+
   // 二级菜单图标
   childLinkIcon: 'size-5 text-dimmed group-hover/child:text-muted shrink-0 transition-colors duration-150',
-  
+
   // 二级菜单标题 - 与icon同行
   childLinkLabel: 'font-semibold text-highlighted group-hover/child:text-primary transition-colors duration-150',
-  
+
   // 二级菜单描述 - 占满宽度换行贴左
   childLinkDescription: 'w-full text-sm text-muted leading-relaxed'
 }))
@@ -292,25 +364,25 @@ const mobileNavigationMenuUi = computed(() => ({
   link: 'text-base text-muted hover:text-highlighted hover:bg-elevated font-medium rounded-lg px-3 py-3 min-h-[48px] flex items-center leading-relaxed transition-colors duration-150',
   linkActive: 'text-primary font-semibold bg-primary/10 rounded-lg px-3 py-3 min-h-[48px] flex items-center',
   linkLeadingIcon: 'text-dimmed group-hover:text-muted group-[.router-link-active]:text-primary w-5 h-5 mr-3',
-  
+
   // 二级菜单容器
   content: 'bg-elevated/50 rounded-lg mt-1 mb-2',
-  
+
   // 二级菜单列表
   childList: 'space-y-1 p-2',
-  
+
   // 二级菜单链接 - icon和label并排，description换行贴左
   childLink: 'flex flex-wrap items-center gap-x-2 gap-y-1 p-3 rounded-lg hover:bg-default transition-colors duration-150 group/child',
-  
+
   // 二级菜单链接包装器
   childLinkWrapper: 'contents',
-  
+
   // 二级菜单图标
   childLinkIcon: 'size-5 text-dimmed shrink-0',
-  
+
   // 二级菜单标题
   childLinkLabel: 'font-semibold text-highlighted',
-  
+
   // 二级菜单描述
   childLinkDescription: 'w-full text-sm text-muted leading-relaxed'
 }))

@@ -11,7 +11,7 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-        <!-- Feature 1 -->
+        <!-- 产品定位 -->
         <div class="md:col-span-6 bg-white/10 backdrop-blur-sm p-8 rounded-3xl border border-white/20 hover:bg-white/15 transition-all duration-300">
           <h3 class="text-xl font-bold text-white mb-4">BuidAI 产品定位</h3>
           <p class="text-white/80 leading-relaxed text-sm mb-8">
@@ -22,7 +22,7 @@
           </div>
         </div>
 
-        <!-- Feature 2 -->
+        <!-- 目标一：携手开发者共同转型 AI 应用开发，点亮 AI 技能树 -->
         <div class="md:col-span-6 bg-white/10 backdrop-blur-sm p-8 rounded-3xl border border-white/20 hover:bg-white/15 transition-all duration-300">
           <h3 class="text-xl font-bold text-white mb-4">目标一：携手开发者共同转型 AI 应用开发，点亮 AI 技能树</h3>
           <p class="text-white/80 leading-relaxed text-sm mb-8">
@@ -33,8 +33,8 @@
           </div>
         </div>
 
-        <!-- Feature 3 -->
-        <div class="md:col-span-5 bg-white/10 backdrop-blur-sm p-8 rounded-3xl border border-white/20 hover:bg-white/15 transition-all duration-300">
+        <!-- 目标二：帮助 AI 创业者低成本、快速落地最小可行智能体产品（Agent-MVP） -->
+        <div class="md:col-span-6 bg-white/10 backdrop-blur-sm p-8 rounded-3xl border border-white/20 hover:bg-white/15 transition-all duration-300">
           <h3 class="text-xl font-bold text-white mb-4">目标二：帮助 AI 创业者低成本、快速落地最小可行智能体产品（Agent-MVP）</h3>
           <p class="text-white/80 leading-relaxed text-sm mb-8">
             1、BuidAI 在用户注册、会员订阅、算力充值、支付计费等方面，已经实现完整的商业能力闭环，无需重复开发，加速最小可行智能体产品落地。2、另外，AI 创业者可以通过 BuidAI 内置的应用市场，根据自身创业目标群体直接购买开箱即用的 AI 应用，当天实现产品上线，大幅节约时间成本、经济成本。别忘了，机会成本也是一种成本，让我们集中宝贵的资源和精力聚焦在运营和市场推广上吧！
@@ -44,8 +44,8 @@
           </div>
         </div>
 
-        <!-- Feature 4 -->
-        <div class="md:col-span-7 bg-white/10 backdrop-blur-sm p-8 rounded-3xl border border-white/20 hover:bg-white/15 transition-all duration-300">
+        <!-- 目标三：助力企业构建智能体应用平台，充分发挥 AI 生产力，让组织更先进 -->
+        <div class="md:col-span-6 bg-white/10 backdrop-blur-sm p-8 rounded-3xl border border-white/20 hover:bg-white/15 transition-all duration-300">
           <h3 class="text-xl font-bold text-white mb-4">目标三：助力企业构建智能体应用平台，充分发挥 AI 生产力，让组织更先进</h3>
           <p class="text-white/80 leading-relaxed text-sm mb-8">
             1、BuidAI 在产品设计上积极降低前台学习成本，员工能够即刻上手，充分发挥 AI 生产力。一站式的架构方案解决了部门之间复用提示词、智能体、知识库、工作流等 AI 基础模块的难题，让组织更先进。2、通过 BuidAI 内置的应用市场，企业亦能找到符合自身业务需求的开箱应用，有效减少自研成本，加速业务与 AI 的双向融合。一个显著的重要优势是：BuidAI 在发布之初，就选择开源所有代码作为可信基础，天然满足企业私有化需求，支持模型本地化部署、国产算力硬件，保障企业数据安全。

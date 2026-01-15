@@ -116,7 +116,7 @@
           </a>
         </div>
 
-        <div class="flex space-x-6 text-sm text-gray-400 hidden md:flex">
+        <div class="hidden md:flex space-x-6 text-sm text-gray-400">
           <a href="#" class="hover:text-primary-600 transition-colors">服务条款</a>
           <a href="#" class="hover:text-primary-600 transition-colors">隐私政策</a>
           <a href="#" class="hover:text-primary-600 transition-colors">Cookie 设置</a>

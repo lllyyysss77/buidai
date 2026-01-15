@@ -27,9 +27,9 @@ const handleCTAClick = () => {
 
 <template>
   <section class="py-24 bg-[#F9FAFB] relative overflow-hidden flex flex-col items-center justify-center min-h-[500px]">
-    <!-- Floating Icons Background -->
+    <!-- 浮动图标背景 -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <!-- Top Left -->
+      <!-- 顶部左侧 -->
       <div class="absolute top-[15%] left-[15%] w-12 h-12 rounded-full bg-white flex items-center justify-center border border-neutral-200 shadow-sm opacity-60 animate-float-slow text-purple-500">
         <RocketLaunchIcon class="w-6 h-6" />
       </div>
@@ -37,7 +37,7 @@ const handleCTAClick = () => {
         <SparklesIcon class="w-5 h-5" />
       </div>
 
-      <!-- Top Right -->
+      <!-- 顶部右侧 -->
       <div class="absolute top-[10%] right-[20%] w-14 h-14 rounded-full bg-white flex items-center justify-center border border-neutral-200 shadow-sm opacity-50 animate-float text-cyan-500">
         <CommandLineIcon class="w-7 h-7" />
       </div>
@@ -45,7 +45,7 @@ const handleCTAClick = () => {
         <CpuChipIcon class="w-5 h-5" />
       </div>
 
-      <!-- Bottom Areas -->
+      <!-- 底部区域 -->
       <div class="absolute bottom-[20%] left-[20%] w-10 h-10 rounded-full bg-white flex items-center justify-center border border-neutral-200 shadow-sm opacity-40 animate-float-reverse text-indigo-500">
         <CloudIcon class="w-5 h-5" />
       </div>
@@ -58,23 +58,23 @@ const handleCTAClick = () => {
     </div>
 
     <div class="container mx-auto px-4 text-center relative z-10">
-      <!-- Main Headline -->
+      <!-- 主要标题 -->
       <h2 class="text-2xl md:text-4xl font-medium text-gray-900 mb-2 tracking-tight">
         BuidAI - Building Your Own AI Apps , Fast & Simple.
       </h2>
 
-      <!-- Gradient Subheadline -->
+      <!-- 渐变副标题 -->
       <div class="text-3xl md:text-5xl font-bold mb-6">
         <span class="text-[#8B5CF6]">In Minutes, Not Months.</span>
         <span class="text-[#22D3EE] ml-2">Open-Source Powered! ✨</span>
       </div>
 
-      <!-- Description -->
+      <!-- 描述 -->
       <p class="text-sm md:text-base text-gray-500 mb-10 max-w-2xl mx-auto tracking-wide">
         我们正在成为「快速搭建私有化 AI 应用」的首选方案。AI 时代，快即壁垒，犹如功夫，唯快不破！
       </p>
 
-      <!-- CTA Button -->
+      <!-- CTA 按钮 -->
       <div class="flex justify-center">
         <button
           @click="handleCTAClick"

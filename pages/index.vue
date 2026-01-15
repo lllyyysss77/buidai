@@ -6,6 +6,7 @@
     <LandingScenarioSection />
     <LandingProductFeatures />
     <LandingProductDesign />
+    <LandingUserReviews />
     <LandingCallToAction />
     <LandingAIArsenal />
   </div>

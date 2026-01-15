@@ -303,7 +303,7 @@ onUnmounted(() => {
     >
       <div
         v-if="showModalQRCode"
-        class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6"
+        class="fixed inset-0 z-100 flex items-center justify-center p-4 sm:p-6"
         @click="closeModalQRCode"
       >
         <!-- 背景遮罩 -->

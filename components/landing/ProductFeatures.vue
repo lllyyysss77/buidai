@@ -10,11 +10,11 @@
     </div>
 
     <div class="relative w-full max-w-[1920px] mx-auto space-y-8">
-      <!-- Gradient Masks -->
+      <!-- 渐变遮罩 -->
       <div class="absolute inset-y-0 left-0 w-32 bg-linear-to-r from-gray-50 to-transparent z-10 pointer-events-none"></div>
       <div class="absolute inset-y-0 right-0 w-32 bg-linear-to-l from-gray-50 to-transparent z-10 pointer-events-none"></div>
 
-      <!-- Row 1 -->
+      <!--第一行 -->
       <UMarquee
         pause-on-hover
         :overlay="false"
@@ -32,7 +32,7 @@
         </div>
       </UMarquee>
 
-      <!-- Row 2 -->
+      <!-- 第二行 -->
       <UMarquee
         pause-on-hover
         reverse
@@ -51,7 +51,7 @@
         </div>
       </UMarquee>
 
-      <!-- Row 3 -->
+      <!-- 第三行 -->
       <UMarquee
         pause-on-hover
         :overlay="false"
@@ -75,7 +75,7 @@
 <script setup lang="ts">
 import { h } from 'vue'
 
-// Simple Icon Components using SVG paths
+// 使用SVG路径的简单图标组件
 const createIcon = (path: string) => {
   return h('svg', {
     xmlns: 'http://www.w3.org/2000/svg',

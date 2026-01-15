@@ -20,6 +20,7 @@ Allow: /contact
 Allow: /about
 Allow: /solutions
 Allow: /resources
+Allow: /product
 
 # Sitemap 位置
 Sitemap: https://www.buidai.com/sitemap.xml

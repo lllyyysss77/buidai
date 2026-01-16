@@ -303,11 +303,11 @@ onUnmounted(() => {
     >
       <div
         v-if="showModalQRCode"
-        class="fixed inset-0 z-100 flex items-center justify-center p-4 sm:p-6"
+        class="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6"
         @click="closeModalQRCode"
       >
         <!-- 背景遮罩 -->
-        <div class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+        <div class="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity"></div>
 
         <!-- 模态框内容 -->
         <Transition
@@ -320,68 +320,71 @@ onUnmounted(() => {
         >
           <div
             v-if="showModalQRCode"
-            class="relative bg-white shadow-2xl w-full max-w-2xl rounded-2xl overflow-hidden ring-1 ring-black/5"
+            class="relative bg-white shadow-2xl w-full max-w-2xl rounded-xl sm:rounded-2xl overflow-hidden ring-1 ring-black/5 flex flex-col max-h-[85vh] sm:max-h-[90vh]"
             @click.stop
           >
             <!-- 顶部公告栏 -->
-            <div class="relative bg-blue-50/80 backdrop-blur-sm px-6 py-3 flex items-center justify-center border-b border-blue-100/50">
-              <div class="flex items-center gap-2.5 text-xs sm:text-sm text-blue-700">
-                <MegaphoneIcon class="w-4 h-4 shrink-0" />
-                <p class="truncate sm:overflow-visible">
-                  公告：<span class="font-semibold cursor-pointer hover:underline hover:text-blue-800">联系客服</span> 体验产品，关注公众号了解 <span class="font-semibold">优惠活动最新动态</span>
+            <div class="relative bg-blue-50/80 backdrop-blur-sm px-3 py-2.5 sm:px-6 sm:py-3 flex items-center justify-center border-b border-blue-100/50 shrink-0">
+              <div class="flex items-center gap-2 text-xs sm:text-sm text-blue-700 w-full pr-6 sm:pr-0 justify-center sm:justify-start">
+                <MegaphoneIcon class="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 text-blue-500" />
+                <p class="truncate sm:overflow-visible leading-tight">
+                  公告：<span class="font-semibold cursor-pointer hover:underline hover:text-blue-800">联系客服</span> 体验产品，关注公众号了解动态
                 </p>
               </div>
               <button
                 @click="closeModalQRCode"
-                class="absolute right-4 top-1/2 -translate-y-1/2 p-1 rounded-full hover:bg-blue-100/50 text-blue-400 hover:text-blue-600 transition-colors cursor-pointer"
+                class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-1.5 rounded-full hover:bg-blue-100/50 text-blue-400 hover:text-blue-600 transition-colors cursor-pointer"
                 aria-label="关闭"
               >
-                <XIcon class="w-5 h-5" />
+                <XIcon class="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
             </div>
 
             <!-- 内容区域 -->
-            <div class="p-6 sm:p-8">
+            <div class="p-4 sm:p-8 overflow-y-auto custom-scrollbar bg-gray-50/30">
               <!-- 标题部分 -->
-              <div class="text-left mb-6 pl-4">
-                <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mb-2">{{ qrCodeConfig.title || '联系客服' }}</h3>
-                <p class="text-sm text-gray-500 leading-relaxed">{{ qrCodeConfig.desc || '扫描二维码添加客服微信，获取专业技术支持' }}</p>
+              <div class="text-left mb-4 sm:mb-6 pl-3 sm:pl-4 border-l-4 border-blue-500 bg-white rounded-r-lg py-1 sm:py-0">
+                <h3 class="text-base sm:text-2xl font-bold text-gray-900 mb-1 sm:mb-2 flex items-center gap-2">
+                  {{ qrCodeConfig.title || '联系客服' }}
+                  <span class="inline-flex sm:hidden px-1.5 py-0.5 rounded text-[10px] font-medium bg-blue-100 text-blue-600">在线</span>
+                </h3>
+                <p class="text-xs sm:text-sm text-gray-500 leading-relaxed line-clamp-2 sm:line-clamp-none">{{ qrCodeConfig.desc || '扫描二维码添加客服微信，获取专业技术支持' }}</p>
               </div>
 
               <!-- 双二维码网格 -->
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+              <div class="grid grid-cols-2 gap-3 sm:gap-8">
                 <!-- 左侧：动态传入的主二维码 -->
-                <div class="flex flex-col items-center group">
-                  <div class="relative bg-white p-4 rounded-2xl border border-gray-100 shadow-sm mb-4 transition-all duration-300 group-hover:shadow-xl group-hover:border-blue-100 group-hover:-translate-y-1">
+                <div class="flex flex-col items-center group bg-white p-3 sm:p-0 rounded-xl sm:bg-transparent border border-gray-100 sm:border-none shadow-sm sm:shadow-none">
+                  <div class="relative bg-gray-50 sm:bg-white p-2 sm:p-4 rounded-xl sm:rounded-2xl border border-gray-100 sm:shadow-sm mb-2 sm:mb-4 transition-all duration-300 group-hover:shadow-xl group-hover:border-blue-100 group-hover:-translate-y-1">
                     <img
                       src="/qrcode.png"
                       :alt="qrCodeConfig.title"
-                      class="w-40 h-40 sm:w-48 sm:h-48 object-contain"
+                      class="w-full aspect-square sm:w-48 sm:h-48 object-contain mix-blend-multiply sm:mix-blend-normal"
                     />
                     <!-- 装饰角标 -->
-                    <div class="absolute -top-2 -right-2 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white shadow-md scale-0 group-hover:scale-100 transition-transform duration-300 delay-75">
-                        <UserIcon class="w-3.5 h-3.5" />
+                    <div class="absolute -top-1.5 -right-1.5 sm:-top-2 sm:-right-2 w-5 h-5 sm:w-6 sm:h-6 bg-blue-500 rounded-full flex items-center justify-center text-white shadow-md scale-100 sm:scale-0 sm:group-hover:scale-100 transition-transform duration-300 delay-75 ring-2 ring-white">
+                        <UserIcon class="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                     </div>
                   </div>
-                  <h4 class="text-base sm:text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">添加客服微信</h4>
-                  <p class="text-xs sm:text-sm text-gray-400">咨询购买 / 技术支持</p>
+                  <h4 class="text-xs sm:text-lg font-bold text-gray-900 mb-0.5 sm:mb-1 group-hover:text-blue-600 transition-colors text-center">添加客服微信</h4>
+                  <p class="text-[10px] sm:text-sm text-gray-400 text-center scale-90 sm:scale-100 origin-top">咨询购买 / 技术支持</p>
                 </div>
 
                 <!-- 右侧：固定公众号二维码 -->
-                <div class="flex flex-col items-center group">
-                  <div class="relative bg-white p-4 rounded-2xl border border-gray-100 shadow-sm mb-4 transition-all duration-300 group-hover:shadow-xl group-hover:border-blue-100 group-hover:-translate-y-1">
+                <div class="flex flex-col items-center group bg-white p-3 sm:p-0 rounded-xl sm:bg-transparent border border-gray-100 sm:border-none shadow-sm sm:shadow-none">
+                  <div class="relative bg-gray-50 sm:bg-white p-2 sm:p-4 rounded-xl sm:rounded-2xl border border-gray-100 sm:shadow-sm mb-2 sm:mb-4 transition-all duration-300 group-hover:shadow-xl group-hover:border-blue-100 group-hover:-translate-y-1">
                     <img
                       src="/wechat.png"
                       alt="关注公众号"
-                      class="w-40 h-40 sm:w-48 sm:h-48 object-contain"
+                      class="w-full aspect-square sm:w-48 sm:h-48 object-contain mix-blend-multiply sm:mix-blend-normal"
                     />
                     <!-- 装饰角标 -->
-                    <div class="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white shadow-md scale-0 group-hover:scale-100 transition-transform duration-300 delay-75">
-                        <GiftIcon class="w-3.5 h-3.5" />
+                    <div class="absolute -top-1.5 -right-1.5 sm:-top-2 sm:-right-2 w-5 h-5 sm:w-6 sm:h-6 bg-green-500 rounded-full flex items-center justify-center text-white shadow-md scale-100 sm:scale-0 sm:group-hover:scale-100 transition-transform duration-300 delay-75 ring-2 ring-white">
+                        <GiftIcon class="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                     </div>
                   </div>
-                  <h4 class="text-base sm:text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">关注公众号</h4>
-                  <p class="text-xs sm:text-sm text-gray-400">优惠活动 / 产品更新</p>
+                  <h4 class="text-xs sm:text-lg font-bold text-gray-900 mb-0.5 sm:mb-1 group-hover:text-blue-600 transition-colors text-center">关注公众号</h4>
+                  <p class="text-[10px] sm:text-sm text-gray-400 text-center scale-90 sm:scale-100 origin-top">优惠活动 / 产品更新</p>
                 </div>
               </div>
             </div>
@@ -395,7 +398,28 @@ onUnmounted(() => {
 <style scoped>
 /*
   BackToTop Component Styles
-  大部分样式已通过 Tailwind Utility Classes 实现
-  这里仅保留必要的自定义样式或未来扩展
 */
+
+/* 自定义滚动条样式 - 兼容多浏览器 */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(203, 213, 225, 0.4) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(203, 213, 225, 0.4);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(148, 163, 184, 0.6);
+}
 </style>

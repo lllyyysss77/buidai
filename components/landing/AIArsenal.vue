@@ -1,8 +1,8 @@
 <template>
-  <section class="py-24 bg-[#0B0C15] text-white relative overflow-hidden">
+  <section class="py-24 bg-white text-neutral-900 relative overflow-hidden">
     <!-- 背景渐变 -->
-    <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-900/20 rounded-full blur-[120px] pointer-events-none"></div>
-    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-900/10 rounded-full blur-[100px] pointer-events-none"></div>
+    <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-[100px] pointer-events-none"></div>
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
@@ -11,22 +11,22 @@
         <div class="space-y-8">
           <!-- 标签 -->
           <div class="flex flex-wrap items-center gap-4">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
-              <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-              <span class="text-sm font-medium text-white/90">必定AI</span>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 border border-neutral-200">
+              <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+              <span class="text-sm font-medium text-neutral-700">必创AI</span>
             </div>
-            <div class="text-sm font-medium text-white/90">
+            <div class="text-sm font-medium text-neutral-600">
               专为企业打造的大模型服务与应用开发平台
             </div>
           </div>
 
           <!--大字标题 -->
           <div class="space-y-4">
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-             开启你的<span class="text-[#6A28F9]">AI大航海之旅</span>
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-neutral-900">
+             开启你的<span class="text-primary-600">AI大航海之旅</span>
              <img src="/AIArsenal.svg" alt="" class="inline-block w-16 h-16 ml-2 -mt-2" />
               <br />
-              <span class="text-white text-2xl md:text-3xl lg:text-4xl">
+              <span class="text-neutral-900 text-2xl md:text-3xl lg:text-4xl">
                旅程从这里开始...
                   <img src="/AIArsenal-1.svg" alt="" class="inline-block w-10 h-10 ml-2 -mt-1" />
               </span>
@@ -35,16 +35,16 @@
           </div>
 
           <!-- 描述 -->
-          <p class="text-lg text-gray-400 max-w-xl leading-relaxed">
+          <p class="text-lg text-neutral-500 max-w-xl leading-relaxed">
             通过让人工智能发挥作用并为你创造收益，来释放你的商业潜力。
           </p>
 
           <!-- 按钮 -->
           <div class="flex flex-wrap gap-4 pt-4">
-            <button @click="openQrModal('community')" class="px-8 py-3.5 rounded-full bg-white text-gray-900 font-bold hover:bg-gray-100 transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2">
+            <button @click="openQrModal('community')" class="px-8 py-3.5 rounded-full bg-neutral-900 text-white font-bold hover:bg-neutral-800 transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2 shadow-lg shadow-neutral-200">
              加入社群
             </button>
-            <button @click="openQrModal('contact')" class="px-8 py-3.5 rounded-full bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-0.5">
+            <button @click="openQrModal('contact')" class="px-8 py-3.5 rounded-full bg-white border border-neutral-200 text-neutral-700 font-medium hover:bg-neutral-50 transition-all duration-300 transform hover:-translate-y-0.5">
               联系我们
             </button>
           </div>
@@ -57,21 +57,21 @@
             <!-- 第一组 -->
             <div class="space-y-6 pb-6">
               <div v-for="(item, index) in features" :key="`set1-${index}`"
-                   class="group flex items-center p-4 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-white/10 transition-all duration-300 cursor-pointer backdrop-blur-sm">
-                <div class="w-12 h-12 rounded-xl bg-gray-600 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <component :is="item.icon" class="w-6 h-6 text-white/80" />
+                   class="group flex items-center p-4 rounded-2xl bg-neutral-50 border border-neutral-200 hover:bg-white hover:shadow-lg hover:border-primary-200 transition-all duration-300 cursor-pointer">
+                <div class="w-12 h-12 rounded-xl bg-white border border-neutral-100 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300 shadow-sm">
+                  <component :is="item.icon" class="w-6 h-6 text-primary-600" />
                 </div>
-                <span class="text-lg font-medium text-white/90 group-hover:text-white transition-colors">{{ item.name }}</span>
+                <span class="text-lg font-medium text-neutral-700 group-hover:text-primary-700 transition-colors">{{ item.name }}</span>
               </div>
             </div>
             <!-- 第二组（重复以实现无缝循环） -->
             <div class="space-y-6 pb-6">
               <div v-for="(item, index) in features" :key="`set2-${index}`"
-                   class="group flex items-center p-4 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-white/10 transition-all duration-300 cursor-pointer backdrop-blur-sm">
-                <div class="w-12 h-12 rounded-xl bg-gray-600 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <component :is="item.icon" class="w-6 h-6 text-white/80" />
+                   class="group flex items-center p-4 rounded-2xl bg-neutral-50 border border-neutral-200 hover:bg-white hover:shadow-lg hover:border-primary-200 transition-all duration-300 cursor-pointer">
+                <div class="w-12 h-12 rounded-xl bg-white border border-neutral-100 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300 shadow-sm">
+                  <component :is="item.icon" class="w-6 h-6 text-primary-600" />
                 </div>
-                <span class="text-lg font-medium text-white/90 group-hover:text-white transition-colors">{{ item.name }}</span>
+                <span class="text-lg font-medium text-neutral-700 group-hover:text-primary-700 transition-colors">{{ item.name }}</span>
               </div>
             </div>
           </div>
@@ -108,7 +108,7 @@ const features = [
 // 二维码弹窗 - 触发 BackToTop 组件
 const openQrModal = (type) => {
   const config = type === 'community'
-    ? { title: '加入社群', desc: '扫码加入必定AI社群', image: '/qrcode.png' }
+    ? { title: '加入社群', desc: '扫码加入必创AI社群', image: '/qrcode.png' }
     : { title: '联系我们', desc: '扫码添加微信客服', image: '/wechat.png' }
   window.dispatchEvent(new CustomEvent('showQRCodeModal', { detail: config }))
 }

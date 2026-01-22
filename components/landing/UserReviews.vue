@@ -3,7 +3,7 @@ import { ref } from 'vue';
 
 /**
  * 用户评价组件 + 常见问题
- * 展示用户对 BuidAI 的反馈和评价，以及常见问题解答
+ * 展示用户对 必创 的反馈和评价，以及常见问题解答
  */
 
 type Review = {
@@ -14,12 +14,12 @@ type Review = {
 
 const reviews: Review[] = [
   {
-    content: 'BuidAI 在国内算做得很好很好了，对于数字人生成，无论是从美观还是使用的角度，都非常方便非常优秀，导入功能特别好，比其他工具好用太多了。继续加油！',
+    content: '必创 在国内算做得很好很好了，对于数字人生成，无论是从美观还是使用的角度，都非常方便非常优秀，导入功能特别好，比其他工具好用太多了。继续加油！',
     author: 'Alex',
     role: 'AI 创作者',
   },
   {
-    content: 'BuidAI 真的牛，想要的定制功能提出没多久就加上了，而且测试了下和预期的效果完全一致，我之前还因为其他工具的限制专门写了脚本来处理，现在 BuidAI 直接能满足需求了！',
+    content: '必创 真的牛，想要的定制功能提出没多久就加上了，而且测试了下和预期的效果完全一致，我之前还因为其他工具的限制专门写了脚本来处理，现在 必创 直接能满足需求了！',
     author: '何易于',
     role: '全栈开发者',
   },
@@ -29,22 +29,22 @@ const reviews: Review[] = [
     role: '测试工程师',
   },
   {
-    content: '不知不觉发现公司很多运营都被我带动用上 BuidAI 了，平常分享视频素材都是丢个链接出去，大家发现真方便，都跟着我用了哈哈哈哈，现在越来越离不开 BuidAI 啦',
+    content: '不知不觉发现公司很多运营都被我带动用上 必创 了，平常分享视频素材都是丢个链接出去，大家发现真方便，都跟着我用了哈哈哈哈，现在越来越离不开 必创 啦',
     author: 'vate',
     role: '运营经理',
   },
   {
-    content: '其他工具能干的 BuidAI 能干，其他工具不能干的 BuidAI 还是能干，而且 BuidAI 作为国产工具，几乎整合了大部分 AI 相关功能，真就一个代替所有。最主要是对小团队协作友好，有格局。',
+    content: '其他工具能干的 必创 能干，其他工具不能干的 必创 还是能干，而且 必创 作为国产工具，几乎整合了大部分 AI 相关功能，真就一个代替所有。最主要是对小团队协作友好，有格局。',
     author: '我是光',
     role: '产品经理',
   },
   {
-    content: '你们的 UI 真不错，是国内 UI 交互做的最好的。做产品就应该这样精致，这样才会有好的产品体验！我每天用 BuidAI，看着这个 UI 交互心情就很好，效率也会好哈哈。',
+    content: '你们的 UI 真不错，是国内 UI 交互做的最好的。做产品就应该这样精致，这样才会有好的产品体验！我每天用 必创，看着这个 UI 交互心情就很好，效率也会好哈哈。',
     author: '多喝热水',
     role: '前端工程师',
   },
   {
-    content: '对于我们这种初创团队来说，BuidAI 的私有化部署方案简直是救星。数据安全有保障，而且成本可控，技术支持响应速度也非常快，必须五星好评！',
+    content: '对于我们这种初创团队来说，必创 的私有化部署方案简直是救星。数据安全有保障，而且成本可控，技术支持响应速度也非常快，必须五星好评！',
     author: 'TechLead',
     role: 'CTO',
   },
@@ -54,7 +54,7 @@ const reviews: Review[] = [
     role: '视频制作人',
   },
   {
-    content: '集成非常丝滑，API 文档清晰易懂。我们在原有系统中接入 BuidAI 的能力只用了半天时间，现在的产品竞争力提升了一个档次。',
+    content: '集成非常丝滑，API 文档清晰易懂。我们在原有系统中接入 必创 的能力只用了半天时间，现在的产品竞争力提升了一个档次。',
     author: 'CodeMaster',
     role: '后端架构师',
   },
@@ -115,24 +115,24 @@ const openQrModal = (type: 'coupon' | 'wechat') => {
 
 const faqs = [
   {
-    question: '什么是商业授权',
-    answer: '商业授权是软件开发者授权用户将软件用于商业用途的凭证（商业使用权利）。根据协议可免费用于学习交流，且不限制商业用途，可以去除底部官方版权信息和链接，但不能用作二次发行销售；如果在未经官方商业授权而将系统版权去除，则将会被官方视为侵权、将追究法律责任'
+    question: '零代码基础的用户能否轻松上手？',
+    answer: '完全没问题。为了降低 AI 的使用门槛，让更多人拥抱智能时代，我们简化了智能体构建、知识库管理及应用部署的流程。通过直观的可视化界面，您可以像"搭积木"一样轻松拼装出专属的 AI 系统，无需任何编程经验。'
   },
   {
-    question: '怎样获取商业授权',
-    answer: '联系官方客服购买，购买成功后客服人员会给您开通商业授权证书'
+    question: '是否支持本地/云端部署及私有模型接入？',
+    answer: '当然支持。无论是平台本身还是应用市场中的产品，均提供源码交付，您可以灵活选择私有化部署至本地环境或云服务器。此外，系统也完美兼容并支持接入本地运行的大语言模型。'
   },
  {
-    question: '开源为什么需要购买商业授权',
-    answer: '开源 ≠ 完全免费！开源代码是为了方便用户二次开发,便于学习和交流'
+    question: '目前包含哪些核心功能？是否支持二次开发？',
+    answer: '关于现有及规划中的功能详情，请参阅文档中的「产品路线图」。我们完全支持二次开发，并提供了丰富的 AI 编程接口，助您快速扩展和定制个性化的功能模块。'
   },
   {
-    question: '你们的AI系统可以接入哪些平台',
-    answer: '我们提供全渠道接入方案，支持微信公众号、小程序、企业微信、钉钉、飞书等主流平台。同时提供标准 RESTful API 和 SDK，可快速集成到您现有的网站或 APP 中'
+    question: '该系统能对接哪些第三方平台？',
+    answer: '我们提供全渠道集成方案，无缝对接微信公众号、小程序、企业微信、钉钉、飞书等主流生态。此外，还提供标准的 RESTful API 和 SDK，方便您将其快速集成至现有的网站或移动应用中。'
   },
   {
-    question: '平台支持哪些大语言模型？',
-    answer: '我们支持主流的商业模型（如 GPT-4、Claude 3.5、Gemini）以及开源模型（如 Llama 3、Qwen、ChatGLM）。您可以根据业务需求灵活切换不同的底层模型。'
+    question: '平台兼容哪些主流大语言模型？',
+    answer: '我们广泛支持各类主流模型，包括商业闭源模型（如 GPT-4、Claude 3.5、Gemini）及前沿开源模型（如 Llama 3、Qwen、ChatGLM）。您可以根据实际业务场景，灵活切换和选择最适合的底层模型。'
   }
 ]
 
@@ -157,7 +157,7 @@ const toggleFaq = (idx: number) => {
             深受开发者与创作者喜爱
           </h2>
           <p class="text-gray-500 dark:text-gray-400 text-lg">
-            听听来自社区的真实反馈，见证 BuidAI 如何提升工作效率
+            听听来自社区的真实反馈，见证 必创 如何提升工作效率
           </p>
         </div>
 
@@ -277,7 +277,7 @@ const toggleFaq = (idx: number) => {
           <!-- 左侧：标题 -->
           <div class="lg:w-1/3 w-full text-center lg:text-left">
             <h2 class="text-2xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">常见问题</h2>
-            <p class="text-gray-500 dark:text-gray-400 text-sm md:text-base mb-6">关于必定AI的常见疑问解答</p>
+            <p class="text-gray-500 dark:text-gray-400 text-sm md:text-base mb-6">关于必创AI的常见疑问解答</p>
             <div class="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 justify-center lg:justify-start">
               <button @click="openQrModal('coupon')" class="px-6 py-2.5 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-100 active:scale-95 transition-all flex items-center justify-center gap-2 touch-manipulation">
                 <UIcon name="i-heroicons-ticket" class="w-4 h-4" />

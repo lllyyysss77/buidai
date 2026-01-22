@@ -7,7 +7,7 @@
             <img src="/AppFooter.svg" alt="BuidAI" class="h-6 w-auto" />
           </NuxtLink>
           <p class="text-gray-500 text-sm leading-relaxed max-w-xs mb-6">
-            必定AI 致力于降低企业 AI 应用开发门槛，赋能每一个团队构建智能未来。
+            必创AI 致力于降低企业 AI 应用开发门槛，赋能每一个团队构建智能未来。
           </p>
           <div class="flex space-x-4">
             <a href="#" class="text-gray-400 hover:text-primary-600 transition-colors">
@@ -112,7 +112,7 @@
       <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
         <div class="flex flex-col md:flex-row items-center gap-2 md:gap-6">
           <p class="text-gray-400 text-sm">
-            © 2026 必定AI BuidAI. All rights reserved.
+            © 2026 必创AI BuidAI. All rights reserved.
           </p>
           <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" class="text-gray-400 text-sm hover:text-primary-600 transition-colors">
            赣ICP备2023002309号

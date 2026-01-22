@@ -7,17 +7,17 @@ definePageMeta({
 });
 
 useSeoMeta({
-    title: 'AI PPT - 开源免费的智能演示文稿制作工具 | 必定AI-BuidAI',
-    description: '必定AI-BuidAI AI PPT是一款智能演示文稿制作工具，能够根据用户输入的主题或大纲，自动生成结构清晰、设计美观的PPT页面。内置多种模板与图表，支持智能配色、字体搭配与动画效果优化，还可一键生成演讲备注。无论是工作报告、学术展示还是商业提案，都能快速输出专业级演示文稿，显著提升制作效率与视觉表现力。基于开源技术构建，提供完整源码与私有化部署支持。',
-    keywords: 'AI PPT,智能演示文稿,自动生成PPT,模板图表,智能配色,字体搭配,动画效果,必定AI,BuidAI,PPT制作工具,开源AI系统,私有化部署,PPT源码',
-    ogTitle: 'AI PPT - 一键直出幻灯片 | 必定AI-BuidAI',
+    title: 'AI PPT - 开源免费的智能演示文稿制作工具 | 必创AI-BuidAI',
+    description: '必创AI-BuidAI AI PPT是一款智能演示文稿制作工具，能够根据用户输入的主题或大纲，自动生成结构清晰、设计美观的PPT页面。内置多种模板与图表，支持智能配色、字体搭配与动画效果优化，还可一键生成演讲备注。无论是工作报告、学术展示还是商业提案，都能快速输出专业级演示文稿，显著提升制作效率与视觉表现力。基于开源技术构建，提供完整源码与私有化部署支持。',
+    keywords: 'AI PPT,智能演示文稿,自动生成PPT,模板图表,智能配色,字体搭配,动画效果,必创AI,BuidAI,PPT制作工具,开源AI系统,私有化部署,PPT源码',
+    ogTitle: 'AI PPT - 一键直出幻灯片 | 必创AI-BuidAI',
     ogDescription: '智能演示文稿制作工具，能够根据用户输入的主题或大纲，自动生成结构清晰、设计美观的PPT页面。内置多种模板与图表，支持智能配色、字体搭配与动画效果优化。',
-    ogImage: '/product/ppt.png',
+    ogImage: '/plugin/ppt.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'AI PPT - 一键直出幻灯片 | 必定AI-BuidAI',
+    twitterTitle: 'AI PPT - 一键直出幻灯片 | 必创AI-BuidAI',
     twitterDescription: '智能演示文稿制作工具，能够根据用户输入的主题或大纲，自动生成结构清晰、设计美观的PPT页面，显著提升制作效率与视觉表现力。',
-    twitterImage: '/product/ppt.png'
+    twitterImage: '/plugin/ppt.png'
 });
 
 // --- 功能网格数据 ---
@@ -78,7 +78,7 @@ const featureDetails = ref([
                 desc: '生成的 PPT 质量高，设计美观，结构清晰，满足专业级创作需求。'
             }
         ],
-        image: 'https://server.buildingai.cc/uploads/image/2025/12/434a729c-94fb-4dd1-b51b-af6adc67a374.png',
+        image: '/plugin/aippt.png',
     },
     {
         title: '模板图表，专业设计',
@@ -102,7 +102,7 @@ const featureDetails = ref([
                 desc: '支持动画效果优化，让演示更加生动有趣，增强观众参与感。'
             }
         ],
-        image: 'https://server.buildingai.cc/uploads/image/2025/12/434a729c-94fb-4dd1-b51b-af6adc67a374.png',
+        image: '/plugin/aippt.png',
     },
     {
         title: '演讲备注，掌控全场',
@@ -126,7 +126,7 @@ const featureDetails = ref([
                 desc: '支持云端存储，随时随地访问和编辑您的演示文稿。'
             }
         ],
-        image: 'https://server.buildingai.cc/uploads/image/2025/12/434a729c-94fb-4dd1-b51b-af6adc67a374.png',
+        image: '/plugin/aippt.png',
     },
 ]);
 
@@ -202,7 +202,7 @@ const toDemo = () => {
              <div class="relative p-2 rounded-3xl bg-gray-100/40 dark:bg-gray-800/40 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 max-w-5xl mx-auto">
                 <div class="relative rounded-2xl overflow-hidden border border-gray-200/50 dark:border-gray-700/50 shadow-sm bg-white/60 dark:bg-gray-800/60 aspect-video flex items-center justify-center">
                     <img
-                        src="/product/ppt-1.png"
+                        src="/public/plugin/aippt.png"
                         alt="AI PPT展示"
                         class="w-full h-full object-contain"
                     >

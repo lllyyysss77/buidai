@@ -1,7 +1,7 @@
 # AI音乐插件
 
 <cite>
-**本文档引用文件**  
+**本文档引用文件**
 - [pluginData.ts](file://utils/pluginData.ts#L279-L288)
 - [ProductFeatures.vue](file://components/landing/ProductFeatures.vue#L153)
 - [scene.ts](file://utils/scene.ts#L116-L119)
@@ -121,7 +121,7 @@ title AI音乐插件价格构成
 
 AI音乐插件深度集成于BuidAI平台，用户可以通过多种方式访问：
 
-- **应用中心入口**：通过导航菜单的"必定空间" > "应用中心"进入插件市场。
+- **应用中心入口**：通过导航菜单的"必创空间" > "应用中心"进入插件市场。
 - **直接访问**：通过`/plugin`路由直接访问应用市场页面。
 - **搜索功能**：在应用市场中使用搜索框查找"AI音乐"插件。
 - **分类浏览**：在"图像视频"分类下找到该插件。

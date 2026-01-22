@@ -17,7 +17,7 @@ useSeoMeta({
     twitterCard: 'summary_large_image',
     twitterTitle: '小红书热门内容创作助手 - 打造爆款笔记的神器 | BuidAI',
     twitterDescription: '专为小红书创作者打造,一键生成爆款标题与风格化推广文案,支持 AI 生成配图与智能标签推荐。',
-    twitterImage: '/product/xhs.png'
+    twitterImage: '/product/小红书内容复刻.png'
 });
 
 // --- 功能网格数据 ---
@@ -78,7 +78,7 @@ const featureDetails = ref([
                 desc: '一次生成多个版本文案,支持对比选择,找到最适合的表达方式。'
             }
         ],
-        image: '/product/xhs-1.png',
+        image: '/product/小红书内容复刻.png',
     },
     {
         title: 'AI 生成配图与视频封面,提升视觉吸引力',
@@ -102,7 +102,7 @@ const featureDetails = ref([
                 desc: '支持制作视频封面,适配小红书视频笔记格式,提升视频内容的点击率。'
             }
         ],
-        image: 'https://server.buildingai.cc/uploads/image/2026/01/d532b15b-1c78-483f-8fb4-b384ec45ce28.png',
+        image: '/product/xhs-2.png',
     },
     {
         title: '智能标签与历史管理,提升运营效率',
@@ -202,7 +202,7 @@ const toDemo = () => {
              <div class="relative p-2 rounded-3xl bg-gray-100/40 dark:bg-gray-800/40 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 max-w-5xl mx-auto">
                 <div class="relative rounded-2xl overflow-hidden border border-gray-200/50 dark:border-gray-700/50 shadow-sm bg-white/60 dark:bg-gray-800/60 aspect-video flex items-center justify-center">
                     <img
-                        src="/product/xhs-1.png"
+                        src="/product/小红书内容复刻.png"
                         alt="小红书"
                         class="w-full h-full object-contain"
                     >

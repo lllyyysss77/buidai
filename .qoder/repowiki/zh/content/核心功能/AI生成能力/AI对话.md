@@ -1,7 +1,7 @@
 # AI对话
 
 <cite>
-**本文档引用文件**  
+**本文档引用文件**
 - [ProductFeatures.vue](file://components/landing/ProductFeatures.vue)
 - [buidai.vue](file://pages/buidai.vue)
 - [demo.vue](file://pages/demo.vue)
@@ -48,7 +48,7 @@ E --> F["用户点击功能项了解详情"]
 
 功能项采用卡片式设计，每个卡片包含图标、功能名称和背景色。AI对话功能的图标为蓝色系，背景色为bg-indigo-50，文字颜色为text-indigo-600，形成统一的视觉识别体系。用户可以通过点击卡片了解功能详情，或通过演示链接直接体验AI对话功能。
 
-在demo.vue页面中，AI对话功能以"必定AI"产品形式展示，提供PC演示前台、WAP演示等多个访问入口，方便用户在不同设备上体验。
+在demo.vue页面中，AI对话功能以"必创AI"产品形式展示，提供PC演示前台、WAP演示等多个访问入口，方便用户在不同设备上体验。
 
 **Section sources**
 - [ProductFeatures.vue](file://components/landing/ProductFeatures.vue#L1-L163)

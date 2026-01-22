@@ -7,15 +7,15 @@ definePageMeta({
 });
 
 useSeoMeta({
-    title: '即梦AI - 开源免费的 AI 视频生成系统 | 必定AI-BuidAI',
-    description: '必定AI-BuidAI 即梦AI是一款快速生成视频的工具,用户只需输入文字描述或上传参考图,即可快速生成风格多样的短视频。支持纯文本提示词或上传参考图来生成视频,支持生成不同的视频比例、分辨率(720P、1080P)。基于开源技术构建,提供完整源码与私有化部署支持。',
-    keywords: '即梦AI,AI视频生成,文生视频,图生视频,视频生成工具,必定AI,BuidAI,视频制作,开源AI系统,私有化部署,即梦4.0,视频生成源码',
-    ogTitle: '即梦AI - 一键生成 AI 视频 | 必定AI-BuidAI',
+    title: '即梦AI - 开源免费的 AI 视频生成系统 | 必创AI-BuidAI',
+    description: '必创AI-BuidAI 即梦AI是一款快速生成视频的工具,用户只需输入文字描述或上传参考图,即可快速生成风格多样的短视频。支持纯文本提示词或上传参考图来生成视频,支持生成不同的视频比例、分辨率(720P、1080P)。基于开源技术构建,提供完整源码与私有化部署支持。',
+    keywords: '即梦AI,AI视频生成,文生视频,图生视频,视频生成工具,必创AI,BuidAI,视频制作,开源AI系统,私有化部署,即梦4.0,视频生成源码',
+    ogTitle: '即梦AI - 一键生成 AI 视频 | 必创AI-BuidAI',
     ogDescription: '输入文字描述或上传参考图,即可快速生成风格多样的短视频。支持纯文本提示词、多种视频比例和分辨率,让创作更简单。',
     ogImage: '/product/jimeng.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: '即梦AI - 一键生成 AI 视频 | 必定AI-BuidAI',
+    twitterTitle: '即梦AI - 一键生成 AI 视频 | 必创AI-BuidAI',
     twitterDescription: '输入文字描述或上传参考图,即可快速生成风格多样的短视频,支持纯文本提示词和多种视频比例。',
     twitterImage: '/product/jimeng.png'
 });
@@ -78,7 +78,7 @@ const featureDetails = ref([
                 desc: '生成的视频质量高,细节丰富,色彩饱满,满足专业级创作需求。'
             }
         ],
-        image: 'https://server.buildingai.cc/uploads/image/2025/11/585c00e5-374f-4bf1-81e8-b208ba435a77.png',
+        image: 'https://p16-seeyou-sg.ibyteimg.com/tos-alisg-i-2zwwjm3azk-sg/51e77fefab4f94dda92bd263f62e59ff.png~tplv-2zwwjm3azk-image.webp',
     },
     {
         title: '图生视频,参考图智能融合',
@@ -102,7 +102,7 @@ const featureDetails = ref([
                 desc: '支持纯文本提示词和上传参考图两种方式,满足不同用户的创作习惯。'
             }
         ],
-        image: '/product/jimeng-3.png',
+        image: 'https://p16-seeyou-sg.ibyteimg.com/tos-alisg-i-2zwwjm3azk-sg/7180d53252802aa2e3b3f81e546d7252.png~tplv-2zwwjm3azk-image.image',
     },
     {
         title: '后台管理与配置,灵活可控',
@@ -202,7 +202,7 @@ const toDemo = () => {
              <div class="relative p-2 rounded-3xl bg-gray-100/40 dark:bg-gray-800/40 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 max-w-5xl mx-auto">
                 <div class="relative rounded-2xl overflow-hidden border border-gray-200/50 dark:border-gray-700/50 shadow-sm bg-white/60 dark:bg-gray-800/60 aspect-video flex items-center justify-center">
                     <img
-                        src="https://server.buildingai.cc/uploads/image/2025/11/e05b4a10-0de2-4267-a8af-1a8b1a59e2a8.png"
+                        src="/public/plugin/即梦AI视频.png"
                         alt="即梦AI视频生成展示"
                         class="w-full h-full object-contain"
                     >

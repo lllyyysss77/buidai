@@ -32,7 +32,7 @@ interface ProductDemo {
 const products: ProductDemo[] = [
   {
     id: 'chat-bot',
-    title: '必定AI',
+    title: '必创AI',
     description: '基于大语言模型的智能客服与对话系统，支持多轮对话、上下文理解与意图识别。',
     icon: ChatBubbleLeftRightIcon,
     status: 'online',
@@ -129,7 +129,7 @@ function toggleProduct(productId: string): void {
 const siteName = 'BuidAI'
 const baseUrl = 'https://buidai.com'
 const pageTitle = '产品演示中心 - BuidAI | 在线体验AI产品'
-const pageDescription = 'BuidAI产品演示中心，在线体验必定AI智能客服、企业知识库、聊天绘画、AI数字人等AI产品。支持PC端、移动端、后台管理等多平台演示。'
+const pageDescription = 'BuidAI产品演示中心，在线体验必创AI智能客服、企业知识库、聊天绘画、AI数字人等AI产品。支持PC端、移动端、后台管理等多平台演示。'
 const canonicalUrl = `${baseUrl}/demo`
 const ogImage = `${baseUrl}/images/og-demo.png`
 

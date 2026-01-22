@@ -7,15 +7,15 @@ definePageMeta({
 });
 
 useSeoMeta({
-    title: 'AI短剧小说创作 - 开源免费的网文短剧写作系统 | 必定AI-BuidAI',
-    description: '必定AI-BuidAI 网文短剧写作是一款专注于短剧本和网络小说创作的辅助工具,适合自媒体创作者、编剧、网络作家及内容团队使用。提供丰富的剧情模板、角色设定和冲突框架,支持创建无限量剧本、章节可视化拖拽、AI 扩写润色改写续写。基于开源技术构建,提供完整源码与私有化部署支持。',
-    keywords: 'AI短剧创作,网文写作,短剧本创作,网络小说,AI写作工具,必定AI,BuidAI,小说创作,剧本生成,AI扩写,AI润色,开源AI系统,私有化部署',
-    ogTitle: 'AI 短剧小说创作 - 打造爆款短剧的神器 | 必定AI-BuidAI',
+    title: 'AI短剧小说创作 - 开源免费的网文短剧写作系统 | 必创AI-BuidAI',
+    description: '必创AI-BuidAI 网文短剧写作是一款专注于短剧本和网络小说创作的辅助工具,适合自媒体创作者、编剧、网络作家及内容团队使用。提供丰富的剧情模板、角色设定和冲突框架,支持创建无限量剧本、章节可视化拖拽、AI 扩写润色改写续写。基于开源技术构建,提供完整源码与私有化部署支持。',
+    keywords: 'AI短剧创作,网文写作,短剧本创作,网络小说,AI写作工具,必创AI,BuidAI,小说创作,剧本生成,AI扩写,AI润色,开源AI系统,私有化部署',
+    ogTitle: 'AI 短剧小说创作 - 打造爆款短剧的神器 | 必创AI-BuidAI',
     ogDescription: '专为自媒体创作者、编剧、网络作家打造,支持创建无限量剧本、角色设定、章节可视化拖拽、AI 扩写润色改写续写。让短剧创作更高效、更系统。',
     ogImage: '/product/drama.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'AI 短剧小说创作 - 打造爆款短剧的神器 | 必定AI-BuidAI',
+    twitterTitle: 'AI 短剧小说创作 - 打造爆款短剧的神器 | 必创AI-BuidAI',
     twitterDescription: '专为自媒体创作者、编剧、网络作家打造,支持创建无限量剧本、角色设定、章节可视化拖拽、AI 扩写润色改写续写。',
     twitterImage: '/product/drama.png'
 });
@@ -78,7 +78,7 @@ const featureDetails = ref([
                 desc: '支持创建无限量剧本和小说,满足自媒体创作者、编剧、网络作家的多样化创作需求。'
             }
         ],
-        image: 'https://server.buildingai.cc/uploads/image/2025/12/ae4bfe56-455b-4689-9499-665fb3e97cbf.png',
+        image: '/product/drama-1.png',
     },
     {
         title: '章节可视化拖拽与大纲管理,系统化创作流程',
@@ -102,7 +102,7 @@ const featureDetails = ref([
                 desc: '随时调整章节顺序和内容结构,支持草稿编辑与复用,方便内容迭代与优化。'
             }
         ],
-        image: 'https://server.buildingai.cc/uploads/image/2025/12/469c84d0-4c36-4ae1-95fd-bb94a58a13b5.png',
+        image: '/product/drama-2.png',
     },
     {
         title: 'AI 智能辅助写作,提升创作效率与质量',
@@ -202,7 +202,7 @@ const toDemo = () => {
              <div class="relative p-2 rounded-3xl bg-gray-100/40 dark:bg-gray-800/40 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 max-w-5xl mx-auto">
                 <div class="relative rounded-2xl overflow-hidden border border-gray-200/50 dark:border-gray-700/50 shadow-sm bg-white/60 dark:bg-gray-800/60 aspect-video flex items-center justify-center">
                     <img
-                        src="https://server.buildingai.cc/uploads/image/2025/12/b333a8b0-0244-4c9a-9cfd-15d4ab764a87.png"
+                        src="/public/plugin/AI短剧小说创作.png"
                         alt="AI短剧小说创作"
                         class="w-full h-full object-contain"
                     >

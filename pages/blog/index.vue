@@ -104,9 +104,9 @@ const route = useRoute()
 
 // SEO
 useSeoMeta({
-  title: '必定AI - BuidAI | 技术博客、AI技术洞察、教程与最佳实践',
+  title: '必创AI - BuidAI | 技术博客、AI技术洞察、教程与最佳实践',
   description: '浏览 BuidAI 技术博客，获取最新的 AI 技术见解、深度开发教程、行业动态分析及企业级应用最佳实践。与我们一起探索人工智能的无限可能。',
-  keywords: '必定AI博客, AI技术博客, 人工智能教程, AI开发实践, 机器学习, 大模型应用, 技术洞察, 行业动态'
+  keywords: '必创AI博客, AI技术博客, 人工智能教程, AI开发实践, 机器学习, 大模型应用, 技术洞察, 行业动态'
 })
 
 // State

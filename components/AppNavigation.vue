@@ -61,7 +61,7 @@
               <template #leading>
                 <ArrowRightOnRectangleIcon class="w-4 h-4" />
               </template>
-              登录必定
+              登录必创
             </UButton>
           </div>
 
@@ -132,7 +132,7 @@
               <template #leading>
                 <ArrowRightOnRectangleIcon class="w-5 h-5" />
               </template>
-              登录必定
+              登录必创
             </UButton>
           </div>
         </div>
@@ -168,7 +168,7 @@ const isScrolled = ref(false)
 const items = computed<NavigationMenuItem[][]>(() => [
   [
     { label: '首页', to: '/', icon: 'i-lucide-house' },
-    { label: '必定AI', to: '/agent', icon: 'i-lucide-bot' },
+    { label: '必创AI', to: '/agent', icon: 'i-lucide-bot' },
     { label: '私有部署', to: '/buidai', icon: 'i-lucide-server' },
     {
       label: '解决方案',

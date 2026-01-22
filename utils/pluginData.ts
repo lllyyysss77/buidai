@@ -57,10 +57,10 @@ export const categories: Category[] = [
 export const apps: AppData[] = [
   {
     id: 0,
-    name: 'BuidAl部署服务',
-    description: '官方技术专家，帮您部署 BuildAl 平台框架，支持本地部署或服务器部署',
+    name: '必创AI部署服务',
+    description: '官方技术专家，帮您部署 必创AI 平台框架，支持本地部署或服务器部署',
     icon: VideoIcon,
-    image: '/images/部署服务.png',
+    image: '/images/code1.png',
     category: 'video',
     originalPrice: 1398.00,
     discountPrice: 500.00,
@@ -170,7 +170,7 @@ export const apps: AppData[] = [
     name: 'AI直播短视频数字人',
     description: '7x24小时无人直播，数字人带货，低成本高回报。打造永不休息的超级主播，抢占直播红利。',
     icon: TvIcon,
-    image: '/plugin/AI直播短视频数字人.png',
+    image: '/plugin/AI直播短视频数字人.webp',
     category: 'video',
     originalPrice: 3999.00,
     discountPrice: 1999.00,

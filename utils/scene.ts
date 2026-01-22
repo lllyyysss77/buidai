@@ -16,7 +16,7 @@ export const sceneApps: SceneAppData[] = [
   {
     name: '大模型擂台',
     description: '大模型擂台是一款集合了众多先进大型语言模型的竞技与交流平台，致力于为用户提供最前沿的A技术体验与高效的问题解决服务。通过这款软件，用户可以轻松报触到由全球顶尖团队研发的各种大模型，感受它们在文本生成、语言理解、知识问答等多方面的强大能力。',
-    image: 'https://server.buildingai.cc/uploads/image/2026/01/1763924b-e6ce-4c81-977e-37028d4bbda0.png'
+    image: '/product/arena.png'
   },
   {
     name: 'Nanobanana',
@@ -61,7 +61,7 @@ export const sceneApps: SceneAppData[] = [
   {
     name: 'AI直播短视频数字人',
     description: '7x24小时无人直播，数字人带货，低成本高回报。打造永不休息的超级主播，抢占直播红利。',
-    image: '/plugin/AI直播短视频数字人.png'
+    image: '/plugin/AI直播短视频数字人.webp'
   },
   {
     name: 'AI短剧小说创作',
@@ -106,17 +106,17 @@ export const sceneApps: SceneAppData[] = [
   {
     name: '豆包最强视频生成模型',
     description: '豆包最强视频生成模型，基于豆包大模型，提供强大的视频生成能力。',
-    image: '/plugin/豆包视频生成模型.jpg'
+    image: '/plugin/豆包视频生成模型.png'
   },
   {
     name: '营销素材生成',
     description: '批量高效生成广告素材，全面适配产品推广、品牌塑造及活动营销。',
-    image: '/plugin/营销素材.jpg'
+    image: '/plugin/营销素材.png'
   },
   {
     name: '影视作品生成',
     description: '电影、动漫等影视制作场景，可支持影视作品图或者宣发海报等物料制作。',
-    image: '/plugin/影视作品生成.jpg'
+    image: '/plugin/影视作品生成.png'
   },
   {
     name: 'AI音乐',

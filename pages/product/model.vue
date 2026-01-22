@@ -7,15 +7,15 @@ definePageMeta({
 });
 
 useSeoMeta({
-    title: '电商试衣换装 - 开源免费的AI模特换装系统 | 必定AI-BuidAI',
-    description: '必定AI-BuidAI 电商试衣换装是一款专为电商卖家打造的AI视觉优化解决方案，提升商品主图的吸引力与转化率。无需复杂拍摄与高昂成本，通过AI技术，即可实现「商品一键适配模特上身」与「背景智能替换」两大核心功能，让您的商品在众多竞争者中脱颖而出。基于开源技术构建，提供完整源码与私有化部署支持。',
-    keywords: '电商试衣,AI换装,AI模特,背景替换,商品主图,电商视觉优化,必定AI,BuidAI,AI系统,AI源码,开源代码,试衣换装源码',
-    ogTitle: '电商试衣换装 - AI模特多场景切换 | 必定AI-BuidAI',
+    title: '电商试衣换装 - 开源免费的AI模特换装系统 | 必创AI-BuidAI',
+    description: '必创AI-BuidAI 电商试衣换装是一款专为电商卖家打造的AI视觉优化解决方案，提升商品主图的吸引力与转化率。无需复杂拍摄与高昂成本，通过AI技术，即可实现「商品一键适配模特上身」与「背景智能替换」两大核心功能，让您的商品在众多竞争者中脱颖而出。基于开源技术构建，提供完整源码与私有化部署支持。',
+    keywords: '电商试衣,AI换装,AI模特,背景替换,商品主图,电商视觉优化,必创AI,BuidAI,AI系统,AI源码,开源代码,试衣换装源码',
+    ogTitle: '电商试衣换装 - AI模特多场景切换 | 必创AI-BuidAI',
     ogDescription: '专为电商卖家打造的AI视觉优化解决方案，提升商品主图的吸引力与转化率。无需复杂拍摄与高昂成本，通过AI技术实现商品一键适配模特上身与背景智能替换。',
     ogImage: '/product/model.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: '电商试衣换装 - AI模特多场景切换 | 必定AI-BuidAI',
+    twitterTitle: '电商试衣换装 - AI模特多场景切换 | 必创AI-BuidAI',
     twitterDescription: '专为电商卖家打造的AI视觉优化解决方案，提升商品主图的吸引力与转化率。无需复杂拍摄与高昂成本，通过AI技术实现商品一键适配模特上身与背景智能替换。',
     twitterImage: '/product/model.png'
 });
@@ -102,7 +102,7 @@ const featureDetails = ref([
                 desc: '支持高清图片输出，确保商品细节清晰可见，满足电商平台要求。'
             }
         ],
-        image: 'https://server.buildingai.cc/uploads/image/2025/12/c951b9f7-dd34-46ed-97fb-89f1a62cc421.png',
+        image: '/product/model-2.png',
     },
     {
         title: '简洁易用，高效便捷',
@@ -202,7 +202,7 @@ const toDemo = () => {
              <div class="relative p-2 rounded-3xl bg-gray-100/40 dark:bg-gray-800/40 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 max-w-5xl mx-auto">
                 <div class="relative rounded-2xl overflow-hidden border border-gray-200/50 dark:border-gray-700/50 shadow-sm bg-white/60 dark:bg-gray-800/60 aspect-video flex items-center justify-center">
                     <img
-                        src="https://server.buildingai.cc/uploads/image/2025/12/4cdde414-ea72-4cc7-a838-18f47c909fc4.png"
+                        src="/public/plugin/模绘衣境.png"
                         alt="电商试衣换装展示"
                         class="w-full h-full object-contain"
                     >

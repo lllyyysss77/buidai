@@ -43,7 +43,7 @@
             </div>
             <div class="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
               <div class="space-y-2">
-                <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">必定AI-BuidAI应用市场上线啦!</h2>
+                <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">必创AI-BuidAI应用市场上线啦!</h2>
                 <p class="text-blue-100 text-sm sm:text-base">联系客服领取五折优惠码，数量有限，先到先得</p>
               </div>
               <button @click="openQrModal" class="px-6 py-2.5 bg-gray-900 text-white rounded-full font-medium text-sm hover:bg-gray-800 transition-colors shadow-lg whitespace-nowrap flex items-center gap-2">
@@ -172,10 +172,10 @@ definePageMeta({
 
 // SEO 元数据配置
 useSeoMeta({
-  title: '必定AI - 应用市场 - BuidAI | 丰富的 AI 插件与独立应用',
+  title: '必创AI - 应用市场 - BuidAI | 丰富的 AI 插件与独立应用',
   description: '探索 BuidAI 应用市场，发现和安装各类 AI 插件与独立应用。涵盖智能写作、图像处理、效率工具等多个领域，一键扩展您的 AI 办公能力。',
-  keywords: '必定AI应用市场, AI插件, 独立应用, AI工具商店, 智能办公插件, 效率工具, AI扩展, 开发者市场',
-  ogTitle: '必定AI - 应用市场 - BuidAI | 丰富的 AI 插件与独立应用',
+  keywords: '必创AI应用市场, AI插件, 独立应用, AI工具商店, 智能办公插件, 效率工具, AI扩展, 开发者市场',
+  ogTitle: '必创AI - 应用市场 - BuidAI | 丰富的 AI 插件与独立应用',
   ogDescription: '探索 BuidAI 应用市场，发现和安装各类 AI 插件与独立应用。涵盖智能写作、图像处理、效率工具等多个领域，一键扩展您的 AI 办公能力。',
   ogType: 'website'
 })

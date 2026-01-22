@@ -7,15 +7,15 @@ definePageMeta({
 });
 
 useSeoMeta({
-    title: '视频混剪助手 - 开源免费的视频剪辑软件 | 必定AI-BuidAI',
-    description: '必定AI-BuidAI 视频混剪助手是一款高效易用的视频剪辑软件,专为短视频创作者、Vlogger及营销人员设计。支持自动化批量剪辑、智能转场、滤镜调色、字幕添加和背景音乐匹配,提供海量模板与素材库,一键生成节奏感强、视觉冲击力大的混剪视频。无论是门店营销推广、产品带货、直播切片,都能轻松制作出专业级别的视频内容,大幅降低剪辑门槛与时间成本。基于开源技术构建,提供完整源码与私有化部署支持。',
-    keywords: '视频混剪,视频剪辑,批量剪辑,智能转场,滤镜调色,字幕添加,背景音乐,必定AI,BuidAI,视频制作工具,开源AI系统,私有化部署,视频剪辑源码',
-    ogTitle: '视频混剪助手 - 一键生成混剪视频 | 必定AI-BuidAI',
+    title: '视频混剪助手 - 开源免费的视频剪辑软件 | 必创AI-BuidAI',
+    description: '必创AI-BuidAI 视频混剪助手是一款高效易用的视频剪辑软件,专为短视频创作者、Vlogger及营销人员设计。支持自动化批量剪辑、智能转场、滤镜调色、字幕添加和背景音乐匹配,提供海量模板与素材库,一键生成节奏感强、视觉冲击力大的混剪视频。无论是门店营销推广、产品带货、直播切片,都能轻松制作出专业级别的视频内容,大幅降低剪辑门槛与时间成本。基于开源技术构建,提供完整源码与私有化部署支持。',
+    keywords: '视频混剪,视频剪辑,批量剪辑,智能转场,滤镜调色,字幕添加,背景音乐,必创AI,BuidAI,视频制作工具,开源AI系统,私有化部署,视频剪辑源码',
+    ogTitle: '视频混剪助手 - 一键生成混剪视频 | 必创AI-BuidAI',
     ogDescription: '高效易用的视频剪辑软件,支持自动化批量剪辑、智能转场、滤镜调色、字幕添加和背景音乐匹配。一键生成节奏感强、视觉冲击力大的混剪视频。',
     ogImage: '/product/videoclip.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: '视频混剪助手 - 一键生成混剪视频 | 必定AI-BuidAI',
+    twitterTitle: '视频混剪助手 - 一键生成混剪视频 | 必创AI-BuidAI',
     twitterDescription: '高效易用的视频剪辑软件,支持自动化批量剪辑、智能转场、滤镜调色、字幕添加和背景音乐匹配,大幅降低剪辑门槛与时间成本。',
     twitterImage: '/product/videoclip.png'
 });
@@ -78,7 +78,7 @@ const featureDetails = ref([
                 desc: '生成的视频质量高,画面清晰,节奏感强,满足专业级创作需求。'
             }
         ],
-        image: 'https://server.buildingai.cc/uploads/image/2025/12/d2da3fab-1fed-4e3f-8649-006302931c30.png',
+        image: 'https://p16-seeyou-sg.ibyteimg.com/tos-alisg-i-2zwwjm3azk-sg/29d316a12e2de4ed57396acbe5019bd9.png~tplv-2zwwjm3azk-image.image',
     },
     {
         title: '智能转场,流畅自然',
@@ -102,7 +102,7 @@ const featureDetails = ref([
                 desc: '视频衔接流畅自然,节奏感强,视觉冲击力大,提升观看体验。'
             }
         ],
-        image: 'https://server.buildingai.cc/uploads/image/2025/12/d2da3fab-1fed-4e3f-8649-006302931c30.png',
+        image: 'https://p16-seeyou-sg.ibyteimg.com/tos-alisg-i-2zwwjm3azk-sg/103ba53a1feb6150655a8928356f448e.png~tplv-2zwwjm3azk-image.webp',
     },
     {
         title: '滤镜调色与字幕添加,专业级制作',
@@ -126,7 +126,7 @@ const featureDetails = ref([
                 desc: '提供海量模板与素材库,一键套用模板,快速生成专业级视频。'
             }
         ],
-        image: 'https://server.buildingai.cc/uploads/image/2025/12/d2da3fab-1fed-4e3f-8649-006302931c30.png',
+        image: 'https://p16-seeyou-sg.ibyteimg.com/tos-alisg-i-2zwwjm3azk-sg/9046c049b429b7e163d400f2fd6e9d95.png~tplv-2zwwjm3azk-image.webp',
     },
 ]);
 
@@ -202,7 +202,7 @@ const toDemo = () => {
              <div class="relative p-2 rounded-3xl bg-gray-100/40 dark:bg-gray-800/40 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 max-w-5xl mx-auto">
                 <div class="relative rounded-2xl overflow-hidden border border-gray-200/50 dark:border-gray-700/50 shadow-sm bg-white/60 dark:bg-gray-800/60 aspect-video flex items-center justify-center">
                     <img
-                        src="/product/videoclip-1.png"
+                        src="/plugin/热门视频混剪.png"
                         alt="视频混剪助手展示"
                         class="w-full h-full object-contain"
                     >

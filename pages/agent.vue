@@ -12,7 +12,7 @@
         </div>
 
         <h1 class="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight mb-6 text-neutral-900 leading-tight">
-必定AI <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-blue-400 block sm:inline">企业级 AI </span>应用构建平台
+必创AI <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-blue-400 block sm:inline">企业级 AI </span>应用构建平台
         </h1>
 
         <p class="text-base sm:text-xl text-neutral-500 mb-8 md:mb-10 max-w-3xl mx-auto px-2">
@@ -185,7 +185,7 @@
           <!-- 左侧：标题 -->
           <div class="lg:w-1/3 w-full text-center lg:text-left">
             <h2 class="text-2xl md:text-4xl font-bold text-neutral-900 mb-4">常见问题</h2>
-            <p class="text-neutral-500 text-sm md:text-base mb-6">关于必定AI的常见疑问解答</p>
+            <p class="text-neutral-500 text-sm md:text-base mb-6">关于必创AI的常见疑问解答</p>
             <div class="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 justify-center lg:justify-start">
               <button @click="openQrModal('coupon')" class="px-6 py-2.5 rounded-full bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 active:scale-95 transition-all flex items-center justify-center gap-2 touch-manipulation">
                 <TicketIcon class="w-4 h-4" />
@@ -243,7 +243,7 @@
               现在开始构建您的 <span class="text-transparent bg-clip-text bg-[linear-gradient(to_right,#2055FA,#1B52F8,#A07CFE,#ADB9FF)]">AI Agent</span>
             </h2>
             <p class="text-lg md:text-xl text-neutral-500 dark:text-neutral-400 leading-relaxed">
-              加入数万开发者的行列，使用 必定AI 释放智能体的无限潜能，让 AI 触手可及。
+              加入数万开发者的行列，使用 必创AI 释放智能体的无限潜能，让 AI 触手可及。
             </p>
           </div>
 
@@ -333,11 +333,11 @@ interface Faq {
 
 // SEO 元数据配置
 useSeoMeta({
-  title: '必定AI - 企业级 AI Agent 智能体构建平台',
-  description: '必定AI 企业级 AI 应用构建平台。可视化 Workflow 编排 + 超易用 AI 知识库 + 创新 RAG 检索 + 模板生态 = 轻松构建强大 AI 应用。全方位赋能企业 AI 转型，打造智能高效的业务闭环。',
-  keywords: 'AI Agent, 智能体, 企业级AI, AI应用平台, 必定AI, Workflow, RAG',
-  ogTitle: '必定AI - 企业级 AI Agent 智能体构建平台',
-  ogDescription: '必定AI 企业级 AI 应用构建平台。可视化 Workflow 编排 + 超易用 AI 知识库 + 创新 RAG 检索 + 模板生态 = 轻松构建强大 AI 应用。',
+  title: '必创AI - 企业级 AI Agent 智能体构建平台',
+  description: '必创AI 企业级 AI 应用构建平台。可视化 Workflow 编排 + 超易用 AI 知识库 + 创新 RAG 检索 + 模板生态 = 轻松构建强大 AI 应用。全方位赋能企业 AI 转型，打造智能高效的业务闭环。',
+  keywords: 'AI Agent, 智能体, 企业级AI, AI应用平台, 必创AI, Workflow, RAG',
+  ogTitle: '必创AI - 企业级 AI Agent 智能体构建平台',
+  ogDescription: '必创AI 企业级 AI 应用构建平台。可视化 Workflow 编排 + 超易用 AI 知识库 + 创新 RAG 检索 + 模板生态 = 轻松构建强大 AI 应用。',
   ogType: 'website'
 })
 

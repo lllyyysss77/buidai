@@ -59,16 +59,16 @@ export default defineNuxtConfig({
   app: {
     // HTML Head 配置
     head: {
-      title: '必定AI-BuidAI,新一代AI一站式创意生产力平台',
+      title: '必创AI-BuidAI,新一代AI一站式创意生产力平台',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: '必定AI,BuidAI,必定AI是领先的企业级开源AI智能体搭建平台，提供强大的智能体搭建、编排与管理系统。我们赋能企业快速构建对话型智能体、任务型智能体及多智能体协同系统。基于大语言模型、RAG、Agentic Workflow与低代码技术，打造懂业务、能决策、可行动的AI数字员工与超级助手，实现业务流程自动化与智能决策，驱动企业增长' },
-        { name: 'keywords', content: '必定AI，BuidAI,必定AI,AIAgent,开源智能体平台,企业级AI,MCP,知识库,工作流,LLM聚合,AI应用开发' },
+        { name: 'description', content: '必创AI,BuidAI,必创AI是领先的企业级开源AI智能体搭建平台，提供强大的智能体搭建、编排与管理系统。我们赋能企业快速构建对话型智能体、任务型智能体及多智能体协同系统。基于大语言模型、RAG、Agentic Workflow与低代码技术，打造懂业务、能决策、可行动的AI数字员工与超级助手，实现业务流程自动化与智能决策，驱动企业增长' },
+        { name: 'keywords', content: '必创AI，BuidAI,必创AI,AIAgent,开源智能体平台,企业级AI,MCP,知识库,工作流,LLM聚合,AI应用开发' },
 
         // Open Graph 社交分享标签
-        { property: 'og:title', content: '必定AI,BuidAI - 降低企业 AI 应用开发门槛' },
-        { property: 'og:description', content: '必定AI,BuidAI 致力于降低企业 AI 应用开发门槛，赋能每一个团队构建智能未来。' },
+        { property: 'og:title', content: '必创AI,BuidAI - 降低企业 AI 应用开发门槛' },
+        { property: 'og:description', content: '必创AI,BuidAI 致力于降低企业 AI 应用开发门槛，赋能每一个团队构建智能未来。' },
         { property: 'og:type', content: 'website' }
       ],
       link: [

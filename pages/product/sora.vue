@@ -12,7 +12,7 @@ useSeoMeta({
     keywords: 'Sora,Sora视频,Sora源码,AI视频生成,文生视频,视频生成模型,BuidAI,开源AI系统,私有化部署,OpenAI Sora,视频大模型',
     ogTitle: 'Sora 视频生成引擎 - 打造您的专属 AI 视频创作平台 | BuidAI',
     ogDescription: '一键生成电影级 AI 视频，支持文生视频与图生视频。基于开源 Sora 技术构建的新一代 AI 视频生成平台，提供完整源码，让创意无限延伸。',
-    ogImage: '/product/sora.png',
+    ogImage: '/plugin/sora.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
     twitterTitle: 'Sora 视频生成引擎 - 打造您的专属 AI 视频创作平台 | BuidAI',
@@ -202,7 +202,7 @@ const toDemo = () => {
              <div class="relative p-2 rounded-3xl bg-gray-100/40 dark:bg-gray-800/40 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 max-w-5xl mx-auto">
                 <div class="relative rounded-2xl overflow-hidden border border-gray-200/50 dark:border-gray-700/50 shadow-sm bg-white/60 dark:bg-gray-800/60 aspect-video flex items-center justify-center">
                     <img
-                        src="/product/sora.png"
+                        src="/plugin/Sora2短剧视频创作.png"
                         alt="知识库展示"
                         class="w-full h-full object-contain"
                     >

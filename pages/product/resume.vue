@@ -7,15 +7,15 @@ definePageMeta({
 });
 
 useSeoMeta({
-    title: 'AI简历 - 开源免费的智能简历生成与分析系统 | 必定AI-BuidAI',
-    description: '必定AI-BuidAI AI简历致力于高效生成与深度优化您的个人简历，帮助您节省时间的同时，显著提升简历质量与影响力。是基于AI研发的智能文案生成平台。通过简单的基本信息输入，即可快速生成结构完整的个人简历。并可基于已有内容进行深度解析，评估亮点并提供优化建议。基于开源技术构建，提供完整源码与私有化部署支持。',
-    keywords: 'AI简历,智能简历,简历生成,简历分析,简历优化,简历模板,必定AI,BuidAI,简历制作工具,开源AI系统,私有化部署,简历源码',
-    ogTitle: 'AI简历 - 一键生成智能分析 | 必定AI-BuidAI',
+    title: 'AI简历 - 开源免费的智能简历生成与分析系统 | 必创AI-BuidAI',
+    description: '必创AI-BuidAI AI简历致力于高效生成与深度优化您的个人简历，帮助您节省时间的同时，显著提升简历质量与影响力。是基于AI研发的智能文案生成平台。通过简单的基本信息输入，即可快速生成结构完整的个人简历。并可基于已有内容进行深度解析，评估亮点并提供优化建议。基于开源技术构建，提供完整源码与私有化部署支持。',
+    keywords: 'AI简历,智能简历,简历生成,简历分析,简历优化,简历模板,必创AI,BuidAI,简历制作工具,开源AI系统,私有化部署,简历源码',
+    ogTitle: 'AI简历 - 一键生成智能分析 | 必创AI-BuidAI',
     ogDescription: '致力于高效生成与深度优化您的个人简历，帮助您节省时间的同时，显著提升简历质量与影响力。通过简单的基本信息输入，即可快速生成结构完整的个人简历。',
     ogImage: '/product/resume.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'AI简历 - 一键生成智能分析 | 必定AI-BuidAI',
+    twitterTitle: 'AI简历 - 一键生成智能分析 | 必创AI-BuidAI',
     twitterDescription: '致力于高效生成与深度优化您的个人简历，帮助您节省时间的同时，显著提升简历质量与影响力。',
     twitterImage: '/product/resume.png'
 });
@@ -78,7 +78,7 @@ const featureDetails = ref([
                 desc: '支持多种格式导出，如 PDF、Word 等，满足不同投递需求。'
             }
         ],
-        image: 'https://server.buildingai.cc/uploads/image/2025/11/f714c5ff-38f4-49f0-887a-ea883b7e8625.png',
+        image: '/plugin/AI简历.png',
     },
     {
         title: '简历模板，专业设计',
@@ -102,7 +102,7 @@ const featureDetails = ref([
                 desc: '支持自定义简历样式，包括字体、颜色、布局等，打造个性化简历。'
             }
         ],
-        image: 'https://server.buildingai.cc/uploads/image/2025/11/32113cec-db7c-4ffb-bc16-2025cc072f3e.png',
+        image: '/plugin/AI简历.png',
     },
     {
         title: 'AI分析，深度优化',
@@ -202,7 +202,7 @@ const toDemo = () => {
              <div class="relative p-2 rounded-3xl bg-gray-100/40 dark:bg-gray-800/40 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 max-w-5xl mx-auto">
                 <div class="relative rounded-2xl overflow-hidden border border-gray-200/50 dark:border-gray-700/50 shadow-sm bg-white/60 dark:bg-gray-800/60 aspect-video flex items-center justify-center">
                     <img
-                        src="https://server.buildingai.cc/uploads/image/2025/11/5efc9880-1dec-4d09-b0df-cf3fb2a01c69.png"
+                        src="/product/resume-1.png"
                         alt="AI简历展示"
                         class="w-full h-full object-contain"
                     >

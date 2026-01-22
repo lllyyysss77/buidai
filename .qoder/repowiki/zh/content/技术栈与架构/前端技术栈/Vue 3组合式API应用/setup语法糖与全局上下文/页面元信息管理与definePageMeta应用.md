@@ -1,7 +1,7 @@
 # 页面元信息管理与definePageMeta应用
 
 <cite>
-**本文档引用文件**   
+**本文档引用文件**
 - [index.vue](file://pages/index.vue)
 - [docs/index.vue](file://pages/docs/index.vue)
 - [docs/[...slug].vue](file://pages/docs/[...slug].vue)
@@ -89,9 +89,9 @@ definePageMeta({
 ```vue
 <script setup>
 useSeoMeta({
-  title: '必定AI - BuidAI新一代AI一站式创意生产力平台',
-  description: '必定AI - BuidAI新一代AI一站式创意生产力平台，为您提供全方位的智能创作服务。从AI对话、AI绘画、AI视频到知识库查询、模型管理，再到文件导入导出、网页解析、内容总结、图表生成等强大功能，满足您在创意工作中的各种需求。更有AI配音工具、艺术二维码、PDF解析工具、图文解析、文档问答、豆包文生图、AI改图、图像识别、网页速读、快递查询、天气查询以及爆款文章生成等特色功能，助力您高效创作，提升生产力，开启智能创意新时代',
-  keywords: '必定AI, BuidAI, AI创意生产力平台, 智能体,香蕉绘画Nanobanana, AI绘画, AI视频, AI对话, Sora2, 知识库, 内容总结, PDF解析工具, 文档问答, 爆款文章生成'
+  title: '必创AI - BuidAI新一代AI一站式创意生产力平台',
+  description: '必创AI - BuidAI新一代AI一站式创意生产力平台，为您提供全方位的智能创作服务。从AI对话、AI绘画、AI视频到知识库查询、模型管理，再到文件导入导出、网页解析、内容总结、图表生成等强大功能，满足您在创意工作中的各种需求。更有AI配音工具、艺术二维码、PDF解析工具、图文解析、文档问答、豆包文生图、AI改图、图像识别、网页速读、快递查询、天气查询以及爆款文章生成等特色功能，助力您高效创作，提升生产力，开启智能创意新时代',
+  keywords: '必创AI, BuidAI, AI创意生产力平台, 智能体,香蕉绘画Nanobanana, AI绘画, AI视频, AI对话, Sora2, 知识库, 内容总结, PDF解析工具, 文档问答, 爆款文章生成'
 })
 </script>
 ```
@@ -121,8 +121,8 @@ definePageMeta({
 ```vue
 <script setup lang="ts">
 useSeoMeta({
-  title: '必定AI - 价格方案 - BuidAI | 灵活透明的 AI 平台订阅计划',
-  description: '必定AI-BuidAI提供基础版、标准版、专业版及企业定制版等多种价格方案，满足个人开发者、初创团队及大型企业的不同 AI 应用开发需求。'
+  title: '必创AI - 价格方案 - BuidAI | 灵活透明的 AI 平台订阅计划',
+  description: '必创AI-BuidAI提供基础版、标准版、专业版及企业定制版等多种价格方案，满足个人开发者、初创团队及大型企业的不同 AI 应用开发需求。'
 })
 </script>
 ```
@@ -140,18 +140,18 @@ useSeoMeta({
   <div class="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
     <!-- 顶部横幅 -->
     <AppBanner />
-    
+
     <!-- 导航 -->
     <AppNavigation />
-    
+
     <!-- 主要内容 -->
     <main>
       <slot />
     </main>
-    
+
     <!-- Footer -->
     <AppFooter />
-    
+
     <!-- 返回顶部按钮 -->
     <BackToTop />
   </div>
@@ -182,9 +182,9 @@ definePageMeta({
 })
 
 useSeoMeta({
-  title: '必定AI - BuidAI新一代AI一站式创意生产力平台',
-  description: '必定AI - BuidAI新一代AI一站式创意生产力平台，为您提供全方位的智能创作服务。从AI对话、AI绘画、AI视频到知识库查询、模型管理，再到文件导入导出、网页解析、内容总结、图表生成等强大功能，满足您在创意工作中的各种需求。更有AI配音工具、艺术二维码、PDF解析工具、图文解析、文档问答、豆包文生图、AI改图、图像识别、网页速读、快递查询、天气查询以及爆款文章生成等特色功能，助力您高效创作，提升生产力，开启智能创意新时代',
-  keywords: '必定AI, BuidAI, AI创意生产力平台, 智能体,香蕉绘画Nanobanana, AI绘画, AI视频, AI对话, Sora2, 知识库, 内容总结, PDF解析工具, 文档问答, 爆款文章生成'
+  title: '必创AI - BuidAI新一代AI一站式创意生产力平台',
+  description: '必创AI - BuidAI新一代AI一站式创意生产力平台，为您提供全方位的智能创作服务。从AI对话、AI绘画、AI视频到知识库查询、模型管理，再到文件导入导出、网页解析、内容总结、图表生成等强大功能，满足您在创意工作中的各种需求。更有AI配音工具、艺术二维码、PDF解析工具、图文解析、文档问答、豆包文生图、AI改图、图像识别、网页速读、快递查询、天气查询以及爆款文章生成等特色功能，助力您高效创作，提升生产力，开启智能创意新时代',
+  keywords: '必创AI, BuidAI, AI创意生产力平台, 智能体,香蕉绘画Nanobanana, AI绘画, AI视频, AI对话, Sora2, 知识库, 内容总结, PDF解析工具, 文档问答, 爆款文章生成'
 })
 </script>
 ```
@@ -272,7 +272,7 @@ useSeoMeta({
 
 ```vue
 useSeoMeta({
-  keywords: '必定AI, BuidAI, AI创意生产力平台, 智能体,香蕉绘画Nanobanana, AI绘画, AI视频, AI对话, Sora2, 知识库, 内容总结, PDF解析工具, 文档问答, 爆款文章生成'
+  keywords: '必创AI, BuidAI, AI创意生产力平台, 智能体,香蕉绘画Nanobanana, AI绘画, AI视频, AI对话, Sora2, 知识库, 内容总结, PDF解析工具, 文档问答, 爆款文章生成'
 })
 ```
 
@@ -282,7 +282,7 @@ useSeoMeta({
 
 ```vue
 useSeoMeta({
-  description: '必定AI - BuidAI新一代AI一站式创意生产力平台，为您提供全方位的智能创作服务。从AI对话、AI绘画、AI视频到知识库查询、模型管理，再到文件导入导出、网页解析、内容总结、图表生成等强大功能，满足您在创意工作中的各种需求。更有AI配音工具、艺术二维码、PDF解析工具、图文解析、文档问答、豆包文生图、AI改图、图像识别、网页速读、快递查询、天气查询以及爆款文章生成等特色功能，助力您高效创作，提升生产力，开启智能创意新时代'
+  description: '必创AI - BuidAI新一代AI一站式创意生产力平台，为您提供全方位的智能创作服务。从AI对话、AI绘画、AI视频到知识库查询、模型管理，再到文件导入导出、网页解析、内容总结、图表生成等强大功能，满足您在创意工作中的各种需求。更有AI配音工具、艺术二维码、PDF解析工具、图文解析、文档问答、豆包文生图、AI改图、图像识别、网页速读、快递查询、天气查询以及爆款文章生成等特色功能，助力您高效创作，提升生产力，开启智能创意新时代'
 })
 ```
 
@@ -292,8 +292,8 @@ Open Graph协议是社交媒体分享预览的重要标准。通过设置`og:tit
 
 ```vue
 useSeoMeta({
-  ogTitle: '必定AI - BuidAI新一代AI一站式创意生产力平台',
-  ogDescription: '必定AI - BuidAI 致力于降低企业 AI 应用开发门槛，赋能每一个团队构建智能未来。',
+  ogTitle: '必创AI - BuidAI新一代AI一站式创意生产力平台',
+  ogDescription: '必创AI - BuidAI 致力于降低企业 AI 应用开发门槛，赋能每一个团队构建智能未来。',
   ogType: 'website'
 })
 ```

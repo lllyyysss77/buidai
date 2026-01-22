@@ -1,7 +1,7 @@
 ---
 category: 进阶教程
 title: 前置准备
-description: 本地运行 BuildingAI 之前的环境准备指南，包括 Docker、NodeJS 和 pnpm 的安装。
+description: 本地运行 buidAI 之前的环境准备指南，包括 Docker、NodeJS 和 pnpm 的安装。
 navigation:
   title: 前置准备
   icon: i-lucide-database
@@ -9,7 +9,7 @@ navigation:
 
 为了更好的开发体验，我们提供了一些工具配置、项目说明，以便于您更好的开发。
 
-本地运行 BuildingAI 之前，你首先需要安装一些开发环境依赖项：
+本地运行 buidAI 之前，你首先需要安装一些开发环境依赖项：
 
 - Docker
 - NodeJS

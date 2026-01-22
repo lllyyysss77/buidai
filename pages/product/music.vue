@@ -7,15 +7,15 @@ definePageMeta({
 });
 
 useSeoMeta({
-    title: 'AI音乐 - 开源免费的 AI 音乐生成系统 | 必定AI-BuidAI',
-    description: '必定AI-BuidAI AI音乐是一款以文本/歌词/哼唱/乐谱为输入,快速生成完整歌曲、伴奏、人声或纯音乐的创作与生产工具,旨在降低门槛、提升效率,支持个人娱乐与商用配乐的"人机协同"。基于开源技术构建,提供完整源码与私有化部署支持。',
-    keywords: 'AI音乐,音乐生成,文生音乐,歌词生成,哼唱生成,乐谱生成,必定AI,BuidAI,音乐创作工具,开源AI系统,私有化部署,音乐源码',
-    ogTitle: 'AI音乐 - 一键生成 AI 音乐 | 必定AI-BuidAI',
+    title: 'AI音乐 - 开源免费的 AI 音乐生成系统 | 必创AI-BuidAI',
+    description: '必创AI-BuidAI AI音乐是一款以文本/歌词/哼唱/乐谱为输入,快速生成完整歌曲、伴奏、人声或纯音乐的创作与生产工具,旨在降低门槛、提升效率,支持个人娱乐与商用配乐的"人机协同"。基于开源技术构建,提供完整源码与私有化部署支持。',
+    keywords: 'AI音乐,音乐生成,文生音乐,歌词生成,哼唱生成,乐谱生成,必创AI,BuidAI,音乐创作工具,开源AI系统,私有化部署,音乐源码',
+    ogTitle: 'AI音乐 - 一键生成 AI 音乐 | 必创AI-BuidAI',
     ogDescription: '以文本/歌词/哼唱/乐谱为输入,快速生成完整歌曲、伴奏、人声或纯音乐。降低门槛、提升效率,支持个人娱乐与商用配乐。',
     ogImage: '/product/music.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'AI音乐 - 一键生成 AI 音乐 | 必定AI-BuidAI',
+    twitterTitle: 'AI音乐 - 一键生成 AI 音乐 | 必创AI-BuidAI',
     twitterDescription: '以文本/歌词/哼唱/乐谱为输入,快速生成完整歌曲、伴奏、人声或纯音乐,降低门槛、提升效率。',
     twitterImage: '/product/music.png'
 });
@@ -78,7 +78,7 @@ const featureDetails = ref([
                 desc: '生成的音乐质量高,音质清晰,旋律优美,满足专业级创作需求。'
             }
         ],
-        image: 'https://server.buildingai.cc/uploads/image/2025/12/d6b8f151-cb48-4450-a93c-6f483838fb9e.png',
+        image: '/product/AI音乐.png',
     },
     {
         title: '哼唱生成,旋律即刻成曲',
@@ -102,7 +102,7 @@ const featureDetails = ref([
                 desc: '支持文本、歌词、哼唱、乐谱多种方式,满足不同用户的创作习惯。'
             }
         ],
-        image: 'https://server.buildingai.cc/uploads/image/2025/12/6dcba637-d63b-48e8-a721-b6656c0240be.png',
+        image: '/product/AI音乐.png',
     },
     {
         title: '多种输出,满足不同场景',
@@ -126,7 +126,7 @@ const featureDetails = ref([
                 desc: '提供完整的商用授权支持,支持个人娱乐与商用配乐,满足商业需求。'
             }
         ],
-        image: '/product/music-3.png',
+        image: '/product/AI音乐.png',
     },
 ]);
 
@@ -202,7 +202,7 @@ const toDemo = () => {
              <div class="relative p-2 rounded-3xl bg-gray-100/40 dark:bg-gray-800/40 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 max-w-5xl mx-auto">
                 <div class="relative rounded-2xl overflow-hidden border border-gray-200/50 dark:border-gray-700/50 shadow-sm bg-white/60 dark:bg-gray-800/60 aspect-video flex items-center justify-center">
                     <img
-                        src="https://server.buildingai.cc/uploads/image/2025/12/d6b8f151-cb48-4450-a93c-6f483838fb9e.png"
+                        src="/product/AI音乐.png"
                         alt="AI音乐生成展示"
                         class="w-full h-full object-contain"
                     >

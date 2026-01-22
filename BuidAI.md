@@ -29,7 +29,7 @@ trigger: always_on
 
 ### 项目定位
 
-BuidAI（必定AI）是一个面向企业级 AI 应用开发平台的官网模板项目，专为以下用户群体设计：
+BuidAI（必创AI）是一个面向企业级 AI 应用开发平台的官网模板项目，专为以下用户群体设计：
 
 - **AI 开发者**: 提供完整的技术文档和开发指南
 - **AI 创业者**: 展示产品特性和商业价值
@@ -74,7 +74,7 @@ BuidAI（必定AI）是一个面向企业级 AI 应用开发平台的官网模�
 
 #### 营销页面
 - **首页**: 8 个模块化营销组件
-- **产品页**: 必定AI、私有部署方案
+- **产品页**: 必创AI、私有部署方案
 - **解决方案**: 行业应用场景
 - **定价方案**: 灵活的订阅模式
 
@@ -108,7 +108,7 @@ BuidAI（必定AI）是一个面向企业级 AI 应用开发平台的官网模�
 ```typescript
 // 全局 Head 配置
 {
-  title: '必定AI - BuidAI新一代AI一站式创意生产力平台',
+  title: '必创AI - BuidAI新一代AI一站式创意生产力平台',
   description: '250+字详细描述',
   keywords: 'AI绘画, AI视频, Sora2, 知识库...',
   ogTitle: '...',
@@ -221,7 +221,7 @@ e:\buidai.com\buidai/
 │   │   ├── [...slug].vue   # 文档详情页
 │   │   └── index.vue       # 文档首页
 │   ├── index.vue           # 首页
-│   ├── agent.vue           # 必定AI页
+│   ├── agent.vue           # 必创AI页
 │   ├── buidai.vue          # 私有部署页
 │   ├── pricing.vue         # 定价方案
 │   ├── solutions.vue       # 解决方案
@@ -382,7 +382,7 @@ export default defineContentConfig({
         image: z.string().optional()
       })
     }),
-    
+
     // 文档集合
     docs: defineCollection({
       type: 'page',
@@ -394,7 +394,7 @@ export default defineContentConfig({
         order: z.number().optional()
       })
     }),
-    
+
     // 更新日志集合
     update: defineCollection({
       type: 'page',
@@ -532,7 +532,7 @@ authors:
     label="点击我"
     @click="handleClick"
   />
-  
+
   <UCard>
     <template #header>
       <h3>卡片标题</h3>
@@ -579,7 +579,7 @@ defineProps<Props>()
 | 路由 | 文件路径 | 说明 |
 |------|---------|------|
 | `/` | `pages/index.vue` | 首页 |
-| `/agent` | `pages/agent.vue` | 必定AI产品页 |
+| `/agent` | `pages/agent.vue` | 必创AI产品页 |
 | `/buidai` | `pages/buidai.vue` | 私有部署方案 |
 | `/solutions` | `pages/solutions.vue` | 解决方案 |
 | `/plugin` | `pages/plugin.vue` | 应用中心 |
@@ -650,17 +650,17 @@ definePageMeta({
   <!-- 间距 -->
   <div class="section-padding">  <!-- py-16 sm:py-20 lg:py-24 -->
     <div class="container-padding">  <!-- px-4 sm:px-6 lg:px-8 -->
-      
+
       <!-- 按钮 -->
       <button class="btn-primary">主要按钮</button>
       <button class="btn-secondary">次要按钮</button>
       <button class="btn-ghost">幽灵按钮</button>
-      
+
       <!-- 卡片 -->
       <div class="card card-hover">
         卡片内容
       </div>
-      
+
     </div>
   </div>
 </template>
@@ -673,11 +673,11 @@ definePageMeta({
   <div class="animate-slide-up animation-delay-200">
     延迟200ms上滑淡入
   </div>
-  
+
   <div class="animate-fade-in">
     淡入效果
   </div>
-  
+
   <div class="animate-marquee-vertical">
     垂直跑马灯
   </div>
@@ -835,7 +835,7 @@ function createArray<T>(length: number, value: T): T[] {
 <template>
   <!-- 优先使用 Tailwind 工具类 -->
   <div class="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm">
-    
+
     <!-- 复杂样式使用 scoped CSS -->
     <div class="custom-gradient">
       内容
@@ -861,15 +861,15 @@ function createArray<T>(length: number, value: T): T[] {
       <li><a href="/">首页</a></li>
     </ul>
   </nav>
-  
+
   <!-- 图片添加 alt 属性 -->
   <img src="/logo.svg" alt="BuidAI Logo" />
-  
+
   <!-- 按钮添加 aria-label -->
   <button aria-label="打开菜单" @click="toggleMenu">
     <MenuIcon />
   </button>
-  
+
   <!-- 表单标签关联 -->
   <label for="email">邮箱</label>
   <input id="email" type="email" />
@@ -913,7 +913,7 @@ const HeavyComponent = defineAsyncComponent(() =>
 <template>
   <!-- 懒加载 -->
   <img src="/image.jpg" loading="lazy" decoding="async" />
-  
+
   <!-- 响应式图片 -->
   <picture>
     <source srcset="/image.webp" type="image/webp">
@@ -990,7 +990,7 @@ const items = computed<NavigationMenuItem[][]>(() => [
 
 ### Q3: 构建时出现类型错误怎么办？
 
-**A**: 
+**A**:
 
 1. 运行独立类型检查：`npm run typecheck`
 2. 查看具体错误信息
@@ -1013,7 +1013,7 @@ colorMode: {
 
 ### Q6: 文档页面404怎么办？
 
-**A**: 
+**A**:
 
 1. 检查文件路径是否正确
 2. 确认文件名是否包含数字前缀
@@ -1030,7 +1030,7 @@ colorMode: {
 
 ### Q9: 如何优化首屏加载速度？
 
-**A**: 
+**A**:
 
 1. 使用 SSG 预渲染
 2. 图片使用 WebP 格式
@@ -1110,6 +1110,6 @@ MIT License
 
 ---
 
-**最后更新**: 2025-12-26  
-**版本**: 1.0.0  
+**最后更新**: 2025-12-26
+**版本**: 1.0.0
 **维护者**: BuidAI Team

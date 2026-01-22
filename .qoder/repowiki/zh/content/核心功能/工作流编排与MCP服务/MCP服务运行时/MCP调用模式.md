@@ -1,7 +1,7 @@
 # MCP调用模式
 
 <cite>
-**本文档引用文件**   
+**本文档引用文件**
 - [buidai.vue](file://pages/buidai.vue)
 - [ProductFeatures.vue](file://components/landing/ProductFeatures.vue)
 </cite>
@@ -17,13 +17,13 @@
 8. [结论](#结论)
 
 ## 引言
-必定AI平台为企业级AI应用开发提供了强大的基础设施支持，其中MCP（Model Context Protocol）服务作为连接模型与数据的核心协议，实现了智能体对本地文件、数据库及第三方API服务的安全高效访问。本文档深入解析MCP服务支持的两种核心调用模式：SSE（Server-Sent Events）和StreamableHTTP，详细阐述其技术实现、性能特征及适用场景，为开发者提供全面的技术参考。
+必创AI平台为企业级AI应用开发提供了强大的基础设施支持，其中MCP（Model Context Protocol）服务作为连接模型与数据的核心协议，实现了智能体对本地文件、数据库及第三方API服务的安全高效访问。本文档深入解析MCP服务支持的两种核心调用模式：SSE（Server-Sent Events）和StreamableHTTP，详细阐述其技术实现、性能特征及适用场景，为开发者提供全面的技术参考。
 
 **Section sources**
 - [buidai.vue](file://pages/buidai.vue#L739-L744)
 
 ## MCP调用模式概述
-MCP（Model Context Protocol）是必定AI平台实现模型与数据无缝连接的标准化接口协议。通过MCP服务，智能体能够安全、高效地访问各类数据源，包括本地文件系统、数据库以及第三方API服务。平台支持两种核心调用模式以满足不同场景下的实时性需求：SSE（Server-Sent Events）和StreamableHTTP。
+MCP（Model Context Protocol）是必创AI平台实现模型与数据无缝连接的标准化接口协议。通过MCP服务，智能体能够安全、高效地访问各类数据源，包括本地文件系统、数据库以及第三方API服务。平台支持两种核心调用模式以满足不同场景下的实时性需求：SSE（Server-Sent Events）和StreamableHTTP。
 
 在buidai.vue页面中，"MCP调用"功能项明确指出其支持以SSE和StreamableHTTP方式调用MCP工具，体现了平台对实时流式响应特性的重视。这两种模式均旨在提供低延迟的流式数据传输，但在连接管理、错误恢复和实现机制上存在显著差异。
 
@@ -90,7 +90,7 @@ StreamableHTTP是一种基于分块传输编码（Chunked Transfer Encoding）�
 - [buidai.vue](file://pages/buidai.vue#L739-L744)
 
 ## 快速集成体验
-必定AI平台通过直观的UI设计和丰富的功能组件，为开发者提供了极佳的快速集成体验。在ProductFeatures.vue组件中，"MCP服务"功能项使用醒目的闪电（Zap）图标进行标识，这一设计语言直观地传达了该功能的"快速"和"高效"特性。
+必创AI平台通过直观的UI设计和丰富的功能组件，为开发者提供了极佳的快速集成体验。在ProductFeatures.vue组件中，"MCP服务"功能项使用醒目的闪电（Zap）图标进行标识，这一设计语言直观地传达了该功能的"快速"和"高效"特性。
 
 该组件通过三行滚动的特性展示区，将"MCP服务"与"算力套餐"等高性能功能并列展示，强调了其在平台能力矩阵中的核心地位。这种视觉设计不仅提升了功能的可发现性，也向用户传递了平台对性能和效率的承诺，极大地降低了新用户的认知门槛，实现了"开箱即用"的快速集成体验。
 
@@ -144,6 +144,6 @@ async function callMCPStream() {
 - [buidai.vue](file://pages/buidai.vue#L739-L744)
 
 ## 结论
-必定AI平台通过支持SSE和StreamableHTTP两种核心调用模式，为MCP服务提供了灵活、高效的流式响应能力。SSE模式凭借其内置的重连和断点续传机制，在实时性和可靠性上表现卓越，是持续数据流场景的理想选择。而StreamableHTTP模式则以其广泛的兼容性和简单的协议基础，适用于对兼容性要求较高的场景。
+必创AI平台通过支持SSE和StreamableHTTP两种核心调用模式，为MCP服务提供了灵活、高效的流式响应能力。SSE模式凭借其内置的重连和断点续传机制，在实时性和可靠性上表现卓越，是持续数据流场景的理想选择。而StreamableHTTP模式则以其广泛的兼容性和简单的协议基础，适用于对兼容性要求较高的场景。
 
 开发者应根据具体的应用需求——如对延迟的敏感度、网络环境的稳定性以及客户端的兼容性要求——来选择最合适的调用模式。平台通过直观的UI设计（如ProductFeatures.vue中的Zap图标）和清晰的文档说明，显著降低了集成复杂度，使开发者能够快速上手并充分发挥MCP服务的强大能力，加速AI应用的构建与迭代。

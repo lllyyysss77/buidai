@@ -9,17 +9,17 @@
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#6E58FF] opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-[#6E58FF]"></span>
           </span>
-          <span class="text-xs font-medium text-gray-600">必定AI旗下 AI 平台</span>
+          <span class="text-xs font-medium text-gray-600">必创AI旗下 AI 平台</span>
         </div>
 
         <!-- 标题 -->
         <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-[#0F0F12] tracking-tight leading-[1.2] md:leading-[1.15] mb-6">
-          必定AI你的 <span class="text-[#6E58FF] block sm:inline">AI 办公空间</span>
+          必创AI你的 <span class="text-[#6E58FF] block sm:inline">AI 办公空间</span>
         </h1>
 
         <!-- 副标题 -->
         <p class="text-base sm:text-lg text-[#5A5E6A] max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed px-2">
-          必定AI旗下新一代 AI 办公平台，让创作与协作更高效
+          必创AI旗下新一代 AI 办公平台，让创作与协作更高效
         </p>
 
         <!-- 行动号召按钮 -->
@@ -385,7 +385,7 @@
             <!-- 左侧：标题 -->
             <div class="lg:w-1/3 w-full">
               <h1 class="text-2xl md:text-4xl font-bold text-[#0F0F12] mb-4">常见问题</h1>
-              <p class="text-neutral-500 text-sm md:text-base mb-6">关于必定AI的常见疑问解答</p>
+              <p class="text-neutral-500 text-sm md:text-base mb-6">关于必创AI的常见疑问解答</p>
               <div class="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3">
                 <button @click="openQrModal('coupon')" class="px-6 py-2.5 rounded-full bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 active:scale-95 transition-all flex items-center justify-center gap-2 touch-manipulation">
                   <TicketIcon class="w-4 h-4" />
@@ -431,7 +431,7 @@
        <div class="relative z-10 container mx-auto px-4 py-12 md:py-24">
           <div class="flex flex-col items-start text-left max-w-3xl">
              <h2 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight">
-               必定AI你的 AI 办公空间
+               必创AI你的 AI 办公空间
              </h2>
              <div class="flex flex-col sm:flex-row items-center gap-4 md:gap-5 w-full sm:w-auto">
                 <button class="w-full sm:w-auto px-8 py-4 rounded-full bg-[#6E58FF] text-white font-bold text-[16px] hover:bg-[#5A43FF] active:scale-95 transition-all shadow-xl">
@@ -476,11 +476,11 @@ definePageMeta({
 
 // SEO 元数据配置
 useSeoMeta({
-  title: '必定AI - 全能AI办公空间 | AI PPT、AI写作、AI设计、AI编程',
-  description: '必定AI旗下新一代AI办公平台，集成AI PPT生成、深度写作、智能设计、AI编程及数据分析等功能。让创作与协作更高效，释放你的职场生产力。',
-  keywords: '必定AI, AI办公, AI PPT, AI写作, AI设计, AI编程, 智能办公, 自动化办公, AI工具, 效率工具',
-  ogTitle: '必定AI - 全能AI办公空间 | AI PPT、AI写作、AI设计、AI编程',
-  ogDescription: '必定AI旗下新一代AI办公平台，集成AI PPT生成、深度写作、智能设计、AI编程及数据分析等功能。让创作与协作更高效，释放你的职场生产力。',
+  title: '必创AI - 全能AI办公空间 | AI PPT、AI写作、AI设计、AI编程',
+  description: '必创AI旗下新一代AI办公平台，集成AI PPT生成、深度写作、智能设计、AI编程及数据分析等功能。让创作与协作更高效，释放你的职场生产力。',
+  keywords: '必创AI, AI办公, AI PPT, AI写作, AI设计, AI编程, 智能办公, 自动化办公, AI工具, 效率工具',
+  ogTitle: '必创AI - 全能AI办公空间 | AI PPT、AI写作、AI设计、AI编程',
+  ogDescription: '必创AI旗下新一代AI办公平台，集成AI PPT生成、深度写作、智能设计、AI编程及数据分析等功能。让创作与协作更高效，释放你的职场生产力。',
   ogType: 'website'
 })
 
@@ -697,11 +697,11 @@ const quickStartCards: QuickStartCard[] = [
  * FAQ 常见问题数据
  */
 const faqs = ref<FaqItem[]>([
-  { question: '怎么下载导出必定AI生成的PPT、文档、表格、设计？', answer: '必定AI生成好后，你可以直接选择导出下载，支持常见的PPTX、DOCX、PDF、XLSX、JPG、PNG格式。', open: true },
-  { question: '必定AI是免费使用吗？', answer: '必定AI提供免费的基础版，包含大部分核心功能。对于高级功能和更多存储空间，我们提供灵活的付费订阅方案。', open: false },
-  { question: '必定AI可以把PDF/图片/网站/报告/论文内容改成PPT吗？', answer: '可以。您可以上传 PDF、图片或输入网址，AI 会自动提取关键信息并生成结构清晰、设计精美的 PPT 演示文稿。', open: false },
-  { question: '我没有设计基础，可以让必定AI做设计吗？', answer: '完全没问题。必定AI内置了专业的设计引擎，您只需输入文字描述，AI 就能自动生成海报、Banner、配图等高质量设计作品。', open: false },
-  { question: '必定AI可以帮我创作自媒体内容吗？', answer: '当然。我们提供专门的自媒体创作工具，支持从选题策划、文案生成到排版配图的全流程辅助，助您高效产出爆款内容。', open: false }
+  { question: '怎么下载导出必创AI生成的PPT、文档、表格、设计？', answer: '必创AI生成好后，你可以直接选择导出下载，支持常见的PPTX、DOCX、PDF、XLSX、JPG、PNG格式。', open: true },
+  { question: '必创AI是免费使用吗？', answer: '必创AI提供免费的基础版，包含大部分核心功能。对于高级功能和更多存储空间，我们提供灵活的付费订阅方案。', open: false },
+  { question: '必创AI可以把PDF/图片/网站/报告/论文内容改成PPT吗？', answer: '可以。您可以上传 PDF、图片或输入网址，AI 会自动提取关键信息并生成结构清晰、设计精美的 PPT 演示文稿。', open: false },
+  { question: '我没有设计基础，可以让必创AI做设计吗？', answer: '完全没问题。必创AI内置了专业的设计引擎，您只需输入文字描述，AI 就能自动生成海报、Banner、配图等高质量设计作品。', open: false },
+  { question: '必创AI可以帮我创作自媒体内容吗？', answer: '当然。我们提供专门的自媒体创作工具，支持从选题策划、文案生成到排版配图的全流程辅助，助您高效产出爆款内容。', open: false }
 ])
 
 </script>

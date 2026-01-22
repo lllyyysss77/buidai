@@ -70,9 +70,9 @@
 
 // SEO Meta
 useSeoMeta({
-  title: '文档中心 - 必定AI - BuidAI | 开发指南、API文档与最佳实践',
-  description: '必定AI 官方文档中心，提供从入门到精通的完整开发指南、详细的 API 参考手册、SDK 使用说明及企业级 AI 应用构建的最佳实践。',
-  keywords: '必定AI文档, AI开发指南, API参考, SDK文档, 最佳实践, AI应用构建, 技术手册, 开发者文档'
+  title: '文档中心 - 必创AI - BuidAI | 开发指南、API文档与最佳实践',
+  description: '必创AI 官方文档中心，提供从入门到精通的完整开发指南、详细的 API 参考手册、SDK 使用说明及企业级 AI 应用构建的最佳实践。',
+  keywords: '必创AI文档, AI开发指南, API参考, SDK文档, 最佳实践, AI应用构建, 技术手册, 开发者文档'
 })
 
 // Fetch All Docs for Crawling and Index

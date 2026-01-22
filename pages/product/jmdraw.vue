@@ -7,15 +7,15 @@ definePageMeta({
 });
 
 useSeoMeta({
-    title: '即梦AI绘画 - AI绘画系统,AI系统源码,AI绘画生成系统 | 必定AI-BuidAI',
-    description: '必定AI-BuidAI 即梦AI绘画是一个基于即梦AI绘画的快速绘图工具,能够通过简单提示词快速生成高质量图像,风格覆盖广泛,写实、卡通、插画等皆可驾驭。支持纯文本提示词或参考图来生成图片,支持多种图片比例以及1K和2K分辨率设置。基于开源技术构建,提供完整源码与私有化部署支持。',
-    keywords: '即梦AI,AI绘画,文生图,图生图,AI绘画工具,必定AI,BuidAI,图片生成,开源AI系统,私有化部署,即梦4.0,绘画源码',
-    ogTitle: '即梦AI绘画 - 一键生成 AI 图片 | 必定AI-BuidAI',
+    title: '即梦AI绘画 - AI绘画系统,AI系统源码,AI绘画生成系统 | 必创AI-BuidAI',
+    description: '必创AI-BuidAI 即梦AI绘画是一个基于即梦AI绘画的快速绘图工具,能够通过简单提示词快速生成高质量图像,风格覆盖广泛,写实、卡通、插画等皆可驾驭。支持纯文本提示词或参考图来生成图片,支持多种图片比例以及1K和2K分辨率设置。基于开源技术构建,提供完整源码与私有化部署支持。',
+    keywords: '即梦AI,AI绘画,文生图,图生图,AI绘画工具,必创AI,BuidAI,图片生成,开源AI系统,私有化部署,即梦4.0,绘画源码',
+    ogTitle: '即梦AI绘画 - 一键生成 AI 图片 | 必创AI-BuidAI',
     ogDescription: '通过简单提示词快速生成高质量图像,风格覆盖广泛,写实、卡通、插画等皆可驾驭。支持纯文本提示词、多种图片比例和分辨率,让创作更简单。',
     ogImage: '/product/jmdraw.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: '即梦AI绘画 - 一键生成 AI 图片 | 必定AI-BuidAI',
+    twitterTitle: '即梦AI绘画 - 一键生成 AI 图片 | 必创AI-BuidAI',
     twitterDescription: '通过简单提示词快速生成高质量图像,风格覆盖广泛,支持纯文本提示词和多种图片比例。',
     twitterImage: '/product/jmdraw.png'
 });
@@ -78,7 +78,7 @@ const featureDetails = ref([
                 desc: '生成的图片质量高,细节丰富,色彩饱满,满足专业级创作需求。'
             }
         ],
-        image: 'https://server.buildingai.cc/uploads/image/2025/11/b87307cd-ade4-40a4-8f4e-2fd7da5a270c.png',
+        image: '/plugin/即梦AI绘画.png',
     },
     {
         title: '图生图,参考图智能融合',
@@ -102,7 +102,7 @@ const featureDetails = ref([
                 desc: '支持纯文本提示词和上传参考图两种方式,满足不同用户的创作习惯。'
             }
         ],
-        image: 'https://server.buildingai.cc/uploads/image/2025/11/2e29e5ae-6bc0-41e0-9a65-08afc2b36232.png',
+        image: '/product/jmdraw-2.png',
     },
     {
         title: '后台管理与配置,灵活可控',
@@ -202,7 +202,7 @@ const toDemo = () => {
              <div class="relative p-2 rounded-3xl bg-gray-100/40 dark:bg-gray-800/40 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 max-w-5xl mx-auto">
                 <div class="relative rounded-2xl overflow-hidden border border-gray-200/50 dark:border-gray-700/50 shadow-sm bg-white/60 dark:bg-gray-800/60 aspect-video flex items-center justify-center">
                     <img
-                        src="https://server.buildingai.cc/uploads/image/2025/11/16b6e01a-d56e-4c0b-b7d3-6c276f00561f.png"
+                        src="/public/plugin/即梦AI绘画.png"
                         alt="即梦AI绘画生成展示"
                         class="w-full h-full object-contain"
                     >

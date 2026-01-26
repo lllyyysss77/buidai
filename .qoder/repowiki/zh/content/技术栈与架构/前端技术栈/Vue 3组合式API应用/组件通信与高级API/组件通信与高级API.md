@@ -26,7 +26,7 @@
 10. [附录](#附录)
 
 ## 简介
-本文件聚焦于buidai项目中的组件通信机制与高级API应用，围绕props、emits、slots在复杂组件中的实践展开，结合HeroSection与AppNavigation的实际实现，系统阐述：
+本文件聚焦于智言万象项目中的组件通信机制与高级API应用，围绕props、emits、slots在复杂组件中的实践展开，结合HeroSection与AppNavigation的实际实现，系统阐述：
 - 如何通过props实现UI定制化配置与行为开关
 - 如何利用emits实现父子组件通信与事件上行
 - 动态插槽分发与属性透传的高级模式

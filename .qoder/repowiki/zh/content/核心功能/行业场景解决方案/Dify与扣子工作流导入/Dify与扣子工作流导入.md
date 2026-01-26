@@ -4,7 +4,7 @@
 **本文档引用文件**   
 - [ScenarioSection.vue](file://components/landing/ScenarioSection.vue)
 - [agent.vue](file://pages/agent.vue)
-- [buidai.vue](file://pages/buidai.vue)
+- [智言万象.vue](file://pages/智言万象.vue)
 - [ProductFeatures.vue](file://components/landing/ProductFeatures.vue)
 - [content.config.ts](file://content.config.ts)
 - [package-lock.json](file://package-lock.json)
@@ -23,7 +23,7 @@
 10. [附录](#附录)（如有必要）
 
 ## 简介
-本文档深入解析buidai平台对Dify和扣子（Coze）工作流的导入功能，说明其技术实现原理和兼容性保障措施。详细描述导入流程，包括文件格式解析、节点映射、参数转换和错误处理机制。阐述如何在buidai中继承和扩展原有工作流的能力，打破平台局限性。结合ScenarioSection.vue中“导入 Dify & 扣子 工作流”的描述，提供实际导入案例和常见问题解决方案，帮助用户实现跨平台能力迁移。
+本文档深入解析智言万象平台对Dify和扣子（Coze）工作流的导入功能，说明其技术实现原理和兼容性保障措施。详细描述导入流程，包括文件格式解析、节点映射、参数转换和错误处理机制。阐述如何在智言万象中继承和扩展原有工作流的能力，打破平台局限性。结合ScenarioSection.vue中“导入 Dify & 扣子 工作流”的描述，提供实际导入案例和常见问题解决方案，帮助用户实现跨平台能力迁移。
 
 ## 项目结构
 本项目采用基于Nuxt 3 + Vue 3的现代化前端架构，整体结构清晰，模块化程度高。主要目录包括`components`（组件）、`pages`（页面）、`content`（内容管理）、`utils`（工具函数）等。工作流相关功能主要集中在`pages/agent.vue`和`components/landing/ScenarioSection.vue`中。
@@ -40,7 +40,7 @@ end
 components --> |包含| landing["landing/"]
 landing --> |包含| ScenarioSection["ScenarioSection.vue"]
 pages --> |包含| agent["agent.vue"]
-pages --> |包含| buidai["buidai.vue"]
+pages --> |包含| 智言万象["智言万象.vue"]
 content --> |包含| docs["docs/"]
 content --> |包含| blog["blog/"]
 ```
@@ -48,21 +48,21 @@ content --> |包含| blog["blog/"]
 **图源**
 - [ScenarioSection.vue](file://components/landing/ScenarioSection.vue)
 - [agent.vue](file://pages/agent.vue)
-- [buidai.vue](file://pages/buidai.vue)
+- [智言万象.vue](file://pages/智言万象.vue)
 
 **本节来源**
 - [ScenarioSection.vue](file://components/landing/ScenarioSection.vue#L1-L70)
 - [agent.vue](file://pages/agent.vue#L1-L470)
 
 ## 核心功能
-buidai平台的核心功能包括大语言模型集成、RAF知识库、工作流编排和MCP服务。其中，工作流编排是实现复杂业务逻辑的关键，支持通过拖拽方式将大模型、插件、知识库等组件连接起来，构建从简单对话到复杂任务的自动化处理流程。特别地，平台支持导入Dify和扣子（Coze）等第三方工作流，打破了平台间的局限性，让用户的能力得到充分施展。
+智言万象平台的核心功能包括大语言模型集成、RAF知识库、工作流编排和MCP服务。其中，工作流编排是实现复杂业务逻辑的关键，支持通过拖拽方式将大模型、插件、知识库等组件连接起来，构建从简单对话到复杂任务的自动化处理流程。特别地，平台支持导入Dify和扣子（Coze）等第三方工作流，打破了平台间的局限性，让用户的能力得到充分施展。
 
 **本节来源**
 - [agent.vue](file://pages/agent.vue#L325-L358)
-- [buidai.vue](file://pages/buidai.vue#L717-L763)
+- [智言万象.vue](file://pages/智言万象.vue#L717-L763)
 
 ## 架构概述
-buidai平台采用模块化架构设计，前端基于Nuxt 3框架，实现了服务端渲染（SSR）和静态站点生成（SSG）的混合模式。平台通过`content.config.ts`配置内容源，利用Nuxt Content模块管理文档和博客内容。工作流导入功能作为平台的重要特性，集成在核心页面中，通过Vue组件化方式实现用户交互。
+智言万象平台采用模块化架构设计，前端基于Nuxt 3框架，实现了服务端渲染（SSR）和静态站点生成（SSG）的混合模式。平台通过`content.config.ts`配置内容源，利用Nuxt Content模块管理文档和博客内容。工作流导入功能作为平台的重要特性，集成在核心页面中，通过Vue组件化方式实现用户交互。
 
 ```mermaid
 graph TD
@@ -87,7 +87,7 @@ G --> I[Coze]
 ## 详细组件分析
 
 ### 工作流导入功能分析
-buidai平台通过`ScenarioSection.vue`组件展示了“导入 Dify & 扣子 工作流”的功能。该功能的核心在于支持第三方工作流的导入，使用户能够将已有的Dify或Coze工作流无缝迁移到buidai平台。这一功能的实现依赖于对Dify和Coze工作流文件格式的解析和转换。
+智言万象平台通过`ScenarioSection.vue`组件展示了“导入 Dify & 扣子 工作流”的功能。该功能的核心在于支持第三方工作流的导入，使用户能够将已有的Dify或Coze工作流无缝迁移到智言万象平台。这一功能的实现依赖于对Dify和Coze工作流文件格式的解析和转换。
 
 #### 对象导向组件
 ```mermaid
@@ -116,7 +116,7 @@ ScenarioSection --> AgentPage : "嵌入"
 sequenceDiagram
 participant 用户 as "用户"
 participant 前端 as "前端界面"
-participant 平台 as "buidai平台"
+participant 平台 as "智言万象平台"
 participant Dify as "Dify平台"
 participant Coze as "Coze平台"
 用户->>前端 : 选择导入工作流
@@ -159,18 +159,18 @@ ReturnError --> End
 - [agent.vue](file://pages/agent.vue)
 
 ### 概念概述
-buidai平台的工作流导入功能旨在解决AI应用开发中的平台锁定问题。通过支持Dify和Coze工作流的导入，用户可以自由迁移其已有的AI工作流，避免了重复开发的成本。这一功能不仅提升了平台的兼容性，也为用户提供了更大的灵活性和选择空间。
+智言万象平台的工作流导入功能旨在解决AI应用开发中的平台锁定问题。通过支持Dify和Coze工作流的导入，用户可以自由迁移其已有的AI工作流，避免了重复开发的成本。这一功能不仅提升了平台的兼容性，也为用户提供了更大的灵活性和选择空间。
 
 ```mermaid
 flowchart LR
-A[Dify工作流] --> C[buidai平台]
-B[Coze工作流] --> C[buidai平台]
+A[Dify工作流] --> C[智言万象平台]
+B[Coze工作流] --> C[智言万象平台]
 C --> D[统一管理]
 D --> E[扩展功能]
 ```
 
 ## 依赖分析
-buidai平台的依赖主要通过`package-lock.json`文件管理。项目依赖了多个现代前端库，如`@heroicons/vue`用于图标，`aos`用于动画效果，以及`@nuxt/content`用于内容管理。这些依赖共同支撑了平台的丰富功能和良好用户体验。
+智言万象平台的依赖主要通过`package-lock.json`文件管理。项目依赖了多个现代前端库，如`@heroicons/vue`用于图标，`aos`用于动画效果，以及`@nuxt/content`用于内容管理。这些依赖共同支撑了平台的丰富功能和良好用户体验。
 
 ```mermaid
 graph LR
@@ -202,7 +202,7 @@ A --> F[nuxt]
 - [agent.vue](file://pages/agent.vue)
 
 ## 结论
-buidai平台通过支持Dify和扣子（Coze）工作流的导入，实现了跨平台的能力迁移，打破了平台局限性。该功能的技术实现涉及文件格式解析、节点映射、参数转换等多个方面，体现了平台的开放性和兼容性。未来，可以进一步优化导入流程，支持更多第三方平台的工作流格式，为用户提供更加便捷的AI应用开发体验。
+智言万象平台通过支持Dify和扣子（Coze）工作流的导入，实现了跨平台的能力迁移，打破了平台局限性。该功能的技术实现涉及文件格式解析、节点映射、参数转换等多个方面，体现了平台的开放性和兼容性。未来，可以进一步优化导入流程，支持更多第三方平台的工作流格式，为用户提供更加便捷的AI应用开发体验。
 
 ## 附录
 无

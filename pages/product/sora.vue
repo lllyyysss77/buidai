@@ -7,15 +7,15 @@ definePageMeta({
 });
 
 useSeoMeta({
-    title: 'Sora 视频生成引擎 - 开源免费的 AI 视频创作系统 | BuidAI',
-    description: 'BuidAI Sora 视频生成平台提供一站式 AI 视频创作解决方案。支持高质量文生视频、图生视频及长视频生成。基于开源 Sora 技术构建，提供 Sora 源码与私有化部署支持，助力企业低成本打造专属 AI 视频应用。',
-    keywords: 'Sora,Sora视频,Sora源码,AI视频生成,文生视频,视频生成模型,BuidAI,开源AI系统,私有化部署,OpenAI Sora,视频大模型',
-    ogTitle: 'Sora 视频生成引擎 - 打造您的专属 AI 视频创作平台 | BuidAI',
+    title: 'Sora 视频生成引擎 - 开源免费的 AI 视频创作系统 | 智言万象',
+    description: '智言万象 Sora 视频生成平台提供一站式 AI 视频创作解决方案。支持高质量文生视频、图生视频及长视频生成。基于开源 Sora 技术构建，提供 Sora 源码与私有化部署支持，助力企业低成本打造专属 AI 视频应用。',
+    keywords: 'Sora,Sora视频,Sora源码,AI视频生成,文生视频,视频生成模型,智言万象,开源AI系统,私有化部署,OpenAI Sora,视频大模型',
+    ogTitle: 'Sora 视频生成引擎 - 打造您的专属 AI 视频创作平台 | 智言万象',
     ogDescription: '一键生成电影级 AI 视频，支持文生视频与图生视频。基于开源 Sora 技术构建的新一代 AI 视频生成平台，提供完整源码，让创意无限延伸。',
     ogImage: '/plugin/sora.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Sora 视频生成引擎 - 打造您的专属 AI 视频创作平台 | BuidAI',
+    twitterTitle: 'Sora 视频生成引擎 - 打造您的专属 AI 视频创作平台 | 智言万象',
     twitterDescription: '一键生成电影级 AI 视频，支持文生视频与图生视频。基于开源 Sora 技术构建的新一代 AI 视频生成平台。',
     twitterImage: '/product/sora.png'
 });
@@ -44,7 +44,7 @@ const features = [
     },
     {
         title: 'Sora 工作流自动化',
-        desc: '与 BuidAI 工作流引擎深度集成，从脚本生成到多端分发全流程自动化。',
+        desc: '与 智言万象 工作流引擎深度集成，从脚本生成到多端分发全流程自动化。',
         icon: 'i-heroicons-command-line',
     },
     {
@@ -119,7 +119,7 @@ const featureDetails = ref([
             },
             {
                 title: '配音与字幕一体化',
-                desc: '与 BuidAI 语音、字幕能力集成，一键生成多语种配音与字幕轨道，降低后期成本。'
+                desc: '与 智言万象 语音、字幕能力集成，一键生成多语种配音与字幕轨道，降低后期成本。'
             },
             {
                 title: '多渠道发布适配',
@@ -369,7 +369,7 @@ const toDemo = () => {
                     准备好开始创作了吗？
                 </h2>
                 <p class="text-lg text-gray-500 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
-                    立即加入 BuidAI，体验前沿 AI 技术带来的无限可能。无需复杂的配置，快速构建您的数字人应用。
+                    立即加入 智言万象，体验前沿 AI 技术带来的无限可能。无需复杂的配置，快速构建您的数字人应用。
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
                      <UButton

@@ -22,7 +22,7 @@
 9. [结论](#结论)
 
 ## 引言
-本文件聚焦于buidai文档系统的目录（TOC）生成与锚点跳转机制，围绕以下目标展开：
+本文件聚焦于智言万象文档系统的目录（TOC）生成与锚点跳转机制，围绕以下目标展开：
 - Content模块如何自动解析Markdown文档中的h1-h6标题并生成结构化的TOC数据对象（含层级嵌套与id生成策略）。
 - 在pages/docs/[...slug].vue中实现的双栏TOC布局：左侧移动端可折叠导航与右侧桌面端固定定位目录的响应式适配。
 - IntersectionObserver如何监听页面滚动状态并动态更新当前激活的锚点项。
@@ -286,4 +286,4 @@ Sidebar["components/docs/Sidebar.vue"] --> DocsMD
 - [components/docs/Sidebar.vue](file://components/docs/Sidebar.vue#L280-L289)
 
 ## 结论
-buidai文档系统通过Nuxt Content的TOC能力与自研滚动与激活态逻辑，实现了从Markdown标题到结构化目录、再到平滑跳转与高亮反馈的完整链路。移动端与桌面端双栏TOC兼顾可用性与可访问性，IntersectionObserver与history.pushState共同保证了良好的交互体验。后续可进一步完善id去重与唯一性保障、增强键盘导航与ARIA语义，以满足更严格的可访问性标准。
+智言万象文档系统通过Nuxt Content的TOC能力与自研滚动与激活态逻辑，实现了从Markdown标题到结构化目录、再到平滑跳转与高亮反馈的完整链路。移动端与桌面端双栏TOC兼顾可用性与可访问性，IntersectionObserver与history.pushState共同保证了良好的交互体验。后续可进一步完善id去重与唯一性保障、增强键盘导航与ARIA语义，以满足更严格的可访问性标准。

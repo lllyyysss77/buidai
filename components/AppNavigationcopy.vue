@@ -7,10 +7,10 @@
       <div class="flex items-center justify-between h-[72px]">
         <!-- Left: Logo -->
         <div class="flex items-center gap-10 flex-1">
-          <NuxtLink to="/" class="flex items-center gap-2 shrink-0" aria-label="BuidAI Home">
+          <NuxtLink to="/" class="flex items-center gap-2 shrink-0" aria-label="智言万象 Home">
             <img
               :src="isTransparent ? '/logo.svg' : '/logo-full.svg'"
-              alt="BuidAI Logo"
+              alt="智言万象 Logo"
               width="120"
               height="32"
               class="h-8 w-auto object-contain transition-opacity duration-300"
@@ -35,7 +35,7 @@
           <!-- Desktop Actions -->
           <div class="hidden md:flex items-center gap-3">
             <UButton
-              to="https://doc.buidai.com/"
+              to="https://doc.智言万象.com/"
               target="_blank"
               rel="noopener noreferrer"
               variant="ghost"
@@ -50,7 +50,7 @@
             </UButton>
 
             <UButton
-              to="https://cloud.buidai.com/login"
+              to="https://cloud.智言万象.com/login"
               target="_blank"
               rel="noopener noreferrer"
               variant="ghost"
@@ -61,7 +61,7 @@
               <template #leading>
                 <ArrowRightOnRectangleIcon class="w-4 h-4" />
               </template>
-              登录必创
+              登录智言
             </UButton>
           </div>
 
@@ -106,7 +106,7 @@
 
           <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
             <UButton
-              to="https://doc.buidai.com/"
+              to="https://doc.智言万象.com/"
               target="_blank"
               rel="noopener noreferrer"
               block
@@ -121,7 +121,7 @@
             </UButton>
 
             <UButton
-              to="https://cloud.buidai.com/login"
+              to="https://cloud.智言万象.com/login"
               target="_blank"
               rel="noopener noreferrer"
               block
@@ -132,7 +132,7 @@
               <template #leading>
                 <ArrowRightOnRectangleIcon class="w-5 h-5" />
               </template>
-              登录必创
+              登录智言
             </UButton>
           </div>
         </div>
@@ -168,8 +168,8 @@ const isScrolled = ref(false)
 const items = computed<NavigationMenuItem[][]>(() => [
   [
     { label: '首页', to: '/', icon: 'i-lucide-house' },
-    { label: '必创AI', to: '/agent', icon: 'i-lucide-bot' },
-    { label: '私有部署', to: '/buidai', icon: 'i-lucide-server' },
+    { label: '智言AI', to: '/agent', icon: 'i-lucide-bot' },
+    { label: '私有部署', to: '/智言万象', icon: 'i-lucide-server' },
     {
       label: '解决方案',
       icon: 'i-lucide-box',
@@ -182,7 +182,7 @@ const items = computed<NavigationMenuItem[][]>(() => [
         },
         {
           label: '解决方案',
-          description: '探索 必创AI 的行业解决方案',
+          description: '探索 智言AI 的行业解决方案',
           icon: 'i-lucide-lightbulb',
           to: '/solutions'
         }

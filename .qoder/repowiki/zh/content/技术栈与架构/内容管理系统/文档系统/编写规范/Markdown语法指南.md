@@ -19,7 +19,7 @@
 7. [可复用内容模板](#可复用内容模板)
 
 ## 简介
-本文档系统介绍buidai项目中支持的Markdown扩展语法及其渲染机制。基于Nuxt Content模块构建的内容系统，项目通过`ContentRenderer`组件将Markdown内容解析为DOM结构，并应用Tailwind CSS样式。文档涵盖代码高亮、自定义容器、表格排版等核心语法，以及Vue组件嵌入和内容渲染流程。
+本文档系统介绍智言万象项目中支持的Markdown扩展语法及其渲染机制。基于Nuxt Content模块构建的内容系统，项目通过`ContentRenderer`组件将Markdown内容解析为DOM结构，并应用Tailwind CSS样式。文档涵盖代码高亮、自定义容器、表格排版等核心语法，以及Vue组件嵌入和内容渲染流程。
 
 **Section sources**
 - [nuxt.config.ts](file://nuxt.config.ts#L1-L91)

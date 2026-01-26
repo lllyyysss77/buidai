@@ -38,8 +38,8 @@
             </div>
             <h3 class="text-lg font-bold text-neutral-900 mb-2">邮件支持</h3>
             <p class="text-sm text-neutral-400 mb-3">产品咨询与技术支持</p>
-            <a href="mailto:support@必创AI.com" class="text-base font-medium text-ui-primary hover:text-primary-700 transition-colors">
-              support@必创AI.com
+            <a href="mailto:support@智言AI.com" class="text-base font-medium text-ui-primary hover:text-primary-700 transition-colors">
+              support@智言AI.com
             </a>
           </div>
 
@@ -123,9 +123,9 @@ definePageMeta({
 })
 
 useSeoMeta({
-  title: '联系我们 - 必创AI | 官方客服与商务合作渠道',
-  description: '获取 必创AI 官方支持与服务。提供微信客服即时沟通、产品演示预约、QQ技术交流群及商务合作热线。无论您是寻求技术协助还是企业定制方案，必创AI 团队随时竭诚为您服务。',
-  keywords: '必创AI联系方式, 必创AI客服, 商务合作, 技术支持, 产品演示, AI平台咨询, 必创AI电话, 必创AI邮箱, 必创AI地址, 企业级AI解决方案'
+  title: '联系我们 - 智言AI | 官方客服与商务合作渠道',
+  description: '获取 智言AI 官方支持与服务。提供微信客服即时沟通、产品演示预约、QQ技术交流群及商务合作热线。无论您是寻求技术协助还是企业定制方案，智言AI 团队随时竭诚为您服务。',
+  keywords: '智言AI联系方式, 智言AI客服, 商务合作, 技术支持, 产品演示, AI平台咨询, 智言AI电话, 智言AI邮箱, 智言AI地址, 企业级AI解决方案'
 })
 
 const faqs = ref([

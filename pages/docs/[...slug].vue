@@ -272,7 +272,7 @@ onUnmounted(() => {
 
 useSeoMeta({
   title: page.value ? `${page.value.title} - 文档中心` : '文档中心',
-  description: page.value?.description || 'BuidAI 文档中心'
+  description: page.value?.description || '智言万象 文档中心'
 })
 </script>
 

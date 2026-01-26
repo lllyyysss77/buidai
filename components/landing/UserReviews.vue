@@ -3,7 +3,7 @@ import { ref } from 'vue';
 
 /**
  * 用户评价组件 + 常见问题
- * 展示用户对 必创 的反馈和评价，以及常见问题解答
+ * 展示用户对 智言 的反馈和评价，以及常见问题解答
  */
 
 type Review = {
@@ -14,12 +14,12 @@ type Review = {
 
 const reviews: Review[] = [
   {
-    content: '必创 在国内算做得很好很好了，对于数字人生成，无论是从美观还是使用的角度，都非常方便非常优秀，导入功能特别好，比其他工具好用太多了。继续加油！',
+    content: '智言 在国内算做得很好很好了，对于数字人生成，无论是从美观还是使用的角度，都非常方便非常优秀，导入功能特别好，比其他工具好用太多了。继续加油！',
     author: 'Alex',
     role: 'AI 创作者',
   },
   {
-    content: '必创 真的牛，想要的定制功能提出没多久就加上了，而且测试了下和预期的效果完全一致，我之前还因为其他工具的限制专门写了脚本来处理，现在 必创 直接能满足需求了！',
+    content: '智言 真的牛，想要的定制功能提出没多久就加上了，而且测试了下和预期的效果完全一致，我之前还因为其他工具的限制专门写了脚本来处理，现在 智言 直接能满足需求了！',
     author: '何易于',
     role: '全栈开发者',
   },
@@ -29,22 +29,22 @@ const reviews: Review[] = [
     role: '测试工程师',
   },
   {
-    content: '不知不觉发现公司很多运营都被我带动用上 必创 了，平常分享视频素材都是丢个链接出去，大家发现真方便，都跟着我用了哈哈哈哈，现在越来越离不开 必创 啦',
+    content: '不知不觉发现公司很多运营都被我带动用上 智言 了，平常分享视频素材都是丢个链接出去，大家发现真方便，都跟着我用了哈哈哈哈，现在越来越离不开 智言 啦',
     author: 'vate',
     role: '运营经理',
   },
   {
-    content: '其他工具能干的 必创 能干，其他工具不能干的 必创 还是能干，而且 必创 作为国产工具，几乎整合了大部分 AI 相关功能，真就一个代替所有。最主要是对小团队协作友好，有格局。',
+    content: '其他工具能干的 智言 能干，其他工具不能干的 智言 还是能干，而且 智言 作为国产工具，几乎整合了大部分 AI 相关功能，真就一个代替所有。最主要是对小团队协作友好，有格局。',
     author: '我是光',
     role: '产品经理',
   },
   {
-    content: '你们的 UI 真不错，是国内 UI 交互做的最好的。做产品就应该这样精致，这样才会有好的产品体验！我每天用 必创，看着这个 UI 交互心情就很好，效率也会好哈哈。',
+    content: '你们的 UI 真不错，是国内 UI 交互做的最好的。做产品就应该这样精致，这样才会有好的产品体验！我每天用 智言，看着这个 UI 交互心情就很好，效率也会好哈哈。',
     author: '多喝热水',
     role: '前端工程师',
   },
   {
-    content: '对于我们这种初创团队来说，必创 的私有化部署方案简直是救星。数据安全有保障，而且成本可控，技术支持响应速度也非常快，必须五星好评！',
+    content: '对于我们这种初创团队来说，智言 的私有化部署方案简直是救星。数据安全有保障，而且成本可控，技术支持响应速度也非常快，必须五星好评！',
     author: 'TechLead',
     role: 'CTO',
   },
@@ -54,7 +54,7 @@ const reviews: Review[] = [
     role: '视频制作人',
   },
   {
-    content: '集成非常丝滑，API 文档清晰易懂。我们在原有系统中接入 必创 的能力只用了半天时间，现在的产品竞争力提升了一个档次。',
+    content: '集成非常丝滑，API 文档清晰易懂。我们在原有系统中接入 智言 的能力只用了半天时间，现在的产品竞争力提升了一个档次。',
     author: 'CodeMaster',
     role: '后端架构师',
   },
@@ -157,7 +157,7 @@ const toggleFaq = (idx: number) => {
             深受开发者与创作者喜爱
           </h2>
           <p class="text-gray-500 dark:text-gray-400 text-lg">
-            听听来自社区的真实反馈，见证 必创 如何提升工作效率
+            听听来自社区的真实反馈，见证 智言 如何提升工作效率
           </p>
         </div>
 
@@ -277,7 +277,7 @@ const toggleFaq = (idx: number) => {
           <!-- 左侧：标题 -->
           <div class="lg:w-1/3 w-full text-center lg:text-left">
             <h2 class="text-2xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">常见问题</h2>
-            <p class="text-gray-500 dark:text-gray-400 text-sm md:text-base mb-6">关于必创AI的常见疑问解答</p>
+            <p class="text-gray-500 dark:text-gray-400 text-sm md:text-base mb-6">关于智言AI的常见疑问解答</p>
             <div class="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 justify-center lg:justify-start">
               <button @click="openQrModal('coupon')" class="px-6 py-2.5 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-100 active:scale-95 transition-all flex items-center justify-center gap-2 touch-manipulation">
                 <UIcon name="i-heroicons-ticket" class="w-4 h-4" />

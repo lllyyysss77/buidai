@@ -20,7 +20,7 @@
 
 ## 功能定位与用户触达
 
-AI视频生成功能是buidai平台“AI视觉创作”产品矩阵中的核心模块，通过在产品功能展示页（ProductFeatures.vue）中以醒目的红色图标“AI视频”进行呈现，与“Sora2视频”、“AI绘画”等功能并列，凸显其在平台创意生成体系中的重要地位。该功能的用户触达路径清晰：首先通过首页HeroSection的“Nanobanana视频生成全新升级”公告吸引用户注意，随后在产品功能区通过“AI视频”和“Sora2视频”等卡片引导用户点击进入。解决方案页（solutions.vue）进一步将“AI视频”和“Sora2视频”作为独立功能项列出，为用户提供明确的入口。此外，平台通过AppBanner组件持续推送“Sora2短剧创作”的专项活动，形成多维度、高频率的用户触达。
+AI视频生成功能是智言万象平台“AI视觉创作”产品矩阵中的核心模块，通过在产品功能展示页（ProductFeatures.vue）中以醒目的红色图标“AI视频”进行呈现，与“Sora2视频”、“AI绘画”等功能并列，凸显其在平台创意生成体系中的重要地位。该功能的用户触达路径清晰：首先通过首页HeroSection的“Nanobanana视频生成全新升级”公告吸引用户注意，随后在产品功能区通过“AI视频”和“Sora2视频”等卡片引导用户点击进入。解决方案页（solutions.vue）进一步将“AI视频”和“Sora2视频”作为独立功能项列出，为用户提供明确的入口。此外，平台通过AppBanner组件持续推送“Sora2短剧创作”的专项活动，形成多维度、高频率的用户触达。
 
 **Section sources**
 - [ProductFeatures.vue](file://components/landing/ProductFeatures.vue#L128)

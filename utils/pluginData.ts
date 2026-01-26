@@ -57,8 +57,8 @@ export const categories: Category[] = [
 export const apps: AppData[] = [
   {
     id: 0,
-    name: '必创AI部署服务',
-    description: '官方技术专家，帮您部署 必创AI 平台框架，支持本地部署或服务器部署',
+    name: '智言AI部署服务',
+    description: '官方技术专家，帮您部署 智言AI 平台框架，支持本地部署或服务器部署',
     icon: VideoIcon,
     image: '/images/code1.png',
     category: 'video',

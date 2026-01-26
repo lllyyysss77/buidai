@@ -3,7 +3,7 @@
 <cite>
 **本文档引用文件**
 - [ProductFeatures.vue](file://components/landing/ProductFeatures.vue)
-- [buidai.vue](file://pages/buidai.vue)
+- [智言万象.vue](file://pages/智言万象.vue)
 - [demo.vue](file://pages/demo.vue)
 - [agent.vue](file://pages/agent.vue)
 - [pricing.vue](file://pages/pricing.vue)
@@ -21,12 +21,12 @@
 
 ## AI对话功能概述
 
-AI对话功能是buidai平台的核心能力之一，基于大语言模型（LLM）实现智能对话与文本生成。该功能支持多模态模型调用，能够处理复杂的自然语言交互任务。平台集成了GPT-4o、Claude 3.5、Gemini Pro等主流大语言模型，为用户提供稳定、高速的API调用服务。
+AI对话功能是智言万象平台的核心能力之一，基于大语言模型（LLM）实现智能对话与文本生成。该功能支持多模态模型调用，能够处理复杂的自然语言交互任务。平台集成了GPT-4o、Claude 3.5、Gemini Pro等主流大语言模型，为用户提供稳定、高速的API调用服务。
 
 AI对话系统不仅限于简单的问答，还支持多轮对话、上下文理解与意图识别。通过可视化工作流编排，用户可以将对话功能与其他AI组件（如知识库、MCP服务）连接，构建复杂的业务流程。该功能适用于智能客服、内容创作、数据分析等多种场景。
 
 **Section sources**
-- [buidai.vue](file://pages/buidai.vue#L721-L726)
+- [智言万象.vue](file://pages/智言万象.vue#L721-L726)
 - [demo.vue](file://pages/demo.vue#L35-L37)
 
 ## 用户界面呈现与交互设计
@@ -48,7 +48,7 @@ E --> F["用户点击功能项了解详情"]
 
 功能项采用卡片式设计，每个卡片包含图标、功能名称和背景色。AI对话功能的图标为蓝色系，背景色为bg-indigo-50，文字颜色为text-indigo-600，形成统一的视觉识别体系。用户可以通过点击卡片了解功能详情，或通过演示链接直接体验AI对话功能。
 
-在demo.vue页面中，AI对话功能以"必创AI"产品形式展示，提供PC演示前台、WAP演示等多个访问入口，方便用户在不同设备上体验。
+在demo.vue页面中，AI对话功能以"智言AI"产品形式展示，提供PC演示前台、WAP演示等多个访问入口，方便用户在不同设备上体验。
 
 **Section sources**
 - [ProductFeatures.vue](file://components/landing/ProductFeatures.vue#L1-L163)
@@ -77,7 +77,7 @@ sequenceDiagram
 ```
 
 **Diagram sources**
-- [buidai.vue](file://pages/buidai.vue#L721-L726)
+- [智言万象.vue](file://pages/智言万象.vue#L721-L726)
 - [agent.vue](file://pages/agent.vue#L334-L335)
 
 ## 后端模型服务集成
@@ -100,7 +100,7 @@ C --> J[用户记忆]
 ```
 
 **Diagram sources**
-- [buidai.vue](file://pages/buidai.vue#L740-L744)
+- [智言万象.vue](file://pages/智言万象.vue#L740-L744)
 - [agent.vue](file://pages/agent.vue#L354-L356)
 
 会话记忆存储采用混合存储方案：
@@ -111,7 +111,7 @@ C --> J[用户记忆]
 系统支持SSE和StreamableHTTP两种流式传输方式，能够实时返回模型生成的文本，提供流畅的对话体验。
 
 **Section sources**
-- [buidai.vue](file://pages/buidai.vue#L740-L744)
+- [智言万象.vue](file://pages/智言万象.vue#L740-L744)
 - [agent.vue](file://pages/agent.vue#L354-L356)
 
 ## 超长上下文支持技术实现
@@ -135,13 +135,13 @@ G --> H[模型推理]
 
 **Diagram sources**
 - [agent.vue](file://pages/agent.vue#L340-L342)
-- [buidai.vue](file://pages/buidai.vue#L734-L737)
+- [智言万象.vue](file://pages/智言万象.vue#L734-L737)
 
 此外，系统支持上下文滑动窗口机制，自动管理上下文长度。当对话历史超过预设阈值时，系统会根据重要性评分自动清理较不重要的历史记录，确保上下文在模型限制范围内。
 
 **Section sources**
 - [agent.vue](file://pages/agent.vue#L340-L342)
-- [buidai.vue](file://pages/buidai.vue#L734-L737)
+- [智言万象.vue](file://pages/智言万象.vue#L734-L737)
 
 ## 实际使用示例
 

@@ -7,15 +7,15 @@ definePageMeta({
 });
 
 useSeoMeta({
-    title: '即梦AI绘画 - AI绘画系统,AI系统源码,AI绘画生成系统 | 必创AI-BuidAI',
-    description: '必创AI-BuidAI 即梦AI绘画是一个基于即梦AI绘画的快速绘图工具,能够通过简单提示词快速生成高质量图像,风格覆盖广泛,写实、卡通、插画等皆可驾驭。支持纯文本提示词或参考图来生成图片,支持多种图片比例以及1K和2K分辨率设置。基于开源技术构建,提供完整源码与私有化部署支持。',
-    keywords: '即梦AI,AI绘画,文生图,图生图,AI绘画工具,必创AI,BuidAI,图片生成,开源AI系统,私有化部署,即梦4.0,绘画源码',
-    ogTitle: '即梦AI绘画 - 一键生成 AI 图片 | 必创AI-BuidAI',
+    title: '即梦AI绘画 - AI绘画系统,AI系统源码,AI绘画生成系统 | 智言AI-智言万象',
+    description: '智言AI-智言万象 即梦AI绘画是一个基于即梦AI绘画的快速绘图工具,能够通过简单提示词快速生成高质量图像,风格覆盖广泛,写实、卡通、插画等皆可驾驭。支持纯文本提示词或参考图来生成图片,支持多种图片比例以及1K和2K分辨率设置。基于开源技术构建,提供完整源码与私有化部署支持。',
+    keywords: '即梦AI,AI绘画,文生图,图生图,AI绘画工具,智言AI,智言万象,图片生成,开源AI系统,私有化部署,即梦4.0,绘画源码',
+    ogTitle: '即梦AI绘画 - 一键生成 AI 图片 | 智言AI-智言万象',
     ogDescription: '通过简单提示词快速生成高质量图像,风格覆盖广泛,写实、卡通、插画等皆可驾驭。支持纯文本提示词、多种图片比例和分辨率,让创作更简单。',
     ogImage: '/product/jmdraw.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: '即梦AI绘画 - 一键生成 AI 图片 | 必创AI-BuidAI',
+    twitterTitle: '即梦AI绘画 - 一键生成 AI 图片 | 智言AI-智言万象',
     twitterDescription: '通过简单提示词快速生成高质量图像,风格覆盖广泛,支持纯文本提示词和多种图片比例。',
     twitterImage: '/product/jmdraw.png'
 });
@@ -369,7 +369,7 @@ const toDemo = () => {
                     准备好开始创作 AI 绘画了吗？
                 </h2>
                 <p class="text-lg text-gray-500 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
-                    立即加入 BuidAI，体验前沿 AI 绘画生成技术带来的无限可能。无需复杂的配置，快速生成高质量图像。
+                    立即加入 智言万象，体验前沿 AI 绘画生成技术带来的无限可能。无需复杂的配置，快速生成高质量图像。
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
                      <UButton

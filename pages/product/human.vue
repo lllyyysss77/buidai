@@ -7,15 +7,15 @@ definePageMeta({
 });
 
 useSeoMeta({
-    title: 'AI数字人系统 - 开源免费的虚拟形象克隆系统 | 必创AI',
-    description: '必创AI-BuidAI 数字人平台提供一站式 AI 虚拟形象解决方案。支持 4K 超清画质、5 秒声音克隆、多语种合成及 SSML 语音标记。基于开源技术构建，私有化部署首选，助力企业低成本打造专属数字分身。',
-    keywords: 'AI数字人,虚拟数字人,声音克隆,数字分身,开源AI系统,私有化部署,必创AI,虚拟形象生成,AI视频制作,TTS语音合成',
-    ogTitle: 'AI 数字人生成引擎 - 打造您的专属数字分身 | 必创AI',
+    title: 'AI数字人系统 - 开源免费的虚拟形象克隆系统 | 智言AI',
+    description: '智言AI-智言万象 数字人平台提供一站式 AI 虚拟形象解决方案。支持 4K 超清画质、5 秒声音克隆、多语种合成及 SSML 语音标记。基于开源技术构建，私有化部署首选，助力企业低成本打造专属数字分身。',
+    keywords: 'AI数字人,虚拟数字人,声音克隆,数字分身,开源AI系统,私有化部署,智言AI,虚拟形象生成,AI视频制作,TTS语音合成',
+    ogTitle: 'AI 数字人生成引擎 - 打造您的专属数字分身 | 智言AI',
     ogDescription: '一键克隆形象与声音，支持 4K 画质与多语种合成。基于开源生态构建的新一代 AI 数字人生成平台，让创作更简单，让表达更生动。',
     ogImage: '/product/human.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'AI 数字人生成引擎 - 打造您的专属数字分身 | BuidAI',
+    twitterTitle: 'AI 数字人生成引擎 - 打造您的专属数字分身 | 智言万象',
     twitterDescription: '一键克隆形象与声音，支持 4K 画质与多语种合成。基于开源生态构建的新一代 AI 数字人生成平台。',
     twitterImage: '/product/human.png'
 });
@@ -369,7 +369,7 @@ const toDemo = () => {
                     准备好开始创作了吗？
                 </h2>
                 <p class="text-lg text-gray-500 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
-                    立即加入 BuidAI，体验前沿 AI 技术带来的无限可能。无需复杂的配置，快速构建您的数字人应用。
+                    立即加入 智言万象，体验前沿 AI 技术带来的无限可能。无需复杂的配置，快速构建您的数字人应用。
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
                      <UButton

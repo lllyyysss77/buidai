@@ -1,6 +1,6 @@
-# BuidAI (必创AI) - 企业级 AI 应用开发平台模板
+# 智言万象 (智言AI) - 企业级 AI 应用开发平台模板
 
-BuidAI 是一个基于 Nuxt 4 + Vue 3 构建的现代化前端模板，面向 AI 应用开发平台、SaaS 产品官网与文档中心。项目集成 Nuxt UI、Tailwind CSS 与 Nuxt Content，兼顾开发效率、可维护性与 SEO。
+智言万象 是一个基于 Nuxt 4 + Vue 3 构建的现代化前端模板，面向 AI 应用开发平台、SaaS 产品官网与文档中心。项目集成 Nuxt UI、Tailwind CSS 与 Nuxt Content，兼顾开发效率、可维护性与 SEO。
 
 ## 核心特性
 
@@ -29,7 +29,7 @@ BuidAI 是一个基于 Nuxt 4 + Vue 3 构建的现代化前端模板，面向 AI
 ## 目录结构
 
 ```text
-e:\buidai.com\buidai/
+e:\智言万象.com\智言万象/
 ├── assets/                 # 静态资源与全局样式
 │   └── css/
 │       └── main.css        # 全局样式与 CSS 变量、自定义组件类

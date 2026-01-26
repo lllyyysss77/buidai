@@ -19,7 +19,7 @@ export const getSitemapRoutes = (): string[] => {
   const staticRoutes: string[] = [
     '/',              // 首页
     '/agent',         // AI智能体页面
-    '/buidai',        // 私有部署页面
+    '/智言万象',        // 私有部署页面
     '/solutions',     // 解决方案页面
     '/plugin',        // 应用中心页面
     '/pricing',       // 定价方案页面

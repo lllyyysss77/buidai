@@ -23,7 +23,7 @@
 9. [结论](#结论)
 
 ## 简介
-本文件系统性梳理buidai项目的样式架构与UI实现体系，重点阐释Tailwind CSS实用优先（utility-first）理念在项目中的落地方式，涵盖：
+本文件系统性梳理智言万象项目的样式架构与UI实现体系，重点阐释Tailwind CSS实用优先（utility-first）理念在项目中的落地方式，涵盖：
 - 在tailwind.config.js中自定义主题色（primary、accent、secondary）、字体族（Inter）与动画（fade-in、slide-up、bounce-gentle、marquee-vertical）的配置流程
 - content字段如何扫描源文件以启用类名
 - 结合main.css文件，说明全局样式注入机制与自定义CSS的整合策略
@@ -308,4 +308,4 @@ CSS --> Comp["组件样式Hero/AppNavigation"]
 - [HeroSection.vue](file://components/landing/HeroSection.vue#L1-L392)
 
 ## 结论
-buidai项目以Tailwind CSS实用优先为核心，结合Nuxt UI组件库与全局CSS分层策略，实现了统一的品牌色、一致的组件样式与流畅的交互动画。通过精确的content扫描与按需生成，兼顾了开发效率与性能表现。AppNavigation与HeroSection等组件充分体现了响应式布局、暗色模式切换与复杂动画的落地实践，为后续组件扩展提供了清晰的样式与交互范式。
+智言万象项目以Tailwind CSS实用优先为核心，结合Nuxt UI组件库与全局CSS分层策略，实现了统一的品牌色、一致的组件样式与流畅的交互动画。通过精确的content扫描与按需生成，兼顾了开发效率与性能表现。AppNavigation与HeroSection等组件充分体现了响应式布局、暗色模式切换与复杂动画的落地实践，为后续组件扩展提供了清晰的样式与交互范式。

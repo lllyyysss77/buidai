@@ -7,15 +7,15 @@ definePageMeta({
 });
 
 useSeoMeta({
-    title: '电商试衣换装 - 开源免费的AI模特换装系统 | 必创AI-BuidAI',
-    description: '必创AI-BuidAI 电商试衣换装是一款专为电商卖家打造的AI视觉优化解决方案，提升商品主图的吸引力与转化率。无需复杂拍摄与高昂成本，通过AI技术，即可实现「商品一键适配模特上身」与「背景智能替换」两大核心功能，让您的商品在众多竞争者中脱颖而出。基于开源技术构建，提供完整源码与私有化部署支持。',
-    keywords: '电商试衣,AI换装,AI模特,背景替换,商品主图,电商视觉优化,必创AI,BuidAI,AI系统,AI源码,开源代码,试衣换装源码',
-    ogTitle: '电商试衣换装 - AI模特多场景切换 | 必创AI-BuidAI',
+    title: '电商试衣换装 - 开源免费的AI模特换装系统 | 智言AI-智言万象',
+    description: '智言AI-智言万象 电商试衣换装是一款专为电商卖家打造的AI视觉优化解决方案，提升商品主图的吸引力与转化率。无需复杂拍摄与高昂成本，通过AI技术，即可实现「商品一键适配模特上身」与「背景智能替换」两大核心功能，让您的商品在众多竞争者中脱颖而出。基于开源技术构建，提供完整源码与私有化部署支持。',
+    keywords: '电商试衣,AI换装,AI模特,背景替换,商品主图,电商视觉优化,智言AI,智言万象,AI系统,AI源码,开源代码,试衣换装源码',
+    ogTitle: '电商试衣换装 - AI模特多场景切换 | 智言AI-智言万象',
     ogDescription: '专为电商卖家打造的AI视觉优化解决方案，提升商品主图的吸引力与转化率。无需复杂拍摄与高昂成本，通过AI技术实现商品一键适配模特上身与背景智能替换。',
     ogImage: '/product/model.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: '电商试衣换装 - AI模特多场景切换 | 必创AI-BuidAI',
+    twitterTitle: '电商试衣换装 - AI模特多场景切换 | 智言AI-智言万象',
     twitterDescription: '专为电商卖家打造的AI视觉优化解决方案，提升商品主图的吸引力与转化率。无需复杂拍摄与高昂成本，通过AI技术实现商品一键适配模特上身与背景智能替换。',
     twitterImage: '/product/model.png'
 });
@@ -369,7 +369,7 @@ const toDemo = () => {
                     准备好开始试衣换装了吗？
                 </h2>
                 <p class="text-lg text-gray-500 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
-                    立即加入 BuidAI，体验前沿电商试衣换装技术带来的无限可能。无需复杂拍摄与高昂成本，通过AI技术实现商品一键适配模特上身与背景智能替换，大幅提升商品主图的吸引力与转化率。
+                    立即加入 智言万象，体验前沿电商试衣换装技术带来的无限可能。无需复杂拍摄与高昂成本，通过AI技术实现商品一键适配模特上身与背景智能替换，大幅提升商品主图的吸引力与转化率。
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
                      <UButton

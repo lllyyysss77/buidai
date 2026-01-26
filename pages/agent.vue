@@ -8,11 +8,11 @@
       <div class="container mx-auto px-4 text-center relative z-10">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-50 border border-neutral-200 text-xs text-neutral-600 mb-8">
           <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-          <span>BuidAI V4.6.8 strong release</span>
+          <span>智言万象 V4.6.8 strong release</span>
         </div>
 
         <h1 class="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight mb-6 text-neutral-900 leading-tight">
-必创AI <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-blue-400 block sm:inline">企业级 AI </span>应用构建平台
+智言AI <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-blue-400 block sm:inline">企业级 AI </span>应用构建平台
         </h1>
 
         <p class="text-base sm:text-xl text-neutral-500 mb-8 md:mb-10 max-w-3xl mx-auto px-2">
@@ -20,14 +20,14 @@
         </p>
 
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto px-4 sm:px-0">
-          <a href="https://cloud.buidai.com/" target="_blank" class="w-full sm:w-auto px-8 py-3 rounded-full bg-neutral-900 text-white font-semibold hover:bg-neutral-800 active:scale-95 transition-all flex items-center justify-center gap-2 touch-manipulation">
+          <a href="https://cloud.智言万象.com/" target="_blank" class="w-full sm:w-auto px-8 py-3 rounded-full bg-neutral-900 text-white font-semibold hover:bg-neutral-800 active:scale-95 transition-all flex items-center justify-center gap-2 touch-manipulation">
             <!-- Rocket Icon -->
             <RocketLaunchIcon class="w-5 h-5" />
             立即开始
             <!-- Arrow Right Icon -->
             <ArrowRightIcon class="w-4 h-4" />
           </a>
-          <a href="https://doc.buidai.com/" target="_blank" class="w-full sm:w-auto px-8 py-3 rounded-full bg-white border border-neutral-200 text-neutral-900 font-semibold hover:bg-neutral-50 active:scale-95 transition-all shadow-sm flex items-center justify-center gap-2 touch-manipulation">
+          <a href="https://doc.智言万象.com/" target="_blank" class="w-full sm:w-auto px-8 py-3 rounded-full bg-white border border-neutral-200 text-neutral-900 font-semibold hover:bg-neutral-50 active:scale-95 transition-all shadow-sm flex items-center justify-center gap-2 touch-manipulation">
             <!-- Document Icon -->
             <DocumentTextIcon class="w-5 h-5" />
             查看文档
@@ -154,8 +154,8 @@
     <section class="py-16 md:py-24 bg-neutral-50/50 dark:bg-neutral-900 relative overflow-hidden">
       <div class="container mx-auto px-4 relative z-10">
         <div class="text-center mb-16 md:mb-20">
-          <UBadge label="Why 必创AI" variant="subtle" color="neutral" class="mb-4 px-3 py-1" />
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-neutral-900 dark:text-white tracking-tight">为什么选择 必创AI ?</h2>
+          <UBadge label="Why 智言AI" variant="subtle" color="neutral" class="mb-4 px-3 py-1" />
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-neutral-900 dark:text-white tracking-tight">为什么选择 智言AI ?</h2>
           <p class="text-lg text-neutral-500 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed">
             从底层架构到上层应用，我们提供全栈式的 AI 解决方案，助您在智能时代保持领先
           </p>
@@ -185,7 +185,7 @@
           <!-- 左侧：标题 -->
           <div class="lg:w-1/3 w-full text-center lg:text-left">
             <h2 class="text-2xl md:text-4xl font-bold text-neutral-900 mb-4">常见问题</h2>
-            <p class="text-neutral-500 text-sm md:text-base mb-6">关于必创AI的常见疑问解答</p>
+            <p class="text-neutral-500 text-sm md:text-base mb-6">关于智言AI的常见疑问解答</p>
             <div class="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 justify-center lg:justify-start">
               <button @click="openQrModal('coupon')" class="px-6 py-2.5 rounded-full bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 active:scale-95 transition-all flex items-center justify-center gap-2 touch-manipulation">
                 <TicketIcon class="w-4 h-4" />
@@ -243,7 +243,7 @@
               现在开始构建您的 <span class="text-transparent bg-clip-text bg-[linear-gradient(to_right,#2055FA,#1B52F8,#A07CFE,#ADB9FF)]">AI Agent</span>
             </h2>
             <p class="text-lg md:text-xl text-neutral-500 dark:text-neutral-400 leading-relaxed">
-              加入数万开发者的行列，使用 必创AI 释放智能体的无限潜能，让 AI 触手可及。
+              加入数万开发者的行列，使用 智言AI 释放智能体的无限潜能，让 AI 触手可及。
             </p>
           </div>
 
@@ -333,11 +333,11 @@ interface Faq {
 
 // SEO 元数据配置
 useSeoMeta({
-  title: '必创AI - 企业级 AI Agent 智能体构建平台',
-  description: '必创AI 企业级 AI 应用构建平台。可视化 Workflow 编排 + 超易用 AI 知识库 + 创新 RAG 检索 + 模板生态 = 轻松构建强大 AI 应用。全方位赋能企业 AI 转型，打造智能高效的业务闭环。',
-  keywords: 'AI Agent, 智能体, 企业级AI, AI应用平台, 必创AI, Workflow, RAG',
-  ogTitle: '必创AI - 企业级 AI Agent 智能体构建平台',
-  ogDescription: '必创AI 企业级 AI 应用构建平台。可视化 Workflow 编排 + 超易用 AI 知识库 + 创新 RAG 检索 + 模板生态 = 轻松构建强大 AI 应用。',
+  title: '智言AI - 企业级 AI Agent 智能体构建平台',
+  description: '智言AI 企业级 AI 应用构建平台。可视化 Workflow 编排 + 超易用 AI 知识库 + 创新 RAG 检索 + 模板生态 = 轻松构建强大 AI 应用。全方位赋能企业 AI 转型，打造智能高效的业务闭环。',
+  keywords: 'AI Agent, 智能体, 企业级AI, AI应用平台, 智言AI, Workflow, RAG',
+  ogTitle: '智言AI - 企业级 AI Agent 智能体构建平台',
+  ogDescription: '智言AI 企业级 AI 应用构建平台。可视化 Workflow 编排 + 超易用 AI 知识库 + 创新 RAG 检索 + 模板生态 = 轻松构建强大 AI 应用。',
   ogType: 'website'
 })
 
@@ -454,15 +454,15 @@ const faqs: Faq[] = [
   },
   {
     question: '我可以使用自己的企业数据训练 AI 吗？',
-    answer: '可以。BuidAI 提供强大的 RAG（检索增强生成）知识库功能，支持上传 PDF、Word、Excel 等多种格式文档。AI 会基于您的私有数据进行精准回答，无需重新训练模型。'
+    answer: '可以。智言万象 提供强大的 RAG（检索增强生成）知识库功能，支持上传 PDF、Word、Excel 等多种格式文档。AI 会基于您的私有数据进行精准回答，无需重新训练模型。'
   },
   {
     question: '构建一个 AI 应用需要编程基础吗？',
-    answer: '完全不需要。BuidAI 提供可视化的 Workflow 编排界面，您只需像搭积木一样拖拽组件，即可构建功能强大的 AI 应用，极大降低了开发门槛。'
+    answer: '完全不需要。智言万象 提供可视化的 Workflow 编排界面，您只需像搭积木一样拖拽组件，即可构建功能强大的 AI 应用，极大降低了开发门槛。'
   },
   {
     question: '我的数据安全吗？会不会被用于模型训练？',
-    answer: '您的数据绝对安全。BuidAI 支持私有化部署，数据完全存储在您自己的服务器中。我们严格遵守企业级安全标准，确保您的敏感信息不会被泄露或用于公有模型训练。'
+    answer: '您的数据绝对安全。智言万象 支持私有化部署，数据完全存储在您自己的服务器中。我们严格遵守企业级安全标准，确保您的敏感信息不会被泄露或用于公有模型训练。'
   },
   {
     question: '平台支持哪些大语言模型？',

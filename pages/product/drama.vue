@@ -7,15 +7,15 @@ definePageMeta({
 });
 
 useSeoMeta({
-    title: 'AI短剧小说创作 - 开源免费的网文短剧写作系统 | 必创AI-BuidAI',
-    description: '必创AI-BuidAI 网文短剧写作是一款专注于短剧本和网络小说创作的辅助工具,适合自媒体创作者、编剧、网络作家及内容团队使用。提供丰富的剧情模板、角色设定和冲突框架,支持创建无限量剧本、章节可视化拖拽、AI 扩写润色改写续写。基于开源技术构建,提供完整源码与私有化部署支持。',
-    keywords: 'AI短剧创作,网文写作,短剧本创作,网络小说,AI写作工具,必创AI,BuidAI,小说创作,剧本生成,AI扩写,AI润色,开源AI系统,私有化部署',
-    ogTitle: 'AI 短剧小说创作 - 打造爆款短剧的神器 | 必创AI-BuidAI',
+    title: 'AI短剧小说创作 - 开源免费的网文短剧写作系统 | 智言AI-智言万象',
+    description: '智言AI-智言万象 网文短剧写作是一款专注于短剧本和网络小说创作的辅助工具,适合自媒体创作者、编剧、网络作家及内容团队使用。提供丰富的剧情模板、角色设定和冲突框架,支持创建无限量剧本、章节可视化拖拽、AI 扩写润色改写续写。基于开源技术构建,提供完整源码与私有化部署支持。',
+    keywords: 'AI短剧创作,网文写作,短剧本创作,网络小说,AI写作工具,智言AI,智言万象,小说创作,剧本生成,AI扩写,AI润色,开源AI系统,私有化部署',
+    ogTitle: 'AI 短剧小说创作 - 打造爆款短剧的神器 | 智言AI-智言万象',
     ogDescription: '专为自媒体创作者、编剧、网络作家打造,支持创建无限量剧本、角色设定、章节可视化拖拽、AI 扩写润色改写续写。让短剧创作更高效、更系统。',
     ogImage: '/product/drama.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'AI 短剧小说创作 - 打造爆款短剧的神器 | 必创AI-BuidAI',
+    twitterTitle: 'AI 短剧小说创作 - 打造爆款短剧的神器 | 智言AI-智言万象',
     twitterDescription: '专为自媒体创作者、编剧、网络作家打造,支持创建无限量剧本、角色设定、章节可视化拖拽、AI 扩写润色改写续写。',
     twitterImage: '/product/drama.png'
 });
@@ -369,7 +369,7 @@ const toDemo = () => {
                     准备好开始创作了吗？
                 </h2>
                 <p class="text-lg text-gray-500 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
-                    立即加入 BuidAI，体验前沿 AI 技术带来的无限可能。无需复杂的配置，快速构建您的数字人应用。
+                    立即加入 智言万象，体验前沿 AI 技术带来的无限可能。无需复杂的配置，快速构建您的数字人应用。
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
                      <UButton

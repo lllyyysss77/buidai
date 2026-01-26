@@ -13,7 +13,7 @@
           <div class="flex flex-wrap items-center gap-4">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 border border-neutral-200">
               <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-              <span class="text-sm font-medium text-neutral-700">必创AI</span>
+              <span class="text-sm font-medium text-neutral-700">智言AI</span>
             </div>
             <div class="text-sm font-medium text-neutral-600">
               专为企业打造的大模型服务与应用开发平台
@@ -108,7 +108,7 @@ const features = [
 // 二维码弹窗 - 触发 BackToTop 组件
 const openQrModal = (type) => {
   const config = type === 'community'
-    ? { title: '加入社群', desc: '扫码加入必创AI社群', image: '/qrcode.png' }
+    ? { title: '加入社群', desc: '扫码加入智言AI社群', image: '/qrcode.png' }
     : { title: '联系我们', desc: '扫码添加微信客服', image: '/wechat.png' }
   window.dispatchEvent(new CustomEvent('showQRCodeModal', { detail: config }))
 }

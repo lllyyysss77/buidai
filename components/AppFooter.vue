@@ -4,10 +4,10 @@
       <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-8 mb-12">
         <div class="col-span-2 lg:col-span-2">
           <NuxtLink to="/" class="flex items-center space-x-3 mb-6">
-            <img src="/AppFooter.svg" alt="BuidAI" class="h-6 w-auto" />
+            <img src="/logo.svg" alt="智言AI" class="h-6 w-auto" />
           </NuxtLink>
           <p class="text-gray-500 text-sm leading-relaxed max-w-xs mb-6">
-            必创AI 致力于降低企业 AI 应用开发门槛，赋能每一个团队构建智能未来。
+            智言AI 致力于降低企业 AI 应用开发门槛，赋能每一个团队构建智能未来。
           </p>
           <div class="flex space-x-4">
             <a href="#" class="text-gray-400 hover:text-primary-600 transition-colors">
@@ -112,7 +112,7 @@
       <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
         <div class="flex flex-col md:flex-row items-center gap-2 md:gap-6">
           <p class="text-gray-400 text-sm">
-            © 2026 必创AI BuidAI. All rights reserved.
+            © 2026 智言AI 智言万象. All rights reserved.
           </p>
           <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" class="text-gray-400 text-sm hover:text-primary-600 transition-colors">
            赣ICP备2023002309号

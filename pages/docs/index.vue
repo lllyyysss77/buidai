@@ -8,7 +8,7 @@
         <div class="text-center mb-16">
           <h1 class="text-4xl font-extrabold text-gray-900 mb-4 tracking-tight sm:text-5xl">文档中心</h1>
           <p class="text-xl text-gray-500 max-w-2xl mx-auto">
-            探索 必创AI 的详细文档，快速构建您的 AI 应用。
+            探索 智言AI 的详细文档，快速构建您的 AI 应用。
           </p>
         </div>
 
@@ -70,9 +70,9 @@
 
 // SEO Meta
 useSeoMeta({
-  title: '文档中心 - 必创AI - BuidAI | 开发指南、API文档与最佳实践',
-  description: '必创AI 官方文档中心，提供从入门到精通的完整开发指南、详细的 API 参考手册、SDK 使用说明及企业级 AI 应用构建的最佳实践。',
-  keywords: '必创AI文档, AI开发指南, API参考, SDK文档, 最佳实践, AI应用构建, 技术手册, 开发者文档'
+  title: '文档中心 - 智言AI - 智言万象 | 开发指南、API文档与最佳实践',
+  description: '智言AI 官方文档中心，提供从入门到精通的完整开发指南、详细的 API 参考手册、SDK 使用说明及企业级 AI 应用构建的最佳实践。',
+  keywords: '智言AI文档, AI开发指南, API参考, SDK文档, 最佳实践, AI应用构建, 技术手册, 开发者文档'
 })
 
 // Fetch All Docs for Crawling and Index

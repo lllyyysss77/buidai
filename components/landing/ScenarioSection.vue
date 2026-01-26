@@ -10,7 +10,7 @@
       <div class="mx-auto max-w-2xl text-center mb-12">
         <h2 class="text-base font-semibold text-ui-primary leading-7">多场景覆盖</h2>
         <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-          必创AI 灵活适配您的业务需求
+          智言AI 灵活适配您的业务需求
         </p>
         <p class="mt-4 text-lg text-gray-600 max-w-xl mx-auto">
           从内部提效到外部服务，全面覆盖企业智能化需求，助力企业快速落地 AI 应用。
@@ -70,7 +70,7 @@ const scenarios: ScenarioItem[] = [
   {
     title: '全开源 & DIY 装修',
     subtitle: '自主可控',
-    desc: 'BuidAI 项目代码完全公开，支持私有化部署到企业服务器。同时支持自定义首页、登录界面、加载动画的 Logo，打造专属品牌形象。',
+    desc: '智言万象 项目代码完全公开，支持私有化部署到企业服务器。同时支持自定义首页、登录界面、加载动画的 Logo，打造专属品牌形象。',
     icon: 'i-heroicons-code-bracket-square',
     colSpan: 'lg:col-span-3',
     gradientClass: 'bg-gradient-to-br from-blue-100/90 via-white to-blue-50/50 border-blue-200/60',
@@ -81,7 +81,7 @@ const scenarios: ScenarioItem[] = [
   {
     title: '导入 Dify & 扣子 工作流',
     subtitle: '无缝集成',
-    desc: 'BuidAI 支持导入 Dify、扣子（Coze）等第三方工作流，打破平台局限，让你的 AI Agent 能力得到充分施展。',
+    desc: '智言万象 支持导入 Dify、扣子（Coze）等第三方工作流，打破平台局限，让你的 AI Agent 能力得到充分施展。',
     icon: 'i-heroicons-cpu-chip',
     colSpan: 'lg:col-span-3',
     gradientClass: 'bg-gradient-to-br from-violet-100/90 via-white to-violet-50/50 border-violet-200/60',

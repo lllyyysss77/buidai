@@ -187,4 +187,4 @@ style F fill:#FF9800,stroke:#F57C00
 
 ## 结论
 
-buidai项目充分展示了Nuxt 4环境下Vue 3 `setup`语法糖的强大功能。通过编译时转换，`<script setup>`实现了更简洁的组件定义，避免了运行时开销。结合`unplugin-auto-import`和`unplugin-vue-components`，项目实现了API与组件的无缝自动导入，极大地提升了开发效率。Nuxt特有的`definePageMeta`、`useAsyncData`等API在编译过程中被特殊处理，确保了功能的正确实现。`app.vue`中的无显式导出声明方式体现了现代Vue开发的简洁性。整体架构体现了现代前端开发的最佳实践，为复杂应用提供了可扩展的基础。
+智言万象项目充分展示了Nuxt 4环境下Vue 3 `setup`语法糖的强大功能。通过编译时转换，`<script setup>`实现了更简洁的组件定义，避免了运行时开销。结合`unplugin-auto-import`和`unplugin-vue-components`，项目实现了API与组件的无缝自动导入，极大地提升了开发效率。Nuxt特有的`definePageMeta`、`useAsyncData`等API在编译过程中被特殊处理，确保了功能的正确实现。`app.vue`中的无显式导出声明方式体现了现代Vue开发的简洁性。整体架构体现了现代前端开发的最佳实践，为复杂应用提供了可扩展的基础。

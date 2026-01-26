@@ -4,7 +4,7 @@
 **本文档引用文件**  
 - [ProductFeatures.vue](file://components/landing/ProductFeatures.vue)
 - [agent.vue](file://pages/agent.vue)
-- [buidai.vue](file://pages/buidai.vue)
+- [智言万象.vue](file://pages/智言万象.vue)
 - [11.manual-installation.md](file://content/docs/introduction/11.manual-installation.md)
 </cite>
 
@@ -18,17 +18,17 @@
 7. [结论](#结论)
 
 ## 引言
-本文档详细记录buidai平台的MCP（Model Control Protocol）服务运行时环境。MCP服务作为AI模型与外部工具间的标准化接口，为智能体提供了安全、高效的资源访问能力。文档将深入解析其核心功能、调用模式、集成特性及服务治理机制，并提供完整的运维操作指南。
+本文档详细记录智言万象平台的MCP（Model Control Protocol）服务运行时环境。MCP服务作为AI模型与外部工具间的标准化接口，为智能体提供了安全、高效的资源访问能力。文档将深入解析其核心功能、调用模式、集成特性及服务治理机制，并提供完整的运维操作指南。
 
 ## MCP服务概述
 
-MCP服务是buidai平台的核心协议标准，全称为Model Context Protocol（模型上下文协议）。它实现了模型与数据的无缝连接，为智能体提供了一个标准化的接口来安全、高效地访问本地文件、数据库及第三方API服务。
+MCP服务是智言万象平台的核心协议标准，全称为Model Context Protocol（模型上下文协议）。它实现了模型与数据的无缝连接，为智能体提供了一个标准化的接口来安全、高效地访问本地文件、数据库及第三方API服务。
 
 该服务在平台中扮演着关键角色，作为AI模型与外部世界交互的桥梁，使得智能体能够突破传统模型的封闭性，具备调用工具、读取文件、执行数据库操作等扩展能力，从而实现更复杂的任务自动化。
 
 **Section sources**
 - [agent.vue](file://pages/agent.vue#L351-L357)
-- [buidai.vue](file://pages/buidai.vue#L739-L744)
+- [智言万象.vue](file://pages/智言万象.vue#L739-L744)
 
 ## 调用模式实现
 
@@ -41,7 +41,7 @@ MCP服务支持两种主要的调用模式：SSE（Server-Sent Events）和Strea
 这两种模式共同构成了MCP服务灵活的通信基础，确保了AI应用在不同网络环境和业务需求下的稳定性和响应速度。
 
 **Section sources**
-- [buidai.vue](file://pages/buidai.vue#L740-L744)
+- [智言万象.vue](file://pages/智言万象.vue#L740-L744)
 
 ## 快速集成特性
 
@@ -85,7 +85,7 @@ MCP服务运行时环境集成了完善的服务治理机制，确保服务的�
 
 ### 服务注册
 1.  确保MCP服务实例已部署并运行。
-2.  访问buidai平台管理后台，进入“插件”或“工具管理”页面。
+2.  访问智言万象平台管理后台，进入“插件”或“工具管理”页面。
 3.  点击“注册新服务”，填写服务名称、描述、访问端点（Endpoint）和认证信息。
 4.  选择服务支持的调用模式（SSE或StreamableHTTP）。
 5.  提交注册，系统将自动将其纳入服务发现列表。
@@ -104,4 +104,4 @@ MCP服务运行时环境集成了完善的服务治理机制，确保服务的�
 - [11.manual-installation.md](file://content/docs/introduction/11.manual-installation.md#L90-L237)
 
 ## 结论
-MCP服务是buidai平台实现AI智能体能力扩展的核心基础设施。通过标准化的Model Context Protocol，它成功地将AI模型与丰富的外部工具生态连接起来。其支持的SSE和StreamableHTTP调用模式确保了高效的数据流传输，'Zap'图标所代表的快速集成特性极大地提升了开发效率。结合服务发现、负载均衡和熔断降级等治理机制，MCP服务为构建稳定、可靠的AI应用提供了坚实的运行时保障。遵循本文档的操作指南，可以有效管理和维护MCP服务，确保其在生产环境中的最佳性能。
+MCP服务是智言万象平台实现AI智能体能力扩展的核心基础设施。通过标准化的Model Context Protocol，它成功地将AI模型与丰富的外部工具生态连接起来。其支持的SSE和StreamableHTTP调用模式确保了高效的数据流传输，'Zap'图标所代表的快速集成特性极大地提升了开发效率。结合服务发现、负载均衡和熔断降级等治理机制，MCP服务为构建稳定、可靠的AI应用提供了坚实的运行时保障。遵循本文档的操作指南，可以有效管理和维护MCP服务，确保其在生产环境中的最佳性能。

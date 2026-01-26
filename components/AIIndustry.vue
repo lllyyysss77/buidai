@@ -89,7 +89,7 @@
                 <p class="text-sm text-neutral-500 leading-relaxed">{{ f.desc }}</p>
               </div>
               <div class="shrink-0">
-                <a href="https://chat.buidai.com" target="_blank" rel="noopener noreferrer" class="px-3 py-1 text-xs font-medium text-white bg-neutral-900 hover:bg-neutral-800 rounded-full transition-all shadow-sm">
+                <a href="https://chat.智言万象.com" target="_blank" rel="noopener noreferrer" class="px-3 py-1 text-xs font-medium text-white bg-neutral-900 hover:bg-neutral-800 rounded-full transition-all shadow-sm">
                   立即创作
                 </a>
               </div>

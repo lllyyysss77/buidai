@@ -32,7 +32,7 @@ interface ProductDemo {
 const products: ProductDemo[] = [
   {
     id: 'chat-bot',
-    title: '必创AI',
+    title: '智言AI',
     description: '基于大语言模型的智能客服与对话系统，支持多轮对话、上下文理解与意图识别。',
     icon: ChatBubbleLeftRightIcon,
     status: 'online',
@@ -126,10 +126,10 @@ function toggleProduct(productId: string): void {
  * SEO 配置常量
  * 用于设置页面的搜索引擎优化元数据
  */
-const siteName = 'BuidAI'
-const baseUrl = 'https://buidai.com'
-const pageTitle = '产品演示中心 - BuidAI | 在线体验AI产品'
-const pageDescription = 'BuidAI产品演示中心，在线体验必创AI智能客服、企业知识库、聊天绘画、AI数字人等AI产品。支持PC端、移动端、后台管理等多平台演示。'
+const siteName = '智言万象'
+const baseUrl = 'https://智言万象.com'
+const pageTitle = '产品演示中心 - 智言万象 | 在线体验AI产品'
+const pageDescription = '智言万象产品演示中心，在线体验智言AI智能客服、企业知识库、聊天绘画、AI数字人等AI产品。支持PC端、移动端、后台管理等多平台演示。'
 const canonicalUrl = `${baseUrl}/demo`
 const ogImage = `${baseUrl}/images/og-demo.png`
 
@@ -241,11 +241,11 @@ useHead({
     { type: 'application/ld+json', innerHTML: JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Organization',
-      name: 'BuidAI',
+      name: '智言万象',
       url: baseUrl,
       logo: `${baseUrl}/images/logo.png`,
       // 社交媒体链接
-      sameAs: ['https://github.com/buidai', 'https://twitter.com/buidai']
+      sameAs: ['https://github.com/智言万象', 'https://twitter.com/智言万象']
     })}
   ]
 })

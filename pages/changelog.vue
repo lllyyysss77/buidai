@@ -27,7 +27,7 @@
               <div class="mb-8">
                 <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">更新日志</h1>
                 <p class="text-base text-gray-600">
-                  了解 BuidAI 的最新进展与功能更新。
+                  了解 智言万象 的最新进展与功能更新。
                 </p>
               </div>
 
@@ -110,11 +110,11 @@ definePageMeta({
 })
 
 useSeoMeta({
-  title: '必创AI - 更新日志 - BuidAI | 产品迭代历史与新功能发布',
-  description: '查看 BuidAI 的最新版本更新记录，包括新功能上线、性能优化、Bug 修复及未来规划。保持关注，获取第一手产品动态。',
-  keywords: '必创AI更新日志, 版本记录, 产品动态, 新功能发布, 迭代历史, 软件更新, AI平台更新',
-  ogTitle: '必创AI - 更新日志 - BuidAI | 产品迭代历史与新功能发布',
-  ogDescription: '查看 BuidAI 的最新版本更新记录，包括新功能上线、性能优化、Bug 修复及未来规划。保持关注，获取第一手产品动态。',
+  title: '智言AI - 更新日志 - 智言万象 | 产品迭代历史与新功能发布',
+  description: '查看 智言万象 的最新版本更新记录，包括新功能上线、性能优化、Bug 修复及未来规划。保持关注，获取第一手产品动态。',
+  keywords: '智言AI更新日志, 版本记录, 产品动态, 新功能发布, 迭代历史, 软件更新, AI平台更新',
+  ogTitle: '智言AI - 更新日志 - 智言万象 | 产品迭代历史与新功能发布',
+  ogDescription: '查看 智言万象 的最新版本更新记录，包括新功能上线、性能优化、Bug 修复及未来规划。保持关注，获取第一手产品动态。',
   ogType: 'website'
 })
 

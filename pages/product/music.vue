@@ -7,15 +7,15 @@ definePageMeta({
 });
 
 useSeoMeta({
-    title: 'AI音乐 - 开源免费的 AI 音乐生成系统 | 必创AI-BuidAI',
-    description: '必创AI-BuidAI AI音乐是一款以文本/歌词/哼唱/乐谱为输入,快速生成完整歌曲、伴奏、人声或纯音乐的创作与生产工具,旨在降低门槛、提升效率,支持个人娱乐与商用配乐的"人机协同"。基于开源技术构建,提供完整源码与私有化部署支持。',
-    keywords: 'AI音乐,音乐生成,文生音乐,歌词生成,哼唱生成,乐谱生成,必创AI,BuidAI,音乐创作工具,开源AI系统,私有化部署,音乐源码',
-    ogTitle: 'AI音乐 - 一键生成 AI 音乐 | 必创AI-BuidAI',
+    title: 'AI音乐 - 开源免费的 AI 音乐生成系统 | 智言AI-智言万象',
+    description: '智言AI-智言万象 AI音乐是一款以文本/歌词/哼唱/乐谱为输入,快速生成完整歌曲、伴奏、人声或纯音乐的创作与生产工具,旨在降低门槛、提升效率,支持个人娱乐与商用配乐的"人机协同"。基于开源技术构建,提供完整源码与私有化部署支持。',
+    keywords: 'AI音乐,音乐生成,文生音乐,歌词生成,哼唱生成,乐谱生成,智言AI,智言万象,音乐创作工具,开源AI系统,私有化部署,音乐源码',
+    ogTitle: 'AI音乐 - 一键生成 AI 音乐 | 智言AI-智言万象',
     ogDescription: '以文本/歌词/哼唱/乐谱为输入,快速生成完整歌曲、伴奏、人声或纯音乐。降低门槛、提升效率,支持个人娱乐与商用配乐。',
     ogImage: '/product/music.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'AI音乐 - 一键生成 AI 音乐 | 必创AI-BuidAI',
+    twitterTitle: 'AI音乐 - 一键生成 AI 音乐 | 智言AI-智言万象',
     twitterDescription: '以文本/歌词/哼唱/乐谱为输入,快速生成完整歌曲、伴奏、人声或纯音乐,降低门槛、提升效率。',
     twitterImage: '/product/music.png'
 });
@@ -369,7 +369,7 @@ const toDemo = () => {
                     准备好开始创作 AI 音乐了吗？
                 </h2>
                 <p class="text-lg text-gray-500 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
-                    立即加入 BuidAI，体验前沿 AI 音乐生成技术带来的无限可能。降低门槛、提升效率，支持个人娱乐与商用配乐。
+                    立即加入 智言万象，体验前沿 AI 音乐生成技术带来的无限可能。降低门槛、提升效率，支持个人娱乐与商用配乐。
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
                      <UButton

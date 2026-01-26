@@ -52,8 +52,8 @@
                    <UserIcon class="w-6 h-6" />
                 </div>
                 <div class="text-sm">
-                  <div class="font-medium text-gray-900">BuidAI Team</div>
-                  <div class="text-gray-500">@buidai_official</div>
+                  <div class="font-medium text-gray-900">智言万象 Team</div>
+                  <div class="text-gray-500">@智言万象_official</div>
                 </div>
               </div>
             </header>
@@ -332,7 +332,7 @@ onUnmounted(() => {
 // SEO
 if (post.value) {
   useSeoMeta({
-    title: `${post.value.title} - BuidAI 博客`,
+    title: `${post.value.title} - 智言万象 博客`,
     description: post.value.description,
     ogTitle: post.value.title,
     ogDescription: post.value.description,

@@ -23,7 +23,7 @@
 
 ## 项目结构概览
 
-buidai项目是一个基于Nuxt 4框架的现代前端应用，采用TypeScript进行类型安全开发。项目结构遵循Nuxt的标准布局，包含pages、components、layouts等核心目录，并通过Nuxt Content模块管理Markdown内容。TypeScript配置以根目录的tsconfig.json为核心，结合Nuxt自动生成的类型文件，构建了完整的类型系统。
+智言万象项目是一个基于Nuxt 4框架的现代前端应用，采用TypeScript进行类型安全开发。项目结构遵循Nuxt的标准布局，包含pages、components、layouts等核心目录，并通过Nuxt Content模块管理Markdown内容。TypeScript配置以根目录的tsconfig.json为核心，结合Nuxt自动生成的类型文件，构建了完整的类型系统。
 
 **Section sources**
 - [tsconfig.json](file://tsconfig.json)
@@ -77,7 +77,7 @@ tsconfig.json通过`extends`字段继承`./.nuxt/tsconfig.json`，这是Nuxt 4�
 
 `moduleResolution: 'Bundler'`是TypeScript 5.0引入的新选项，专为现代前端构建工具链设计。该配置使TypeScript编译器采用与Vite、Webpack等打包工具一致的模块解析策略，解决了传统Node.js解析模式与现代构建工具之间的差异问题。
 
-在buidai项目中启用此选项的主要优势包括：
+在智言万象项目中启用此选项的主要优势包括：
 
 - **路径别名兼容性**：与Vite的路径别名配置无缝集成
 - **包导出映射**：正确解析package.json中的exports字段
@@ -179,7 +179,7 @@ typescript: {
 
 ## 总结
 
-buidai项目的tsconfig.json配置体现了现代前端项目的最佳实践：
+智言万象项目的tsconfig.json配置体现了现代前端项目的最佳实践：
 
 1. **继承式配置**：通过extends机制复用框架生成的配置，确保一致性
 2. **现代模块解析**：采用Bundler模式适配现代构建工具链

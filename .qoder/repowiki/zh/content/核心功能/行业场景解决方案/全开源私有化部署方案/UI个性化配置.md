@@ -25,10 +25,10 @@
 10. [附录](#附录)（如有必要）
 
 ## 简介
-本文档全面说明buidai平台的UI自定义能力，涵盖首页、登录页、Logo、加载动画等界面元素的替换与样式调整方法。基于`app.config.ts`中的主题配置项和Tailwind CSS的定制化支持，提供具体的配置步骤和代码示例。指导用户如何通过修改`main.css`扩展样式，以及如何在不破坏原有布局的前提下进行品牌化设计。包含多场景定制案例和响应式适配建议。
+本文档全面说明智言万象平台的UI自定义能力，涵盖首页、登录页、Logo、加载动画等界面元素的替换与样式调整方法。基于`app.config.ts`中的主题配置项和Tailwind CSS的定制化支持，提供具体的配置步骤和代码示例。指导用户如何通过修改`main.css`扩展样式，以及如何在不破坏原有布局的前提下进行品牌化设计。包含多场景定制案例和响应式适配建议。
 
 ## 项目结构
-buidai平台采用基于Nuxt 4 + Vue 3的现代化前端架构，结合Tailwind CSS实现高度可定制的UI系统。项目结构清晰，按功能划分目录，便于维护和扩展。
+智言万象平台采用基于Nuxt 4 + Vue 3的现代化前端架构，结合Tailwind CSS实现高度可定制的UI系统。项目结构清晰，按功能划分目录，便于维护和扩展。
 
 ```mermaid
 graph TB
@@ -61,7 +61,7 @@ M --> |动画扩展| A
 - [README.md](file://README.md)
 
 ## 核心组件
-buidai平台的核心UI组件包括导航栏、页脚、首页英雄区域和功能轮播等。这些组件通过Nuxt UI和Tailwind CSS构建，支持高度的样式定制和行为配置。
+智言万象平台的核心UI组件包括导航栏、页脚、首页英雄区域和功能轮播等。这些组件通过Nuxt UI和Tailwind CSS构建，支持高度的样式定制和行为配置。
 
 **本节来源**  
 - [components/AppNavigation.vue](file://components/AppNavigation.vue)
@@ -70,7 +70,7 @@ buidai平台的核心UI组件包括导航栏、页脚、首页英雄区域和功
 - [components/landing/FeatureCarousel.vue](file://components/landing/FeatureCarousel.vue)
 
 ## 架构概述
-buidai平台的UI架构基于Nuxt 4的模块化设计，通过`@nuxt/ui`提供基础组件库，`@nuxt/content`支持内容驱动，Tailwind CSS实现原子化样式管理。整体架构支持SSG（静态站点生成），适配Vercel等静态部署环境。
+智言万象平台的UI架构基于Nuxt 4的模块化设计，通过`@nuxt/ui`提供基础组件库，`@nuxt/content`支持内容驱动，Tailwind CSS实现原子化样式管理。整体架构支持SSG（静态站点生成），适配Vercel等静态部署环境。
 
 ```mermaid
 graph TD
@@ -218,11 +218,11 @@ FeatureCarousel --> UButton : "使用"
 - [components/landing/FeatureCarousel.vue](file://components/landing/FeatureCarousel.vue)
 
 ## 依赖分析
-buidai平台的UI组件依赖于多个Nuxt模块和第三方库，形成完整的UI生态系统。
+智言万象平台的UI组件依赖于多个Nuxt模块和第三方库，形成完整的UI生态系统。
 
 ```mermaid
 graph TD
-A[buidai] --> B[@nuxt/ui]
+A[智言万象] --> B[@nuxt/ui]
 A --> C[@nuxt/content]
 A --> D[Tailwind CSS]
 A --> E[@nuxtjs/color-mode]
@@ -249,7 +249,7 @@ I --> Q[FeatureCarousel.vue]
 - [nuxt.config.ts](file://nuxt.config.ts)
 
 ## 性能考虑
-buidai平台在UI设计中充分考虑性能优化，包括：
+智言万象平台在UI设计中充分考虑性能优化，包括：
 - 使用`requestAnimationFrame`优化滚动动画
 - 通过`passive: true`提升滚动事件性能
 - 图片懒加载（`loading="lazy"`）
@@ -277,7 +277,7 @@ buidai平台在UI设计中充分考虑性能优化，包括：
 - [assets/css/main.css](file://assets/css/main.css)
 
 ## 结论
-buidai平台提供了完整的UI自定义解决方案，通过`app.config.ts`的主题配置、`tailwind.config.js`的动画扩展和`main.css`的样式覆盖，用户可以轻松实现品牌化设计。组件设计充分考虑响应式适配和性能优化，支持从首页到登录页的全面定制。
+智言万象平台提供了完整的UI自定义解决方案，通过`app.config.ts`的主题配置、`tailwind.config.js`的动画扩展和`main.css`的样式覆盖，用户可以轻松实现品牌化设计。组件设计充分考虑响应式适配和性能优化，支持从首页到登录页的全面定制。
 
 ## 附录
 ### 主题配置参考

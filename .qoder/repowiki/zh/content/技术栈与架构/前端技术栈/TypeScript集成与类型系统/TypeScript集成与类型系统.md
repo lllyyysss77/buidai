@@ -25,7 +25,7 @@
 10. [附录](#附录)
 
 ## 引言
-本指南围绕buidai项目在Nuxt 4中的TypeScript集成与类型系统展开，重点解析以下主题：
+本指南围绕智言万象项目在Nuxt 4中的TypeScript集成与类型系统展开，重点解析以下主题：
 - tsconfig.json的配置要点与moduleResolution: 'Bundler'对现代前端构建的影响
 - 通过extends './.nuxt/tsconfig.json'实现框架自动生成类型声明的继承机制
 - package.json中typescript与vue-tsc的依赖如何支撑类型检查流程（nuxt typecheck）
@@ -35,7 +35,7 @@
 - 类型守卫、断言函数与复杂接口设计的最佳实践
 
 ## 项目结构
-buidai采用Nuxt 4生态，TypeScript配置集中于根目录tsconfig.json，配合Nuxt的类型生成与内容模块schema，形成“框架生成类型 + 手写类型”的双轨类型体系。关键文件与职责如下：
+智言万象采用Nuxt 4生态，TypeScript配置集中于根目录tsconfig.json，配合Nuxt的类型生成与内容模块schema，形成“框架生成类型 + 手写类型”的双轨类型体系。关键文件与职责如下：
 - tsconfig.json：统一入口，继承Nuxt生成的tsconfig，启用Bundler模块解析，注入类型声明
 - package.json：定义脚本与依赖，包括typescript、vue-tsc与nuxt
 - nuxt.config.ts：控制Nuxt的typescript.typeCheck开关与Nitro预渲染
@@ -96,7 +96,7 @@ N["pages/docs/[...slug].vue<br/>并行数据获取"] --> O["内容查询类型�
 - [env.d.ts](file://env.d.ts#L1-L3)
 
 ## 架构总览
-下图展示了TypeScript类型系统在buidai中的整体架构：tsconfig.json作为入口，继承Nuxt生成的类型配置；package.json提供类型检查工具链；nuxt.config.ts控制构建与预渲染；content.config.ts驱动内容数据类型推断；env.d.ts提供全局类型；组件与页面通过defineProps/defineEmits与queryCollection等API获得类型安全保障。
+下图展示了TypeScript类型系统在智言万象中的整体架构：tsconfig.json作为入口，继承Nuxt生成的类型配置；package.json提供类型检查工具链；nuxt.config.ts控制构建与预渲染；content.config.ts驱动内容数据类型推断；env.d.ts提供全局类型；组件与页面通过defineProps/defineEmits与queryCollection等API获得类型安全保障。
 
 ```mermaid
 graph TB
@@ -421,7 +421,7 @@ contentcfg["content.config.ts"] --> query["queryCollection返回类型"]
 - [content.config.ts](file://content.config.ts#L1-L57)
 
 ## 结论
-buidai项目在Nuxt 4中实现了完善的TypeScript集成：通过tsconfig.json继承Nuxt生成的类型配置，借助content.config.ts的Zod schema驱动queryCollection类型推断，结合package.json的类型检查工具链与nuxt.config.ts的构建策略，形成了高效、可维护的类型系统。Sidebar.vue与[...slug].vue展示了defineProps/defineEmits、并行数据获取与类型安全的最佳实践。遵循本文提供的类型守卫、断言与复杂接口设计建议，可进一步提升代码质量与开发体验。
+智言万象项目在Nuxt 4中实现了完善的TypeScript集成：通过tsconfig.json继承Nuxt生成的类型配置，借助content.config.ts的Zod schema驱动queryCollection类型推断，结合package.json的类型检查工具链与nuxt.config.ts的构建策略，形成了高效、可维护的类型系统。Sidebar.vue与[...slug].vue展示了defineProps/defineEmits、并行数据获取与类型安全的最佳实践。遵循本文提供的类型守卫、断言与复杂接口设计建议，可进一步提升代码质量与开发体验。
 
 [本节为总结性内容，不直接分析具体文件，故无章节来源]
 

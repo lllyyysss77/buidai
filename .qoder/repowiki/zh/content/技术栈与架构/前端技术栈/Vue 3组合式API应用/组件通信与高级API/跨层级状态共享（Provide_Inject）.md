@@ -13,7 +13,7 @@
 ## 目录
 1. [项目结构与状态管理现状](#项目结构与状态管理现状)
 2. [Provide/Inject 机制概述](#provideinject-机制概述)
-3. [在 BuidAI 项目中应用 Provide/Inject](#在-buidai-项目中应用-provideinject)
+3. [在 智言万象 项目中应用 Provide/Inject](#在-智言万象-项目中应用-provideinject)
 4. [主题切换状态共享方案](#主题切换状态共享方案)
 5. [用户认证状态共享方案](#用户认证状态共享方案)
 6. [国际化配置共享方案](#国际化配置共享方案)
@@ -24,7 +24,7 @@
 
 ## 项目结构与状态管理现状
 
-BuidAI 项目采用 Nuxt 3 框架构建，整体架构遵循 Vue 3 的 Composition API 设计模式。项目通过 `app.vue` 作为根组件，使用 `NuxtLayout` 和 `NuxtPage` 实现布局与页面的动态渲染。核心布局组件 `default.vue` 包含导航、页脚和返回顶部等全局 UI 组件。
+智言万象 项目采用 Nuxt 3 框架构建，整体架构遵循 Vue 3 的 Composition API 设计模式。项目通过 `app.vue` 作为根组件，使用 `NuxtLayout` 和 `NuxtPage` 实现布局与页面的动态渲染。核心布局组件 `default.vue` 包含导航、页脚和返回顶部等全局 UI 组件。
 
 当前项目未显式使用 Vuex 或 Pinia 等全局状态管理库，而是依赖 Nuxt 提供的模块化配置和组件间通信机制。`app.config.ts` 文件用于配置全局 UI 样式和图标映射，而 `nuxt.config.ts` 则定义了模块加载、预渲染和颜色模式等核心配置。
 
@@ -49,11 +49,11 @@ BuidAI 项目采用 Nuxt 3 框架构建，整体架构遵循 Vue 3 的 Compositi
 
 在复杂导航结构中，`provide/inject` 可以作为轻量级的状态管理方案，适用于主题切换、用户认证状态、国际化配置等全局状态的共享。
 
-## 在 BuidAI 项目中应用 Provide/Inject
+## 在 智言万象 项目中应用 Provide/Inject
 
 尽管当前 `AppNavigation.vue` 组件未显式使用 `provide/inject`，但该机制可前瞻性地应用于多个全局状态管理场景。通过在根组件或布局组件中提供响应式状态，在深层嵌套的 UI 组件中安全消费，可以有效解决跨层级通信问题。
 
-在 BuidAI 项目中，`default.vue` 布局组件是理想的 `provide` 注入点，因为它位于大多数功能组件的祖先位置。通过在此处提供全局状态，所有页面和功能组件都可以通过 `inject` 安全地访问这些状态。
+在 智言万象 项目中，`default.vue` 布局组件是理想的 `provide` 注入点，因为它位于大多数功能组件的祖先位置。通过在此处提供全局状态，所有页面和功能组件都可以通过 `inject` 安全地访问这些状态。
 
 对于类型安全，建议使用 Symbol 作为 `provide/inject` 的键，避免命名冲突，并结合 TypeScript 的泛型能力实现完整的类型推断。这种方式既能保证代码的可维护性，又能充分利用 Vue 3 的响应式系统优势。
 
@@ -63,7 +63,7 @@ BuidAI 项目采用 Nuxt 3 框架构建，整体架构遵循 Vue 3 的 Compositi
 
 ## 主题切换状态共享方案
 
-主题切换是典型的全局状态管理需求。在 BuidAI 项目中，当前通过 CSS 变量和 `dark` 类实现主题切换，但缺乏统一的状态管理。使用 `provide/inject` 机制可以创建一个集中式的主题管理方案。
+主题切换是典型的全局状态管理需求。在 智言万象 项目中，当前通过 CSS 变量和 `dark` 类实现主题切换，但缺乏统一的状态管理。使用 `provide/inject` 机制可以创建一个集中式的主题管理方案。
 
 ```mermaid
 classDiagram
@@ -95,7 +95,7 @@ ThemeProvider --> ThemeConsumer : "provides"
 
 ## 用户认证状态共享方案
 
-用户认证状态是另一个适合 `provide/inject` 的应用场景。在 BuidAI 项目中，登录状态需要在多个组件（如导航、页脚、功能按钮）之间共享。
+用户认证状态是另一个适合 `provide/inject` 的应用场景。在 智言万象 项目中，登录状态需要在多个组件（如导航、页脚、功能按钮）之间共享。
 
 ```mermaid
 sequenceDiagram
@@ -139,7 +139,7 @@ Footer->>AuthProvider : inject(logout)
 
 ## 与 TypeScript 类型推断的集成
 
-`provide/inject` 与 TypeScript 的集成是确保类型安全的关键。在 BuidAI 项目中，应采用以下模式实现完整的类型推断：
+`provide/inject` 与 TypeScript 的集成是确保类型安全的关键。在 智言万象 项目中，应采用以下模式实现完整的类型推断：
 
 ```mermaid
 classDiagram
@@ -205,7 +205,7 @@ const theme = inject(themeKey)!
 | **持久化** | 需手动实现 | 内置或插件支持 |
 | **适用场景** | 跨层级组件通信、主题、i18n | 复杂业务逻辑、多模块状态 |
 
-对于 BuidAI 项目，`provide/inject` 更适合当前的轻量级需求。它避免了引入额外依赖的开销，同时提供了足够的功能来管理全局状态。只有当状态逻辑变得非常复杂，需要时间旅行调试或模块化状态管理时，才应考虑迁移到 Pinia。
+对于 智言万象 项目，`provide/inject` 更适合当前的轻量级需求。它避免了引入额外依赖的开销，同时提供了足够的功能来管理全局状态。只有当状态逻辑变得非常复杂，需要时间旅行调试或模块化状态管理时，才应考虑迁移到 Pinia。
 
 **Section sources**
 - [package.json](file://package.json)
@@ -213,7 +213,7 @@ const theme = inject(themeKey)!
 
 ## 轻量级跨层级通信最佳实践
 
-基于 BuidAI 项目的分析，以下是使用 `provide/inject` 的最佳实践建议：
+基于 智言万象 项目的分析，以下是使用 `provide/inject` 的最佳实践建议：
 
 1. **选择合适的注入点**：在 `default.vue` 或 `app.vue` 等高层级组件中提供全局状态，确保大多数消费者组件都能访问。
 
@@ -235,13 +235,13 @@ const theme = inject(themeKey)!
 
 ## 总结与建议
 
-`provide/inject` 机制为 BuidAI 项目提供了一种优雅的跨层级状态管理方案。尽管当前组件未显式使用该机制，但其在主题切换、用户认证和国际化等场景中具有显著优势。
+`provide/inject` 机制为 智言万象 项目提供了一种优雅的跨层级状态管理方案。尽管当前组件未显式使用该机制，但其在主题切换、用户认证和国际化等场景中具有显著优势。
 
 建议在项目演进过程中，逐步引入 `provide/inject` 来管理全局状态，特别是在以下情况：
 - 需要跨 3 层以上组件传递状态
 - 多个不相关的组件需要访问相同的状态
 - 状态变化需要触发多个分散组件的更新
 
-通过结合 TypeScript 的类型系统，`provide/inject` 能够提供既灵活又安全的状态管理解决方案，避免了引入重量级状态库的复杂性。这种轻量级模式特别适合 BuidAI 当前的项目规模和架构风格。
+通过结合 TypeScript 的类型系统，`provide/inject` 能够提供既灵活又安全的状态管理解决方案，避免了引入重量级状态库的复杂性。这种轻量级模式特别适合 智言万象 当前的项目规模和架构风格。
 
 最终，`provide/inject` 应被视为 Vue 3 生态中不可或缺的工具，与 Composition API 协同工作，共同构建可维护、可扩展的前端应用。

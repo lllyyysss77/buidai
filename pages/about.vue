@@ -16,7 +16,7 @@
           赋能企业，<span class="text-[#6E58FF]">构建智能未来</span>
         </h1>
         <p class="text-lg text-[#5A5E6A] max-w-3xl mx-auto leading-relaxed">
-          BuidAI 致力于提供企业级 AI 基础设施，让每一个组织都能安全、高效地驾驭人工智能的力量。
+          智言万象 致力于提供企业级 AI 基础设施，让每一个组织都能安全、高效地驾驭人工智能的力量。
         </p>
       </div>
     </section>
@@ -34,7 +34,7 @@
                   在数字化转型的浪潮中，人工智能已成为企业发展的核心驱动力。然而，高昂的技术门槛和复杂的部署流程往往让许多企业望而却步。
                 </p>
                 <p>
-                  BuidAI 的成立初衷很简单：<strong class="text-[#0F0F12]">降低 AI 应用门槛</strong>。我们通过标准化的基础设施和模块化的开发工具，帮助企业快速构建、部署和管理 AI 应用，将精力集中在业务创新而非底层技术上。
+                  智言万象 的成立初衷很简单：<strong class="text-[#0F0F12]">降低 AI 应用门槛</strong>。我们通过标准化的基础设施和模块化的开发工具，帮助企业快速构建、部署和管理 AI 应用，将精力集中在业务创新而非底层技术上。
                 </p>
               </div>
             </div>
@@ -55,7 +55,7 @@
           <!-- Visual Content -->
           <div class="lg:w-1/2 w-full">
             <div class="aspect-4/3 rounded-2xl overflow-hidden relative">
-              <img src="/about.png" alt="About BuidAI" class="w-full h-full object-cover" />
+              <img src="/about.png" alt="About 智言万象" class="w-full h-full object-cover" />
             </div>
           </div>
         </div>
@@ -236,11 +236,11 @@
 
 <script setup lang="ts">
 useSeoMeta({
-  title: '关于我们 - 必创AI - BuidAI | 赋能企业构建智能未来',
-  description: '必创AI 致力于为企业提供安全、可控、高效的 AI 应用开发基础设施。我们坚持私有化部署优先，降低 AI 应用门槛，帮助企业快速构建、部署和管理 AI 应用，实现数字化转型。',
-  keywords: '必创AI, 关于我们, 企业级AI, 私有化部署, AI基础设施, AI应用开发, 数字化转型, 智能办公',
-  ogTitle: '关于我们 - 必创AI - BuidAI | 赋能企业构建智能未来',
-  ogDescription: '必创AI 致力于为企业提供安全、可控、高效的 AI 应用开发基础设施。我们坚持私有化部署优先，降低 AI 应用门槛，帮助企业快速构建、部署和管理 AI 应用，实现数字化转型。',
+  title: '关于我们 - 智言AI - 智言万象 | 赋能企业构建智能未来',
+  description: '智言AI 致力于为企业提供安全、可控、高效的 AI 应用开发基础设施。我们坚持私有化部署优先，降低 AI 应用门槛，帮助企业快速构建、部署和管理 AI 应用，实现数字化转型。',
+  keywords: '智言AI, 关于我们, 企业级AI, 私有化部署, AI基础设施, AI应用开发, 数字化转型, 智能办公',
+  ogTitle: '关于我们 - 智言AI - 智言万象 | 赋能企业构建智能未来',
+  ogDescription: '智言AI 致力于为企业提供安全、可控、高效的 AI 应用开发基础设施。我们坚持私有化部署优先，降低 AI 应用门槛，帮助企业快速构建、部署和管理 AI 应用，实现数字化转型。',
   ogType: 'website'
 })
 </script>

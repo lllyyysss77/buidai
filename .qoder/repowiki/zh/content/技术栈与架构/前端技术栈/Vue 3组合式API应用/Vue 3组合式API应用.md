@@ -25,7 +25,7 @@
 10. [附录](#附录)
 
 ## 简介
-本文件聚焦于buidai项目中Vue 3组合式API（Composition API）的工程化实践，围绕以下目标展开：
+本文件聚焦于智言万象项目中Vue 3组合式API（Composition API）的工程化实践，围绕以下目标展开：
 - 在根组件中通过<script setup>声明全局应用上下文
 - 在default布局中利用响应式API（ref、reactive）管理主题状态与导航逻辑
 - 结合AppNavigation组件，说明如何封装可复用的useNavigation自定义Hook，实现菜单展开状态与路由联动

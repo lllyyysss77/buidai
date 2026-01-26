@@ -1,4 +1,4 @@
-# robots.txt for BuidAI (www.buidai.com)
+# robots.txt for 智言万象 (www.智言万象.com)
 # 最后更新: 2025-12-27
 
 # 全局规则 - 允许所有搜索引擎爬虫
@@ -23,7 +23,7 @@ Allow: /resources
 Allow: /product
 
 # Sitemap 位置
-Sitemap: https://www.buidai.com/sitemap.xml
+Sitemap: https://www.智言万象.com/sitemap.xml
 
 # Google 爬虫特殊规则
 User-agent: Googlebot

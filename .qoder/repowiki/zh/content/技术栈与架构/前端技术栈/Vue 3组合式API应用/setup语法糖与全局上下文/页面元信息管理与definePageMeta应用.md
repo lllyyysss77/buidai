@@ -31,11 +31,11 @@
 
 ## 引言
 
-在buidai项目中，页面级元信息的管理是确保网站SEO优化、用户体验和搜索引擎可见性的关键环节。通过`definePageMeta`在setup语法中声明页面级元信息，开发者能够灵活地控制每个页面的标题、描述、关键词和布局选择。本文档将深入探讨如何在buidai项目中使用`definePageMeta`来实现这些功能，并结合`default.vue`布局结构，说明元信息如何与`AppNavigation`和页面内容协同渲染。
+在智言万象项目中，页面级元信息的管理是确保网站SEO优化、用户体验和搜索引擎可见性的关键环节。通过`definePageMeta`在setup语法中声明页面级元信息，开发者能够灵活地控制每个页面的标题、描述、关键词和布局选择。本文档将深入探讨如何在智言万象项目中使用`definePageMeta`来实现这些功能，并结合`default.vue`布局结构，说明元信息如何与`AppNavigation`和页面内容协同渲染。
 
 ## 项目结构与页面布局
 
-buidai项目的目录结构清晰，主要分为以下几个部分：
+智言万象项目的目录结构清晰，主要分为以下几个部分：
 - `assets/css/`：存放CSS样式文件。
 - `components/`：存放可复用的Vue组件。
 - `content/`：存放Markdown格式的内容文件，如博客文章和文档。
@@ -68,7 +68,7 @@ G --> Q[getDocsRoutes.ts]
 
 ## 核心元信息管理机制
 
-在buidai项目中，页面元信息的管理主要依赖于Nuxt框架提供的`definePageMeta`和`useSeoMeta`函数。`definePageMeta`用于在setup语法中声明页面级元信息，而`useSeoMeta`则用于设置SEO相关的元数据，如标题、描述和关键词。
+在智言万象项目中，页面元信息的管理主要依赖于Nuxt框架提供的`definePageMeta`和`useSeoMeta`函数。`definePageMeta`用于在setup语法中声明页面级元信息，而`useSeoMeta`则用于设置SEO相关的元数据，如标题、描述和关键词。
 
 ### definePageMeta
 
@@ -89,20 +89,20 @@ definePageMeta({
 ```vue
 <script setup>
 useSeoMeta({
-  title: '必创AI - BuidAI新一代AI一站式创意生产力平台',
-  description: '必创AI - BuidAI新一代AI一站式创意生产力平台，为您提供全方位的智能创作服务。从AI对话、AI绘画、AI视频到知识库查询、模型管理，再到文件导入导出、网页解析、内容总结、图表生成等强大功能，满足您在创意工作中的各种需求。更有AI配音工具、艺术二维码、PDF解析工具、图文解析、文档问答、豆包文生图、AI改图、图像识别、网页速读、快递查询、天气查询以及爆款文章生成等特色功能，助力您高效创作，提升生产力，开启智能创意新时代',
-  keywords: '必创AI, BuidAI, AI创意生产力平台, 智能体,香蕉绘画Nanobanana, AI绘画, AI视频, AI对话, Sora2, 知识库, 内容总结, PDF解析工具, 文档问答, 爆款文章生成'
+  title: '智言AI - 智言万象新一代AI一站式创意生产力平台',
+  description: '智言AI - 智言万象新一代AI一站式创意生产力平台，为您提供全方位的智能创作服务。从AI对话、AI绘画、AI视频到知识库查询、模型管理，再到文件导入导出、网页解析、内容总结、图表生成等强大功能，满足您在创意工作中的各种需求。更有AI配音工具、艺术二维码、PDF解析工具、图文解析、文档问答、豆包文生图、AI改图、图像识别、网页速读、快递查询、天气查询以及爆款文章生成等特色功能，助力您高效创作，提升生产力，开启智能创意新时代',
+  keywords: '智言AI, 智言万象, AI创意生产力平台, 智能体,香蕉绘画Nanobanana, AI绘画, AI视频, AI对话, Sora2, 知识库, 内容总结, PDF解析工具, 文档问答, 爆款文章生成'
 })
 </script>
 ```
 
 ## definePageMeta在setup语法中的应用
 
-在buidai项目中，`definePageMeta`被广泛应用于各个页面组件中，以声明页面级元信息。通过在`<script setup>`中使用`definePageMeta`，开发者可以轻松地为每个页面设置不同的布局、标题、描述等元信息。
+在智言万象项目中，`definePageMeta`被广泛应用于各个页面组件中，以声明页面级元信息。通过在`<script setup>`中使用`definePageMeta`，开发者可以轻松地为每个页面设置不同的布局、标题、描述等元信息。
 
 ### 布局选择
 
-`definePageMeta`的一个重要用途是选择页面布局。在buidai项目中，`default.vue`是默认的页面布局，包含了`AppBanner`、`AppNavigation`、`AppFooter`和`BackToTop`等全局组件。通过在页面组件中使用`definePageMeta`，可以指定页面使用`default`布局或其他自定义布局。
+`definePageMeta`的一个重要用途是选择页面布局。在智言万象项目中，`default.vue`是默认的页面布局，包含了`AppBanner`、`AppNavigation`、`AppFooter`和`BackToTop`等全局组件。通过在页面组件中使用`definePageMeta`，可以指定页面使用`default`布局或其他自定义布局。
 
 例如，在`contact.vue`中，我们通过`definePageMeta`指定页面使用`default`布局：
 
@@ -121,15 +121,15 @@ definePageMeta({
 ```vue
 <script setup lang="ts">
 useSeoMeta({
-  title: '必创AI - 价格方案 - BuidAI | 灵活透明的 AI 平台订阅计划',
-  description: '必创AI-BuidAI提供基础版、标准版、专业版及企业定制版等多种价格方案，满足个人开发者、初创团队及大型企业的不同 AI 应用开发需求。'
+  title: '智言AI - 价格方案 - 智言万象 | 灵活透明的 AI 平台订阅计划',
+  description: '智言AI-智言万象提供基础版、标准版、专业版及企业定制版等多种价格方案，满足个人开发者、初创团队及大型企业的不同 AI 应用开发需求。'
 })
 </script>
 ```
 
 ## default布局与页面渲染协同
 
-`default.vue`是buidai项目中的默认页面布局，它定义了页面的基本结构，包括顶部横幅、导航栏、主要内容区域、页脚和返回顶部按钮。通过`<slot />`插槽，`default.vue`可以灵活地插入不同页面的内容。
+`default.vue`是智言万象项目中的默认页面布局，它定义了页面的基本结构，包括顶部横幅、导航栏、主要内容区域、页脚和返回顶部按钮。通过`<slot />`插槽，`default.vue`可以灵活地插入不同页面的内容。
 
 ### 布局结构
 
@@ -182,9 +182,9 @@ definePageMeta({
 })
 
 useSeoMeta({
-  title: '必创AI - BuidAI新一代AI一站式创意生产力平台',
-  description: '必创AI - BuidAI新一代AI一站式创意生产力平台，为您提供全方位的智能创作服务。从AI对话、AI绘画、AI视频到知识库查询、模型管理，再到文件导入导出、网页解析、内容总结、图表生成等强大功能，满足您在创意工作中的各种需求。更有AI配音工具、艺术二维码、PDF解析工具、图文解析、文档问答、豆包文生图、AI改图、图像识别、网页速读、快递查询、天气查询以及爆款文章生成等特色功能，助力您高效创作，提升生产力，开启智能创意新时代',
-  keywords: '必创AI, BuidAI, AI创意生产力平台, 智能体,香蕉绘画Nanobanana, AI绘画, AI视频, AI对话, Sora2, 知识库, 内容总结, PDF解析工具, 文档问答, 爆款文章生成'
+  title: '智言AI - 智言万象新一代AI一站式创意生产力平台',
+  description: '智言AI - 智言万象新一代AI一站式创意生产力平台，为您提供全方位的智能创作服务。从AI对话、AI绘画、AI视频到知识库查询、模型管理，再到文件导入导出、网页解析、内容总结、图表生成等强大功能，满足您在创意工作中的各种需求。更有AI配音工具、艺术二维码、PDF解析工具、图文解析、文档问答、豆包文生图、AI改图、图像识别、网页速读、快递查询、天气查询以及爆款文章生成等特色功能，助力您高效创作，提升生产力，开启智能创意新时代',
+  keywords: '智言AI, 智言万象, AI创意生产力平台, 智能体,香蕉绘画Nanobanana, AI绘画, AI视频, AI对话, Sora2, 知识库, 内容总结, PDF解析工具, 文档问答, 爆款文章生成'
 })
 </script>
 ```
@@ -193,7 +193,7 @@ useSeoMeta({
 
 ### index.vue
 
-`index.vue`是buidai项目的首页，它使用`default`布局，并通过`useSeoMeta`设置了页面的标题、描述和关键词。页面内容包括多个`Landing`系列组件，如`LandingHeroSection`、`LandingFeatureCarousel`等，这些组件共同构成了首页的视觉效果。
+`index.vue`是智言万象项目的首页，它使用`default`布局，并通过`useSeoMeta`设置了页面的标题、描述和关键词。页面内容包括多个`Landing`系列组件，如`LandingHeroSection`、`LandingFeatureCarousel`等，这些组件共同构成了首页的视觉效果。
 
 ### docs/index.vue
 
@@ -205,7 +205,7 @@ useSeoMeta({
 
 ## 动态元信息与条件布局
 
-在buidai项目中，动态元信息和条件布局是提升用户体验的重要手段。通过`definePageMeta`和`useSeoMeta`，开发者可以根据不同的条件动态设置页面的元信息和布局。
+在智言万象项目中，动态元信息和条件布局是提升用户体验的重要手段。通过`definePageMeta`和`useSeoMeta`，开发者可以根据不同的条件动态设置页面的元信息和布局。
 
 ### 动态元信息
 
@@ -253,18 +253,18 @@ const [{ data: page }, { data: surround }] = await Promise.all([
 
 useSeoMeta({
   title: page.value ? `${page.value.title} - 文档中心` : '文档中心',
-  description: page.value?.description || 'BuidAI 文档中心'
+  description: page.value?.description || '智言万象 文档中心'
 })
 </script>
 ```
 
 ### 条件布局
 
-条件布局是指根据不同的条件选择不同的页面布局。在buidai项目中，虽然大多数页面使用`default`布局，但某些特殊页面可能需要使用其他布局。例如，`demo.vue`可能需要使用一个专门的布局来展示产品演示。
+条件布局是指根据不同的条件选择不同的页面布局。在智言万象项目中，虽然大多数页面使用`default`布局，但某些特殊页面可能需要使用其他布局。例如，`demo.vue`可能需要使用一个专门的布局来展示产品演示。
 
 ## SEO优化策略
 
-在buidai项目中，SEO优化是确保网站在搜索引擎中获得良好排名的关键。通过合理使用`definePageMeta`和`useSeoMeta`，开发者可以有效地提升页面的SEO表现。
+在智言万象项目中，SEO优化是确保网站在搜索引擎中获得良好排名的关键。通过合理使用`definePageMeta`和`useSeoMeta`，开发者可以有效地提升页面的SEO表现。
 
 ### 关键词优化
 
@@ -272,7 +272,7 @@ useSeoMeta({
 
 ```vue
 useSeoMeta({
-  keywords: '必创AI, BuidAI, AI创意生产力平台, 智能体,香蕉绘画Nanobanana, AI绘画, AI视频, AI对话, Sora2, 知识库, 内容总结, PDF解析工具, 文档问答, 爆款文章生成'
+  keywords: '智言AI, 智言万象, AI创意生产力平台, 智能体,香蕉绘画Nanobanana, AI绘画, AI视频, AI对话, Sora2, 知识库, 内容总结, PDF解析工具, 文档问答, 爆款文章生成'
 })
 ```
 
@@ -282,7 +282,7 @@ useSeoMeta({
 
 ```vue
 useSeoMeta({
-  description: '必创AI - BuidAI新一代AI一站式创意生产力平台，为您提供全方位的智能创作服务。从AI对话、AI绘画、AI视频到知识库查询、模型管理，再到文件导入导出、网页解析、内容总结、图表生成等强大功能，满足您在创意工作中的各种需求。更有AI配音工具、艺术二维码、PDF解析工具、图文解析、文档问答、豆包文生图、AI改图、图像识别、网页速读、快递查询、天气查询以及爆款文章生成等特色功能，助力您高效创作，提升生产力，开启智能创意新时代'
+  description: '智言AI - 智言万象新一代AI一站式创意生产力平台，为您提供全方位的智能创作服务。从AI对话、AI绘画、AI视频到知识库查询、模型管理，再到文件导入导出、网页解析、内容总结、图表生成等强大功能，满足您在创意工作中的各种需求。更有AI配音工具、艺术二维码、PDF解析工具、图文解析、文档问答、豆包文生图、AI改图、图像识别、网页速读、快递查询、天气查询以及爆款文章生成等特色功能，助力您高效创作，提升生产力，开启智能创意新时代'
 })
 ```
 
@@ -292,25 +292,25 @@ Open Graph协议是社交媒体分享预览的重要标准。通过设置`og:tit
 
 ```vue
 useSeoMeta({
-  ogTitle: '必创AI - BuidAI新一代AI一站式创意生产力平台',
-  ogDescription: '必创AI - BuidAI 致力于降低企业 AI 应用开发门槛，赋能每一个团队构建智能未来。',
+  ogTitle: '智言AI - 智言万象新一代AI一站式创意生产力平台',
+  ogDescription: '智言AI - 智言万象 致力于降低企业 AI 应用开发门槛，赋能每一个团队构建智能未来。',
   ogType: 'website'
 })
 ```
 
 ## 国际化与社交媒体配置
 
-在buidai项目中，国际化和社交媒体配置是提升全球用户访问体验的重要手段。通过合理配置多语言元数据和社交媒体分享卡片，可以确保网站在不同语言和地区都能获得良好的用户体验。
+在智言万象项目中，国际化和社交媒体配置是提升全球用户访问体验的重要手段。通过合理配置多语言元数据和社交媒体分享卡片，可以确保网站在不同语言和地区都能获得良好的用户体验。
 
 ### 多语言元数据
 
-多语言元数据是指为不同语言版本的页面设置相应的元信息。在buidai项目中，虽然目前主要使用中文，但未来可能需要支持其他语言。通过`useSeoMeta`，可以为不同语言版本的页面设置不同的标题、描述和关键词。例如，为英文版本的页面设置元信息：
+多语言元数据是指为不同语言版本的页面设置相应的元信息。在智言万象项目中，虽然目前主要使用中文，但未来可能需要支持其他语言。通过`useSeoMeta`，可以为不同语言版本的页面设置不同的标题、描述和关键词。例如，为英文版本的页面设置元信息：
 
 ```vue
 useSeoMeta({
-  title: 'BuidAI - The Next-Generation AI Creative Productivity Platform',
-  description: 'BuidAI provides a comprehensive suite of AI-powered creative tools, from AI chat, AI art, AI video to knowledge base queries, model management, file import/export, web parsing, content summarization, chart generation, and more. With features like AI voice synthesis, artistic QR codes, PDF parsing tools, image recognition, web speed reading, express tracking, weather queries, and viral article generation, BuidAI empowers you to create efficiently and enhance productivity, ushering in a new era of intelligent creativity.',
-  keywords: 'BuidAI, AI creative productivity platform, intelligent agents, Nanobanana AI art, AI art, AI video, AI chat, Sora2, knowledge base, content summarization, PDF parsing tools, document Q&A, viral article generation'
+  title: '智言万象 - The Next-Generation AI Creative Productivity Platform',
+  description: '智言万象 provides a comprehensive suite of AI-powered creative tools, from AI chat, AI art, AI video to knowledge base queries, model management, file import/export, web parsing, content summarization, chart generation, and more. With features like AI voice synthesis, artistic QR codes, PDF parsing tools, image recognition, web speed reading, express tracking, weather queries, and viral article generation, 智言万象 empowers you to create efficiently and enhance productivity, ushering in a new era of intelligent creativity.',
+  keywords: '智言万象, AI creative productivity platform, intelligent agents, Nanobanana AI art, AI art, AI video, AI chat, Sora2, knowledge base, content summarization, PDF parsing tools, document Q&A, viral article generation'
 })
 ```
 
@@ -331,7 +331,7 @@ useHead({
 
 ## 与Nuxt预设布局系统集成
 
-Nuxt框架提供了强大的预设布局系统，允许开发者轻松地管理和切换页面布局。在buidai项目中，`definePageMeta`与Nuxt预设布局系统的集成非常紧密，通过简单的配置即可实现复杂的布局管理。
+Nuxt框架提供了强大的预设布局系统，允许开发者轻松地管理和切换页面布局。在智言万象项目中，`definePageMeta`与Nuxt预设布局系统的集成非常紧密，通过简单的配置即可实现复杂的布局管理。
 
 ### 预设布局
 
@@ -359,7 +359,7 @@ definePageMeta({
 
 ## 结论
 
-在buidai项目中，通过`definePageMeta`在setup语法中声明页面级元信息，结合`default.vue`布局结构，可以有效地管理页面的标题、描述、关键词和布局选择。通过`useSeoMeta`设置SEO元数据，可以提升页面的搜索引擎可见性。动态元信息和条件布局的使用，使得页面能够根据不同的条件灵活地调整元信息和布局。国际化和社交媒体配置的优化，确保了网站在全球范围内的良好用户体验。与Nuxt预设布局系统的紧密集成，使得布局管理变得简单而高效。通过这些技术和策略，buidai项目能够提供高质量的用户体验和优秀的SEO表现。
+在智言万象项目中，通过`definePageMeta`在setup语法中声明页面级元信息，结合`default.vue`布局结构，可以有效地管理页面的标题、描述、关键词和布局选择。通过`useSeoMeta`设置SEO元数据，可以提升页面的搜索引擎可见性。动态元信息和条件布局的使用，使得页面能够根据不同的条件灵活地调整元信息和布局。国际化和社交媒体配置的优化，确保了网站在全球范围内的良好用户体验。与Nuxt预设布局系统的紧密集成，使得布局管理变得简单而高效。通过这些技术和策略，智言万象项目能够提供高质量的用户体验和优秀的SEO表现。
 
 **文档来源**
 - [index.vue](file://pages/index.vue#L1-L28)

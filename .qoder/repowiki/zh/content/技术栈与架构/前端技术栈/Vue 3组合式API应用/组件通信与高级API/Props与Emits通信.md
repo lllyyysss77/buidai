@@ -22,7 +22,7 @@
 10. [附录](#附录)
 
 ## 简介
-本文件围绕buidai项目中基于defineProps与defineEmits的组件通信实践展开，重点解析：
+本文件围绕智言万象项目中基于defineProps与defineEmits的组件通信实践展开，重点解析：
 - HeroSection.vue如何通过defineProps定义UI配置接口（ui.container、ui.title等），实现组件外观的灵活定制；
 - AppNavigation.vue如何利用emits实现移动端菜单状态变更通知；
 - props类型安全校验、默认值设置（withDefaults）的最佳实践；

@@ -7,7 +7,7 @@
     <div class="container mx-auto px-4 relative z-10">
       <div class="text-center max-w-3xl mx-auto mb-16">
         <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
-          下载 BuidAI 客户端
+          下载 智言万象 客户端
         </h2>
         <p class="text-lg text-neutral-500 leading-relaxed">
           支持 macOS、Windows、Linux 及 微信小程序，随时随地开启 AI 办公新体验。

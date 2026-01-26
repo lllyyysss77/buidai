@@ -25,7 +25,7 @@
 10. [附录](#附录)
 
 ## 引言
-本文件围绕buidai项目中setup语法糖的工程化应用展开，重点阐释app.vue根组件如何通过<script setup>声明全局应用上下文；解析NuxtLayout与NuxtPage的组合模式，说明如何借助setup语法实现“无状态根组件”的简洁封装；结合default.vue布局组件，阐述其如何继承全局上下文并提供页面级布局容器；最后总结Nuxt 4中setup语法的最佳实践，包括自动导入机制、编译时优化以及与Nuxt特有API（如definePageMeta、useHead/useSeoMeta）的集成方式。
+本文件围绕智言万象项目中setup语法糖的工程化应用展开，重点阐释app.vue根组件如何通过<script setup>声明全局应用上下文；解析NuxtLayout与NuxtPage的组合模式，说明如何借助setup语法实现“无状态根组件”的简洁封装；结合default.vue布局组件，阐述其如何继承全局上下文并提供页面级布局容器；最后总结Nuxt 4中setup语法的最佳实践，包括自动导入机制、编译时优化以及与Nuxt特有API（如definePageMeta、useHead/useSeoMeta）的集成方式。
 
 ## 项目结构
 - 根组件：app.vue负责承载全局布局与页面容器，采用无状态封装，仅通过NuxtLayout/NuxtPage组织页面流。

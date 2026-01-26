@@ -7,15 +7,15 @@ definePageMeta({
 });
 
 useSeoMeta({
-    title: 'Nanobanana 香蕉绘画 - 开源免费的 AI 图像生成系统 | BuidAI',
-    description: 'BuidAI Nanobanana 香蕉绘画平台提供一站式 AI 图像创作解决方案。基于 Gemini 3 Pro Image Preview 模型,支持高质量文生图、图生图及多图融合。预置多个模板开箱即用,保持角色一致性,支持文本渲染,生成速度极快。提供完整源码与私有化部署支持,助力企业低成本打造专属 AI 绘画应用。',
-    keywords: 'Nanobanana,香蕉绘画,AI绘画,文生图,图生图,多图融合,Gemini 3 Pro,图像生成模型,BuidAI,开源AI系统,私有化部署,AI绘画工具',
-    ogTitle: 'Nanobanana 香蕉绘画 - 打造您的专属 AI 绘画平台 | BuidAI',
+    title: 'Nanobanana 香蕉绘画 - 开源免费的 AI 图像生成系统 | 智言万象',
+    description: '智言万象 Nanobanana 香蕉绘画平台提供一站式 AI 图像创作解决方案。基于 Gemini 3 Pro Image Preview 模型,支持高质量文生图、图生图及多图融合。预置多个模板开箱即用,保持角色一致性,支持文本渲染,生成速度极快。提供完整源码与私有化部署支持,助力企业低成本打造专属 AI 绘画应用。',
+    keywords: 'Nanobanana,香蕉绘画,AI绘画,文生图,图生图,多图融合,Gemini 3 Pro,图像生成模型,智言万象,开源AI系统,私有化部署,AI绘画工具',
+    ogTitle: 'Nanobanana 香蕉绘画 - 打造您的专属 AI 绘画平台 | 智言万象',
     ogDescription: '基于 Gemini 3 Pro Image Preview 的新一代 AI 绘画平台,支持文生图、图生图与多图融合。预置模板开箱即用,保持角色一致性,生成速度极快,提供完整源码。',
     ogImage: '/product/human-1.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Nanobanana 香蕉绘画 - 打造您的专属 AI 绘画平台 | BuidAI',
+    twitterTitle: 'Nanobanana 香蕉绘画 - 打造您的专属 AI 绘画平台 | 智言万象',
     twitterDescription: '基于 Gemini 3 Pro Image Preview 的新一代 AI 绘画平台,支持文生图、图生图与多图融合,预置模板开箱即用。',
     twitterImage: '/product/human-1.png'
 });
@@ -369,7 +369,7 @@ const toDemo = () => {
                     准备好开始创作了吗？
                 </h2>
                 <p class="text-lg text-gray-500 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
-                    立即加入 BuidAI，体验前沿 AI 技术带来的无限可能。无需复杂的配置，快速构建您的数字人应用。
+                    立即加入 智言万象，体验前沿 AI 技术带来的无限可能。无需复杂的配置，快速构建您的数字人应用。
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
                      <UButton

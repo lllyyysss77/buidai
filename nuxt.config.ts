@@ -130,8 +130,10 @@ export default defineNuxtConfig({
       link: [
         // 网站图标配置
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }, // 优先使用 SVG
-        { rel: 'apple-touch-icon', href: '/logo.svg' }, // iOS 图标
+        { rel: 'shortcut icon', href: '/favicon.ico' },
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg', sizes: 'any' }, // 优先使用 SVG
+        { rel: 'icon', type: 'image/png', href: '/icon.png' }, // 新增 PNG 图标
+        { rel: 'apple-touch-icon', href: '/icon.png' }, // iOS 图标 (使用 PNG)
 
         // 字体预连接与加载
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },

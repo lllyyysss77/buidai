@@ -702,7 +702,7 @@ const openSourceLinks = [
  */
 const scenarios: Scenario[] = [
   {
-    title: 'AI 客服',
+    title: 'AI聊天绘画系统',
     items: [
       '基于 QA 对的语境和语意的训练',
       '基于企业文档自动理解、标注的训练',
@@ -715,7 +715,7 @@ const scenarios: Scenario[] = [
     index: '01'
   },
   {
-    title: '多 AI 协同',
+    title: '企业智能体系统',
     items: [
       '通过 AI 之间的分工合作，精准、稳定地解决复杂任务'
     ],
@@ -726,7 +726,7 @@ const scenarios: Scenario[] = [
     index: '02'
   },
   {
-    title: 'AI Wiki 知识库',
+    title: '企业AI客服系统',
     items: [
       '一键即可将AI技术与企业知识库相连，全面支持各类文档格式，简化信息获取过程',
       '轻松通过API将AI融入企业系统，提升内部知识检索效率，实现信息智能化管理'
@@ -738,10 +738,10 @@ const scenarios: Scenario[] = [
     index: '03'
   },
   {
-    title: '提示词优化专家',
+    title: 'AI漫剧创意系统',
     items: [
-      '一键操作，轻松输出高质量提示词，提升AI交互效果',
-      '告别劣质输入，确保AI输出始终满足您的期待'
+      '快速搭建支持剧本智能创作、角色形象生成、漫剧素材库管理的系统',
+      '适配分镜设计与台词优化，显著降低漫剧创作门槛'
     ],
     icon: SparklesIcon,
     iconBg: 'bg-purple-50 text-purple-600',

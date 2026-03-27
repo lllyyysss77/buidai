@@ -3,8 +3,8 @@
     id="sora2-banner"
     color="primary"
     icon="i-ph-video"
-    title="Sora2短剧创作-25秒高质量视频."
-    to="#"
+    title="🎉seedance 2.0视频应用上线 | 点击体验"
+    to="https://www.cnai.art/seedance"
     target="_blank"
     :close="true"
   />

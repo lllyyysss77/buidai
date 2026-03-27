@@ -114,9 +114,9 @@ export const apps: AppData[] = [
     id: 5,
     name: '万象漫剧短剧创作',
     description: '万象漫剧是一款智能A视频生成工具，支持自定义角色与场景，一键生成完整视频内容。通过设定起始与结束画面，自动生成流畅的动态视频。无需专业门槛，即可轻松实现角色化叙事与自由视觉创作，助力高效产出高质量动态内容。',
-    icon: GitBranchIcon,
+    icon: ImagePlusIcon,
     image: '/plugin/万象漫剧.png',
-    category: 'Manju',
+    category: '漫剧创作',
     originalPrice: 1198.00,
     discountPrice: 1198.00,
     date: '2025/11/14'

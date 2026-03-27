@@ -112,6 +112,17 @@ export const apps: AppData[] = [
   },
   {
     id: 5,
+    name: '万象漫剧短剧创作',
+    description: '万象漫剧是一款智能A视频生成工具，支持自定义角色与场景，一键生成完整视频内容。通过设定起始与结束画面，自动生成流畅的动态视频。无需专业门槛，即可轻松实现角色化叙事与自由视觉创作，助力高效产出高质量动态内容。',
+    icon: GitBranchIcon,
+    image: '/plugin/万象漫剧.png',
+    category: 'Manju',
+    originalPrice: 1198.00,
+    discountPrice: 1198.00,
+    date: '2025/11/14'
+  },
+  {
+    id: 5,
     name: 'AI证件照',
     description: '各种证件照类型，尺寸自定义，生成图片导出。无需跑照相馆，在家即可轻松制作专业证件照。',
     icon: UserIcon,

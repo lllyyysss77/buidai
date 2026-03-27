@@ -193,7 +193,7 @@ const items = computed<NavigationMenuItem[][]>(() => [
           to: '/product/banana'
         },
         {
-          label: '短剧创作',
+          label: '网文短剧',
           description: '开源免费的网文短剧写作系统',
           icon: 'i-lucide-clapperboard',
           to: '/product/drama'

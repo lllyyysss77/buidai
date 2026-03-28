@@ -1,8 +1,8 @@
 <template>
   <section class="py-24 bg-white text-neutral-900 relative overflow-hidden">
     <!-- 背景渐变 -->
-    <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-500/5 rounded-full blur-[120px] pointer-events-none"></div>
-    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-[100px] pointer-events-none"></div>
+    <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-500/5 rounded-full blur-[120px] pointer-events-none"/>
+    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-[100px] pointer-events-none"/>
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
@@ -12,7 +12,7 @@
           <!-- 标签 -->
           <div class="flex flex-wrap items-center gap-4">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 border border-neutral-200">
-              <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+              <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"/>
               <span class="text-sm font-medium text-neutral-700">智言AI</span>
             </div>
             <div class="text-sm font-medium text-neutral-600">
@@ -41,10 +41,10 @@
 
           <!-- 按钮 -->
           <div class="flex flex-wrap gap-4 pt-4">
-            <button @click="openQrModal('community')" class="px-8 py-3.5 rounded-full bg-neutral-900 text-white font-bold hover:bg-neutral-800 transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2 shadow-lg shadow-neutral-200">
+            <button class="px-8 py-3.5 rounded-full bg-neutral-900 text-white font-bold hover:bg-neutral-800 transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2 shadow-lg shadow-neutral-200" @click="openQrModal('community')">
              加入社群
             </button>
-            <button @click="openQrModal('contact')" class="px-8 py-3.5 rounded-full bg-white border border-neutral-200 text-neutral-700 font-medium hover:bg-neutral-50 transition-all duration-300 transform hover:-translate-y-0.5">
+            <button class="px-8 py-3.5 rounded-full bg-white border border-neutral-200 text-neutral-700 font-medium hover:bg-neutral-50 transition-all duration-300 transform hover:-translate-y-0.5" @click="openQrModal('contact')">
               联系我们
             </button>
           </div>
@@ -56,7 +56,8 @@
           <div class="absolute w-full animate-scroll-y">
             <!-- 第一组 -->
             <div class="space-y-6 pb-6">
-              <div v-for="(item, index) in features" :key="`set1-${index}`"
+              <div
+v-for="(item, index) in features" :key="`set1-${index}`"
                    class="group flex items-center p-4 rounded-2xl bg-neutral-50 border border-neutral-200 hover:bg-white hover:shadow-lg hover:border-primary-200 transition-all duration-300 cursor-pointer">
                 <div class="w-12 h-12 rounded-xl bg-white border border-neutral-100 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300 shadow-sm">
                   <component :is="item.icon" class="w-6 h-6 text-primary-600" />
@@ -66,7 +67,8 @@
             </div>
             <!-- 第二组（重复以实现无缝循环） -->
             <div class="space-y-6 pb-6">
-              <div v-for="(item, index) in features" :key="`set2-${index}`"
+              <div
+v-for="(item, index) in features" :key="`set2-${index}`"
                    class="group flex items-center p-4 rounded-2xl bg-neutral-50 border border-neutral-200 hover:bg-white hover:shadow-lg hover:border-primary-200 transition-all duration-300 cursor-pointer">
                 <div class="w-12 h-12 rounded-xl bg-white border border-neutral-100 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300 shadow-sm">
                   <component :is="item.icon" class="w-6 h-6 text-primary-600" />

@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-white pb-24">
     <!-- 进度条 -->
-    <div class="fixed top-0 left-0 h-1 bg-primary-600 z-50 transition-all duration-300" :style="{ width: `${scrollProgress}%` }"></div>
+    <div class="fixed top-0 left-0 h-1 bg-primary-600 z-50 transition-all duration-300" :style="{ width: `${scrollProgress}%` }"/>
 
     <div class="container mx-auto px-4 pt-24">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -17,7 +17,7 @@
               技术博客
             </NuxtLink>
             <span class="mx-2 text-gray-300">/</span>
-            <span class="text-gray-900 font-medium truncate" v-if="post">{{ post.title }}</span>
+            <span v-if="post" class="text-gray-900 font-medium truncate">{{ post.title }}</span>
           </nav>
 
           <article v-if="post">
@@ -80,9 +80,9 @@
 
               <div class="flex items-center gap-3">
                 <button
-                  @click="copyLink"
                   class="inline-flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-all"
                   :class="copied ? 'bg-green-50 text-green-600' : 'bg-gray-50 text-gray-600 hover:bg-gray-100'"
+                  @click="copyLink"
                 >
                   <component :is="copied ? CheckIcon : LinkIcon" class="w-4 h-4 mr-2" />
                   {{ copied ? '已复制链接' : '复制链接' }}
@@ -91,7 +91,7 @@
             </div>
 
             <!-- 上一篇/下一篇导航 (Surround) -->
-            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6" v-if="surround">
+            <div v-if="surround" class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
               <!-- 下一篇 (时间上是旧的，但在列表逻辑中 usually Prev/Next depends on sort. Let's say Prev is newer, Next is older or vice versa. Here we map explicitly) -->
               <!-- 实际上 queryCollection 排序通常是 DESC (最新的在前)。
                    所以 index - 1 是更新的文章 (Previous in list, Newer in time)
@@ -114,7 +114,7 @@
                   {{ surround.newer.title }}
                 </div>
               </NuxtLink>
-              <div v-else class="hidden md:block"></div> <!-- 占位 -->
+              <div v-else class="hidden md:block"/> <!-- 占位 -->
 
               <NuxtLink
                 v-if="surround.older"
@@ -231,20 +231,24 @@ import {
 const route = useRoute()
 
 // Fetch Post
+ 
 const { data: post } = await useAsyncData(route.path, () => {
+   
   return queryCollection('blog').path(route.path).first()
 })
 
 // Fetch Surround (Older/Newer posts)
 // 手动实现 Surround 逻辑：获取所有文章的简要信息，然后计算相邻
+ 
 const { data: surround } = await useAsyncData(`surround-${route.path}`, async () => {
+   
   const allPosts = await queryCollection('blog')
     .order('date', 'DESC')
     .select('title', 'path', 'date')
     .all()
 
   const currentIndex = allPosts.findIndex(p => p.path === route.path)
-  if (currentIndex === -1) return null
+  if (currentIndex === -1) {return null}
 
   return {
     newer: currentIndex > 0 ? allPosts[currentIndex - 1] : null,
@@ -306,7 +310,7 @@ onMounted(() => {
 })
 
 const readingTime = computed(() => {
-  if (!post.value?.body) return 1
+  if (!post.value?.body) {return 1}
   const text = JSON.stringify(post.value.body)
   const words = text.length
   const wordsPerMinute = 500 // Chinese reading speed

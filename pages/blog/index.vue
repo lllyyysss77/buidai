@@ -25,9 +25,9 @@
             <button
               v-for="cat in categories"
               :key="cat"
-              @click="selectedCategory = cat"
               class="px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap"
               :class="selectedCategory === cat ? 'bg-gray-900 text-white' : 'bg-white text-gray-600 hover:bg-gray-100'"
+              @click="selectedCategory = cat"
             >
               {{ cat }}
             </button>
@@ -62,7 +62,7 @@
             <div class="p-5 flex flex-col grow">
               <div class="text-xs text-gray-500 mb-2.5 flex items-center gap-2">
                 <span>{{ formatDate(post.date) }}</span>
-                <span class="w-0.5 h-0.5 rounded-full bg-gray-300"></span>
+                <span class="w-0.5 h-0.5 rounded-full bg-gray-300"/>
                 <div class="flex gap-1">
                   <span v-for="tag in post.tags.slice(0, 1)" :key="tag" class="text-gray-400">#{{ tag }}</span>
                 </div>
@@ -114,7 +114,9 @@ const searchQuery = ref('')
 const selectedCategory = ref('全部')
 
 // Fetch Posts
+ 
 const { data: posts } = await useAsyncData('blog-list', () => {
+   
   return queryCollection('blog').order('date', 'DESC').all()
 })
 
@@ -126,7 +128,7 @@ const categories = computed(() => {
 
 // Filter Logic
 const filteredPosts = computed(() => {
-  if (!posts.value) return []
+  if (!posts.value) {return []}
 
   return posts.value.filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchQuery.value.toLowerCase()) ||

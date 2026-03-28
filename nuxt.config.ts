@@ -22,16 +22,15 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap' // 网站地图生成模块
   ],
 
-  // @ts-ignore - 字体模块配置
+  // @ts-expect-error - 字体模块配置（由 @nuxt/fonts 模块注入）
   fonts: {
-    // 禁用自动下载 Google Fonts，使用本地或手动引入
     providers: {
       google: false,
       googleicons: false
     }
   },
 
-  // @ts-ignore - Content 模块配置
+  // Content 模块配置（由 @nuxt/content 模块注入）
   content: {
     // 使用 SQLite 作为内容数据库
     database: {
@@ -41,10 +40,10 @@ export default defineNuxtConfig({
 
   // Sitemap 网站地图配置
   site: {
-    url: 'https://www.智言万象.com' // 网站基础 URL（请根据实际域名修改）
+    url: 'https://www.buidai.com' // 网站基础 URL（请根据实际域名修改）
   },
 
-  // @ts-ignore - Sitemap 模块配置
+  // Sitemap 模块配置
   sitemap: {
     // 自动生成的路由
     urls: () => getSitemapRoutes(),
@@ -105,7 +104,7 @@ export default defineNuxtConfig({
     }
   },
 
-  // @ts-ignore - 颜色模式配置
+  // 颜色模式配置
   colorMode: {
     classSuffix: '' // 移除类名后缀 (即使用 'dark' 而不是 'dark-mode')
   },
@@ -131,14 +130,16 @@ export default defineNuxtConfig({
         // 网站图标配置
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'shortcut icon', href: '/favicon.ico' },
-        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg', sizes: 'any' }, // 优先使用 SVG
-        { rel: 'icon', type: 'image/png', href: '/icon.png' }, // 新增 PNG 图标
-        { rel: 'apple-touch-icon', href: '/icon.png' }, // iOS 图标 (使用 PNG)
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg', sizes: 'any' },
+        { rel: 'icon', type: 'image/png', href: '/icon.png' },
+        { rel: 'apple-touch-icon', href: '/icon.png' },
+        // 规范标签 (Canonical URL)
+        { rel: 'canonical', href: 'https://www.buidai.com' }
 
-        // 字体预连接与加载
-        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-        { href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap', rel: 'stylesheet' }
+        // 字体使用系统默认，不加载远程 Google Fonts
+        // { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        // { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+        // { href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap', rel: 'stylesheet' }
       ]
     }
   },

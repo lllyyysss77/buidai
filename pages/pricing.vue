@@ -227,7 +227,7 @@ useSeoMeta({
     <div class="absolute inset-x-0 top-0 h-[600px] md:h-[800px] z-0 pointer-events-none select-none">
       <img src="/pricing.png" alt="" class="w-full h-full object-cover object-top" />
       <!-- 底部渐变遮罩，使背景图平滑过渡到页面背景 -->
-      <div class="absolute inset-0 bg-linear-to-b from-transparent via-white/20 to-white dark:via-gray-950/20 dark:to-gray-950"></div>
+      <div class="absolute inset-0 bg-linear-to-b from-transparent via-white/20 to-white dark:via-gray-950/20 dark:to-gray-950"/>
     </div>
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -235,8 +235,8 @@ useSeoMeta({
       <div class="text-center mb-20 lg:mb-32">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-ui-primary/10 border border-ui-primary/20 mb-8 animate-fade-in-up">
           <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-ui-primary opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-ui-primary"></span>
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-ui-primary opacity-75"/>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-ui-primary"/>
           </span>
           <span class="text-xs font-bold tracking-widest uppercase text-ui-primary">Pricing & Plans</span>
         </div>
@@ -255,24 +255,24 @@ useSeoMeta({
         <div class="relative flex items-center justify-center mb-20">
           <div class="flex p-1.5 bg-gray-100/80 dark:bg-gray-800/50 rounded-xl ring-1 ring-inset ring-gray-200/50 dark:ring-gray-700/50 backdrop-blur-xl shadow-inner">
             <button
-              @click="toggleBilling(false)"
               class="relative px-8 py-2.5 text-sm font-bold transition-all duration-500 rounded-lg outline-none z-10"
               :class="[
                 !isYearly
                   ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-xl scale-100'
                   : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 scale-95'
               ]"
+              @click="toggleBilling(false)"
             >
               按月付费
             </button>
             <button
-              @click="toggleBilling(true)"
               class="relative px-8 py-2.5 text-sm font-bold transition-all duration-500 rounded-lg outline-none z-10"
               :class="[
                 isYearly
                   ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-xl scale-100'
                   : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 scale-95'
               ]"
+              @click="toggleBilling(true)"
             >
               按年付费
             </button>
@@ -340,7 +340,7 @@ useSeoMeta({
 
             <!-- 分割线 -->
             <div class="px-10 mt-10">
-              <div class="h-px w-full bg-linear-to-r from-transparent via-gray-200 dark:via-gray-800 to-transparent"></div>
+              <div class="h-px w-full bg-linear-to-r from-transparent via-gray-200 dark:via-gray-800 to-transparent"/>
             </div>
 
             <!-- 功能列表 -->
@@ -445,8 +445,8 @@ useSeoMeta({
               class="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 overflow-hidden"
             >
               <button
-                @click="toggleFaq(idx)"
                 class="w-full flex items-start justify-between p-6 text-left hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
+                @click="toggleFaq(idx)"
               >
                 <span class="text-base md:text-lg font-medium text-gray-900 dark:text-white pr-4">{{ item.label }}</span>
                 <span class="text-gray-400 shrink-0 mt-1 transition-transform duration-300" :class="{ 'rotate-45': activeFaq === idx }">

@@ -31,11 +31,11 @@ export const friendLinks: FriendLink[] = [
   { name: '视频混剪助手', url: '/product/videoclip', description: '开源免费的视频剪辑软件' },
   { name: '小红书创作助手', url: '/product/xhs', description: '开源免费的 AI 文案生成系统' },
   { name: '艺创AI', url: 'https://www.urlnet.cn' },
-  { name: '企业知识库', url: 'https://www.urlnet.cn' },
-  { name: '优刻云', url: 'https://www.urlnet.cn' },
-  { name: 'AI数字人', url: 'https://www.urlnet.cn' },
-  { name: 'AI绘画', url: 'https://www.urlnet.cn' },
-  { name: '论文创作', url: 'https://www.urlnet.cn' },
-  { name: 'PaYphp', url: 'https://www.urlnet.cn' },
-  { name: '172号卡', url: 'https://www.urlnet.cn' }
+  { name: '企业知识库', url: 'https://www.cnai.art' },
+  { name: '优刻云', url: 'https://www.cloudcvm.com' },
+  { name: 'AI数字人', url: 'https://v.cnai.art' },
+  { name: 'AI绘画', url: 'https://urlnet.cn' },
+  { name: '论文创作', url: 'https://paper.gmlart.cn' },
+  { name: 'PaYphp', url: 'https://www.payphp.cn' },
+  { name: '172号卡', url: 'https://www.urlka.cn' }
 ]

@@ -11,8 +11,8 @@
 
     <div class="relative w-full max-w-[1920px] mx-auto space-y-8">
       <!-- 渐变遮罩 -->
-      <div class="absolute inset-y-0 left-0 w-32 bg-linear-to-r from-gray-50 to-transparent z-10 pointer-events-none"></div>
-      <div class="absolute inset-y-0 right-0 w-32 bg-linear-to-l from-gray-50 to-transparent z-10 pointer-events-none"></div>
+      <div class="absolute inset-y-0 left-0 w-32 bg-linear-to-r from-gray-50 to-transparent z-10 pointer-events-none"/>
+      <div class="absolute inset-y-0 right-0 w-32 bg-linear-to-l from-gray-50 to-transparent z-10 pointer-events-none"/>
 
       <!--第一行 -->
       <UMarquee

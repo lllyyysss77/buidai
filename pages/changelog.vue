@@ -9,9 +9,9 @@
             <div class="mobile-sidebar-header lg:hidden">
               <span class="text-lg font-bold text-gray-900">版本目录</span>
               <button
-                @click="toggleMobileMenu"
                 class="p-2 text-gray-500 hover:text-gray-900 focus:outline-none"
                 aria-label="Toggle navigation"
+                @click="toggleMobileMenu"
               >
                 <svg v-if="isMobileMenuOpen" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -44,7 +44,7 @@
                         <span
                           class="w-2 h-2 rounded-full shrink-0"
                           :class="version.isMajor ? 'bg-primary-600' : 'bg-gray-300'"
-                        ></span>
+                        />
                         <span class="version-title truncate">{{ version.title }}</span>
                       </span>
                       <span class="text-xs text-gray-400 ml-auto">{{ version.date }}</span>
@@ -57,11 +57,11 @@
                  <h3 class="text-sm font-semibold text-gray-900 mb-3">关于版本</h3>
                  <ul class="space-y-2 text-sm text-gray-600">
                    <li class="flex items-center gap-2">
-                     <span class="w-2 h-2 rounded-full bg-primary-600"></span>
+                     <span class="w-2 h-2 rounded-full bg-primary-600"/>
                      <span>主要版本 (Major)</span>
                    </li>
                    <li class="flex items-center gap-2">
-                     <span class="w-2 h-2 rounded-full bg-gray-300"></span>
+                     <span class="w-2 h-2 rounded-full bg-gray-300"/>
                      <span>常规更新 (Minor/Patch)</span>
                    </li>
                  </ul>
@@ -74,8 +74,8 @@
         <div class="lg:hidden mb-6 sticky top-[64px] z-20 bg-white/80 backdrop-blur-md border-b border-gray-200 -mx-4 px-4 py-3 flex items-center justify-between shadow-sm">
           <span class="font-semibold text-gray-900">当前版本: {{ currentVersionTitle }}</span>
           <button
-            @click="toggleMobileMenu"
             class="flex items-center gap-2 text-sm font-medium text-primary-600 hover:text-primary-700"
+            @click="toggleMobileMenu"
           >
             <span>目录</span>
             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -89,8 +89,8 @@
           <div class="space-y-12 lg:space-y-20">
             <div
               v-for="(version, index) in versions"
-              :key="index"
               :id="`version-${index}`"
+              :key="index"
               class="version-section scroll-mt-24 lg:scroll-mt-32"
             >
               <UChangelogVersions :versions="[version]" />
@@ -118,7 +118,9 @@ useSeoMeta({
   ogType: 'website'
 })
 
+ 
 const { data: versions } = await useAsyncData('changelog-updates', () => {
+   
   return queryCollection('update').order('date', 'DESC').all()
 })
 
@@ -181,7 +183,7 @@ onMounted(() => {
     if (versions.value) {
       versions.value.forEach((_, index) => {
         const el = document.getElementById(`version-${index}`)
-        if (el) observer?.observe(el)
+        if (el) {observer?.observe(el)}
       })
     }
   }

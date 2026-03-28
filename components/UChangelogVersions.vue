@@ -12,7 +12,7 @@ defineProps<{
       class="relative pl-0 sm:pl-40 py-8 group"
     >
       <!-- Timeline Line -->
-      <div class="hidden sm:block absolute left-4 sm:left-32 top-0 bottom-0 w-px bg-gray-200 group-last:bottom-auto group-last:h-8"></div>
+      <div class="hidden sm:block absolute left-4 sm:left-32 top-0 bottom-0 w-px bg-gray-200 group-last:bottom-auto group-last:h-8"/>
 
       <!-- Date Badge (Desktop) -->
       <div class="hidden sm:flex absolute left-0 top-8 w-28 justify-end">
@@ -20,16 +20,16 @@ defineProps<{
       </div>
 
       <!-- Timeline Dot -->
-      <div class="hidden sm:block absolute left-4 sm:left-32 top-8 w-4 h-4 rounded-full border-2 border-white shadow-sm -translate-x-1/2 z-10"
-           :class="version.isMajor ? 'bg-primary-600 ring-4 ring-primary-600/10' : 'bg-gray-300'">
-      </div>
+      <div
+class="hidden sm:block absolute left-4 sm:left-32 top-8 w-4 h-4 rounded-full border-2 border-white shadow-sm -translate-x-1/2 z-10"
+           :class="version.isMajor ? 'bg-primary-600 ring-4 ring-primary-600/10' : 'bg-gray-300'"/>
 
       <!-- Content Card -->
       <div class="w-full relative bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
         <!-- Mobile Date -->
         <div class="sm:hidden flex items-center gap-2 mb-3">
           <span class="text-sm font-medium text-gray-500">{{ version.date }}</span>
-          <span v-if="version.isMajor" class="h-1.5 w-1.5 rounded-full bg-primary-600"></span>
+          <span v-if="version.isMajor" class="h-1.5 w-1.5 rounded-full bg-primary-600"/>
         </div>
 
         <div class="flex flex-col gap-4 mb-4">

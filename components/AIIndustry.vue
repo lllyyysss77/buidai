@@ -16,11 +16,11 @@
         class="relative rounded-3xl overflow-hidden border border-white/50 shadow-2xl shadow-neutral-200/50 min-h-[600px] flex flex-col lg:flex-row transition-all duration-500 backdrop-blur-xl bg-white/40"
       >
         <!-- 背景装饰 -->
-        <div class="absolute inset-0 z-0 bg-linear-to-br from-white/60 via-neutral-50/40 to-white/60"></div>
+        <div class="absolute inset-0 z-0 bg-linear-to-br from-white/60 via-neutral-50/40 to-white/60"/>
 
         <!-- 装饰性光晕 -->
-        <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-neutral-200/20 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-96 h-96 bg-neutral-200/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-neutral-200/20 rounded-full blur-3xl pointer-events-none"/>
+        <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-96 h-96 bg-neutral-200/20 rounded-full blur-3xl pointer-events-none"/>
 
         <!-- 导航区域 -->
         <aside class="relative z-10 w-full lg:w-1/4 bg-white/30 border-b lg:border-b-0 lg:border-r border-white/40 backdrop-blur-md flex flex-col">
@@ -30,20 +30,20 @@
               <button
                 v-for="(t, idx) in tabs"
                 :key="t.name"
-                @click="setActive(idx)"
-                @mouseenter="handleMouseEnter(idx)"
                 class="group relative flex items-center px-4 py-3 lg:py-4 rounded-xl transition-all duration-300 min-w-[140px] lg:min-w-0 text-left outline-none"
                 :class="[
                   active === idx
                     ? 'bg-white text-neutral-900 shadow-sm ring-1 ring-neutral-200'
                     : 'text-neutral-500 hover:text-neutral-900 hover:bg-neutral-100'
                 ]"
+                @click="setActive(idx)"
+                @mouseenter="handleMouseEnter(idx)"
               >
                 <!-- 激活指示条 -->
                 <div
                   class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-neutral-900 rounded-r-full transition-all duration-300"
                   :class="active === idx ? 'opacity-100' : 'opacity-0'"
-                ></div>
+                />
 
                 <component
                   :is="t.icon"
@@ -69,7 +69,7 @@
             <h3 class="text-2xl sm:text-3xl font-bold text-neutral-900 mb-2 flex items-center gap-3">
               {{ currentTab?.title }}
             </h3>
-            <div class="h-1 w-20 bg-linear-to-r from-neutral-900 to-neutral-600 rounded-full"></div>
+            <div class="h-1 w-20 bg-linear-to-r from-neutral-900 to-neutral-600 rounded-full"/>
           </div>
 
           <!-- 功能网格 -->
@@ -98,12 +98,12 @@
 
           <!-- 底部操作栏 -->
           <div class="mt-auto pt-6 border-t border-neutral-100 flex flex-wrap gap-4">
-            <button @click="openQrModal('solution')" class="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-white bg-neutral-900 hover:bg-neutral-800 rounded-full transition-all shadow-lg shadow-neutral-200 hover:-translate-y-0.5">
+            <button class="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-white bg-neutral-900 hover:bg-neutral-800 rounded-full transition-all shadow-lg shadow-neutral-200 hover:-translate-y-0.5" @click="openQrModal('solution')">
               了解方案详情
               <ArrowRightIcon class="ml-2 h-4 w-4" />
             </button>
 
-            <button @click="openQrModal('consult')" class="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-neutral-700 bg-white hover:bg-neutral-50 border border-neutral-200 rounded-full transition-all hover:border-neutral-300 hover:-translate-y-0.5 shadow-sm">
+            <button class="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-neutral-700 bg-white hover:bg-neutral-50 border border-neutral-200 rounded-full transition-all hover:border-neutral-300 hover:-translate-y-0.5 shadow-sm" @click="openQrModal('consult')">
               联系售前咨询
               <ChatBubbleLeftRightIcon class="ml-2 h-4 w-4" />
             </button>
@@ -240,7 +240,7 @@ const handleMouseEnter = (index: number) => {
 
 // 映射背景图片
 const getBackgroundImage = (tabName: string | undefined): string => {
-  if (!tabName) return '/images/home-bg.png'
+  if (!tabName) {return '/images/home-bg.png'}
   const imageMap: { [key: string]: string } = {
     'AI 视觉创作': '/plugin/即梦AI绘画.png',
     '智能对话 Agent': '/plugin/AI直播短视频数字人.png',

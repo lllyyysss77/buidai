@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-[#F3F4F6] dark:bg-neutral-900 font-sans selection:bg-[#6E58FF] selection:text-white">
     <!-- 背景装饰 -->
-    <div class="absolute top-0 left-0 w-full h-[400px] md:h-[500px] bg-[url('/agent.svg')] pointer-events-none mask-[linear-gradient(to_bottom,white,transparent)] z-0"></div>
+    <div class="absolute top-0 left-0 w-full h-[400px] md:h-[500px] bg-[url('/agent.svg')] pointer-events-none mask-[linear-gradient(to_bottom,white,transparent)] z-0"/>
 
     <!-- 顶部 Hero 区域 -->
     <section class="relative pt-24 pb-8 md:pt-28 md:pb-12 overflow-hidden z-10">
@@ -10,8 +10,8 @@
           <!-- 徽章 -->
           <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur border border-neutral-200 shadow-sm mb-6">
             <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#6E58FF] opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-[#6E58FF]"></span>
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#6E58FF] opacity-75"/>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-[#6E58FF]"/>
             </span>
             <span class="text-xs font-medium text-neutral-600">智言AI · 应用市场</span>
           </div>
@@ -44,7 +44,7 @@
                   type="text"
                   placeholder="搜索应用..."
                   class="w-full pl-11 pr-4 py-3 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-xl focus:ring-2 focus:ring-[#6E58FF]/20 focus:border-[#6E58FF] outline-none transition-all text-sm shadow-sm"
-                >
+                />
                 <MagnifyingGlassIcon class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 group-focus-within:text-[#6E58FF] transition-colors" />
               </div>
 
@@ -57,11 +57,11 @@
                   <button
                     v-for="category in categories"
                     :key="category.id"
-                    @click="activeCategory = category.id"
                     class="w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 flex items-center justify-between group"
                     :class="activeCategory === category.id
                       ? 'bg-[#6E58FF]/10 text-[#6E58FF] dark:bg-[#6E58FF]/20'
                       : 'text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-700/50 hover:text-neutral-900 dark:hover:text-white'"
+                    @click="activeCategory = category.id"
                   >
                     <span>{{ category.name }}</span>
                     <span
@@ -88,8 +88,8 @@
                   </div>
                 </div>
                 <button
-                  @click="openQrModal('wechat')"
                   class="w-full py-2.5 bg-white/20 hover:bg-white/30 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2"
+                  @click="openQrModal('wechat')"
                 >
                   <QrCodeIcon class="w-4 h-4" />
                   联系客服
@@ -104,13 +104,13 @@
             <!-- 促销横幅 -->
             <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#6E58FF] via-[#7A42FF] to-[#8B5CF6] text-white p-6 md:p-8 mb-8 shadow-xl shadow-[#6E58FF]/20 group">
               <!-- 网格背景 -->
-              <div class="absolute inset-0 opacity-5 pointer-events-none"
-                   style="background-image: linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px); background-size: 32px 32px;">
-              </div>
+              <div
+class="absolute inset-0 opacity-5 pointer-events-none"
+                   style="background-image: linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px); background-size: 32px 32px;"/>
 
               <!-- 装饰圆形 -->
-              <div class="absolute -top-20 -right-20 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
-              <div class="absolute -bottom-20 -left-20 w-48 h-48 bg-purple-400/20 rounded-full blur-2xl pointer-events-none"></div>
+              <div class="absolute -top-20 -right-20 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none"/>
+              <div class="absolute -bottom-20 -left-20 w-48 h-48 bg-purple-400/20 rounded-full blur-2xl pointer-events-none"/>
 
               <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                 <div class="space-y-3">
@@ -122,8 +122,8 @@
                   <p class="text-white/80 text-sm md:text-base max-w-md">联系客服领取五折优惠码，数量有限，先到先得</p>
                 </div>
                 <button
-                  @click="openQrModal('coupon')"
                   class="shrink-0 px-6 py-3 bg-white text-[#6E58FF] rounded-xl font-semibold text-sm hover:bg-white/90 transition-all shadow-lg flex items-center gap-2 group-hover:scale-105 transform duration-200"
+                  @click="openQrModal('coupon')"
                 >
                   <TicketIcon class="w-4 h-4" />
                   获取5折优惠码
@@ -183,22 +183,22 @@
             <!-- Section Title -->
             <div class="flex items-center justify-between mb-6">
               <h2 class="text-lg font-bold text-neutral-900 dark:text-white flex items-center gap-2">
-                <component :is="getCurrentCategoryIcon" class="w-5 h-5 text-[#6E58FF]" v-if="getCurrentCategoryIcon" />
+                <component :is="getCurrentCategoryIcon" v-if="getCurrentCategoryIcon" class="w-5 h-5 text-[#6E58FF]" />
                 {{ getCurrentCategoryName }}
                 <span class="ml-1 text-sm font-normal text-neutral-400">({{ filteredApps.length }})</span>
               </h2>
               <div class="flex items-center gap-2">
                 <button
-                  @click="viewMode = 'grid'"
                   class="p-2 rounded-lg transition-colors"
                   :class="viewMode === 'grid' ? 'bg-[#6E58FF] text-white' : 'bg-white dark:bg-neutral-800 text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 border border-neutral-200 dark:border-neutral-700'"
+                  @click="viewMode = 'grid'"
                 >
                   <Squares2X2Icon class="w-4 h-4" />
                 </button>
                 <button
-                  @click="viewMode = 'list'"
                   class="p-2 rounded-lg transition-colors"
                   :class="viewMode === 'list' ? 'bg-[#6E58FF] text-white' : 'bg-white dark:bg-neutral-800 text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 border border-neutral-200 dark:border-neutral-700'"
+                  @click="viewMode = 'list'"
                 >
                   <ListBulletIcon class="w-4 h-4" />
                 </button>
@@ -351,8 +351,8 @@
               <h3 class="text-xl font-semibold text-neutral-900 dark:text-white mb-2">未找到相关应用</h3>
               <p class="text-neutral-500 text-sm mb-6">换个搜索词试试看吧</p>
               <button
-                @click="searchQuery = ''; activeCategory = 'all'"
                 class="px-6 py-2.5 bg-[#6E58FF] text-white rounded-xl text-sm font-medium hover:bg-[#6E58FF]/90 transition-colors"
+                @click="searchQuery = ''; activeCategory = 'all'"
               >
                 查看全部应用
               </button>
@@ -501,9 +501,9 @@ const getCurrentCategoryIcon = computed(() => {
  * @returns {number} 该分类下的应用数量
  */
 const getCategoryCount = (categoryId: string): number => {
-  if (categoryId === 'all') return apps.length
-  if (categoryId === 'recommend') return 4
-  if (categoryId === 'independent') return apps.filter(app => app.id >= 50).length
+  if (categoryId === 'all') {return apps.length}
+  if (categoryId === 'recommend') {return 4}
+  if (categoryId === 'independent') {return apps.filter(app => app.id >= 50).length}
   return apps.filter(app => app.category === categoryId).length
 }
 

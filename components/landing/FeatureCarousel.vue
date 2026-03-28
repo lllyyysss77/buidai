@@ -4,9 +4,9 @@
     <div class="absolute inset-x-0 top-0 h-[500px] pointer-events-none select-none overflow-hidden z-0">
         <div class="relative w-full h-full flex flex-col items-center pt-[27px] md:pt-[70px]">
             <!-- 网格背景 (复用 agent.vue 风格) -->
-            <div class="absolute inset-0 bg-[url('/agent.svg')] mask-[linear-gradient(to_bottom,white,transparent)] opacity-70"></div>
+            <div class="absolute inset-0 bg-[url('/agent.svg')] mask-[linear-gradient(to_bottom,white,transparent)] opacity-70"/>
             <!-- 渐变背景覆盖 -->
-            <div class="absolute inset-0 bg-linear-to-b from-blue-50/50 via-white/80 to-white -z-10"></div>
+            <div class="absolute inset-0 bg-linear-to-b from-blue-50/50 via-white/80 to-white -z-10"/>
         </div>
     </div>
 
@@ -28,9 +28,9 @@
         3. touch-pan-x: 明确声明允许横向触控滚动
       -->
       <div
+        ref="scrollContainer"
         class="flex gap-4 sm:gap-8 overflow-x-auto pb-12 pt-8 md:pb-20 md:pt-10 px-[7.5vw] sm:px-[50vw] scrollbar-hide perspective-container select-none touch-pan-x scroll-auto"
         :class="{ 'cursor-grab': !isDragging, 'cursor-grabbing': isDragging }"
-        ref="scrollContainer"
         @scroll="handleScroll"
         @mousedown="startDrag"
         @mousemove="onDrag"
@@ -43,14 +43,14 @@
         <div
           v-for="(card, index) in cards"
           :key="index"
-          class="shrink-0 w-[85vw] sm:w-[360px] perspective-item will-change-transform"
           :ref="(el) => { if(el) cardRefs[index] = el as HTMLElement }"
+          class="shrink-0 w-[85vw] sm:w-[360px] perspective-item will-change-transform"
         >
           <div
             class="group relative h-auto min-h-[320px] sm:min-h-[400px] rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] bg-white/60 backdrop-blur-xl border border-white/60"
           >
             <!-- 动态渐变背景层 -->
-            <div class="absolute inset-0 -z-10 opacity-30 group-hover:opacity-50 transition-opacity duration-500" :class="`bg-linear-to-b ${card.gradient}`"></div>
+            <div class="absolute inset-0 -z-10 opacity-30 group-hover:opacity-50 transition-opacity duration-500" :class="`bg-linear-to-b ${card.gradient}`"/>
 
             <!-- Content -->
             <div class="p-6 sm:p-8 h-full flex flex-col relative z-10">
@@ -77,16 +77,16 @@
       </div>
 
       <!-- 淡入边缘（亮）- 移动端减小遮罩宽度以免遮挡内容 -->
-      <div class="absolute inset-y-0 left-0 w-8 md:w-64 bg-linear-to-r from-white via-white/80 to-transparent pointer-events-none z-10"></div>
-      <div class="absolute inset-y-0 right-0 w-8 md:w-64 bg-linear-to-l from-white via-white/80 to-transparent pointer-events-none z-10"></div>
+      <div class="absolute inset-y-0 left-0 w-8 md:w-64 bg-linear-to-r from-white via-white/80 to-transparent pointer-events-none z-10"/>
+      <div class="absolute inset-y-0 right-0 w-8 md:w-64 bg-linear-to-l from-white via-white/80 to-transparent pointer-events-none z-10"/>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, nextTick } from 'vue'
-// 导入应用数据：从 utils/scene.ts 中获取应用列表，用于生成 3D 轮播卡片
-import { sceneApps as apps } from '~/utils/scene'
+// 导入应用数据：从 utils/pluginData.ts 中获取应用列表，用于生成 3D 轮播卡片
+import { apps } from '~/utils/pluginData'
 
 const gradients = [
   'from-[#E0F2FE] to-[#BAE6FD]', // Sky Blue
@@ -141,7 +141,7 @@ const startDrag = (e: MouseEvent) => {
 }
 
 const onDrag = (e: MouseEvent) => {
-  if (!isDragging.value || !scrollContainer.value) return
+  if (!isDragging.value || !scrollContainer.value) {return}
   e.preventDefault()
   const x = e.pageX - scrollContainer.value.offsetLeft
   const walk = (x - startX.value) * 1.5 // Scroll-fast
@@ -176,7 +176,7 @@ const handleScroll = () => {
 
 // 检查是否需要重置滚动位置以实现无限循环
 const checkInfiniteScroll = () => {
-  if (!scrollContainer.value || isDragging.value) return
+  if (!scrollContainer.value || isDragging.value) {return}
 
   const container = scrollContainer.value
   const isMobile = window.innerWidth < 768
@@ -196,14 +196,14 @@ const checkInfiniteScroll = () => {
 }
 
 const updateTransforms = () => {
-  if (!scrollContainer.value) return
+  if (!scrollContainer.value) {return}
 
   const container = scrollContainer.value
   const viewportCenter = window.innerWidth / 2
   const isMobile = window.innerWidth < 768 // MD breakpoint
 
   cardRefs.value.forEach((card) => {
-    if (!card) return
+    if (!card) {return}
     const rect = card.getBoundingClientRect()
     const cardCenter = rect.left + rect.width / 2
 
@@ -213,8 +213,8 @@ const updateTransforms = () => {
     let dist = (cardCenter - viewportCenter) / range
 
     // Clamp distance
-    if (dist < -1) dist = -1
-    if (dist > 1) dist = 1
+    if (dist < -1) {dist = -1}
+    if (dist > 1) {dist = 1}
 
     // 移动端减弱3D效果参数，优化性能和视觉体验
     const rotation = dist * (isMobile ? 15 : 45) // 移动端最大旋转15度

@@ -4,22 +4,22 @@
   </div>
   <!-- 骨架屏：仅在顶层且数据未加载时显示 -->
   <div v-else-if="pending && level === 0 && !navigation" class="animate-pulse space-y-3 p-2">
-    <div class="h-4 bg-gray-200 rounded w-1/3"></div>
+    <div class="h-4 bg-gray-200 rounded w-1/3"/>
     <div class="space-y-2 pl-4">
-      <div class="h-3 bg-gray-100 rounded w-3/4"></div>
-      <div class="h-3 bg-gray-100 rounded w-2/3"></div>
+      <div class="h-3 bg-gray-100 rounded w-3/4"/>
+      <div class="h-3 bg-gray-100 rounded w-2/3"/>
     </div>
   </div>
-  <component v-else :is="level === 0 ? 'nav' : 'div'" aria-label="文档导航">
+  <component :is="level === 0 ? 'nav' : 'div'" v-else aria-label="文档导航">
     <ul :class="level === 0 ? 'space-y-3' : 'space-y-1'">
       <li v-for="item in items" :key="item.path || item.title">
         <!-- Level 0: 分组标题 (Section Headers) -->
         <!-- 仅在顶层且有子项时渲染为折叠面板 -->
         <template v-if="level === 0 && item.children">
           <button
-            @click="toggleSection(item.title)"
             class="flex w-full items-center justify-between gap-2 font-bold text-gray-900 dark:text-gray-100 mb-2 px-3 py-1 text-sm tracking-tight select-none hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md transition-colors"
             :aria-expanded="!collapsedSections[item.title]"
+            @click="toggleSection(item.title)"
           >
             <div class="flex items-center gap-2">
               <UIcon
@@ -159,21 +159,18 @@ const route = useRoute()
 
 // 仅在根层级且未提供 navigation 属性时，自动获取文档列表
 // 使用 useAsyncData 避免阻塞客户端导航
+ 
 const { data: fetchedDocs, pending, error } = useAsyncData('sidebar-docs', async () => {
-  if (props.level !== 0 || props.navigation) return []
+  if (props.level !== 0 || props.navigation) {return []}
 
-  try {
-    // 查询所有文档，获取必要字段用于生成导航
-    const docs = await queryCollection('docs')
-      .select('title', 'path', 'category', 'order', 'navigation')
-      .order('order', 'ASC') // 按 order 字段升序排列
-      .all()
+  // 查询所有文档，获取必要字段用于生成导航
+   
+  const docs = await queryCollection('docs')
+    .select('title', 'path', 'category', 'order', 'navigation')
+    .order('order', 'ASC') // 按 order 字段升序排列
+    .all()
 
-    return docs
-  } catch (e) {
-    console.error('Error fetching sidebar docs:', e)
-    throw e
-  }
+  return docs
 })
 
 // --- 分组与列表逻辑 (Grouping & Items Logic) ---
@@ -183,7 +180,7 @@ const { data: fetchedDocs, pending, error } = useAsyncData('sidebar-docs', async
  * 如果传入了 navigation prop 则直接使用，否则根据 fetchedDocs 进行分类聚合
  */
 const items = computed<NavigationItem[]>(() => {
-  if (props.navigation) return props.navigation
+  if (props.navigation) {return props.navigation}
 
   if (props.level === 0 && fetchedDocs.value) {
     const groups: Record<string, NavigationItem[]> = {}
@@ -192,12 +189,12 @@ const items = computed<NavigationItem[]>(() => {
     fetchedDocs.value.forEach(doc => {
       // 优先使用 front-matter 中的 category，否则归为 "未分类"
       const cat = doc.category || '未分类'
-      if (!groups[cat]) groups[cat] = []
+      if (!groups[cat]) {groups[cat] = []}
 
       // 安全地处理 navigation 字段（可能是 boolean 或 object）
       let icon = undefined
       if (typeof doc.navigation === 'object' && doc.navigation !== null) {
-        // @ts-ignore: 动态访问 navigation 属性
+        // 动态访问 navigation 属性
         icon = doc.navigation.icon
       }
 
@@ -219,11 +216,11 @@ const items = computed<NavigationItem[]>(() => {
         const idxA = categoryOrder.indexOf(a)
         const idxB = categoryOrder.indexOf(b)
         // 都在预定义列表中，按列表顺序
-        if (idxA !== -1 && idxB !== -1) return idxA - idxB
+        if (idxA !== -1 && idxB !== -1) {return idxA - idxB}
         // 只有 A 在列表中，A 优先
-        if (idxA !== -1) return -1
+        if (idxA !== -1) {return -1}
         // 只有 B 在列表中，B 优先
-        if (idxB !== -1) return 1
+        if (idxB !== -1) {return 1}
         // 都不在列表中，按字母顺序
         return a.localeCompare(b)
       })
@@ -248,7 +245,7 @@ const collapsedSections = useState<Record<string, boolean>>('sidebar-collapsed-s
 // 1. 默认所有分组均为折叠状态 (true)
 // 2. 自动检测并展开包含当前激活路由的分组
 watch([items, () => route.path], ([newItems, currentPath]) => {
-  if (props.level !== 0) return // 仅处理根层级
+  if (props.level !== 0) {return} // 仅处理根层级
 
   newItems.forEach(section => {
     // 检查该分组下是否有子项匹配当前路径
@@ -283,7 +280,7 @@ const toggleSection = (title: string) => {
  * @returns true 如果路径匹配
  */
 const isActive = (path: string): boolean => {
-  if (!path) return false
+  if (!path) {return false}
   return route.path === path
 }
 </script>

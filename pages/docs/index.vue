@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-white">
     <!-- 页眉间距 -->
-    <div class="h-[72px]"></div>
+    <div class="h-[72px]"/>
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-2xl">
       <div class="py-12 lg:py-16">
@@ -13,13 +13,13 @@
         </div>
 
         <div v-if="pending" class="flex justify-center py-12">
-          <div class="animate-spin rounded-full h-12 w-12 border-4 border-primary-500 border-t-transparent"></div>
+          <div class="animate-spin rounded-full h-12 w-12 border-4 border-primary-500 border-t-transparent"/>
         </div>
 
         <div v-else-if="error" class="text-center py-12">
           <div class="text-red-500 mb-4">加载文档导航失败</div>
           <div class="text-xs text-gray-400 mb-4">{{ error }}</div>
-          <button @click="() => refresh()" class="text-primary-600 hover:underline">重试</button>
+          <button class="text-primary-600 hover:underline" @click="() => refresh()">重试</button>
         </div>
 
         <UPageGrid v-else>
@@ -49,7 +49,7 @@
                   :to="item.path"
                   class="group/link flex items-center text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                 >
-                  <span class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-600 mr-3 group-hover/link:bg-primary-500 transition-colors"></span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-600 mr-3 group-hover/link:bg-primary-500 transition-colors"/>
                   {{ item.title }}
                 </NuxtLink>
               </li>
@@ -76,7 +76,9 @@ useSeoMeta({
 })
 
 // Fetch All Docs for Crawling and Index
+ 
 const { data: docs, pending, error, refresh } = await useAsyncData('docs-list', () => {
+   
   return queryCollection('docs')
     .select('title', 'path', 'category', 'order')
     .order('order', 'ASC')
@@ -85,7 +87,7 @@ const { data: docs, pending, error, refresh } = await useAsyncData('docs-list', 
 
 // Group by category (consistent with Sidebar logic)
 const navigation = computed(() => {
-  if (!docs.value) return []
+  if (!docs.value) {return []}
 
   const groups: Record<string, any[]> = {}
 
@@ -112,11 +114,11 @@ const navigation = computed(() => {
       const idxA = categoryOrder.indexOf(a)
       const idxB = categoryOrder.indexOf(b)
       // If both in list, sort by index
-      if (idxA !== -1 && idxB !== -1) return idxA - idxB
+      if (idxA !== -1 && idxB !== -1) {return idxA - idxB}
       // If a in list, it comes first
-      if (idxA !== -1) return -1
+      if (idxA !== -1) {return -1}
       // If b in list, it comes first
-      if (idxB !== -1) return 1
+      if (idxB !== -1) {return 1}
       // Otherwise alphabetical
       return a.localeCompare(b)
     })

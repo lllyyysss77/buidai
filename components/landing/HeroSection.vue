@@ -6,14 +6,14 @@
           <!-- 装饰背景 -->
           <div class="absolute inset-0 -z-10 overflow-visible pointer-events-none select-none">
             <!-- 1. 顶部聚焦光束 (增强可见度) -->
-            <div class="absolute top-0 left-1/2 lg:left-0 -translate-x-1/2 lg:-translate-x-1/4 -translate-y-1/3 w-[600px] h-[600px] bg-ui-primary/30 rounded-full blur-[80px] mix-blend-multiply"></div>
+            <div class="absolute top-0 left-1/2 lg:left-0 -translate-x-1/2 lg:-translate-x-1/4 -translate-y-1/3 w-[600px] h-[600px] bg-ui-primary/30 rounded-full blur-[80px] mix-blend-multiply"/>
 
             <!-- 2. 科技网格背景 -->
-            <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px] mask-[radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px] mask-[radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]"/>
 
             <!-- 3. 抽象几何点缀 (增强可见度) -->
-            <div class="absolute top-20 right-10 w-32 h-32 bg-linear-to-br from-blue-400/50 to-transparent rounded-full blur-2xl animate-pulse"></div>
-            <div class="absolute bottom-40 left-10 w-24 h-24 bg-linear-to-tr from-purple-400/40 to-transparent rounded-full blur-xl animate-float animation-delay-2000"></div>
+            <div class="absolute top-20 right-10 w-32 h-32 bg-linear-to-br from-blue-400/50 to-transparent rounded-full blur-2xl animate-pulse"/>
+            <div class="absolute bottom-40 left-10 w-24 h-24 bg-linear-to-tr from-purple-400/40 to-transparent rounded-full blur-xl animate-float animation-delay-2000"/>
           </div>
 
           <div class="flex justify-center lg:justify-start">
@@ -36,7 +36,7 @@
 
           <slot name="description">
             <p class="text-base sm:text-lg lg:text-xl text-gray-700 max-w-2xl mx-auto lg:mx-0 leading-relaxed min-h-[1.75em]" :class="props.ui.description">
-              {{ typeWriterText }}<span class="animate-blink ml-1 border-r-2 border-ui-primary h-[1.2em] align-middle inline-block"></span>
+              {{ typeWriterText }}<span class="animate-blink ml-1 border-r-2 border-ui-primary h-[1.2em] align-middle inline-block"/>
             </p>
           </slot>
 
@@ -46,7 +46,7 @@
                 size="xl"
                 color="primary"
                 label="开始使用"
-                to="https://cloud.智言万象.com"
+                to="https://www.gmlart.com"
                 target="_blank"
                 icon="i-heroicons-rocket-launch"
                 class="w-full sm:w-auto rounded-full px-8 py-3.5 text-lg justify-center"
@@ -105,7 +105,7 @@
 
           <div class="relative w-full z-10 mt-8 lg:mt-0 lg:absolute lg:left-1/2 lg:top-0 lg:bottom-0 lg:w-[50vw] lg:h-auto flex flex-col justify-center" :class="props.ui.imageSection">
             <div class="absolute inset-0 -z-10 pointer-events-none">
-              <div class="mx-auto w-[90%] md:w-[85%] h-[60%] rounded-[40px] bg-linear-to-br from-black/5 via-black/2 to-black/5 blur-2xl"></div>
+              <div class="mx-auto w-[90%] md:w-[85%] h-[60%] rounded-[40px] bg-linear-to-br from-black/5 via-black/2 to-black/5 blur-2xl"/>
             </div>
 
             <!-- Desktop: Vertical Marquee -->
@@ -197,9 +197,12 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from 'vue'
-// 导入应用数据：从 utils/scene.ts 中获取应用列表，用于提取图片生成跑马灯背景
-import { sceneApps as apps } from '~/utils/scene'
+// 导入应用数据：从 utils/pluginData.ts 中获取应用列表，用于提取图片生成跑马灯背景
+import { apps } from '~/utils/pluginData'
 import { LAYOUT, ANIMATION, MARQUEE } from '~/utils/ui'
+
+// 只取 image 字段用于跑马灯
+const marqueeImages = apps.map(app => app.image)
 
 /**
  * Hero Section Logic
@@ -270,11 +273,11 @@ const sentences = [
 let sentenceIndex = 0
 let charIndex = 0
 let isDeleting = false
-let typeTimeout: NodeJS.Timeout | null = null
+let typeTimeout: ReturnType<typeof setTimeout> | null = null
 
 const typeWriter = () => {
   const currentSentence = sentences[sentenceIndex]
-  if (!currentSentence) return
+  if (!currentSentence) {return}
 
   if (isDeleting) {
     typeWriterText.value = currentSentence.substring(0, charIndex - 1)
@@ -299,7 +302,7 @@ const typeWriter = () => {
 }
 
 // 插件图片配置 - 直接从 pluginData.ts 获取，实现自动同步
-const allPluginImages = computed(() => apps.map(app => app.image))
+const allPluginImages = computed(() => marqueeImages)
 
 /**
  * 随机打乱数组顺序的函数
@@ -357,7 +360,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener('resize', checkDevice)
-  if (typeTimeout) clearTimeout(typeTimeout)
+  if (typeTimeout) {clearTimeout(typeTimeout)}
 })
 </script>
 

@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-white">
     <!-- 页眉间距 -->
-    <div class="h-[72px]"></div>
+    <div class="h-[72px]"/>
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-2xl">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
@@ -31,8 +31,8 @@
               <div v-if="page?.body?.toc?.links?.length" class="xl:hidden mb-8 not-prose">
                 <div class="rounded-xl border border-gray-200 bg-gray-50/50 backdrop-blur-sm">
                   <button
-                    @click="isTocOpen = !isTocOpen"
                     class="flex w-full items-center justify-between px-4 py-3 text-left text-sm font-medium text-gray-900 focus:outline-none"
+                    @click="isTocOpen = !isTocOpen"
                   >
                     <span>本页目录</span>
                     <ChevronDownIcon
@@ -88,7 +88,7 @@
                     </div>
                     <div class="font-semibold text-gray-900 group-hover:text-primary-700">{{ surround[0].title }}</div>
                   </NuxtLink>
-                  <div v-else></div>
+                  <div v-else/>
 
                   <!-- Next -->
                   <NuxtLink
@@ -116,7 +116,7 @@
               <div class="py-12 text-center">
                 <h1 class="text-2xl font-bold text-gray-900">加载文档出错</h1>
                 <p class="text-gray-500 mt-2">{{ error }}</p>
-                <button @click="clearError" class="text-primary-600 mt-4 inline-block hover:underline">重试</button>
+                <button class="text-primary-600 mt-4 inline-block hover:underline" @click="clearError">重试</button>
               </div>
             </template>
           </NuxtErrorBoundary>
@@ -177,14 +177,17 @@ const currentPath = computed(() => {
 // const { data: navigation } = await useAsyncData('docs-navigation', () => queryCollectionNavigation('docs'))
 
 const [{ data: page }, { data: surround }] = await Promise.all([
-  // @ts-ignore: Nuxt Content v3 Alpha type mismatch
+  // Nuxt Content v3 Alpha type mismatch
+   
   useAsyncData(`docs-${currentPath.value}`, async () => {
     // Try exact match first
+     
     const exact = await queryCollection('docs').where('path', '=', currentPath.value).first()
-    if (exact) return exact
+    if (exact) {return exact}
 
     // Fallback: fetch all paths and match by cleaning them
     // This handles cases where file system has numbers (1.introduce) but URL is clean (introduce)
+     
     const allDocs = await queryCollection('docs').select('path').all()
     const found = allDocs.find(doc => {
       // Clean the doc path: remove numbers from segments, remove .md, remove /index
@@ -202,12 +205,14 @@ const [{ data: page }, { data: surround }] = await Promise.all([
     })
 
     if (found) {
+       
       return queryCollection('docs').where('path', '=', found.path).first()
     }
 
     return null
   }),
-  // @ts-ignore: Nuxt Content v3 Alpha type mismatch
+  // Nuxt Content v3 Alpha type mismatch
+   
   useAsyncData(`docs-surround-${currentPath.value}`, () => queryCollectionItemSurroundings('docs', currentPath.value, {
     fields: ['title', 'path']
   }))
@@ -215,6 +220,7 @@ const [{ data: page }, { data: surround }] = await Promise.all([
 
 // Handle 404
 if (!page.value) {
+   
   setResponseStatus(404)
 }
 

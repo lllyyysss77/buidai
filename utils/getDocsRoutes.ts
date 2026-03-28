@@ -19,7 +19,7 @@ export const getDocsRoutes = () => {
   const docsDir = path.resolve(process.cwd(), 'content/docs')
 
   // 如果文档目录不存在，直接返回空数组
-  if (!fs.existsSync(docsDir)) return routes
+  if (!fs.existsSync(docsDir)) {return routes}
 
   /**
    * 递归遍历目录函数

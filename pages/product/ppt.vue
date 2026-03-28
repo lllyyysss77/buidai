@@ -148,12 +148,12 @@ const toDemo = () => {
             <!-- 背景特效（适配自 HeroSection.vue） -->
             <div class="absolute inset-0 z-0 overflow-visible pointer-events-none select-none">
                 <!-- 顶部聚焦光束 -->
-                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 w-[600px] h-[600px] bg-ui-primary/20 rounded-full blur-[80px] mix-blend-multiply dark:mix-blend-normal dark:bg-ui-primary/10"></div>
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 w-[600px] h-[600px] bg-ui-primary/20 rounded-full blur-[80px] mix-blend-multiply dark:mix-blend-normal dark:bg-ui-primary/10"/>
                 <!-- 科技网格背景 -->
-                <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px] mask-[radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+                <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px] mask-[radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]"/>
                 <!-- 抽象几何点缀 -->
-                <div class="absolute top-20 right-10 w-32 h-32 bg-linear-to-br from-blue-400/30 to-transparent rounded-full blur-2xl animate-pulse hidden md:block"></div>
-                <div class="absolute bottom-40 left-10 w-24 h-24 bg-linear-to-tr from-purple-400/30 to-transparent rounded-full blur-xl animate-float animation-delay-2000 hidden md:block"></div>
+                <div class="absolute top-20 right-10 w-32 h-32 bg-linear-to-br from-blue-400/30 to-transparent rounded-full blur-2xl animate-pulse hidden md:block"/>
+                <div class="absolute bottom-40 left-10 w-24 h-24 bg-linear-to-tr from-purple-400/30 to-transparent rounded-full blur-xl animate-float animation-delay-2000 hidden md:block"/>
             </div>
 
             <div class="container mx-auto px-4 text-center relative z-10">
@@ -187,8 +187,8 @@ const toDemo = () => {
                             size="xl"
                             color="neutral"
                             variant="outline"
-                            @click="toDemo"
                             class="px-8 py-3.5 rounded-full justify-center text-base font-medium bg-white dark:bg-gray-800 ring-1 ring-gray-200 dark:ring-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
+                            @click="toDemo"
                         >
                             查看示例
                         </UButton>
@@ -205,7 +205,7 @@ const toDemo = () => {
                         src="/public/plugin/aippt.png"
                         alt="AI PPT展示"
                         class="w-full h-full object-contain"
-                    >
+                    />
                 </div>
             </div>
         </div>
@@ -273,7 +273,7 @@ const toDemo = () => {
                                     <div class="relative w-4 h-4 mt-1 shrink-0 flex items-center justify-center text-ui-primary">
                                         <!-- 活动图标 -->
                                         <svg v-if="detail.activePoint === pIndex" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" class="absolute inset-0 transition-opacity duration-300">
-                                            <path fill="currentColor" d="M8 1a7 7 0 1 0 7 7 7.01 7.01 0 0 0-7-7m3.073 5.766-3.769 3.769a.54.54 0 0 1-.762 0L4.927 8.919a.539.539 0 0 1 .762-.761l1.234 1.235 3.388-3.39a.54.54 0 0 1 .92.382.54.54 0 0 1-.158.38"></path>
+                                            <path fill="currentColor" d="M8 1a7 7 0 1 0 7 7 7.01 7.01 0 0 0-7-7m3.073 5.766-3.769 3.769a.54.54 0 0 1-.762 0L4.927 8.919a.539.539 0 0 1 .762-.761l1.234 1.235 3.388-3.39a.54.54 0 0 1 .92.382.54.54 0 0 1-.158.38"/>
                                         </svg>
                                         <!-- Inactive Icon -->
                                         <svg v-else xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" class="absolute inset-0 transition-opacity duration-300 opacity-30 group-hover/item:opacity-50" viewBox="0 0 16 16">
@@ -292,7 +292,7 @@ const toDemo = () => {
                                             class="absolute top-0 left-0 w-full bg-ui-primary dark:bg-ui-primary rounded-full transition-all duration-500 ease-out"
                                             :style="{ height: detail.activePoint === pIndex ? '100%' : '0%' }"
                                             :class="{ 'opacity-0': detail.activePoint > pIndex }"
-                                        ></div>
+                                        />
                                     </div>
                                 </div>
 
@@ -310,7 +310,8 @@ const toDemo = () => {
                                             :class="detail.activePoint === pIndex ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'"
                                         >
                                             <div class="overflow-hidden">
-                                                <div class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed pt-0 pb-3 opacity-0 -translate-y-1 transition-all duration-300 delay-75"
+                                                <div
+class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed pt-0 pb-3 opacity-0 -translate-y-1 transition-all duration-300 delay-75"
                                                     :class="{ 'opacity-100 translate-y-0': detail.activePoint === pIndex }"
                                                 >
                                                     {{ point.desc }}
@@ -340,9 +341,9 @@ const toDemo = () => {
                     <div class="relative h-full">
                          <div class="relative p-2 rounded-3xl bg-gray-100/40 dark:bg-gray-800/40 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 h-full">
                             <div class="relative rounded-2xl overflow-hidden border border-gray-200/50 dark:border-gray-700/50 shadow-sm bg-white/60 dark:bg-gray-800/60 h-full flex items-center justify-center">
-                                <img :src="detail.image" :alt="detail.title" class="w-full h-full object-contain">
+                                <img :src="detail.image" :alt="detail.title" class="w-full h-full object-contain"/>
                                 <!-- 渐变遮罩 -->
-                                <div class="absolute inset-0 bg-linear-to-tr from-black/5 to-transparent pointer-events-none"></div>
+                                <div class="absolute inset-0 bg-linear-to-tr from-black/5 to-transparent pointer-events-none"/>
                             </div>
                         </div>
                     </div>
@@ -360,8 +361,8 @@ const toDemo = () => {
         <section class="py-24 bg-gray-50 dark:bg-gray-800/30 relative overflow-hidden">
              <!-- 背景图形 -->
             <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                 <div class="absolute top-[-10%] right-[-5%] w-[30%] h-[30%] bg-blue-400/10 rounded-full blur-[80px]"></div>
-                 <div class="absolute bottom-[-10%] left-[-5%] w-[30%] h-[30%] bg-purple-400/10 rounded-full blur-[80px]"></div>
+                 <div class="absolute top-[-10%] right-[-5%] w-[30%] h-[30%] bg-blue-400/10 rounded-full blur-[80px]"/>
+                 <div class="absolute bottom-[-10%] left-[-5%] w-[30%] h-[30%] bg-purple-400/10 rounded-full blur-[80px]"/>
             </div>
 
             <div class="container mx-auto px-4 text-center relative z-10">

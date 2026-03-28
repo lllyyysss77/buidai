@@ -2,8 +2,8 @@
   <section class="py-16 bg-gray-50/50 relative overflow-hidden">
     <!-- 背景装饰 -->
     <div class="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-      <div class="absolute top-[20%] right-[10%] w-[500px] h-[500px] bg-purple-200/40 rounded-full blur-[100px] mix-blend-multiply"></div>
-      <div class="absolute bottom-[10%] left-[5%] w-[400px] h-[400px] bg-blue-200/40 rounded-full blur-[100px] mix-blend-multiply"></div>
+      <div class="absolute top-[20%] right-[10%] w-[500px] h-[500px] bg-purple-200/40 rounded-full blur-[100px] mix-blend-multiply"/>
+      <div class="absolute bottom-[10%] left-[5%] w-[400px] h-[400px] bg-blue-200/40 rounded-full blur-[100px] mix-blend-multiply"/>
     </div>
 
     <div class="container mx-auto px-6 lg:px-8 relative z-10">
@@ -24,7 +24,7 @@
           :class="[item.colSpan, 'relative group']"
         >
           <!-- 卡片背景与边框 (渐变 + 毛玻璃) -->
-          <div :class="['absolute inset-0 rounded-2xl border backdrop-blur-xl shadow-sm', item.gradientClass]"></div>
+          <div :class="['absolute inset-0 rounded-2xl border backdrop-blur-xl shadow-sm', item.gradientClass]"/>
 
           <div class="relative flex h-full flex-col overflow-hidden rounded-2xl p-6 sm:p-8">
             <!-- 头部：图标与标签 -->

@@ -106,7 +106,7 @@ const gradients = [
 
 // 二维码弹窗 - 触发全局事件
 const openQrModal = (type: 'coupon' | 'wechat') => {
-  if (typeof window === 'undefined') return;
+  if (typeof window === 'undefined') {return;}
   const config = type === 'coupon'
     ? { title: '获取优惠码', desc: '扫码获取专属优惠', image: '/qrcode.png' }
     : { title: '联系客服', desc: '扫码添加微信客服', image: '/wechat.png' }
@@ -279,11 +279,11 @@ const toggleFaq = (idx: number) => {
             <h2 class="text-2xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">常见问题</h2>
             <p class="text-gray-500 dark:text-gray-400 text-sm md:text-base mb-6">关于智言AI的常见疑问解答</p>
             <div class="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 justify-center lg:justify-start">
-              <button @click="openQrModal('coupon')" class="px-6 py-2.5 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-100 active:scale-95 transition-all flex items-center justify-center gap-2 touch-manipulation">
+              <button class="px-6 py-2.5 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-100 active:scale-95 transition-all flex items-center justify-center gap-2 touch-manipulation" @click="openQrModal('coupon')">
                 <UIcon name="i-heroicons-ticket" class="w-4 h-4" />
                 获取优惠码
               </button>
-              <button @click="openQrModal('wechat')" class="px-6 py-2.5 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 active:scale-95 transition-all shadow-sm flex items-center justify-center gap-2 touch-manipulation">
+              <button class="px-6 py-2.5 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 active:scale-95 transition-all shadow-sm flex items-center justify-center gap-2 touch-manipulation" @click="openQrModal('wechat')">
                 <UIcon name="i-heroicons-chat-bubble-left-right" class="w-4 h-4" />
                 联系客服
               </button>
@@ -298,8 +298,8 @@ const toggleFaq = (idx: number) => {
               class="bg-white dark:bg-gray-900 rounded-2xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-800"
             >
               <button
-                @click="toggleFaq(idx)"
                 class="w-full flex items-start justify-between p-6 text-left focus:outline-none hover:bg-gray-50 dark:hover:bg-gray-800 active:bg-gray-100 dark:active:bg-gray-700 transition-colors touch-manipulation min-h-[44px]"
+                @click="toggleFaq(idx)"
               >
                 <span class="text-base md:text-lg font-medium text-gray-900 dark:text-white pr-4 md:pr-8">{{ faq.question }}</span>
                 <span class="text-gray-400 dark:text-gray-500 shrink-0 mt-1 transition-transform duration-300" :class="{ 'rotate-45': activeFaq === idx }">

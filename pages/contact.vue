@@ -4,8 +4,8 @@
     <!-- 1. Hero Section -->
     <section class="relative pt-32 pb-20 overflow-hidden bg-neutral-50">
       <div class="absolute inset-0 pointer-events-none">
-        <div class="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-purple-50/50 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-linear-to-tr from-blue-50/50 to-transparent"></div>
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-purple-50/50 to-transparent"/>
+        <div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-linear-to-tr from-blue-50/50 to-transparent"/>
       </div>
 
       <div class="container mx-auto px-4 relative z-10 text-center">
@@ -84,8 +84,8 @@
           <div class="lg:w-2/3 w-full space-y-4">
             <div v-for="(faq, index) in faqs" :key="index" class="bg-white rounded-xl border border-neutral-200 overflow-hidden">
               <button
-                @click="faq.isOpen = !faq.isOpen"
                 class="w-full flex items-center justify-between p-5 text-left hover:bg-neutral-50 transition-colors"
+                @click="faq.isOpen = !faq.isOpen"
               >
                 <span class="font-medium text-neutral-900">{{ faq.question }}</span>
                 <UIcon

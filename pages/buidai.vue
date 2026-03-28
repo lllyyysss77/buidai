@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-white text-neutral-900 font-sans selection:bg-neutral-100 relative">
     <!-- 背景装饰：左上角网格 -->
-    <div class="absolute top-0 left-0 w-full h-[400px] md:h-[600px] bg-[url('/images/buidai.png')] pointer-events-none mask-[linear-gradient(to_bottom,white,transparent)] z-0"></div>
+    <div class="absolute top-0 left-0 w-full h-[400px] md:h-[600px] bg-[url('/images/buidai.png')] pointer-events-none mask-[linear-gradient(to_bottom,white,transparent)] z-0"/>
 
     <!-- 动态流星雨背景 - 使用 CSS 变量减少重绘 -->
     <div class="absolute inset-0 h-[600px] overflow-hidden pointer-events-none z-0">
@@ -10,19 +10,19 @@
         :key="i"
         class="meteor-item"
         :style="`--i:${i}`"
-      ></div>
+      />
     </div>
 
     <!-- 英雄区域 -->
     <section class="pt-32 pb-12 md:pt-48 md:pb-20 relative overflow-hidden z-10">
       <div class="container mx-auto px-4 text-center relative z-10">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-50 border border-neutral-200 text-xs text-neutral-600 mb-8">
-          <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+          <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"/>
           <span>智言AI V4.6.8 strong release</span>
         </div>
 
         <h1 class="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight mb-6 text-neutral-900 leading-tight min-h-[1.2em]">
-          {{ displayedText.part1 }}<span v-if="(typingStatus === 'part1' || typingStatus === 'idle') && showCursor" class="inline-block align-baseline w-[3px] h-[0.8em] bg-neutral-900 animate-pulse ml-1"></span><span class="text-transparent bg-clip-text bg-linear-to-r from-blue-500 to-blue-700 block sm:inline">{{ displayedText.part2 }}<span v-if="typingStatus === 'part2' && showCursor" class="inline-block align-baseline w-[3px] h-[0.8em] bg-blue-600 animate-pulse ml-1"></span></span>{{ displayedText.part3 }}<span v-if="(typingStatus === 'part3' || typingStatus === 'done') && showCursor" class="inline-block align-baseline w-[3px] h-[0.8em] bg-neutral-900 animate-pulse ml-1"></span>
+          {{ displayedText.part1 }}<span v-if="(typingStatus === 'part1' || typingStatus === 'idle') && showCursor" class="inline-block align-baseline w-[3px] h-[0.8em] bg-neutral-900 animate-pulse ml-1"/><span class="text-transparent bg-clip-text bg-linear-to-r from-blue-500 to-blue-700 block sm:inline">{{ displayedText.part2 }}<span v-if="typingStatus === 'part2' && showCursor" class="inline-block align-baseline w-[3px] h-[0.8em] bg-blue-600 animate-pulse ml-1"/></span>{{ displayedText.part3 }}<span v-if="(typingStatus === 'part3' || typingStatus === 'done') && showCursor" class="inline-block align-baseline w-[3px] h-[0.8em] bg-neutral-900 animate-pulse ml-1"/>
         </h1>
 
         <p class="text-base sm:text-xl text-neutral-500 mb-8 md:mb-10 max-w-3xl mx-auto px-2">
@@ -90,16 +90,16 @@
               <button
                 v-for="(feature, index) in features"
                 :key="feature.title"
-                @click="activeFeatureIndex = index"
-                @mouseenter="activeFeatureIndex = index"
                 class="group w-full flex flex-col text-left px-5 py-4 rounded-xl transition-all duration-300 relative overflow-hidden outline-none"
                 :class="activeFeatureIndex === index ? 'bg-white shadow-sm ring-1 ring-neutral-200' : 'hover:bg-neutral-100/80'"
+                @click="activeFeatureIndex = index"
+                @mouseenter="activeFeatureIndex = index"
               >
                 <!-- 激活指示条 -->
                 <div
                   class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-[#6E58FF] rounded-r-full transition-all duration-300"
                   :class="activeFeatureIndex === index ? 'opacity-100' : 'opacity-0'"
-                ></div>
+                />
 
                 <div class="flex gap-4 items-center">
                   <div
@@ -136,15 +136,15 @@
           <!-- 右侧：预览图 (浏览器窗口样式) -->
           <div class="flex-1 relative flex flex-col bg-white z-0 overflow-hidden">
              <!-- 背景光晕装饰 -->
-            <div class="absolute -top-20 -right-20 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl pointer-events-none mix-blend-multiply"></div>
-            <div class="absolute -bottom-20 -left-20 w-96 h-96 bg-purple-100/40 rounded-full blur-3xl pointer-events-none mix-blend-multiply"></div>
+            <div class="absolute -top-20 -right-20 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl pointer-events-none mix-blend-multiply"/>
+            <div class="absolute -bottom-20 -left-20 w-96 h-96 bg-purple-100/40 rounded-full blur-3xl pointer-events-none mix-blend-multiply"/>
 
             <!-- 顶部浏览器栏装饰 -->
             <div class="h-14 border-b border-neutral-100 flex items-center px-6 gap-3 shrink-0 bg-white/80 backdrop-blur-md z-20">
               <div class="flex gap-2">
-                <div class="w-3 h-3 rounded-full bg-neutral-200"></div>
-                <div class="w-3 h-3 rounded-full bg-neutral-200"></div>
-                <div class="w-3 h-3 rounded-full bg-neutral-200"></div>
+                <div class="w-3 h-3 rounded-full bg-neutral-200"/>
+                <div class="w-3 h-3 rounded-full bg-neutral-200"/>
+                <div class="w-3 h-3 rounded-full bg-neutral-200"/>
               </div>
               <!-- 模拟地址栏 -->
                <div class="ml-4 flex-1 max-w-md h-8 bg-neutral-50 rounded-lg border border-neutral-100 flex items-center px-4 text-xs text-neutral-400 font-mono">
@@ -187,11 +187,11 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <UPageCard
-            v-for="(item, index) in advantages"
+            v-for="item in advantages"
             :key="item.title"
             v-bind="item"
           >
-            <template #image v-if="item.image">
+            <template v-if="item.image" #image>
               <img
                 :src="item.image.path"
                 :alt="item.title"
@@ -219,7 +219,7 @@
             data-aos="fade-up"
             :data-aos-delay="idx * 60"
           >
-            <div class="absolute inset-0 pointer-events-none opacity-80" :class="scenario.cardGradientClass"></div>
+            <div class="absolute inset-0 pointer-events-none opacity-80" :class="scenario.cardGradientClass"/>
 
             <div
               class="flex flex-col lg:flex-row gap-10 lg:gap-20 items-center justify-between relative z-10"
@@ -305,7 +305,7 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <UPageCard
-            v-for="(item, index) in whyChooseUs"
+            v-for="item in whyChooseUs"
             :key="item.title"
             v-bind="item"
           />
@@ -408,11 +408,11 @@
             <h2 class="text-2xl md:text-4xl font-bold text-[#0F0F12] mb-4">常见问题</h2>
             <p class="text-neutral-500 text-sm md:text-base mb-6">关于智言AI的常见疑问解答</p>
             <div class="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 justify-center lg:justify-start">
-              <button @click="openQrModal('coupon')" class="px-6 py-2.5 rounded-full bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 active:scale-95 transition-all flex items-center justify-center gap-2 touch-manipulation">
+              <button class="px-6 py-2.5 rounded-full bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 active:scale-95 transition-all flex items-center justify-center gap-2 touch-manipulation" @click="openQrModal('coupon')">
                 <TicketIcon class="w-4 h-4" />
                 获取优惠码
               </button>
-              <button @click="openQrModal('wechat')" class="px-6 py-2.5 rounded-full bg-white border border-neutral-200 text-neutral-900 text-sm font-medium hover:bg-neutral-50 active:scale-95 transition-all shadow-sm flex items-center justify-center gap-2 touch-manipulation">
+              <button class="px-6 py-2.5 rounded-full bg-white border border-neutral-200 text-neutral-900 text-sm font-medium hover:bg-neutral-50 active:scale-95 transition-all shadow-sm flex items-center justify-center gap-2 touch-manipulation" @click="openQrModal('wechat')">
                 <ChatBubbleLeftRightIcon class="w-4 h-4" />
                 联系客服
               </button>
@@ -427,8 +427,8 @@
               class="bg-white rounded-2xl transition-all duration-300 overflow-hidden border border-neutral-100"
             >
               <button
-                @click="toggleFaq(idx)"
                 class="w-full flex items-start justify-between p-6 text-left focus:outline-none hover:bg-neutral-50 active:bg-neutral-100 transition-colors touch-manipulation min-h-[44px]"
+                @click="toggleFaq(idx)"
               >
                 <span class="text-base md:text-lg font-medium text-[#0F0F12] pr-4 md:pr-8">{{ faq.question }}</span>
                 <span class="text-neutral-400 shrink-0 mt-1 transition-transform duration-300" :class="{ 'rotate-45': activeFaq === idx }">
@@ -454,7 +454,7 @@
     <!-- Footer -->
     <section class="py-16 md:py-24 relative overflow-hidden bg-white dark:bg-neutral-900">
       <!-- 装饰背景 -->
-      <div class="absolute inset-0 bg-linear-to-b from-transparent to-neutral-50/50 dark:to-neutral-800/50 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-linear-to-b from-transparent to-neutral-50/50 dark:to-neutral-800/50 pointer-events-none"/>
 
       <div class="container mx-auto px-4 relative z-10">
         <div class="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16 p-8 md:p-12 rounded-3xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50/50 dark:bg-neutral-800/30">
@@ -521,10 +521,6 @@ import {
   TicketIcon
 } from '@heroicons/vue/24/outline'
 
-// AOS
-import AOS from 'aos'
-import 'aos/dist/aos.css'
-
 // 二维码弹窗 - 触发 BackToTop 组件
 const openQrModal = (type: 'coupon' | 'wechat') => {
   const config = type === 'coupon'
@@ -553,10 +549,10 @@ const showCursor = ref(true)
 let cursorInterval: ReturnType<typeof setInterval> | null = null
 
 onMounted(() => {
-  AOS.init({ duration: 500, once: true, offset: 50 })
+  // AOS 已在全局 app.vue 中初始化，无需重复初始化
 
   cursorInterval = setInterval(() => {
-    if (typingStatus.value !== 'done') showCursor.value = !showCursor.value
+    if (typingStatus.value !== 'done') {showCursor.value = !showCursor.value}
   }, 530)
 
   startTypewriter()
@@ -581,8 +577,8 @@ const startTypewriter = async () => {
 }
 
 onBeforeUnmount(() => {
-  cursorInterval && clearInterval(cursorInterval)
-  if (import.meta.client) document.body.style.overflow = ''
+  if (cursorInterval) {clearInterval(cursorInterval)}
+  if (import.meta.client) {document.body.style.overflow = ''}
 })
 
 // 类型定义

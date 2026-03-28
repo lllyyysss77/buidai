@@ -14,7 +14,7 @@
             页面未找到
           </h1>
           <p class="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
-            抱歉，您访问的页面不存在或已被移除。<br>
+            抱歉，您访问的页面不存在或已被移除。<br/>
             请检查链接是否正确，或返回首页继续浏览。
           </p>
         </div>
@@ -25,8 +25,8 @@
             color="primary"
             variant="solid"
             icon="i-ph-house"
-            @click="handleError"
             class="w-full sm:w-auto justify-center"
+            @click="handleError"
           >
             返回首页
           </UButton>
@@ -36,8 +36,8 @@
             color="neutral"
             variant="ghost"
             icon="i-ph-arrow-left"
-            @click="goBack"
             class="w-full sm:w-auto justify-center"
+            @click="goBack"
           >
             返回上一页
           </UButton>
@@ -77,7 +77,7 @@ const props = defineProps({
 })
 
 // 判断是否为开发环境
-const isDev = process.dev
+const isDev = import.meta.dev
 
 /**
  * 清除错误状态并重定向到首页
@@ -85,7 +85,12 @@ const isDev = process.dev
  * @returns {void} 无返回值
  */
 const handleError = () => {
-  clearError({ redirect: '/' })
+  // clearError 和 navigateTo 是 Nuxt 全局函数，运行时自动注入
+  if (typeof clearError !== 'undefined') {
+    clearError({ redirect: '/' })
+  } else {
+    navigateTo('/')
+  }
 }
 
 /**

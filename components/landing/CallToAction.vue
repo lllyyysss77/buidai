@@ -77,8 +77,8 @@ const handleCTAClick = () => {
       <!-- CTA 按钮 -->
       <div class="flex justify-center">
         <button
-          @click="handleCTAClick"
           class="px-10 py-3 rounded-full bg-[#8B5CF6] text-white font-medium text-lg hover:bg-[#7C3AED] hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 transform hover:-translate-y-0.5"
+          @click="handleCTAClick"
         >
           开启私有化部署
         </button>

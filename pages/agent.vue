@@ -1,13 +1,13 @@
 <template>
   <div class="min-h-screen bg-white text-neutral-900 font-sans selection:bg-neutral-100 relative">
     <!-- 背景装饰：左上角网格 -->
-    <div class="absolute top-0 left-0 w-full h-[400px] md:h-[600px] bg-[url('/agent.svg')] pointer-events-none mask-[linear-gradient(to_bottom,white,transparent)] z-0"></div>
+    <div class="absolute top-0 left-0 w-full h-[400px] md:h-[600px] bg-[url('/agent.svg')] pointer-events-none mask-[linear-gradient(to_bottom,white,transparent)] z-0"/>
 
     <!-- 英雄区域 -->
     <section class="pt-32 pb-12 md:pt-48 md:pb-20 relative overflow-hidden z-10">
       <div class="container mx-auto px-4 text-center relative z-10">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-50 border border-neutral-200 text-xs text-neutral-600 mb-8">
-          <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+          <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"/>
           <span>智言万象 V4.6.8 strong release</span>
         </div>
 
@@ -51,13 +51,13 @@
           <div v-for="(item, index) in featureCards" :key="index" class="group relative flex flex-col h-full">
 
             <!-- 顶部装饰线条 -->
-            <div class="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-neutral-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-neutral-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"/>
 
             <!-- 卡片主体 -->
             <div class="bg-white rounded-2xl p-6 shadow-sm border border-neutral-100 flex-1 flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden z-10">
 
               <!-- 背景光晕装饰 -->
-              <div class="absolute -top-10 -right-10 w-32 h-32 bg-neutral-50 rounded-full blur-3xl group-hover:bg-neutral-100/50 transition-colors duration-500 z-0"></div>
+              <div class="absolute -top-10 -right-10 w-32 h-32 bg-neutral-50 rounded-full blur-3xl group-hover:bg-neutral-100/50 transition-colors duration-500 z-0"/>
 
               <!-- 头部信息 -->
               <div class="relative z-10 flex items-start justify-between mb-6">
@@ -111,7 +111,8 @@
         </div>
 
         <div class="flex flex-col gap-16 md:gap-24">
-          <div v-for="(feature, idx) in features" :key="idx"
+          <div
+v-for="(feature, idx) in features" :key="idx"
                class="group relative flex flex-col lg:flex-row items-center gap-10 lg:gap-16 xl:gap-24"
                :class="{ 'lg:flex-row-reverse': idx % 2 === 1 }"
           >
@@ -127,7 +128,7 @@
               </p>
 
               <!-- 装饰线条 -->
-              <div class="w-20 h-1 bg-neutral-100 rounded-full group-hover:w-32 group-hover:bg-neutral-900 transition-all duration-300"></div>
+              <div class="w-20 h-1 bg-neutral-100 rounded-full group-hover:w-32 group-hover:bg-neutral-900 transition-all duration-300"/>
             </div>
 
             <!-- 视频演示 -->
@@ -140,9 +141,9 @@
                   muted
                   playsinline
                   class="w-full h-full object-cover"
-                ></video>
+                />
                 <!-- 视频遮罩 -->
-                <div class="absolute inset-0 bg-linear-to-tr from-neutral-500/5 to-transparent pointer-events-none"></div>
+                <div class="absolute inset-0 bg-linear-to-tr from-neutral-500/5 to-transparent pointer-events-none"/>
               </div>
             </div>
           </div>
@@ -162,7 +163,8 @@
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div v-for="(adv, idx) in advantages" :key="idx"
+          <div
+v-for="(adv, idx) in advantages" :key="idx"
                class="group p-8 rounded-3xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 shadow-sm hover:shadow-md hover:border-neutral-300 dark:hover:border-neutral-600 transition-all duration-200">
 
             <div class="relative z-10">
@@ -187,11 +189,11 @@
             <h2 class="text-2xl md:text-4xl font-bold text-neutral-900 mb-4">常见问题</h2>
             <p class="text-neutral-500 text-sm md:text-base mb-6">关于智言AI的常见疑问解答</p>
             <div class="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 justify-center lg:justify-start">
-              <button @click="openQrModal('coupon')" class="px-6 py-2.5 rounded-full bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 active:scale-95 transition-all flex items-center justify-center gap-2 touch-manipulation">
+              <button class="px-6 py-2.5 rounded-full bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 active:scale-95 transition-all flex items-center justify-center gap-2 touch-manipulation" @click="openQrModal('coupon')">
                 <TicketIcon class="w-4 h-4" />
                 获取优惠码
               </button>
-              <button @click="openQrModal('wechat')" class="px-6 py-2.5 rounded-full bg-white border border-neutral-200 text-neutral-900 text-sm font-medium hover:bg-neutral-50 active:scale-95 transition-all shadow-sm flex items-center justify-center gap-2 touch-manipulation">
+              <button class="px-6 py-2.5 rounded-full bg-white border border-neutral-200 text-neutral-900 text-sm font-medium hover:bg-neutral-50 active:scale-95 transition-all shadow-sm flex items-center justify-center gap-2 touch-manipulation" @click="openQrModal('wechat')">
                 <ChatBubbleLeftRightIcon class="w-4 h-4" />
                 联系客服
               </button>
@@ -206,8 +208,8 @@
               class="bg-white rounded-2xl transition-all duration-300 overflow-hidden border border-neutral-100"
             >
               <button
-                @click="toggleFaq(idx)"
                 class="w-full flex items-start justify-between p-6 text-left focus:outline-none hover:bg-neutral-50 active:bg-neutral-100 transition-colors touch-manipulation min-h-[44px]"
+                @click="toggleFaq(idx)"
               >
                 <span class="text-base md:text-lg font-medium text-neutral-900 pr-4 md:pr-8">{{ faq.question }}</span>
                 <span class="text-neutral-400 shrink-0 mt-1 transition-transform duration-300" :class="{ 'rotate-45': activeFaq === idx }">
@@ -233,7 +235,7 @@
     <!-- Footer CTA -->
     <section class="py-16 md:py-24 relative overflow-hidden bg-white dark:bg-neutral-900">
       <!-- 装饰背景 -->
-      <div class="absolute inset-0 bg-linear-to-b from-transparent to-neutral-50/50 dark:to-neutral-800/50 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-linear-to-b from-transparent to-neutral-50/50 dark:to-neutral-800/50 pointer-events-none"/>
 
       <div class="container mx-auto px-4 relative z-10">
         <div class="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16 p-8 md:p-12 rounded-3xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50/50 dark:bg-neutral-800/30">

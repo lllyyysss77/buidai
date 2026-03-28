@@ -74,7 +74,7 @@ const qrCodeConfig = ref<QrCodeConfig>({
  * 阈值：300px
  */
 const handleScroll = () => {
-  isVisible.value = window.pageYOffset > 300
+  isVisible.value = window.scrollY > 300
 }
 
 /**
@@ -208,8 +208,8 @@ onUnmounted(() => {
               </div>
 
               <!-- 装饰性箭头 -->
-              <div class="absolute top-5 left-full w-0 h-0 border-t-6 border-b-6 border-l-6 border-transparent border-l-white"></div>
-              <div class="absolute inset-0 border border-gray-100/50 pointer-events-none"></div>
+              <div class="absolute top-5 left-full w-0 h-0 border-t-6 border-b-6 border-l-6 border-transparent border-l-white"/>
+              <div class="absolute inset-0 border border-gray-100/50 pointer-events-none"/>
             </div>
           </Transition>
         </div>
@@ -266,7 +266,7 @@ onUnmounted(() => {
               </div>
 
               <!-- 装饰性箭头 -->
-              <div class="absolute top-5 left-full w-0 h-0 border-t-6 border-b-6 border-l-6 border-transparent border-l-white"></div>
+              <div class="absolute top-5 left-full w-0 h-0 border-t-6 border-b-6 border-l-6 border-transparent border-l-white"/>
             </div>
           </Transition>
         </div>
@@ -283,9 +283,9 @@ onUnmounted(() => {
       >
         <button
           v-if="isVisible"
-          @click="scrollToTop"
           class="w-10 h-10 sm:w-12 sm:h-12 bg-white text-gray-700 shadow-lg flex items-center justify-center transition-all hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 border border-gray-200/50 cursor-pointer"
           aria-label="返回顶部"
+          @click="scrollToTop"
         >
           <ChevronUpIcon class="h-4 w-4 sm:h-5 sm:w-5" />
         </button>
@@ -307,7 +307,7 @@ onUnmounted(() => {
         @click="closeModalQRCode"
       >
         <!-- 背景遮罩 -->
-        <div class="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity"></div>
+        <div class="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity"/>
 
         <!-- 模态框内容 -->
         <Transition
@@ -332,9 +332,9 @@ onUnmounted(() => {
                 </p>
               </div>
               <button
-                @click="closeModalQRCode"
                 class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-1.5 rounded-full hover:bg-blue-100/50 text-blue-400 hover:text-blue-600 transition-colors cursor-pointer"
                 aria-label="关闭"
+                @click="closeModalQRCode"
               >
                 <XIcon class="w-4 h-4 sm:w-5 sm:h-5" />
               </button>

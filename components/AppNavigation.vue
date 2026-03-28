@@ -72,8 +72,8 @@
             color="neutral"
             :aria-label="mobileMenuOpen ? 'Close menu' : 'Open menu'"
             :aria-expanded="mobileMenuOpen"
-            @click="mobileMenuOpen = !mobileMenuOpen"
             :class="isTransparent ? 'text-white/80 hover:bg-white/10' : 'text-gray-600 hover:bg-gray-100'"
+            @click="mobileMenuOpen = !mobileMenuOpen"
           >
             <Bars3Icon v-if="!mobileMenuOpen" class="w-6 h-6" />
             <XMarkIcon v-else class="w-6 h-6" />

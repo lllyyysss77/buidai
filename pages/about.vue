@@ -1,14 +1,14 @@
 <template>
   <div class="min-h-screen bg-white text-[#0F0F12] font-sans selection:bg-blue-100 relative">
     <!-- 背景装饰：左上角网格 -->
-    <div class="absolute top-0 left-0 w-full h-[600px] bg-[url('/grid.svg')] pointer-events-none mask-[linear-gradient(to_bottom,white,transparent)] z-0"></div>
+    <div class="absolute top-0 left-0 w-full h-[600px] bg-[url('/grid.svg')] pointer-events-none mask-[linear-gradient(to_bottom,white,transparent)] z-0"/>
 
     <!-- Hero Section -->
     <section class="pt-48 pb-20 relative z-10">
       <div class="container mx-auto px-4 text-center">
         <!-- Badge -->
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-xs text-blue-600 mb-8 font-medium">
-          <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+          <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"/>
           <span>About Us</span>
         </div>
 
@@ -112,7 +112,7 @@
     <!-- 联系我们 -->
     <section class="py-24 bg-white relative overflow-hidden">
       <!-- 装饰背景 -->
-      <div class="absolute top-0 right-0 w-1/3 h-full bg-linear-to-l from-neutral-50/50 to-transparent pointer-events-none"></div>
+      <div class="absolute top-0 right-0 w-1/3 h-full bg-linear-to-l from-neutral-50/50 to-transparent pointer-events-none"/>
 
       <div class="container mx-auto px-4 relative z-10">
         <div class="flex flex-col lg:flex-row gap-16 items-start">

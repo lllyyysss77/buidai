@@ -255,9 +255,9 @@ useHead({
   <div class="min-h-screen bg-neutral-50 font-sans">
     <!-- 背景装饰 -->
     <div class="fixed inset-0 overflow-hidden pointer-events-none">
-      <div class="absolute -top-40 -left-40 w-80 h-80 bg-[#6E58FF]/10 rounded-full blur-3xl"></div>
-      <div class="absolute top-1/2 -right-40 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl"></div>
-      <div class="absolute -bottom-40 left-1/3 w-80 h-80 bg-purple-400/10 rounded-full blur-3xl"></div>
+      <div class="absolute -top-40 -left-40 w-80 h-80 bg-[#6E58FF]/10 rounded-full blur-3xl"/>
+      <div class="absolute top-1/2 -right-40 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl"/>
+      <div class="absolute -bottom-40 left-1/3 w-80 h-80 bg-purple-400/10 rounded-full blur-3xl"/>
     </div>
 
     <div class="relative">
@@ -285,7 +285,7 @@ useHead({
             >
               <!-- 顶部图片区域 -->
               <div class="relative aspect-video bg-neutral-100 overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-br from-indigo-50 to-purple-50"></div>
+                <div class="absolute inset-0 bg-gradient-to-br from-indigo-50 to-purple-50"/>
                 <div class="absolute inset-0 flex items-center justify-center">
                   <div
                     class="w-16 h-16 rounded-2xl flex items-center justify-center"
@@ -317,9 +317,9 @@ useHead({
                   </h3>
                   <!-- 手风琴展开/收缩按钮 -->
                   <button
-                    @click="toggleProduct(product.id)"
                     class="p-2 rounded-lg bg-neutral-100 hover:bg-neutral-200 transition-colors duration-200"
                     :aria-label="expandedProducts[product.id] ? '收缩产品详情' : '展开产品详情'"
+                    @click="toggleProduct(product.id)"
                   >
                     <ChevronDownIcon
                       class="w-4 h-4 text-neutral-600 transition-transform duration-300"
@@ -367,8 +367,8 @@ useHead({
                   <!-- 收缩状态显示提示 -->
                   <button
                     v-else
-                    @click="toggleProduct(product.id)"
                     class="w-full py-3 px-3 bg-neutral-50 rounded-xl border border-dashed border-neutral-200 hover:border-neutral-300 hover:bg-neutral-100 transition-all duration-200 text-center cursor-pointer"
+                    @click="toggleProduct(product.id)"
                   >
                     <span class="text-xs text-neutral-400">点击展开查看演示平台</span>
                   </button>

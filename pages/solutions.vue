@@ -6,8 +6,8 @@
         <!-- 徽章 -->
         <div class="mb-6 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur border border-gray-200 shadow-sm">
            <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#6E58FF] opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-[#6E58FF]"></span>
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#6E58FF] opacity-75"/>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-[#6E58FF]"/>
           </span>
           <span class="text-xs font-medium text-gray-600">智言AI旗下 AI 平台</span>
         </div>
@@ -26,7 +26,7 @@
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 md:mb-24 w-full sm:w-auto px-4 sm:px-0">
           <a href="https://cloud.智言万象.com/" target="_blank" class="w-full sm:w-auto group relative px-8 py-3.5 rounded-full bg-linear-to-r from-[#6E58FF] to-[#7A42FF] text-white font-semibold text-[15px] shadow-[0_8px_20px_-4px_rgba(110,88,255,0.4)] hover:shadow-[0_12px_24px_-6px_rgba(110,88,255,0.5)] active:scale-95 transition-all duration-300 touch-manipulation flex items-center justify-center">
             立即体验
-            <span class="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity"></span>
+            <span class="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity"/>
           </a>
 
           <div class="relative group w-full sm:w-auto">
@@ -36,7 +36,7 @@
             </button>
             <!-- 二维码提示框（移动端隐藏） -->
              <div class="hidden sm:block absolute top-full left-1/2 -translate-x-1/2 mt-4 w-32 p-3 bg-white rounded-xl shadow-[0_12px_32px_rgba(0,0,0,0.12)] opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 z-20 pointer-events-none">
-                <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white rotate-45 border-t border-l border-gray-100"></div>
+                <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white rotate-45 border-t border-l border-gray-100"/>
                 <div class="w-full aspect-square bg-gray-100 rounded-lg mb-2 overflow-hidden relative">
                    <!-- 二维码占位符 -->
                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example" alt="QR" loading="lazy" class="w-full h-full object-cover mix-blend-multiply" />
@@ -57,8 +57,8 @@
                 </div>
                 <div class="h-1/2 p-6 flex flex-col justify-between">
                    <div class="space-y-2">
-                      <div class="h-2 w-2/3 bg-gray-100 rounded"></div>
-                      <div class="h-2 w-full bg-gray-50 rounded"></div>
+                      <div class="h-2 w-2/3 bg-gray-100 rounded"/>
+                      <div class="h-2 w-full bg-gray-50 rounded"/>
                    </div>
                    <button class="w-full py-2 bg-gray-50 rounded-lg text-xs text-gray-600 font-medium active:bg-gray-200 transition-colors">查看详情</button>
                 </div>
@@ -68,7 +68,7 @@
                  <div class="p-4 md:p-6 h-full flex flex-col text-white">
                     <div class="text-2xl md:text-4xl font-bold tracking-tighter text-[#6E58FF] mb-1 md:mb-2">CODE</div>
                     <div class="text-sm md:text-xl font-light opacity-80">EVENT 2025</div>
-                    <div class="mt-auto h-px w-full bg-gray-700"></div>
+                    <div class="mt-auto h-px w-full bg-gray-700"/>
                  </div>
              </div>
              <!-- 左侧卡片（外层） -->
@@ -78,15 +78,15 @@
                       <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                     </div>
                     <div class="space-y-3 mt-8">
-                       <div class="h-2 w-3/4 bg-gray-200 rounded"></div>
-                       <div class="h-2 w-1/2 bg-gray-200 rounded"></div>
-                       <div class="h-2 w-full bg-gray-200 rounded"></div>
+                       <div class="h-2 w-3/4 bg-gray-200 rounded"/>
+                       <div class="h-2 w-1/2 bg-gray-200 rounded"/>
+                       <div class="h-2 w-full bg-gray-200 rounded"/>
                     </div>
                     <div class="absolute bottom-5 left-5 right-5 h-24 bg-white rounded-lg shadow-sm border border-gray-100 p-3 flex items-center gap-3">
-                       <div class="w-10 h-10 rounded-full bg-purple-100 shrink-0"></div>
+                       <div class="w-10 h-10 rounded-full bg-purple-100 shrink-0"/>
                        <div class="flex-1 space-y-1">
-                          <div class="h-1.5 w-2/3 bg-gray-200 rounded"></div>
-                          <div class="h-1.5 w-1/3 bg-gray-100 rounded"></div>
+                          <div class="h-1.5 w-2/3 bg-gray-200 rounded"/>
+                          <div class="h-1.5 w-1/3 bg-gray-100 rounded"/>
                        </div>
                     </div>
                  </div>
@@ -95,7 +95,7 @@
              <!-- 右侧卡片（内层） -->
              <div class="absolute left-1/2 translate-x-[0%] md:translate-x-[10%] bottom-0 w-[180px] h-[200px] md:w-[320px] md:h-[340px] bg-linear-to-br from-[#E0E7FF] to-[#F3E8FF] rounded-2xl shadow-xl z-20 transform rotate-6 hover:rotate-[8deg] transition-transform duration-500 border border-white/50">
                  <div class="p-4 md:p-6 h-full relative">
-                    <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
+                    <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-white via-transparent to-transparent"/>
                     <div class="relative z-10 text-2xl md:text-3xl font-script text-indigo-900">f(x)</div>
                  </div>
              </div>
@@ -103,14 +103,14 @@
              <div class="hidden lg:block absolute left-1/2 translate-x-[80%] bottom-4 w-[220px] md:w-[300px] h-[240px] md:h-[320px] bg-[#0F0F12] rounded-2xl shadow-lg z-10 transform rotate-12 hover:rotate-14 transition-transform duration-500 border border-gray-800 overflow-hidden">
                  <div class="p-5 h-full flex flex-col">
                     <div class="flex items-center justify-between mb-6">
-                       <div class="w-8 h-8 rounded-lg bg-gray-800"></div>
+                       <div class="w-8 h-8 rounded-lg bg-gray-800"/>
                        <div class="text-xs text-gray-500">AI Analysis</div>
                     </div>
                     <div class="flex-1 flex items-end justify-between gap-2 px-2">
-                       <div class="w-1/5 h-[40%] bg-purple-900/50 rounded-t"></div>
-                       <div class="w-1/5 h-[70%] bg-purple-800/50 rounded-t"></div>
-                       <div class="w-1/5 h-[50%] bg-purple-700/50 rounded-t"></div>
-                       <div class="w-1/5 h-[90%] bg-[#6E58FF] rounded-t shadow-[0_0_15px_rgba(110,88,255,0.5)]"></div>
+                       <div class="w-1/5 h-[40%] bg-purple-900/50 rounded-t"/>
+                       <div class="w-1/5 h-[70%] bg-purple-800/50 rounded-t"/>
+                       <div class="w-1/5 h-[50%] bg-purple-700/50 rounded-t"/>
+                       <div class="w-1/5 h-[90%] bg-[#6E58FF] rounded-t shadow-[0_0_15px_rgba(110,88,255,0.5)]"/>
                     </div>
                  </div>
              </div>
@@ -131,13 +131,13 @@
             <button
               v-for="tab in tabs"
               :key="tab"
-              @click="currentTab = tab"
               :class="[
                 'px-4 md:px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap shrink-0',
                 currentTab === tab
                   ? 'bg-white text-[#6E58FF] shadow-sm'
                   : 'text-[#5A5E6A] hover:text-[#0F0F12]'
               ]"
+              @click="currentTab = tab"
             >
               {{ tab }}
             </button>
@@ -184,7 +184,7 @@
             >
                <div class="absolute inset-0 p-6 md:p-8 flex flex-col justify-between z-10" :class="card.textClass || 'text-gray-900'">
                   <div>
-                     <h3 class="text-xl md:text-2xl font-medium mb-2" v-html="card.title"></h3>
+                     <h3 class="text-xl md:text-2xl font-medium mb-2" v-html="card.title"/>
                   </div>
 
                   <!-- 视觉占位符区域 -->
@@ -198,19 +198,19 @@
 
                   <!-- Design Visual -->
                   <div v-if="card.visual === 'design'" class="absolute inset-0 overflow-hidden pointer-events-none">
-                      <div class="absolute top-0 right-0 w-full h-full" style="background-image: radial-gradient(#cbd5e1 1px, transparent 1px); background-size: 20px 20px; opacity: 0.5;"></div>
+                      <div class="absolute top-0 right-0 w-full h-full" style="background-image: radial-gradient(#cbd5e1 1px, transparent 1px); background-size: 20px 20px; opacity: 0.5;"/>
                       <div class="absolute right-8 bottom-16 w-20 h-20 rounded-full border border-purple-500/30 flex items-center justify-center transition-transform duration-500 group-hover:scale-110 will-change-transform">
                          <div class="w-12 h-12 rounded-full border border-purple-600 flex items-center justify-center text-[10px] text-purple-600">00</div>
                       </div>
-                      <div class="absolute right-20 bottom-24 w-24 h-24 rounded-full border border-gray-400/30"></div>
+                      <div class="absolute right-20 bottom-24 w-24 h-24 rounded-full border border-gray-400/30"/>
                   </div>
 
                   <!-- Writing Visual -->
                   <div v-if="card.visual === 'writing'" class="absolute right-0 bottom-0 w-2/3 h-2/3 bg-white rounded-tl-xl p-4 shadow-sm opacity-80 transition-transform duration-500 group-hover:translate-y-2 will-change-transform">
                       <div class="text-[10px] text-gray-400 mb-2">TIME.9.26 - 10.28</div>
                       <div class="space-y-1.5">
-                          <div class="h-2 w-full bg-gray-200 rounded"></div>
-                          <div class="h-2 w-3/4 bg-gray-200 rounded"></div>
+                          <div class="h-2 w-full bg-gray-200 rounded"/>
+                          <div class="h-2 w-3/4 bg-gray-200 rounded"/>
                       </div>
                       <div class="mt-6 font-mono text-xl text-gray-800 leading-none">COZE<br/>EVENTS<br/>2025...</div>
                   </div>
@@ -222,9 +222,9 @@
                           <path d="M0,80 Q50,90 100,50 T200,20" fill="none" stroke="#6E58FF" stroke-width="1.5" class="opacity-30 translate-y-2" />
                       </svg>
                       <div class="absolute right-10 top-1/2 text-7xl font-serif italic text-[#6E58FF]/20 transition-transform duration-500 group-hover:scale-110 will-change-transform">fx</div>
-                      <div class="absolute left-0 right-0 top-1/2 h-px bg-[#6E58FF]/20 border-t border-dashed border-[#6E58FF]"></div>
-                      <div class="absolute top-0 bottom-0 left-2/3 w-px bg-[#6E58FF]/20 border-l border-dashed border-[#6E58FF]"></div>
-                      <div class="absolute left-2/3 top-1/2 w-3 h-3 border-2 border-[#6E58FF] bg-white rounded-full -translate-x-1.5 -translate-y-1.5 z-10"></div>
+                      <div class="absolute left-0 right-0 top-1/2 h-px bg-[#6E58FF]/20 border-t border-dashed border-[#6E58FF]"/>
+                      <div class="absolute top-0 bottom-0 left-2/3 w-px bg-[#6E58FF]/20 border-l border-dashed border-[#6E58FF]"/>
+                      <div class="absolute left-2/3 top-1/2 w-3 h-3 border-2 border-[#6E58FF] bg-white rounded-full -translate-x-1.5 -translate-y-1.5 z-10"/>
                   </div>
 
                   <!-- Code Visual (Minimalist) -->
@@ -233,20 +233,20 @@
                           <!-- Minimalist Code Abstract Structure -->
                           <div class="flex flex-col items-end gap-3">
                               <div class="flex items-center gap-2">
-                                  <div class="w-2 h-2 rounded-full bg-purple-400"></div>
-                                  <div class="w-16 h-2 bg-white/90 rounded-full"></div>
-                                  <div class="w-8 h-2 bg-white/40 rounded-full"></div>
+                                  <div class="w-2 h-2 rounded-full bg-purple-400"/>
+                                  <div class="w-16 h-2 bg-white/90 rounded-full"/>
+                                  <div class="w-8 h-2 bg-white/40 rounded-full"/>
                               </div>
                               <div class="flex items-center gap-2">
-                                  <div class="w-12 h-2 bg-white/40 rounded-full"></div>
-                                  <div class="w-20 h-2 bg-white/90 rounded-full"></div>
+                                  <div class="w-12 h-2 bg-white/40 rounded-full"/>
+                                  <div class="w-20 h-2 bg-white/90 rounded-full"/>
                               </div>
                               <div class="flex items-center gap-2">
-                                  <div class="w-24 h-2 bg-white/90 rounded-full"></div>
+                                  <div class="w-24 h-2 bg-white/90 rounded-full"/>
                               </div>
                                <div class="flex items-center gap-2 mt-1">
-                                  <div class="w-10 h-2 bg-white/20 rounded-full"></div>
-                                  <div class="w-2 h-4 bg-purple-400 animate-pulse"></div>
+                                  <div class="w-10 h-2 bg-white/20 rounded-full"/>
+                                  <div class="w-2 h-4 bg-purple-400 animate-pulse"/>
                               </div>
                           </div>
                       </div>
@@ -266,9 +266,9 @@
                          </svg>
                     </div>
                     <div class="absolute left-6 md:left-8 bottom-20 flex gap-2">
-                        <div class="w-4 h-4 rounded-full bg-[#6E58FF]"></div>
-                        <div class="w-4 h-4 rounded-full bg-[#D946EF]"></div>
-                        <div class="w-4 h-4 rounded-full bg-white border border-gray-200"></div>
+                        <div class="w-4 h-4 rounded-full bg-[#6E58FF]"/>
+                        <div class="w-4 h-4 rounded-full bg-[#D946EF]"/>
+                        <div class="w-4 h-4 rounded-full bg-white border border-gray-200"/>
                     </div>
                   </div>
 
@@ -345,7 +345,7 @@
                  </div>
               </div>
               <div class="lg:w-1/2 relative order-1 lg:order-2 w-full">
-                 <div class="absolute -inset-4 bg-linear-to-r from-purple-100 to-blue-50 rounded-3xl -z-10 blur-xl opacity-60"></div>
+                 <div class="absolute -inset-4 bg-linear-to-r from-purple-100 to-blue-50 rounded-3xl -z-10 blur-xl opacity-60"/>
                  <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-2 overflow-hidden">
                     <img src="/sell-point-1.png" alt="AI Writing" loading="lazy" class="rounded-xl w-full h-auto" />
                  </div>
@@ -368,7 +368,7 @@
                  </button>
               </div>
               <div class="lg:w-1/2 relative order-1 lg:order-2 w-full">
-                 <div class="absolute -inset-4 bg-linear-to-l from-pink-100 to-purple-50 rounded-3xl -z-10 blur-xl opacity-60"></div>
+                 <div class="absolute -inset-4 bg-linear-to-l from-pink-100 to-purple-50 rounded-3xl -z-10 blur-xl opacity-60"/>
                  <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-2 overflow-hidden">
                     <img src="/sell-point-2.png" alt="Image Gen" loading="lazy" class="rounded-xl w-full h-auto" />
                  </div>
@@ -387,11 +387,11 @@
               <h1 class="text-2xl md:text-4xl font-bold text-[#0F0F12] mb-4">常见问题</h1>
               <p class="text-neutral-500 text-sm md:text-base mb-6">关于智言AI的常见疑问解答</p>
               <div class="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3">
-                <button @click="openQrModal('coupon')" class="px-6 py-2.5 rounded-full bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 active:scale-95 transition-all flex items-center justify-center gap-2 touch-manipulation">
+                <button class="px-6 py-2.5 rounded-full bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 active:scale-95 transition-all flex items-center justify-center gap-2 touch-manipulation" @click="openQrModal('coupon')">
                   <TicketIcon class="w-4 h-4" />
                   获取优惠码
                 </button>
-                <button @click="openQrModal('wechat')" class="px-6 py-2.5 rounded-full bg-white border border-neutral-200 text-neutral-900 text-sm font-medium hover:bg-neutral-50 active:scale-95 transition-all shadow-sm flex items-center justify-center gap-2 touch-manipulation">
+                <button class="px-6 py-2.5 rounded-full bg-white border border-neutral-200 text-neutral-900 text-sm font-medium hover:bg-neutral-50 active:scale-95 transition-all shadow-sm flex items-center justify-center gap-2 touch-manipulation" @click="openQrModal('wechat')">
                   <ChatBubbleLeftRightIcon class="w-4 h-4" />
                   联系客服
                 </button>
@@ -401,7 +401,7 @@
             <!-- 右侧：折叠面板列表 -->
             <div class="lg:w-2/3 w-full space-y-4">
                <div v-for="(faq, i) in faqs" :key="i" class="bg-white rounded-2xl transition-all duration-300 overflow-hidden border border-transparent hover:border-gray-200">
-                  <button @click="faq.open = !faq.open" class="w-full flex items-start justify-between p-6 text-left active:bg-gray-50 transition-colors touch-manipulation min-h-[60px]">
+                  <button class="w-full flex items-start justify-between p-6 text-left active:bg-gray-50 transition-colors touch-manipulation min-h-[60px]" @click="faq.open = !faq.open">
                      <span class="text-base md:text-lg font-medium text-[#0F0F12] pr-8">{{ faq.question }}</span>
                      <ChevronDownIcon class="w-5 h-5 text-gray-400 shrink-0 mt-1 transition-transform duration-300" :class="{ 'rotate-180': faq.open }" />
                   </button>
@@ -679,7 +679,7 @@ const allFeatures: FeatureItem[] = [
  * @returns {FeatureItem[]} 过滤后的列表
  */
 const filteredFeatures = computed(() => {
-  if (currentTab.value === '全部') return allFeatures
+  if (currentTab.value === '全部') {return allFeatures}
   return allFeatures.filter(f => f.category === currentTab.value)
 })
 

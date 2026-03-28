@@ -4,7 +4,8 @@
     "env.d.ts",
     ".nuxt/nuxt.d.ts",
     "**/*",
-    "stories/**/*"
+    "stories/**/*",
+    "types/**/*"
   ],
   "compilerOptions": {
     "moduleResolution": "Bundler",

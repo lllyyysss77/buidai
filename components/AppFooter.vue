@@ -26,8 +26,8 @@
           <div v-for="(group, index) in footerLinks" :key="index" :class="group.customContent ? 'col-span-2 md:col-span-1' : ''">
             <!-- 标题区域：移动端可点击折叠 -->
             <button
-              @click="toggleGroup(index)"
               class="w-full flex items-center justify-between text-left group outline-none md:cursor-default"
+              @click="toggleGroup(index)"
             >
               <h4 class="font-bold text-gray-900 mb-2 md:mb-4">{{ group.title }}</h4>
               <!-- 移动端折叠图标 -->
@@ -137,7 +137,7 @@ import { ref } from 'vue'
 const activeGroups = ref<number[]>([4])
 
 const toggleGroup = (index: number) => {
-  if (window.innerWidth >= 768) return // Desktop: disable toggle logic
+  if (window.innerWidth >= 768) {return} // Desktop: disable toggle logic
 
   const idx = activeGroups.value.indexOf(index)
   if (idx === -1) {

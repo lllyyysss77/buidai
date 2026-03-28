@@ -122,7 +122,7 @@ export const apps: AppData[] = [
     date: '2025/11/14'
   },
   {
-    id: 5,
+    id: 6,
     name: 'AI证件照',
     description: '各种证件照类型，尺寸自定义，生成图片导出。无需跑照相馆，在家即可轻松制作专业证件照。',
     icon: UserIcon,
@@ -133,7 +133,7 @@ export const apps: AppData[] = [
     date: '2025/11/14'
   },
   {
-    id: 6,
+    id: 7,  
     name: '智能写作助手',
     description: '在线编辑，支持AI改写，自定义模板助手。无论是文案创作还是日常写作，都能助您一臂之力。',
     icon: PenToolIcon,
@@ -144,7 +144,7 @@ export const apps: AppData[] = [
     date: '2025/11/14'
   },
   {
-    id: 7,
+    id: 8,  
     name: 'AI PPT',
     description: '智能生成PPT，一键排版，海量模板，让演示更出彩。告别繁琐的排版工作，专注于内容创作。',
     icon: PresentationIcon,
@@ -155,7 +155,7 @@ export const apps: AppData[] = [
     date: '2025/11/15'
   },
   {
-    id: 8,
+    id: 9,  
     name: 'AI合同',
     description: '智能合同审查与生成，降低法律风险，提高签约效率。专业的法律助手，为您的商业合作保驾护航。',
     icon: FileSignatureIcon,
@@ -166,7 +166,7 @@ export const apps: AppData[] = [
     date: '2025/11/15'
   },
   {
-    id: 9,
+    id: 10,  
     name: 'AI商图秀',
     description: '电商主图智能生成，模特替换，场景合成，提升点击率。无需专业摄影，也能制作出高质量的商品展示图。',
     icon: ShoppingBagIcon,
@@ -177,7 +177,7 @@ export const apps: AppData[] = [
     date: '2025/11/15'
   },
   {
-    id: 10,
+    id: 11,  
     name: 'AI直播短视频数字人',
     description: '7x24小时无人直播，数字人带货，低成本高回报。打造永不休息的超级主播，抢占直播红利。',
     icon: TvIcon,
@@ -188,7 +188,7 @@ export const apps: AppData[] = [
     date: '2025/11/15'
   },
   {
-    id: 11,
+    id: 12,  
     name: 'AI短剧小说创作',
     description: '辅助短剧剧本创作，小说续写，激发创作灵感。从灵感到剧本，AI全程陪伴，让创作变得简单有趣。',
     icon: BookOpenIcon,
@@ -199,7 +199,7 @@ export const apps: AppData[] = [
     date: '2025/11/15'
   },
   {
-    id: 12,
+    id: 13,  
     name: 'GEO优化排名工具',
     description: '基于地理位置的SEO优化工具，提升本地搜索排名。精准锁定目标客户，让生意自动找上门。',
     icon: MapPinIcon,
@@ -210,7 +210,7 @@ export const apps: AppData[] = [
     date: '2025/11/15'
   },
   {
-    id: 13,
+    id: 14,  
     name: '即梦AI绘画',
     description: '文本生成图片，艺术创作，风格迁移，释放你的想象力。无论是二次元还是写实风，都能轻松驾驭。',
     icon: ImageIcon,
@@ -221,7 +221,7 @@ export const apps: AppData[] = [
     date: '2025/11/15'
   },
   {
-    id: 14,
+    id: 15,  
     name: '即梦AI视频',
     description: '文本生成视频，静态图转视频，轻松制作创意短片。让静态的画面动起来，讲述更生动的故事。',
     icon: FilmIcon,
@@ -232,7 +232,7 @@ export const apps: AppData[] = [
     date: '2025/11/15'
   },
   {
-    id: 15,
+    id: 16,  
     name: '大模型擂台',
     description: '主流大模型能力评测与对比，助你选择最适合的模型。客观公正的评测数据，助您做出明智的技术选型。',
     icon: TrophyIcon,
@@ -243,7 +243,7 @@ export const apps: AppData[] = [
     date: '2025/11/15'
   },
   {
-    id: 16,
+    id: 17,  
     name: '小红书内容复刻',
     description: '一键提取爆款笔记文案，智能仿写，快速产出高质量内容。轻松掌握流量密码，打造爆款账号。',
     icon: CopyIcon,
@@ -254,7 +254,7 @@ export const apps: AppData[] = [
     date: '2025/11/15'
   },
   {
-    id: 17,
+    id: 18,  
     name: '模绘衣境',
     description: 'AI服装设计与展示，虚拟试衣，缩短设计周期。无需制作样衣，即可预览穿着效果，降低设计成本。',
     icon: ShirtIcon,
@@ -265,7 +265,7 @@ export const apps: AppData[] = [
     date: '2025/11/15'
   },
   {
-    id: 18,
+    id: 19,  
     name: '热门视频混剪',
     description: '智能抓取热门素材，自动混剪，快速生成短视频。紧跟热点趋势，轻松制作出爆款短视频。',
     icon: ScissorsIcon,
@@ -276,7 +276,7 @@ export const apps: AppData[] = [
     date: '2025/11/15'
   },
   {
-    id: 19,
+    id: 20,  
     name: '爆款文章自动配图',
     description: '根据文章内容自动匹配高质量图片，提升阅读体验。图文并茂，让您的文章更具吸引力。',
     icon: ImagePlusIcon,
@@ -287,7 +287,7 @@ export const apps: AppData[] = [
     date: '2025/11/15'
   },
   {
-    id: 20,
+    id: 21,  
     name: 'AI音乐',
     description: 'AI音乐是一款以文本/歌词/哼唱/乐谱为输入，快速生成完整歌曲、伴奏、人声或纯音乐的创作与生产工具，旨在降低门槛、提升效率，支持个人娱乐与商用配乐的“人机协同”',
     icon: PaletteIcon,

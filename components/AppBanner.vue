@@ -1,7 +1,7 @@
 <template>
   <UBanner
     id="sora2-banner"
-    color="primary"
+    color="neutral"
     icon="i-ph-video"
     title="🎉seedance 2.0视频应用上线 | 点击体验"
     to="https://www.cnai.art/seedance"

@@ -1,60 +1,215 @@
 <template>
-  <section class="py-24 overflow-hidden bg-white">
+  <section class="py-24 sm:py-32 bg-slate-50">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-5xl font-bold text-neutral-900 mb-6">
+      
+      <!-- Section Header - Tailwind UI 风格：留白与字重层级 -->
+      <div class="mb-20 sm:mb-24">
+        <!-- Eyebrow - 使用字母间距增强精致感 -->
+        <p class="text-sm font-semibold tracking-widest uppercase text-indigo-600 mb-4">
+          Product Vision
+        </p>
+        <!-- 主标题 - 收紧字母间距，增强力量感 -->
+        <h2 class="text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 max-w-4xl">
           智言AI 产品愿景与核心价值
         </h2>
-        <p class="text-neutral-500 text-lg max-w-2xl mx-auto">
+        <!-- 副标题 - 灰度层级 -->
+        <p class="mt-6 text-xl text-slate-600 max-w-2xl leading-relaxed">
           开源驱动创新，致力于打造企业级智能体开发平台，赋能开发者、创业者和企业组织
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-        <!-- 产品定位 -->
-        <div class="md:col-span-6 bg-neutral-50 p-8 rounded-3xl border border-neutral-200 hover:bg-white hover:shadow-lg hover:border-primary-200 transition-all duration-300">
-          <h3 class="text-xl font-bold text-neutral-900 mb-4">产品定位</h3>
-          <p class="text-neutral-500 leading-relaxed text-sm mb-8">
-            智言AI 是专为 AI 开发者、创业者和企业组织打造的开源智能体开发平台。通过直观的可视化配置界面，无需编码即可快速构建包含智能体、知识库、工作流、大模型集成等核心 AI 能力的企业级应用。平台内置完整的商业化功能，包括用户管理、会员订阅、算力充值和支付计费，让您专注于创新而非基础设施搭建。
-          </p>
-          <div class="flex justify-center">
-             <img src="/images/ValueProps-1.png" alt="智言 产品定位" class="w-full h-auto object-contain" />
+      <!-- Bento Grid Layout - 12列栅格系统 -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+        
+        <!-- Card 1: Product Positioning - 大型主导卡片 (8列) -->
+        <!-- Tailwind UI 风格：多层阴影 + 微妙边框 -->
+        <div class="lg:col-span-8 group">
+          <div class="h-full bg-white rounded-2xl p-8 sm:p-10 lg:p-12 shadow-sm ring-1 ring-slate-900/5 hover:shadow-md hover:ring-slate-900/10 transition-all duration-200">
+            <!-- Badge - 使用极淡背景与柔和边框 -->
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase bg-slate-50 text-slate-600 ring-1 ring-inset ring-slate-500/10">
+              Positioning
+            </span>
+            <h3 class="mt-6 text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
+              产品定位
+            </h3>
+            <p class="mt-4 text-base leading-7 text-slate-600 max-w-3xl">
+              智言AI 是专为 AI 开发者、创业者和企业组织打造的开源智能体开发平台。通过直观的可视化配置界面，无需编码即可快速构建包含智能体、知识库、工作流、大模型集成等核心 AI 能力的企业级应用。
+            </p>
+            <!-- Tags - 使用更克制的标签设计 -->
+            <div class="mt-8 flex flex-wrap gap-2">
+              <span class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium text-slate-700 bg-slate-50 ring-1 ring-inset ring-slate-600/10">
+                可视化配置
+              </span>
+              <span class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium text-slate-700 bg-slate-50 ring-1 ring-inset ring-slate-600/10">
+                零代码开发
+              </span>
+              <span class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium text-slate-700 bg-slate-50 ring-1 ring-inset ring-slate-600/10">
+                企业级应用
+              </span>
+              <span class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium text-indigo-700 bg-indigo-50 ring-1 ring-inset ring-indigo-600/10">
+                开源生态
+              </span>
+            </div>
           </div>
         </div>
 
-        <!-- 目标一：携手开发者共同转型 AI 应用开发，点亮 AI 技能树 -->
-        <div class="md:col-span-6 bg-neutral-50 p-8 rounded-3xl border border-neutral-200 hover:bg-white hover:shadow-lg hover:border-primary-200 transition-all duration-300">
-          <h3 class="text-xl font-bold text-neutral-900 mb-4">赋能开发者：快速掌握 AI 应用开发</h3>
-          <p class="text-neutral-500 leading-relaxed text-sm mb-8">
-            智言 提供完整的 AI 开发工具链，包括智能体构建、知识库管理、工作流编排和大模型集成等能力，帮助开发者快速转型为 AI 开发者。通过内置应用市场，开发者可以将自己的 AI 应用上架销售，实现技术变现。在 AI 时代，掌握 AI 应用开发技能将成为核心竞争力，现在就开始您的 AI 技能树之旅吧。
-          </p>
-          <div class="flex justify-center">
-             <img src="/images/ValueProps-2.png" alt="赋能开发者快速掌握 AI 应用开发" class="w-full h-auto object-contain" />
+        <!-- Card 2: For Developers - 深色模式卡片 (4列) -->
+        <!-- Tailwind UI 风格：深色并非纯黑，而是深灰 + 微妙高光 -->
+        <div class="lg:col-span-4 group">
+          <div class="h-full relative overflow-hidden rounded-2xl bg-slate-900 p-8 sm:p-10 shadow-lg ring-1 ring-white/10 hover:shadow-xl hover:ring-white/20 transition-all duration-200">
+            <!-- 装饰性高光 - 模拟光源散射 -->
+            <div class="absolute -top-24 -right-24 w-48 h-48 bg-gradient-to-br from-indigo-500/20 to-transparent rounded-full blur-3xl" />
+            
+            <div class="relative">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase bg-white/5 text-slate-300 ring-1 ring-inset ring-white/10">
+                For Developers
+              </span>
+              <h3 class="mt-6 text-2xl font-bold tracking-tight text-white">
+                赋能开发者
+              </h3>
+              <p class="mt-4 text-base leading-7 text-slate-400">
+                提供完整的 AI 开发工具链，帮助开发者快速转型为 AI 开发者。通过内置应用市场实现技术变现，构建个人技术品牌。
+              </p>
+              <!-- 指示点 - 更克制的点缀色 -->
+              <div class="mt-8 flex gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-indigo-400" />
+                <span class="w-1.5 h-1.5 rounded-full bg-indigo-400/60" />
+                <span class="w-1.5 h-1.5 rounded-full bg-indigo-400/30" />
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- 目标二：帮助 AI 创业者低成本、快速落地最小可行智能体产品（Agent-MVP） -->
-        <div class="md:col-span-6 bg-neutral-50 p-8 rounded-3xl border border-neutral-200 hover:bg-white hover:shadow-lg hover:border-primary-200 transition-all duration-300">
-          <h3 class="text-xl font-bold text-neutral-900 mb-4">助力创业者：快速落地智能体产品</h3>
-          <p class="text-neutral-500 leading-relaxed text-sm mb-8">
-            智言 内置完整的商业化功能，包括用户管理、会员订阅、算力充值和支付计费，无需从零开发即可快速上线智能体产品。通过应用市场，创业者可以直接购买开箱即用的 AI 应用，当天即可完成产品部署，大幅降低时间和经济成本。将宝贵的时间和资源集中在产品运营和市场推广上，加速创业成功。
-          </p>
-          <div class="flex justify-center">
-             <img src="/images/ValueProps-3.png" alt="助力创业者快速落地智能体产品" class="w-full h-auto object-contain" />
+        <!-- Card 3: For Entrepreneurs - 强调色卡片 (4列) -->
+        <!-- Tailwind UI 风格：强调色使用更柔和的阴影 -->
+        <div class="lg:col-span-4 group">
+          <div class="h-full relative overflow-hidden rounded-2xl bg-indigo-600 p-8 sm:p-10 shadow-lg shadow-indigo-900/20 ring-1 ring-inset ring-white/10 hover:shadow-xl hover:shadow-indigo-900/30 transition-all duration-200">
+            <!-- 装饰性渐变 -->
+            <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-indigo-700/50 to-transparent" />
+            
+            <div class="relative">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase bg-white/10 text-indigo-100 ring-1 ring-inset ring-white/20">
+                For Entrepreneurs
+              </span>
+              <h3 class="mt-6 text-2xl font-bold tracking-tight text-white">
+                助力创业者
+              </h3>
+              <p class="mt-4 text-base leading-7 text-indigo-100">
+                内置完整的商业化功能，无需从零开发即可快速上线智能体产品，大幅降低时间和经济成本，专注业务增长。
+              </p>
+              <div class="mt-8 flex gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-white" />
+                <span class="w-1.5 h-1.5 rounded-full bg-white/60" />
+                <span class="w-1.5 h-1.5 rounded-full bg-white/30" />
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- 目标三：助力企业构建智能体应用平台，充分发挥 AI 生产力，让组织更先进 -->
-        <div class="md:col-span-6 bg-neutral-50 p-8 rounded-3xl border border-neutral-200 hover:bg-white hover:shadow-lg hover:border-primary-200 transition-all duration-300">
-          <h3 class="text-xl font-bold text-neutral-900 mb-4">服务企业：构建智能体应用平台</h3>
-          <p class="text-neutral-500 leading-relaxed text-sm mb-8">
-            智言 设计简洁易用，员工可快速上手并充分发挥 AI 生产力。一站式架构支持部门间复用提示词、智能体、知识库和工作流等 AI 基础模块，提升组织协作效率。通过应用市场，企业可快速获取符合业务需求的 AI 应用，加速业务与 AI 的融合。作为开源平台，智言 支持私有化部署、模型本地化和国产算力硬件，全面保障企业数据安全。
-          </p>
-          <div class="flex justify-center">
-             <img src="/images/ValueProps-4.png" alt="服务企业构建智能体应用平台" class="w-full h-auto object-contain" />
+        <!-- Card 4: For Enterprises - 大型卡片 (8列) -->
+        <div class="lg:col-span-8 group">
+          <div class="h-full bg-white rounded-2xl p-8 sm:p-10 lg:p-12 shadow-sm ring-1 ring-slate-900/5 hover:shadow-md hover:ring-slate-900/10 transition-all duration-200">
+            <div class="flex flex-col lg:flex-row gap-10">
+              <div class="flex-1">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase bg-slate-50 text-slate-600 ring-1 ring-inset ring-slate-500/10">
+                  For Enterprises
+                </span>
+                <h3 class="mt-6 text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
+                  服务企业
+                </h3>
+                <p class="mt-4 text-base leading-7 text-slate-600">
+                  智言设计简洁易用，员工可快速上手并充分发挥 AI 生产力。一站式架构支持部门间复用提示词、智能体、知识库和工作流等 AI 基础模块，提升组织协作效率。
+                </p>
+              </div>
+              <!-- 企业特性列表 - 更精致的卡片设计 -->
+              <div class="lg:w-[45%] flex items-center">
+                <div class="w-full space-y-4">
+                  <!-- Feature Item - 使用更柔和的阴影层级 -->
+                  <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-50/80 ring-1 ring-inset ring-slate-900/5">
+                    <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center ring-1 ring-inset ring-emerald-600/10">
+                      <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.072 0 2.013.53 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7" />
+                      </svg>
+                    </div>
+                    <div class="min-w-0">
+                      <p class="text-sm font-semibold text-slate-900">私有化部署</p>
+                      <p class="text-xs text-slate-500 mt-0.5">数据完全自主可控</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-50/80 ring-1 ring-inset ring-slate-900/5">
+                    <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center ring-1 ring-inset ring-indigo-600/10">
+                      <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                      </svg>
+                    </div>
+                    <div class="min-w-0">
+                      <p class="text-sm font-semibold text-slate-900">数据安全</p>
+                      <p class="text-xs text-slate-500 mt-0.5">企业级安全防护</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-50/80 ring-1 ring-inset ring-slate-900/5">
+                    <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center ring-1 ring-inset ring-amber-600/10">
+                      <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                      </svg>
+                    </div>
+                    <div class="min-w-0">
+                      <p class="text-sm font-semibold text-slate-900">国产算力</p>
+                      <p class="text-xs text-slate-500 mt-0.5">支持国产硬件生态</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Stats Row - 更克制的统计设计 -->
+      <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6">
+        <div 
+          v-for="(stat, index) in stats" 
+          :key="index"
+          class="group bg-white rounded-xl p-6 sm:p-8 shadow-sm ring-1 ring-slate-900/5 hover:shadow-md hover:ring-slate-900/10 transition-all duration-200"
+        >
+          <p class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
+            {{ stat.value }}
+          </p>
+          <p class="mt-2 text-sm font-medium text-slate-500">
+            {{ stat.label }}
+          </p>
         </div>
       </div>
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+/**
+ * 产品愿景与核心价值组件
+ * 
+ * 设计特点（Tailwind UI 风格）：
+ * - Slate 中性色系统，营造专业现代感
+ * - 多层阴影（shadow-sm + ring）模拟真实光照
+ * - 极细边框（ring-slate-900/5）提升精致感
+ * - 字体层级：tracking-tight 主标题、tracking-wide 标签
+ * - 强调色（Indigo）克制使用于徽章和CTA
+ * - 深色卡片使用 Slate-900 而非纯黑，配合微妙高光
+ */
+
+/** 统计数据配置 */
+interface StatItem {
+  value: string;
+  label: string;
+}
+
+const stats: StatItem[] = [
+  { value: '10K+', label: '开发者' },
+  { value: '500+', label: '企业客户' },
+  { value: '99.9%', label: '可用性' },
+  { value: '24/7', label: '技术支持' },
+];
+</script>

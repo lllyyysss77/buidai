@@ -1,182 +1,199 @@
 <template>
   <div class="min-h-screen bg-white text-neutral-900 font-sans selection:bg-neutral-100 relative">
     <!-- 背景装饰：左上角网格 -->
-    <div class="absolute top-0 left-0 w-full h-[400px] md:h-[600px] bg-[url('/images/buidai.png')] pointer-events-none mask-[linear-gradient(to_bottom,white,transparent)] z-0"/>
-
-    <!-- 动态流星雨背景 - 使用 CSS 变量减少重绘 -->
-    <div class="absolute inset-0 h-[600px] overflow-hidden pointer-events-none z-0">
-      <div
-        v-for="i in 12"
-        :key="i"
-        class="meteor-item"
-        :style="`--i:${i}`"
-      />
-    </div>
+    <div class="absolute top-0 left-0 w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] bg-[url('/images/buidai.png')] bg-cover bg-center pointer-events-none mask-[linear-gradient(to_bottom,white,transparent)] z-0"/>
 
     <!-- 英雄区域 -->
-    <section class="pt-32 pb-12 md:pt-48 md:pb-20 relative overflow-hidden z-10">
-      <div class="container mx-auto px-4 text-center relative z-10">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-50 border border-neutral-200 text-xs text-neutral-600 mb-8">
-          <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"/>
-          <span>智言AI V4.6.8 strong release</span>
+    <section class="pt-24 sm:pt-28 pb-12 sm:pb-16 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24 relative overflow-hidden z-10">
+      <!-- 导入背景动画 -->
+      <div class="absolute inset-0 z-0 overflow-hidden">
+        <PixelBlast class="w-full h-full" />
+      </div>
+      
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <!-- NEW 标签 -->
+        <div class="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-[#6E58FF] text-white text-[11px] sm:text-xs font-medium mb-4 sm:mb-6 max-w-[calc(100%-2rem)]">
+          <span class="bg-white text-[#6E58FF] px-1.5 py-0.5 rounded text-[9px] sm:text-[10px] font-bold shrink-0">NEW</span>
+          <span class="truncate">智言AI 应用市场上线，探索无限可能</span>
         </div>
 
-        <h1 class="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight mb-6 text-neutral-900 leading-tight min-h-[1.2em]">
-          {{ displayedText.part1 }}<span v-if="(typingStatus === 'part1' || typingStatus === 'idle') && showCursor" class="inline-block align-baseline w-[3px] h-[0.8em] bg-neutral-900 animate-pulse ml-1"/><span class="text-transparent bg-clip-text bg-linear-to-r from-blue-500 to-blue-700 block sm:inline">{{ displayedText.part2 }}<span v-if="typingStatus === 'part2' && showCursor" class="inline-block align-baseline w-[3px] h-[0.8em] bg-blue-600 animate-pulse ml-1"/></span>{{ displayedText.part3 }}<span v-if="(typingStatus === 'part3' || typingStatus === 'done') && showCursor" class="inline-block align-baseline w-[3px] h-[0.8em] bg-neutral-900 animate-pulse ml-1"/>
+        <!-- 主标题 -->
+        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight mb-4 sm:mb-5 text-neutral-900 leading-[1.15] sm:leading-tight px-2 sm:px-0">
+          一站式企业级<span class="text-[#6E58FF] inline-block">AI应用搭建系统</span>
         </h1>
 
-        <p class="text-base sm:text-xl text-neutral-500 mb-8 md:mb-10 max-w-3xl mx-auto px-2">
-         可视化 Workflow 编排 + 超易用 AI 知识库 + 创新 RAG 检索 + 模板生态+ 应用市场 = 轻松构建强大 AI 应用
+        <!-- 副标题 -->
+        <p class="text-sm sm:text-base md:text-lg text-neutral-600 mb-6 sm:mb-8 max-w-[90%] sm:max-w-xl md:max-w-2xl mx-auto leading-relaxed px-2 sm:px-4">
+          可视化 Workflow 编排 + 超易用 AI 知识库 + 创新 RAG 检索 + 模板生态 + 应用市场 = 轻松构建强大 AI 应用
         </p>
 
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto px-4 sm:px-0">
-          <a href="https://cloud.智言万象.com/" target="_blank" class="w-full sm:w-auto px-8 py-3 rounded-full bg-neutral-900 text-white font-semibold hover:bg-neutral-800 active:scale-95 transition-all flex items-center justify-center gap-2 touch-manipulation">
-            <!-- Rocket Icon -->
-            <RocketLaunchIcon class="w-5 h-5" />
-            立即开始
-            <!-- Arrow Right Icon -->
-            <ArrowRightIcon class="w-4 h-4" />
+        <!-- 按钮组 -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 mb-5 sm:mb-6 px-4 sm:px-0">
+          <a href="https://www.buidai.com/" target="_blank" class="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 rounded-full bg-[#6E58FF] text-white text-sm sm:text-base font-semibold hover:bg-[#5d47e6] active:scale-95 transition-all flex items-center justify-center gap-2 whitespace-nowrap">
+            快速开始
           </a>
-          <a href="https://doc.智言万象.com/" target="_blank" class="w-full sm:w-auto px-8 py-3 rounded-full bg-white border border-neutral-200 text-neutral-900 font-semibold hover:bg-neutral-50 active:scale-95 transition-all shadow-sm flex items-center justify-center gap-2 touch-manipulation">
-            <!-- Document Icon -->
-            <DocumentTextIcon class="w-5 h-5" />
-            查看文档
+          <a href="https://doc.buidai.com/" target="_blank" class="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 rounded-full bg-neutral-900 text-white text-sm sm:text-base font-semibold hover:bg-neutral-800 active:scale-95 transition-all flex items-center justify-center gap-2 whitespace-nowrap">
+            前往部署
+            <ArrowRightIcon class="w-4 h-4 shrink-0" />
           </a>
+        </div>
+        
+        <!-- 底部提示文字 -->
+        <p class="text-xs sm:text-sm text-neutral-400 px-4">遇到问题，联系我们免费协助部署</p>
+      </div>
+    </section>
+    
+    <!-- 技术栈展示 -->
+    <section class="border-t border-neutral-200 bg-white overflow-hidden">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-center justify-center md:justify-between gap-4 md:gap-6 py-5 md:py-6">
+          <div class="text-xs sm:text-sm text-neutral-400 text-center md:text-left shrink-0">
+            <span class="font-medium text-neutral-600">智言AI</span>
+            <span class="ml-1 md:ml-2">基于流行的技术栈构建</span>
+          </div>
+          <div class="flex items-center justify-center flex-wrap sm:flex-nowrap gap-x-4 sm:gap-x-6 md:gap-x-8 gap-y-2 w-full md:w-auto">
+            <div class="flex items-center gap-1.5 text-neutral-600 shrink-0">
+              <span class="text-blue-500 font-bold text-base sm:text-lg">TS</span>
+              <span class="font-medium text-sm">TypeScript</span>
+            </div>
+            <div class="flex items-center gap-1.5 text-neutral-600 shrink-0">
+              <svg class="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+              </svg>
+              <span class="font-medium text-sm">PostgreSQL</span>
+            </div>
+            <div class="flex items-center gap-1.5 text-neutral-600 shrink-0">
+              <span class="text-red-500 font-bold text-base sm:text-lg">N</span>
+              <span class="font-medium text-sm">NestJS</span>
+            </div>
+            <div class="flex items-center gap-1.5 text-neutral-600 shrink-0">
+              <span class="text-green-500 font-bold text-base sm:text-lg">V</span>
+              <span class="font-medium text-sm">Vue 3</span>
+            </div>
+            <div class="flex items-center gap-1.5 text-neutral-600 shrink-0">
+              <span class="text-green-400 font-bold text-base sm:text-lg">N</span>
+              <span class="font-medium text-sm">Nuxt 4</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 功能展示: 核心能力 -->
-    <section class="py-20 md:py-32 bg-white overflow-hidden relative isolate">
-      <!-- 背景网格装饰 -->
-      <svg
-        class="absolute inset-0 -z-10 h-full w-full stroke-neutral-400/30 mask-[radial-gradient(100%_100%_at_top_right,white,transparent)]"
-        aria-hidden="true"
-      >
-        <defs>
-          <pattern
-            id="core-features-grid"
-            width="200"
-            height="200"
-            x="50%"
-            y="-1"
-            patternUnits="userSpaceOnUse"
-          >
-            <path d="M.5 200V.5H200" fill="none" />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" stroke-width="0" fill="url(#core-features-grid)" />
-      </svg>
+    <!-- AI应用系统展示 -->
+    <AIApplicationSystems />
 
+    <!-- AI应用市场 -->
+    <Market :limit="8" />
+
+    <!-- 产品展示 -->
+    <ProductShowcase />
+
+    <!-- 氛围编程（Vibe Coding） -->
+    <section class="py-16 md:py-24 bg-[#f7f7f7]">
       <div class="container mx-auto px-4">
         <!-- 标题区域 -->
-        <div class="text-center mb-12 sm:mb-16">
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-4 tracking-tight">
-            全栈式 AI 开发能力
+        <div class="text-center mb-10">
+          <h2 class="text-xl md:text-2xl font-bold text-neutral-900 mb-3">
+            智言AI完美支持氛围编程（Vibe Coding）的开发方式
           </h2>
-          <p class="text-lg sm:text-xl text-neutral-500 max-w-3xl mx-auto">
-            从模型接入、知识库构建到商业化落地，提供开发者所需的一切工具与基础设施。
+          <p class="text-sm md:text-base text-neutral-500 max-w-2xl mx-auto">
+            最佳调优的内置提示词结合AI辅助编程，快速完成AI应用开发，一键部署到常用云平台。
           </p>
         </div>
-
-        <!-- 主体卡片容器 -->
-        <div
-          class="relative rounded-3xl overflow-hidden border border-neutral-200/50 shadow-2xl shadow-neutral-200/50 flex flex-col lg:flex-row bg-white min-h-[600px] isolate"
-          data-aos="fade-up"
-        >
-          <!-- 左侧：功能导航列表 -->
-          <div class="w-full lg:w-1/3 border-b lg:border-b-0 lg:border-r border-neutral-100 bg-neutral-50/30 p-4 lg:p-6 flex flex-col z-10">
-            <div class="space-y-2 h-full overflow-y-auto custom-scrollbar">
-              <button
-                v-for="(feature, index) in features"
-                :key="feature.title"
-                class="group w-full flex flex-col text-left px-5 py-4 rounded-xl transition-all duration-300 relative overflow-hidden outline-none"
-                :class="activeFeatureIndex === index ? 'bg-white shadow-sm ring-1 ring-neutral-200' : 'hover:bg-neutral-100/80'"
-                @click="activeFeatureIndex = index"
-                @mouseenter="activeFeatureIndex = index"
-              >
-                <!-- 激活指示条 -->
-                <div
-                  class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-[#6E58FF] rounded-r-full transition-all duration-300"
-                  :class="activeFeatureIndex === index ? 'opacity-100' : 'opacity-0'"
-                />
-
-                <div class="flex gap-4 items-center">
-                  <div
-                    class="w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 shrink-0"
-                    :class="activeFeatureIndex === index ? 'bg-[#6E58FF] text-white' : 'bg-white border border-neutral-200 text-neutral-400 group-hover:text-neutral-600'"
-                  >
-                    <component :is="feature.icon" class="w-5 h-5" />
-                  </div>
-                  <div class="flex-1 min-w-0">
-                    <span
-                      class="text-base font-bold transition-colors block"
-                      :class="activeFeatureIndex === index ? 'text-neutral-900' : 'text-neutral-600 group-hover:text-neutral-900'"
-                    >
-                      {{ feature.title }}
-                    </span>
-                    <p
-                      class="text-xs text-neutral-400 truncate mt-0.5"
-                      :class="activeFeatureIndex === index ? 'text-neutral-500' : ''"
-                    >
-                      {{ feature.desc }}
-                    </p>
-                  </div>
-
-                  <!-- 箭头 -->
-                  <ChevronRightIcon
-                    class="w-4 h-4 text-neutral-400 transition-all duration-300 opacity-0 -translate-x-2"
-                    :class="activeFeatureIndex === index ? 'opacity-100 translate-x-0' : ''"
-                  />
-                </div>
-              </button>
+        
+        <!-- 编程工具展示区域 - 12个国内外热门工具 -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <!-- Trae -->
+          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center">
+              <SparklesIcon class="w-5 h-5 text-emerald-600"/>
             </div>
+            <span class="text-sm font-semibold text-neutral-800">Trae</span>
           </div>
-
-          <!-- 右侧：预览图 (浏览器窗口样式) -->
-          <div class="flex-1 relative flex flex-col bg-white z-0 overflow-hidden">
-             <!-- 背景光晕装饰 -->
-            <div class="absolute -top-20 -right-20 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl pointer-events-none mix-blend-multiply"/>
-            <div class="absolute -bottom-20 -left-20 w-96 h-96 bg-purple-100/40 rounded-full blur-3xl pointer-events-none mix-blend-multiply"/>
-
-            <!-- 顶部浏览器栏装饰 -->
-            <div class="h-14 border-b border-neutral-100 flex items-center px-6 gap-3 shrink-0 bg-white/80 backdrop-blur-md z-20">
-              <div class="flex gap-2">
-                <div class="w-3 h-3 rounded-full bg-neutral-200"/>
-                <div class="w-3 h-3 rounded-full bg-neutral-200"/>
-                <div class="w-3 h-3 rounded-full bg-neutral-200"/>
-              </div>
-              <!-- 模拟地址栏 -->
-               <div class="ml-4 flex-1 max-w-md h-8 bg-neutral-50 rounded-lg border border-neutral-100 flex items-center px-4 text-xs text-neutral-400 font-mono">
-                  https://buidiai.com/preview/{{ currentFeature?.title ? encodeURIComponent(currentFeature.title) : '' }}
-                </div>
+          <!-- Claude Code -->
+          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-10 h-10 rounded-lg bg-orange-100 flex items-center justify-center">
+              <Sun class="w-5 h-5 text-orange-600"/>
             </div>
-
-            <!-- 图片切换区域 -->
-            <div class="relative flex-1 p-8 sm:p-12 flex items-center justify-center overflow-hidden">
-               <transition
-                mode="out-in"
-                enter-active-class="transition duration-500 ease-out"
-                enter-from-class="opacity-0 scale-95 blur-sm"
-                enter-to-class="opacity-100 scale-100 blur-0"
-                leave-active-class="transition duration-300 ease-in"
-                leave-from-class="opacity-100 scale-100 blur-0"
-                leave-to-class="opacity-0 scale-105 blur-sm"
-              >
-                <img
-                  v-if="currentFeature"
-                  :key="activeFeatureIndex"
-                  :src="currentFeature.image"
-                  :alt="currentFeature.title"
-                  class="w-full h-full object-contain drop-shadow-2xl"
-                />
-              </transition>
+            <span class="text-sm font-semibold text-neutral-800">Claude Code</span>
+          </div>
+          <!-- Codex -->
+          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-10 h-10 rounded-lg bg-violet-100 flex items-center justify-center">
+              <Code2 class="w-5 h-5 text-violet-600"/>
             </div>
+            <span class="text-sm font-semibold text-neutral-800">Codex</span>
+          </div>
+          <!-- Cursor -->
+          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-10 h-10 rounded-lg bg-neutral-900 flex items-center justify-center">
+              <Square class="w-5 h-5 text-white"/>
+            </div>
+            <span class="text-sm font-semibold text-neutral-800">Cursor</span>
+          </div>
+          <!-- Windsurf -->
+          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
+              <Waves class="w-5 h-5 text-blue-600"/>
+            </div>
+            <span class="text-sm font-semibold text-neutral-800">Windsurf</span>
+          </div>
+          <!-- GitHub Copilot -->
+          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center">
+              <svg class="w-5 h-5 text-gray-800" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </div>
+            <span class="text-sm font-semibold text-neutral-800">GitHub Copilot</span>
+          </div>
+          <!-- 通义灵码 -->
+          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-10 h-10 rounded-lg bg-cyan-100 flex items-center justify-center">
+              <Cloud class="w-5 h-5 text-cyan-600"/>
+            </div>
+            <span class="text-sm font-semibold text-neutral-800">通义灵码</span>
+          </div>
+          <!-- 文心快码 -->
+          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center">
+              <Zap class="w-5 h-5 text-indigo-600"/>
+            </div>
+            <span class="text-sm font-semibold text-neutral-800">文心快码</span>
+          </div>
+          <!-- 智谱CodeGeeX -->
+          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-10 h-10 rounded-lg bg-rose-100 flex items-center justify-center">
+              <Brain class="w-5 h-5 text-rose-600"/>
+            </div>
+            <span class="text-sm font-semibold text-neutral-800">智谱CodeGeeX</span>
+          </div>
+          <!-- Amazon CodeWhisperer -->
+          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center">
+              <CloudLightning class="w-5 h-5 text-amber-600"/>
+            </div>
+            <span class="text-sm font-semibold text-neutral-800">CodeWhisperer</span>
+          </div>
+          <!-- JetBrains AI -->
+          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center">
+              <Boxes class="w-5 h-5 text-purple-600"/>
+            </div>
+            <span class="text-sm font-semibold text-neutral-800">JetBrains AI</span>
+          </div>
+          <!-- Tabnine -->
+          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-10 h-10 rounded-lg bg-teal-100 flex items-center justify-center">
+              <Binary class="w-5 h-5 text-teal-600"/>
+            </div>
+            <span class="text-sm font-semibold text-neutral-800">Tabnine</span>
           </div>
         </div>
       </div>
     </section>
 
+    
     <!-- 平台优势 -->
     <section class="py-16 md:py-24 bg-neutral-50">
       <div class="container mx-auto px-4">
@@ -205,21 +222,30 @@
       </div>
     </section>
 
+    <!-- 内置大模型展示 -->
+    <LLMModels />
+
     <!-- 功能部分: AI赋能企业通用场景 -->
     <section class="py-12 lg:py-20 bg-neutral-50/50">
       <div class="container mx-auto px-4">
         <h2 class="text-2xl md:text-4xl font-bold text-center mb-10 md:mb-12 text-[#0F0F12]" data-aos="fade-up">AI 赋能企业通用场景</h2>
 
-        <div class="flex flex-col gap-8 lg:gap-0 relative w-full pb-8 md:pb-12 lg:pb-16">
+        <div class="scenario-stack">
           <div
             v-for="(scenario, idx) in scenarios"
             :key="idx"
-            class="scenario-card rounded-2xl p-8 md:p-12 lg:p-16 overflow-hidden bg-white border border-neutral-200/50"
-            :style="`--card-top:${90 + idx * 40}px;--scale:${0.99 + idx * 0.0033};z-index:${idx + 1}`"
-            data-aos="fade-up"
-            :data-aos-delay="idx * 60"
+            class="scenario-card"
+            :style="{
+              '--card-index': idx,
+              '--card-top': '100px',
+              zIndex: idx + 1
+            }"
           >
+            <!-- 渐变背景层 -->
             <div class="absolute inset-0 pointer-events-none opacity-80" :class="scenario.cardGradientClass"/>
+            
+            <!-- 内容容器 -->
+            <div class="relative z-10 p-8 md:p-12 lg:p-16">
 
             <div
               class="flex flex-col lg:flex-row gap-10 lg:gap-20 items-center justify-between relative z-10"
@@ -246,7 +272,7 @@
                 <!-- 按钮与序号 -->
                 <div class="flex items-center justify-between mt-6 pt-6 border-t border-[rgba(68,83,130,0.15)]">
                   <a
-                    href="https://cloud.智言万象.com/login/"
+                    href="https://www.gmlart.cn/"
                     target="_blank"
                     class="group/btn px-8 py-3 rounded-xl bg-neutral-900 text-white text-sm font-semibold hover:bg-neutral-800 active:scale-[0.98] transition-all duration-200 flex items-center gap-2"
                   >
@@ -272,6 +298,7 @@
                 </div>
               </div>
             </div>
+              </div>
           </div>
         </div>
       </div>
@@ -372,154 +399,141 @@
       </div>
     </section>
 
-    <!-- 开源部署 -->
-    <div class="py-16 md:py-24 bg-white">
-      <div class="container mx-auto px-4">
-        <UPageSection
-          title="开源部署"
-          description="面向 AI 开发者 · AI 创业者 · 先进组织打造的企业级开源智能体搭建平台。它拥有丰富的 AI 原生开发组件，简单易用，插件扩展无限可能。"
-          icon="i-lucide-box"
-          orientation="horizontal"
-          :features="openSourceFeatures"
-          :links="openSourceLinks"
-          :ui="{
-            container: '!px-0 !max-w-none',
-            title: 'text-3xl md:text-4xl font-bold text-neutral-900',
-            description: 'text-lg text-neutral-500 mt-4'
-          }"
-        >
-          <img
-            src="/images/code1.png"
-            width="100%"
-            height="100%"
-            alt="开源部署示意图"
-            class="w-full rounded-xl shadow-2xl ring-1 ring-neutral-900/10"
-          />
-        </UPageSection>
-      </div>
-    </div>
+    <!-- 开源路线图 -->
+    <LandingOpenSourceRoadmap />
 
-    <!-- 常见问题 -->
-    <section class="py-12 md:py-24">
+    <!-- 常见问题 - 左右布局 -->
+    <section class="py-16 md:py-24 bg-white">
       <div class="container mx-auto px-4">
-        <div class="flex flex-col lg:flex-row gap-8 lg:gap-24 items-start">
-          <!-- 左侧：标题 -->
-          <div class="lg:w-1/3 w-full text-center lg:text-left">
-            <h2 class="text-2xl md:text-4xl font-bold text-[#0F0F12] mb-4">常见问题</h2>
-            <p class="text-neutral-500 text-sm md:text-base mb-6">关于智言AI的常见疑问解答</p>
-            <div class="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 justify-center lg:justify-start">
-              <button class="px-6 py-2.5 rounded-full bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 active:scale-95 transition-all flex items-center justify-center gap-2 touch-manipulation" @click="openQrModal('coupon')">
-                <TicketIcon class="w-4 h-4" />
+        <div class="mb-12 lg:mb-16">
+          <span class="text-sm font-medium tracking-[0.25em] text-neutral-400 uppercase mb-3 block">FAQ</span>
+          <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+            <div class="max-w-2xl">
+              <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-neutral-900 tracking-tight leading-[1.05] mb-3">
+                常见问题
+              </h2>
+              <p class="text-neutral-500 text-base md:text-lg leading-relaxed">
+                关于智言AI的常见疑问解答，助您快速上手
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <button 
+                class="group px-5 py-2.5 rounded-full border border-neutral-200 bg-white text-neutral-700 text-sm font-medium hover:border-neutral-300 hover:bg-neutral-50 transition-all duration-200 flex items-center gap-2"
+                @click="openQrModal('coupon')"
+              >
+                <TicketIcon class="w-4 h-4 text-neutral-400 group-hover:text-neutral-600 transition-colors" />
                 获取优惠码
               </button>
-              <button class="px-6 py-2.5 rounded-full bg-white border border-neutral-200 text-neutral-900 text-sm font-medium hover:bg-neutral-50 active:scale-95 transition-all shadow-sm flex items-center justify-center gap-2 touch-manipulation" @click="openQrModal('wechat')">
+              <button 
+                class="group px-5 py-2.5 rounded-full border border-neutral-900 bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 transition-all duration-200 flex items-center gap-2"
+                @click="openQrModal('wechat')"
+              >
                 <ChatBubbleLeftRightIcon class="w-4 h-4" />
                 联系客服
               </button>
             </div>
           </div>
+        </div>
 
-          <!-- 右侧：FAQ 列表 -->
-          <div class="lg:w-2/3 w-full space-y-4">
-            <div
-              v-for="(faq, idx) in faqs"
-              :key="faq.question"
-              class="bg-white rounded-2xl transition-all duration-300 overflow-hidden border border-neutral-100"
-            >
+        <div class="flex flex-col lg:flex-row gap-6 lg:gap-8">
+          <div class="lg:w-72 xl:w-80 shrink-0">
+            <nav class="flex flex-col gap-2">
               <button
-                class="w-full flex items-start justify-between p-6 text-left focus:outline-none hover:bg-neutral-50 active:bg-neutral-100 transition-colors touch-manipulation min-h-[44px]"
-                @click="toggleFaq(idx)"
+                v-for="(faq, index) in faqs"
+                :key="index"
+                class="w-full text-left px-4 py-3.5 rounded-xl border transition-all duration-200 flex items-center gap-3 group"
+                :class="activeFaq === index
+                  ? 'bg-neutral-900 border-neutral-900 text-white'
+                  : 'bg-white border-neutral-200 text-neutral-600 hover:border-neutral-300 hover:bg-neutral-50'"
+                @mouseenter="activeFaq = index"
               >
-                <span class="text-base md:text-lg font-medium text-[#0F0F12] pr-4 md:pr-8">{{ faq.question }}</span>
-                <span class="text-neutral-400 shrink-0 mt-1 transition-transform duration-300" :class="{ 'rotate-45': activeFaq === idx }">
-                  <PlusIcon class="w-5 h-5" />
+                <span
+                  class="text-xs font-medium tracking-[0.15em] shrink-0"
+                  :class="activeFaq === index ? 'text-white/70' : 'text-neutral-300'"
+                >
+                  {{ String(index + 1).padStart(2, '0') }}
                 </span>
+                <span class="text-sm font-medium leading-snug">{{ faq.question }}</span>
               </button>
-              <div
-                class="grid transition-all duration-300 ease-in-out"
-                :class="activeFaq === idx ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
-              >
-                <div class="overflow-hidden">
-                  <div class="px-6 pb-6 text-sm md:text-[15px] text-[#5A5E6A] leading-relaxed">
-                    {{ faq.answer }}
+            </nav>
+          </div>
+
+          <div class="flex-1 min-w-0">
+            <div class="bg-white border border-neutral-200 rounded-xl p-6 md:p-8 h-full">
+              <div class="animate-fade-in h-full flex flex-col">
+                <div class="flex items-start justify-between gap-4 mb-4">
+                  <span class="text-xs font-medium tracking-[0.15em] text-neutral-300 uppercase">
+                    {{ String(activeFaq + 1).padStart(2, '0') }}
+                  </span>
+                  <div class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center shrink-0">
+                    <span class="text-sm font-semibold text-neutral-400">{{ String(activeFaq + 1).padStart(2, '0') }}</span>
                   </div>
                 </div>
+                <h3 class="text-2xl md:text-3xl font-medium text-neutral-900 leading-snug mb-4">
+                  {{ faqs[activeFaq]?.question }}
+                </h3>
+                <div class="w-10 h-[2px] bg-neutral-200 mb-6" />
+                <p class="text-lg text-neutral-500 leading-relaxed">
+                  {{ faqs[activeFaq]?.answer }}
+                </p>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Footer -->
-    <section class="py-16 md:py-24 relative overflow-hidden bg-white dark:bg-neutral-900">
-      <!-- 装饰背景 -->
-      <div class="absolute inset-0 bg-linear-to-b from-transparent to-neutral-50/50 dark:to-neutral-800/50 pointer-events-none"/>
-
-      <div class="container mx-auto px-4 relative z-10">
-        <div class="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16 p-8 md:p-12 rounded-3xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50/50 dark:bg-neutral-800/30">
-          <!-- 左侧文案 -->
-          <div class="text-center lg:text-left max-w-2xl">
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-neutral-900 dark:text-white tracking-tight leading-tight">
-              现在开始构建您的 <span class="text-transparent bg-clip-text bg-[linear-gradient(to_right,#2055FA,#1B52F8,#A07CFE,#ADB9FF)]">AI Agent</span>
-            </h2>
-            <p class="text-lg md:text-xl text-neutral-500 dark:text-neutral-400 leading-relaxed">
-              加入数万开发者的行列，使用 智言AI 释放智能体的无限潜能，让 AI 触手可及。
-            </p>
-          </div>
-
-          <!-- 右侧按钮组 -->
-          <div class="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto shrink-0">
-            <UButton
-              label="立即使用"
-              size="lg"
-              variant="ghost"
-              color="neutral"
-              to="https://cloud.智言万象.com/"
-              target="_blank"
-              class="w-full sm:w-auto justify-center px-6 py-3 font-medium rounded-xl border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-all"
-            />
-            <UButton
-              label="开始构建"
-              size="lg"
-              color="neutral"
-              variant="solid"
-              to="https://cloud.智言万象.com/"
-              target="_blank"
-              class="w-full sm:w-auto justify-center px-6 py-3 font-medium rounded-xl shadow-md hover:-translate-y-0.5 transition-all bg-neutral-900 text-white hover:bg-neutral-800"
-              icon="i-heroicons-rocket-launch"
-            />
+        <div class="mt-16 pt-12 border-t border-neutral-200">
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+            <p class="text-base text-neutral-400">还有其他问题？我们随时为您解答</p>
+            <button 
+              class="text-base font-medium text-neutral-900 hover:text-neutral-600 transition-colors flex items-center gap-2 group"
+              @click="openQrModal('wechat')"
+            >
+              联系客服团队
+              <ArrowRightIcon class="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </button>
           </div>
         </div>
       </div>
-    </section>
+    </section>  
 
+ <!-- CTA 底部行动召唤区域 -->
+  <LandingCtaSection />
 
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref, watch, reactive } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, reactive } from 'vue'
 import type { Component } from 'vue'
 import {
   CheckCircleIcon,
-  DocumentTextIcon,
   CommandLineIcon,
   CubeIcon,
   PuzzlePieceIcon,
   SparklesIcon,
-  PlusIcon,
-  RocketLaunchIcon,
   ArrowRightIcon,
   UserGroupIcon,
   BookOpenIcon,
   ChatBubbleLeftRightIcon,
-  XMarkIcon,
   CpuChipIcon,
   CreditCardIcon,
   ChevronRightIcon,
-  TicketIcon
+  TicketIcon,
+  DocumentTextIcon
 } from '@heroicons/vue/24/outline'
+import {
+  Sun,
+  Code2,
+  Square,
+  Waves,
+  Cloud,
+  Zap,
+  Brain,
+  CloudLightning,
+  Boxes,
+  Binary
+} from 'lucide-vue-next'
+import ProductShowcase from '@/components/landing/ProductShowcase.vue'
 
 // 二维码弹窗 - 触发 BackToTop 组件
 const openQrModal = (type: 'coupon' | 'wechat') => {
@@ -698,52 +712,120 @@ const openSourceLinks = [
  */
 const scenarios: Scenario[] = [
   {
-    title: 'AI聊天绘画系统',
+    title: 'Nanobanana',
     items: [
-      '基于 QA 对的语境和语意的训练',
-      '基于企业文档自动理解、标注的训练',
-      '支持API形式接入主流客服系统'
+      '基于 Gemini 3 Pro Image Preview 模型，支持文生图、图生图及多图融合',
+      '保持角色一致性，支持文本渲染，生成速度极快',
+      '预置多个模板开箱即用，后台可自由配置提示词和参考图'
     ],
     icon: ChatBubbleLeftRightIcon,
     iconBg: 'bg-primary-50 text-primary-600',
     cardGradientClass: 'bg-linear-to-br from-sky-50 to-white',
-    image: '/images/banner1.webp',
+    image: '/plugin/Nanobanana.png',
     index: '01'
   },
   {
     title: '企业智能体系统',
     items: [
-      '通过 AI 之间的分工合作，精准、稳定地解决复杂任务'
+      '支持创建具备记忆、目标和工具使用能力的智能体，实现自主任务执行',
+      '通过 AI 之间的分工合作，精准、稳定地解决复杂业务问题',
+      '可视化工作流编排，降低使用门槛，提高开发效率'
     ],
     icon: UserGroupIcon,
     iconBg: 'bg-blue-50 text-blue-600',
     cardGradientClass: 'bg-linear-to-br from-indigo-50 to-white',
-    image: '/images/banner2.webp',
+    image: '/product/model-1.png',
     index: '02'
   },
   {
-    title: '企业AI客服系统',
+    title: '企业 AI 客服系统',
     items: [
-      '一键即可将AI技术与企业知识库相连，全面支持各类文档格式，简化信息获取过程',
-      '轻松通过API将AI融入企业系统，提升内部知识检索效率，实现信息智能化管理'
+      '一键即可将 AI 技术与企业知识库相连，全面支持 PDF、Word、Excel 等文档格式',
+      '轻松通过 API 将 AI 融入企业系统，提升内部知识检索效率，实现信息智能化管理',
+      '支持多渠道接入，如网站、微信、APP 等，提供 7×24 小时智能客服服务'
     ],
     icon: BookOpenIcon,
     iconBg: 'bg-indigo-50 text-indigo-600',
     cardGradientClass: 'bg-linear-to-br from-emerald-50 to-white',
-    image: '/images/banner2.webp',
+    image: '/plugin/writing-assist.png',
     index: '03'
   },
   {
-    title: 'AI漫剧创意系统',
+    title: 'AI 漫剧创意系统',
     items: [
       '快速搭建支持剧本智能创作、角色形象生成、漫剧素材库管理的系统',
-      '适配分镜设计与台词优化，显著降低漫剧创作门槛'
+      '适配分镜设计与台词优化，显著降低漫剧创作门槛',
+      '支持创建无限量剧本和小说，提供丰富的剧情模板和冲突框架'
     ],
     icon: SparklesIcon,
     iconBg: 'bg-purple-50 text-purple-600',
     cardGradientClass: 'bg-linear-to-br from-fuchsia-50 to-white',
-    image: '/images/banner3.webp',
+    image: '/plugin/wanxiang.png',
     index: '04'
+  },
+  {
+    title: 'AI 数字人系统',
+    items: [
+      '上传视频即可克隆专属形象，1:1 还原真人表情与动作，支持 4K 超清画质',
+      '仅需一段语音即可克隆声音音色，支持多语种合成及 SSML 语音标记',
+      '用于直播带货、企业代言、教育培训等场景，打造逼真数字形象'
+    ],
+    icon: UserGroupIcon,
+    iconBg: 'bg-pink-50 text-pink-600',
+    cardGradientClass: 'bg-linear-to-br from-rose-50 to-white',
+    image: '/product/human-1.png',
+    index: '05'
+  },
+  {
+    title: 'AI 视频剪辑系统',
+    items: [
+      '支持自动化批量剪辑、智能转场、滤镜调色，大幅提升视频制作效率',
+      '智能字幕添加与背景音乐匹配，一键生成节奏感强、视觉冲击力大的混剪视频',
+      '提供海量模板与素材库，轻松制作门店营销、产品带货等专业级视频内容'
+    ],
+    icon: SparklesIcon,
+    iconBg: 'bg-orange-50 text-orange-600',
+    cardGradientClass: 'bg-linear-to-br from-amber-50 to-white',
+    image: '/product/videoclip-1.png',
+    index: '06'
+  },
+  {
+    title: 'AI 简历生成系统',
+    items: [
+      '通过智能问答快速收集个人信息，一键生成结构完整的专业简历',
+      '提供数十款专业模板，涵盖不同行业和职位，支持在线编辑与下载',
+      '深度解析简历亮点并提供优化建议，显著提升简历质量与影响力'
+    ],
+    icon: DocumentTextIcon,
+    iconBg: 'bg-green-50 text-green-600',
+    cardGradientClass: 'bg-linear-to-br from-teal-50 to-white',
+    image: '/product/resume-1.png',
+    index: '07'
+  },
+  {
+    title: 'AI PPT 演示系统',
+    items: [
+      '根据主题或大纲自动生成结构清晰、设计美观的 PPT 演示文稿',
+      '内置多种模板与图表，支持智能配色、字体搭配与动画效果优化',
+      '一键生成演讲备注，支持实时预览与云端存储，满足各类展示需求'
+    ],
+    icon: CommandLineIcon,
+    iconBg: 'bg-cyan-50 text-cyan-600',
+    cardGradientClass: 'bg-linear-to-br from-cyan-50 to-white',
+    image: '/plugin/aippt.png',
+    index: '08'
+  },
+  {
+    title: 'AI音乐创作系统',
+    items: [
+      '以文本/歌词/哼唱/乐谱为输入，快速生成完整歌曲、伴奏、人声或纯音乐',
+      '降低音乐创作门槛，支持个人娱乐与商用配乐，提供完整商用授权'
+    ],
+    icon: SparklesIcon,
+    iconBg: 'bg-violet-50 text-violet-600',
+    cardGradientClass: 'bg-linear-to-br from-violet-50 to-white',
+    image: '/plugin/AI音乐.png',
+    index: '09'
   }
 ]
 
@@ -907,7 +989,7 @@ const testimonialColumns = computed(() => {
  */
 const faqs = [
   {
-    question: '官人技术专家能为我做什么？',
+    question: '官方术专家能为我做什么？',
     answer: '我们提供官方认证的技术专家远程服务，可协助您完成 智言万象 平台框架的本地或服务器部署，包含环境配置、源码安装、插件调试及后续运维指导，一站式解决部署难题。'
   },
   {
@@ -929,53 +1011,90 @@ const faqs = [
   {
     question: '购买付费应用后有哪些注意事项？',
     answer: '请充分阅读产品说明后购买，如遇问题可咨询官方客服。为坚持开源社区定位，本站付费应用均为开源交付状态。为保护开发者知识产权，促进建立健康的应用市场生态，根据相关法规，源代码类数字化商品下载获取后不支持退款。如无特殊说明，付费应用均为购买后单次安装使用，切勿传播分享已购买付费应用，共同维护开发者权益。'
+  },
+  {
+    question: '智言AI适合哪些使用场景？',
+    answer: '智言AI适用于多种企业级场景：智能客服系统、企业知识库问答、内部培训助手、文档智能审核、数据分析报告生成、营销内容创作、代码辅助开发等。无论您是希望提升客户服务效率，还是构建企业内部AI中台，智言AI都能提供灵活的解决方案。支持多租户架构，适合集团型企业统一部署。'
   }
 ]
 
-const activeFaq = ref<number | null>(null)
-const toggleFaq = (idx: number) => { activeFaq.value = activeFaq.value === idx ? null : idx }
+const activeFaq = ref<number>(0)
 </script>
 
+
+<style>
+/* overflow-x: clip 不会创建滚动容器，不会破坏 position: sticky */
+html {
+  overflow-x: clip;
+}
+</style>
+
 <style scoped>
-/* 场景卡片 - 简化样式 */
+/* ========================================
+   场景卡片 - 无缝层叠覆盖效果
+   设计模式：Sticky 堆叠 + 全尺寸覆盖
+   ======================================== */
+
+/* 层叠容器 */
+.scenario-stack {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* 卡片基础样式 - 无缩放、无缝隙覆盖 */
 .scenario-card {
   position: sticky;
   top: var(--card-top);
-  transform: scale(var(--scale, 1));
-  transform-origin: top center;
-  will-change: transform;
+  
+  /* 尺寸：全宽一致，无缩放 */
+  width: 100%;
+  min-height: calc(100vh - var(--card-top) - 40px);
+  
+  /* 清除间距 */
+  margin: 0;
+  
+  /* 外观：纯白背景 + 细边框 */
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-@media (max-width: 1023px) {
+/* 最后一个卡片底部留白更小 */
+.scenario-card:last-child {
+  min-height: auto;
+  margin-bottom: 0;
+}
+
+/* ========================================
+   平板端适配 (768px - 1023px)
+   ======================================== */
+@media (min-width: 768px) and (max-width: 1023px) {
   .scenario-card {
-    position: relative;
-    top: auto;
-    transform: none;
-    will-change: auto;
+    top: calc(var(--card-top) * 0.7);
+    border-radius: 20px;
   }
 }
 
-/* 流星动画 - 纯 CSS 实现 */
-.meteor-item {
-  position: absolute;
-  width: 2px;
-  height: 20px;
-  background: linear-gradient(to bottom, transparent, rgba(96, 165, 250, 0.7));
-  border-radius: 9999px;
-  left: calc(var(--i) * 8.3%);
-  top: -10%;
-  opacity: 0;
-  animation: meteor 8s linear infinite;
-  animation-delay: calc(var(--i) * 0.6s);
+/* ========================================
+   移动端适配 (< 768px)
+   取消sticky，使用普通堆叠
+   ======================================== */
+@media (max-width: 767px) {
+  .scenario-stack {
+    gap: 16px;
+  }
+  
+  .scenario-card {
+    position: relative;
+    top: auto;
+    border-radius: 16px;
+  }
 }
 
-@keyframes meteor {
-  0% { transform: translate(0, 0) rotate(20deg); opacity: 0; }
-  10% { opacity: 0.8; }
-  100% { transform: translate(-15vw, 100vh) rotate(20deg); opacity: 0; }
-}
-
-/* 弹窗过渡动画 */
+/* ========================================
+   弹窗过渡动画
+   ======================================== */
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.2s ease;

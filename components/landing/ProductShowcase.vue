@@ -1,0 +1,556 @@
+<template>
+  <section class="relative overflow-hidden bg-neutral-50/50">
+    <div class="container mx-auto px-4 py-12 sm:py-16 lg:py-24">
+      <!-- 标题区域 -->
+      <div class="text-center mb-8 sm:mb-12 lg:mb-16">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-neutral-900 mb-3 sm:mb-4 tracking-tight leading-tight">
+          搭建私有 AI 应用系统
+          <span class="text-[#6E58FF] block sm:inline mt-1 sm:mt-0">无需从零开发</span>
+        </h2>
+        <p class="text-base sm:text-lg lg:text-xl text-neutral-500 max-w-3xl mx-auto px-2 sm:px-0">
+          专注集成 AI 应用落地所需的全场景功能，万千工具，自由组合
+        </p>
+      </div>
+
+      <!-- 移动端：横向滚动标签栏 -->
+      <div class="lg:hidden mb-4 overflow-x-auto scrollbar-hide -mx-4 px-4">
+        <div class="flex gap-2 pb-2 min-w-max">
+          <button
+            v-for="(tab, index) in tabs"
+            :key="index"
+            class="flex-shrink-0 flex items-center gap-2 px-3 sm:px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6E58FF]/30"
+            :class="activeTab === index 
+              ? 'bg-[#6E58FF] text-white shadow-md' 
+              : 'bg-white border border-neutral-200 text-neutral-600 hover:border-[#6E58FF]/30'"
+            @click="switchTab(index)"
+          >
+            <span class="text-xs opacity-70">{{ String(index + 1).padStart(2, '0') }}</span>
+            <span class="whitespace-nowrap">{{ tab.name }}</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Bento Grid 主容器 -->
+      <div class="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-200/60 shadow-lg sm:shadow-xl shadow-neutral-300/40 flex flex-col lg:flex-row bg-gradient-to-br from-white via-[#f8f7ff] to-[#f0edff] min-h-[400px] sm:min-h-[500px] lg:min-h-[600px]">
+        
+        <!-- 桌面端：左侧功能导航列表 -->
+        <div class="hidden lg:flex w-[380px] flex-col border-r border-neutral-200/60 bg-gradient-to-b from-neutral-50/80 to-neutral-100/50 p-5">
+          <div class="space-y-1.5 flex-1 overflow-y-auto custom-scrollbar">
+            <button
+              v-for="(tab, index) in tabs"
+              :key="index"
+              class="group w-full flex flex-col text-left px-4 py-3.5 rounded-xl transition-all duration-200 relative overflow-hidden outline-none"
+              :class="activeTab === index ? 'bg-white shadow-sm' : 'hover:bg-white/60'"
+              @click="switchTab(index)"
+              @mouseenter="activeTab = index"
+            >
+              <!-- 激活指示条 -->
+              <div
+                class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-[#6E58FF] rounded-r-full transition-all duration-300"
+                :class="activeTab === index ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"
+              />
+
+              <div class="flex gap-3.5 items-center">
+                <!-- 序号图标 -->
+                <div
+                  class="w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-200 shrink-0 text-sm font-semibold"
+                  :class="activeTab === index ? 'bg-[#6E58FF] text-white shadow-sm' : 'bg-white border border-neutral-200 text-neutral-400 group-hover:text-[#6E58FF] group-hover:border-[#6E58FF]/30'"
+                >
+                  {{ String(index + 1).padStart(2, '0') }}
+                </div>
+                
+                <div class="flex-1 min-w-0">
+                  <span
+                    class="text-[15px] font-semibold transition-colors block"
+                    :class="activeTab === index ? 'text-neutral-900' : 'text-neutral-600 group-hover:text-neutral-800'"
+                  >
+                    {{ tab.name }}
+                  </span>
+                  <p
+                    v-if="tab.description"
+                    class="text-[13px] text-neutral-400 truncate mt-0.5 leading-tight"
+                    :class="activeTab === index ? 'text-neutral-500' : ''"
+                  >
+                    {{ tab.description }}
+                  </p>
+                </div>
+
+                <!-- 箭头 -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="text-[#6E58FF] transition-all duration-200 opacity-0 -translate-x-1"
+                  :class="activeTab === index ? 'opacity-100 translate-x-0' : ''"
+                >
+                  <path d="m9 18 6-6-6-6"/>
+                </svg>
+              </div>
+            </button>
+          </div>
+
+          <!-- 底部进度信息 -->
+          <div class="mt-4 pt-4 border-t border-neutral-200/60">
+            <div class="flex items-center justify-between text-xs text-neutral-400 mb-2">
+              <span class="flex items-center gap-1.5">
+                <span class="h-1.5 w-1.5 rounded-full bg-[#6E58FF] animate-pulse" />
+                自动轮播
+              </span>
+              <span>{{ activeTab + 1 }} / {{ tabs.length }}</span>
+            </div>
+            <div class="h-1 w-full rounded-full bg-neutral-200 overflow-hidden">
+              <div 
+                class="h-full rounded-full bg-[#6E58FF] transition-all duration-500 ease-out"
+                :style="{ width: `${((activeTab + 1) / tabs.length) * 100}%` }"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- 右侧：截图展示 (浏览器窗口样式) -->
+        <div class="flex-1 relative flex flex-col bg-neutral-50/30 overflow-hidden">
+          <!-- 背景光晕装饰 -->
+          <div class="absolute -top-20 -right-20 w-96 h-96 bg-[#6E58FF]/5 rounded-full blur-3xl pointer-events-none"/>
+          <div class="absolute -bottom-20 -left-20 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none"/>
+
+          <!-- 顶部浏览器栏装饰 -->
+          <div class="h-9 sm:h-12 border-b border-neutral-200/60 flex items-center px-3 sm:px-5 gap-2 sm:gap-2.5 shrink-0 bg-white z-20">
+            <div class="flex gap-1.5">
+              <div class="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-red-400/80"/>
+              <div class="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-amber-400/80"/>
+              <div class="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-emerald-400/80"/>
+            </div>
+            <!-- 模拟地址栏 -->
+            <div class="ml-2 sm:ml-3 flex-1 max-w-[180px] sm:max-w-sm h-6 sm:h-7 bg-neutral-100 rounded-md border border-neutral-200/50 flex items-center px-2 sm:px-3 text-[10px] sm:text-[11px] text-neutral-400 font-mono overflow-hidden">
+              <svg class="w-2.5 sm:w-3 h-2.5 sm:h-3 text-neutral-400 mr-1 sm:mr-1.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.131A8 8 0 008 8m0 0a8 8 0 0016 0M8 8a8 8 0 00-8 8c0 2.472.345 4.865.99 7.131M8 8a8 8 0 0016 0M8 8v8m8-8v8"/>
+              </svg>
+              <span class="truncate">{{ currentTabUrl }}</span>
+            </div>
+          </div>
+
+          <!-- 图片切换区域 -->
+          <div 
+            class="relative flex-1 p-3 sm:p-6 lg:p-10 flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-white to-neutral-50/50"
+            @touchstart="handleTouchStart"
+            @touchend="handleTouchEnd"
+          >
+            <Transition
+              name="showcase-fade"
+              mode="out-in"
+            >
+              <div 
+                v-if="tabs[activeTab]"
+                :key="activeTab"
+                class="relative w-full h-full flex items-center justify-center"
+              >
+                <img
+                  :src="tabs[activeTab]?.image"
+                  :alt="`${tabs[activeTab]?.name || ''} 功能预览`"
+                  class="w-full h-full object-contain rounded-lg shadow-md sm:shadow-lg"
+                  loading="lazy"
+                  decoding="async"
+                />
+
+                <!-- 浮动功能标签 -->
+                <div class="absolute bottom-2 left-2 sm:bottom-6 sm:left-6">
+                  <div class="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full bg-white/95 backdrop-blur-sm border border-neutral-200/60 shadow-sm">
+                    <span class="h-1.5 sm:h-2 w-1.5 sm:w-2 rounded-full bg-[#6E58FF] animate-pulse" />
+                    <span class="text-[11px] sm:text-xs font-medium text-neutral-700">{{ tabs[activeTab]?.name }}</span>
+                  </div>
+                </div>
+              </div>
+            </Transition>
+
+            <!-- 左右切换按钮 (桌面端显示，移动端隐藏) -->
+            <button
+              class="hidden sm:flex absolute left-3 lg:left-4 top-1/2 -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-white border border-neutral-200 text-neutral-500 shadow-sm transition-all duration-200 hover:bg-neutral-50 hover:text-neutral-900 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6E58FF]/30"
+              @click="prevTab"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m15 18-6-6 6-6"/>
+              </svg>
+            </button>
+            <button
+              class="hidden sm:flex absolute right-3 lg:right-4 top-1/2 -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-white border border-neutral-200 text-neutral-500 shadow-sm transition-all duration-200 hover:bg-neutral-50 hover:text-neutral-900 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6E58FF]/30"
+              @click="nextTab"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m9 18 6-6-6-6"/>
+              </svg>
+            </button>
+
+            <!-- 移动端触摸提示 -->
+            <div class="sm:hidden absolute bottom-16 left-1/2 -translate-x-1/2 flex items-center gap-1 text-[10px] text-neutral-400">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m15 18-6-6 6-6"/>
+              </svg>
+              <span>左右滑动切换</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m9 18 6-6-6-6"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- 底部指示器 -->
+          <div class="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-10">
+            <button
+              v-for="(_, index) in tabs"
+              :key="index"
+              class="h-1 sm:h-1.5 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6E58FF]/30"
+              :class="activeTab === index ? 'w-4 sm:w-6 bg-[#6E58FF]' : 'w-1.5 bg-neutral-300 hover:bg-neutral-400'"
+              @click="switchTab(index)"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- 底部特性卡片 -->
+      <div class="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+        <div 
+          v-for="(feature, index) in features"
+          :key="index"
+          class="group bg-white rounded-xl sm:rounded-2xl border border-neutral-200/60 p-4 sm:p-5 transition-all duration-200 hover:shadow-lg hover:border-neutral-300"
+        >
+          <div class="flex items-start gap-3 sm:gap-4">
+            <div class="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-lg sm:rounded-xl bg-[#6E58FF]/10 text-[#6E58FF] transition-all duration-200 group-hover:bg-[#6E58FF] group-hover:text-white">
+              <component :is="feature.icon" class="h-4 w-4 sm:h-5 sm:w-5" />
+            </div>
+            <div class="min-w-0">
+              <h3 class="text-sm font-semibold text-neutral-900 mb-0.5 sm:mb-1">{{ feature.title }}</h3>
+              <p class="text-[11px] sm:text-xs text-neutral-500 leading-relaxed">{{ feature.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA 区域 -->
+      <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3">
+        <a 
+          href="https://www.buidai.com/" 
+          target="_blank" 
+          class="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 rounded-full bg-[#6E58FF] text-white text-sm font-semibold hover:bg-[#5d47e6] active:scale-95 transition-all flex items-center justify-center gap-2"
+        >
+          快速开始
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200">
+            <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+          </svg>
+        </a>
+        <a 
+          href="https://doc.buidai.com/" 
+          target="_blank" 
+          class="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 rounded-full bg-white border border-neutral-200 text-neutral-700 text-sm font-semibold hover:bg-neutral-50 hover:border-neutral-300 active:scale-95 transition-all flex items-center justify-center gap-2"
+        >
+          查看文档
+        </a>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script setup lang="ts">
+import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { Zap, Shield, Layers } from 'lucide-vue-next'
+
+// ==========================================
+// 类型定义
+// ==========================================
+
+/** 标签项类型 */
+interface TabItem {
+  name: string
+  description?: string
+  image: string
+}
+
+/** 功能特性类型 */
+interface FeatureItem {
+  title: string
+  description: string
+  icon: unknown
+}
+
+// ==========================================
+// 数据配置
+// ==========================================
+
+/**
+ * 标签配置 - 每个标签对应不同功能模块
+ */
+const tabs: TabItem[] = [
+  {
+    name: '智能体',
+    description: 'AI Agent 工作流编排',
+    image: '/images/buidai-1.webp'
+  },
+  {
+    name: '知识库',
+    description: 'RAG 向量检索系统',
+    image: '/images/buidai-2.webp'
+  },
+  {
+    name: '应用中心',
+    description: '预置应用模板市场',
+    image: '/images/buidai-3.webp'
+  },
+  {
+    name: '模型管理',
+    description: '多模型接入与管理',
+    image: '/images/buidai-4.webp'
+  },
+  {
+    name: 'MCP',
+    description: '模型上下文协议',
+    image: '/images/buidai-5.webp'
+  },
+  {
+    name: 'DIY中心',
+    description: '可视化界面构建',
+    image: '/images/buidai-6.webp'
+  },
+  {
+    name: '会员订阅',
+    description: '灵活的计费方案',
+    image: '/images/buidai-7.webp'
+  }
+]
+
+/**
+ * 功能特性配置
+ */
+const features: FeatureItem[] = [
+  {
+    title: '本地化部署',
+    description: '支持私有云和本地服务器部署，数据完全可控，满足企业安全合规要求。',
+    icon: Shield
+  },
+  {
+    title: '高性能架构',
+    description: '采用分布式架构设计，支持高并发场景，毫秒级响应速度。',
+    icon: Zap
+  },
+  {
+    title: '模块化设计',
+    description: '功能组件松耦合，按需启用，灵活扩展，降低系统复杂度。',
+    icon: Layers
+  }
+]
+
+// ==========================================
+// 状态管理
+// ==========================================
+
+/** 当前激活的标签索引 */
+const activeTab = ref(0)
+
+/** 自动播放计时器 */
+let autoPlayTimer: ReturnType<typeof setInterval> | null = null
+
+/** 触摸滑动相关状态 */
+let touchStartX = 0
+let touchEndX = 0
+const minSwipeDistance = 50
+
+/**
+ * 当前标签的模拟URL
+ */
+const currentTabUrl = computed(() => {
+  const urls = [
+    'app.buildingai.cc/agents',
+    'app.buildingai.cc/knowledge',
+    'app.buildingai.cc/apps',
+    'app.buildingai.cc/models',
+    'app.buildingai.cc/mcp',
+    'app.buildingai.cc/diy',
+    'app.buildingai.cc/billing'
+  ]
+  return urls[activeTab.value] || 'app.buildingai.cc'
+})
+
+// ==========================================
+// 方法定义
+// ==========================================
+
+/**
+ * 切换到指定标签
+ * @param index - 目标标签索引
+ */
+const switchTab = (index: number): void => {
+  if (index < 0 || index >= tabs.length) return
+  activeTab.value = index
+  resetAutoPlay()
+}
+
+/**
+ * 切换到下一个标签
+ */
+const nextTab = (): void => {
+  const nextIndex = (activeTab.value + 1) % tabs.length
+  switchTab(nextIndex)
+}
+
+/**
+ * 切换到上一个标签
+ */
+const prevTab = (): void => {
+  const prevIndex = (activeTab.value - 1 + tabs.length) % tabs.length
+  switchTab(prevIndex)
+}
+
+/**
+ * 处理触摸开始事件
+ * @param event - 触摸事件对象
+ */
+const handleTouchStart = (event: TouchEvent): void => {
+  touchStartX = event.touches[0]?.clientX ?? 0
+}
+
+/**
+ * 处理触摸结束事件
+ * @param event - 触摸事件对象
+ */
+const handleTouchEnd = (event: TouchEvent): void => {
+  touchEndX = event.changedTouches[0]?.clientX ?? 0
+  handleSwipe()
+}
+
+/**
+ * 处理滑动逻辑
+ */
+const handleSwipe = (): void => {
+  const swipeDistance = touchEndX - touchStartX
+  
+  if (Math.abs(swipeDistance) > minSwipeDistance) {
+    if (swipeDistance > 0) {
+      // 向右滑动，切换到上一个
+      prevTab()
+    } else {
+      // 向左滑动，切换到下一个
+      nextTab()
+    }
+  }
+}
+
+/**
+ * 启动自动播放
+ */
+const startAutoPlay = (): void => {
+  stopAutoPlay()
+  autoPlayTimer = setInterval(() => {
+    nextTab()
+  }, 4000)
+}
+
+/**
+ * 停止自动播放
+ */
+const stopAutoPlay = (): void => {
+  if (autoPlayTimer) {
+    clearInterval(autoPlayTimer)
+    autoPlayTimer = null
+  }
+}
+
+/**
+ * 重置自动播放
+ */
+const resetAutoPlay = (): void => {
+  stopAutoPlay()
+  startAutoPlay()
+}
+
+// ==========================================
+// 生命周期钩子
+// ==========================================
+
+onMounted(() => {
+  startAutoPlay()
+})
+
+onUnmounted(() => {
+  stopAutoPlay()
+})
+</script>
+
+<style scoped>
+/* ==========================================
+   截图切换过渡动画
+   ========================================== */
+.showcase-fade-enter-active,
+.showcase-fade-leave-active {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.showcase-fade-enter-from {
+  opacity: 0;
+  transform: translateY(12px) scale(0.98);
+}
+
+.showcase-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-8px) scale(0.98);
+}
+
+/* ==========================================
+   平滑过渡优化
+   ========================================== */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================
+   聚焦状态样式
+   ========================================== */
+button:focus-visible {
+  outline: none;
+}
+
+/* ==========================================
+   自定义滚动条 (桌面端)
+   ========================================== */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================
+   隐藏滚动条但保持滚动功能 (移动端标签栏)
+   ========================================== */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ==========================================
+   移动端优化
+   ========================================== */
+@media (max-width: 640px) {
+  /* 优化触摸目标大小 */
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+}
+</style>

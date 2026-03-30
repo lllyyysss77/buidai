@@ -17,7 +17,7 @@ useSeoMeta({
     twitterCard: 'summary_large_image',
     twitterTitle: '小红书热门内容创作助手 - 打造爆款笔记的神器 | 智言万象',
     twitterDescription: '专为小红书创作者打造,一键生成爆款标题与风格化推广文案,支持 AI 生成配图与智能标签推荐。',
-    twitterImage: '/product/小红书内容复刻.png'
+    twitterImage: '/product/xiaohongshu.png'
 });
 
 // --- 功能网格数据 ---
@@ -78,7 +78,7 @@ const featureDetails = ref([
                 desc: '一次生成多个版本文案,支持对比选择,找到最适合的表达方式。'
             }
         ],
-        image: '/product/小红书内容复刻.png',
+        image: '/product/xiaohongshu.png',
     },
     {
         title: 'AI 生成配图与视频封面,提升视觉吸引力',
@@ -202,7 +202,7 @@ const toDemo = () => {
              <div class="relative p-2 rounded-3xl bg-gray-100/40 dark:bg-gray-800/40 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 max-w-5xl mx-auto">
                 <div class="relative rounded-2xl overflow-hidden border border-gray-200/50 dark:border-gray-700/50 shadow-sm bg-white/60 dark:bg-gray-800/60 aspect-video flex items-center justify-center">
                     <img
-                        src="/product/小红书内容复刻.png"
+                        src="/product/xiaohongshu.png"
                         alt="小红书"
                         class="w-full h-full object-contain"
                     />

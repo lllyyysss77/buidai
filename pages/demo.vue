@@ -37,10 +37,10 @@ const products: ProductDemo[] = [
     icon: ChatBubbleLeftRightIcon,
     status: 'online',
     platforms: [
-      { title: 'PC演示前台', icon: ComputerDesktopIcon, url: 'https://chat.example.com', account: '自行注册', password: '自行注册' },
-      { title: '站点管理端', icon: Cog6ToothIcon, url: 'https://admin.example.com', account: 'demo', password: 'demo123' },
-      { title: 'SaaS平台端', icon: Cog6ToothIcon, url: 'https://saas.example.com', account: '联系客服', password: '联系客服' },
-      { title: 'WAP演示', icon: DevicePhoneMobileIcon, url: 'https://chat.example.com/mobile', account: '自行注册', password: '自行注册' }
+      { title: 'PC演示前台', icon: ComputerDesktopIcon, url: 'https://gmlart.cn', account: '自行注册', password: '自行注册' },
+      { title: '站点管理端', icon: Cog6ToothIcon, url: 'https://gmlart.cn/admin', account: 'demo', password: 'demo123' },
+      { title: 'SaaS平台端', icon: Cog6ToothIcon, url: 'https://gmlart.cn/saas', account: '联系客服', password: '联系客服' },
+      { title: 'WAP演示', icon: DevicePhoneMobileIcon, url: 'https://gmlart.cn/mobile', account: '自行注册', password: '自行注册' }
     ]
   },
   {
@@ -50,10 +50,10 @@ const products: ProductDemo[] = [
     icon: BookOpenIcon,
     status: 'online',
     platforms: [
-      { title: '演示前台', icon: ComputerDesktopIcon, url: 'https://kb.example.com', account: '自行注册', password: '自行注册' },
-      { title: '体验后台', icon: Cog6ToothIcon, url: 'https://kb-admin.example.com', account: 'admin', password: '123456' },
-      { title: 'API文档', icon: DocumentTextIcon, url: 'https://doc.example.com', account: '联系客服', password: '联系客服' },
-      { title: '移动端', icon: DevicePhoneMobileIcon, url: 'https://kb.example.com/mobile', account: '联系客服', password: '联系客服' }
+      { title: '演示前台', icon: ComputerDesktopIcon, url: 'https://www.cnai.art', account: '自行注册', password: '自行注册' },
+      { title: '体验后台', icon: Cog6ToothIcon, url: 'https://www.cnai.art/admin', account: 'admin', password: '123456' },
+      { title: 'API文档', icon: DocumentTextIcon, url: 'https://www.cnai.art/doc', account: '联系客服', password: '联系客服' },
+      { title: '移动端', icon: DevicePhoneMobileIcon, url: 'https://www.cnai.art/mobile', account: '联系客服', password: '联系客服' }
     ]
   },
   {
@@ -63,10 +63,10 @@ const products: ProductDemo[] = [
     icon: PhotoIcon,
     status: 'beta',
     platforms: [
-      { title: 'H5演示', icon: DevicePhoneMobileIcon, url: 'https://art.example.com/mobile', account: '自行注册', password: '自行注册' },
-      { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://art.example.com', account: '自行注册', password: '自行注册' },
-      { title: '管理后台', icon: Cog6ToothIcon, url: 'https://art-admin.example.com', account: 'admin', password: '123456' },
-      { title: 'API文档', icon: DocumentTextIcon, url: 'https://doc.example.com/art', account: '联系客服', password: '联系客服' }
+      { title: 'H5演示', icon: DevicePhoneMobileIcon, url: 'https://cnai.art/mobile', account: '自行注册', password: '自行注册' },
+      { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://cnai.art', account: '自行注册', password: '自行注册' },
+      { title: '管理后台', icon: Cog6ToothIcon, url: 'https://cnai.art/admin', account: 'admin', password: '123456' },
+      { title: 'API文档', icon: DocumentTextIcon, url: 'https://www.cnai.art/doc', account: '联系客服', password: '联系客服' }
     ]
   },
     {
@@ -76,10 +76,10 @@ const products: ProductDemo[] = [
     icon: PhotoIcon,
     status: 'beta',
     platforms: [
-      { title: 'H5演示', icon: DevicePhoneMobileIcon, url: 'https://art.example.com/mobile', account: '自行注册', password: '自行注册' },
-      { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://art.example.com', account: '自行注册', password: '自行注册' },
-      { title: '管理后台', icon: Cog6ToothIcon, url: 'https://art-admin.example.com', account: 'admin', password: '123456' },
-      { title: 'API文档', icon: DocumentTextIcon, url: 'https://doc.example.com/art', account: '联系客服', password: '联系客服' }
+      { title: 'H5演示', icon: DevicePhoneMobileIcon, url: 'https://v.cnai.art/mobile', account: '自行注册', password: '自行注册' },
+      { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://v.cnai.art', account: '自行注册', password: '自行注册' },
+      { title: '管理后台', icon: Cog6ToothIcon, url: 'https://v.cnai.art/admin', account: 'admin', password: '123456' },
+      { title: 'API文档', icon: DocumentTextIcon, url: 'https://www.cnai.art/doc', account: '联系客服', password: '联系客服' }
     ]
   },
   {
@@ -89,10 +89,10 @@ const products: ProductDemo[] = [
     icon: ChartBarIcon,
     status: 'online',
     platforms: [
-      { title: '演示前台', icon: ComputerDesktopIcon, url: 'https://data.example.com', account: '联系客服', password: '联系客服' },
-      { title: '体验后台', icon: Cog6ToothIcon, url: 'https://data-admin.example.com', account: 'admin', password: '123456' },
-      { title: '数据API', icon: DocumentTextIcon, url: 'https://doc.example.com/data', account: '联系客服', password: '联系客服' },
-      { title: '移动端', icon: DevicePhoneMobileIcon, url: 'https://data.example.com/mobile', account: '联系客服', password: '联系客服' }
+      { title: '演示前台', icon: ComputerDesktopIcon, url: 'https://paper.gmlart.cn', account: '联系客服', password: '联系客服' },
+      { title: '体验后台', icon: Cog6ToothIcon, url: 'https://paper.gmlart.cn/admin', account: 'admin', password: '123456' },
+      { title: '数据API', icon: DocumentTextIcon, url: 'https://doc.gmlart.cn/data', account: '联系客服', password: '联系客服' },
+      { title: '移动端', icon: DevicePhoneMobileIcon, url: 'https://paper.gmlart.cn/mobile', account: '联系客服', password: '联系客服' }
     ]
   }
 ]
@@ -127,7 +127,7 @@ function toggleProduct(productId: string): void {
  * 用于设置页面的搜索引擎优化元数据
  */
 const siteName = '智言万象'
-const baseUrl = 'https://智言万象.com'
+const baseUrl = 'https://buidiai.com'
 const pageTitle = '产品演示中心 - 智言万象 | 在线体验AI产品'
 const pageDescription = '智言万象产品演示中心，在线体验智言AI智能客服、企业知识库、聊天绘画、AI数字人等AI产品。支持PC端、移动端、后台管理等多平台演示。'
 const canonicalUrl = `${baseUrl}/demo`
@@ -245,7 +245,7 @@ useHead({
       url: baseUrl,
       logo: `${baseUrl}/images/logo.png`,
       // 社交媒体链接
-      sameAs: ['https://github.com/智言万象', 'https://twitter.com/智言万象']
+      sameAs: ['https://github.com/buidai', 'https://twitter.com/buidai']
     })}
   ]
 })

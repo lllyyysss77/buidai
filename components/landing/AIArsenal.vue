@@ -41,10 +41,10 @@
 
           <!-- 按钮 -->
           <div class="flex flex-wrap gap-4 pt-4">
-            <button class="px-8 py-3.5 rounded-full bg-neutral-900 text-white font-bold hover:bg-neutral-800 transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2 shadow-lg shadow-neutral-200" @click="openQrModal('community')">
+            <button class="px-8 py-3.5 rounded-lg bg-neutral-900 text-white font-bold hover:bg-neutral-800 transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2 shadow-lg shadow-neutral-200" @click="openQrModal('community')">
              加入社群
             </button>
-            <button class="px-8 py-3.5 rounded-full bg-white border border-neutral-200 text-neutral-700 font-medium hover:bg-neutral-50 transition-all duration-300 transform hover:-translate-y-0.5" @click="openQrModal('contact')">
+            <button class="px-8 py-3.5 rounded-lg bg-white border border-neutral-200 text-neutral-700 font-medium hover:bg-neutral-50 transition-all duration-300 transform hover:-translate-y-0.5" @click="openQrModal('contact')">
               联系我们
             </button>
           </div>

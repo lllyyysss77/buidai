@@ -1,5 +1,9 @@
 <template>
   <section class="relative min-h-[80dvh] flex items-center overflow-hidden bg-white text-black pt-24 pb-16 md:py-24">
+    <!-- PixelBlast 动态背景 -->
+    <div class="absolute inset-0 z-0 overflow-hidden">
+      <PixelBlast class="w-full h-full" />
+    </div>
     <div class="container mx-auto container-padding relative z-10 w-full" :class="props.ui.container">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         <div class="relative space-y-6 md:space-y-8 text-center lg:text-left" :class="props.ui.content">
@@ -8,10 +12,7 @@
             <!-- 1. 顶部聚焦光束 (增强可见度) -->
             <div class="absolute top-0 left-1/2 lg:left-0 -translate-x-1/2 lg:-translate-x-1/4 -translate-y-1/3 w-[600px] h-[600px] bg-ui-primary/30 rounded-full blur-[80px] mix-blend-multiply"/>
 
-            <!-- 2. 科技网格背景 -->
-            <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px] mask-[radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]"/>
-
-            <!-- 3. 抽象几何点缀 (增强可见度) -->
+            <!-- 2. 抽象几何点缀 (增强可见度) -->
             <div class="absolute top-20 right-10 w-32 h-32 bg-linear-to-br from-blue-400/50 to-transparent rounded-full blur-2xl animate-pulse"/>
             <div class="absolute bottom-40 left-10 w-24 h-24 bg-linear-to-tr from-purple-400/40 to-transparent rounded-full blur-xl animate-float animation-delay-2000"/>
           </div>
@@ -46,7 +47,7 @@
                 size="xl"
                 color="primary"
                 label="开始使用"
-                to="https://www.gmlart.com"
+                to="https://www.gmlart.cn"
                 target="_blank"
                 icon="i-heroicons-rocket-launch"
                 class="w-full sm:w-auto rounded-full px-8 py-3.5 text-lg justify-center"
@@ -56,7 +57,7 @@
                 variant="solid"
                 color="neutral"
                 label="立即创造"
-                to="https://cloud.智言万象.com"
+                to="https://www.gmlart.cn"
                 target="_blank"
                 icon="i-heroicons-sparkles"
                 class="w-full sm:w-auto rounded-full px-8 py-3.5 text-lg justify-center"

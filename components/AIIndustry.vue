@@ -16,15 +16,20 @@
     <!-- 标题区域 -->
     <div class="flex p-1 pt-1">
       <div class="flex-1 rounded-lg border border-neutral-200/70 bg-white" />
-      <div class="mx-1 w-full max-w-400 rounded-lg border border-neutral-200/75 bg-white px-6 py-8 sm:px-8 sm:py-10">
+      <div class="mx-1 w-full max-w-400 rounded-lg border border-neutral-200/75 bg-gradient-to-b from-white to-neutral-50/50 px-6 py-10 sm:px-10 sm:py-12">
         <div class="text-center">
-          <h2 class="text-xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-2xl lg:text-[28px]">
-            全场景
-            <span class="text-neutral-300 font-light mx-2">|</span>
-            AI 解决方案
+          <!-- 顶部标签 -->
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 mb-5">
+            <SparklesIcon class="h-3.5 w-3.5 text-indigo-500" />
+            <span class="text-xs font-semibold text-indigo-600 tracking-wide">全场景 AI 解决方案</span>
+          </div>
+
+          <h2 class="text-2xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-3xl lg:text-4xl">
+            赋能企业数智化
+            <span class="text-indigo-600">转型升级</span>
           </h2>
-          <p class="mx-auto mt-4 max-w-3xl text-xs leading-relaxed text-neutral-500 sm:mt-5 sm:text-sm">
-            赋能企业与个人的超级智能体平台，助力业务数智化升级
+          <p class="mx-auto mt-5 max-w-2xl text-sm leading-7 text-neutral-500 sm:text-base">
+            超级智能体平台，为创作者与企业提供一站式 AI 能力支持
           </p>
         </div>
       </div>
@@ -74,7 +79,7 @@
 
                   <!-- 标签文字 -->
                   <span 
-                    class="text-[15px] font-medium tracking-normal truncate flex-1"
+                    class="text-base font-semibold tracking-normal truncate flex-1"
                     :class="active === idx ? 'text-neutral-900' : 'text-neutral-600'"
                   >
                     {{ t.name }}
@@ -91,14 +96,14 @@
             </div>
 
             <!-- 左侧导航底部介绍文案 - 仅桌面端显示 -->
-            <div class="hidden lg:block p-4 border-t border-neutral-200/60 bg-neutral-50/50">
-              <div class="flex items-start gap-2.5">
-                <div class="w-8 h-8 rounded-lg bg-white border border-neutral-200/70 flex items-center justify-center shrink-0">
-                  <SparklesIcon class="h-4 w-4 text-neutral-500" stroke-width="1.5" />
+            <div class="hidden lg:block p-5 border-t border-neutral-200/60 bg-gradient-to-b from-neutral-50/30 to-neutral-50/80">
+              <div class="flex items-start gap-3">
+                <div class="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center shrink-0">
+                  <SparklesIcon class="h-5 w-5 text-indigo-500" stroke-width="1.5" />
                 </div>
-                <div class="flex-1 min-w-0">
-                  <p class="text-xs font-medium text-neutral-700 mb-1">探索 AI 能力</p>
-                  <p class="text-[11px] leading-relaxed text-neutral-500">
+                <div class="flex-1 min-w-0 pt-0.5">
+                  <p class="text-sm font-semibold text-neutral-800 mb-1.5">探索 AI 能力</p>
+                  <p class="text-xs leading-5 text-neutral-500">
                     点击上方分类查看详细功能，或联系顾问获取定制化方案
                   </p>
                 </div>
@@ -110,55 +115,57 @@
           <section class="relative z-10 flex-1 p-4 sm:p-6 lg:p-8 flex flex-col bg-white">
             <!-- 头部信息 -->
             <div class="mb-6 lg:mb-8 animate-slide-up">
-              <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-neutral-200/70 bg-neutral-50 mb-4">
-                <SparklesIcon class="h-3.5 w-3.5 text-neutral-500" />
-                <span class="text-xs font-medium tracking-wider text-neutral-600 uppercase">
+              <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-indigo-100 bg-indigo-50/50 mb-5">
+                <component :is="currentTab?.icon" class="h-4 w-4 text-indigo-500" stroke-width="2" />
+                <span class="text-sm font-semibold tracking-wide text-indigo-700">
                   {{ currentTab?.name }}
-                </span>
+              </span>
               </div>
-              <h3 class="text-xl sm:text-2xl font-bold text-neutral-900 tracking-tight">
+              <h3 class="text-2xl sm:text-3xl font-bold text-neutral-900 tracking-tight leading-tight">
                 {{ currentTab?.title }}
               </h3>
             </div>
 
-            <!-- 功能网格 - 参考 OpenSourceRoadmap 样式 -->
-            <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-1 content-start mb-6">
+            <!-- 功能网格 -->
+            <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-3 content-start mb-6">
               <div
                 v-for="(f, i) in currentTab?.features"
                 :key="i"
-                class="group flex flex-col gap-2 rounded-lg border border-neutral-200 bg-white p-4 transition-all duration-300 ease-out hover:border-neutral-300"
+                class="group flex flex-col gap-3 rounded-xl border border-neutral-200/80 bg-white p-5 transition-all duration-300 ease-out hover:border-indigo-200 hover:shadow-sm hover:bg-indigo-50/20"
               >
                 <!-- 头部：图标 + 标题 -->
-                <div class="flex items-center gap-2">
-                  <component :is="f.icon" class="h-4 w-4 shrink-0 text-primary-600" stroke-width="1.5" />
-                  <h4 class="text-sm font-semibold text-neutral-900 truncate">
+                <div class="flex items-center gap-3">
+                  <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-indigo-50 border border-indigo-100 shrink-0">
+                    <component :is="f.icon" class="h-5 w-5 text-indigo-600" stroke-width="1.5" />
+                  </div>
+                  <h4 class="text-base font-bold text-neutral-900 truncate">
                     {{ f.title }}
                   </h4>
                 </div>
 
                 <!-- 描述 -->
-                <p class="text-xs leading-relaxed text-neutral-500 line-clamp-2">
+                <p class="text-sm leading-6 text-neutral-600 line-clamp-2">
                   {{ f.desc }}
                 </p>
               </div>
             </div>
 
             <!-- 底部操作栏 -->
-            <div class="mt-auto pt-6 border-t border-neutral-200/70 flex flex-wrap gap-3">
+            <div class="mt-auto pt-8 border-t border-neutral-200/70 flex flex-wrap gap-4">
               <button
-                class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium text-white bg-neutral-900 hover:bg-neutral-800 rounded-lg transition-all"
+                class="inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white bg-neutral-900 hover:bg-neutral-800 rounded-xl transition-all shadow-sm"
                 @click="openQrModal('solution')"
               >
                 了解方案详情
-                <ArrowRightIcon class="ml-2 h-4 w-4" stroke-width="2" />
+                <ArrowRightIcon class="ml-2.5 h-5 w-5" stroke-width="2" />
               </button>
 
               <button
-                class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium text-neutral-700 bg-white hover:bg-neutral-50 border border-neutral-200/70 rounded-lg transition-all hover:border-neutral-300"
+                class="inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-neutral-700 bg-white hover:bg-neutral-50 border border-neutral-200 rounded-xl transition-all hover:border-neutral-300 hover:shadow-sm"
                 @click="openQrModal('consult')"
               >
                 联系售前咨询
-                <ChatBubbleLeftRightIcon class="ml-2 h-4 w-4" stroke-width="1.5" />
+                <ChatBubbleLeftRightIcon class="ml-2.5 h-5 w-5" stroke-width="1.5" />
               </button>
             </div>
           </section>
@@ -170,33 +177,33 @@
     <!-- 底部介绍文案 -->
     <div class="flex p-1 pt-1">
       <div class="flex-1 rounded-lg border border-neutral-200/70 bg-white" />
-      <div class="mx-1 w-full max-w-400 rounded-lg border border-neutral-200/70 bg-white px-8 py-8 sm:px-10 sm:py-10">
-        <div class="flex items-center justify-between gap-8">
+      <div class="mx-1 w-full max-w-400 rounded-xl border border-neutral-200/70 bg-gradient-to-br from-white to-neutral-50/60 px-10 py-10 sm:px-12 sm:py-12">
+        <div class="flex items-center justify-between gap-10">
           <!-- 左侧：标题与核心优势 -->
           <div class="flex-1">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-1 h-5 bg-neutral-900 rounded-full" />
-              <h4 class="text-base font-semibold text-neutral-900 tracking-tight">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-1.5 h-6 bg-indigo-500 rounded-full" />
+              <h4 class="text-lg font-bold text-neutral-900 tracking-tight">
                 智言AI 平台
               </h4>
             </div>
-            <p class="text-sm leading-6 text-neutral-500">
+            <p class="text-[15px] leading-7 text-neutral-600">
               整合行业领先的 AI 大模型能力，提供从视觉创作、智能对话到知识管理的全栈解决方案。
             </p>
           </div>
 
           <!-- 右侧：核心能力标签 -->
-          <div class="flex flex-wrap gap-2 shrink-0 max-w-[200px]">
-            <span class="px-3 py-1.5 rounded-md bg-neutral-100 text-neutral-700 text-xs font-medium">
+          <div class="flex flex-wrap gap-2.5 shrink-0 max-w-[220px]">
+            <span class="px-4 py-2 rounded-full bg-neutral-100 text-neutral-700 text-sm font-medium">
               视觉创作
             </span>
-            <span class="px-3 py-1.5 rounded-md bg-neutral-100 text-neutral-700 text-xs font-medium">
+            <span class="px-4 py-2 rounded-full bg-indigo-50 text-indigo-700 text-sm font-medium">
               智能对话
             </span>
-            <span class="px-3 py-1.5 rounded-md bg-neutral-100 text-neutral-700 text-xs font-medium">
+            <span class="px-4 py-2 rounded-full bg-neutral-100 text-neutral-700 text-sm font-medium">
               知识管理
             </span>
-            <span class="px-3 py-1.5 rounded-md bg-neutral-100 text-neutral-700 text-xs font-medium">
+            <span class="px-4 py-2 rounded-full bg-neutral-100 text-neutral-700 text-sm font-medium">
               企业定制
             </span>
           </div>

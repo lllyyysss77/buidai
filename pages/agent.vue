@@ -486,14 +486,14 @@
                 <!-- 二维码按钮区 -->
                 <div class="flex flex-row gap-3 pt-2">
                   <button
-                    class="flex-1 px-4 py-2.5 rounded-full bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 active:scale-95 transition-all flex items-center justify-center gap-2 touch-manipulation"
+                    class="flex-1 px-4 py-2.5 rounded-lg bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 active:scale-95 transition-all flex items-center justify-center gap-2 touch-manipulation"
                     @click="openQrModal('coupon')"
                   >
                     <TicketIcon class="w-4 h-4" />
                     获取优惠码
                   </button>
                   <button
-                    class="flex-1 px-4 py-2.5 rounded-full bg-white border border-neutral-200 text-neutral-900 text-sm font-medium hover:bg-neutral-50 active:scale-95 transition-all shadow-sm flex items-center justify-center gap-2 touch-manipulation"
+                    class="flex-1 px-4 py-2.5 rounded-lg bg-white border border-neutral-200 text-neutral-900 text-sm font-medium hover:bg-neutral-50 active:scale-95 transition-all shadow-sm flex items-center justify-center gap-2 touch-manipulation"
                     @click="openQrModal('wechat')"
                   >
                     <ChatBubbleLeftRightIcon class="w-4 h-4" />

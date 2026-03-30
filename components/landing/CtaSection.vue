@@ -18,7 +18,7 @@
       <a
         target="_blank"
         rel="noopener noreferrer"
-        href="https://github.com/BidingCC/BuildingAI"
+        href="https://github.comI"
         class="flex h-9 w-27 items-center justify-center rounded-sm bg-white/20 text-xs text-white backdrop-blur-[6px] transition-all duration-300 hover:bg-white/30 sm:h-12 sm:w-36 sm:text-base"
       >
         GitHub
@@ -27,7 +27,7 @@
       <a
         target="_blank"
         rel="noopener noreferrer"
-        href="https://gitee.com/BidingCC/BuildingAI"
+        href="https://gitee.com/"
         class="flex h-9 w-27 items-center justify-center rounded-sm bg-white/20 text-xs text-white backdrop-blur-[6px] transition-all duration-300 hover:bg-white/30 sm:h-12 sm:w-36 sm:text-base"
       >
         Gitee
@@ -36,7 +36,7 @@
       <a
         target="_blank"
         rel="noopener noreferrer"
-        href="https://doc.buildingai.cc/"
+        href="https://doc.buidai.com/"
         class="flex h-9 w-27 items-center justify-center rounded-sm bg-white text-xs text-neutral-900 transition-all duration-300 hover:bg-white/90 sm:h-12 sm:w-36 sm:text-base"
       >
         开发文档

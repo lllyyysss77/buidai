@@ -22,7 +22,7 @@
           >
             智言AI 智言万象
             <span
-              class="border-b-[3px] border-dotted border-primary-500 text-primary-600"
+              class="border-b-[3px] border-dotted border-indigo-500 text-indigo-600"
             >
              你的私有AI应用系统
             </span>
@@ -46,40 +46,44 @@
       >
         <!-- 4列网格布局 -->
         <div
-          class="grid grid-cols-2 gap-1 bg-white sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+          class="grid grid-cols-1 gap-2 bg-white sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         >
           <div
             v-for="(item, index) in displayedItems"
             :key="index"
-            class="group flex flex-col gap-2 rounded-lg border border-neutral-200 bg-white p-4 transition-all duration-300 ease-out hover:border-neutral-300"
+            class="group flex flex-col gap-4 rounded-xl border border-neutral-200/80 bg-white p-5 transition-all duration-300 ease-out hover:border-indigo-200 hover:shadow-sm hover:bg-indigo-50/30"
           >
-            <!-- 头部：图标 + 标题 并排显示 -->
-            <div class="flex items-center gap-2">
-              <component :is="item.icon" class="h-4 w-4 shrink-0 text-primary-600" />
-              <div class="flex items-center gap-1.5 min-w-0">
-                <h3 class="text-sm font-semibold text-neutral-900 truncate">
-                  {{ item.title }}
-                </h3>
-                <span
-                  class="text-lg leading-none shrink-0"
-                  :class="getStatusColor(item.status)"
-                >
-                  ·
-                </span>
+            <!-- 头部：图标 + 标题 -->
+            <div class="flex items-start gap-3">
+              <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-indigo-50 border border-indigo-100">
+                <component :is="item.icon" class="h-5 w-5 text-indigo-600" stroke-width="1.5" />
+              </div>
+              <div class="flex-1 min-w-0 pt-1">
+                <div class="flex items-center gap-2">
+                  <h3 class="text-base font-bold text-neutral-900 tracking-tight">
+                    {{ item.title }}
+                  </h3>
+                  <span
+                    class="text-xl leading-none shrink-0"
+                    :class="getStatusColor(item.status)"
+                  >
+                    ·
+                  </span>
+                </div>
               </div>
             </div>
 
             <!-- 描述 -->
-            <p class="text-xs leading-relaxed text-neutral-500 line-clamp-2">
+            <p class="text-sm leading-6 text-neutral-600 line-clamp-2">
               {{ item.desc }}
             </p>
 
             <!-- 底部标签 -->
-            <div class="mt-auto flex flex-wrap gap-1 pt-1">
+            <div class="mt-auto flex flex-wrap gap-2 pt-2">
               <span
                 v-for="(tag, tagIndex) in item.tags"
                 :key="tagIndex"
-                class="rounded bg-white border border-neutral-200 px-1.5 py-0.5 text-[10px] text-neutral-600"
+                class="rounded-full bg-neutral-100 px-2.5 py-1 text-xs font-medium text-neutral-600"
               >
                 {{ tag }}
               </span>
@@ -99,7 +103,7 @@
         <div class="text-center">
           <button
             type="button"
-            class="group inline-flex h-10 items-center gap-2 rounded-lg border border-neutral-200 bg-white px-5 text-sm font-medium text-neutral-900 transition-all duration-300 hover:border-primary-400 hover:bg-primary-50 hover:text-primary-600"
+            class="group inline-flex h-10 items-center gap-2 rounded-lg border border-neutral-200 bg-white px-5 text-sm font-medium text-neutral-900 transition-all duration-300 hover:border-indigo-400 hover:bg-indigo-50 hover:text-indigo-600"
             @click="toggleExpand"
           >
             <span>{{ isExpanded ? '收起' : '查看更多' }}</span>

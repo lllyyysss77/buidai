@@ -26,9 +26,20 @@ const handleCTAClick = () => {
 </script>
 
 <template>
-  <section class="py-24 bg-[#F9FAFB] relative overflow-hidden flex flex-col items-center justify-center min-h-[500px]">
+  <section class="py-24 relative overflow-hidden flex flex-col items-center justify-center min-h-[500px]">
+    <!-- 背景图片 -->
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="/images/Modelbackground.png" 
+        alt="" 
+        class="w-full h-full object-cover object-center blur-[2px] scale-100"
+      />
+      <!-- 叠加一层白色遮罩，确保内容可读性 -->
+      <div class="absolute inset-0 bg-white/80"></div>
+    </div>
+    
     <!-- 浮动图标背景 -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none z-10">
       <!-- 顶部左侧 -->
       <div class="absolute top-[15%] left-[15%] w-12 h-12 rounded-full bg-white flex items-center justify-center border border-neutral-200 shadow-sm opacity-60 animate-float-slow text-purple-500">
         <RocketLaunchIcon class="w-6 h-6" />
@@ -57,7 +68,7 @@ const handleCTAClick = () => {
       </div>
     </div>
 
-    <div class="container mx-auto px-4 text-center relative z-10">
+    <div class="container mx-auto px-4 text-center relative z-20">
       <!-- 主要标题 -->
       <h2 class="text-2xl md:text-4xl font-medium text-gray-900 mb-2 tracking-tight">
         智言AI-构建你自己的人工智能应用程序，快速而简单。

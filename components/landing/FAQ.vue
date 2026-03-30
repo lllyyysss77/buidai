@@ -1,10 +1,16 @@
 <template>
   <section
-    class="line-y section-padding bg-white"
+    class="line-y section-padding bg-white relative py-12"
     style="--grid-line-color: color-mix(in oklab, var(--color-gray-950, #0a0a0a) 5%, transparent);"
   >
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_2fr]">
+    <!-- 顶部贯穿横线 -->
+    <div class="absolute top-0 left-0 right-0 h-px bg-(--grid-line-color)"></div>
+
+    <!-- 底部贯穿横线 -->
+    <div class="absolute bottom-0 left-0 right-0 h-px bg-(--grid-line-color)"></div>
+
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
         <!-- 左侧：标题区 -->
         <div class="lg:border-r lg:border-(--grid-line-color)">
           <div class="grid grid-cols-1 gap-y-4 px-4 py-4 max-lg:line-b sm:px-6 lg:line-b/half">
@@ -25,7 +31,7 @@
               <p class="text-base text-gray-500 mb-4 font-medium">还有其他问题？</p>
               <div class="flex flex-wrap gap-3">
                 <button
-                  class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 text-white text-base font-semibold hover:bg-indigo-700 transition-all duration-300 hover:-translate-y-0.5 shadow-lg shadow-indigo-200"
+                  class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 text-white text-base font-medium hover:bg-indigo-700 transition-all duration-300 hover:-translate-y-0.5"
                   @click="openQrModal('community')"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
@@ -45,9 +51,9 @@
               </div>
             </div>
           </div>
-        </div>
+      </div>
 
-        <!-- 右侧：FAQ 列表 -->
+      <!-- 右侧：FAQ 列表 -->
         <div class="lg:border-l lg:border-(--grid-line-color)">
           <div class="grid grid-cols-1 gap-12">
             <!-- FAQ 分类组 -->
@@ -68,7 +74,7 @@
                   <summary
                     class="flex w-full cursor-pointer items-center justify-between gap-4 select-none [&::-webkit-details-marker]:hidden"
                   >
-                    <div class="text-left text-lg font-semibold text-pretty text-gray-800 group-open:text-indigo-600 transition-colors duration-200">
+                    <div class="text-left text-lg font-medium text-pretty text-gray-800 group-open:text-indigo-600 transition-colors duration-200">
                       {{ faq.question }}
                     </div>
                     <!-- Plus 图标（收起状态） -->
@@ -101,9 +107,9 @@
               </dl>
             </div>
           </div>
-        </div>
       </div>
     </div>
+  </div>
   </section>
 </template>
 

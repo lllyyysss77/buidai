@@ -425,7 +425,7 @@
                 获取优惠码
               </button>
               <button 
-                class="group px-5 py-2.5 rounded-full border border-neutral-900 bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 transition-all duration-200 flex items-center gap-2"
+                class="group px-5 py-2.5 rounded-full border border-indigo-600 bg-indigo-600 text-white text-sm font-medium hover:bg-indigo-700 hover:border-indigo-700 transition-all duration-200 flex items-center gap-2"
                 @click="openQrModal('wechat')"
               >
                 <ChatBubbleLeftRightIcon class="w-4 h-4" />
@@ -443,13 +443,13 @@
                 :key="index"
                 class="w-full text-left px-4 py-3.5 rounded-xl border transition-all duration-200 flex items-center gap-3 group"
                 :class="activeFaq === index
-                  ? 'bg-neutral-900 border-neutral-900 text-white'
-                  : 'bg-white border-neutral-200 text-neutral-600 hover:border-neutral-300 hover:bg-neutral-50'"
+                  ? 'bg-indigo-600 border-indigo-600 text-white'
+                  : 'bg-white border-neutral-200 text-neutral-600 hover:border-indigo-300 hover:bg-indigo-50'"
                 @mouseenter="activeFaq = index"
               >
                 <span
                   class="text-xs font-medium tracking-[0.15em] shrink-0"
-                  :class="activeFaq === index ? 'text-white/70' : 'text-neutral-300'"
+                  :class="activeFaq === index ? 'text-white/70' : 'text-indigo-300'"
                 >
                   {{ String(index + 1).padStart(2, '0') }}
                 </span>
@@ -462,17 +462,17 @@
             <div class="bg-white border border-neutral-200 rounded-xl p-6 md:p-8 h-full">
               <div class="animate-fade-in h-full flex flex-col">
                 <div class="flex items-start justify-between gap-4 mb-4">
-                  <span class="text-xs font-medium tracking-[0.15em] text-neutral-300 uppercase">
+                  <span class="text-xs font-medium tracking-[0.15em] text-indigo-300 uppercase">
                     {{ String(activeFaq + 1).padStart(2, '0') }}
                   </span>
-                  <div class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center shrink-0">
-                    <span class="text-sm font-semibold text-neutral-400">{{ String(activeFaq + 1).padStart(2, '0') }}</span>
+                  <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center shrink-0">
+                    <span class="text-sm font-semibold text-indigo-600">{{ String(activeFaq + 1).padStart(2, '0') }}</span>
                   </div>
                 </div>
                 <h3 class="text-2xl md:text-3xl font-medium text-neutral-900 leading-snug mb-4">
                   {{ faqs[activeFaq]?.question }}
                 </h3>
-                <div class="w-10 h-[2px] bg-neutral-200 mb-6" />
+                <div class="w-10 h-[2px] bg-indigo-200 mb-6" />
                 <p class="text-lg text-neutral-500 leading-relaxed">
                   {{ faqs[activeFaq]?.answer }}
                 </p>

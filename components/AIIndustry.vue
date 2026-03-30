@@ -3,7 +3,7 @@
     <!-- 顶部边框行 - 带斜线网格效果 -->
     <div class="p-1">
       <div
-        class="w-full min-h-4 rounded-lg border border-neutral-200/70 bg-white"
+        class="w-full min-h-8 rounded-lg border border-neutral-200/70 bg-white"
         style="
           --grid-line-color: color-mix(in oklab, #0a0a0a 5%, transparent);
           background-image: repeating-linear-gradient(315deg, var(--grid-line-color) 0, var(--grid-line-color) 1px, transparent 0, transparent 50%);
@@ -229,7 +229,7 @@
     <!-- 底部边框行 - 带斜线网格效果 -->
     <div class="p-1 pt-1">
       <div
-        class="w-full min-h-4 rounded-lg border border-neutral-200/70 bg-white"
+        class="w-full min-h-8 rounded-lg border border-neutral-200/70 bg-white"
         style="
           --grid-line-color: color-mix(in oklab, #0a0a0a 5%, transparent);
           background-image: repeating-linear-gradient(315deg, var(--grid-line-color) 0, var(--grid-line-color) 1px, transparent 0, transparent 50%);

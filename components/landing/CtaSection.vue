@@ -18,10 +18,10 @@
       <a
         target="_blank"
         rel="noopener noreferrer"
-        href="https://github.comI"
+        href="https://gmlart.cn"
         class="flex h-9 w-27 items-center justify-center rounded-sm bg-white/20 text-xs text-white backdrop-blur-[6px] transition-all duration-300 hover:bg-white/30 sm:h-12 sm:w-36 sm:text-base"
       >
-        GitHub
+        智言AI
       </a>
       <!-- Gitee 按钮 -->
       <a
@@ -30,7 +30,7 @@
         href="https://gitee.com/"
         class="flex h-9 w-27 items-center justify-center rounded-sm bg-white/20 text-xs text-white backdrop-blur-[6px] transition-all duration-300 hover:bg-white/30 sm:h-12 sm:w-36 sm:text-base"
       >
-        Gitee
+        私有部署
       </a>
       <!-- 开发文档 按钮 -->
       <a

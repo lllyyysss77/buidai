@@ -104,42 +104,42 @@
         <!-- 编程工具展示区域 - 12个国内外热门工具 -->
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           <!-- Trae -->
-          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow">
+          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200">
             <div class="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center">
               <SparklesIcon class="w-5 h-5 text-emerald-600"/>
             </div>
             <span class="text-sm font-semibold text-neutral-800">Trae</span>
           </div>
           <!-- Claude Code -->
-          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow">
+          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200">
             <div class="w-10 h-10 rounded-lg bg-orange-100 flex items-center justify-center">
               <Sun class="w-5 h-5 text-orange-600"/>
             </div>
             <span class="text-sm font-semibold text-neutral-800">Claude Code</span>
           </div>
           <!-- Codex -->
-          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow">
+          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200">
             <div class="w-10 h-10 rounded-lg bg-violet-100 flex items-center justify-center">
               <Code2 class="w-5 h-5 text-violet-600"/>
             </div>
             <span class="text-sm font-semibold text-neutral-800">Codex</span>
           </div>
           <!-- Cursor -->
-          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow">
+          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200">
             <div class="w-10 h-10 rounded-lg bg-neutral-900 flex items-center justify-center">
               <Square class="w-5 h-5 text-white"/>
             </div>
             <span class="text-sm font-semibold text-neutral-800">Cursor</span>
           </div>
           <!-- Windsurf -->
-          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow">
+          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200">
             <div class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
               <Waves class="w-5 h-5 text-blue-600"/>
             </div>
             <span class="text-sm font-semibold text-neutral-800">Windsurf</span>
           </div>
           <!-- GitHub Copilot -->
-          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow">
+          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200">
             <div class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center">
               <svg class="w-5 h-5 text-gray-800" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
@@ -148,42 +148,42 @@
             <span class="text-sm font-semibold text-neutral-800">GitHub Copilot</span>
           </div>
           <!-- 通义灵码 -->
-          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow">
+          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200">
             <div class="w-10 h-10 rounded-lg bg-cyan-100 flex items-center justify-center">
               <Cloud class="w-5 h-5 text-cyan-600"/>
             </div>
             <span class="text-sm font-semibold text-neutral-800">通义灵码</span>
           </div>
           <!-- 文心快码 -->
-          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow">
+          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200">
             <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center">
               <Zap class="w-5 h-5 text-indigo-600"/>
             </div>
             <span class="text-sm font-semibold text-neutral-800">文心快码</span>
           </div>
           <!-- 智谱CodeGeeX -->
-          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow">
+          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200">
             <div class="w-10 h-10 rounded-lg bg-rose-100 flex items-center justify-center">
               <Brain class="w-5 h-5 text-rose-600"/>
             </div>
             <span class="text-sm font-semibold text-neutral-800">智谱CodeGeeX</span>
           </div>
           <!-- Amazon CodeWhisperer -->
-          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow">
+          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200">
             <div class="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center">
               <CloudLightning class="w-5 h-5 text-amber-600"/>
             </div>
             <span class="text-sm font-semibold text-neutral-800">CodeWhisperer</span>
           </div>
           <!-- JetBrains AI -->
-          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow">
+          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200">
             <div class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center">
               <Boxes class="w-5 h-5 text-purple-600"/>
             </div>
             <span class="text-sm font-semibold text-neutral-800">JetBrains AI</span>
           </div>
           <!-- Tabnine -->
-          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow">
+          <div class="flex items-center gap-3 px-5 py-4 bg-white rounded-xl border border-neutral-200">
             <div class="w-10 h-10 rounded-lg bg-teal-100 flex items-center justify-center">
               <Binary class="w-5 h-5 text-teal-600"/>
             </div>
@@ -225,84 +225,138 @@
     <!-- 内置大模型展示 -->
     <LLMModels />
 
-    <!-- 功能部分: AI赋能企业通用场景 -->
+    <!-- 功能部分: AI赋能企业通用场景 - 简洁层叠样式 -->
     <section class="py-12 lg:py-20 bg-neutral-50/50">
       <div class="container mx-auto px-4">
-        <h2 class="text-2xl md:text-4xl font-bold text-center mb-10 md:mb-12 text-[#0F0F12]" data-aos="fade-up">AI 赋能企业通用场景</h2>
+        <!-- 标题区域 - 增加描述文案 -->
+        <div class="text-center mb-10 md:mb-14" data-aos="fade-up">
+          <!-- 标签徽章 -->
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-xs font-medium mb-4">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+              <line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+            解决方案
+          </span>
+          
+          <h2 class="text-2xl md:text-4xl lg:text-5xl font-bold text-[#0F0F12] mb-4 tracking-tight">
+            AI 赋能企业<span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-600">通用场景</span>
+          </h2>
+          
+          <!-- 描述文案 -->
+          <p class="text-neutral-500 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+            基于智言AI强大的工作流引擎与多模型集成能力，为企业打造智能化转型全栈解决方案。
+            覆盖内容创作、客户服务、数字营销等核心场景，助力企业降本增效，开启AI驱动新增长。
+          </p>
+          
+          <!-- 关键数据指标 -->
+          <div class="flex flex-wrap items-center justify-center gap-6 md:gap-10 mt-8">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center">
+                <span class="text-indigo-600 font-bold text-sm">9+</span>
+              </div>
+              <span class="text-neutral-600 text-sm">应用场景</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center">
+                <span class="text-blue-600 font-bold text-sm">50+</span>
+              </div>
+              <span class="text-neutral-600 text-sm">行业模板</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-lg bg-purple-50 flex items-center justify-center">
+                <span class="text-purple-600 font-bold text-sm">24h</span>
+              </div>
+              <span class="text-neutral-600 text-sm">快速部署</span>
+            </div>
+          </div>
+        </div>
 
         <div class="scenario-stack">
           <div
             v-for="(scenario, idx) in scenarios"
             :key="idx"
             class="scenario-card"
+            :data-index="scenario.index"
             :style="{
               '--card-index': idx,
               '--card-top': '100px',
               zIndex: idx + 1
             }"
           >
-            <!-- 渐变背景层 -->
-            <div class="absolute inset-0 pointer-events-none opacity-80" :class="scenario.cardGradientClass"/>
+            <!-- 序号 - 简洁样式，位于左上角 -->
+            <div class="scenario-number">{{ scenario.index }}</div>
             
             <!-- 内容容器 -->
-            <div class="relative z-10 p-8 md:p-12 lg:p-16">
+            <div class="relative z-10 pt-8 pb-8 px-6 md:pt-10 md:pb-10 md:px-8 lg:pt-12 lg:pb-12 lg:px-10">
 
-            <div
-              class="flex flex-col lg:flex-row gap-10 lg:gap-20 items-center justify-between relative z-10"
-              :class="idx % 2 === 1 ? 'lg:flex-row-reverse' : ''"
-            >
-              <!-- 左侧内容 -->
-              <div class="w-full lg:w-5/12 flex flex-col gap-8">
-                <!-- 图标与标题 -->
-                <div class="flex items-center gap-5">
-                   <div class="w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center" :class="scenario.iconBg">
-                     <component :is="scenario.icon" class="w-7 h-7 md:w-9 md:h-9" />
-                   </div>
-                   <h3 class="text-2xl md:text-3xl font-bold text-neutral-900">{{ scenario.title }}</h3>
+              <div
+                class="flex flex-col lg:flex-row gap-8 lg:gap-16 items-stretch relative z-10"
+                :class="idx % 2 === 1 ? 'lg:flex-row-reverse' : ''"
+              >
+                <!-- 左侧内容区 - 卡片式布局 -->
+                <div class="w-full lg:w-2/5 flex flex-col">
+                  <!-- 主内容卡片 -->
+                  <div class="flex-1 bg-gray-50 rounded-xl border border-gray-100 p-6 md:p-8 flex flex-col">
+                    <!-- 图标与标题 -->
+                    <div class="flex items-center gap-4 mb-6">
+                      <div class="w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center shrink-0 bg-gray-100" :class="scenario.iconBg">
+                        <component :is="scenario.icon" class="w-5 h-5 md:w-6 md:h-6" />
+                      </div>
+                      <h3 class="text-lg md:text-xl font-bold text-gray-900 leading-tight">{{ scenario.title }}</h3>
+                    </div>
+
+                    <!-- 分隔线 -->
+                    <div class="w-full h-px bg-gray-200 mb-6"></div>
+
+                    <!-- 列表 -->
+                    <ul class="space-y-3 flex-1">
+                      <li v-for="(item, i) in scenario.items" :key="i" class="flex items-start gap-3 text-gray-600 text-sm md:text-base leading-relaxed">
+                        <CheckCircleIcon class="w-5 h-5 text-gray-400 shrink-0 mt-0.5" />
+                        <span>{{ item }}</span>
+                      </li>
+                    </ul>
+
+                    <!-- 按钮区 -->
+                    <div class="mt-6 pt-5 border-t border-gray-200">
+                      <a
+                        href="https://www.gmlart.cn/"
+                        target="_blank"
+                        class="group/btn inline-flex items-center gap-2 px-5 py-2 rounded-md bg-gray-900 text-white text-sm font-medium hover:bg-gray-800 active:scale-[0.98] transition-all duration-200"
+                      >
+                        立即体验
+                        <ArrowRightIcon class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-200" />
+                      </a>
+                    </div>
+                  </div>
                 </div>
 
-                <!-- 列表 -->
-                <ul class="space-y-4">
-                  <li v-for="(item, i) in scenario.items" :key="i" class="flex items-start gap-3 text-neutral-600 text-base md:text-lg leading-relaxed">
-                    <CheckCircleIcon class="w-6 h-6 text-ui-primary shrink-0 mt-0.5" />
-                    <span>{{ item }}</span>
-                  </li>
-                </ul>
-
-                <!-- 按钮与序号 -->
-                <div class="flex items-center justify-between mt-6 pt-6 border-t border-[rgba(68,83,130,0.15)]">
-                  <a
-                    href="https://www.gmlart.cn/"
-                    target="_blank"
-                    class="group/btn px-8 py-3 rounded-xl bg-neutral-900 text-white text-sm font-semibold hover:bg-neutral-800 active:scale-[0.98] transition-all duration-200 flex items-center gap-2"
-                  >
-                    立即体验
-                    <ArrowRightIcon class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-200" />
-                  </a>
-                  <span class="text-6xl font-black text-neutral-100 select-none tracking-tighter">{{ scenario.index }}</span>
-                </div>
-              </div>
-
-              <!-- 右侧图像 -->
-              <div class="w-full lg:w-7/12">
-                <div class="relative h-[280px] sm:h-[340px] md:h-[420px]">
-                  <div class="absolute inset-0 w-full h-full overflow-hidden rounded-3xl bg-white">
-                    <img
-                      :src="scenario.image"
-                      :alt="scenario.title"
-                      loading="lazy"
-                      decoding="async"
-                      class="w-full h-full object-contain"
-                    />
+                <!-- 右侧图像区 - 简洁设计 -->
+                <div class="w-full lg:w-3/5">
+                  <div class="relative w-full h-full min-h-[280px] lg:min-h-0">
+                    <!-- 主图容器 -->
+                    <div class="relative w-full h-full aspect-video lg:aspect-auto lg:h-full">
+                      <div class="absolute inset-0 w-full h-full overflow-hidden rounded-2xl bg-white border border-gray-200 p-3 md:p-5">
+                        <img
+                          :src="scenario.image"
+                          :alt="scenario.title"
+                          loading="lazy"
+                          decoding="async"
+                          class="w-full h-full object-contain rounded-lg"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-              </div>
           </div>
         </div>
       </div>
     </section>
+    <!-- 功能部分: AI赋能企业通用场景 -->
+    
 
    <!-- 为什么选择我们 -->
     <section class="py-16 md:py-24 bg-neutral-50/50 relative overflow-hidden">
@@ -597,7 +651,7 @@ onBeforeUnmount(() => {
 
 // 类型定义
 interface Feature { title: string; desc: string; icon: Component; image: string }
-interface Scenario { title: string; items: string[]; icon: Component; iconBg: string; cardGradientClass: string; image: string; index: string }
+interface Scenario { title: string; items: string[]; icon: Component; iconBg: string; cardGradientClass: string; headerColor: string; image: string; index: string }
 interface Advantage { title: string; description: string; icon: string; class?: string; variant?: 'solid' | 'outline' | 'soft'; orientation?: 'horizontal' | 'vertical'; reverse?: boolean; image?: { path: string; width: number; height: number } }
 
 // SEO 元数据配置
@@ -719,8 +773,9 @@ const scenarios: Scenario[] = [
       '预置多个模板开箱即用，后台可自由配置提示词和参考图'
     ],
     icon: ChatBubbleLeftRightIcon,
-    iconBg: 'bg-primary-50 text-primary-600',
+    iconBg: 'bg-blue-50 text-blue-600',
     cardGradientClass: 'bg-linear-to-br from-sky-50 to-white',
+    headerColor: 'linear-gradient(90deg, #3B82F6 0%, #60A5FA 100%)',
     image: '/plugin/Nanobanana.png',
     index: '01'
   },
@@ -732,8 +787,9 @@ const scenarios: Scenario[] = [
       '可视化工作流编排，降低使用门槛，提高开发效率'
     ],
     icon: UserGroupIcon,
-    iconBg: 'bg-blue-50 text-blue-600',
+    iconBg: 'bg-indigo-50 text-indigo-600',
     cardGradientClass: 'bg-linear-to-br from-indigo-50 to-white',
+    headerColor: 'linear-gradient(90deg, #6366F1 0%, #818CF8 100%)',
     image: '/product/model-1.png',
     index: '02'
   },
@@ -745,8 +801,9 @@ const scenarios: Scenario[] = [
       '支持多渠道接入，如网站、微信、APP 等，提供 7×24 小时智能客服服务'
     ],
     icon: BookOpenIcon,
-    iconBg: 'bg-indigo-50 text-indigo-600',
+    iconBg: 'bg-emerald-50 text-emerald-600',
     cardGradientClass: 'bg-linear-to-br from-emerald-50 to-white',
+    headerColor: 'linear-gradient(90deg, #10B981 0%, #34D399 100%)',
     image: '/plugin/writing-assist.png',
     index: '03'
   },
@@ -760,6 +817,7 @@ const scenarios: Scenario[] = [
     icon: SparklesIcon,
     iconBg: 'bg-purple-50 text-purple-600',
     cardGradientClass: 'bg-linear-to-br from-fuchsia-50 to-white',
+    headerColor: 'linear-gradient(90deg, #8B5CF6 0%, #A78BFA 100%)',
     image: '/plugin/wanxiang.png',
     index: '04'
   },
@@ -771,8 +829,9 @@ const scenarios: Scenario[] = [
       '用于直播带货、企业代言、教育培训等场景，打造逼真数字形象'
     ],
     icon: UserGroupIcon,
-    iconBg: 'bg-pink-50 text-pink-600',
+    iconBg: 'bg-rose-50 text-rose-600',
     cardGradientClass: 'bg-linear-to-br from-rose-50 to-white',
+    headerColor: 'linear-gradient(90deg, #F43F5E 0%, #FB7185 100%)',
     image: '/product/human-1.png',
     index: '05'
   },
@@ -784,8 +843,9 @@ const scenarios: Scenario[] = [
       '提供海量模板与素材库，轻松制作门店营销、产品带货等专业级视频内容'
     ],
     icon: SparklesIcon,
-    iconBg: 'bg-orange-50 text-orange-600',
+    iconBg: 'bg-amber-50 text-amber-600',
     cardGradientClass: 'bg-linear-to-br from-amber-50 to-white',
+    headerColor: 'linear-gradient(90deg, #F59E0B 0%, #FBBF24 100%)',
     image: '/product/videoclip-1.png',
     index: '06'
   },
@@ -797,8 +857,9 @@ const scenarios: Scenario[] = [
       '深度解析简历亮点并提供优化建议，显著提升简历质量与影响力'
     ],
     icon: DocumentTextIcon,
-    iconBg: 'bg-green-50 text-green-600',
+    iconBg: 'bg-teal-50 text-teal-600',
     cardGradientClass: 'bg-linear-to-br from-teal-50 to-white',
+    headerColor: 'linear-gradient(90deg, #14B8A6 0%, #2DD4BF 100%)',
     image: '/product/resume-1.png',
     index: '07'
   },
@@ -812,6 +873,7 @@ const scenarios: Scenario[] = [
     icon: CommandLineIcon,
     iconBg: 'bg-cyan-50 text-cyan-600',
     cardGradientClass: 'bg-linear-to-br from-cyan-50 to-white',
+    headerColor: 'linear-gradient(90deg, #06B6D4 0%, #22D3EE 100%)',
     image: '/plugin/aippt.png',
     index: '08'
   },
@@ -824,6 +886,7 @@ const scenarios: Scenario[] = [
     icon: SparklesIcon,
     iconBg: 'bg-violet-50 text-violet-600',
     cardGradientClass: 'bg-linear-to-br from-violet-50 to-white',
+    headerColor: 'linear-gradient(90deg, #7C3AED 0%, #A78BFA 100%)',
     image: '/plugin/AI音乐.png',
     index: '09'
   }
@@ -1031,8 +1094,7 @@ html {
 
 <style scoped>
 /* ========================================
-   场景卡片 - 无缝层叠覆盖效果
-   设计模式：Sticky 堆叠 + 全尺寸覆盖
+   场景卡片 - 简洁层叠覆盖效果
    ======================================== */
 
 /* 层叠容器 */
@@ -1042,27 +1104,46 @@ html {
   position: relative;
 }
 
-/* 卡片基础样式 - 无缩放、无缝隙覆盖 */
+/* 卡片基础样式 - 简洁企业风格 */
 .scenario-card {
   position: sticky;
   top: var(--card-top);
-  
-  /* 尺寸：全宽一致，无缩放 */
+
+  /* 尺寸：全宽 */
   width: 100%;
-  min-height: calc(100vh - var(--card-top) - 40px);
-  
-  /* 清除间距 */
-  margin: 0;
-  
-  /* 外观：纯白背景 + 细边框 */
-  background: #ffffff;
-  border-radius: 24px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  min-height: auto;
+  margin-bottom: 32px;
+
+  /* 外观：纯白背景 + 淡灰边框 */
+  background: #FFFFFF;
+  border-radius: 12px;
+  border: 1px solid #E5E7EB;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* 序号样式 - 简洁圆圈 */
+.scenario-number {
+  position: absolute;
+  left: 24px;
+  top: 24px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #9CA3AF;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'SF Mono', Monaco, monospace;
+  border: 1px solid #E5E7EB;
+  border-radius: 50%;
+  z-index: 20;
 }
 
 /* 最后一个卡片底部留白更小 */
 .scenario-card:last-child {
-  min-height: auto;
   margin-bottom: 0;
 }
 
@@ -1072,7 +1153,16 @@ html {
 @media (min-width: 768px) and (max-width: 1023px) {
   .scenario-card {
     top: calc(var(--card-top) * 0.7);
-    border-radius: 20px;
+    border-radius: 10px;
+    border-color: #E5E7EB;
+  }
+
+  .scenario-number {
+    left: 20px;
+    top: 20px;
+    width: 28px;
+    height: 28px;
+    font-size: 11px;
   }
 }
 
@@ -1082,13 +1172,23 @@ html {
    ======================================== */
 @media (max-width: 767px) {
   .scenario-stack {
-    gap: 16px;
+    gap: 20px;
   }
-  
+
   .scenario-card {
     position: relative;
     top: auto;
-    border-radius: 16px;
+    border-radius: 10px;
+    margin-bottom: 0;
+    border-color: #E5E7EB;
+  }
+
+  .scenario-number {
+    left: 16px;
+    top: 16px;
+    width: 26px;
+    height: 26px;
+    font-size: 10px;
   }
 }
 

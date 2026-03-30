@@ -1,12 +1,24 @@
 <template>
   <!-- AI应用系统展示组件 -->
-  <section class="bg-white">
+  <section class="bg-white relative overflow-hidden">
+    <!-- 左侧网格装饰线 -->
+    <div class="absolute left-0 top-0 bottom-0 w-10 pointer-events-none hidden lg:block"
+         style="--grid-line-color: color-mix(in oklab, #030712 5%, transparent);
+                background-image: repeating-linear-gradient(315deg, var(--grid-line-color) 0, var(--grid-line-color) 1px, transparent 0, transparent 50%);
+                background-size: 10px 10px;
+                background-attachment: fixed;"/>
+    <!-- 右侧网格装饰线 -->
+    <div class="absolute right-0 top-0 bottom-0 w-10 pointer-events-none hidden lg:block"
+         style="--grid-line-color: color-mix(in oklab, #030712 5%, transparent);
+                background-image: repeating-linear-gradient(315deg, var(--grid-line-color) 0, var(--grid-line-color) 1px, transparent 0, transparent 50%);
+                background-size: 10px 10px;
+                background-attachment: fixed;"/>
     <!-- 主内容区域 -->
-    <div class="container mx-auto px-4 py-16 md:py-20">
+    <div class="container mx-auto px-4 py-16 md:py-20 relative z-10">
       <!-- 标题 -->
       <div class="mb-10">
         <h2 class="text-2xl font-bold text-neutral-900 md:text-3xl">
-          使用智言AI可以<span class="text-[#6E58FF]">积木式轻松搭建</span>如下AI应用系统
+          使用智言AI可以<span class="text-indigo-600">积木式轻松搭建</span>如下AI应用系统
         </h2>
         <p class="mt-3 text-neutral-500">智言AI同样致力于在AI时代打造备受青睐的、可快速搭建AI应用系统的开源解决方案</p>
       </div>
@@ -14,7 +26,7 @@
       <!-- Bento Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <!-- 左侧展示卡片 -->
-        <div class="md:col-span-2 lg:col-span-2 lg:row-span-3 bg-neutral-50 rounded-xl overflow-hidden flex flex-col">
+        <div class="md:col-span-2 lg:col-span-2 lg:row-span-3 bg-neutral-50 rounded-2xl overflow-hidden flex flex-col shadow-sm border border-neutral-100">
           <!-- 图片区域 -->
           <div class="relative w-full bg-white" style="aspect-ratio: 16/5.5;">
             <img
@@ -36,7 +48,7 @@
           
           <!-- 进度条 -->
           <div class="h-1 bg-neutral-200">
-            <div class="h-full bg-[#6E58FF] transition-all duration-100" :style="{ width: `${progress}%` }"/>
+            <div class="h-full bg-gradient-to-r from-indigo-500 to-indigo-600 transition-all duration-100" :style="{ width: `${progress}%` }"/>
           </div>
         </div>
 
@@ -44,23 +56,25 @@
         <div
           v-for="(system, index) in systemsList"
           :key="system.id"
-          class="px-4 py-5 rounded-xl border cursor-pointer transition-all flex flex-col justify-center"
+          class="px-4 py-5 rounded-xl border cursor-pointer transition-all duration-300 flex flex-col justify-center hover:shadow-sm"
           :class="activeIndex === index 
-            ? 'border-[#6E58FF] bg-[#6E58FF]/5' 
-            : 'border-neutral-200 hover:border-neutral-300'"
+            ? 'border-indigo-500 bg-indigo-50/60 shadow-sm' 
+            : 'border-neutral-200 hover:border-indigo-300 bg-white'"
           @click="selectSystem(index)"
           @mouseenter="pauseAutoPlay"
           @mouseleave="resumeAutoPlay"
         >
           <div class="flex items-start gap-3">
             <div 
-              class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
-              :class="activeIndex === index ? 'bg-[#6E58FF] text-white' : 'bg-neutral-100 text-neutral-500'"
+              class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300"
+              :class="activeIndex === index 
+                ? 'bg-gradient-to-br from-indigo-500 to-indigo-600 text-white shadow-md shadow-indigo-200' 
+                : 'bg-neutral-100 text-neutral-500 group-hover:bg-indigo-100'"
             >
               <component :is="system.icon" class="w-5 h-5"/>
             </div>
             <div class="flex-1 min-w-0">
-              <h4 class="font-semibold text-sm leading-tight" :class="activeIndex === index ? 'text-[#6E58FF]' : 'text-neutral-800'">
+              <h4 class="font-semibold text-sm leading-tight transition-colors duration-300" :class="activeIndex === index ? 'text-indigo-600' : 'text-neutral-800'">
                 {{ system.name }}
               </h4>
               <p class="text-xs text-neutral-500 line-clamp-2 mt-1 leading-relaxed">{{ system.description }}</p>

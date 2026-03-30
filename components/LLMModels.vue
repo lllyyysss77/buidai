@@ -1,65 +1,65 @@
 <template>
-  <section class="py-16 md:py-24 bg-[#f7f7f7]">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="py-16 md:py-24 bg-white">
+    <div class="container mx-auto px-4">
       <!-- 标题区域 - 细边框卡片风格 -->
-      <div class="bg-white rounded-xl border border-gray-200/80 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
+      <div class="bg-white rounded-2xl border border-indigo-100/60 shadow-[0_2px_8px_rgba(99,102,241,0.06)]">
         <div class="py-10 px-6 md:py-12 md:px-10 flex flex-col justify-center gap-3">
-          <h2 class="text-xl sm:text-2xl md:text-3xl font-semibold text-[#0F0F12] tracking-tight">
-            智言AI内置<span class="text-[#6a28f9] border-b-2 border-dotted border-[#6a28f9]/40">全球领先大模型</span>
+          <h2 class="text-xl sm:text-2xl md:text-3xl font-semibold text-slate-900 tracking-tight">
+            智言AI内置<span class="text-indigo-600 border-b-2 border-dotted border-indigo-400/50">全球领先大模型</span>
           </h2>
-          <p class="text-[#5A5E6A] text-sm sm:text-base leading-relaxed max-w-2xl">
-            智言AI内置全球领先大模型， 会在模型发布的第一时间，即刻接入，节约大量开发成本
+          <p class="text-slate-500 text-sm sm:text-base leading-relaxed max-w-2xl">
+            智言AI内置全球领先大模型，会在模型发布的第一时间即刻接入，为您节约大量开发成本
           </p>
         </div>
       </div>
 
       <!-- Logo 展示区 - 细边框分隔 -->
-      <div class="mt-3 bg-white rounded-xl border border-gray-200/80 shadow-[0_1px_3px_rgba(0,0,0,0.04)] overflow-hidden">
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:flex lg:items-center lg:justify-center lg:divide-x lg:divide-gray-100">
+      <div class="mt-4 bg-white rounded-2xl border border-indigo-100/60 shadow-[0_2px_8px_rgba(99,102,241,0.06)] overflow-hidden">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:flex lg:items-center lg:justify-center lg:divide-x lg:divide-indigo-100/50">
           <div
             v-for="(model, index) in topModels"
             :key="model.name"
             class="flex cursor-pointer flex-col items-center justify-center py-5 px-4 transition-all duration-300 group"
             :class="[
-              index < topModels.length - 1 ? 'border-b sm:border-b-0 sm:border-r border-gray-100 last:border-r-0' : '',
+              index < topModels.length - 1 ? 'border-b sm:border-b-0 sm:border-r border-indigo-50 last:border-r-0' : '',
               index === 2 ? 'sm:border-r-0 lg:border-r' : '',
               'lg:border-b-0 lg:flex-1'
             ]"
           >
-            <div class="flex items-center justify-center gap-2 transition-colors duration-300 text-[#5A5E6A] group-hover:text-[#6a28f9]">
+            <div class="flex items-center justify-center gap-2 transition-colors duration-300 text-slate-500 group-hover:text-indigo-600">
               <div v-html="model.icon" class="w-5 h-5" />
               <span class="text-sm font-medium">{{ model.name }}</span>
             </div>
             <!-- 底部装饰线 -->
-            <div class="mt-2 h-[1.5px] w-10 overflow-hidden bg-gray-100 rounded-full lg:w-16">
-              <div class="bg-[#6a28f9] h-full transition-all duration-500 ease-out w-0 group-hover:w-full" />
+            <div class="mt-2 h-[2px] w-10 overflow-hidden bg-indigo-100 rounded-full lg:w-16">
+              <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 h-full transition-all duration-500 ease-out w-0 group-hover:w-full" />
             </div>
           </div>
         </div>
       </div>
 
       <!-- 模型卡片详情区 - 细边框网格 -->
-      <div class="mt-3 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
+      <div class="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         <div
           v-for="card in displayedCards"
           :key="card.name"
-          class="group flex h-auto min-h-[140px] items-start rounded-xl bg-white border border-gray-200/80 hover:border-[#6a28f9]/30 transition-all duration-300 cursor-pointer shadow-[0_1px_2px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_12px_rgba(106,40,249,0.08)]"
+          class="group flex h-auto min-h-[140px] items-start rounded-xl bg-white border border-indigo-100/60 hover:border-indigo-300/60 transition-all duration-300 cursor-pointer shadow-[0_1px_3px_rgba(99,102,241,0.04)] hover:shadow-[0_8px_24px_rgba(99,102,241,0.12)] hover:-translate-y-0.5"
         >
           <div class="flex gap-4 p-5 w-full">
             <!-- 图标容器 - 细边框样式 -->
-            <div class="shrink-0 w-10 h-10 rounded-lg bg-[#f7f7f7] border border-gray-100 flex items-center justify-center text-[#6a28f9] group-hover:border-[#6a28f9]/20 group-hover:bg-[#6a28f9]/5 transition-all duration-300">
+            <div class="shrink-0 w-11 h-11 rounded-xl bg-gradient-to-br from-indigo-50 to-white border border-indigo-100/80 flex items-center justify-center text-indigo-600 group-hover:border-indigo-300/60 group-hover:from-indigo-100/50 group-hover:to-indigo-50/50 transition-all duration-300">
               <div v-html="card.icon" class="w-5 h-5" />
             </div>
             <!-- 内容区域 -->
             <div class="flex-1 min-w-0 space-y-2">
-              <h3 class="text-sm font-semibold text-[#0F0F12] group-hover:text-[#6a28f9] transition-colors duration-300">{{ card.name }}</h3>
-              <p class="text-[#5A5E6A] text-xs leading-relaxed line-clamp-2">{{ card.desc }}</p>
+              <h3 class="text-sm font-semibold text-slate-900 group-hover:text-indigo-600 transition-colors duration-300">{{ card.name }}</h3>
+              <p class="text-slate-500 text-xs leading-relaxed line-clamp-2">{{ card.desc }}</p>
               <!-- 标签组 -->
               <div class="flex flex-wrap gap-1.5 pt-1">
                 <span
                   v-for="tag in card.tags"
                   :key="tag"
-                  class="inline-flex items-center rounded-md border border-gray-200 bg-gray-50/50 px-2 py-0.5 text-[11px] font-medium text-[#5A5E6A] group-hover:border-[#6a28f9]/20 group-hover:text-[#6a28f9]/80 transition-all duration-300"
+                  class="inline-flex items-center rounded-full border border-indigo-100 bg-indigo-50/50 px-2.5 py-0.5 text-[11px] font-medium text-indigo-600/80 group-hover:bg-indigo-100/60 group-hover:border-indigo-200 transition-all duration-300"
                 >
                   {{ tag }}
                 </span>
@@ -71,11 +71,11 @@
         <!-- 更多模型占位卡片 - 仅在展开全部后显示 -->
         <div
           v-if="isExpanded"
-          class="flex h-auto min-h-[140px] items-center justify-center rounded-xl border border-dashed border-gray-200 bg-gray-50/30"
+          class="flex h-auto min-h-[140px] items-center justify-center rounded-xl border border-dashed border-indigo-200 bg-indigo-50/20"
         >
           <div class="flex flex-col items-center gap-3 py-6">
             <!-- 省略号图标 -->
-            <div class="w-10 h-10 rounded-lg border border-gray-200 bg-white flex items-center justify-center text-[#5A5E6A]">
+            <div class="w-11 h-11 rounded-xl border border-indigo-200 bg-white flex items-center justify-center text-indigo-400">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -93,17 +93,17 @@
                 <circle cx="5" cy="12" r="1"></circle>
               </svg>
             </div>
-            <span class="text-xs font-medium text-[#5A5E6A]">更多模型接入中...</span>
+            <span class="text-xs font-medium text-indigo-500/80">更多模型接入中...</span>
           </div>
         </div>
       </div>
 
       <!-- 查看更多按钮 - 细边框风格 -->
-      <div v-if="hasMoreCards" class="mt-3">
-        <div class="bg-white rounded-xl border border-gray-200/80 shadow-[0_1px_3px_rgba(0,0,0,0.04)] py-6 flex items-center justify-center">
+      <div v-if="hasMoreCards" class="mt-4">
+        <div class="bg-white rounded-2xl border border-indigo-100/60 shadow-[0_2px_8px_rgba(99,102,241,0.06)] py-6 flex items-center justify-center">
           <button
             @click="toggleExpand"
-            class="group flex h-10 items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-5 text-sm font-medium transition-all duration-300 hover:border-[#6a28f9]/40 hover:bg-[#6a28f9]/5 text-[#0F0F12] hover:text-[#6a28f9]"
+            class="group flex h-11 items-center justify-center gap-2 rounded-xl border border-indigo-200 bg-white px-6 text-sm font-medium transition-all duration-300 hover:border-indigo-400 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-indigo-100/50 text-slate-700 hover:text-indigo-600"
           >
             <span>{{ isExpanded ? '收起' : '查看更多' }}</span>
             <svg

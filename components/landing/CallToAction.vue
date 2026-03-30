@@ -65,8 +65,8 @@ const handleCTAClick = () => {
 
       <!-- 渐变副标题 -->
       <div class="text-3xl md:text-5xl font-bold mb-6">
-        <span class="text-[#8B5CF6]">In Minutes, Not Months.</span>
-        <span class="text-[#22D3EE] ml-2">Open-Source Powered! ✨</span>
+        <span class="text-indigo-600">In Minutes, Not Months.</span>
+        <span class="text-cyan-400 ml-2">Open-Source Powered! ✨</span>
       </div>
 
       <!-- 描述 -->
@@ -77,7 +77,7 @@ const handleCTAClick = () => {
       <!-- CTA 按钮 -->
       <div class="flex justify-center">
         <button
-          class="px-10 py-3 rounded-full bg-[#8B5CF6] text-white font-medium text-lg hover:bg-[#7C3AED] hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 transform hover:-translate-y-0.5"
+          class="px-10 py-3 rounded-full bg-indigo-600 text-white font-medium text-lg hover:bg-indigo-700 hover:shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 transform hover:-translate-y-0.5"
           @click="handleCTAClick"
         >
           开启私有化部署

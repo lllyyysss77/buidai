@@ -7,34 +7,37 @@
       <div class="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_2fr]">
         <!-- 左侧：标题区 -->
         <div class="lg:border-r lg:border-(--grid-line-color)">
-          <div class="grid grid-cols-1 gap-y-2 px-4 py-2 max-lg:line-b sm:px-2 lg:line-b/half">
-            <!-- 标签 - 使用项目主色 -->
-            <h2 class="font-mono text-sm font-medium tracking-widest text-pretty uppercase text-primary-600">
-              常见问题解答
+          <div class="grid grid-cols-1 gap-y-4 px-4 py-4 max-lg:line-b sm:px-6 lg:line-b/half">
+            <!-- 标签 - 使用靛蓝色 -->
+            <h2 class="font-mono text-sm font-semibold tracking-[0.2em] text-pretty uppercase text-indigo-600">
+              FAQ
             </h2>
             <!-- 主标题 -->
-            <p class="text-[2.25rem] font-medium tracking-tight text-pretty text-gray-900 sm:text-[3rem]/none">
-              你需要知道的一切。
+            <p class="text-[2.5rem] font-semibold tracking-tight text-pretty text-gray-900 sm:text-[3.5rem]/none leading-[1.1]">
+              常见问题解答
+            </p>
+            <p class="text-lg text-gray-500 mt-2 max-w-md">
+              你需要知道的一切，都在这里找到答案。
             </p>
 
             <!-- 二维码弹窗触发按钮区 -->
-            <div class="pt-8">
-              <p class="text-base text-gray-500 mb-4">还有其他问题？</p>
+            <div class="pt-10">
+              <p class="text-base text-gray-500 mb-4 font-medium">还有其他问题？</p>
               <div class="flex flex-wrap gap-3">
                 <button
-                  class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary-600 text-white text-sm font-medium hover:bg-primary-700 transition-all duration-300 hover:-translate-y-0.5"
+                  class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 text-white text-base font-semibold hover:bg-indigo-700 transition-all duration-300 hover:-translate-y-0.5 shadow-lg shadow-indigo-200"
                   @click="openQrModal('community')"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
                     <path d="M10 9a3 3 0 100-6 3 3 0 000 6zM6 8a2 2 0 11-4 0 2 2 0 014 0zM1.49 15.326a.78.78 0 01-.358-.442 3 3 0 014.308-3.516 6.484 6.484 0 00-1.905 3.959c-.023.222-.014.442.025.654a4.97 4.97 0 01-2.07-.655zM15.493 15.329a4.98 4.98 0 01-2.08.662 4.986 4.986 0 00.065-1.5 6.48 6.48 0 00-1.912-3.947 3 3 0 014.3 3.519c-.066.29-.2.555-.373.266zM13.5 8a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
                   </svg>
                   加入社群
                 </button>
                 <button
-                  class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white border border-gray-200 text-gray-700 text-sm font-medium hover:bg-gray-50 hover:border-gray-300 transition-all duration-300 hover:-translate-y-0.5"
+                  class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white border border-gray-200 text-gray-700 text-base font-semibold hover:bg-gray-50 hover:border-indigo-300 hover:text-indigo-600 transition-all duration-300 hover:-translate-y-0.5"
                   @click="openQrModal('contact')"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
                     <path fill-rule="evenodd" d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.223a1.5 1.5 0 01-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 006.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 011.767-1.052l3.223.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.02 13.02 0 012.43 8.326 13.02 13.02 0 012 5V3.5z" clip-rule="evenodd" />
                   </svg>
                   联系我们
@@ -46,26 +49,26 @@
 
         <!-- 右侧：FAQ 列表 -->
         <div class="lg:border-l lg:border-(--grid-line-color)">
-          <div class="grid grid-cols-1 gap-10">
+          <div class="grid grid-cols-1 gap-12">
             <!-- FAQ 分类组 -->
             <div class="group">
               <!-- 分类标题 -->
-              <h3 class="px-4 py-2 font-mono text-sm font-medium tracking-widest text-pretty uppercase text-gray-500 sm:px-2 dark:text-gray-400">
+              <h3 class="px-4 py-3 font-mono text-xs font-semibold tracking-[0.15em] text-pretty uppercase text-indigo-500 sm:px-6 dark:text-indigo-400">
                 产品概述
               </h3>
-              <dl>
+              <dl class="space-y-1">
                 <details
                   v-for="(faq, idx) in faqs"
                   :key="idx"
-                  class="group border-t border-(--grid-line-color) px-4 py-3 sm:px-2"
+                  class="group border-t border-(--grid-line-color) px-4 py-4 sm:px-6"
                   :open="activeFaq === idx"
                   @toggle="handleToggle($event, idx)"
                 >
                   <!-- 问题行 -->
                   <summary
-                    class="flex w-full cursor-pointer items-center justify-between gap-4 select-none group-open:text-accent-500 [&::-webkit-details-marker]:hidden"
+                    class="flex w-full cursor-pointer items-center justify-between gap-4 select-none [&::-webkit-details-marker]:hidden"
                   >
-                    <div class="text-left text-base font-semibold text-pretty text-gray-700 group-hover:text-gray-900 group-open:text-gray-900">
+                    <div class="text-left text-lg font-semibold text-pretty text-gray-800 group-open:text-indigo-600 transition-colors duration-200">
                       {{ faq.question }}
                     </div>
                     <!-- Plus 图标（收起状态） -->
@@ -74,7 +77,7 @@
                       viewBox="0 0 16 16"
                       fill="currentColor"
                       aria-hidden="true"
-                      class="h-7 w-4 text-gray-400 group-hover:text-gray-600 group-open:hidden"
+                      class="h-8 w-5 text-gray-400 group-open:hidden flex-shrink-0 transition-colors duration-200"
                     >
                       <path d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z" />
                     </svg>
@@ -84,14 +87,14 @@
                       viewBox="0 0 16 16"
                       fill="currentColor"
                       aria-hidden="true"
-                      class="hidden h-7 w-4 text-accent-500 group-open:block"
+                      class="hidden h-8 w-5 text-indigo-600 group-open:block flex-shrink-0"
                     >
                       <path d="M3.75 7.25a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5Z" />
                     </svg>
                   </summary>
 
                   <!-- 答案区 -->
-                  <div class="faq-content mt-4 grid grid-cols-1 gap-6 text-base text-gray-600 dark:text-gray-400">
+                  <div class="faq-content mt-5 grid grid-cols-1 gap-6 text-base leading-relaxed text-gray-600 dark:text-gray-400">
                     {{ faq.answer }}
                   </div>
                 </details>
@@ -229,12 +232,12 @@ const openQrModal = (type: string) => {
   font-weight: 600;
   color: rgb(17 24 39); /* text-gray-900 */
   text-decoration: underline;
-  text-decoration-color: rgb(59 130 246); /* accent-500 */
+  text-decoration-color: rgb(99 102 241); /* indigo-500 */
   text-underline-offset: 4px;
 }
 
 .faq-content :deep(a:hover) {
-  color: rgb(37 99 235); /* accent-600 */
+  color: rgb(79 70 229); /* indigo-600 */
 }
 
 .dark .faq-content :deep(strong) {

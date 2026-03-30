@@ -461,9 +461,9 @@
 
         <!-- 主内容卡片 -->
         <div class="mx-1 w-full max-w-400 overflow-hidden rounded-lg border border-neutral-200/75 bg-white">
-          <div class="flex flex-col gap-0 p-5 sm:flex-row sm:items-start sm:px-16 sm:py-10 lg:px-20">
+          <div class="flex flex-col gap-0 p-5 sm:flex-row sm:items-center sm:px-16 sm:py-10 lg:px-20">
             <!-- 左侧：标题区 + 二维码按钮 -->
-            <div class="flex w-full flex-1 pb-5 sm:w-auto sm:justify-end sm:pb-0 lg:pr-8">
+            <div class="flex w-full flex-1 items-center pb-5 sm:w-auto sm:justify-end sm:pb-0 lg:pr-8">
               <div class="space-y-4 w-full">
                 <!-- 标题区 -->
                 <div class="space-y-2">
@@ -486,7 +486,7 @@
                 <!-- 二维码按钮区 -->
                 <div class="flex flex-row gap-3 pt-2">
                   <button
-                    class="flex-1 px-4 py-2.5 rounded-lg bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 active:scale-95 transition-all flex items-center justify-center gap-2 touch-manipulation"
+                    class="flex-1 px-4 py-2.5 rounded-lg bg-indigo-600 text-white text-sm font-medium hover:bg-indigo-700 active:scale-95 transition-all flex items-center justify-center gap-2 touch-manipulation"
                     @click="openQrModal('coupon')"
                   >
                     <TicketIcon class="w-4 h-4" />

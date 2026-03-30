@@ -13,17 +13,18 @@
         </div>
       </div>
 
-      <!-- Logo 展示区 - 细边框分隔 -->
+      <!-- Logo 展示区 - 网格宫格设计 -->
       <div class="mt-4 bg-white rounded-2xl border border-indigo-100/60 shadow-[0_2px_8px_rgba(99,102,241,0.06)] overflow-hidden">
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:flex lg:items-center lg:justify-center lg:divide-x lg:divide-indigo-100/50">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
           <div
             v-for="(model, index) in topModels"
             :key="model.name"
-            class="flex cursor-pointer flex-col items-center justify-center py-5 px-4 transition-all duration-300 group"
+            class="flex cursor-pointer flex-col items-center justify-center py-5 px-4 transition-all duration-300 group border-indigo-50"
             :class="[
-              index < topModels.length - 1 ? 'border-b sm:border-b-0 sm:border-r border-indigo-50 last:border-r-0' : '',
-              index === 2 ? 'sm:border-r-0 lg:border-r' : '',
-              'lg:border-b-0 lg:flex-1'
+              index < topModels.length - 1 ? 'border-b border-r' : 'border-b',
+              index % 2 === 0 ? 'sm:border-r' : '',
+              index < 4 ? 'lg:border-b-0' : 'lg:border-b-0 lg:border-t',
+              'lg:border-r last:lg:border-r-0'
             ]"
           >
             <div class="flex items-center justify-center gap-2 transition-colors duration-300 text-slate-500 group-hover:text-indigo-600">
@@ -38,31 +39,32 @@
         </div>
       </div>
 
-      <!-- 模型卡片详情区 - 细边框网格 -->
-      <div class="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <!-- 模型卡片详情区 - 网格宫格设计 -->
+      <div class="mt-4 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-2 lg:grid-cols-3">
         <div
           v-for="card in displayedCards"
           :key="card.name"
-          class="group flex h-auto min-h-[140px] items-start rounded-xl bg-white border border-indigo-100/60 hover:border-indigo-300/60 transition-all duration-300 cursor-pointer shadow-[0_1px_3px_rgba(99,102,241,0.04)] hover:shadow-[0_8px_24px_rgba(99,102,241,0.12)] hover:-translate-y-0.5"
+          class="group flex flex-col h-full min-h-[120px] sm:min-h-[140px] rounded-xl bg-white border border-indigo-100/60 hover:border-indigo-300/60 transition-all duration-300 cursor-pointer shadow-[0_1px_3px_rgba(99,102,241,0.04)] hover:shadow-[0_8px_24px_rgba(99,102,241,0.12)] hover:-translate-y-0.5"
         >
-          <div class="flex gap-4 p-5 w-full">
+          <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 p-4 sm:p-5 w-full h-full">
             <!-- 图标容器 - 细边框样式 -->
-            <div class="shrink-0 w-11 h-11 rounded-xl bg-gradient-to-br from-indigo-50 to-white border border-indigo-100/80 flex items-center justify-center text-indigo-600 group-hover:border-indigo-300/60 group-hover:from-indigo-100/50 group-hover:to-indigo-50/50 transition-all duration-300">
-              <div v-html="card.icon" class="w-5 h-5" />
+            <div class="shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-indigo-50 to-white border border-indigo-100/80 flex items-center justify-center text-indigo-600 group-hover:border-indigo-300/60 group-hover:from-indigo-100/50 group-hover:to-indigo-50/50 transition-all duration-300">
+              <div v-html="card.icon" class="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <!-- 内容区域 -->
-            <div class="flex-1 min-w-0 space-y-2">
-              <h3 class="text-sm font-semibold text-slate-900 group-hover:text-indigo-600 transition-colors duration-300">{{ card.name }}</h3>
-              <p class="text-slate-500 text-xs leading-relaxed line-clamp-2">{{ card.desc }}</p>
+            <div class="flex-1 min-w-0 space-y-1.5 sm:space-y-2">
+              <h3 class="text-xs sm:text-sm font-semibold text-slate-900 group-hover:text-indigo-600 transition-colors duration-300 line-clamp-1">{{ card.name }}</h3>
+              <p class="text-[11px] sm:text-xs text-slate-500 leading-relaxed line-clamp-2 sm:line-clamp-2">{{ card.desc }}</p>
               <!-- 标签组 -->
-              <div class="flex flex-wrap gap-1.5 pt-1">
+              <div class="flex flex-wrap gap-1 sm:gap-1.5 pt-0.5 sm:pt-1">
                 <span
-                  v-for="tag in card.tags"
+                  v-for="tag in card.tags.slice(0, 2)"
                   :key="tag"
-                  class="inline-flex items-center rounded-full border border-indigo-100 bg-indigo-50/50 px-2.5 py-0.5 text-[11px] font-medium text-indigo-600/80 group-hover:bg-indigo-100/60 group-hover:border-indigo-200 transition-all duration-300"
+                  class="inline-flex items-center rounded-full border border-indigo-100 bg-indigo-50/50 px-1.5 sm:px-2.5 py-0.5 text-[9px] sm:text-[11px] font-medium text-indigo-600/80 group-hover:bg-indigo-100/60 group-hover:border-indigo-200 transition-all duration-300"
                 >
                   {{ tag }}
                 </span>
+                <span v-if="card.tags.length > 2" class="text-[9px] sm:text-[11px] text-slate-400">+{{ card.tags.length - 2 }}</span>
               </div>
             </div>
           </div>

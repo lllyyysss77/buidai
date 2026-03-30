@@ -23,7 +23,7 @@
           <!--大字标题 -->
           <div class="space-y-4">
             <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-neutral-900">
-             开启你的<span class="text-primary-600">AI大航海之旅</span>
+             开启你的<span class="text-indigo-600">AI大航海之旅</span>
              <img src="/AIArsenal.svg" alt="" class="inline-block w-16 h-16 ml-2 -mt-2" />
               <br />
               <span class="text-neutral-900 text-2xl md:text-3xl lg:text-4xl">
@@ -58,22 +58,22 @@
             <div class="space-y-6 pb-6">
               <div
 v-for="(item, index) in features" :key="`set1-${index}`"
-                   class="group flex items-center p-4 rounded-2xl bg-neutral-50 border border-neutral-200 hover:bg-white hover:shadow-lg hover:border-primary-200 transition-all duration-300 cursor-pointer">
+                   class="group flex items-center p-4 rounded-2xl bg-neutral-50 border border-neutral-200 hover:bg-white hover:shadow-lg hover:border-indigo-200 transition-all duration-300 cursor-pointer">
                 <div class="w-12 h-12 rounded-xl bg-white border border-neutral-100 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300 shadow-sm">
-                  <component :is="item.icon" class="w-6 h-6 text-primary-600" />
+                  <component :is="item.icon" class="w-6 h-6 text-indigo-600" />
                 </div>
-                <span class="text-lg font-medium text-neutral-700 group-hover:text-primary-700 transition-colors">{{ item.name }}</span>
+                <span class="text-lg font-medium text-neutral-700 group-hover:text-indigo-700 transition-colors">{{ item.name }}</span>
               </div>
             </div>
             <!-- 第二组（重复以实现无缝循环） -->
             <div class="space-y-6 pb-6">
               <div
 v-for="(item, index) in features" :key="`set2-${index}`"
-                   class="group flex items-center p-4 rounded-2xl bg-neutral-50 border border-neutral-200 hover:bg-white hover:shadow-lg hover:border-primary-200 transition-all duration-300 cursor-pointer">
+                   class="group flex items-center p-4 rounded-2xl bg-neutral-50 border border-neutral-200 hover:bg-white hover:shadow-lg hover:border-indigo-200 transition-all duration-300 cursor-pointer">
                 <div class="w-12 h-12 rounded-xl bg-white border border-neutral-100 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300 shadow-sm">
-                  <component :is="item.icon" class="w-6 h-6 text-primary-600" />
+                  <component :is="item.icon" class="w-6 h-6 text-indigo-600" />
                 </div>
-                <span class="text-lg font-medium text-neutral-700 group-hover:text-primary-700 transition-colors">{{ item.name }}</span>
+                <span class="text-lg font-medium text-neutral-700 group-hover:text-indigo-700 transition-colors">{{ item.name }}</span>
               </div>
             </div>
           </div>

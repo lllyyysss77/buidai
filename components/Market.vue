@@ -1,10 +1,10 @@
 <template>
   <section class="py-12 md:py-16 bg-gradient-to-b from-white to-neutral-50/50">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto px-4">
       <!-- 标题区域 -->
       <div class="text-center mb-8 md:mb-10">
         <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-neutral-900 mb-3 leading-tight">
-          <span class="text-[#6E58FF]">智言AI</span> vs 其它产品的<span class="text-[#6E58FF]">特有优势</span>：通过AI应用市场，无限释放搭建想象力。
+          <span class="text-indigo-600">智言AI</span> vs 其它产品的<span class="text-indigo-600">特有优势</span>：通过AI应用市场，无限释放搭建想象力。
         </h2>
         <p class="text-sm text-neutral-500 max-w-3xl mx-auto">
           依托于强大的扩展机制，智言AI 构建了开放的积木式AI应用市场。同时我们欢迎以及鼓励AI开发者上架销售自研AI应用。
@@ -16,7 +16,7 @@
         <div
           v-for="(app, index) in displayApps"
           :key="app.id"
-          class="group bg-white rounded-2xl border border-neutral-200 hover:border-[#6E58FF]/30 hover:shadow-xl hover:shadow-[#6E58FF]/5 hover:-translate-y-1 transition-all duration-300 flex flex-col"
+          class="group bg-white rounded-2xl border border-neutral-200 hover:border-indigo-400/50 hover:shadow-xl hover:shadow-indigo-500/5 hover:-translate-y-1 transition-all duration-300 flex flex-col"
           :style="{ animationDelay: `${index * 50}ms` }"
         >
           <!-- 卡片图片区域 -->
@@ -36,7 +36,7 @@
             </div>
             <!-- 源码版标签 -->
             <div v-if="app.category === 'independent'" class="absolute top-2.5 right-2.5">
-              <span class="px-2 py-0.5 bg-gradient-to-r from-[#6E58FF] to-[#8B5CF6] rounded-full text-[10px] font-medium text-white shadow-lg">
+              <span class="px-2 py-0.5 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-full text-[10px] font-medium text-white shadow-lg">
                 源码版
               </span>
             </div>
@@ -49,7 +49,7 @@
               <div class="w-7 h-7 rounded-lg bg-neutral-50 border border-neutral-200/60 text-neutral-600 flex items-center justify-center shrink-0">
                 <component :is="app.icon" class="w-3.5 h-3.5" />
               </div>
-              <h3 class="text-sm font-bold text-neutral-900 truncate group-hover:text-[#6E58FF] transition-colors">
+              <h3 class="text-sm font-bold text-neutral-900 truncate group-hover:text-indigo-600 transition-colors">
                 {{ app.name }}
               </h3>
             </div>
@@ -63,10 +63,10 @@
               <div class="flex items-center justify-between gap-2">
                 <div class="flex items-center gap-1.5">
                   <span v-if="app.originalPrice !== app.discountPrice" class="text-xs text-neutral-400 line-through">¥{{ app.originalPrice.toFixed(2) }}</span>
-                  <span v-if="app.originalPrice !== app.discountPrice" class="text-sm font-bold text-[#6E58FF]">¥{{ app.discountPrice.toFixed(2) }}</span>
+                  <span v-if="app.originalPrice !== app.discountPrice" class="text-sm font-bold text-indigo-600">¥{{ app.discountPrice.toFixed(2) }}</span>
                   <span v-else class="text-sm font-bold text-neutral-900">¥{{ app.originalPrice.toFixed(2) }}</span>
                 </div>
-                <button class="px-2.5 py-1 bg-[#6E58FF] hover:bg-[#7A42FF] text-white text-[11px] font-medium rounded-lg flex items-center gap-1 transition-colors">
+                <button class="px-2.5 py-1 bg-indigo-600 hover:bg-indigo-700 text-white text-[11px] font-medium rounded-lg flex items-center gap-1 transition-colors">
                   <ShoppingBagIcon class="w-3 h-3" />
                   购买
                 </button>
@@ -91,7 +91,7 @@
       <!-- 查看更多按钮 -->
       <div v-if="!showAll && apps.length > defaultLimit" class="flex justify-center mb-6">
         <button
-          class="group px-6 py-2.5 rounded-full bg-white border border-neutral-200 text-neutral-600 text-sm font-medium hover:border-[#6E58FF] hover:text-[#6E58FF] transition-all duration-200 flex items-center gap-2 shadow-sm hover:shadow-md"
+          class="group px-6 py-2.5 rounded-full bg-white border border-neutral-200 text-neutral-600 text-sm font-medium hover:border-indigo-500 hover:text-indigo-600 transition-all duration-200 flex items-center gap-2 shadow-sm hover:shadow-md"
           @click="showAll = true"
         >
           查看更多
@@ -102,7 +102,7 @@
       <!-- 收起按钮 -->
       <div v-else-if="showAll && apps.length > defaultLimit" class="flex justify-center mb-6">
         <button
-          class="group px-6 py-2.5 rounded-full bg-white border border-neutral-200 text-neutral-600 text-sm font-medium hover:border-[#6E58FF] hover:text-[#6E58FF] transition-all duration-200 flex items-center gap-2 shadow-sm hover:shadow-md"
+          class="group px-6 py-2.5 rounded-full bg-white border border-neutral-200 text-neutral-600 text-sm font-medium hover:border-indigo-500 hover:text-indigo-600 transition-all duration-200 flex items-center gap-2 shadow-sm hover:shadow-md"
           @click="showAll = false"
         >
           收起

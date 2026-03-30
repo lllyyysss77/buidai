@@ -1,20 +1,8 @@
 <template>
   <!-- AI应用系统展示组件 -->
-  <section class="bg-white relative overflow-hidden">
-    <!-- 左侧网格装饰线 -->
-    <div class="absolute left-0 top-0 bottom-0 w-10 pointer-events-none hidden lg:block"
-         style="--grid-line-color: color-mix(in oklab, #030712 5%, transparent);
-                background-image: repeating-linear-gradient(315deg, var(--grid-line-color) 0, var(--grid-line-color) 1px, transparent 0, transparent 50%);
-                background-size: 10px 10px;
-                background-attachment: fixed;"/>
-    <!-- 右侧网格装饰线 -->
-    <div class="absolute right-0 top-0 bottom-0 w-10 pointer-events-none hidden lg:block"
-         style="--grid-line-color: color-mix(in oklab, #030712 5%, transparent);
-                background-image: repeating-linear-gradient(315deg, var(--grid-line-color) 0, var(--grid-line-color) 1px, transparent 0, transparent 50%);
-                background-size: 10px 10px;
-                background-attachment: fixed;"/>
+  <section class="bg-white">
     <!-- 主内容区域 -->
-    <div class="container mx-auto px-4 py-16 md:py-20 relative z-10">
+    <div class="container mx-auto px-4 py-16 md:py-20">
       <!-- 标题 -->
       <div class="mb-10">
         <h2 class="text-2xl font-bold text-neutral-900 md:text-3xl">
@@ -26,7 +14,7 @@
       <!-- Bento Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <!-- 左侧展示卡片 -->
-        <div class="md:col-span-2 lg:col-span-2 lg:row-span-3 bg-neutral-50 rounded-2xl overflow-hidden flex flex-col shadow-sm border border-neutral-100">
+        <div class="md:col-span-2 lg:col-span-2 lg:row-span-3 bg-neutral-50 rounded-2xl overflow-hidden flex flex-col border border-neutral-100">
           <!-- 图片区域 -->
           <div class="relative w-full bg-white" style="aspect-ratio: 16/5.5;">
             <img
@@ -56,9 +44,9 @@
         <div
           v-for="(system, index) in systemsList"
           :key="system.id"
-          class="px-4 py-5 rounded-xl border cursor-pointer transition-all duration-300 flex flex-col justify-center hover:shadow-sm"
+          class="px-4 py-5 rounded-xl border cursor-pointer transition-all duration-300 flex flex-col justify-center"
           :class="activeIndex === index 
-            ? 'border-indigo-500 bg-indigo-50/60 shadow-sm' 
+            ? 'border-indigo-500 bg-indigo-50/60' 
             : 'border-neutral-200 hover:border-indigo-300 bg-white'"
           @click="selectSystem(index)"
           @mouseenter="pauseAutoPlay"
@@ -68,7 +56,7 @@
             <div 
               class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300"
               :class="activeIndex === index 
-                ? 'bg-gradient-to-br from-indigo-500 to-indigo-600 text-white shadow-md shadow-indigo-200' 
+                ? 'bg-gradient-to-br from-indigo-500 to-indigo-600 text-white' 
                 : 'bg-neutral-100 text-neutral-500 group-hover:bg-indigo-100'"
             >
               <component :is="system.icon" class="w-5 h-5"/>

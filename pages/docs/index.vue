@@ -89,7 +89,7 @@ const { data: docs, pending, error, refresh } = await useAsyncData('docs-list', 
 const navigation = computed(() => {
   if (!docs.value) {return []}
 
-  const groups: Record<string, any[]> = {}
+  const groups: Record<string, { title: string; path: string; category?: string; order?: number }[]> = {}
 
   docs.value.forEach(doc => {
     // Use category from front-matter, fallback to '未分类'

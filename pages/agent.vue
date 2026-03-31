@@ -869,7 +869,7 @@ const currentCharIndex = ref(0)
 const isDeleting = ref(false)
 
 const typeWriter = () => {
-  const currentText = texts[currentTextIndex.value]
+  const currentText = texts[currentTextIndex.value] ?? ''
   const typingSpeed = isDeleting.value ? 30 : 75
   const pauseDuration = 1500
 

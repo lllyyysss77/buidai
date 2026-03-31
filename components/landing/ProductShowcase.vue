@@ -1,37 +1,37 @@
 <template>
-  <section class="relative bg-neutral-50/50">
-    <div class="container mx-auto px-4 sm:px-6 py-10 sm:py-16 lg:py-24">
+  <section class="relative bg-neutral-50/50 overflow-x-hidden">
+    <div class="container mx-auto px-3 sm:px-4 lg:px-6 py-8 sm:py-12 lg:py-24">
       <!-- 标题区域 -->
-      <div class="text-center mb-8 sm:mb-12 lg:mb-16">
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-neutral-900 mb-3 sm:mb-4 tracking-tight leading-tight">
-          搭建私有 AI 应用系统
-          <span class="text-[#6E58FF] block sm:inline mt-1 sm:mt-0">无需从零开发</span>
+      <div class="text-center mb-6 sm:mb-10 lg:mb-16">
+        <h2 class="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-bold text-neutral-900 mb-2 sm:mb-4 tracking-tight leading-tight">
+          <span class="block">搭建私有 AI 应用系统</span>
+          <span class="text-[#6E58FF] block mt-1 sm:mt-2">无需从零开发</span>
         </h2>
-        <p class="text-base sm:text-lg lg:text-xl text-neutral-500 max-w-3xl mx-auto px-2 sm:px-0">
+        <p class="text-sm sm:text-base lg:text-xl text-neutral-500 max-w-3xl mx-auto px-2 sm:px-4 leading-relaxed">
           专注集成 AI 应用落地所需的全场景功能，万千工具，自由组合
         </p>
       </div>
 
       <!-- 移动端：横向滚动标签栏 -->
-      <div class="lg:hidden mb-4 overflow-x-auto scrollbar-hide -mx-4 px-4">
-        <div class="flex gap-2 pb-2 min-w-max">
+      <div class="lg:hidden mb-3 sm:mb-4 overflow-x-auto scrollbar-hide -mx-3 sm:-mx-4 px-3 sm:px-4">
+        <div class="flex gap-1.5 sm:gap-2 pb-2 min-w-max">
           <button
             v-for="(tab, index) in tabs"
             :key="index"
-            class="flex-shrink-0 flex items-center gap-2 px-3 sm:px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6E58FF]/30"
+            class="flex-shrink-0 flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6E58FF]/30 touch-manipulation"
             :class="activeTab === index 
               ? 'bg-[#6E58FF] text-white shadow-md' 
               : 'bg-white border border-neutral-200 text-neutral-600 hover:border-[#6E58FF]/30'"
             @click="switchTab(index)"
           >
-            <span class="text-xs opacity-70">{{ String(index + 1).padStart(2, '0') }}</span>
+            <span class="text-[10px] sm:text-xs opacity-70">{{ String(index + 1).padStart(2, '0') }}</span>
             <span class="whitespace-nowrap">{{ tab.name }}</span>
           </button>
         </div>
       </div>
 
       <!-- Bento Grid 主容器 -->
-      <div class="relative rounded-xl sm:rounded-2xl lg:rounded-3xl border border-neutral-200/60 shadow-lg sm:shadow-xl shadow-neutral-300/40 flex flex-col lg:flex-row bg-gradient-to-br from-white via-[#f8f7ff] to-[#f0edff] overflow-hidden lg:min-h-[600px]">
+      <div class="relative rounded-lg sm:rounded-xl lg:rounded-3xl border border-neutral-200/60 shadow-md sm:shadow-xl shadow-neutral-300/40 flex flex-col lg:flex-row bg-gradient-to-br from-white via-[#f8f7ff] to-[#f0edff] overflow-hidden lg:min-h-[600px]">
         
         <!-- 桌面端：左侧功能导航列表 -->
         <div class="hidden lg:flex lg:w-[320px] xl:w-[380px] flex-col border-r border-neutral-200/60 bg-gradient-to-b from-neutral-50/80 to-neutral-100/50 p-4 xl:p-5 flex-shrink-0">
@@ -120,15 +120,15 @@
           <div class="absolute -bottom-20 -left-20 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none"/>
 
           <!-- 顶部浏览器栏装饰 -->
-          <div class="h-8 sm:h-12 border-b border-neutral-200/60 flex items-center px-3 sm:px-5 gap-2 sm:gap-2.5 shrink-0 bg-white z-20">
-            <div class="flex gap-1.5">
-              <div class="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-red-400/80"/>
-              <div class="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-amber-400/80"/>
-              <div class="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-emerald-400/80"/>
+          <div class="h-7 sm:h-10 lg:h-12 border-b border-neutral-200/60 flex items-center px-2 sm:px-4 lg:px-5 gap-1.5 sm:gap-2 shrink-0 bg-white z-20">
+            <div class="flex gap-1 sm:gap-1.5 flex-shrink-0">
+              <div class="w-1.5 sm:w-2 lg:w-2.5 h-1.5 sm:h-2 lg:h-2.5 rounded-full bg-red-400/80"/>
+              <div class="w-1.5 sm:w-2 lg:w-2.5 h-1.5 sm:h-2 lg:h-2.5 rounded-full bg-amber-400/80"/>
+              <div class="w-1.5 sm:w-2 lg:w-2.5 h-1.5 sm:h-2 lg:h-2.5 rounded-full bg-emerald-400/80"/>
             </div>
             <!-- 模拟地址栏 -->
-            <div class="ml-2 sm:ml-3 flex-1 max-w-[160px] sm:max-w-sm h-5 sm:h-7 bg-neutral-100 rounded-md border border-neutral-200/50 flex items-center px-2 sm:px-3 text-[10px] sm:text-[11px] text-neutral-400 font-mono overflow-hidden">
-              <svg class="w-2.5 sm:w-3 h-2.5 sm:h-3 text-neutral-400 mr-1 sm:mr-1.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="ml-1.5 sm:ml-2 lg:ml-3 flex-1 max-w-[120px] sm:max-w-[200px] lg:max-w-sm h-4 sm:h-6 lg:h-7 bg-neutral-100 rounded border sm:rounded-md border-neutral-200/50 flex items-center px-1.5 sm:px-2 lg:px-3 text-[9px] sm:text-[10px] lg:text-[11px] text-neutral-400 font-mono overflow-hidden">
+              <svg class="w-2 sm:w-2.5 lg:w-3 h-2 sm:h-2.5 lg:h-3 text-neutral-400 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.131A8 8 0 008 8m0 0a8 8 0 0016 0M8 8a8 8 0 00-8 8c0 2.472.345 4.865.99 7.131M8 8a8 8 0 0016 0M8 8v8m8-8v8"/>
               </svg>
               <span class="truncate">{{ currentTabUrl }}</span>
@@ -137,7 +137,7 @@
 
           <!-- 图片切换区域 - 移动端优化高度 -->
           <div 
-            class="relative flex-1 p-2 sm:p-6 lg:p-8 xl:p-10 flex items-center justify-center bg-gradient-to-br from-white via-white to-neutral-50/50 min-h-[180px] sm:min-h-[280px] lg:min-h-0"
+            class="relative flex-1 p-1.5 sm:p-4 lg:p-8 xl:p-10 flex items-center justify-center bg-gradient-to-br from-white via-white to-neutral-50/50 min-h-[160px] sm:min-h-[240px] lg:min-h-0 overflow-hidden"
             @touchstart="handleTouchStart"
             @touchend="handleTouchEnd"
           >
@@ -153,16 +153,16 @@
                 <img
                   :src="tabs[activeTab]?.image"
                   :alt="`${tabs[activeTab]?.name || ''} 功能预览`"
-                  class="w-full h-full sm:w-auto sm:h-auto sm:max-w-full sm:max-h-full object-contain rounded-md sm:rounded-lg shadow-sm sm:shadow-lg"
+                  class="w-full h-auto max-h-[140px] sm:max-h-[220px] lg:max-h-none lg:max-w-full object-contain rounded sm:rounded-lg shadow-sm sm:shadow-lg"
                   loading="lazy"
                   decoding="async"
                 />
 
                 <!-- 浮动功能标签 -->
-                <div class="absolute bottom-1 left-1 sm:bottom-6 sm:left-6">
-                  <div class="flex items-center gap-1 sm:gap-2 px-1.5 sm:px-3 py-0.5 sm:py-1.5 rounded-full bg-white/95 backdrop-blur-sm border border-neutral-200/60 shadow-sm">
-                    <span class="h-1.5 sm:h-2 w-1.5 sm:w-2 rounded-full bg-[#6E58FF] animate-pulse" />
-                    <span class="text-[10px] sm:text-xs font-medium text-neutral-700">{{ tabs[activeTab]?.name }}</span>
+                <div class="absolute bottom-1 left-1 sm:bottom-4 sm:left-4 lg:bottom-6 lg:left-6">
+                  <div class="flex items-center gap-1 sm:gap-1.5 px-1.5 sm:px-2 lg:px-3 py-0.5 sm:py-1 rounded-full bg-white/95 backdrop-blur-sm border border-neutral-200/60 shadow-sm">
+                    <span class="h-1 sm:h-1.5 lg:h-2 w-1 sm:w-1.5 lg:w-2 rounded-full bg-[#6E58FF] animate-pulse flex-shrink-0" />
+                    <span class="text-[9px] sm:text-[10px] lg:text-xs font-medium text-neutral-700 truncate max-w-[80px] sm:max-w-none">{{ tabs[activeTab]?.name }}</span>
                   </div>
                 </div>
               </div>
@@ -187,24 +187,24 @@
             </button>
 
             <!-- 移动端触摸提示 -->
-            <div class="sm:hidden absolute bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-1 text-[10px] text-neutral-400 bg-white/80 backdrop-blur-sm px-2 py-0.5 rounded-full">
-              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <div class="sm:hidden absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-1 text-[9px] text-neutral-400 bg-white/80 backdrop-blur-sm px-1.5 py-0.5 rounded-full">
+              <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="m15 18-6-6 6-6"/>
               </svg>
-              <span>滑动切换</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <span>滑动</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="m9 18 6-6-6-6"/>
               </svg>
             </div>
           </div>
 
           <!-- 底部指示器 -->
-          <div class="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-1 sm:gap-1.5 z-10">
+          <div class="absolute bottom-1.5 sm:bottom-3 lg:bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-1 sm:gap-1.5 z-10">
             <button
               v-for="(_, index) in tabs"
               :key="index"
-              class="h-1 sm:h-1.5 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6E58FF]/30"
-              :class="activeTab === index ? 'w-3 sm:w-6 bg-[#6E58FF]' : 'w-1 sm:w-1.5 bg-neutral-300 hover:bg-neutral-400'"
+              class="h-0.5 sm:h-1 lg:h-1.5 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6E58FF]/30 touch-manipulation"
+              :class="activeTab === index ? 'w-2 sm:w-4 lg:w-6 bg-[#6E58FF]' : 'w-0.5 sm:w-1 lg:w-1.5 bg-neutral-300 hover:bg-neutral-400'"
               @click="switchTab(index)"
             />
           </div>
@@ -212,40 +212,40 @@
       </div>
 
       <!-- 底部特性卡片 -->
-      <div class="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+      <div class="mt-4 sm:mt-6 lg:mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 lg:gap-4">
         <div 
           v-for="(feature, index) in features"
           :key="index"
-          class="group bg-white rounded-xl sm:rounded-2xl border border-neutral-200/60 p-4 sm:p-5 transition-all duration-200 hover:shadow-lg hover:border-neutral-300"
+          class="group bg-white rounded-lg sm:rounded-xl lg:rounded-2xl border border-neutral-200/60 p-3 sm:p-4 lg:p-5 transition-all duration-200 hover:shadow-lg hover:border-neutral-300"
         >
-          <div class="flex items-start gap-3 sm:gap-4">
-            <div class="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-lg sm:rounded-xl bg-[#6E58FF]/10 text-[#6E58FF] transition-all duration-200 group-hover:bg-[#6E58FF] group-hover:text-white">
-              <component :is="feature.icon" class="h-4 w-4 sm:h-5 sm:w-5" />
+          <div class="flex items-start gap-2.5 sm:gap-3 lg:gap-4">
+            <div class="flex h-8 w-8 sm:h-9 sm:w-9 lg:h-10 lg:w-10 shrink-0 items-center justify-center rounded-md sm:rounded-lg lg:rounded-xl bg-[#6E58FF]/10 text-[#6E58FF] transition-all duration-200 group-hover:bg-[#6E58FF] group-hover:text-white">
+              <component :is="feature.icon" class="h-3.5 w-3.5 sm:h-4 sm:w-4 lg:h-5 lg:w-5" />
             </div>
             <div class="min-w-0 flex-1">
-              <h3 class="text-sm font-semibold text-neutral-900 mb-0.5 sm:mb-1">{{ feature.title }}</h3>
-              <p class="text-[11px] sm:text-xs text-neutral-500 leading-relaxed">{{ feature.description }}</p>
+              <h3 class="text-xs sm:text-sm font-semibold text-neutral-900 mb-0.5 sm:mb-1">{{ feature.title }}</h3>
+              <p class="text-[10px] sm:text-[11px] lg:text-xs text-neutral-500 leading-relaxed">{{ feature.description }}</p>
             </div>
           </div>
         </div>
       </div>
 
       <!-- CTA 区域 -->
-      <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-3 w-full sm:w-auto px-4 sm:px-0">
+      <div class="mt-6 sm:mt-8 lg:mt-10 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 w-full sm:w-auto px-3 sm:px-0">
         <a 
           href="https://www.buidai.com/" 
           target="_blank" 
-          class="w-full sm:w-auto px-6 sm:px-8 py-3 rounded-full bg-[#6E58FF] text-white text-sm font-semibold hover:bg-[#5d47e6] active:scale-95 transition-all flex items-center justify-center gap-2 touch-manipulation min-h-[44px]"
+          class="w-full sm:w-auto px-5 sm:px-6 lg:px-8 py-2.5 sm:py-3 rounded-full bg-[#6E58FF] text-white text-xs sm:text-sm font-semibold hover:bg-[#5d47e6] active:scale-95 transition-all flex items-center justify-center gap-1.5 sm:gap-2 touch-manipulation min-h-[40px] sm:min-h-[44px]"
         >
           快速开始
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200">
             <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
           </svg>
         </a>
         <a 
           href="https://doc.buidai.com/" 
           target="_blank" 
-          class="w-full sm:w-auto px-6 sm:px-8 py-3 rounded-full bg-white border border-neutral-200 text-neutral-700 text-sm font-semibold hover:bg-neutral-50 hover:border-neutral-300 active:scale-95 transition-all flex items-center justify-center gap-2 touch-manipulation min-h-[44px]"
+          class="w-full sm:w-auto px-5 sm:px-6 lg:px-8 py-2.5 sm:py-3 rounded-full bg-white border border-neutral-200 text-neutral-700 text-xs sm:text-sm font-semibold hover:bg-neutral-50 hover:border-neutral-300 active:scale-95 transition-all flex items-center justify-center gap-1.5 sm:gap-2 touch-manipulation min-h-[40px] sm:min-h-[44px]"
         >
           查看文档
         </a>
@@ -580,6 +580,22 @@ button:focus-visible {
   .container {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
+  }
+}
+
+/* ==========================================
+   移动端图片防溢出
+   ========================================== */
+@media (max-width: 639px) {
+  /* 确保图片不会撑破容器 */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  
+  /* 隐藏横向滚动 */
+  section {
+    overflow-x: hidden;
   }
 }
 </style>

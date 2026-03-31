@@ -1,20 +1,8 @@
 <template>
   <section class="bg-white">
-    <!-- 顶部边框行 -->
-    <div class="flex p-1">
-      <div class="flex-1 rounded-lg border border-neutral-200/70 bg-white" />
-      <div
-        class="mx-1 w-full max-w-400 min-h-24 rounded-lg border border-neutral-200/70 bg-white sm:min-h-28"
-      />
-      <div class="flex-1 rounded-lg border border-neutral-200/70 bg-white" />
-    </div>
-
     <!-- 标题区域 -->
-    <div class="flex p-1 pt-1">
-      <div class="flex-1 rounded-lg border border-neutral-200/70 bg-white" />
-      <div
-        class="mx-1 w-full max-w-400 rounded-lg border border-neutral-200/75 bg-white px-6 py-8 shadow-[0_1px_0_rgba(255,255,255,0.8)] sm:px-8 sm:py-10"
-      >
+    <div class="container mx-auto px-4">
+      <div class="px-6 py-8 sm:px-8 sm:py-10">
         <div class="text-center">
           <!-- 主标题 -->
           <h2
@@ -24,7 +12,7 @@
             <span
               class="border-b-[3px] border-dotted border-indigo-500 text-indigo-600"
             >
-             你的私有AI应用系统
+              你的私有AI应用系统
             </span>
           </h2>
           <!-- 副标题 -->
@@ -35,18 +23,14 @@
           </p>
         </div>
       </div>
-      <div class="flex-1 rounded-lg border border-neutral-200/70 bg-white" />
     </div>
 
     <!-- 功能卡片网格区域 -->
-    <div class="flex p-1 pt-1">
-      <div class="flex-1 rounded-lg border border-neutral-200/70 bg-white" />
-      <div
-        class="mx-1 w-full max-w-400 overflow-hidden rounded-lg border border-neutral-200/75 bg-white p-1"
-      >
+    <div class="container mx-auto px-4">
+      <div class="p-1">
         <!-- 4列网格布局 -->
         <div
-          class="grid grid-cols-1 gap-2 bg-white sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+          class="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         >
           <div
             v-for="(item, index) in displayedItems"
@@ -91,15 +75,11 @@
           </div>
         </div>
       </div>
-      <div class="flex-1 rounded-lg border border-neutral-200/70 bg-white" />
     </div>
 
     <!-- 查看更多按钮 -->
-    <div class="flex p-1 pt-1">
-      <div class="flex-1 rounded-lg border border-neutral-200/70 bg-white" />
-      <div
-        class="mx-1 w-full max-w-400 rounded-lg border border-neutral-200/75 bg-white px-6 py-6 shadow-[0_1px_0_rgba(255,255,255,0.8)] sm:px-8 sm:py-7"
-      >
+    <div class="container mx-auto px-4">
+      <div class="px-6 py-6 sm:px-8 sm:py-7">
         <div class="text-center">
           <button
             type="button"
@@ -115,17 +95,8 @@
           </button>
         </div>
       </div>
-      <div class="flex-1 rounded-lg border border-neutral-200/70 bg-white" />
     </div>
 
-    <!-- 底部留白行 -->
-    <div class="flex p-1 pt-1">
-      <div class="flex-1 rounded-lg border border-neutral-200/70 bg-white" />
-      <div
-        class="mx-1 w-full max-w-400 min-h-24 rounded-lg border border-neutral-200/70 bg-white sm:min-h-28"
-      />
-      <div class="flex-1 rounded-lg border border-neutral-200/70 bg-white" />
-    </div>
   </section>
 </template>
 
@@ -158,7 +129,6 @@ import {
   Key,
   FolderOpen,
   Ticket,
-  ChevronDown,
   LayoutGrid,
   PanelTopClose,
   type LucideIcon,

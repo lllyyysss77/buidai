@@ -1,8 +1,5 @@
 <template>
   <div class="min-h-screen bg-white text-neutral-900 font-sans selection:bg-neutral-100 relative">
-    <!-- 背景装饰：左上角网格 -->
-    <div class="absolute top-0 left-0 w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] bg-[url('/images/buidai.png')] bg-cover bg-center pointer-events-none mask-[linear-gradient(to_bottom,white,transparent)] z-0"/>
-
     <!-- 英雄区域 -->
     <section class="pt-24 sm:pt-28 pb-12 sm:pb-16 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24 relative overflow-hidden z-10">
       <!-- 导入背景动画 -->
@@ -225,6 +222,10 @@
     <!-- 内置大模型展示 -->
     <LLMModels />
 
+    <!-- 开源路线图 -->
+    <LandingOpenSourceRoadmap />
+
+    
     <!-- 功能部分: AI赋能企业通用场景 - 简洁层叠样式 -->
     <section class="py-8 sm:py-12 lg:py-20 bg-neutral-50/50">
       <div class="container mx-auto px-4 sm:px-6">
@@ -308,7 +309,7 @@
                     </div>
 
                     <!-- 分隔线 -->
-                    <div class="w-full h-px bg-gray-200 mb-4 sm:mb-6"></div>
+                    <div class="w-full h-px bg-gray-200 mb-4 sm:mb-6" />
 
                     <!-- 列表 -->
                     <ul class="space-y-2 sm:space-y-3 flex-1">
@@ -357,7 +358,7 @@
     </section>
     <!-- 功能部分: AI赋能企业通用场景 -->
     
-
+ 
    <!-- 为什么选择我们 -->
     <section class="py-16 md:py-24 bg-neutral-50/50 relative overflow-hidden">
       <svg
@@ -453,8 +454,7 @@
       </div>
     </section>
 
-    <!-- 开源路线图 -->
-    <LandingOpenSourceRoadmap />
+
 
     <!-- 常见问题 - 左右布局 -->
     <section class="py-16 md:py-24 bg-white">
@@ -571,7 +571,6 @@ import {
   ChatBubbleLeftRightIcon,
   CpuChipIcon,
   CreditCardIcon,
-  ChevronRightIcon,
   TicketIcon,
   DocumentTextIcon
 } from '@heroicons/vue/24/outline'
@@ -713,9 +712,9 @@ const features: Feature[] = [
 ]
 
 const activeFeatureIndex = ref(0)
-const currentFeature = computed(() => features[activeFeatureIndex.value] ?? features[0])
+const _currentFeature = computed(() => features[activeFeatureIndex.value] ?? features[0])
 
-const openSourceFeatures = [
+const _openSourceFeatures = [
   {
     title: 'AI原生内核',
     description: '底层架构专为 AI Agent 设计，原生支持 LLM 调用、记忆管理与工具编排。',
@@ -738,7 +737,7 @@ const openSourceFeatures = [
   }
 ]
 
-const openSourceLinks = [
+const _openSourceLinks = [
   {
     label: '联系客服',
     onClick: () => {

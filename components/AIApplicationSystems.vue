@@ -17,26 +17,52 @@
         <div class="md:col-span-2 lg:col-span-2 lg:row-span-3 bg-neutral-50 rounded-2xl overflow-hidden flex flex-col border border-neutral-100">
           <!-- 图片区域 -->
           <div class="relative w-full bg-white" style="aspect-ratio: 16/5.5;">
+            <!-- 预加载下一张图片 -->
+            <img
+              v-for="system in systemsList"
+              :key="`preload-${system.id}`"
+              :src="system.demoImage"
+              :alt="system.name"
+              class="absolute inset-0 w-full h-full object-cover opacity-0 pointer-events-none"
+              loading="eager"
+            />
+            <!-- 当前显示图片 -->
             <img
               :src="currentSystem?.demoImage || '/images/CtaSection.jpg'"
               :alt="currentSystem?.name"
-              loading="lazy"
-              class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
-              :class="isTransitioning ? 'opacity-0' : 'opacity-100'"
+              loading="eager"
+              class="absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-out"
+              :class="isTransitioning ? 'opacity-0 scale-105' : 'opacity-100 scale-100'"
             />
           </div>
           
           <!-- 信息栏 -->
           <div class="px-5 py-3 border-t border-neutral-200 flex items-center justify-between bg-white">
             <h3 class="font-semibold text-neutral-900">{{ currentSystem?.name }}</h3>
-            <div class="flex items-center gap-2 text-sm text-neutral-400">
-              <span>{{ activeIndex + 1 }} / {{ systemsList.length }}</span>
+            <!-- 圆点指示器 -->
+            <div class="flex items-center gap-1.5">
+              <button
+                v-for="(system, idx) in systemsList"
+                :key="`dot-${system.id}`"
+                class="w-2 h-2 rounded-full transition-all duration-300"
+                :class="activeIndex === idx
+                  ? 'bg-indigo-500 w-5'
+                  : 'bg-neutral-300 hover:bg-neutral-400'"
+                :aria-label="`切换到 ${system.name}`"
+                @click="selectSystem(idx)"
+                @mouseenter="pauseAutoPlay"
+                @mouseleave="resumeAutoPlay"
+              />
             </div>
           </div>
           
-          <!-- 进度条 -->
-          <div class="h-1 bg-neutral-200">
-            <div class="h-full bg-gradient-to-r from-indigo-500 to-indigo-600 transition-all duration-100" :style="{ width: `${progress}%` }"/>
+          <!-- 进度条 - 使用 CSS 动画替代 JS 计算 -->
+          <div class="h-1 bg-neutral-200 relative overflow-hidden">
+            <div 
+              class="h-full bg-gradient-to-r from-indigo-500 to-indigo-600 absolute left-0 top-0"
+              :class="{ 'progress-bar': !isPaused && !isTransitioning }"
+              :style="{ width: isPaused || isTransitioning ? `${progress}%` : '100%' }"
+            />
           </div>
         </div>
 
@@ -46,8 +72,8 @@
           :key="system.id"
           class="px-4 py-5 rounded-xl border cursor-pointer transition-all duration-300 flex flex-col justify-center"
           :class="activeIndex === index 
-            ? 'border-indigo-500 bg-indigo-50/60' 
-            : 'border-neutral-200 hover:border-indigo-300 bg-white'"
+            ? 'border-indigo-500 bg-indigo-50/60 shadow-sm' 
+            : 'border-neutral-200 hover:border-indigo-300 hover:shadow-sm bg-white'"
           @click="selectSystem(index)"
           @mouseenter="pauseAutoPlay"
           @mouseleave="resumeAutoPlay"
@@ -56,8 +82,8 @@
             <div 
               class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300"
               :class="activeIndex === index 
-                ? 'bg-gradient-to-br from-indigo-500 to-indigo-600 text-white' 
-                : 'bg-neutral-100 text-neutral-500 group-hover:bg-indigo-100'"
+                ? 'bg-gradient-to-br from-indigo-500 to-indigo-600 text-white shadow-md' 
+                : 'bg-neutral-100 text-neutral-500'"
             >
               <component :is="system.icon" class="w-5 h-5"/>
             </div>
@@ -75,7 +101,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import type { Component } from 'vue'
 import {
   Palette, Bot, MessageCircleCode, Lightbulb, BookOpenText,
@@ -111,7 +137,7 @@ const defaultSystems: AIApplicationSystem[] = [
   { id: 3, name: '企业AI客服系统', description: '可快速搭建集成多轮对话模型，支持7*24小时智能知识库应答、常见问题解答，可扩展工单流转与客户画像管理能力，降低企业客服运营成本的AI应用系统', icon: MessageCircleCode, demoImage: '/images/buidai-1.webp' },
   { id: 4, name: 'AI漫剧创意系统', description: '可快速搭建支持剧本智能创作、角色形象生成、漫剧素材库管理，适配分镜设计与台词优化，显著降低漫剧创作门槛，适配个人创作者与工作室的AI应用系统', icon: Lightbulb, demoImage: '/images/buidai-2.webp' },
   { id: 5, name: 'AI论文学术系统', description: '可快速搭建提供文献检索、论文框架构建、查重辅助与格式校对功能，集成学术大模型答疑和参考文献管理，助力科研人员提升论文撰写效率的AI应用系统', icon: BookOpenText, demoImage: '/images/buidai-3.webp' },
-  { id: 6, name: 'AI校园助手系统', description: '可快速搭建包含校园信息查询、选课咨询、成绩查询、校园导航等AI智能体功能，提升校园管理与服务效率的AI应用系统', icon: School, demoImage: '/images/enterprise.png' },
+  { id: 6, name: 'AI校园助手系统', description: '可快速搭建包含校园信息查询、选课咨询、成绩查询、校园导航等AI智能体功能，提升校园管理与服务效率的AI应用系统', icon: School, demoImage: '/images/buidai-4.webp' },
   { id: 7, name: '智能体在线实训系统', description: '支持智能体开发实训、大模型对话操练、知识库内容清洗', icon: ChevronsLeftRightEllipsis, demoImage: '/images/buidai-4.webp' },
   { id: 8, name: 'AI工业质检辅助系统', description: '集成高精度图像识别模型，支持多品类产品缺陷检测', icon: BadgeCheck, demoImage: '/images/buidai-5.webp' },
   { id: 9, name: 'AI电商素材系统', description: '支持商品文案智能生成、主图/详情图多风格AIGC创作', icon: ShoppingCart, demoImage: '/images/buidai-6.webp' },
@@ -127,46 +153,122 @@ const progress = ref(0)
 const isTransitioning = ref(false)
 const isPaused = ref(false)
 
-let autoPlayTimer: ReturnType<typeof setInterval> | null = null
-let progressTimer: ReturnType<typeof setInterval> | null = null
+let autoPlayTimer: ReturnType<typeof setTimeout> | null = null
+let progressStartTime = 0
+let progressRafId: number | null = null
 
 // 计算属性
 const currentSystem = computed(() => systemsList.value[activeIndex.value])
-const canScrollUp = computed(() => activeIndex.value > 0)
-const canScrollDown = computed(() => activeIndex.value < systemsList.value.length - 1)
 
 // 方法
 const selectSystem = (index: number) => {
-  if (index < 0 || index >= systemsList.value.length) return
+  if (index < 0 || index >= systemsList.value.length || index === activeIndex.value) {
+    return
+  }
+
   isTransitioning.value = true
-  activeIndex.value = index
   progress.value = 0
-  setTimeout(() => { isTransitioning.value = false }, 300)
+
+  // 使用 requestAnimationFrame 确保动画流畅
+  requestAnimationFrame(() => {
+    activeIndex.value = index
+
+    // 等待过渡动画完成
+    setTimeout(() => {
+      isTransitioning.value = false
+      resetAutoPlay()
+    }, 500)
+  })
 }
 
-const scrollUp = () => { if (canScrollUp.value) selectSystem(activeIndex.value - 1) }
-const scrollDown = () => { if (canScrollDown.value) selectSystem(activeIndex.value + 1) }
-const pauseAutoPlay = () => { isPaused.value = true }
-const resumeAutoPlay = () => { isPaused.value = false }
+const pauseAutoPlay = () => { 
+  isPaused.value = true 
+  cancelProgressAnimation()
+}
 
-// 自动播放
+const resumeAutoPlay = () => { 
+  isPaused.value = false
+  resetAutoPlay()
+}
+
+// 使用 requestAnimationFrame 替代 setInterval 实现更流畅的进度条
+const startProgressAnimation = () => {
+  if (!props.autoPlay) {
+    return
+  }
+
+  progressStartTime = performance.now()
+  const duration = props.autoPlayInterval
+
+  const animate = (currentTime: number) => {
+    if (isPaused.value || isTransitioning.value) {
+      progressRafId = requestAnimationFrame(animate)
+      return
+    }
+
+    const elapsed = currentTime - progressStartTime
+    progress.value = Math.min((elapsed / duration) * 100, 100)
+
+    if (elapsed < duration) {
+      progressRafId = requestAnimationFrame(animate)
+    }
+  }
+
+  progressRafId = requestAnimationFrame(animate)
+}
+
+const cancelProgressAnimation = () => {
+  if (progressRafId) {
+    cancelAnimationFrame(progressRafId)
+    progressRafId = null
+  }
+}
+
+// 自动播放 - 使用单个定时器管理
 const startAutoPlay = () => {
-  if (!props.autoPlay) return
-  const progressStep = 100 / (props.autoPlayInterval / 50)
-  progressTimer = setInterval(() => {
-    if (!isPaused.value && progress.value < 100) progress.value += progressStep
-  }, 50)
-  autoPlayTimer = setInterval(() => {
-    if (!isPaused.value) selectSystem((activeIndex.value + 1) % systemsList.value.length)
+  if (!props.autoPlay) {
+    return
+  }
+
+  startProgressAnimation()
+
+  autoPlayTimer = setTimeout(() => {
+    if (!isPaused.value) {
+      const nextIndex = (activeIndex.value + 1) % systemsList.value.length
+      selectSystem(nextIndex)
+    }
   }, props.autoPlayInterval)
 }
 
 const stopAutoPlay = () => {
-  if (progressTimer) { clearInterval(progressTimer); progressTimer = null }
-  if (autoPlayTimer) { clearInterval(autoPlayTimer); autoPlayTimer = null }
+  cancelProgressAnimation()
+  if (autoPlayTimer) {
+    clearTimeout(autoPlayTimer)
+    autoPlayTimer = null
+  }
 }
 
-onMounted(() => startAutoPlay())
+const resetAutoPlay = () => {
+  stopAutoPlay()
+  progress.value = 0
+  startAutoPlay()
+}
+
+// 监听 activeIndex 变化，自动重置自动播放
+watch(activeIndex, () => {
+  resetAutoPlay()
+})
+
+onMounted(() => {
+  // 预加载所有图片
+  systemsList.value.forEach(system => {
+    const img = new Image()
+    img.src = system.demoImage
+  })
+  
+  startAutoPlay()
+})
+
 onUnmounted(() => stopAutoPlay())
 </script>
 
@@ -177,5 +279,27 @@ onUnmounted(() => stopAutoPlay())
   line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* CSS 进度条动画 */
+.progress-bar {
+  animation: progress linear;
+  animation-duration: v-bind('`${autoPlayInterval}ms`');
+}
+
+@keyframes progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* 优化滚动性能 */
+@media (prefers-reduced-motion: no-preference) {
+  .transition-all {
+    will-change: transform, opacity;
+  }
 }
 </style>

@@ -40,7 +40,7 @@
               v-for="(tab, index) in tabs"
               :key="index"
               class="group w-full flex flex-col text-left px-4 py-3.5 rounded-xl transition-all duration-200 relative overflow-hidden outline-none"
-              :class="activeTab === index ? 'bg-white shadow-sm' : 'hover:bg-white/60'"
+              :class="activeTab === index ? 'bg-white' : 'hover:bg-white/60'"
               @click="switchTab(index)"
               @mouseenter="activeTab = index"
             >
@@ -54,7 +54,7 @@
                 <!-- 序号图标 -->
                 <div
                   class="w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-200 shrink-0 text-sm font-semibold"
-                  :class="activeTab === index ? 'bg-[#6E58FF] text-white shadow-sm' : 'bg-white border border-neutral-200 text-neutral-400 group-hover:text-[#6E58FF] group-hover:border-[#6E58FF]/30'"
+                  :class="activeTab === index ? 'bg-[#6E58FF] text-white' : 'bg-white border border-neutral-200 text-neutral-400 group-hover:text-[#6E58FF] group-hover:border-[#6E58FF]/30'"
                 >
                   {{ String(index + 1).padStart(2, '0') }}
                 </div>

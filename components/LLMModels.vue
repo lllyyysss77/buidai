@@ -27,7 +27,7 @@
               'lg:border-r last:lg:border-r-0'
             ]"
           >
-            <div class="flex items-center justify-center gap-2 transition-colors duration-300 text-slate-500 group-hover:text-indigo-600">
+            <div class="flex items-center justify-center gap-2 transition-colors duration-300 text-indigo-600 group-hover:text-violet-600">
               <div v-html="model.icon" class="w-5 h-5" />
               <span class="text-sm font-medium">{{ model.name }}</span>
             </div>
@@ -40,44 +40,57 @@
       </div>
 
       <!-- 模型卡片详情区 - 网格宫格设计 -->
-      <div class="mt-4 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         <div
           v-for="card in displayedCards"
           :key="card.name"
-          class="group flex flex-col h-full min-h-[120px] sm:min-h-[140px] rounded-xl bg-white border border-indigo-100/60 hover:border-indigo-300/60 transition-all duration-300 cursor-pointer shadow-[0_1px_3px_rgba(99,102,241,0.04)] hover:shadow-[0_8px_24px_rgba(99,102,241,0.12)] hover:-translate-y-0.5"
+          class="group relative flex flex-col h-full min-h-[140px] rounded-xl bg-white border border-slate-200/60 hover:border-indigo-300/80 transition-all duration-300 cursor-pointer overflow-hidden"
+          style="box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);"
         >
-          <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 p-4 sm:p-5 w-full h-full">
-            <!-- 图标容器 - 细边框样式 -->
-            <div class="shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-indigo-50 to-white border border-indigo-100/80 flex items-center justify-center text-indigo-600 group-hover:border-indigo-300/60 group-hover:from-indigo-100/50 group-hover:to-indigo-50/50 transition-all duration-300">
-              <div v-html="card.icon" class="w-4 h-4 sm:w-5 sm:h-5" />
+          <!-- 悬停时的顶部渐变条 -->
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 to-violet-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+          
+          <div class="flex flex-col gap-3 p-5 w-full h-full">
+            <!-- 头部：图标与名称 -->
+            <div class="flex items-center gap-3">
+              <!-- 图标容器 - 参考设计的圆润风格 -->
+              <div class="shrink-0 w-11 h-11 rounded-lg bg-gradient-to-br from-indigo-50/80 to-violet-50/50 border border-indigo-200/60 flex items-center justify-center text-indigo-600 group-hover:text-violet-600 group-hover:border-violet-300/70 group-hover:from-violet-100/60 group-hover:to-indigo-50/50 transition-all duration-300">
+                <div v-html="card.icon" class="w-5 h-5" />
+              </div>
+              <!-- 名称 -->
+              <h3 class="text-sm font-semibold text-slate-900 group-hover:text-indigo-600 transition-colors duration-300 line-clamp-1">{{ card.name }}</h3>
             </div>
+            
             <!-- 内容区域 -->
-            <div class="flex-1 min-w-0 space-y-1.5 sm:space-y-2">
-              <h3 class="text-xs sm:text-sm font-semibold text-slate-900 group-hover:text-indigo-600 transition-colors duration-300 line-clamp-1">{{ card.name }}</h3>
-              <p class="text-[11px] sm:text-xs text-slate-500 leading-relaxed line-clamp-2 sm:line-clamp-2">{{ card.desc }}</p>
-              <!-- 标签组 -->
-              <div class="flex flex-wrap gap-1 sm:gap-1.5 pt-0.5 sm:pt-1">
+            <div class="flex-1 min-w-0 space-y-3">
+              <p class="text-xs text-slate-500 leading-relaxed line-clamp-2">{{ card.desc }}</p>
+              
+              <!-- 标签组 - 优化样式 -->
+              <div class="flex flex-wrap gap-1.5">
                 <span
-                  v-for="tag in card.tags.slice(0, 2)"
+                  v-for="tag in card.tags.slice(0, 3)"
                   :key="tag"
-                  class="inline-flex items-center rounded-full border border-indigo-100 bg-indigo-50/50 px-1.5 sm:px-2.5 py-0.5 text-[9px] sm:text-[11px] font-medium text-indigo-600/80 group-hover:bg-indigo-100/60 group-hover:border-indigo-200 transition-all duration-300"
+                  class="inline-flex items-center rounded-md border border-slate-200 bg-slate-50/80 px-2 py-0.5 text-[11px] font-medium text-slate-600 group-hover:border-indigo-200 group-hover:bg-indigo-50/50 group-hover:text-indigo-600 transition-all duration-300"
                 >
                   {{ tag }}
                 </span>
-                <span v-if="card.tags.length > 2" class="text-[9px] sm:text-[11px] text-slate-400">+{{ card.tags.length - 2 }}</span>
+                <span v-if="card.tags.length > 3" class="text-[11px] text-slate-400 flex items-center">+{{ card.tags.length - 3 }}</span>
               </div>
             </div>
           </div>
+          
+          <!-- 底部装饰线 -->
+          <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-indigo-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </div>
 
         <!-- 更多模型占位卡片 - 仅在展开全部后显示 -->
         <div
           v-if="isExpanded"
-          class="flex h-auto min-h-[140px] items-center justify-center rounded-xl border border-dashed border-indigo-200 bg-indigo-50/20"
+          class="flex h-auto min-h-[140px] items-center justify-center rounded-xl border border-dashed border-slate-300 bg-slate-50/50 hover:border-indigo-300 hover:bg-indigo-50/20 transition-all duration-300"
         >
           <div class="flex flex-col items-center gap-3 py-6">
             <!-- 省略号图标 -->
-            <div class="w-11 h-11 rounded-xl border border-indigo-200 bg-white flex items-center justify-center text-indigo-400">
+            <div class="w-12 h-12 rounded-xl border border-slate-300 bg-white flex items-center justify-center text-slate-400 group-hover:text-indigo-400 group-hover:border-indigo-300 transition-all duration-300">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -95,7 +108,7 @@
                 <circle cx="5" cy="12" r="1"></circle>
               </svg>
             </div>
-            <span class="text-xs font-medium text-indigo-500/80">更多模型接入中...</span>
+            <span class="text-xs font-medium text-slate-500">更多模型接入中...</span>
           </div>
         </div>
       </div>

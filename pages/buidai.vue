@@ -226,13 +226,13 @@
     <LLMModels />
 
     <!-- 功能部分: AI赋能企业通用场景 - 简洁层叠样式 -->
-    <section class="py-12 lg:py-20 bg-neutral-50/50">
-      <div class="container mx-auto px-4">
+    <section class="py-8 sm:py-12 lg:py-20 bg-neutral-50/50">
+      <div class="container mx-auto px-4 sm:px-6">
         <!-- 标题区域 - 增加描述文案 -->
-        <div class="text-center mb-10 md:mb-14" data-aos="fade-up">
+        <div class="text-center mb-8 sm:mb-10 md:mb-14" data-aos="fade-up">
           <!-- 标签徽章 -->
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-xs font-medium mb-4">
-            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <span class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-xs font-medium mb-3 sm:mb-4">
+            <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
               <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
               <line x1="12" y1="22.08" x2="12" y2="12"/>
@@ -240,35 +240,35 @@
             解决方案
           </span>
           
-          <h2 class="text-2xl md:text-4xl lg:text-5xl font-bold text-[#0F0F12] mb-4 tracking-tight">
+          <h2 class="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-[#0F0F12] mb-3 sm:mb-4 tracking-tight">
             AI 赋能企业<span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-600">通用场景</span>
           </h2>
           
           <!-- 描述文案 -->
-          <p class="text-neutral-500 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+          <p class="text-neutral-500 text-sm sm:text-base md:text-lg max-w-3xl mx-auto leading-relaxed px-4 sm:px-6 lg:px-0">
             基于智言AI强大的工作流引擎与多模型集成能力，为企业打造智能化转型全栈解决方案。
             覆盖内容创作、客户服务、数字营销等核心场景，助力企业降本增效，开启AI驱动新增长。
           </p>
           
           <!-- 关键数据指标 -->
-          <div class="flex flex-wrap items-center justify-center gap-6 md:gap-10 mt-8">
+          <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-10 mt-6 sm:mt-8">
             <div class="flex items-center gap-2">
-              <div class="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center">
-                <span class="text-indigo-600 font-bold text-sm">9+</span>
+              <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-indigo-50 flex items-center justify-center">
+                <span class="text-indigo-600 font-bold text-xs sm:text-sm">9+</span>
               </div>
-              <span class="text-neutral-600 text-sm">应用场景</span>
+              <span class="text-neutral-600 text-xs sm:text-sm">应用场景</span>
             </div>
             <div class="flex items-center gap-2">
-              <div class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center">
-                <span class="text-blue-600 font-bold text-sm">50+</span>
+              <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-blue-50 flex items-center justify-center">
+                <span class="text-blue-600 font-bold text-xs sm:text-sm">50+</span>
               </div>
-              <span class="text-neutral-600 text-sm">行业模板</span>
+              <span class="text-neutral-600 text-xs sm:text-sm">行业模板</span>
             </div>
             <div class="flex items-center gap-2">
-              <div class="w-8 h-8 rounded-lg bg-purple-50 flex items-center justify-center">
-                <span class="text-purple-600 font-bold text-sm">24h</span>
+              <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-purple-50 flex items-center justify-center">
+                <span class="text-purple-600 font-bold text-xs sm:text-sm">24h</span>
               </div>
-              <span class="text-neutral-600 text-sm">快速部署</span>
+              <span class="text-neutral-600 text-xs sm:text-sm">快速部署</span>
             </div>
           </div>
         </div>
@@ -289,41 +289,41 @@
             <div class="scenario-number">{{ scenario.index }}</div>
             
             <!-- 内容容器 -->
-            <div class="relative z-10 pt-8 pb-8 px-6 md:pt-10 md:pb-10 md:px-8 lg:pt-12 lg:pb-12 lg:px-10">
+            <div class="relative z-10 pt-6 sm:pt-8 pb-6 sm:pb-8 px-4 sm:px-6 md:pt-10 md:pb-10 md:px-8 lg:pt-12 lg:pb-12 lg:px-10">
 
               <div
-                class="flex flex-col lg:flex-row gap-8 lg:gap-16 items-stretch relative z-10"
+                class="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-16 items-stretch relative z-10"
                 :class="idx % 2 === 1 ? 'lg:flex-row-reverse' : ''"
               >
                 <!-- 左侧内容区 - 卡片式布局 -->
-                <div class="w-full lg:w-2/5 flex flex-col">
+                <div class="w-full lg:w-2/5 flex flex-col order-2 lg:order-1">
                   <!-- 主内容卡片 -->
-                  <div class="flex-1 bg-gray-50 rounded-xl border border-gray-100 p-6 md:p-8 flex flex-col">
+                  <div class="flex-1 bg-gray-50 rounded-xl border border-gray-100 p-4 sm:p-6 md:p-8 flex flex-col">
                     <!-- 图标与标题 -->
-                    <div class="flex items-center gap-4 mb-6">
-                      <div class="w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center shrink-0 bg-gray-100" :class="scenario.iconBg">
-                        <component :is="scenario.icon" class="w-5 h-5 md:w-6 md:h-6" />
+                    <div class="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                      <div class="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center shrink-0 bg-gray-100" :class="scenario.iconBg">
+                        <component :is="scenario.icon" class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
                       </div>
-                      <h3 class="text-lg md:text-xl font-bold text-gray-900 leading-tight">{{ scenario.title }}</h3>
+                      <h3 class="text-base sm:text-lg md:text-xl font-bold text-gray-900 leading-tight">{{ scenario.title }}</h3>
                     </div>
 
                     <!-- 分隔线 -->
-                    <div class="w-full h-px bg-gray-200 mb-6"></div>
+                    <div class="w-full h-px bg-gray-200 mb-4 sm:mb-6"></div>
 
                     <!-- 列表 -->
-                    <ul class="space-y-3 flex-1">
-                      <li v-for="(item, i) in scenario.items" :key="i" class="flex items-start gap-3 text-gray-600 text-sm md:text-base leading-relaxed">
-                        <CheckCircleIcon class="w-5 h-5 text-gray-400 shrink-0 mt-0.5" />
+                    <ul class="space-y-2 sm:space-y-3 flex-1">
+                      <li v-for="(item, i) in scenario.items" :key="i" class="flex items-start gap-2 sm:gap-3 text-gray-600 text-xs sm:text-sm md:text-base leading-relaxed">
+                        <CheckCircleIcon class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 shrink-0 mt-0.5" />
                         <span>{{ item }}</span>
                       </li>
                     </ul>
 
                     <!-- 按钮区 -->
-                    <div class="mt-6 pt-5 border-t border-gray-200">
+                    <div class="mt-5 sm:mt-6 pt-4 sm:pt-5 border-t border-gray-200">
                       <a
                         href="https://www.gmlart.cn/"
                         target="_blank"
-                        class="group/btn inline-flex items-center gap-2 px-5 py-2 rounded-md bg-gray-900 text-white text-sm font-medium hover:bg-gray-800 active:scale-[0.98] transition-all duration-200"
+                        class="group/btn inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 sm:py-2 rounded-md bg-gray-900 text-white text-sm font-medium hover:bg-gray-800 active:scale-[0.98] transition-all duration-200 w-full sm:w-auto touch-manipulation"
                       >
                         立即体验
                         <ArrowRightIcon class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-200" />
@@ -333,11 +333,11 @@
                 </div>
 
                 <!-- 右侧图像区 - 简洁设计 -->
-                <div class="w-full lg:w-3/5">
-                  <div class="relative w-full h-full min-h-[280px] lg:min-h-0">
+                <div class="w-full lg:w-3/5 order-1 lg:order-2">
+                  <div class="relative w-full h-full min-h-[200px] sm:min-h-[240px] lg:min-h-0">
                     <!-- 主图容器 -->
                     <div class="relative w-full h-full aspect-video lg:aspect-auto lg:h-full">
-                      <div class="absolute inset-0 w-full h-full overflow-hidden rounded-2xl bg-white border border-gray-200 p-3 md:p-5">
+                      <div class="absolute inset-0 w-full h-full overflow-hidden rounded-xl sm:rounded-2xl bg-white border border-gray-200 p-2 sm:p-3 md:p-5">
                         <img
                           :src="scenario.image"
                           :alt="scenario.title"
@@ -1172,23 +1172,40 @@ html {
    ======================================== */
 @media (max-width: 767px) {
   .scenario-stack {
-    gap: 20px;
+    gap: 16px;
+    overflow: hidden;
   }
 
   .scenario-card {
     position: relative;
     top: auto;
-    border-radius: 10px;
+    border-radius: 12px;
     margin-bottom: 0;
     border-color: #E5E7EB;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    min-width: 0;
   }
 
   .scenario-number {
-    left: 16px;
-    top: 16px;
-    width: 26px;
-    height: 26px;
+    left: 12px;
+    top: 12px;
+    width: 24px;
+    height: 24px;
     font-size: 10px;
+    border-color: #E5E7EB;
+  }
+}
+
+/* ========================================
+   超小屏幕适配 (< 480px)
+   ======================================== */
+@media (max-width: 479px) {
+  .scenario-stack {
+    gap: 12px;
+  }
+
+  .scenario-card {
+    border-radius: 10px;
   }
 }
 

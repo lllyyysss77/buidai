@@ -177,40 +177,40 @@
     <!-- 底部介绍文案 -->
     <div class="flex p-1 pt-1">
       <div class="flex-1 rounded-lg border border-neutral-200/70 bg-white" />
-      <div class="mx-1 w-full max-w-400 rounded-xl border border-neutral-200/70 bg-gradient-to-br from-white to-neutral-50/60 px-10 py-10 sm:px-12 sm:py-12">
-        <div class="flex items-center justify-between gap-10">
+      <div class="mx-1 w-full max-w-[400px] sm:max-w-[600px] lg:max-w-[1000px] rounded-xl border border-neutral-200/70 bg-gradient-to-br from-white to-neutral-50/60 px-5 py-6 sm:px-10 sm:py-10 lg:px-12 lg:py-12 min-w-0">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 lg:gap-10">
           <!-- 左侧：标题与核心优势 -->
-          <div class="flex-1">
-            <div class="flex items-center gap-3 mb-4">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-3 mb-3 lg:mb-4">
               <div class="w-1.5 h-6 bg-indigo-500 rounded-full" />
               <h4 class="text-lg font-bold text-neutral-900 tracking-tight">
                 智言AI 平台
               </h4>
             </div>
-            <p class="text-[15px] leading-7 text-neutral-600">
+            <p class="text-sm sm:text-[15px] leading-6 sm:leading-7 text-neutral-600">
               整合行业领先的 AI 大模型能力，提供从视觉创作、智能对话到知识管理的全栈解决方案。
             </p>
           </div>
 
           <!-- 右侧：核心能力标签 -->
-          <div class="flex flex-wrap gap-2.5 shrink-0 max-w-[220px]">
-            <span class="px-4 py-2 rounded-full bg-neutral-100 text-neutral-700 text-sm font-medium">
+          <div class="flex flex-wrap gap-2 sm:gap-2.5 shrink-0 lg:max-w-[220px]">
+            <span class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-neutral-100 text-neutral-700 text-xs sm:text-sm font-medium">
               视觉创作
             </span>
-            <span class="px-4 py-2 rounded-full bg-indigo-50 text-indigo-700 text-sm font-medium">
+            <span class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-indigo-50 text-indigo-700 text-xs sm:text-sm font-medium">
               智能对话
             </span>
-            <span class="px-4 py-2 rounded-full bg-neutral-100 text-neutral-700 text-sm font-medium">
+            <span class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-neutral-100 text-neutral-700 text-xs sm:text-sm font-medium">
               知识管理
             </span>
-            <span class="px-4 py-2 rounded-full bg-neutral-100 text-neutral-700 text-sm font-medium">
+            <span class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-neutral-100 text-neutral-700 text-xs sm:text-sm font-medium">
               企业定制
             </span>
           </div>
         </div>
 
         <!-- 底部联系栏 -->
-        <div class="mt-6 pt-5 border-t border-neutral-100 flex items-center justify-between">
+        <div class="mt-5 sm:mt-6 pt-4 sm:pt-5 border-t border-neutral-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-0">
           <p class="text-xs text-neutral-400">
             已为 500+ 企业提供 AI 转型服务
           </p>

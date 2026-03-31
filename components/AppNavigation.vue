@@ -9,7 +9,7 @@
         <div class="flex items-center gap-10 flex-1">
           <NuxtLink to="/" class="flex items-center gap-2 shrink-0" aria-label="智言万象 Home">
             <img
-              :src="isTransparent ? '/logo.svg' : '/logo-full.svg'"
+              :src="isTransparent ? '/logo.svg' : '/logo.svg'"
               alt="智言万象 Logo"
               width="120"
               height="32"
@@ -96,15 +96,38 @@
         id="mobile-menu-panel"
         class="md:hidden absolute top-full left-0 right-0 border-t border-gray-200 bg-white shadow-xl h-[calc(100dvh-72px)] overflow-y-auto pb-[env(safe-area-inset-bottom)]"
       >
-        <div class="flex flex-col space-y-4 p-4">
-          <UNavigationMenu
-            orientation="vertical"
-            :items="items"
-            :ui="mobileNavigationMenuUi"
-            class="w-full"
-          />
+        <div class="p-4 space-y-3">
+          <!-- 一级菜单双排显示：左右布局 -->
+          <div class="grid grid-cols-2 gap-2">
+            <NuxtLink
+              v-for="item in primaryItems"
+              :key="item.label"
+              to="#"
+              class="flex items-center gap-2 p-3 rounded-lg transition-all duration-200 active:scale-[0.98]"
+              :class="item.hasChildren ? 'bg-blue-50 hover:bg-blue-100' : 'bg-gray-50 hover:bg-gray-100'"
+              @click.prevent="item.hasChildren ? toggleSubmenu(item.label!) : (item.to ? (mobileMenuOpen = false, $router.push(item.to)) : null)"
+            >
+              <UIcon :name="item.icon" class="text-lg text-gray-700 shrink-0" />
+              <span class="flex-1 text-sm font-medium text-gray-700 truncate">{{ item.label }}</span>
+              <UIcon v-if="item.hasChildren" name="i-lucide-chevron-right" class="text-gray-400 shrink-0" :class="activeSubmenu === item.label ? 'rotate-90' : ''" />
+            </NuxtLink>
+          </div>
 
-          <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+          <!-- 子菜单展开区域 -->
+          <div v-if="activeSubmenu" class="grid grid-cols-2 gap-2">
+            <NuxtLink
+              v-for="item in secondaryItems.filter(i => i.groupLabel === activeSubmenu)"
+              :key="item.to"
+              :to="item.to"
+              class="flex items-center gap-2 p-3 rounded-lg hover:bg-gray-50 transition-all duration-200 active:scale-[0.98]"
+              @click="mobileMenuOpen = false"
+            >
+              <UIcon :name="item.icon" class="text-lg text-gray-500 shrink-0" />
+              <span class="flex-1 text-sm text-gray-600 truncate">{{ item.label }}</span>
+            </NuxtLink>
+          </div>
+
+          <div class="flex items-center gap-3 pt-3 border-t border-gray-100">
             <UButton
               to="https://api.gmlart.cn/"
               target="_blank"
@@ -162,14 +185,19 @@ import { SCROLL } from '~/utils/ui'
 const route = useRoute()
 const mobileMenuOpen = ref(false)
 const isScrolled = ref(false)
+const activeSubmenu = ref<string | null>(null)
+
+const toggleSubmenu = (label: string) => {
+  activeSubmenu.value = activeSubmenu.value === label ? null : label
+}
 
 // Navigation Items Configuration
 // Uses nested arrays for grouping if needed, or simple array
 const items = computed<NavigationMenuItem[][]>(() => [
   [
     { label: '首页', to: '/', icon: 'i-lucide-house' },
-    { label: '智言AI', to: '/agent', icon: 'i-lucide-bot' },
     { label: '私有部署', to: '/buidai', icon: 'i-lucide-server' },
+    { label: '智言AI', to: '/agent', icon: 'i-lucide-bot' },
     {
       label: '解决方案',
       icon: 'i-lucide-box',
@@ -356,36 +384,57 @@ const navigationMenuUi = computed(() => ({
 }))
 
 /**
- * UI Configuration for Mobile Navigation Menu
- * Larger touch targets, cleaner spacing, and enterprise-grade styling.
+ * 按PC端顺序扁平化导航项，用于移动端宫格布局
+ * 一级菜单按顺序排列，包括有子菜单的一级菜单
  */
-const mobileNavigationMenuUi = computed(() => ({
-  // 一级菜单链接 - 使用系统默认配色
-  link: 'text-base text-muted hover:text-highlighted hover:bg-elevated font-medium rounded-lg px-3 py-3 min-h-[48px] flex items-center leading-relaxed transition-colors duration-150',
-  linkActive: 'text-primary font-semibold bg-primary/10 rounded-lg px-3 py-3 min-h-[48px] flex items-center',
-  linkLeadingIcon: 'text-dimmed group-hover:text-muted group-[.router-link-active]:text-primary w-5 h-5 mr-3',
+const flattenNavigationItems = computed(() => {
+  const flattened: Array<{ label: string; to: string; icon: string; isChild: boolean; groupLabel?: string; hasChildren?: boolean }> = []
 
-  // 二级菜单容器
-  content: 'bg-elevated/50 rounded-lg mt-1 mb-2',
+  items.value.forEach(group => {
+    group.forEach(item => {
+      if (item.label) {
+        // 一级菜单：包括有 to 的项，也包括有 children 但没有 to 的项（如解决方案、资源中心）
+        if (item.to) {
+          flattened.push({
+            label: item.label,
+            to: item.to as string,
+            icon: item.icon || '',
+            isChild: false,
+            hasChildren: !!item.children
+          })
+        } else if (item.children) {
+          // 有子菜单但没有 to 的一级菜单项
+          flattened.push({
+            label: item.label,
+            to: '',
+            icon: item.icon || '',
+            isChild: false,
+            hasChildren: true
+          })
+        }
+        // 子菜单项
+        if (item.children) {
+          item.children.forEach(child => {
+            if (child.to && child.label) {
+              flattened.push({
+                label: child.label,
+                to: child.to as string,
+                icon: child.icon || '',
+                isChild: true,
+                groupLabel: item.label
+              })
+            }
+          })
+        }
+      }
+    })
+  })
 
-  // 二级菜单列表
-  childList: 'space-y-1 p-2',
+  return flattened
+})
 
-  // 二级菜单链接 - icon和label并排，description换行贴左
-  childLink: 'flex flex-wrap items-center gap-x-2 gap-y-1 p-3 rounded-lg hover:bg-default transition-colors duration-150 group/child',
-
-  // 二级菜单链接包装器
-  childLinkWrapper: 'contents',
-
-  // 二级菜单图标
-  childLinkIcon: 'size-5 text-dimmed shrink-0',
-
-  // 二级菜单标题
-  childLinkLabel: 'font-semibold text-highlighted',
-
-  // 二级菜单描述
-  childLinkDescription: 'w-full text-sm text-muted leading-relaxed'
-}))
+const primaryItems = computed(() => flattenNavigationItems.value.filter(item => !item.isChild))
+const secondaryItems = computed(() => flattenNavigationItems.value.filter(item => item.isChild))
 
 // --- Scroll Handling ---
 

@@ -16,15 +16,13 @@
         </div>
 
         <h1
-          class="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight mb-6 text-neutral-900 leading-tight"
+          class="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight mb-6 text-neutral-900 leading-tight min-h-[1.2em]"
         >
-          智言AI
+          <span class="typewriter-text">{{ displayText }}</span>
           <span
-            class="text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-indigo-400 block sm:inline"
-          >
-          领先的
-          </span>
-         AI创作平台
+            class="typewriter-cursor inline-block w-[3px] h-[1em] bg-indigo-600 ml-1 align-middle"
+            :class="{ 'animate-blink': showCursor }"
+          />
         </h1>
 
         <p class="text-base sm:text-xl text-neutral-500 mb-8 md:mb-10 max-w-3xl mx-auto px-2">
@@ -862,8 +860,46 @@ const setActiveCard = (index: number) => {
   resumeFeatureAutoplay()
 }
 
+// 打字机效果相关
+const texts = ['智言AI 领先的AI创作平台', '可视化 Workflow 编排', '超易用 AI 知识库', '创新 RAG 检索', '轻松构建强大 AI 应用']
+const displayText = ref('')
+const showCursor = ref(true)
+const currentTextIndex = ref(0)
+const currentCharIndex = ref(0)
+const isDeleting = ref(false)
+
+const typeWriter = () => {
+  const currentText = texts[currentTextIndex.value]
+  const typingSpeed = isDeleting.value ? 30 : 75
+  const pauseDuration = 1500
+
+  if (isDeleting.value) {
+    displayText.value = currentText.substring(0, currentCharIndex.value - 1)
+    currentCharIndex.value--
+  } else {
+    displayText.value = currentText.substring(0, currentCharIndex.value + 1)
+    currentCharIndex.value++
+  }
+
+  if (!isDeleting.value && currentCharIndex.value === currentText.length) {
+    showCursor.value = true
+    setTimeout(() => {
+      isDeleting.value = true
+      typeWriter()
+    }, pauseDuration)
+  } else if (isDeleting.value && currentCharIndex.value === 0) {
+    isDeleting.value = false
+    currentTextIndex.value = (currentTextIndex.value + 1) % texts.length
+    setTimeout(typeWriter, 500)
+  } else {
+    setTimeout(typeWriter, typingSpeed)
+  }
+}
+
 onMounted(() => {
   startFeatureAutoplay()
+  // 启动打字机效果
+  setTimeout(typeWriter, 1000)
 })
 
 onBeforeUnmount(() => {
@@ -915,5 +951,19 @@ onBeforeUnmount(() => {
     transform: scaleX(1);
     opacity: 1;
   }
+}
+
+/* 打字机光标闪烁动画 */
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 0.8s infinite;
 }
 </style>

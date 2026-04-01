@@ -12,12 +12,12 @@
           <!-- Falling Text 动画组件 -->
           <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 w-[520px] h-[240px] md:w-[720px] md:h-[320px] pointer-events-auto">
             <FallingText
-              text="智言万象 AI Agent Workflow 知识库 RAG 检索"
-              :highlight-words="['AI', 'Agent','Workflow', 'RAG']"
+              text="智言万象 AI 企业级 开源 Agent Workflow 知识库 RAG 检索"
+              :highlight-words="['AI', 'Agent','企业级','开源','Workflow', 'RAG']"
               trigger="scroll"
               background-color="transparent"
               :wireframes="false"
-              :gravity="0.56"
+              :gravity="0.2"
               font-size="1.5rem"
               :mouse-constraint-stiffness="0.9"
             />

@@ -233,43 +233,43 @@ interface FeatureCard {
 
 /**
  * 功能卡片数据列表
- * 展示5步快速上手指南
+ * 热门功能展示
  */
 const featureCards: FeatureCard[] = [
   {
-    category: '快速开始',
-    tag: '源码获取',
-    title: '从 GitHub 克隆智言AI',
-    desc: '访问我们的开源仓库，一键 Fork 或 Clone，完整源代码即刻到手，开启你的 AI 平台搭建之旅。',
-    image: '/images/buidai-1.webp'
+    category: 'AI绘画',
+    tag: '文生图 · 图生图',
+    title: 'Nanobanana 香蕉绘画',
+    desc: '基于 Gemini 3 Pro Image Preview 模型的一站式 AI 图像创作平台，支持高质量文生图、图生图及多图融合，预置模板开箱即用，生成速度极快。',
+    image: '/product/banana-1.png'
   },
   {
-    category: '部署安装',
-    tag: '极速启动',
-    title: '图形化向导安装',
-    desc: '支持 Docker 快速部署与原生手动安装，全程可视化界面引导，让技术小白也能轻松完成环境搭建。',
-    image: '/images/buidai-2.webp'
+    category: 'AI视频',
+    tag: '文生视频 · 图生视频',
+    title: '即梦AI 视频生成',
+    desc: '输入文字描述或上传参考图，即可快速生成风格多样的短视频。支持多种视频比例和分辨率（720P、1080P），让创意瞬间变为现实。',
+    image: '/plugin/即梦AI视频.png'
   },
   {
-    category: '应用搭建',
-    tag: '按需组合',
-    title: '模块化搭建智能应用',
-    desc: '浏览丰富的应用市场，根据业务场景挑选功能模块，像拼乐高一样灵活组合，打造专属 AI 解决方案。',
-    image: '/images/buidai-3.webp'
+    category: 'AI数字人',
+    tag: '形象克隆 · 声音克隆',
+    title: 'AI数字人系统',
+    desc: '一键克隆形象与声音，支持 4K 超清画质、5 秒声音克隆、多语种合成。上传视频即可克隆专属形象，1:1 还原真人表情与动作。',
+    image: '/product/human.png'
   },
   {
-    category: '业务配置',
-    tag: '自主定制',
-    title: '灵活设置会员 · 支付 · 登录',
-    desc: '自定义多层级会员体系，接入主流支付渠道，支持手机号、邮箱、第三方账号等多种登录认证方式。',
-    image: '/images/buidai-4.webp'
+    category: 'AI创作',
+    tag: '短剧 · 小说 · 剧本',
+    title: 'AI短剧小说创作',
+    desc: '专为自媒体创作者、编剧、网络作家打造，支持创建无限量剧本、角色设定、章节可视化拖拽、AI 扩写润色改写续写，让创作更高效。',
+    image: '/plugin/AI短剧小说创作.png'
   },
   {
-    category: '上线运营',
-    tag: '创收增效',
-    title: '发布即变现 · 赋能企业提效',
-    desc: '配置完成后立即发布运营，快速实现商业变现；同时可作为企业内部 AI 中台，显著释放团队生产力。',
-    image: '/images/buidai-5.webp'
+    category: 'AI工具',
+    tag: '音乐 · PPT · 简历',
+    title: '多元化 AI 创作工具',
+    desc: '涵盖 AI 音乐生成、智能 PPT 制作、简历生成分析等多款工具。支持文生音乐、一键生成演示文稿、智能简历优化，满足多样化创作需求。',
+    image: '/plugin/xiaohongshu.png'
   }
 ]
 

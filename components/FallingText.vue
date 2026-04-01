@@ -51,8 +51,8 @@ const props = withDefaults(defineProps<FallingTextProps>(), {
   trigger: 'auto',
   backgroundColor: 'transparent',
   wireframes: false,
-  gravity: 1,
-  mouseConstraintStiffness: 0.2,
+  gravity: 0.1,
+  mouseConstraintStiffness: 0.6,
   fontSize: '1rem',
 })
 
@@ -97,7 +97,9 @@ const initText = () => {
  * 初始化滚动触发观察器
  */
 const initScrollObserver = () => {
-  if (props.trigger !== 'scroll' || !containerRef.value) return
+  if (props.trigger !== 'scroll' || !containerRef.value) {
+    return
+  }
 
   observer = new IntersectionObserver(
     ([entry]) => {

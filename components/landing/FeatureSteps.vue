@@ -9,13 +9,20 @@
 
         <!-- 标题区域内容 -->
         <div class="grid-border-content px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10 relative">
-          <div class="absolute inset-0 z-0">
-            <img
-              src="/images/Modelbackground.png"
-              alt=""
-              class="w-full h-full object-cover opacity-30"
+          <!-- Falling Text 动画组件 -->
+          <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 w-[520px] h-[240px] md:w-[720px] md:h-[320px] pointer-events-auto">
+            <FallingText
+              text="智言万象 AI Agent Workflow 知识库 RAG 检索"
+              :highlight-words="['AI', 'Agent','Workflow', 'RAG']"
+              trigger="scroll"
+              background-color="transparent"
+              :wireframes="false"
+              :gravity="0.56"
+              font-size="1.5rem"
+              :mouse-constraint-stiffness="0.9"
             />
           </div>
+
           <div class="relative z-10 mb-6 sm:mb-8">
             <div class="flex items-center gap-2 mb-2">
               <span class="inline-block h-1.5 w-4 rounded-full bg-indigo-600" />

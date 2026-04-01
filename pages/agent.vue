@@ -7,20 +7,6 @@
 
     <!-- 英雄区域 -->
     <section class="pt-32 pb-12 md:pt-48 md:pb-20 relative overflow-hidden z-10">
-      <!-- Falling Text 动画组件 - 底部居中 -->
-      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 w-[520px] h-[240px] md:w-[720px] md:h-[320px] pointer-events-auto">
-        <FallingText
-          text="智言万象 AI Workflow 知识库 RAG 检索"
-          :highlight-words="['AI', 'Workflow', 'RAG']"
-          trigger="scroll"
-          background-color="transparent"
-          :wireframes="false"
-          :gravity="0.56"
-          font-size="1.5rem"
-          :mouse-constraint-stiffness="0.9"
-        />
-      </div>
-
       <div class="container mx-auto px-4 text-center relative z-10">
         <div
           class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-50 border border-neutral-200 text-xs text-neutral-600 mb-8"

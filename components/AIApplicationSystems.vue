@@ -16,24 +16,26 @@
         <!-- 左侧展示卡片 -->
         <div class="md:col-span-2 lg:col-span-2 lg:row-span-3 bg-neutral-50 rounded-2xl overflow-hidden flex flex-col border border-neutral-100">
           <!-- 图片区域 -->
-          <div class="relative w-full bg-white" style="aspect-ratio: 16/5.5;">
-            <!-- 预加载下一张图片 -->
-            <img
-              v-for="system in systemsList"
-              :key="`preload-${system.id}`"
-              :src="system.demoImage"
-              :alt="system.name"
-              class="absolute inset-0 w-full h-full object-cover opacity-0 pointer-events-none"
-              loading="eager"
-            />
-            <!-- 当前显示图片 -->
-            <img
-              :src="currentSystem?.demoImage || '/images/CtaSection.jpg'"
-              :alt="currentSystem?.name"
-              loading="eager"
-              class="absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-out"
-              :class="isTransitioning ? 'opacity-0 scale-105' : 'opacity-100 scale-100'"
-            />
+          <div class="relative w-full bg-white p-4">
+            <div class="relative w-full overflow-hidden rounded-xl border border-neutral-200" style="aspect-ratio: 16/5.5;">
+              <!-- 预加载下一张图片 -->
+              <img
+                v-for="system in systemsList"
+                :key="`preload-${system.id}`"
+                :src="system.demoImage"
+                :alt="system.name"
+                class="absolute inset-0 w-full h-full object-cover opacity-0 pointer-events-none"
+                loading="eager"
+              />
+              <!-- 当前显示图片 -->
+              <img
+                :src="currentSystem?.demoImage || '/images/CtaSection.jpg'"
+                :alt="currentSystem?.name"
+                loading="eager"
+                class="absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-out rounded-xl"
+                :class="isTransitioning ? 'opacity-0 scale-105' : 'opacity-100 scale-100'"
+              />
+            </div>
           </div>
           
           <!-- 信息栏 -->
@@ -132,7 +134,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 // 默认数据
 const defaultSystems: AIApplicationSystem[] = [
-  { id: 1, name: 'AI聊天绘画系统', description: '可快速搭建集成全球所有顶级大语言模型并且兼容主流AIGC图片模型，具备智能对话，图片生成，用户管理，算力计费，会员订阅等模块的AI应用系统', icon: Palette, demoImage: '/images/Corefunction.jpg' },
+  { id: 1, name: 'AI聊天绘画系统', description: '可快速搭建集成全球所有顶级大语言模型并且兼容主流AIGC图片模型，具备智能对话，图片生成，用户管理，算力计费，会员订阅等模块的AI应用系统', icon: Palette, demoImage: '/images/Modelbackground.png' },
   { id: 2, name: '企业智能体系统', description: '可快速搭建企业级智能体，支持业务流程自动化、数据分析汇总、决策辅助，可对接企业现有系统，扩展权限分级管理，提升企业运营效率的AI应用系统', icon: Bot, demoImage: '/images/Modelbackground.png' },
   { id: 3, name: '企业AI客服系统', description: '可快速搭建集成多轮对话模型，支持7*24小时智能知识库应答、常见问题解答，可扩展工单流转与客户画像管理能力，降低企业客服运营成本的AI应用系统', icon: MessageCircleCode, demoImage: '/images/buidai-1.webp' },
   { id: 4, name: 'AI漫剧创意系统', description: '可快速搭建支持剧本智能创作、角色形象生成、漫剧素材库管理，适配分镜设计与台词优化，显著降低漫剧创作门槛，适配个人创作者与工作室的AI应用系统', icon: Lightbulb, demoImage: '/images/buidai-2.webp' },

@@ -362,15 +362,15 @@ const minSwipeDistance = 50
  */
 const currentTabUrl = computed(() => {
   const urls = [
-    'app.buildingai.cc/agents',
-    'app.buildingai.cc/knowledge',
-    'app.buildingai.cc/apps',
-    'app.buildingai.cc/models',
-    'app.buildingai.cc/mcp',
-    'app.buildingai.cc/diy',
-    'app.buildingai.cc/billing'
+    'gmlart.cn/agents',
+    'gmlart.cn/knowledge',
+    'gmlart.cn/apps',
+    'gmlart.cn/models',
+    'gmlart.cn/mcp',
+    'gmlart.cn/diy',
+    'gmlart.cn/billing'
   ]
-  return urls[activeTab.value] || 'app.buildingai.cc'
+  return urls[activeTab.value] || 'gmlart.cn'
 })
 
 // ==========================================

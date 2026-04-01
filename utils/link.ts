@@ -18,7 +18,7 @@ export interface FriendLink {
  */
 export const friendLinks: FriendLink[] = [
   { name: '智言API', url: 'https://api.gmlart.cn/', description: '大模型接口网关' },
-   { name: 'Nanobanana 香蕉绘画', url: '/product/banana', description: '开源免费的 AI 图像生成系统' },
+  { name: 'Nanobanana 香蕉绘画', url: '/product/banana', description: '开源免费的 AI 图像生成系统' },
   { name: 'AI短剧小说创作', url: '/product/drama', description: '开源免费的网文短剧写作系统' },
   { name: 'AI数字人系统', url: '/product/human', description: '开源免费的虚拟形象克隆系统' },
   { name: '即梦AI', url: '/product/jimeng', description: '开源免费的 AI 视频生成系统' },
@@ -37,5 +37,6 @@ export const friendLinks: FriendLink[] = [
   { name: 'AI绘画', url: 'https://urlnet.cn' },
   { name: '论文创作', url: 'https://paper.gmlart.cn' },
   { name: 'PaYphp', url: 'https://www.payphp.cn' },
-  { name: '172号卡', url: 'https://www.urlka.cn' }
+  { name: '172号卡', url: 'https://www.urlka.cn' },
+  { name: 'AI系统源码', url: 'https://www.artaigc.cn' }
 ]

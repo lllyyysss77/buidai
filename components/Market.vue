@@ -91,7 +91,7 @@
       <!-- 查看更多按钮 -->
       <div v-if="!showAll && apps.length > defaultLimit" class="flex justify-center mb-6">
         <button
-          class="group px-6 py-2.5 rounded-full bg-white border border-neutral-200 text-neutral-600 text-sm font-medium hover:border-indigo-500 hover:text-indigo-600 transition-all duration-200 flex items-center gap-2 shadow-sm hover:shadow-md"
+          class="group px-6 py-2.5 rounded-lg bg-white border border-neutral-200 text-neutral-600 text-sm font-medium hover:border-indigo-500 hover:text-indigo-600 transition-all duration-200 flex items-center gap-2"
           @click="showAll = true"
         >
           查看更多
@@ -102,7 +102,7 @@
       <!-- 收起按钮 -->
       <div v-else-if="showAll && apps.length > defaultLimit" class="flex justify-center mb-6">
         <button
-          class="group px-6 py-2.5 rounded-full bg-white border border-neutral-200 text-neutral-600 text-sm font-medium hover:border-indigo-500 hover:text-indigo-600 transition-all duration-200 flex items-center gap-2 shadow-sm hover:shadow-md"
+          class="group px-6 py-2.5 rounded-lg bg-white border border-neutral-200 text-neutral-600 text-sm font-medium hover:border-indigo-500 hover:text-indigo-600 transition-all duration-200 flex items-center gap-2"
           @click="showAll = false"
         >
           收起
@@ -122,7 +122,7 @@
           我要上架应用
         </button>
         <button
-          class="w-full sm:w-auto px-6 py-2.5 rounded-lg bg-gradient-to-r from-neutral-900 to-neutral-800 text-white text-sm font-medium hover:from-neutral-800 hover:to-neutral-700 transition-all duration-200 flex items-center justify-center gap-2 group shadow-md hover:shadow-lg"
+          class="w-full sm:w-auto px-6 py-2.5 rounded-lg bg-indigo-500 text-white text-sm font-medium hover:bg-indigo-600 transition-all duration-200 flex items-center justify-center gap-2 group"
           @click="handleGoToMarket"
         >
           前往应用市场

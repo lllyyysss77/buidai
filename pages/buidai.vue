@@ -45,8 +45,8 @@
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row items-center justify-center md:justify-between gap-4 md:gap-6 py-5 md:py-6">
           <div class="text-xs sm:text-sm text-neutral-400 text-center md:text-left shrink-0">
-            <span class="font-medium text-neutral-600">智言AI</span>
-            <span class="ml-1 md:ml-2">基于流行的技术栈构建</span>
+            <span class="font-bold text-neutral-700">智言AI</span>
+            <span class="ml-1 md:ml-2 font-semibold">基于流行的技术栈构建</span>
           </div>
           <div class="flex items-center justify-center flex-wrap sm:flex-nowrap gap-x-4 sm:gap-x-6 md:gap-x-8 gap-y-2 w-full md:w-auto">
             <div class="flex items-center gap-1.5 text-neutral-600 shrink-0">
@@ -913,13 +913,15 @@ const advantages: Advantage[] = [
     title: '独特的 QA 结构',
     description: '专为 QA 问答优化的数据结构，提高搜索准确率和回复质量。',
     icon: 'i-lucide-sparkles',
-    variant: 'soft'
+    variant: 'soft',
+    class: 'bg-indigo-500 text-white [&_[data-slot=title]]:text-white [&_[data-slot=description]]:text-indigo-100'
   },
   {
     title: '可视化工作流',
     description: '通过拖拽即可完成 AI 工作流的编排，降低使用门槛，提高效率。',
     icon: 'i-lucide-git-branch',
-    variant: 'soft'
+    variant: 'soft',
+    class: 'bg-indigo-500 text-white [&_[data-slot=title]]:text-white [&_[data-slot=description]]:text-indigo-100'
   },
   {
     title: '无限扩展',

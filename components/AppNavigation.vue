@@ -209,7 +209,7 @@ const items = computed<NavigationMenuItem[][]>(() => [
           to: '/plugin'
         },
         {
-          label: '全部解决方案',
+          label: '解决方案',
           description: '探索 智言AI 的行业解决方案',
           icon: 'i-lucide-lightbulb',
           to: '/solutions'
@@ -318,6 +318,17 @@ const items = computed<NavigationMenuItem[][]>(() => [
           to: '/resources'
         }
       ]
+    },
+    {
+      label: '优刻云计算',
+      icon: 'i-lucide-cloud',
+      to: 'https://www.cloudcvm.com',
+      target: '_blank'
+    },
+    {
+      label: '项目文档',
+      icon: 'i-lucide-file-text',
+      to: '#'
     }
   ]
 ])

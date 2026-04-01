@@ -82,7 +82,10 @@
         <!-- Card 2: For Developers - 深色模式卡片 (4列) -->
         <!-- Tailwind UI 风格：深色并非纯黑，而是深灰 + 微妙高光 -->
         <div class="lg:col-span-4 group">
-          <div class="h-full relative overflow-hidden rounded-2xl bg-slate-900 p-8 sm:p-10 shadow-lg ring-1 ring-white/10 hover:shadow-xl hover:ring-white/20 transition-all duration-200">
+          <div
+            class="h-full relative overflow-hidden rounded-2xl p-8 sm:p-10 shadow-lg ring-1 ring-white/10 hover:shadow-xl hover:ring-white/20 transition-all duration-200 bg-cover bg-center bg-no-repeat"
+            style="background-image: url('/images/CtaSection.jpg');"
+          >
             <!-- 装饰性高光 - 模拟光源散射 -->
             <div class="absolute -top-24 -right-24 w-48 h-48 bg-gradient-to-br from-indigo-500/20 to-transparent rounded-full blur-3xl" />
             

@@ -1,102 +1,118 @@
 <template>
-  <section class="bg-white">
-    <!-- 标题区域 -->
-    <div class="container mx-auto px-4">
-      <div class="px-6 py-8 sm:px-8 sm:py-10">
-        <div class="text-center">
-          <!-- 主标题 -->
-          <h2
-            class="text-xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-2xl lg:text-[28px]"
-          >
-            智言AI 智言万象
-            <span
-              class="border-b-[3px] border-dotted border-indigo-500 text-indigo-600"
-            >
-              你的私有AI应用系统
-            </span>
-          </h2>
-          <!-- 副标题 -->
-          <p
-            class="mx-auto mt-4 max-w-3xl text-xs leading-relaxed text-neutral-500 sm:mt-5 sm:text-sm"
-          >
-          致力于在AI时代打造备受青睐的、可快搭建AI应用决方案
-          </p>
-        </div>
-      </div>
-    </div>
+  <section class="overflow-hidden bg-white">
+    <div class="grid-border-container">
+      <!-- 标题区域 -->
+      <div class="grid-border-wrapper">
+        <div class="grid-border-side grid-border-side-left" />
+        <div class="grid-border-side grid-border-side-right" />
 
-    <!-- 功能卡片网格区域 -->
-    <div class="container mx-auto px-4">
-      <div class="p-1">
-        <!-- 4列网格布局 -->
-        <div
-          class="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        >
-          <div
-            v-for="(item, index) in displayedItems"
-            :key="index"
-            class="group flex flex-col gap-4 rounded-xl border border-neutral-200/80 bg-white p-5 transition-all duration-300 ease-out hover:border-indigo-200 hover:shadow-sm hover:bg-indigo-50/30"
-          >
-            <!-- 头部：图标 + 标题 -->
-            <div class="flex items-start gap-3">
-              <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-indigo-50 border border-indigo-100">
-                <component :is="item.icon" class="h-5 w-5 text-indigo-600" stroke-width="1.5" />
-              </div>
-              <div class="flex-1 min-w-0 pt-1">
-                <div class="flex items-center gap-2">
-                  <h3 class="text-base font-bold text-neutral-900 tracking-tight">
-                    {{ item.title }}
-                  </h3>
-                  <span
-                    class="text-xl leading-none shrink-0"
-                    :class="getStatusColor(item.status)"
-                  >
-                    ·
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 描述 -->
-            <p class="text-sm leading-6 text-neutral-600 line-clamp-2">
-              {{ item.desc }}
-            </p>
-
-            <!-- 底部标签 -->
-            <div class="mt-auto flex flex-wrap gap-2 pt-2">
-              <span
-                v-for="(tag, tagIndex) in item.tags"
-                :key="tagIndex"
-                class="rounded-full bg-neutral-100 px-2.5 py-1 text-xs font-medium text-neutral-600"
-              >
-                {{ tag }}
+        <div class="grid-border-content px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10">
+          <div class="mb-6 sm:mb-8">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="inline-block h-1.5 w-4 rounded-full bg-indigo-600" />
+              <span class="text-[10px] font-semibold uppercase tracking-[0.2em] text-neutral-600">
+                功能特性
               </span>
             </div>
+            <h2 class="text-xl font-bold tracking-tight text-neutral-900 sm:text-2xl">
+              智言AI 智言万象
+              <span class="text-indigo-600">你的私有AI应用系统</span>
+            </h2>
+            <p class="mt-3 text-sm text-neutral-500 max-w-2xl">
+              致力于在AI时代打造备受青睐的、可快速搭建AI应用解决方案
+            </p>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- 查看更多按钮 -->
-    <div class="container mx-auto px-4">
-      <div class="px-6 py-6 sm:px-8 sm:py-7">
-        <div class="text-center">
-          <button
-            type="button"
-            class="group inline-flex h-10 items-center gap-2 rounded-lg border border-neutral-200 bg-white px-5 text-sm font-medium text-neutral-900 transition-all duration-300 hover:border-indigo-400 hover:bg-indigo-50 hover:text-indigo-600"
-            @click="toggleExpand"
-          >
-            <span>{{ isExpanded ? '收起' : '查看更多' }}</span>
-            <component :is="isExpanded ? PanelTopClose : LayoutGrid" class="h-4 w-4" />
-            <ChevronDownIcon
-              class="h-4 w-4 transition-transform duration-300"
-              :class="{ 'rotate-180': isExpanded }"
-            />
-          </button>
+      <div class="grid-border-divider" />
+
+      <!-- 功能卡片网格区域 -->
+      <div class="grid-border-wrapper">
+        <div class="grid-border-side grid-border-side-left" />
+        <div class="grid-border-side grid-border-side-right" />
+
+        <div class="grid-border-content px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
+          <!-- 4列网格布局 -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div
+              v-for="(item, index) in displayedItems"
+              :key="index"
+              class="group relative flex flex-col gap-3 border border-neutral-200/70 bg-white p-5 -mt-px -ml-px first:mt-0 first:ml-0 sm:[&:nth-child(2)]:ml-0 lg:[&:nth-child(3)]:ml-0 xl:[&:nth-child(4)]:ml-0 transition-all duration-200 ease-out hover:border-indigo-200 hover:bg-indigo-50/20 hover:z-10"
+            >
+              <!-- 头部：图标 + 标题 -->
+              <div class="flex items-center gap-3">
+                <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-indigo-50 border border-indigo-100">
+                  <component :is="item.icon" class="h-4 w-4 text-indigo-600" stroke-width="1.5" />
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2">
+                    <h3 class="text-sm font-bold text-neutral-900 tracking-tight">
+                      {{ item.title }}
+                    </h3>
+                    <span
+                      class="text-xl leading-none shrink-0"
+                      :class="getStatusColor(item.status)"
+                    >
+                      ·
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 描述 -->
+              <p class="text-xs leading-5 text-neutral-600 line-clamp-2">
+                {{ item.desc }}
+              </p>
+
+              <!-- 底部标签 -->
+              <div class="mt-auto flex flex-wrap gap-2 pt-2">
+                <span
+                  v-for="(tag, tagIndex) in item.tags"
+                  :key="tagIndex"
+                  class="bg-neutral-100 px-2 py-0.5 text-[11px] font-medium text-neutral-600"
+                >
+                  {{ tag }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 查看更多按钮 -->
+          <div class="mt-8 text-center">
+            <button
+              type="button"
+              class="group inline-flex h-10 items-center gap-2 border border-neutral-200 bg-white px-5 text-sm font-medium text-neutral-900 transition-all duration-200 hover:border-indigo-400 hover:bg-indigo-50 hover:text-indigo-600"
+              @click="toggleExpand"
+            >
+              <span>{{ isExpanded ? '收起' : '查看更多' }}</span>
+              <component :is="isExpanded ? PanelTopClose : LayoutGrid" class="h-4 w-4" />
+              <ChevronDownIcon
+                class="h-4 w-4 transition-transform duration-200"
+                :class="{ 'rotate-180': isExpanded }"
+              />
+            </button>
+          </div>
         </div>
       </div>
-    </div>
 
+      <div class="grid-border-divider" />
+
+      <!-- 底部信息 -->
+      <div class="grid-border-wrapper">
+        <div class="grid-border-side grid-border-side-left" />
+        <div class="grid-border-side grid-border-side-right" />
+
+        <div class="grid-border-content content-footer px-4 sm:px-6 lg:px-8">
+          <span class="text-lg sm:text-xl font-bold text-neutral-900 tracking-tight">智言AI</span>
+          <span class="w-px h-6 bg-neutral-200" />
+          <span class="text-base sm:text-lg text-neutral-600 font-medium">持续迭代，功能不断完善</span>
+        </div>
+      </div>
+
+      <!-- 底部边框行 -->
+      <div class="grid-border-row" />
+    </div>
   </section>
 </template>
 
@@ -131,6 +147,7 @@ import {
   Ticket,
   LayoutGrid,
   PanelTopClose,
+  ChevronDownIcon,
   type LucideIcon,
 } from 'lucide-vue-next'
 
@@ -396,3 +413,167 @@ const getStatusColor = (status: StatusType): string => {
   return colorMap[status]
 }
 </script>
+
+<style scoped>
+/**
+ * 网格边框容器
+ * 使用 CSS Grid 构建三行布局：顶部边框、内容区、底部边框
+ */
+.grid-border-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr;
+  width: 100%;
+}
+
+/**
+ * 网格边框包裹层
+ * 相对定位容器，用于放置左右装饰边框
+ */
+.grid-border-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/**
+ * 横向贯穿分隔线
+ * 双横线之间填充斜向网格纹理
+ * 用于标题下方和底部摘要上方
+ */
+.grid-border-divider {
+  height: 1rem;
+  border-top: 1px solid rgba(229, 229, 229, 0.7);
+  border-bottom: 1px solid rgba(229, 229, 229, 0.7);
+  background-color: white;
+  background-image: repeating-linear-gradient(
+    315deg,
+    color-mix(in oklab, rgb(3, 7, 18) 5%, transparent) 0,
+    color-mix(in oklab, rgb(3, 7, 18) 5%, transparent) 1px,
+    transparent 0,
+    transparent 50%
+  );
+  background-size: 10px 10px;
+  background-attachment: fixed;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/**
+ * 左右装饰边框基础样式
+ * 绝对定位在内容区两侧
+ */
+.grid-border-side {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: calc((100% - 1536px) / 2);
+  min-width: 0;
+  background-color: white;
+}
+
+/**
+ * 左侧装饰边框
+ */
+.grid-border-side-left {
+  left: 0;
+}
+
+/**
+ * 左侧装饰边框的伪元素
+ * 创建双竖线效果，中间填充网格纹理
+ */
+.grid-border-side-left::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 1rem;
+  background-color: white;
+  background-image: repeating-linear-gradient(
+    315deg,
+    color-mix(in oklab, rgb(3, 7, 18) 5%, transparent) 0,
+    color-mix(in oklab, rgb(3, 7, 18) 5%, transparent) 1px,
+    transparent 0,
+    transparent 50%
+  );
+  background-size: 10px 10px;
+  background-attachment: fixed;
+  border-left: 1px solid rgba(229, 229, 229, 0.7);
+  border-right: 1px solid rgba(229, 229, 229, 0.7);
+}
+
+/**
+ * 右侧装饰边框
+ */
+.grid-border-side-right {
+  right: 0;
+}
+
+/**
+ * 右侧装饰边框的伪元素
+ * 创建双竖线效果，中间填充网格纹理
+ */
+.grid-border-side-right::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1rem;
+  background-color: white;
+  background-image: repeating-linear-gradient(
+    315deg,
+    color-mix(in oklab, rgb(3, 7, 18) 5%, transparent) 0,
+    color-mix(in oklab, rgb(3, 7, 18) 5%, transparent) 1px,
+    transparent 0,
+    transparent 50%
+  );
+  background-size: 10px 10px;
+  background-attachment: fixed;
+  border-left: 1px solid rgba(229, 229, 229, 0.7);
+  border-right: 1px solid rgba(229, 229, 229, 0.7);
+}
+
+/**
+ * 内容区容器
+ * 限制最大宽度并居中显示
+ */
+.grid-border-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1536px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/**
+ * 顶部和底部边框行
+ */
+.grid-border-row {
+  min-height: 4rem;
+  border-top: 1px solid rgba(229, 229, 229, 0.7);
+  border-bottom: 1px solid rgba(229, 229, 229, 0.7);
+  background-color: white;
+}
+
+/**
+ * 底部摘要区域
+ * 居中对齐的品牌信息展示
+ */
+.content-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+}
+
+@media (min-width: 640px) {
+  .content-footer {
+    padding: 2rem 0;
+  }
+}
+</style>

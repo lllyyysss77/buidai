@@ -72,8 +72,8 @@
           :key="system.id"
           class="px-4 py-5 rounded-xl border cursor-pointer transition-all duration-300 flex flex-col justify-center"
           :class="activeIndex === index 
-            ? 'border-indigo-500 bg-indigo-50/60 shadow-sm' 
-            : 'border-neutral-200 hover:border-indigo-300 hover:shadow-sm bg-white'"
+            ? 'border-indigo-300 bg-indigo-50/60' 
+            : 'border-neutral-200 hover:border-indigo-300 bg-white'"
           @click="selectSystem(index)"
           @mouseenter="pauseAutoPlay"
           @mouseleave="resumeAutoPlay"

@@ -2,7 +2,7 @@
   <section class="py-16 md:py-24 bg-white">
     <div class="container mx-auto px-4">
       <!-- 标题区域 -->
-      <div class="py-10 px-6 md:py-12 md:px-10 flex flex-col justify-center gap-3">
+      <div class="py-10 flex flex-col justify-center gap-3">
         <h2 class="text-xl sm:text-2xl md:text-3xl font-semibold text-slate-900 tracking-tight">
           智言AI内置<span class="text-indigo-600 border-b-2 border-dotted border-indigo-400/50">全球领先大模型</span>
         </h2>

@@ -8,9 +8,8 @@
   >
     <div
       ref="textRef"
-      class="falling-text-content inline-block"
+      class="falling-text-content inline-block text-[1.875rem] sm:text-[2.25rem] lg:text-[3rem]"
       :style="{
-        fontSize: props.fontSize,
         lineHeight: 1.4,
       }"
     />
@@ -23,31 +22,56 @@ import { ref, onMounted, onUnmounted, watch, nextTick } from 'vue'
 import Matter from 'matter-js'
 
 /**
+ * 单词颜色配置接口
+ * @property word - 单词文本
+ * @property color - 颜色类名或自定义颜色
+ */
+interface WordColorConfig {
+  word: string
+  color: string
+}
+
+/**
+ * 响应式字体大小配置接口
+ * @property mobile - 移动端字体大小
+ * @property tablet - 平板端字体大小
+ * @property desktop - 桌面端字体大小
+ */
+interface ResponsiveFontSize {
+  mobile?: string
+  tablet?: string
+  desktop?: string
+}
+
+/**
  * FallingText 组件 Props 接口定义
  * @property text - 要显示的文本内容
  * @property highlightWords - 需要高亮显示的单词列表
+ * @property wordColors - 为特定单词指定颜色的配置数组
  * @property trigger - 触发方式：'auto' | 'scroll' | 'click' | 'hover'
  * @property backgroundColor - 画布背景颜色
  * @property wireframes - 是否显示线框模式
  * @property gravity - 重力系数
  * @property mouseConstraintStiffness - 鼠标拖拽约束的刚度
- * @property fontSize - 字体大小
+ * @property fontSize - 字体大小（字符串或响应式配置对象）
  */
 interface FallingTextProps {
   text?: string
   highlightWords?: string[]
+  wordColors?: WordColorConfig[]
   trigger?: 'auto' | 'scroll' | 'click' | 'hover'
   backgroundColor?: string
   wireframes?: boolean
   gravity?: number
   mouseConstraintStiffness?: number
-  fontSize?: string
+  fontSize?: string | ResponsiveFontSize
 }
 
 // 定义组件 Props 默认值
 const props = withDefaults(defineProps<FallingTextProps>(), {
   text: '',
   highlightWords: () => [],
+  wordColors: () => [],
   trigger: 'auto',
   backgroundColor: 'transparent',
   wireframes: false,
@@ -81,6 +105,16 @@ const initText = () => {
   const words = props.text.split(' ')
   const newHTML = words
     .map((word) => {
+      // 优先检查 wordColors 配置
+      const colorConfig = props.wordColors?.find((wc) => word.includes(wc.word))
+      if (colorConfig) {
+        return `<span
+          class="falling-word inline-block mx-[3px] select-none font-black ${colorConfig.color}"
+        >
+          ${word}
+        </span>`
+      }
+      // 其次检查 highlightWords
       const isHighlighted = props.highlightWords.some((hw) => word.includes(hw))
       return `<span
         class="falling-word inline-block mx-[3px] select-none font-black ${isHighlighted ? 'text-indigo-700' : 'text-neutral-900'}"

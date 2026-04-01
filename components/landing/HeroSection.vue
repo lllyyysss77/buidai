@@ -64,42 +64,24 @@
               />
             </div>
 
-            <div class="pt-6 md:pt-8 text-sm sm:text-base text-gray-500 max-w-2xl mx-auto lg:mx-0 space-y-4">
-              <!-- 第一行 4个 -->
-              <div class="flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-2">
-                <span class="flex items-center gap-1.5">
-                  <UIcon name="i-heroicons-cpu-chip" class="w-5 h-5 text-ui-primary shrink-0" />
-                  <span class="whitespace-nowrap">AI原生内核</span>
-                </span>
-                <span class="flex items-center gap-1.5">
-                  <UIcon name="i-heroicons-building-office-2" class="w-5 h-5 text-ui-primary shrink-0" />
-                  <span class="whitespace-nowrap">组织管理</span>
-                </span>
-                <span class="flex items-center gap-1.5">
-                  <UIcon name="i-heroicons-code-bracket-square" class="w-5 h-5 text-ui-primary shrink-0" />
-                  <span class="whitespace-nowrap">多模态问答</span>
-                </span>
-                <span class="flex items-center gap-1.5">
-                  <UIcon name="i-heroicons-paint-brush" class="w-5 h-5 text-ui-primary shrink-0" />
-                  <span class="whitespace-nowrap">企业知识库</span>
-                </span>
-              </div>
-
-              <!-- 第二行 3个 -->
-              <div class="flex flex-wrap justify-center sm:justify-start gap-x-3 gap-y-1.5">
-                <span class="flex items-center gap-1.5">
-                  <UIcon name="i-heroicons-sparkles" class="w-5 h-5 text-ui-primary shrink-0" />
-                  <span class="whitespace-nowrap">简单易用</span>
-                </span>
-                <span class="flex items-center gap-1.5">
-                  <UIcon name="i-heroicons-puzzle-piece" class="w-5 h-5 text-ui-primary shrink-0" />
-                  <span class="whitespace-nowrap">图像视频创作</span>
-                </span>
-                <span class="flex items-center gap-1.5">
-                  <UIcon name="i-heroicons-check-badge" class="w-5 h-5 text-ui-primary shrink-0" />
-                  <span class="whitespace-nowrap">深度研究</span>
-                </span>
-              </div>
+            <!-- Falling Text 动画组件 -->
+            <div class="pt-2 md:pt-4 w-full max-w-2xl mx-auto lg:mx-0 lg:-ml-8 h-[160px] md:h-[200px] pointer-events-auto">
+              <FallingText
+                text="TypeScript 智言AI NestJS Vue Nuxt 开源"
+                :word-colors="[
+                  { word: 'TypeScript', color: 'text-blue-600' },
+                  { word: '智言AI', color: 'text-cyan-600' },
+                  { word: 'NestJS', color: 'text-indigo-500' },
+                  { word: 'Vue', color: 'text-emerald-600' },
+                  { word: 'Nuxt', color: 'text-lime-600' },
+                  { word: '开源', color: 'text-purple-600' }
+                ]"
+                trigger="scroll"
+                background-color="transparent"
+                :wireframes="false"
+                :gravity="0.1"
+                :mouse-constraint-stiffness="0.3"
+              />
             </div>
           </slot>
         </div>
@@ -198,6 +180,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from 'vue'
+import FallingText from '~/components/FallingText.vue'
 // 导入应用数据：从 utils/pluginData.ts 中获取应用列表，用于提取图片生成跑马灯背景
 import { apps } from '~/utils/pluginData'
 import { LAYOUT, ANIMATION, MARQUEE } from '~/utils/ui'

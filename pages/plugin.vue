@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-[#F3F4F6] dark:bg-neutral-900 font-sans selection:bg-[#6E58FF] selection:text-white">
+  <div class="min-h-screen bg-white dark:bg-neutral-900 font-sans selection:bg-[#6E58FF] selection:text-white">
     <!-- 背景装饰 -->
     <div class="absolute top-0 left-0 w-full h-[400px] md:h-[500px] bg-[url('/agent.svg')] pointer-events-none mask-[linear-gradient(to_bottom,white,transparent)] z-0"/>
 

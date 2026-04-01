@@ -1,3 +1,4 @@
+import type { Component } from 'vue'
 import {
   Video as VideoIcon,
   Palette as PaletteIcon,
@@ -27,7 +28,7 @@ export interface AppData {
   id: number
   name: string
   description: string
-  icon: any
+  icon: Component
   image: string
   category: string
   originalPrice: number

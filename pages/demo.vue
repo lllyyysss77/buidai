@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { Component } from 'vue'
 import {
   ComputerDesktopIcon,
   DevicePhoneMobileIcon,
@@ -14,7 +15,7 @@ import {
 
 interface DemoPlatform {
   title: string
-  icon: any
+  icon: Component
   url: string
   account: string
   password: string
@@ -24,7 +25,7 @@ interface ProductDemo {
   id: string
   title: string
   description: string
-  icon: any
+  icon: Component
   status: 'online' | 'beta'
   platforms: DemoPlatform[]
 }
@@ -410,6 +411,7 @@ div[style*="animation-delay"] {
 
 .line-clamp-2 {
   display: -webkit-box;
+  line-clamp: 2;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;

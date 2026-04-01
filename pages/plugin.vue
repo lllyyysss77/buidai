@@ -43,13 +43,13 @@
                   v-model="searchQuery"
                   type="text"
                   placeholder="搜索应用..."
-                  class="w-full pl-11 pr-4 py-3 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-xl focus:ring-2 focus:ring-[#6E58FF]/20 focus:border-[#6E58FF] outline-none transition-all text-sm shadow-sm"
+                  class="w-full pl-11 pr-4 py-3 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-xl focus:ring-2 focus:ring-[#6E58FF]/20 focus:border-[#6E58FF] outline-none transition-all text-sm"
                 />
                 <MagnifyingGlassIcon class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 group-focus-within:text-[#6E58FF] transition-colors" />
               </div>
 
               <!-- 分类列表 -->
-              <div class="bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700 shadow-sm overflow-hidden">
+              <div class="bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700 overflow-hidden">
                 <div class="px-4 py-3 border-b border-neutral-100 dark:border-neutral-700">
                   <h3 class="text-sm font-semibold text-neutral-900 dark:text-white">应用分类</h3>
                 </div>
@@ -77,18 +77,18 @@
               </div>
 
               <!-- 客服入口 -->
-              <div class="bg-gradient-to-br from-[#6E58FF] to-[#7A42FF] rounded-xl p-5 text-white shadow-lg shadow-[#6E58FF]/20">
+              <div class="bg-white rounded-xl p-5 text-neutral-900 border border-neutral-200">
                 <div class="flex items-center gap-3 mb-3">
-                  <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                    <ChatBubbleLeftRightIcon class="w-5 h-5" />
+                  <div class="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center">
+                    <ChatBubbleLeftRightIcon class="w-5 h-5 text-indigo-500" />
                   </div>
                   <div>
                     <h4 class="font-semibold text-sm">需要帮助？</h4>
-                    <p class="text-xs text-white/70">专业顾问在线解答</p>
+                    <p class="text-xs text-neutral-500">专业顾问在线解答</p>
                   </div>
                 </div>
                 <button
-                  class="w-full py-2.5 bg-white/20 hover:bg-white/30 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2"
+                  class="w-full py-2.5 bg-indigo-500 hover:bg-indigo-600 rounded-lg text-sm font-medium text-white transition-colors flex items-center justify-center gap-2"
                   @click="openQrModal('wechat')"
                 >
                   <QrCodeIcon class="w-4 h-4" />
@@ -102,7 +102,7 @@
           <main class="flex-1 min-w-0">
 
             <!-- 促销横幅 -->
-            <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#6E58FF] via-[#7A42FF] to-[#8B5CF6] text-white p-6 md:p-8 mb-8 shadow-xl shadow-[#6E58FF]/20 group">
+            <div class="relative overflow-hidden rounded-2xl bg-indigo-500 text-white p-6 md:p-8 mb-8 group">
               <!-- 网格背景 -->
               <div
 class="absolute inset-0 opacity-5 pointer-events-none"
@@ -122,7 +122,7 @@ class="absolute inset-0 opacity-5 pointer-events-none"
                   <p class="text-white/80 text-sm md:text-base max-w-md">联系客服领取五折优惠码，数量有限，先到先得</p>
                 </div>
                 <button
-                  class="shrink-0 px-6 py-3 bg-white text-[#6E58FF] rounded-xl font-semibold text-sm hover:bg-white/90 transition-all shadow-lg flex items-center gap-2 group-hover:scale-105 transform duration-200"
+                  class="shrink-0 px-6 py-3 bg-white text-[#6E58FF] rounded-xl font-semibold text-sm hover:bg-white/90 transition-all flex items-center gap-2 group-hover:scale-105 transform duration-200"
                   @click="openQrModal('coupon')"
                 >
                   <TicketIcon class="w-4 h-4" />
@@ -134,7 +134,7 @@ class="absolute inset-0 opacity-5 pointer-events-none"
 
             <!-- 统计信息栏 -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-              <div class="bg-white dark:bg-neutral-800 rounded-xl p-4 border border-neutral-200 dark:border-neutral-700 shadow-sm">
+              <div class="bg-white dark:bg-neutral-800 rounded-xl p-4 border border-neutral-200 dark:border-neutral-700">
                 <div class="flex items-center gap-3">
                   <div class="w-10 h-10 rounded-lg bg-[#6E58FF]/10 flex items-center justify-center">
                     <CubeIcon class="w-5 h-5 text-[#6E58FF]" />
@@ -145,7 +145,7 @@ class="absolute inset-0 opacity-5 pointer-events-none"
                   </div>
                 </div>
               </div>
-              <div class="bg-white dark:bg-neutral-800 rounded-xl p-4 border border-neutral-200 dark:border-neutral-700 shadow-sm">
+              <div class="bg-white dark:bg-neutral-800 rounded-xl p-4 border border-neutral-200 dark:border-neutral-700">
                 <div class="flex items-center gap-3">
                   <div class="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center">
                     <CheckCircleIcon class="w-5 h-5 text-green-500" />
@@ -156,7 +156,7 @@ class="absolute inset-0 opacity-5 pointer-events-none"
                   </div>
                 </div>
               </div>
-              <div class="bg-white dark:bg-neutral-800 rounded-xl p-4 border border-neutral-200 dark:border-neutral-700 shadow-sm">
+              <div class="bg-white dark:bg-neutral-800 rounded-xl p-4 border border-neutral-200 dark:border-neutral-700">
                 <div class="flex items-center gap-3">
                   <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center">
                     <ArrowPathIcon class="w-5 h-5 text-blue-500" />
@@ -167,7 +167,7 @@ class="absolute inset-0 opacity-5 pointer-events-none"
                   </div>
                 </div>
               </div>
-              <div class="bg-white dark:bg-neutral-800 rounded-xl p-4 border border-neutral-200 dark:border-neutral-700 shadow-sm">
+              <div class="bg-white dark:bg-neutral-800 rounded-xl p-4 border border-neutral-200 dark:border-neutral-700">
                 <div class="flex items-center gap-3">
                   <div class="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center">
                     <SparklesIcon class="w-5 h-5 text-orange-500" />
@@ -367,6 +367,7 @@ class="absolute inset-0 opacity-5 pointer-events-none"
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import type { Component } from 'vue'
 import {
   MagnifyingGlassIcon,
   ArrowRightIcon,
@@ -383,27 +384,12 @@ import {
 } from '@heroicons/vue/24/outline'
 import {
   Video as VideoIcon,
-  Palette as PaletteIcon,
-  FileText as FileTextIcon,
   GitBranch as GitBranchIcon,
-  User as UserIcon,
   PenTool as PenToolIcon,
-  MonitorPlay as PresentationIcon,
   FileSignature as FileSignatureIcon,
-  ShoppingBag as ShoppingBagIcon,
-  Tv as TvIcon,
-  BookOpen as BookOpenIcon,
-  MapPin as MapPinIcon,
-  Image as ImageIcon,
-  Film as FilmIcon,
-  Trophy as TrophyIcon,
-  Copy as CopyIcon,
-  Shirt as ShirtIcon,
-  Scissors as ScissorsIcon,
-  ImagePlus as ImagePlusIcon
+  ShoppingBag as ShoppingBagIcon
 } from 'lucide-vue-next'
 import { apps, categories } from '~/utils/pluginData'
-import type { AppData, Category } from '~/utils/pluginData'
 
 /**
  * 二维码弹窗触发函数
@@ -437,7 +423,7 @@ const activeCategory = ref('all')
 const viewMode = ref<'grid' | 'list'>('grid')
 
 // 分类图标映射
-const categoryIconMap: Record<string, any> = {
+const categoryIconMap: Record<string, Component> = {
   all: CubeIcon,
   video: VideoIcon,
   writing: PenToolIcon,

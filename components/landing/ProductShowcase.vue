@@ -382,7 +382,9 @@ const currentTabUrl = computed(() => {
  * @param index - 目标标签索引
  */
 const switchTab = (index: number): void => {
-  if (index < 0 || index >= tabs.length) return
+  if (index < 0 || index >= tabs.length) {
+    return
+  }
   activeTab.value = index
   resetAutoPlay()
 }

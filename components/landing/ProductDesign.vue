@@ -22,9 +22,9 @@
         
         <!-- 快速入口按钮 - 参考 model-experience 风格 -->
         <div class="mt-8 flex flex-wrap items-center gap-4">
-          <a 
-            href="#features" 
-            class="group inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-slate-900 text-white text-sm font-medium hover:bg-slate-800 transition-all duration-200 shadow-sm hover:shadow-md"
+          <a
+            href="#features"
+            class="group inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-indigo-500 text-white text-sm font-medium hover:bg-indigo-600 transition-all duration-200"
           >
             探索能力
             <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -50,7 +50,7 @@
         <!-- Card 1: Product Positioning - 大型主导卡片 (8列) -->
         <!-- Tailwind UI 风格：多层阴影 + 微妙边框 -->
         <div class="lg:col-span-8 group">
-          <div class="h-full bg-white rounded-2xl p-8 sm:p-10 lg:p-12 shadow-sm ring-1 ring-slate-900/5 hover:shadow-md hover:ring-slate-900/10 transition-all duration-200">
+          <div class="h-full bg-white rounded-2xl p-8 sm:p-10 lg:p-12 ring-1 ring-slate-900/5 hover:ring-slate-900/10 transition-all duration-200">
             <!-- Badge - 使用极淡背景与柔和边框 -->
             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase bg-slate-50 text-slate-600 ring-1 ring-inset ring-slate-500/10">
               Positioning
@@ -83,11 +83,9 @@
         <!-- Tailwind UI 风格：深色并非纯黑，而是深灰 + 微妙高光 -->
         <div class="lg:col-span-4 group">
           <div
-            class="h-full relative overflow-hidden rounded-2xl p-8 sm:p-10 shadow-lg ring-1 ring-white/10 hover:shadow-xl hover:ring-white/20 transition-all duration-200 bg-cover bg-center bg-no-repeat"
+            class="h-full relative overflow-hidden rounded-2xl p-8 sm:p-10 ring-1 ring-white/10 hover:ring-white/20 transition-all duration-200 bg-cover bg-center bg-no-repeat"
             style="background-image: url('/images/CtaSection.jpg');"
           >
-            <!-- 装饰性高光 - 模拟光源散射 -->
-            <div class="absolute -top-24 -right-24 w-48 h-48 bg-gradient-to-br from-indigo-500/20 to-transparent rounded-full blur-3xl" />
             
             <div class="relative">
               <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase bg-white/5 text-slate-300 ring-1 ring-inset ring-white/10">
@@ -112,9 +110,7 @@
         <!-- Card 3: For Entrepreneurs - 强调色卡片 (4列) -->
         <!-- Tailwind UI 风格：强调色使用更柔和的阴影 -->
         <div class="lg:col-span-4 group">
-          <div class="h-full relative overflow-hidden rounded-2xl bg-indigo-600 p-8 sm:p-10 shadow-lg shadow-indigo-900/20 ring-1 ring-inset ring-white/10 hover:shadow-xl hover:shadow-indigo-900/30 transition-all duration-200">
-            <!-- 装饰性渐变 -->
-            <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-indigo-700/50 to-transparent" />
+          <div class="h-full relative overflow-hidden rounded-2xl bg-indigo-600 p-8 sm:p-10 ring-1 ring-inset ring-white/10 transition-all duration-200">
             
             <div class="relative">
               <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase bg-white/10 text-indigo-100 ring-1 ring-inset ring-white/20">
@@ -137,7 +133,7 @@
 
         <!-- Card 4: For Enterprises - 大型卡片 (8列) -->
         <div class="lg:col-span-8 group">
-          <div class="h-full bg-white rounded-2xl p-8 sm:p-10 lg:p-12 shadow-sm ring-1 ring-slate-900/5 hover:shadow-md hover:ring-slate-900/10 transition-all duration-200">
+          <div class="h-full bg-white rounded-2xl p-8 sm:p-10 lg:p-12 ring-1 ring-slate-900/5 hover:ring-slate-900/10 transition-all duration-200">
             <div class="flex flex-col lg:flex-row gap-10">
               <div class="flex-1">
                 <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase bg-slate-50 text-slate-600 ring-1 ring-inset ring-slate-500/10">
@@ -199,10 +195,10 @@
 
       <!-- Bottom Stats Row - 更克制的统计设计 -->
       <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6">
-        <div 
-          v-for="(stat, index) in stats" 
+        <div
+          v-for="(stat, index) in stats"
           :key="index"
-          class="group bg-white rounded-xl p-6 sm:p-8 shadow-sm ring-1 ring-slate-900/5 hover:shadow-md hover:ring-slate-900/10 transition-all duration-200"
+          class="group bg-white rounded-xl p-6 sm:p-8 ring-1 ring-slate-900/5 hover:ring-slate-900/10 transition-all duration-200"
         >
           <p class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
             {{ stat.value }}

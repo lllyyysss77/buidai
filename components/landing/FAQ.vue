@@ -4,10 +4,10 @@
     style="--grid-line-color: color-mix(in oklab, var(--color-gray-950, #0a0a0a) 5%, transparent);"
   >
     <!-- 顶部贯穿横线 -->
-    <div class="absolute top-0 left-0 right-0 h-px bg-(--grid-line-color)"></div>
+    <div class="absolute top-0 left-0 right-0 h-px bg-(--grid-line-color)" />
 
     <!-- 底部贯穿横线 -->
-    <div class="absolute bottom-0 left-0 right-0 h-px bg-(--grid-line-color)"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-px bg-(--grid-line-color)" />
 
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">

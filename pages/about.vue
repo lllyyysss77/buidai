@@ -55,7 +55,7 @@
           <!-- Visual Content -->
           <div class="lg:w-1/2 w-full">
             <div class="aspect-4/3 rounded-2xl overflow-hidden relative">
-              <img src="/about.png" alt="About 智言万象" class="w-full h-full object-cover" />
+              <img src="/images/Basicmodel.svg" alt="About 智言万象" class="w-full h-full object-cover" />
             </div>
           </div>
         </div>
@@ -205,32 +205,8 @@
       </div>
     </section>
 
-    <!-- Footer Callout -->
-    <section class="relative bg-[#121318] overflow-hidden">
-       <!-- Full Width Bottom Image -->
-       <div class="absolute inset-x-0 bottom-0 z-0">
-          <img src="/foot.png" alt="" class="w-full object-cover" />
-       </div>
-
-       <div class="relative z-10 container mx-auto px-4 py-24">
-          <div class="flex flex-col items-start text-left max-w-3xl">
-             <h2 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight">
-               扣子空间你的 AI 办公空间
-             </h2>
-             <div class="flex flex-col sm:flex-row items-center gap-5 w-full sm:w-auto">
-                <button class="w-full sm:w-auto px-8 py-4 rounded-full bg-[#6E58FF] text-white font-bold text-[16px] hover:bg-[#5A43FF] transition-colors shadow-xl">
-                   立即体验
-                </button>
-                <button
-                  class="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-[#1D2129] font-medium text-[16px] hover:bg-gray-100 transition-colors"
-                  @click="navigateTo('/download')"
-                >
-                   下载客户端
-                </button>
-             </div>
-          </div>
-       </div>
-    </section>
+    <!-- CTA 底部行动召唤区域 -->
+    <LandingCtaSection />
   </div>
 </template>
 

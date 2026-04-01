@@ -38,8 +38,8 @@
             </div>
             <h3 class="text-lg font-bold text-neutral-900 mb-2">邮件支持</h3>
             <p class="text-sm text-neutral-400 mb-3">产品咨询与技术支持</p>
-            <a href="mailto:support@智言AI.com" class="text-base font-medium text-ui-primary hover:text-primary-700 transition-colors">
-              support@智言AI.com
+            <a href="mailto:support@buidai.com" class="text-base font-medium text-ui-primary hover:text-primary-700 transition-colors">
+              support@buidai.com
             </a>
           </div>
 

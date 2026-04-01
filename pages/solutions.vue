@@ -184,7 +184,7 @@
             >
                <div class="absolute inset-0 p-6 md:p-8 flex flex-col justify-between z-10" :class="card.textClass || 'text-gray-900'">
                   <div>
-                     <h3 class="text-xl md:text-2xl font-medium mb-2" v-html="card.title"/>
+                     <h3 class="text-xl md:text-2xl font-medium mb-2 whitespace-pre-line">{{ card.title }}</h3>
                   </div>
 
                   <!-- 视觉占位符区域 -->
@@ -425,7 +425,7 @@
     <section class="relative bg-[#121318] overflow-hidden">
        <!-- 全宽底部图片 -->
        <div class="absolute inset-x-0 bottom-0 z-0 opacity-50 md:opacity-100">
-          <img src="/foot.png" alt="" loading="lazy" class="w-full h-[200px] md:h-auto object-cover md:object-contain object-bottom" />
+          <img src="/images/foot.png" alt="" loading="lazy" class="w-full h-[200px] md:h-auto object-cover md:object-contain object-bottom" />
        </div>
 
        <div class="relative z-10 container mx-auto px-4 py-12 md:py-24">
@@ -557,7 +557,7 @@ const solutionRows: SolutionRow[] = [
   {
     cards: [
       {
-        title: '十分钟，<br/>做拿得出手的PPT',
+        title: '十分钟，\n做拿得出手的PPT',
         actionText: '使用 AI PPT',
         widthClass: 'md:w-[59%]',
         bgClass: 'bg-linear-to-br from-[#6E58FF] to-[#8B7FFF]',
@@ -565,7 +565,7 @@ const solutionRows: SolutionRow[] = [
         visual: 'ppt'
       },
       {
-        title: '无需技巧，<br/>生成百变设计',
+        title: '无需技巧，\n生成百变设计',
         actionText: '使用 AI 设计',
         widthClass: 'md:flex-1',
         bgClass: 'bg-[#F3F4F6]',
@@ -577,7 +577,7 @@ const solutionRows: SolutionRow[] = [
   {
     cards: [
       {
-        title: '一气呵成，<br/>写出带排版的长文',
+        title: '一气呵成，\n写出带排版的长文',
         actionText: '使用 深度写作',
         widthClass: 'md:w-[39%]',
         bgClass: 'bg-[#E5E7EB]',
@@ -585,7 +585,7 @@ const solutionRows: SolutionRow[] = [
         visual: 'writing'
       },
       {
-        title: '告别公式，<br/>智能数据分析处理',
+        title: '告别公式，\n智能数据分析处理',
         actionText: '使用 AI EXCEL',
         widthClass: 'md:flex-1',
         bgClass: 'bg-linear-to-r from-[#E0E7FF] to-[#Dbeafe]',
@@ -597,7 +597,7 @@ const solutionRows: SolutionRow[] = [
   {
     cards: [
       {
-        title: '代码自动生成，<br/>效率提升10倍+',
+        title: '代码自动生成，\n效率提升10倍+',
         actionText: '使用 AI 编程',
         widthClass: 'md:w-[59%]',
         bgClass: 'bg-gray-900',
@@ -605,7 +605,7 @@ const solutionRows: SolutionRow[] = [
         visual: 'code'
       },
       {
-        title: '超拟人，<br/>用听觉解读万物',
+        title: '超拟人，\n用听觉解读万物',
         actionText: '使用 AI 播客',
         widthClass: 'md:flex-1',
         bgClass: 'bg-[#F3F4F6]',

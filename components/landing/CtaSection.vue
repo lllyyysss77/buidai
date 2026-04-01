@@ -10,7 +10,7 @@
     </h2>
     <!-- 副标题 -->
     <p class="text-xs text-white/80 sm:text-base">
-      我们欢迎以及鼓励AI开发者上架销售AI应用
+      智言AI- 中国领先的AI创作平台
     </p>
     <!-- 按钮组 -->
     <div class="mt-8 flex gap-4">

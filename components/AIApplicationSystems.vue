@@ -14,10 +14,10 @@
       <!-- Bento Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <!-- 左侧展示卡片 -->
-        <div class="md:col-span-2 lg:col-span-2 lg:row-span-3 bg-neutral-50 rounded-2xl overflow-hidden flex flex-col border border-neutral-100">
+        <div class="md:col-span-2 lg:col-span-2 lg:row-span-3 bg-neutral-50 rounded-2xl overflow-hidden flex flex-col border border-neutral-300">
           <!-- 图片区域 -->
           <div class="relative w-full bg-white p-4">
-            <div class="relative w-full overflow-hidden rounded-xl border border-neutral-200" style="aspect-ratio: 16/5.5;">
+            <div class="relative w-full overflow-hidden rounded-xl border border-neutral-300" style="aspect-ratio: 16/5.5;">
               <!-- 预加载下一张图片 -->
               <img
                 v-for="system in systemsList"
@@ -75,7 +75,7 @@
           class="px-4 py-5 rounded-xl border cursor-pointer transition-all duration-300 flex flex-col justify-center"
           :class="activeIndex === index 
             ? 'border-indigo-300 bg-indigo-50/60' 
-            : 'border-neutral-200 hover:border-indigo-300 bg-white'"
+            : 'border-neutral-300 hover:border-indigo-300 bg-white'"
           @click="selectSystem(index)"
           @mouseenter="pauseAutoPlay"
           @mouseleave="resumeAutoPlay"

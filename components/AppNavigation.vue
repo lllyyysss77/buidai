@@ -1,6 +1,6 @@
 <template>
   <header
-    class="sticky top-0 inset-x-0 z-50 transition-all duration-300 border-b"
+    class="sticky top-0 inset-x-0 z-[100] transition-all duration-300 border-b"
     :class="headerClasses"
   >
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,19 +82,37 @@
       </div>
     </div>
 
+    <!-- Mobile Menu Backdrop -->
+    <Transition
+      enter-active-class="transition-opacity duration-300 ease-out"
+      enter-from-class="opacity-0"
+      enter-to-class="opacity-100"
+      leave-active-class="transition-opacity duration-200 ease-in"
+      leave-from-class="opacity-100"
+      leave-to-class="opacity-0"
+    >
+      <div
+        v-show="mobileMenuOpen"
+        class="md:hidden fixed inset-0 bg-black/25 backdrop-blur-sm z-40"
+        style="top: 72px;"
+        @click="mobileMenuOpen = false"
+      />
+    </Transition>
+
     <!-- Mobile Menu -->
     <Transition
       enter-active-class="transition-all duration-300 ease-out"
-      enter-from-class="opacity-0 -translate-y-4"
-      enter-to-class="opacity-100 translate-y-0"
+      enter-from-class="opacity-0 -translate-y-4 scale-[0.98]"
+      enter-to-class="opacity-100 translate-y-0 scale-100"
       leave-active-class="transition-all duration-200 ease-in"
-      leave-from-class="opacity-100 translate-y-0"
-      leave-to-class="opacity-0 -translate-y-4"
+      leave-from-class="opacity-100 translate-y-0 scale-100"
+      leave-to-class="opacity-0 -translate-y-4 scale-[0.98]"
     >
       <div
         v-show="mobileMenuOpen"
         id="mobile-menu-panel"
-        class="md:hidden absolute top-full left-0 right-0 border-t border-gray-200 bg-white shadow-xl h-[calc(100dvh-72px)] overflow-y-auto pb-[env(safe-area-inset-bottom)]"
+        class="md:hidden fixed inset-x-0 top-[72px] border-t border-gray-200/80 bg-white/95 backdrop-blur-md shadow-2xl overflow-y-auto pb-[env(safe-area-inset-bottom)] z-50"
+        style="height: calc(100dvh - 72px); max-height: calc(100dvh - 72px);"
       >
         <div class="p-4 space-y-3">
           <!-- 一级菜单双排显示：左右布局 -->
@@ -482,10 +500,32 @@ watch(() => route.path, () => {
   mobileMenuOpen.value = false
 })
 
-// Lock body scroll when mobile menu is open
+/**
+ * Lock body scroll when mobile menu is open
+ * Prevents background scrolling and ensures menu stays in viewport
+ */
 watch(mobileMenuOpen, (open) => {
   if (typeof document !== 'undefined') {
-    document.body.style.overflow = open ? 'hidden' : ''
+    if (open) {
+      // 保存当前滚动位置
+      const scrollY = window.scrollY
+      document.body.style.position = 'fixed'
+      document.body.style.top = `-${scrollY}px`
+      document.body.style.left = '0'
+      document.body.style.right = '0'
+      document.body.style.overflow = 'hidden'
+      document.body.dataset.scrollY = String(scrollY)
+    } else {
+      // 恢复滚动位置
+      const scrollY = document.body.dataset.scrollY || '0'
+      document.body.style.position = ''
+      document.body.style.top = ''
+      document.body.style.left = ''
+      document.body.style.right = ''
+      document.body.style.overflow = ''
+      window.scrollTo(0, parseInt(scrollY || '0'))
+      delete document.body.dataset.scrollY
+    }
   }
 })
 </script>

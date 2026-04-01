@@ -31,7 +31,7 @@
       </div>
 
       <!-- Bento Grid 主容器 -->
-      <div class="relative rounded-lg sm:rounded-xl lg:rounded-3xl border border-neutral-200/60 shadow-md sm:shadow-xl shadow-neutral-300/40 flex flex-col lg:flex-row bg-gradient-to-br from-white via-[#f8f7ff] to-[#f0edff] overflow-hidden lg:min-h-[600px]">
+      <div class="relative rounded-lg sm:rounded-xl lg:rounded-3xl border border-neutral-200/60 flex flex-col lg:flex-row bg-gradient-to-br from-white via-[#f8f7ff] to-[#f0edff] overflow-hidden lg:min-h-[600px]">
         
         <!-- 桌面端：左侧功能导航列表 -->
         <div class="hidden lg:flex lg:w-[320px] xl:w-[380px] flex-col border-r border-neutral-200/60 bg-gradient-to-b from-neutral-50/80 to-neutral-100/50 p-4 xl:p-5 flex-shrink-0">
@@ -153,7 +153,7 @@
                 <img
                   :src="tabs[activeTab]?.image"
                   :alt="`${tabs[activeTab]?.name || ''} 功能预览`"
-                  class="w-full h-auto max-h-[140px] sm:max-h-[220px] lg:max-h-none lg:max-w-full object-contain rounded sm:rounded-lg shadow-sm sm:shadow-lg"
+                  class="w-full h-auto max-h-[140px] sm:max-h-[220px] lg:max-h-none lg:max-w-full object-contain rounded sm:rounded-lg"
                   loading="lazy"
                   decoding="async"
                 />
@@ -213,10 +213,10 @@
 
       <!-- 底部特性卡片 -->
       <div class="mt-4 sm:mt-6 lg:mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 lg:gap-4">
-        <div 
+        <div
           v-for="(feature, index) in features"
           :key="index"
-          class="group bg-white rounded-lg sm:rounded-xl lg:rounded-2xl border border-neutral-200/60 p-3 sm:p-4 lg:p-5 transition-all duration-200 hover:shadow-lg hover:border-neutral-300"
+          class="group bg-white rounded-lg sm:rounded-xl lg:rounded-2xl border border-neutral-200/60 p-3 sm:p-4 lg:p-5 transition-all duration-200 hover:border-neutral-300"
         >
           <div class="flex items-start gap-2.5 sm:gap-3 lg:gap-4">
             <div class="flex h-8 w-8 sm:h-9 sm:w-9 lg:h-10 lg:w-10 shrink-0 items-center justify-center rounded-md sm:rounded-lg lg:rounded-xl bg-[#6E58FF]/10 text-[#6E58FF] transition-all duration-200 group-hover:bg-[#6E58FF] group-hover:text-white">

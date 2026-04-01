@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-white dark:bg-neutral-900 font-sans selection:bg-[#6E58FF] selection:text-white">
+  <div class="min-h-screen bg-white dark:bg-neutral-900 font-sans selection:bg-indigo-500 selection:text-white">
     <!-- 背景装饰 -->
     <div class="absolute top-0 left-0 w-full h-[400px] md:h-[500px] bg-[url('/agent.svg')] pointer-events-none mask-[linear-gradient(to_bottom,white,transparent)] z-0"/>
 
@@ -10,15 +10,15 @@
           <!-- 徽章 -->
           <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur border border-neutral-200 shadow-sm mb-6">
             <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#6E58FF] opacity-75"/>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-[#6E58FF]"/>
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-500 opacity-75"/>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"/>
             </span>
             <span class="text-xs font-medium text-neutral-600">智言AI · 应用市场</span>
           </div>
 
           <!-- 标题 -->
           <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0F0F12] dark:text-white tracking-tight leading-[1.2] mb-4">
-            发现 <span class="text-[#6E58FF]">AI 应用</span> 新可能
+            发现 <span class="text-indigo-500">AI 应用</span> 新可能
           </h1>
 
           <!-- 副标题 -->
@@ -43,9 +43,9 @@
                   v-model="searchQuery"
                   type="text"
                   placeholder="搜索应用..."
-                  class="w-full pl-11 pr-4 py-3 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-xl focus:ring-2 focus:ring-[#6E58FF]/20 focus:border-[#6E58FF] outline-none transition-all text-sm"
+                  class="w-full pl-11 pr-4 py-3 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-xl focus:ring-2 focus:ring-indigo-500/20 outline-none transition-all text-sm"
                 />
-                <MagnifyingGlassIcon class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 group-focus-within:text-[#6E58FF] transition-colors" />
+                <MagnifyingGlassIcon class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 group-focus-within:text-indigo-500 transition-colors" />
               </div>
 
               <!-- 分类列表 -->
@@ -59,7 +59,7 @@
                     :key="category.id"
                     class="w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 flex items-center justify-between group"
                     :class="activeCategory === category.id
-                      ? 'bg-[#6E58FF]/10 text-[#6E58FF] dark:bg-[#6E58FF]/20'
+                      ? 'bg-indigo-500/10 text-indigo-500 dark:bg-indigo-500/20'
                       : 'text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-700/50 hover:text-neutral-900 dark:hover:text-white'"
                     @click="activeCategory = category.id"
                   >
@@ -67,7 +67,7 @@
                     <span
                       class="text-xs px-2 py-0.5 rounded-full transition-colors"
                       :class="activeCategory === category.id
-                        ? 'bg-[#6E58FF] text-white'
+                        ? 'bg-indigo-500 text-white'
                         : 'bg-neutral-100 dark:bg-neutral-700 text-neutral-500 dark:text-neutral-400 group-hover:bg-neutral-200 dark:group-hover:bg-neutral-600'"
                     >
                       {{ getCategoryCount(category.id) }}
@@ -122,7 +122,7 @@ class="absolute inset-0 opacity-5 pointer-events-none"
                   <p class="text-white/80 text-sm md:text-base max-w-md">联系客服领取五折优惠码，数量有限，先到先得</p>
                 </div>
                 <button
-                  class="shrink-0 px-6 py-3 bg-white text-[#6E58FF] rounded-xl font-semibold text-sm hover:bg-white/90 transition-all flex items-center gap-2 group-hover:scale-105 transform duration-200"
+                  class="shrink-0 px-6 py-3 bg-white text-indigo-500 rounded-xl font-semibold text-sm hover:bg-white/90 transition-all flex items-center gap-2 group-hover:scale-105 transform duration-200"
                   @click="openQrModal('coupon')"
                 >
                   <TicketIcon class="w-4 h-4" />
@@ -136,8 +136,8 @@ class="absolute inset-0 opacity-5 pointer-events-none"
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
               <div class="bg-white dark:bg-neutral-800 rounded-xl p-4 border border-neutral-200 dark:border-neutral-700">
                 <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-lg bg-[#6E58FF]/10 flex items-center justify-center">
-                    <CubeIcon class="w-5 h-5 text-[#6E58FF]" />
+                  <div class="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center">
+                    <CubeIcon class="w-5 h-5 text-indigo-500" />
                   </div>
                   <div>
                     <div class="text-xl font-bold text-neutral-900 dark:text-white">{{ apps.length }}</div>
@@ -183,21 +183,21 @@ class="absolute inset-0 opacity-5 pointer-events-none"
             <!-- Section Title -->
             <div class="flex items-center justify-between mb-6">
               <h2 class="text-lg font-bold text-neutral-900 dark:text-white flex items-center gap-2">
-                <component :is="getCurrentCategoryIcon" v-if="getCurrentCategoryIcon" class="w-5 h-5 text-[#6E58FF]" />
+                <component :is="getCurrentCategoryIcon" v-if="getCurrentCategoryIcon" class="w-5 h-5 text-indigo-500" />
                 {{ getCurrentCategoryName }}
                 <span class="ml-1 text-sm font-normal text-neutral-400">({{ filteredApps.length }})</span>
               </h2>
               <div class="flex items-center gap-2">
                 <button
                   class="p-2 rounded-lg transition-colors"
-                  :class="viewMode === 'grid' ? 'bg-[#6E58FF] text-white' : 'bg-white dark:bg-neutral-800 text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 border border-neutral-200 dark:border-neutral-700'"
+                  :class="viewMode === 'grid' ? 'bg-indigo-500 text-white' : 'bg-white dark:bg-neutral-800 text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 border border-neutral-200 dark:border-neutral-700'"
                   @click="viewMode = 'grid'"
                 >
                   <Squares2X2Icon class="w-4 h-4" />
                 </button>
                 <button
                   class="p-2 rounded-lg transition-colors"
-                  :class="viewMode === 'list' ? 'bg-[#6E58FF] text-white' : 'bg-white dark:bg-neutral-800 text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 border border-neutral-200 dark:border-neutral-700'"
+                  :class="viewMode === 'list' ? 'bg-indigo-500 text-white' : 'bg-white dark:bg-neutral-800 text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 border border-neutral-200 dark:border-neutral-700'"
                   @click="viewMode = 'list'"
                 >
                   <ListBulletIcon class="w-4 h-4" />
@@ -210,7 +210,7 @@ class="absolute inset-0 opacity-5 pointer-events-none"
               <div
                 v-for="app in filteredApps"
                 :key="app.id"
-                class="group bg-white dark:bg-neutral-800 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:border-[#6E58FF]/30 hover:shadow-xl hover:shadow-[#6E58FF]/5 hover:-translate-y-1 transition-all duration-300 flex flex-col"
+                class="group bg-white dark:bg-neutral-800 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:border-indigo-500/30 hover:shadow-xl hover:shadow-indigo-500/5 hover:-translate-y-1 transition-all duration-300 flex flex-col"
               >
                 <!-- App Preview Image -->
                 <div class="aspect-video bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-700 dark:to-neutral-800 relative p-2 rounded-t-2xl overflow-hidden">
@@ -229,7 +229,7 @@ class="absolute inset-0 opacity-5 pointer-events-none"
                   </div>
                   <!-- 独立系统标签 -->
                   <div v-if="app.category === 'independent'" class="absolute top-2.5 right-2.5">
-                    <span class="px-2.5 py-1 bg-gradient-to-r from-[#6E58FF] to-[#8B5CF6] rounded-full text-xs font-medium text-white shadow-lg">
+                    <span class="px-2.5 py-1 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-full text-xs font-medium text-white shadow-lg">
                       源码版
                     </span>
                   </div>
@@ -242,7 +242,7 @@ class="absolute inset-0 opacity-5 pointer-events-none"
                        <component :is="app.icon" class="w-4 h-4" />
                     </div>
                     <div class="flex-1 min-w-0">
-                      <h3 class="font-bold text-neutral-900 dark:text-white line-clamp-1 group-hover:text-[#6E58FF] transition-colors">{{ app.name }}</h3>
+                      <h3 class="font-bold text-neutral-900 dark:text-white line-clamp-1 group-hover:text-indigo-500 transition-colors">{{ app.name }}</h3>
                     </div>
                   </div>
 
@@ -258,7 +258,7 @@ class="absolute inset-0 opacity-5 pointer-events-none"
                         <span v-if="app.originalPrice !== app.discountPrice" class="px-2 py-1 bg-neutral-900 dark:bg-white rounded text-xs font-medium text-yellow-500">折后价 ¥{{ app.discountPrice.toFixed(2) }}</span>
                         <span v-else class="text-xl font-bold text-neutral-900 dark:text-white">¥{{ app.originalPrice.toFixed(2) }}</span>
                       </div>
-                      <button class="px-3 py-1.5 bg-[#6E58FF] hover:bg-[#7A42FF] text-white text-xs font-medium rounded-lg flex items-center gap-1 transition-colors">
+                      <button class="px-3 py-1.5 bg-indigo-500 hover:bg-indigo-600 text-white text-xs font-medium rounded-lg flex items-center gap-1 transition-colors">
                         <ShoppingBagIcon class="w-3.5 h-3.5" />
                         购买
                       </button>
@@ -284,7 +284,7 @@ class="absolute inset-0 opacity-5 pointer-events-none"
               <div
                 v-for="app in filteredApps"
                 :key="app.id"
-                class="group bg-white dark:bg-neutral-800 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:border-[#6E58FF]/30 hover:shadow-lg transition-all duration-300 flex flex-col sm:flex-row"
+                class="group bg-white dark:bg-neutral-800 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:border-indigo-500/30 hover:shadow-lg transition-all duration-300 flex flex-col sm:flex-row"
               >
                 <!-- 应用程序预览图像 -->
                 <div class="w-full sm:w-48 aspect-video sm:aspect-auto sm:h-40 bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-700 dark:to-neutral-800 relative p-2 shrink-0 rounded-t-2xl sm:rounded-l-2xl sm:rounded-tr-none overflow-hidden">
@@ -306,9 +306,9 @@ class="absolute inset-0 opacity-5 pointer-events-none"
                       </div>
                       <div class="flex-1 min-w-0">
                         <div class="flex items-center gap-2 flex-wrap">
-                          <h3 class="font-bold text-neutral-900 dark:text-white group-hover:text-[#6E58FF] transition-colors">{{ app.name }}</h3>
+                          <h3 class="font-bold text-neutral-900 dark:text-white group-hover:text-indigo-500 transition-colors">{{ app.name }}</h3>
                           <span class="px-2 py-0.5 bg-neutral-100 dark:bg-neutral-700 rounded text-xs text-neutral-500 dark:text-neutral-400">{{ getCategoryLabel(app.category) }}</span>
-                          <span v-if="app.category === 'independent'" class="px-2 py-0.5 bg-gradient-to-r from-[#6E58FF] to-[#8B5CF6] rounded text-xs text-white">源码版</span>
+                          <span v-if="app.category === 'independent'" class="px-2 py-0.5 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded text-xs text-white">源码版</span>
                         </div>
                       </div>
                     </div>
@@ -325,7 +325,7 @@ class="absolute inset-0 opacity-5 pointer-events-none"
                       <span v-else class="text-lg font-bold text-neutral-900 dark:text-white">¥{{ app.originalPrice.toFixed(2) }}</span>
                     </div>
                     <div class="flex items-center gap-3">
-                      <button class="px-3 py-1.5 bg-[#6E58FF] hover:bg-[#7A42FF] text-white text-xs font-medium rounded-lg flex items-center gap-1 transition-colors">
+                      <button class="px-3 py-1.5 bg-indigo-500 hover:bg-indigo-600 text-white text-xs font-medium rounded-lg flex items-center gap-1 transition-colors">
                         <ShoppingBagIcon class="w-3.5 h-3.5" />
                         购买
                       </button>
@@ -351,7 +351,7 @@ class="absolute inset-0 opacity-5 pointer-events-none"
               <h3 class="text-xl font-semibold text-neutral-900 dark:text-white mb-2">未找到相关应用</h3>
               <p class="text-neutral-500 text-sm mb-6">换个搜索词试试看吧</p>
               <button
-                class="px-6 py-2.5 bg-[#6E58FF] text-white rounded-xl text-sm font-medium hover:bg-[#6E58FF]/90 transition-colors"
+                class="px-6 py-2.5 bg-indigo-500 text-white rounded-xl text-sm font-medium hover:bg-indigo-500/90 transition-colors"
                 @click="searchQuery = ''; activeCategory = 'all'"
               >
                 查看全部应用

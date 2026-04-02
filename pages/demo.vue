@@ -650,26 +650,25 @@ useHead({
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="flex gap-6 lg:gap-8">
         <!-- 左侧产品导航栏 - 可展开折叠 -->
-        <aside class="hidden lg:block w-64 xl:w-72 flex-shrink-0">
-          <div class="sticky top-24 bg-white rounded-xl border border-neutral-200">
+        <aside class="hidden lg:block w-60 xl:w-64 flex-shrink-0">
+          <div class="sticky top-24 bg-white rounded-xl border border-neutral-200 shadow-sm">
             <!-- 导航标题 -->
             <div class="px-4 py-3 border-b border-neutral-200">
-              <h2 class="text-sm font-semibold text-neutral-900">
-                产品分类
-              </h2>
+              <h2 class="text-sm font-semibold text-neutral-900">产品分类</h2>
             </div>
 
             <!-- 产品分类列表 -->
             <nav class="p-2">
-              <div v-for="category in categories" :key="category.id" class="mb-2">
+              <div v-for="category in categories" :key="category.id" class="mb-1">
                 <!-- 分类标题 - 可点击展开折叠 -->
                 <button
-                  class="w-full flex items-center gap-2 px-3 py-2 text-xs font-semibold text-neutral-600 uppercase tracking-wider rounded-lg transition-colors hover:bg-neutral-50"
+                  class="w-full flex items-center gap-2 px-3 py-2 text-xs font-semibold text-neutral-600 uppercase tracking-wider rounded-lg transition-colors"
+                  :class="selectedCategoryId === category.id ? 'bg-neutral-100 text-neutral-900' : 'hover:bg-neutral-50'"
                   @click="toggleCategory(category.id)"
                 >
-                  <component :is="category.icon" class="w-4 h-4 flex-shrink-0" />
+                  <component :is="category.icon" class="w-4 h-4 flex-shrink-0" :class="selectedCategoryId === category.id ? 'text-indigo-600' : 'text-neutral-400'" />
                   <span class="truncate flex-1 text-left">{{ category.name }}</span>
-                  <span class="text-[10px] text-neutral-400">{{ category.products.length }}个</span>
+                  <span class="text-[10px] text-neutral-400">{{ category.products.length }}</span>
                   <component
                     :is="expandedCategories[category.id] ? ChevronDownIcon : ChevronRightIcon"
                     class="w-3.5 h-3.5 flex-shrink-0 text-neutral-400"
@@ -686,29 +685,37 @@ useHead({
                   leave-to-class="opacity-0 max-h-0"
                 >
                   <div v-show="expandedCategories[category.id]" class="overflow-hidden">
-                    <div class="space-y-0.5 pt-1">
-                      <button
-                        v-for="product in category.products"
-                        :key="product.id"
-                        class="w-full flex items-center gap-2.5 px-3 py-2 text-sm rounded-lg transition-colors text-left"
-                        :class="selectedProduct?.id === product.id
-                          ? 'bg-neutral-100 text-neutral-900'
-                          : 'text-neutral-600 hover:bg-neutral-50'"
-                        @click="selectProduct(product, category.id)"
-                      >
-                        <component
-                          :is="product.icon"
-                          class="w-4 h-4 flex-shrink-0"
-                          :class="selectedProduct?.id === product.id ? 'text-neutral-900' : 'text-neutral-400'"
-                        />
-                        <span class="truncate flex-1">{{ product.title }}</span>
-                        <span
-                          v-if="product.status === 'beta'"
-                          class="flex-shrink-0 px-1.5 py-0.5 text-[10px] rounded bg-neutral-200 text-neutral-600"
+                    <div class="pl-2 py-1">
+                      <div class="space-y-0.5">
+                        <button
+                          v-for="product in category.products"
+                          :key="product.id"
+                          class="group w-full flex items-center gap-2.5 px-3 py-2 text-sm rounded-lg transition-colors text-left relative"
+                          :class="selectedProduct?.id === product.id ? 'bg-indigo-50 text-indigo-700' : 'text-neutral-600 hover:bg-neutral-50'"
+                          @click="selectProduct(product, category.id)"
                         >
-                          Beta
-                        </span>
-                      </button>
+                          <!-- 选中左侧指示条 -->
+                          <div
+                            class="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-4 rounded-r transition-all"
+                            :class="selectedProduct?.id === product.id ? 'bg-indigo-500' : 'bg-transparent'"
+                          />
+
+                          <!-- 产品图标 -->
+                          <component
+                            :is="product.icon"
+                            class="w-4 h-4 flex-shrink-0 transition-colors"
+                            :class="selectedProduct?.id === product.id ? 'text-indigo-600' : 'text-neutral-400 group-hover:text-neutral-500'"
+                          />
+
+                          <span class="truncate flex-1">{{ product.title }}</span>
+                          <span
+                            v-if="product.status === 'beta'"
+                            class="flex-shrink-0 px-1.5 py-0.5 text-[10px] rounded bg-neutral-200 text-neutral-600"
+                          >
+                            Beta
+                          </span>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </Transition>

@@ -150,19 +150,30 @@
           <template v-else>
             <!-- 一级菜单：双列布局 -->
             <div class="grid grid-cols-2 gap-2">
-              <component
-                :is="item.hasChildren ? 'button' : 'NuxtLink'"
-                v-for="item in primaryItems"
-                :key="item.label"
-                :to="item.hasChildren ? undefined : item.to"
-                class="flex items-center gap-2 p-3 rounded-lg transition-all duration-200 active:scale-[0.98] text-left w-full"
-                :class="getPrimaryItemClasses(item)"
-                @click="item.hasChildren ? openSubmenu(item.label!) : handlePrimaryItemClick()"
-              >
-                <UIcon :name="item.icon" class="text-lg shrink-0" :class="isCurrentRoute(item.to) ? 'text-primary' : 'text-gray-700'" />
-                <span class="flex-1 text-sm font-medium truncate" :class="isCurrentRoute(item.to) ? 'text-primary' : 'text-gray-700'">{{ item.label }}</span>
-                <UIcon v-if="item.hasChildren" name="i-lucide-chevron-right" class="text-gray-400 shrink-0" />
-              </component>
+              <template v-for="item in primaryItems" :key="item.label">
+                <!-- 有子菜单的项：使用按钮展开子菜单 -->
+                <button
+                  v-if="item.hasChildren"
+                  class="flex items-center gap-2 p-3 rounded-lg transition-all duration-200 active:scale-[0.98] text-left w-full"
+                  :class="getPrimaryItemClasses(item)"
+                  @click="openSubmenu(item.label!)"
+                >
+                  <UIcon :name="item.icon" class="text-lg shrink-0 text-gray-700" />
+                  <span class="flex-1 text-sm font-medium truncate text-gray-700">{{ item.label }}</span>
+                  <UIcon name="i-lucide-chevron-right" class="text-gray-400 shrink-0" />
+                </button>
+                <!-- 无子菜单的项：使用 NuxtLink 进行导航 -->
+                <NuxtLink
+                  v-else
+                  :to="item.to"
+                  class="flex items-center gap-2 p-3 rounded-lg transition-all duration-200 active:scale-[0.98] text-left w-full"
+                  :class="getPrimaryItemClasses(item)"
+                  @click="mobileMenuOpen = false"
+                >
+                  <UIcon :name="item.icon" class="text-lg shrink-0" :class="isCurrentRoute(item.to) ? 'text-primary' : 'text-gray-700'" />
+                  <span class="flex-1 text-sm font-medium truncate" :class="isCurrentRoute(item.to) ? 'text-primary' : 'text-gray-700'">{{ item.label }}</span>
+                </NuxtLink>
+              </template>
             </div>
 
             <!-- 底部操作按钮 -->
@@ -239,14 +250,6 @@ const openSubmenu = (label: string) => {
  */
 const closeSubmenu = () => {
   activeSubmenu.value = null
-}
-
-/**
- * 处理一级菜单项点击
- * 关闭移动端菜单
- */
-const handlePrimaryItemClick = () => {
-  mobileMenuOpen.value = false
 }
 
 /**

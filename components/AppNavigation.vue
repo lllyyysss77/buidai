@@ -5,7 +5,7 @@
   >
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-[72px]">
-        <!-- Left: Logo -->
+        <!-- 左侧：Logo -->
         <div class="flex items-center gap-10 flex-1">
           <NuxtLink to="/" class="flex items-center gap-2 shrink-0" aria-label="智言万象 Home">
             <img
@@ -17,7 +17,7 @@
             />
           </NuxtLink>
 
-          <!-- Center: Desktop Navigation -->
+          <!-- 中间：桌面端导航 -->
           <nav class="hidden md:flex items-center gap-1">
             <UNavigationMenu
               highlight
@@ -30,25 +30,10 @@
           </nav>
         </div>
 
-        <!-- Right: Actions & Mobile Toggle -->
+        <!-- 右侧：操作按钮和移动端菜单切换 -->
         <div class="flex items-center gap-3">
-          <!-- Desktop Actions -->
+          <!-- 桌面端操作按钮 -->
           <div class="hidden md:flex items-center gap-3">
-            <UButton
-              to="https://api.gmlart.cn/"
-              target="_blank"
-              rel="noopener noreferrer"
-              variant="ghost"
-              color="neutral"
-              class="h-10 rounded-full px-4 sm:px-6 font-medium transition-colors duration-200"
-              :class="[isTransparent ? 'bg-white/10 text-white hover:bg-white/20' : 'bg-white border border-gray-200 text-gray-700 hover:bg-gray-50']"
-            >
-              <template #leading>
-                <BookOpenIcon class="w-4 h-4" />
-              </template>
-              智言API
-            </UButton>
-
             <UButton
               to="https://www.gmlart.cn"
               target="_blank"
@@ -59,30 +44,44 @@
               :class="[isTransparent ? 'bg-white text-gray-900 hover:bg-gray-50' : 'bg-black text-white hover:bg-gray-800']"
             >
               <template #leading>
-                <ArrowRightOnRectangleIcon class="w-4 h-4" />
+                <UIcon name="i-lucide-log-in" class="w-4 h-4" />
               </template>
               登录智言
             </UButton>
+
+            <UButton
+              to="https://api.gmlart.cn/"
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="ghost"
+              color="neutral"
+              class="h-10 rounded-full px-4 sm:px-6 font-medium transition-colors duration-200"
+              :class="[isTransparent ? 'bg-white/10 text-white hover:bg-white/20' : 'bg-white border border-gray-200 text-gray-700 hover:bg-gray-50']"
+            >
+              <template #leading>
+                <UIcon name="i-lucide-book-open" class="w-4 h-4" />
+              </template>
+              智言API
+            </UButton>
           </div>
 
-          <!-- Mobile Menu Toggle -->
+          <!-- 移动端菜单切换按钮 -->
           <UButton
             class="md:hidden"
             variant="ghost"
             color="neutral"
-            :aria-label="mobileMenuOpen ? 'Close menu' : 'Open menu'"
+            :aria-label="mobileMenuOpen ? '关闭菜单' : '打开菜单'"
             :aria-expanded="mobileMenuOpen"
             :class="isTransparent ? 'text-white/80 hover:bg-white/10' : 'text-gray-600 hover:bg-gray-100'"
             @click="mobileMenuOpen = !mobileMenuOpen"
           >
-            <Bars3Icon v-if="!mobileMenuOpen" class="w-6 h-6" />
-            <XMarkIcon v-else class="w-6 h-6" />
+            <UIcon :name="mobileMenuOpen ? 'i-lucide-x' : 'i-lucide-menu'" class="w-6 h-6" />
           </UButton>
         </div>
       </div>
     </div>
 
-    <!-- Mobile Menu Backdrop -->
+    <!-- 移动端菜单遮罩层 -->
     <Transition
       enter-active-class="transition-opacity duration-300 ease-out"
       enter-from-class="opacity-0"
@@ -99,7 +98,7 @@
       />
     </Transition>
 
-    <!-- Mobile Menu -->
+    <!-- 移动端菜单面板 -->
     <Transition
       enter-active-class="transition-all duration-300 ease-out"
       enter-from-class="opacity-0 -translate-y-4 scale-[0.98]"
@@ -111,71 +110,94 @@
       <div
         v-show="mobileMenuOpen"
         id="mobile-menu-panel"
-        class="md:hidden fixed inset-x-0 top-[72px] border-t border-gray-200/80 bg-white/95 backdrop-blur-md shadow-2xl overflow-y-auto pb-[env(safe-area-inset-bottom)] z-50"
-        style="height: calc(100dvh - 72px); max-height: calc(100dvh - 72px);"
+        class="md:hidden fixed inset-x-0 top-[72px] border-t border-gray-200/80 bg-white/95 backdrop-blur-md shadow-2xl overflow-y-auto z-50"
+        :style="mobileMenuStyle"
       >
         <div class="p-4 space-y-3">
-          <!-- 一级菜单双排显示：左右布局 -->
-          <div class="grid grid-cols-2 gap-2">
-            <NuxtLink
-              v-for="item in primaryItems"
-              :key="item.label"
-              to="#"
-              class="flex items-center gap-2 p-3 rounded-lg transition-all duration-200 active:scale-[0.98]"
-              :class="item.hasChildren ? 'bg-blue-50 hover:bg-blue-100' : 'bg-gray-50 hover:bg-gray-100'"
-              @click.prevent="item.hasChildren ? toggleSubmenu(item.label!) : (item.to ? (mobileMenuOpen = false, $router.push(item.to)) : null)"
-            >
-              <UIcon :name="item.icon" class="text-lg text-gray-700 shrink-0" />
-              <span class="flex-1 text-sm font-medium text-gray-700 truncate">{{ item.label }}</span>
-              <UIcon v-if="item.hasChildren" name="i-lucide-chevron-right" class="text-gray-400 shrink-0" :class="activeSubmenu === item.label ? 'rotate-90' : ''" />
-            </NuxtLink>
-          </div>
+          <!-- 子菜单视图 -->
+          <template v-if="activeSubmenu">
+            <!-- 子菜单头部：返回按钮和标题 -->
+            <div class="flex items-center gap-3 pb-3 border-b border-gray-100">
+              <UButton
+                variant="ghost"
+                color="neutral"
+                size="sm"
+                class="rounded-lg -ml-2"
+                @click="closeSubmenu"
+              >
+                <UIcon name="i-lucide-arrow-left" class="w-5 h-5" />
+              </UButton>
+              <span class="text-lg font-semibold text-gray-900">{{ activeSubmenu }}</span>
+            </div>
 
-          <!-- 子菜单展开区域 -->
-          <div v-if="activeSubmenu" class="grid grid-cols-2 gap-2">
-            <NuxtLink
-              v-for="item in secondaryItems.filter(i => i.groupLabel === activeSubmenu)"
-              :key="item.to"
-              :to="item.to"
-              class="flex items-center gap-2 p-3 rounded-lg hover:bg-gray-50 transition-all duration-200 active:scale-[0.98]"
-              @click="mobileMenuOpen = false"
-            >
-              <UIcon :name="item.icon" class="text-lg text-gray-500 shrink-0" />
-              <span class="flex-1 text-sm text-gray-600 truncate">{{ item.label }}</span>
-            </NuxtLink>
-          </div>
+            <!-- 子菜单项列表 -->
+            <div class="grid grid-cols-2 gap-2">
+              <NuxtLink
+                v-for="item in currentSubmenuItems"
+                :key="item.to"
+                :to="item.to"
+                class="flex items-center gap-2 p-3 rounded-lg hover:bg-gray-50 transition-all duration-200 active:scale-[0.98]"
+                :class="{ 'bg-primary/5 ring-1 ring-primary/20': isCurrentRoute(item.to) }"
+                @click="mobileMenuOpen = false"
+              >
+                <UIcon :name="item.icon" class="text-lg text-gray-500 shrink-0" :class="{ 'text-primary': isCurrentRoute(item.to) }" />
+                <span class="flex-1 text-sm text-gray-600 truncate" :class="{ 'text-primary font-medium': isCurrentRoute(item.to) }">{{ item.label }}</span>
+              </NuxtLink>
+            </div>
+          </template>
 
-          <div class="flex items-center gap-3 pt-3 border-t border-gray-100">
-            <UButton
-              to="https://api.gmlart.cn/"
-              target="_blank"
-              rel="noopener noreferrer"
-              block
-              color="neutral"
-              variant="ghost"
-              class="flex-1 h-12 rounded-xl text-base font-medium border border-gray-200 text-gray-700 hover:bg-gray-50 active:scale-[0.98] transition-all leading-relaxed justify-center"
-            >
-              <template #leading>
-                <BookOpenIcon class="w-5 h-5" />
-              </template>
-              智言API
-            </UButton>
+          <!-- 主菜单视图 -->
+          <template v-else>
+            <!-- 一级菜单：双列布局 -->
+            <div class="grid grid-cols-2 gap-2">
+              <component
+                :is="item.hasChildren ? 'button' : 'NuxtLink'"
+                v-for="item in primaryItems"
+                :key="item.label"
+                :to="item.hasChildren ? undefined : item.to"
+                class="flex items-center gap-2 p-3 rounded-lg transition-all duration-200 active:scale-[0.98] text-left w-full"
+                :class="getPrimaryItemClasses(item)"
+                @click="item.hasChildren ? openSubmenu(item.label!) : handlePrimaryItemClick()"
+              >
+                <UIcon :name="item.icon" class="text-lg shrink-0" :class="isCurrentRoute(item.to) ? 'text-primary' : 'text-gray-700'" />
+                <span class="flex-1 text-sm font-medium truncate" :class="isCurrentRoute(item.to) ? 'text-primary' : 'text-gray-700'">{{ item.label }}</span>
+                <UIcon v-if="item.hasChildren" name="i-lucide-chevron-right" class="text-gray-400 shrink-0" />
+              </component>
+            </div>
 
-            <UButton
-              to="https://www.gmlart.cn"
-              target="_blank"
-              rel="noopener noreferrer"
-              block
-              color="neutral"
-              variant="ghost"
-              class="flex-1 h-12 rounded-xl bg-black text-white text-base font-medium hover:bg-gray-800 active:scale-[0.98] transition-all leading-relaxed justify-center"
-            >
-              <template #leading>
-                <ArrowRightOnRectangleIcon class="w-5 h-5" />
-              </template>
-              登录智言
-            </UButton>
-          </div>
+            <!-- 底部操作按钮 -->
+            <div class="flex items-center gap-3 pt-3 border-t border-gray-100">
+              <UButton
+                to="https://www.gmlart.cn"
+                target="_blank"
+                rel="noopener noreferrer"
+                block
+                color="neutral"
+                variant="ghost"
+                class="flex-1 h-12 rounded-xl bg-black text-white text-base font-medium hover:bg-gray-800 active:scale-[0.98] transition-all leading-relaxed justify-center"
+              >
+                <template #leading>
+                  <UIcon name="i-lucide-log-in" class="w-5 h-5" />
+                </template>
+                登录智言
+              </UButton>
+
+              <UButton
+                to="https://api.gmlart.cn/"
+                target="_blank"
+                rel="noopener noreferrer"
+                block
+                color="neutral"
+                variant="ghost"
+                class="flex-1 h-12 rounded-xl text-base font-medium border border-gray-200 text-gray-700 hover:bg-gray-50 active:scale-[0.98] transition-all leading-relaxed justify-center"
+              >
+                <template #leading>
+                  <UIcon name="i-lucide-book-open" class="w-5 h-5" />
+                </template>
+                智言API
+              </UButton>
+            </div>
+          </template>
         </div>
       </div>
     </Transition>
@@ -185,19 +207,18 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { Bars3Icon, XMarkIcon, BookOpenIcon, ArrowRightOnRectangleIcon } from '@heroicons/vue/24/outline'
 import type { NavigationMenuItem } from '@nuxt/ui'
 import { SCROLL } from '~/utils/ui'
 
 /**
- * AppNavigation Component
+ * AppNavigation 组件
  *
- * Main header navigation for the application.
- * Features:
- * - Responsive design (Desktop/Mobile)
- * - Transparent/Solid background states based on scroll or route
- * - Mobile menu toggle with transition
- * - Integrated Nuxt UI components
+ * 应用主导航组件，支持响应式设计
+ * 特性：
+ * - 桌面端：水平导航菜单，支持下拉子菜单
+ * - 移动端：宫格布局，支持子菜单展开
+ * - 滚动时背景变化
+ * - 当前页面高亮
  */
 
 const route = useRoute()
@@ -205,12 +226,45 @@ const mobileMenuOpen = ref(false)
 const isScrolled = ref(false)
 const activeSubmenu = ref<string | null>(null)
 
-const toggleSubmenu = (label: string) => {
-  activeSubmenu.value = activeSubmenu.value === label ? null : label
+/**
+ * 打开子菜单
+ * @param label - 子菜单标题
+ */
+const openSubmenu = (label: string) => {
+  activeSubmenu.value = label
 }
 
-// Navigation Items Configuration
-// Uses nested arrays for grouping if needed, or simple array
+/**
+ * 关闭子菜单，返回主菜单
+ */
+const closeSubmenu = () => {
+  activeSubmenu.value = null
+}
+
+/**
+ * 处理一级菜单项点击
+ * 关闭移动端菜单
+ */
+const handlePrimaryItemClick = () => {
+  mobileMenuOpen.value = false
+}
+
+/**
+ * 判断是否为当前路由
+ * @param path - 路由路径
+ * @returns 是否为当前路由
+ */
+const isCurrentRoute = (path?: string): boolean => {
+  if (!path) {
+    return false
+  }
+  return route.path === path
+}
+
+/**
+ * 导航项配置
+ * 使用嵌套数组支持分组
+ */
 const items = computed<NavigationMenuItem[][]>(() => [
   [
     { label: '首页', to: '/', icon: 'i-lucide-house' },
@@ -220,90 +274,20 @@ const items = computed<NavigationMenuItem[][]>(() => [
       label: '解决方案',
       icon: 'i-lucide-box',
       children: [
-        {
-          label: '应用中心',
-          description: '丰富的 AI 应用插件',
-          icon: 'i-lucide-grid',
-          to: '/plugin'
-        },
-        {
-          label: '解决方案',
-          description: '探索 智言AI 的行业解决方案',
-          icon: 'i-lucide-lightbulb',
-          to: '/solutions'
-        },
-        {
-          label: '香蕉绘画',
-          description: '开源免费的 AI 图像生成系统',
-          icon: 'i-lucide-palette',
-          to: '/product/banana'
-        },
-        {
-          label: '网文短剧',
-          description: '开源免费的网文短剧写作系统',
-          icon: 'i-lucide-clapperboard',
-          to: '/product/drama'
-        },
-        {
-          label: '数字人系统',
-          description: '开源免费的虚拟形象克隆系统',
-          icon: 'i-lucide-user',
-          to: '/product/human'
-        },
-        {
-          label: '即梦AI视频',
-          description: '开源免费的 AI 视频生成系统',
-          icon: 'i-lucide-video',
-          to: '/product/jimeng'
-        },
-        {
-          label: '即梦AI绘画',
-          description: 'AI绘画系统',
-          icon: 'i-lucide-image',
-          to: '/product/jmdraw'
-        },
-        {
-          label: '电商试衣',
-          description: '开源免费的AI模特换装系统',
-          icon: 'i-lucide-shirt',
-          to: '/product/model'
-        },
-        {
-          label: 'AI音乐',
-          description: '开源免费的 AI 音乐生成系统',
-          icon: 'i-lucide-music',
-          to: '/product/music'
-        },
-        {
-          label: 'AI PPT',
-          description: '开源免费的智能演示文稿制作工具',
-          icon: 'i-lucide-presentation',
-          to: '/product/ppt'
-        },
-        {
-          label: 'AI简历',
-          description: '开源免费的智能简历生成与分析系统',
-          icon: 'i-lucide-file-text',
-          to: '/product/resume'
-        },
-        {
-          label: 'Sora视频',
-          description: '开源免费的 AI 视频创作系统',
-          icon: 'i-lucide-film',
-          to: '/product/sora'
-        },
-        {
-          label: '视频混剪',
-          description: '开源免费的视频剪辑软件',
-          icon: 'i-lucide-scissors',
-          to: '/product/videoclip'
-        },
-        {
-          label: '小红书助手',
-          description: '开源免费的 AI 文案生成系统',
-          icon: 'i-lucide-book-open',
-          to: '/product/xhs'
-        }
+        { label: '应用中心', description: '丰富的 AI 应用插件', icon: 'i-lucide-grid', to: '/plugin' },
+        { label: '解决方案', description: '探索 智言AI 的行业解决方案', icon: 'i-lucide-lightbulb', to: '/solutions' },
+        { label: '香蕉绘画', description: '开源免费的 AI 图像生成系统', icon: 'i-lucide-palette', to: '/product/banana' },
+        { label: '网文短剧', description: '开源免费的网文短剧写作系统', icon: 'i-lucide-clapperboard', to: '/product/drama' },
+        { label: '数字人系统', description: '开源免费的虚拟形象克隆系统', icon: 'i-lucide-user', to: '/product/human' },
+        { label: '即梦AI视频', description: '开源免费的 AI 视频生成系统', icon: 'i-lucide-video', to: '/product/jimeng' },
+        { label: '即梦AI绘画', description: 'AI绘画系统', icon: 'i-lucide-image', to: '/product/jmdraw' },
+        { label: '电商试衣', description: '开源免费的AI模特换装系统', icon: 'i-lucide-shirt', to: '/product/model' },
+        { label: 'AI音乐', description: '开源免费的 AI 音乐生成系统', icon: 'i-lucide-music', to: '/product/music' },
+        { label: 'AI PPT', description: '开源免费的智能演示文稿制作工具', icon: 'i-lucide-presentation', to: '/product/ppt' },
+        { label: 'AI简历', description: '开源免费的智能简历生成与分析系统', icon: 'i-lucide-file-text', to: '/product/resume' },
+        { label: 'Sora视频', description: '开源免费的 AI 视频创作系统', icon: 'i-lucide-film', to: '/product/sora' },
+        { label: '视频混剪', description: '开源免费的视频剪辑软件', icon: 'i-lucide-scissors', to: '/product/videoclip' },
+        { label: '小红书助手', description: '开源免费的 AI 文案生成系统', icon: 'i-lucide-book-open', to: '/product/xhs' }
       ]
     },
     { label: '定价方案', to: '/pricing', icon: 'i-lucide-tag' },
@@ -311,71 +295,39 @@ const items = computed<NavigationMenuItem[][]>(() => [
       label: '资源中心',
       icon: 'i-lucide-library',
       children: [
-        {
-          label: '更新日志',
-          description: '查看产品最新动态',
-          icon: 'i-lucide-history',
-          to: '/changelog'
-        },
-        {
-          label: '技术博客',
-          description: '深入了解 AI 技术与实践',
-          icon: 'i-lucide-newspaper',
-          to: '/blog'
-        },
-        {
-          label: '文档中心',
-          description: '详细的使用指南和开发文档',
-          icon: 'i-lucide-book-open',
-          to: '/docs'
-        },
-        {
-          label: '资源下载',
-          description: '获取设计资源和开发工具',
-          icon: 'i-lucide-download',
-          to: '/resources'
-        }
+        { label: '更新日志', description: '查看产品最新动态', icon: 'i-lucide-history', to: '/changelog' },
+        { label: '技术博客', description: '深入了解 AI 技术与实践', icon: 'i-lucide-newspaper', to: '/blog' },
+        { label: '文档中心', description: '详细的使用指南和开发文档', icon: 'i-lucide-book-open', to: '/docs' },
+        { label: '资源下载', description: '获取设计资源和开发工具', icon: 'i-lucide-download', to: '/resources' }
       ]
     },
-    {
-      label: '优刻云计算',
-      icon: 'i-lucide-cloud',
-      to: 'https://www.cloudcvm.com',
-      target: '_blank'
-    },
-    {
-      label: '项目文档',
-      icon: 'i-lucide-file-text',
-      to: '#'
-    }
+    { label: '产品演示', icon: 'i-lucide-file-text', to: '/demo' },
+    { label: '优刻云计算', icon: 'i-lucide-cloud', to: 'https://www.cloudcvm.com', target: '_blank' },
   ]
 ])
 
 /**
- * Computed state for transparency.
- * Currently defaults to false, but can be extended to check route meta or scroll position.
+ * 计算透明状态
+ * 当前默认返回 false，可根据路由或滚动状态扩展
  */
 const isTransparent = computed(() => {
-  // Example: return route.path === '/' && !isScrolled.value
   return false
 })
 
 /**
- * Dynamic header classes based on transparency and scroll state.
+ * 动态头部样式类
  */
 const headerClasses = computed(() => {
   if (isTransparent.value) {
     return isScrolled.value ? 'bg-white/90 backdrop-blur-md border-gray-200/50' : 'bg-transparent border-transparent'
   }
-  return 'bg-white border-gray-100' // Enterprise clean look
+  return 'bg-white border-gray-100'
 })
 
 /**
- * UI Configuration for Desktop Navigation Menu
- * Adapts to transparent/solid states with enterprise-grade dropdown styling.
+ * 桌面端导航菜单 UI 配置
  */
 const navigationMenuUi = computed(() => ({
-  // 一级菜单链接样式 - 使用系统默认配色
   link: isTransparent.value
     ? 'text-base text-white/80 hover:text-white hover:bg-white/10 font-medium rounded-lg px-3 py-2 transition-colors duration-150'
     : 'text-base text-muted hover:text-highlighted hover:bg-elevated font-medium rounded-lg px-3 py-2 transition-colors duration-150',
@@ -385,76 +337,76 @@ const navigationMenuUi = computed(() => ({
   linkLeadingIcon: isTransparent.value
     ? 'text-white/60 group-hover:text-white'
     : 'text-dimmed group-hover:text-muted group-[.router-link-active]:text-primary',
-
-  // 二级菜单下拉面板 - 企业级简洁风格
   content: 'bg-default rounded-xl shadow-xl ring-1 ring-default p-2 min-w-[280px]',
   viewport: 'overflow-hidden',
-
-  // 二级菜单列表容器
   childList: 'space-y-1',
-
-  // 二级菜单项
   childItem: '',
-
-  // 二级菜单链接 - icon和label并排，description换行贴左
   childLink: 'flex flex-wrap items-center gap-x-2 gap-y-1 p-3 rounded-lg hover:bg-elevated transition-colors duration-150 group/child',
-
-  // 二级菜单链接包装器 - 让子元素直接参与父级布局
   childLinkWrapper: 'contents',
-
-  // 二级菜单图标
   childLinkIcon: 'size-5 text-dimmed group-hover/child:text-muted shrink-0 transition-colors duration-150',
-
-  // 二级菜单标题 - 与icon同行
   childLinkLabel: 'font-semibold text-highlighted group-hover/child:text-primary transition-colors duration-150',
-
-  // 二级菜单描述 - 占满宽度换行贴左
   childLinkDescription: 'w-full text-sm text-muted leading-relaxed'
 }))
 
 /**
- * 按PC端顺序扁平化导航项，用于移动端宫格布局
- * 一级菜单按顺序排列，包括有子菜单的一级菜单
+ * 移动端菜单样式
+ * 使用 svh 单位处理 iOS 工具栏变化
  */
-const flattenNavigationItems = computed(() => {
-  const flattened: Array<{ label: string; to: string; icon: string; isChild: boolean; groupLabel?: string; hasChildren?: boolean }> = []
+const mobileMenuStyle = computed(() => ({
+  height: 'calc(100svh - 72px)',
+  maxHeight: 'calc(100svh - 72px)',
+  paddingBottom: 'env(safe-area-inset-bottom)'
+}))
+
+/**
+ * 导航项接口
+ */
+interface FlattenedNavItem {
+  label: string
+  to: string
+  icon: string
+  isChild: boolean
+  groupLabel?: string
+  hasChildren?: boolean
+}
+
+/**
+ * 扁平化导航项
+ * 用于移动端宫格布局
+ */
+const flattenNavigationItems = computed<FlattenedNavItem[]>(() => {
+  const flattened: FlattenedNavItem[] = []
 
   items.value.forEach(group => {
     group.forEach(item => {
-      if (item.label) {
-        // 一级菜单：包括有 to 的项，也包括有 children 但没有 to 的项（如解决方案、资源中心）
-        if (item.to) {
-          flattened.push({
-            label: item.label,
-            to: item.to as string,
-            icon: item.icon || '',
-            isChild: false,
-            hasChildren: !!item.children
-          })
-        } else if (item.children) {
-          // 有子菜单但没有 to 的一级菜单项
-          flattened.push({
-            label: item.label,
-            to: '',
-            icon: item.icon || '',
-            isChild: false,
-            hasChildren: true
-          })
-        }
-        // 子菜单项
-        if (item.children) {
-          item.children.forEach(child => {
-            if (child.to && child.label) {
-              flattened.push({
-                label: child.label,
-                to: child.to as string,
-                icon: child.icon || '',
-                isChild: true,
-                groupLabel: item.label
-              })
-            }
-          })
-        }
+      if (!item.label) {
+        return
+      }
+
+      const hasChildren = !!item.children && item.children.length > 0
+
+      // 添加一级菜单项
+      flattened.push({
+        label: item.label,
+        to: (item.to as string) || '',
+        icon: item.icon || 'i-lucide-circle',
+        isChild: false,
+        hasChildren
+      })
+
+      // 添加子菜单项
+      if (item.children) {
+        item.children.forEach(child => {
+          if (child.to && child.label) {
+            flattened.push({
+              label: child.label,
+              to: child.to as string,
+              icon: child.icon || 'i-lucide-circle',
+              isChild: true,
+              groupLabel: item.label
+            })
+          }
+        })
       }
     })
   })
@@ -462,14 +414,51 @@ const flattenNavigationItems = computed(() => {
   return flattened
 })
 
-const primaryItems = computed(() => flattenNavigationItems.value.filter(item => !item.isChild))
-const secondaryItems = computed(() => flattenNavigationItems.value.filter(item => item.isChild))
+/**
+ * 一级菜单项
+ */
+const primaryItems = computed(() =>
+  flattenNavigationItems.value.filter(item => !item.isChild)
+)
 
-// --- Scroll Handling ---
+/**
+ * 当前子菜单项
+ */
+const currentSubmenuItems = computed(() => {
+  if (!activeSubmenu.value) {
+    return []
+  }
+  return flattenNavigationItems.value.filter(
+    item => item.isChild && item.groupLabel === activeSubmenu.value
+  )
+})
+
+/**
+ * 获取一级菜单项样式类
+ * @param item - 导航项
+ * @returns 样式类名
+ */
+const getPrimaryItemClasses = (item: FlattenedNavItem): string => {
+  const isActive = isCurrentRoute(item.to)
+
+  if (isActive) {
+    return 'bg-primary/10 ring-1 ring-primary/20'
+  }
+
+  if (item.hasChildren) {
+    return 'bg-blue-50 hover:bg-blue-100'
+  }
+
+  return 'bg-gray-50 hover:bg-gray-100'
+}
+
+// --- 滚动处理 ---
 
 let ticking = false
+
 /**
- * Optimized scroll handler using requestAnimationFrame
+ * 滚动事件处理
+ * 使用 requestAnimationFrame 节流
  */
 const onScroll = () => {
   if (!ticking) {
@@ -484,48 +473,72 @@ const onScroll = () => {
   }
 }
 
-// --- Lifecycle & Watchers ---
+// --- 生命周期和监听器 ---
 
 onMounted(() => {
   window.addEventListener('scroll', onScroll, { passive: true })
-  onScroll() // Initial check
+  onScroll()
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', onScroll)
 })
 
-// Close mobile menu on route change
+/**
+ * 路由变化时关闭移动端菜单
+ */
 watch(() => route.path, () => {
   mobileMenuOpen.value = false
+  activeSubmenu.value = null
 })
 
+// --- Body 滚动锁定 ---
+
+const scrollY = ref(0)
+
 /**
- * Lock body scroll when mobile menu is open
- * Prevents background scrolling and ensures menu stays in viewport
+ * 锁定 body 滚动
+ */
+const lockBodyScroll = () => {
+  if (typeof document === 'undefined') {
+    return
+  }
+
+  scrollY.value = window.scrollY
+  document.body.style.position = 'fixed'
+  document.body.style.top = `-${scrollY.value}px`
+  document.body.style.left = '0'
+  document.body.style.right = '0'
+  document.body.style.width = '100%'
+  document.body.dataset.scrollY = String(scrollY.value)
+}
+
+/**
+ * 解锁 body 滚动
+ */
+const unlockBodyScroll = () => {
+  if (typeof document === 'undefined') {
+    return
+  }
+
+  const savedScrollY = parseInt(document.body.dataset.scrollY || '0')
+  document.body.style.position = ''
+  document.body.style.top = ''
+  document.body.style.left = ''
+  document.body.style.right = ''
+  document.body.style.width = ''
+  window.scrollTo(0, savedScrollY)
+  delete document.body.dataset.scrollY
+}
+
+/**
+ * 监听移动端菜单状态，控制 body 滚动
  */
 watch(mobileMenuOpen, (open) => {
-  if (typeof document !== 'undefined') {
-    if (open) {
-      // 保存当前滚动位置
-      const scrollY = window.scrollY
-      document.body.style.position = 'fixed'
-      document.body.style.top = `-${scrollY}px`
-      document.body.style.left = '0'
-      document.body.style.right = '0'
-      document.body.style.overflow = 'hidden'
-      document.body.dataset.scrollY = String(scrollY)
-    } else {
-      // 恢复滚动位置
-      const scrollY = document.body.dataset.scrollY || '0'
-      document.body.style.position = ''
-      document.body.style.top = ''
-      document.body.style.left = ''
-      document.body.style.right = ''
-      document.body.style.overflow = ''
-      window.scrollTo(0, parseInt(scrollY || '0'))
-      delete document.body.dataset.scrollY
-    }
+  if (open) {
+    lockBodyScroll()
+  } else {
+    unlockBodyScroll()
   }
 })
 </script>

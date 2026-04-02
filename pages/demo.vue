@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Component } from 'vue'
+import { onErrorCaptured } from 'vue'
 import {
   ComputerDesktopIcon,
   DevicePhoneMobileIcon,
@@ -7,12 +8,32 @@ import {
   DocumentTextIcon,
   ChatBubbleLeftRightIcon,
   PhotoIcon,
-  ChartBarIcon,
   BookOpenIcon,
   ArrowTopRightOnSquareIcon,
-  ChevronDownIcon
+  VideoCameraIcon,
+  MusicalNoteIcon,
+  UserIcon,
+  SparklesIcon,
+  FilmIcon,
+  PencilSquareIcon,
+  ShoppingBagIcon,
+  ClipboardDocumentIcon,
+  PlayIcon,
+  SwatchIcon,
+  HashtagIcon,
+  ArrowRightIcon,
+  ChevronDownIcon,
+  ChevronRightIcon
 } from '@heroicons/vue/24/outline'
 
+/**
+ * 演示平台接口定义
+ * @property title - 平台名称
+ * @property icon - 平台图标组件
+ * @property url - 演示链接
+ * @property account - 演示账号
+ * @property password - 演示密码
+ */
 interface DemoPlatform {
   title: string
   icon: Component
@@ -21,379 +42,896 @@ interface DemoPlatform {
   password: string
 }
 
+/**
+ * 产品演示接口定义
+ * @property id - 产品唯一标识
+ * @property title - 产品名称
+ * @property subtitle - 产品副标题
+ * @property description - 产品描述
+ * @property icon - 产品图标组件
+ * @property image - 产品封面图
+ * @property status - 产品状态
+ * @property tags - 产品标签
+ * @property features - 产品核心功能
+ * @property platforms - 演示平台列表
+ */
 interface ProductDemo {
   id: string
   title: string
+  subtitle: string
   description: string
   icon: Component
-  status: 'online' | 'beta'
+  image: string
+  status: 'online' | 'beta' | 'coming'
+  tags: string[]
+  features: string[]
   platforms: DemoPlatform[]
 }
 
-const products: ProductDemo[] = [
+/**
+ * 产品分类接口定义
+ * @property id - 分类唯一标识
+ * @property name - 分类名称
+ * @property icon - 分类图标组件
+ * @property products - 该分类下的产品列表
+ */
+interface ProductCategory {
+  id: string
+  name: string
+  icon: Component
+  products: ProductDemo[]
+}
+
+/**
+ * 产品分类数据
+ * 参考 pluginData.ts 的分类方式
+ */
+const categories: ProductCategory[] = [
   {
-    id: 'chat-bot',
-    title: '智言AI',
-    description: '基于大语言模型的智能客服与对话系统，支持多轮对话、上下文理解与意图识别。',
-    icon: ChatBubbleLeftRightIcon,
-    status: 'online',
-    platforms: [
-      { title: 'PC演示前台', icon: ComputerDesktopIcon, url: 'https://gmlart.cn', account: '自行注册', password: '自行注册' },
-      { title: '站点管理端', icon: Cog6ToothIcon, url: 'https://gmlart.cn/admin', account: 'demo', password: 'demo123' },
-      { title: 'SaaS平台端', icon: Cog6ToothIcon, url: 'https://gmlart.cn/saas', account: '联系客服', password: '联系客服' },
-      { title: 'WAP演示', icon: DevicePhoneMobileIcon, url: 'https://gmlart.cn/mobile', account: '自行注册', password: '自行注册' }
+    id: 'independent',
+    name: '独立系统',
+    icon: ShoppingBagIcon,
+    products: [
+
+      {
+        id: 'knowledge-base',
+        title: '企业全能AI知识库',
+        subtitle: '智能文档问答系统',
+        description: '能够自动解析文档、构建向量索引的智能知识库，为企业提供精准的问答服务。支持多种文档格式，实现企业知识的高效管理与检索。',
+        icon: BookOpenIcon,
+        image: '/plugin/work.webp',
+        status: 'online',
+        tags: ['文档解析', '向量索引', '智能问答'],
+        features: ['文档自动解析', '向量索引构建', '精准问答', '多格式支持', '权限管理'],
+        platforms: [
+          { title: '演示前台', icon: ComputerDesktopIcon, url: 'https://www.cnai.art', account: '自行注册', password: '自行注册' },
+          { title: '体验后台', icon: Cog6ToothIcon, url: 'https://www.cnai.art/admin', account: 'admin', password: '123456' },
+          { title: 'API文档', icon: DocumentTextIcon, url: 'https://www.cnai.art/doc', account: '联系客服', password: '联系客服' },
+          { title: '移动端', icon: DevicePhoneMobileIcon, url: 'https://www.cnai.art/mobile', account: '联系客服', password: '联系客服' }
+        ]
+      },
+      {
+        id: 'digital-human-saas',
+        title: '超级IP数字人SaaS系统',
+        subtitle: 'PHP源码版',
+        description: '为企业主、个人博主打造短视频IP的数字人源码系统，支持真人声音+形象克隆，一键合成。',
+        icon: UserIcon,
+        image: '/plugin/saas.webp',
+        status: 'online',
+        tags: ['PHP源码', '数字人', 'SaaS系统'],
+        features: ['真人声音克隆', '形象克隆', '一键合成', 'SaaS架构', '源码交付'],
+        platforms: [
+          { title: '演示前台', icon: ComputerDesktopIcon, url: 'https://digital.buidai.com', account: '自行注册', password: '自行注册' },
+          { title: '体验后台', icon: Cog6ToothIcon, url: 'https://digital.buidai.com/admin', account: 'admin', password: '123456' },
+          { title: '移动端', icon: DevicePhoneMobileIcon, url: 'https://digital.buidai.com/mobile', account: '自行注册', password: '自行注册' }
+        ]
+      },
+      {
+        id: 'yichuang-ai',
+        title: '艺创AI聊天绘画系统',
+        subtitle: 'PHP源码版',
+        description: '实现了AI对话+AI绘画的融合使用。系统功能包括：AI智能对话、AI创作模型、AI绘画、分销推广。',
+        icon: PhotoIcon,
+        image: '/plugin/ai.webp',
+        status: 'online',
+        tags: ['PHP源码', 'AI对话', 'AI绘画'],
+        features: ['AI智能对话', 'AI绘画', '创作模型', '分销推广', '源码交付'],
+        platforms: [
+          { title: '演示前台', icon: ComputerDesktopIcon, url: 'https://ai.buidai.com', account: '自行注册', password: '自行注册' },
+          { title: '体验后台', icon: Cog6ToothIcon, url: 'https://ai.buidai.com/admin', account: 'admin', password: '123456' },
+          { title: '移动端', icon: DevicePhoneMobileIcon, url: 'https://ai.buidai.com/mobile', account: '自行注册', password: '自行注册' }
+        ]
+      },
+      {
+        id: 'yichuang-paper',
+        title: '艺创AI论文写作系统',
+        subtitle: 'PHP源码版',
+        description: '10分钟可生成几万字长文的系统。只需要输入主题关键词，AI即可快速为您生成主题大纲。',
+        icon: DocumentTextIcon,
+        image: '/plugin/lw.svg',
+        status: 'online',
+        tags: ['PHP源码', '论文写作', 'AI生成'],
+        features: ['快速生成', '主题大纲', '长文写作', 'AI辅助', '源码交付'],
+        platforms: [
+          { title: '演示前台', icon: ComputerDesktopIcon, url: 'https://paper.buidai.com', account: '自行注册', password: '自行注册' },
+          { title: '体验后台', icon: Cog6ToothIcon, url: 'https://paper.buidai.com/admin', account: 'admin', password: '123456' },
+          { title: '移动端', icon: DevicePhoneMobileIcon, url: 'https://paper.buidai.com/mobile', account: '自行注册', password: '自行注册' }
+        ]
+      },
+      {
+        id: 'zhiyan-ai-deploy',
+        title: '智言AI框架部署服务',
+        subtitle: '官方技术专家部署服务',
+        description: '官方技术专家，帮您部署智言AI平台框架，支持本地部署或服务器部署。',
+        icon: Cog6ToothIcon,
+        image: '/images/buidai.webp',
+        status: 'online',
+        tags: ['部署服务', '技术支持', '本地部署'],
+        features: ['本地部署', '服务器部署', '技术支持', '环境配置', '性能优化'],
+        platforms: [
+          { title: '联系客服', icon: ChatBubbleLeftRightIcon, url: 'https://buidai.com/contact', account: '联系客服', password: '联系客服' }
+        ]
+      }
     ]
   },
   {
-    id: 'knowledge-base',
-    title: '企业知识库',
-    description: '能够自动解析文档、构建向量索引的智能知识库，为企业提供精准的问答服务。',
-    icon: BookOpenIcon,
-    status: 'online',
-    platforms: [
-      { title: '演示前台', icon: ComputerDesktopIcon, url: 'https://www.cnai.art', account: '自行注册', password: '自行注册' },
-      { title: '体验后台', icon: Cog6ToothIcon, url: 'https://www.cnai.art/admin', account: 'admin', password: '123456' },
-      { title: 'API文档', icon: DocumentTextIcon, url: 'https://www.cnai.art/doc', account: '联系客服', password: '联系客服' },
-      { title: '移动端', icon: DevicePhoneMobileIcon, url: 'https://www.cnai.art/mobile', account: '联系客服', password: '联系客服' }
-    ]
-  },
-  {
-    id: 'ai-art',
-    title: '聊天绘画',
-    description: '集文生图、图生图于一体的创意绘画平台，释放无限创意可能。',
-    icon: PhotoIcon,
-    status: 'beta',
-    platforms: [
-      { title: 'H5演示', icon: DevicePhoneMobileIcon, url: 'https://cnai.art/mobile', account: '自行注册', password: '自行注册' },
-      { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://cnai.art', account: '自行注册', password: '自行注册' },
-      { title: '管理后台', icon: Cog6ToothIcon, url: 'https://cnai.art/admin', account: 'admin', password: '123456' },
-      { title: 'API文档', icon: DocumentTextIcon, url: 'https://www.cnai.art/doc', account: '联系客服', password: '联系客服' }
-    ]
-  },
-    {
-    id: 'ai-hunma',
-    title: 'AI数字人',
-    description: '集文生图、图生图于一体的创意绘画平台，释放无限创意可能。',
-    icon: PhotoIcon,
-    status: 'beta',
-    platforms: [
-      { title: 'H5演示', icon: DevicePhoneMobileIcon, url: 'https://v.cnai.art/mobile', account: '自行注册', password: '自行注册' },
-      { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://v.cnai.art', account: '自行注册', password: '自行注册' },
-      { title: '管理后台', icon: Cog6ToothIcon, url: 'https://v.cnai.art/admin', account: 'admin', password: '123456' },
-      { title: 'API文档', icon: DocumentTextIcon, url: 'https://www.cnai.art/doc', account: '联系客服', password: '联系客服' }
-    ]
-  },
-  {
-    id: 'data-insight',
-    title: '论文创作',
-    description: '自动化数据分析平台，自然语言生成报表，发现数据背后的价值。',
-    icon: ChartBarIcon,
-    status: 'online',
-    platforms: [
-      { title: '演示前台', icon: ComputerDesktopIcon, url: 'https://paper.gmlart.cn', account: '联系客服', password: '联系客服' },
-      { title: '体验后台', icon: Cog6ToothIcon, url: 'https://paper.gmlart.cn/admin', account: 'admin', password: '123456' },
-      { title: '数据API', icon: DocumentTextIcon, url: 'https://doc.gmlart.cn/data', account: '联系客服', password: '联系客服' },
-      { title: '移动端', icon: DevicePhoneMobileIcon, url: 'https://paper.gmlart.cn/mobile', account: '联系客服', password: '联系客服' }
+    id: 'extension',
+    name: '扩展应用',
+    icon: SparklesIcon,
+    products: [
+      {
+        id: 'chat-bot',
+        title: '智言AI',
+        subtitle: '智能客服与对话系统',
+        description: '基于大语言模型的智能客服与对话系统，支持多轮对话、上下文理解与意图识别。提供完整的对话管理、知识库集成和数据分析能力。',
+        icon: ChatBubbleLeftRightIcon,
+        image: '/plugin/Nanobanana.png',
+        status: 'online',
+        tags: ['大语言模型', '智能客服', '多轮对话'],
+        features: ['多轮对话', '上下文理解', '意图识别', '知识库集成', '数据分析'],
+        platforms: [
+          { title: 'PC演示前台', icon: ComputerDesktopIcon, url: 'https://gmlart.cn', account: '自行注册', password: '自行注册' },
+          { title: '站点管理端', icon: Cog6ToothIcon, url: 'https://gmlart.cn/admin', account: 'demo', password: 'demo123' },
+          { title: 'SaaS平台端', icon: Cog6ToothIcon, url: 'https://gmlart.cn/saas', account: '联系客服', password: '联系客服' },
+          { title: 'WAP演示', icon: DevicePhoneMobileIcon, url: 'https://gmlart.cn/mobile', account: '自行注册', password: '自行注册' }
+        ]
+      },
+      {
+        id: 'sora2',
+        title: 'Sora2短剧视频创作',
+        subtitle: 'AI智能生成工具',
+        description: 'Sora2短剧视频创作是一款聚焦高效优质短剧创作的AI智能生成工具，它能深度理解用户输入的文字提示词，将创意转化为精彩视频。',
+        icon: FilmIcon,
+        image: '/plugin/Sora2短剧视频创作.png',
+        status: 'online',
+        tags: ['短剧创作', 'AI视频', '文生视频'],
+        features: ['文字生成视频', '短剧创作', '创意转化', '高效生成', '优质输出'],
+        platforms: [
+          { title: '联系客服', icon: ChatBubbleLeftRightIcon, url: 'https://buidai.com/contact', account: '联系客服', password: '联系客服' }
+        ]
+      },
+      {
+        id: 'nanobanana',
+        title: 'Nanobanana',
+        subtitle: '香蕉绘画平台',
+        description: '香蕉绘画预置多个模版，开箱即用。结合gemini-3-pro-image-preview的生图能力，能够有效保持角色一致性。',
+        icon: SwatchIcon,
+        image: '/plugin/Nanobanana.png',
+        status: 'online',
+        tags: ['Gemini 3 Pro', '角色一致', '文生图'],
+        features: ['预置模版', '开箱即用', '角色一致性', '文生图', '图生图'],
+        platforms: [
+          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://banana.cnai.art', account: '自行注册', password: '自行注册' },
+          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://banana.cnai.art/admin', account: 'admin', password: '123456' }
+        ]
+      },
+      {
+        id: 'jmdraw',
+        title: '即梦AI绘画',
+        subtitle: '高质量AI图像生成',
+        description: '基于即梦AI绘画的快速绘图工具，能够通过简单提示词快速生成高质量图像，风格覆盖广泛，写实、卡通、插画等皆可驾驭。',
+        icon: PhotoIcon,
+        image: '/plugin/即梦AI绘画.png',
+        status: 'online',
+        tags: ['文生图', '图生图', '多分辨率'],
+        features: ['文生图', '图生图', '多种分辨率', '批量生成', '灵感广场'],
+        platforms: [
+          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://draw.cnai.art', account: '自行注册', password: '自行注册' },
+          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://draw.cnai.art/admin', account: 'admin', password: '123456' },
+          { title: 'H5演示', icon: DevicePhoneMobileIcon, url: 'https://draw.cnai.art/mobile', account: '自行注册', password: '自行注册' }
+        ]
+      },
+      {
+        id: 'jimeng',
+        title: '即梦AI视频',
+        subtitle: 'AI视频生成工具',
+        description: '快速生成视频的工具，用户只需输入文字描述或上传参考图，即可快速生成风格多样的短视频，支持多种视频比例和分辨率。',
+        icon: VideoCameraIcon,
+        image: '/plugin/即梦AI视频.png',
+        status: 'online',
+        tags: ['文生视频', '图生视频', '多分辨率'],
+        features: ['文生视频', '图生视频', '多种分辨率', '视频下载', '灵感广场'],
+        platforms: [
+          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://video.cnai.art', account: '自行注册', password: '自行注册' },
+          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://video.cnai.art/admin', account: 'admin', password: '123456' }
+        ]
+      },
+      {
+        id: 'human',
+        title: 'AI直播短视频数字人',
+        subtitle: '7x24小时无人直播',
+        description: '7x24小时无人直播，数字人带货，低成本高回报。打造永不休息的超级主播，抢占直播红利。',
+        icon: UserIcon,
+        image: '/plugin/AI直播短视频数字人.webp',
+        status: 'online',
+        tags: ['数字人', '无人直播', '短视频'],
+        features: ['7x24小时直播', '数字人带货', '低成本', '高回报', '超级主播'],
+        platforms: [
+          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://human.cnai.art', account: '自行注册', password: '自行注册' },
+          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://human.cnai.art/admin', account: 'admin', password: '123456' },
+          { title: 'H5演示', icon: DevicePhoneMobileIcon, url: 'https://human.cnai.art/mobile', account: '自行注册', password: '自行注册' }
+        ]
+      },
+      {
+        id: 'videoclip',
+        title: '热门视频混剪',
+        subtitle: '智能视频剪辑软件',
+        description: '智能抓取热门素材，自动混剪，快速生成短视频。紧跟热点趋势，轻松制作出爆款短视频。',
+        icon: PlayIcon,
+        image: '/plugin/video-mix.png',
+        status: 'online',
+        tags: ['批量剪辑', '智能转场', '热门素材'],
+        features: ['智能抓取', '自动混剪', '热门素材', '快速生成', '爆款视频'],
+        platforms: [
+          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://clip.cnai.art', account: '自行注册', password: '自行注册' },
+          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://clip.cnai.art/admin', account: 'admin', password: '123456' }
+        ]
+      },
+      {
+        id: 'drama',
+        title: 'AI短剧小说创作',
+        subtitle: '网文短剧写作系统',
+        description: '专注于短剧本和网络小说创作的辅助工具，提供丰富的剧情模板、角色设定和冲突框架，支持 AI 扩写润色改写续写。',
+        icon: PencilSquareIcon,
+        image: '/plugin/AI短剧小说创作.png',
+        status: 'online',
+        tags: ['剧本创作', '角色设定', 'AI扩写'],
+        features: ['无限量剧本', '角色设定', '章节拖拽', 'AI扩写润色', '大纲管理'],
+        platforms: [
+          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://drama.cnai.art', account: '自行注册', password: '自行注册' },
+          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://drama.cnai.art/admin', account: 'admin', password: '123456' }
+        ]
+      },
+      {
+        id: 'ppt',
+        title: 'AI PPT',
+        subtitle: '智能演示文稿制作',
+        description: '智能演示文稿制作工具，能够根据用户输入的主题或大纲，自动生成结构清晰、设计美观的PPT页面，一键生成演讲备注。',
+        icon: ClipboardDocumentIcon,
+        image: '/plugin/aippt.png',
+        status: 'online',
+        tags: ['智能生成', '模板图表', '智能配色'],
+        features: ['智能生成', '模板图表', '智能配色', '字体搭配', '动画效果'],
+        platforms: [
+          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://ppt.cnai.art', account: '自行注册', password: '自行注册' },
+          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://ppt.cnai.art/admin', account: 'admin', password: '123456' }
+        ]
+      },
+      {
+        id: 'resume',
+        title: 'AI简历',
+        subtitle: '智能简历生成系统',
+        description: '致力于高效生成与深度优化个人简历，通过简单的基本信息输入，即可快速生成结构完整的个人简历，并提供专业优化建议。',
+        icon: DocumentTextIcon,
+        image: '/plugin/AI简历.png',
+        status: 'online',
+        tags: ['智能问答', '简历模板', 'AI分析'],
+        features: ['智能问答', '简历模板', '在线编辑', '模块管理', 'AI分析'],
+        platforms: [
+          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://resume.cnai.art', account: '自行注册', password: '自行注册' },
+          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://resume.cnai.art/admin', account: 'admin', password: '123456' }
+        ]
+      },
+      {
+        id: 'xhs',
+        title: '小红书内容复刻',
+        subtitle: '热门内容创作工具',
+        description: '一键提取爆款笔记文案，智能仿写，快速产出高质量内容。轻松掌握流量密码，打造爆款账号。',
+        icon: HashtagIcon,
+        image: '/plugin/xiaohongshu.png',
+        status: 'online',
+        tags: ['文案生成', 'AI配图', '标签推荐'],
+        features: ['一键提取', '智能仿写', '爆款文案', '流量密码', '快速产出'],
+        platforms: [
+          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://xhs.cnai.art', account: '自行注册', password: '自行注册' },
+          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://xhs.cnai.art/admin', account: 'admin', password: '123456' }
+        ]
+      },
+      {
+        id: 'music',
+        title: 'AI音乐',
+        subtitle: 'AI音乐生成系统',
+        description: '以文本/歌词/哼唱/乐谱为输入，快速生成完整歌曲、伴奏、人声或纯音乐的创作与生产工具，降低门槛、提升效率。',
+        icon: MusicalNoteIcon,
+        image: '/plugin/AI音乐.png',
+        status: 'online',
+        tags: ['文本生成', '哼唱生成', '乐谱生成'],
+        features: ['文本生成', '哼唱生成', '乐谱生成', '多种输出', '商用授权'],
+        platforms: [
+          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://music.cnai.art', account: '自行注册', password: '自行注册' },
+          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://music.cnai.art/admin', account: 'admin', password: '123456' }
+        ]
+      }
     ]
   }
 ]
 
 /**
- * 手风琴展开状态管理
- * 
- * 功能说明：
- * - 使用 ref 跟踪每个产品的展开/收缩状态
- * - 默认所有产品为收缩状态（false）
- * - 使用产品ID作为状态键，确保状态唯一性
+ * 当前选中的产品
+ * 默认选中第一个分类的第一个产品，添加空值安全检查
  */
-const expandedProducts = ref<Record<string, boolean>>({})
+const selectedProduct = ref<ProductDemo | null>(categories[0]?.products[0] ?? null)
 
 /**
- * 切换产品展开/收缩状态
- * 
- * 功能说明：
- * - 根据产品ID切换展开状态
- * - 点击已展开的产品会将其收缩
- * - 点击收缩的产品会将其展开
- * 
- * 参数说明：
- * - productId: string - 要切换状态的产品ID
+ * 当前选中的分类ID
+ * 用于高亮左侧导航，添加空值安全检查
  */
-function toggleProduct(productId: string): void {
-  expandedProducts.value[productId] = !expandedProducts.value[productId]
+const selectedCategoryId = ref<string>(categories[0]?.id ?? '')
+
+/**
+ * 分类展开状态
+ * 记录每个分类的展开/折叠状态
+ */
+const expandedCategories = ref<Record<string, boolean>>({
+  independent: true,
+  extension: true
+})
+
+/**
+ * 切换分类展开状态
+ * @param categoryId - 分类ID
+ */
+function toggleCategory(categoryId: string): void {
+  expandedCategories.value[categoryId] = !expandedCategories.value[categoryId]
 }
 
 /**
+ * 默认产品图片路径
+ * 当产品图片加载失败时显示
+ */
+const DEFAULT_PRODUCT_IMAGE = '/images/buidai.webp'
+
+/**
+ * 获取产品图片URL
+ * 如果路径为空则返回默认图片
+ * @param path - 图片路径
+ * @returns 处理后的图片URL
+ */
+function getProductImageUrl(path: string | undefined): string {
+  return path || DEFAULT_PRODUCT_IMAGE
+}
+
+/**
+ * 处理图片加载错误
+ * 将错误图片替换为默认图片
+ * @param event - 错误事件对象
+ */
+function handleImageError(event: Event): void {
+  const img = event.target as HTMLImageElement
+  if (img) {
+    img.src = DEFAULT_PRODUCT_IMAGE
+  }
+}
+
+/**
+ * 选择产品
+ * @param product - 要选中的产品
+ * @param categoryId - 产品所属分类ID
+ */
+function selectProduct(product: ProductDemo, categoryId: string): void {
+  selectedProduct.value = product
+  selectedCategoryId.value = categoryId
+}
+
+/**
+ * 当前分类的产品列表
+ * 根据选中的分类ID返回对应的产品数组
+ */
+const currentCategoryProducts = computed<ProductDemo[]>(() => {
+  const category = categories.find(c => c.id === selectedCategoryId.value)
+  return category?.products || []
+})
+
+/**
+ * 滚动到指定分类区域
+ * 用于移动端点击底部标签栏时自动选择该分类的第一个产品
+ * @param categoryId - 分类ID
+ */
+function scrollToCategory(categoryId: string): void {
+  const category = categories.find(c => c.id === categoryId)
+  if (category && category.products.length > 0) {
+    // 如果当前选中的产品不在新分类中，则自动选择新分类的第一个产品
+    const currentProductInCategory = category.products.find(p => p.id === selectedProduct.value?.id)
+    if (!currentProductInCategory) {
+      const firstProduct = category.products[0]
+      if (firstProduct) {
+        selectedProduct.value = firstProduct
+      }
+    }
+  }
+}
+
+/**
+ * 状态文本映射表
+ * 提取到模块级别避免每次调用时重复创建对象
+ */
+const STATUS_TEXT_MAP: Record<string, string> = {
+  online: '已上线',
+  beta: 'Beta',
+  coming: '即将上线'
+}
+
+/**
+ * 状态样式类映射表
+ * 提取到模块级别避免每次调用时重复创建对象
+ */
+const STATUS_CLASS_MAP: Record<string, string> = {
+  online: 'bg-green-500 text-white',
+  beta: 'bg-indigo-500 text-white',
+  coming: 'bg-neutral-400 text-white'
+}
+
+/**
+ * 获取状态显示文本
+ * @param status - 产品状态
+ * @returns 状态显示文本
+ */
+function getStatusText(status: string): string {
+  return STATUS_TEXT_MAP[status] || status
+}
+
+/**
+ * 获取状态样式类
+ * @param status - 产品状态
+ * @returns 状态样式类名
+ */
+function getStatusClass(status: string): string {
+  return STATUS_CLASS_MAP[status] || 'bg-neutral-400 text-white'
+}
+
+/**
+ * 错误边界处理
+ * 捕获组件渲染过程中的错误，防止整个页面崩溃
+ * @param err - 错误对象
+ * @param instance - 发生错误的组件实例
+ * @param info - 错误信息
+ */
+onErrorCaptured((_err, _instance, _info) => {
+  // 错误处理逻辑
+  // 可以在这里添加错误上报逻辑，例如发送到监控服务
+  // reportError({ error: _err, component: 'demo', info: _info })
+
+  // 返回 false 阻止错误向上传播
+  return false
+})
+
+/**
  * SEO 配置常量
- * 用于设置页面的搜索引擎优化元数据
  */
 const siteName = '智言万象'
-const baseUrl = 'https://buidiai.com'
+const baseUrl = 'https://buidai.com'
 const pageTitle = '产品演示中心 - 智言万象 | 在线体验AI产品'
-const pageDescription = '智言万象产品演示中心，在线体验智言AI智能客服、企业知识库、聊天绘画、AI数字人等AI产品。支持PC端、移动端、后台管理等多平台演示。'
+const pageDescription = '智言万象产品演示中心，在线体验智言AI智能客服、企业知识库、AI绘画、AI视频、AI数字人等AI产品。支持PC端、移动端、后台管理等多平台演示。'
 const canonicalUrl = `${baseUrl}/demo`
 const ogImage = `${baseUrl}/images/og-demo.png`
 
 /**
  * SEO 元数据配置
- * 
- * 功能说明：
- * - 设置页面标题、描述、关键词等基础元数据
- * - 配置 Open Graph 协议标签（用于社交平台分享预览）
- * - 配置 Twitter Cards 标签（用于 Twitter 分享预览）
- * - 设置 robots 规则（控制搜索引擎爬取行为）
- * 
- * 参数说明：
- * - title: 页面标题，显示在浏览器标签页和搜索结果中
- * - description: 页面描述，显示在搜索结果摘要中
- * - og: Open Graph 协议标签，Facebook、LinkedIn 等平台分享时显示预览信息
- * - twitter: Twitter Cards 标签，Twitter 分享时显示预览信息
- * - robots: 搜索引擎爬虫规则，index=允许索引，follow=允许追踪链接
  */
 useHead({
   title: pageTitle,
   meta: [
-    // 页面描述：显示在搜索引擎结果摘要中
     { name: 'description', content: pageDescription },
-    
-    // Open Graph 协议标签：用于社交平台分享预览（Facebook、LinkedIn 等）
     { property: 'og:title', content: pageTitle },
     { property: 'og:description', content: pageDescription },
     { property: 'og:url', content: canonicalUrl },
     { property: 'og:type', content: 'website' },
     { property: 'og:image', content: ogImage },
     { property: 'og:site_name', content: siteName },
-    
-    // Twitter Cards 标签：用于 Twitter 分享预览
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: pageTitle },
     { name: 'twitter:description', content: pageDescription },
     { name: 'twitter:image', content: ogImage },
-    
-    // 搜索引擎爬虫规则：允许索引和追踪链接
     { name: 'robots', content: 'index, follow' }
   ],
-  
-  // Canonical 标签：指定页面的规范 URL，避免重复内容问题
   link: [
     { rel: 'canonical', href: canonicalUrl }
   ],
-  
-  /**
-   * JSON-LD 结构化数据
-   * 
-   * 功能说明：
-   * - 为搜索引擎提供结构化的页面信息
-   * - 帮助搜索引擎更好地理解页面内容和结构
-   * - 可能获得丰富的搜索结果展示（富媒体摘要）
-   * 
-   * Schema.org 类型说明：
-   * - WebPage: 表示这是一个网页
-   * - ItemList: 表示这是一个项目列表（产品列表）
-   * - Organization: 表示组织信息
-   */
   script: [
-    // 网页结构化数据：包含面包屑导航
-    { type: 'application/ld+json', innerHTML: JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'WebPage',
-      name: '产品演示中心',
-      description: pageDescription,
-      url: canonicalUrl,
-      // 面包屑导航结构化数据
-      breadcrumb: {
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          { '@type': 'ListItem', position: 1, name: '首页', item: baseUrl },
-          { '@type': 'ListItem', position: 2, name: '产品演示', item: canonicalUrl }
-        ]
-      }
-    })},
-    
-    // 产品列表结构化数据：包含所有产品的详细信息
-    { type: 'application/ld+json', innerHTML: JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'ItemList',
-      // 将产品数组转换为 Schema.org 列表项格式
-      itemListElement: products.map((product, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,  // 产品在列表中的位置（从 1 开始）
-        item: {
-          '@type': 'Product',
-          name: product.title,
-          description: product.description,
-          url: `${canonicalUrl}#${product.id}`,
-          image: `${baseUrl}/images/products/${product.id}.png`,
-          // 产品供应信息
-          offers: {
-            '@type': 'Offer',
-            // 可用性：根据产品状态映射到 Schema.org 状态
-            availability: product.status === 'online' 
-              ? 'https://schema.org/InStock' 
-              : 'https://schema.org/PreOrder',
-            priceCurrency: 'CNY',
-            price: '0'
-          }
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: '产品演示中心',
+        description: pageDescription,
+        url: canonicalUrl,
+        breadcrumb: {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: '首页', item: baseUrl },
+            { '@type': 'ListItem', position: 2, name: '产品演示', item: canonicalUrl }
+          ]
         }
-      }))
-    })},
-    
-    // 组织结构化数据：包含公司基本信息
-    { type: 'application/ld+json', innerHTML: JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'Organization',
-      name: '智言万象',
-      url: baseUrl,
-      logo: `${baseUrl}/images/logo.png`,
-      // 社交媒体链接
-      sameAs: ['https://github.com/buidai', 'https://twitter.com/buidai']
-    })}
+      })
+    }
   ]
 })
 </script>
 
 <template>
-  <div class="min-h-screen bg-neutral-50 font-sans">
+  <div class="min-h-screen bg-white py-8 lg:pb-8 pb-20">
     <!-- 背景装饰 -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none">
-      <div class="absolute -top-40 -left-40 w-80 h-80 bg-[#6E58FF]/10 rounded-full blur-3xl"/>
-      <div class="absolute top-1/2 -right-40 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl"/>
-      <div class="absolute -bottom-40 left-1/3 w-80 h-80 bg-purple-400/10 rounded-full blur-3xl"/>
-    </div>
+    <div class="absolute top-0 left-0 w-full h-[400px] md:h-[500px] bg-[url('/agent.svg')] pointer-events-none mask-[linear-gradient(to_bottom,white,transparent)] z-0"/>
 
-    <div class="relative">
-      <!-- Hero 区域 -->
-      <section class="pt-20 pb-12">
-        <div class="container mx-auto px-4 text-center">
-          <h1 class="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
-            产品演示中心
+    <!-- 移动端底部标签栏 - 切换产品分类 -->
+    <nav class="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-neutral-200 safe-area-pb">
+      <div class="flex items-center justify-around px-2 py-2">
+        <button
+          v-for="category in categories"
+          :key="category.id"
+          class="flex flex-col items-center gap-1 px-3 py-2 rounded-md transition-colors min-w-[72px] max-w-[100px]"
+          :class="selectedCategoryId === category.id
+            ? 'text-indigo-600 bg-indigo-50/50'
+            : 'text-neutral-500 hover:text-neutral-700 hover:bg-neutral-50'"
+          @click="selectedCategoryId = category.id; scrollToCategory(category.id)"
+        >
+          <component
+            :is="category.icon"
+            class="w-6 h-6 flex-shrink-0"
+            :class="selectedCategoryId === category.id ? 'text-indigo-600' : 'text-neutral-400'"
+          />
+          <span class="text-[11px] font-medium truncate w-full text-center leading-tight">{{ category.name }}</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- 顶部 Hero 区域 -->
+    <section class="relative pt-8 pb-4 md:pt-12 md:pb-12 overflow-hidden z-10">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8">
+          <!-- 徽章 -->
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur border border-neutral-200 shadow-sm mb-6">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-500 opacity-75"/>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"/>
+            </span>
+            <span class="text-xs font-medium text-neutral-600">智言AI · 产品演示</span>
+          </div>
+
+          <!-- 标题 -->
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0F0F12] tracking-tight leading-[1.2] mb-4">
+            在线 <span class="text-indigo-500">体验</span> AI 产品
           </h1>
-          <p class="text-lg text-neutral-500 max-w-2xl mx-auto">
-            选择产品类型体验我们的产品功能
+
+          <!-- 副标题 -->
+          <p class="text-base sm:text-lg text-[#5A5E6A] max-w-2xl mx-auto leading-relaxed">
+            探索智言AI全系产品，涵盖智能对话、AI绘画、视频生成、数字人等多个领域，即刻开启您的AI之旅
           </p>
         </div>
-      </section>
 
-      <!-- 产品演示列表 -->
-      <section class="pb-24">
-        <div class="container mx-auto px-4">
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div
-              v-for="(product, index) in products"
+        <!-- 移动端产品选择器 - 横向滚动标签栏 -->
+        <div class="lg:hidden mt-4 sm:mt-6">
+          <div class="flex items-center gap-2 px-0 py-2 overflow-x-auto scrollbar-hide -mx-1 px-1">
+            <button
+              v-for="product in currentCategoryProducts"
               :key="product.id"
-              class="bg-white rounded-2xl border border-neutral-100 shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300"
-              :style="{ animationDelay: `${index * 0.1}s` }"
+              class="flex-shrink-0 flex items-center gap-2 px-3 sm:px-4 py-2 rounded-none text-xs sm:text-sm font-medium transition-colors whitespace-nowrap"
+              :class="selectedProduct?.id === product.id
+                ? 'bg-indigo-500 text-white'
+                : 'bg-white text-neutral-600 border border-neutral-200'"
+              @click="selectProduct(product, selectedCategoryId)"
             >
-              <!-- 顶部图片区域 -->
-              <div class="relative aspect-video bg-neutral-100 overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-br from-indigo-50 to-purple-50"/>
-                <div class="absolute inset-0 flex items-center justify-center">
+              <component :is="product.icon" class="w-4 h-4 flex-shrink-0" />
+              <span class="truncate max-w-[100px] sm:max-w-[120px]">{{ product.title }}</span>
+              <span
+                v-if="product.status === 'beta'"
+                class="ml-0.5 px-1 py-0 text-[8px] rounded bg-white/20 flex-shrink-0"
+              >
+                β
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 主体内容区域 - 使用 container 包裹左右布局 -->
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="flex gap-6 lg:gap-8">
+        <!-- 左侧产品导航栏 - 可展开折叠 -->
+        <aside class="hidden lg:block w-64 xl:w-72 flex-shrink-0">
+          <div class="sticky top-24 bg-white rounded-xl border border-neutral-200">
+            <!-- 导航标题 -->
+            <div class="px-4 py-3 border-b border-neutral-200">
+              <h2 class="text-sm font-semibold text-neutral-900">
+                产品分类
+              </h2>
+            </div>
+
+            <!-- 产品分类列表 -->
+            <nav class="p-2">
+              <div v-for="category in categories" :key="category.id" class="mb-2">
+                <!-- 分类标题 - 可点击展开折叠 -->
+                <button
+                  class="w-full flex items-center gap-2 px-3 py-2 text-xs font-semibold text-neutral-600 uppercase tracking-wider rounded-lg transition-colors hover:bg-neutral-50"
+                  @click="toggleCategory(category.id)"
+                >
+                  <component :is="category.icon" class="w-4 h-4 flex-shrink-0" />
+                  <span class="truncate flex-1 text-left">{{ category.name }}</span>
+                  <span class="text-[10px] text-neutral-400">{{ category.products.length }}个</span>
+                  <component
+                    :is="expandedCategories[category.id] ? ChevronDownIcon : ChevronRightIcon"
+                    class="w-3.5 h-3.5 flex-shrink-0 text-neutral-400"
+                  />
+                </button>
+
+                <!-- 产品列表 - 带展开动画 -->
+                <Transition
+                  enter-active-class="transition-all duration-200 ease-out"
+                  enter-from-class="opacity-0 max-h-0"
+                  enter-to-class="opacity-100 max-h-[500px]"
+                  leave-active-class="transition-all duration-200 ease-in"
+                  leave-from-class="opacity-100 max-h-[500px]"
+                  leave-to-class="opacity-0 max-h-0"
+                >
+                  <div v-show="expandedCategories[category.id]" class="overflow-hidden">
+                    <div class="space-y-0.5 pt-1">
+                      <button
+                        v-for="product in category.products"
+                        :key="product.id"
+                        class="w-full flex items-center gap-2.5 px-3 py-2 text-sm rounded-lg transition-colors text-left"
+                        :class="selectedProduct?.id === product.id
+                          ? 'bg-neutral-100 text-neutral-900'
+                          : 'text-neutral-600 hover:bg-neutral-50'"
+                        @click="selectProduct(product, category.id)"
+                      >
+                        <component
+                          :is="product.icon"
+                          class="w-4 h-4 flex-shrink-0"
+                          :class="selectedProduct?.id === product.id ? 'text-neutral-900' : 'text-neutral-400'"
+                        />
+                        <span class="truncate flex-1">{{ product.title }}</span>
+                        <span
+                          v-if="product.status === 'beta'"
+                          class="flex-shrink-0 px-1.5 py-0.5 text-[10px] rounded bg-neutral-200 text-neutral-600"
+                        >
+                          Beta
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </Transition>
+              </div>
+            </nav>
+          </div>
+        </aside>
+
+
+
+        <!-- 右侧内容区域 -->
+        <main v-if="selectedProduct" class="flex-1 min-w-0">
+          <!-- 产品详情卡片 -->
+          <div class="bg-white rounded-2xl border border-neutral-200 overflow-hidden shadow-sm">
+            <!-- 产品头部 -->
+            <div class="relative">
+              <!-- 封面图 -->
+              <div
+                class="h-40 sm:h-48 md:h-52 flex items-center justify-center relative overflow-hidden"
+              >
+                <!-- 背景图 -->
+                <img
+                  :src="getProductImageUrl(selectedProduct.image)"
+                  :alt="selectedProduct.title"
+                  class="absolute inset-0 w-full h-full object-cover"
+                  @error="handleImageError"
+                />
+                <!-- 遮罩层 -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/40" />
+
+                <div class="relative z-10 text-center px-3 sm:px-4">
                   <div
-                    class="w-16 h-16 rounded-2xl flex items-center justify-center"
-                    :class="product.status === 'beta' ? 'bg-orange-100' : 'bg-green-100'"
+                    class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mx-auto mb-2 sm:mb-3 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center"
                   >
                     <component
-                      :is="product.icon"
-                      class="w-8 h-8"
-                      :class="product.status === 'beta' ? 'text-orange-600' : 'text-green-600'"
+                      :is="selectedProduct.icon"
+                      class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white"
                     />
                   </div>
+                  <h2 class="text-lg sm:text-xl md:text-2xl font-bold text-white line-clamp-1">
+                    {{ selectedProduct.title }}
+                  </h2>
+                  <p class="mt-0.5 text-xs sm:text-sm text-white/80 line-clamp-1">
+                    {{ selectedProduct.subtitle }}
+                  </p>
                 </div>
+
                 <!-- 状态标签 -->
-                <div class="absolute top-3 right-3">
+                <div class="absolute top-2 sm:top-3 right-2 sm:right-3 z-10">
                   <span
-                    class="px-2.5 py-1 rounded-full text-xs font-medium"
-                    :class="product.status === 'online' ? 'bg-green-100 text-green-700' : 'bg-orange-100 text-orange-700'"
+                    class="px-2 py-0.5 text-[10px] sm:text-xs font-medium rounded-full"
+                    :class="getStatusClass(selectedProduct.status)"
                   >
-                    {{ product.status === 'online' ? '已上线' : 'Beta' }}
+                    {{ getStatusText(selectedProduct.status) }}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 产品内容 -->
+            <div class="p-4 sm:p-5 md:p-6">
+              <!-- 标签 -->
+              <div class="flex flex-wrap gap-1.5 mb-3 sm:mb-4">
+                <span
+                  v-for="tag in selectedProduct.tags"
+                  :key="tag"
+                  class="px-2 py-0.5 text-[10px] sm:text-xs text-neutral-600 bg-neutral-100 rounded-full"
+                >
+                  {{ tag }}
+                </span>
+              </div>
+
+              <!-- 描述 -->
+              <div class="mb-4 sm:mb-5">
+                <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                  {{ selectedProduct.description }}
+                </p>
+              </div>
+
+              <!-- 核心功能 -->
+              <div class="mb-4 sm:mb-5">
+                <h3 class="text-[10px] sm:text-xs font-semibold text-neutral-900 uppercase tracking-wider mb-2 sm:mb-3">
+                  核心功能
+                </h3>
+                <div class="flex flex-wrap gap-1.5 sm:gap-2">
+                  <span
+                    v-for="feature in selectedProduct.features"
+                    :key="feature"
+                    class="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs text-neutral-700 bg-neutral-50 rounded-lg"
+                  >
+                    <div class="w-1 h-1 rounded-full bg-indigo-500 flex-shrink-0" />
+                    <span class="truncate max-w-[150px] sm:max-w-none">{{ feature }}</span>
                   </span>
                 </div>
               </div>
 
-              <!-- 产品信息 -->
-              <div class="p-5">
-                <div class="flex items-center justify-between mb-2">
-                  <h3 class="text-lg font-semibold text-neutral-900">
-                    {{ product.title }}
-                  </h3>
-                  <!-- 手风琴展开/收缩按钮 -->
-                  <button
-                    class="p-2 rounded-lg bg-neutral-100 hover:bg-neutral-200 transition-colors duration-200"
-                    :aria-label="expandedProducts[product.id] ? '收缩产品详情' : '展开产品详情'"
-                    @click="toggleProduct(product.id)"
+              <!-- 演示平台 -->
+              <div>
+                <h3 class="text-[10px] sm:text-xs font-semibold text-neutral-900 uppercase tracking-wider mb-2 sm:mb-3">
+                  演示环境
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+                  <a
+                    v-for="platform in selectedProduct.platforms"
+                    :key="platform.title"
+                    :href="platform.url"
+                    target="_blank"
+                    class="group block p-2.5 sm:p-3 bg-white rounded-lg border border-neutral-200 hover:border-indigo-500/30 transition-colors duration-200"
+                    :class="{ 'sm:col-span-2': selectedProduct.platforms.length === 1 }"
                   >
-                    <ChevronDownIcon
-                      class="w-4 h-4 text-neutral-600 transition-transform duration-300"
-                      :class="{ 'rotate-180': expandedProducts[product.id] }"
-                    />
-                  </button>
+                    <div class="flex items-center gap-2 sm:gap-3">
+                      <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-neutral-50 border border-neutral-200 flex items-center justify-center group-hover:bg-indigo-50 group-hover:border-indigo-200 transition-colors shrink-0">
+                        <component :is="platform.icon" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-neutral-600 group-hover:text-indigo-500 transition-colors" />
+                      </div>
+                      <div class="flex-1 min-w-0 overflow-hidden">
+                        <h4 class="text-xs sm:text-sm font-medium text-neutral-900 group-hover:text-indigo-500 transition-colors truncate">
+                          {{ platform.title }}
+                        </h4>
+                        <p class="text-[10px] sm:text-xs text-neutral-400 truncate">
+                          {{ platform.url }}
+                        </p>
+                      </div>
+                      <ArrowTopRightOnSquareIcon class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-neutral-400 group-hover:text-indigo-500 transition-colors shrink-0" />
+                    </div>
+                  </a>
                 </div>
-                <p class="text-sm text-neutral-500 mb-4 line-clamp-2">
-                  {{ product.description }}
-                </p>
-
-                <!-- 手风琴内容区域 -->
-                <Transition
-                  name="accordion"
-                  mode="out-in"
-                >
-                  <ul v-if="expandedProducts[product.id]" class="space-y-2">
-                    <li v-for="platform in product.platforms" :key="platform.title">
-                      <a
-                        :href="platform.url"
-                        target="_blank"
-                        class="block p-3 bg-neutral-50 rounded-xl border border-neutral-100 hover:border-neutral-200 hover:bg-neutral-100 transition-all duration-200"
-                      >
-                        <div class="flex items-center justify-between mb-2">
-                          <div class="flex items-center gap-2">
-                            <component :is="platform.icon" class="w-4 h-4 text-neutral-500" />
-                            <span class="text-sm font-medium text-neutral-800">{{ platform.title }}</span>
-                          </div>
-                          <ArrowTopRightOnSquareIcon class="w-3.5 h-3.5 text-neutral-400" />
-                        </div>
-                        <div class="text-xs text-neutral-400 mb-2 truncate">{{ platform.url }}</div>
-                        <div class="grid grid-cols-2 gap-2 pt-2 border-t border-neutral-200">
-                          <div>
-                            <span class="text-xs text-neutral-400">账号</span>
-                            <div class="text-xs font-medium text-neutral-600 truncate">{{ platform.account }}</div>
-                          </div>
-                          <div>
-                            <span class="text-xs text-neutral-400">密码</span>
-                            <div class="text-xs font-medium text-neutral-600 truncate">{{ platform.password }}</div>
-                          </div>
-                        </div>
-                      </a>
-                    </li>
-                  </ul>
-                  <!-- 收缩状态显示提示 -->
-                  <button
-                    v-else
-                    class="w-full py-3 px-3 bg-neutral-50 rounded-xl border border-dashed border-neutral-200 hover:border-neutral-300 hover:bg-neutral-100 transition-all duration-200 text-center cursor-pointer"
-                    @click="toggleProduct(product.id)"
-                  >
-                    <span class="text-xs text-neutral-400">点击展开查看演示平台</span>
-                  </button>
-                </Transition>
               </div>
             </div>
           </div>
 
           <!-- 底部 CTA -->
-          <div class="mt-16 text-center">
-            <p class="text-neutral-500 mb-4">需要定制化解决方案？</p>
-            <a href="/contact" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#6E58FF] text-white font-medium text-sm hover:bg-[#5A43FF] transition-colors">
+          <div class="mt-4 sm:mt-6 text-center">
+            <p class="text-xs sm:text-sm text-neutral-500 mb-2 sm:mb-3">需要定制化解决方案？</p>
+            <a
+              href="/contact"
+              class="inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg bg-indigo-500 text-white text-xs sm:text-sm font-medium hover:bg-indigo-600 transition-colors"
+            >
               联系我们
-              <ArrowTopRightOnSquareIcon class="w-4 h-4" />
+              <ArrowRightIcon class="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </a>
           </div>
-        </div>
-      </section>
+        </main>
+      </div>
     </div>
   </div>
+<!-- CTA 底部行动召唤区域 -->
+<LandingCtaSection />
+
 </template>
 
 <style scoped>
-@keyframes fadeInUp {
+/* 自定义滚动条样式 */
+nav::-webkit-scrollbar {
+  width: 5px;
+}
+
+nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+nav::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+nav::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* 隐藏滚动条但保持滚动功能 */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* 底部安全区域适配 */
+.safe-area-pb {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* 多行文本截断 */
+.line-clamp-1 {
+  display: -webkit-box;
+  display: box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  display: box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 页面进入动画 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* 平台卡片进入动画 */
+@keyframes slideUp {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -404,64 +942,7 @@ useHead({
   }
 }
 
-div[style*="animation-delay"] {
-  animation: fadeInUp 0.5s ease-out forwards;
-  opacity: 0;
-}
-
-.line-clamp-2 {
-  display: -webkit-box;
-  line-clamp: 2;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/**
- * 手风琴过渡动画
- * 
- * 功能说明：
- * - accordion-enter-active: 进入动画（展开时）
- * - accordion-leave-active: 离开动画（收缩时）
- * - accordion-enter-from: 动画起始状态
- * - accordion-leave-to: 动画结束状态
- */
-
-/* 进入动画：从透明和收缩状态到可见和展开状态 */
-.accordion-enter-active {
-  animation: accordion-expand 0.3s ease-out;
-}
-
-/* 离开动画：从展开状态到收缩状态 */
-.accordion-leave-active {
-  animation: accordion-collapse 0.3s ease-out;
-}
-
-/* 展开动画关键帧 */
-@keyframes accordion-expand {
-  from {
-    opacity: 0;
-    max-height: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    max-height: 500px;
-    transform: translateY(0);
-  }
-}
-
-/* 收缩动画关键帧 */
-@keyframes accordion-collapse {
-  from {
-    opacity: 1;
-    max-height: 500px;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    max-height: 0;
-    transform: translateY(-10px);
-  }
+a[class*="group block"] {
+  animation: slideUp 0.4s ease-out forwards;
 }
 </style>

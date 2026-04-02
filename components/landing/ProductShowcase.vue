@@ -42,7 +42,8 @@
               class="group w-full flex flex-col text-left px-4 py-3.5 rounded-xl transition-all duration-200 relative overflow-hidden outline-none"
               :class="activeTab === index ? 'bg-white' : 'hover:bg-white/60'"
               @click="switchTab(index)"
-              @mouseenter="activeTab = index"
+              @mouseenter="handleMouseEnter(index)"
+              @mouseleave="handleMouseLeave"
             >
               <!-- 激活指示条 -->
               <div
@@ -137,9 +138,11 @@
 
           <!-- 图片切换区域 - 移动端优化高度 -->
           <div 
-            class="relative flex-1 p-1.5 sm:p-4 lg:p-8 xl:p-10 flex items-center justify-center bg-gradient-to-br from-white via-white to-neutral-50/50 min-h-[160px] sm:min-h-[240px] lg:min-h-0 overflow-hidden"
+            class="relative flex-1 p-1.5 sm:p-4 lg:p-8 xl:p-10 flex items-center justify-center bg-gradient-to-br from-white via-white to-neutral-50/50 min-h-[160px] sm:min-h-[240px] lg:min-h-0 overflow-hidden touch-pan-y"
             @touchstart="handleTouchStart"
+            @touchmove="handleTouchMove"
             @touchend="handleTouchEnd"
+            @touchcancel="handleTouchCancel"
           >
             <Transition
               name="showcase-fade"
@@ -156,6 +159,7 @@
                   class="w-full h-auto max-h-[140px] sm:max-h-[220px] lg:max-h-none lg:max-w-full object-contain rounded sm:rounded-lg"
                   loading="lazy"
                   decoding="async"
+                  @error="handleImageError"
                 />
 
                 <!-- 浮动功能标签 -->
@@ -255,7 +259,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted, shallowRef } from 'vue'
+import type { Component } from 'vue'
 import { Zap, Shield, Layers } from 'lucide-vue-next'
 
 // ==========================================
@@ -267,13 +272,14 @@ interface TabItem {
   name: string
   description?: string
   image: string
+  url: string
 }
 
 /** 功能特性类型 */
 interface FeatureItem {
   title: string
   description: string
-  icon: unknown
+  icon: Component
 }
 
 // ==========================================
@@ -287,37 +293,44 @@ const tabs: TabItem[] = [
   {
     name: '智能体',
     description: 'AI Agent 工作流编排',
-    image: '/images/buidai-1.webp'
+    image: '/images/buidai-1.webp',
+    url: 'gmlart.cn/agents'
   },
   {
     name: '知识库',
     description: 'RAG 向量检索系统',
-    image: '/images/buidai-2.webp'
+    image: '/images/buidai-2.webp',
+    url: 'gmlart.cn/knowledge'
   },
   {
     name: '应用中心',
     description: '预置应用模板市场',
-    image: '/images/buidai-3.webp'
+    image: '/images/buidai-3.webp',
+    url: 'gmlart.cn/apps'
   },
   {
     name: '模型管理',
     description: '多模型接入与管理',
-    image: '/images/buidai-4.webp'
+    image: '/images/buidai-4.webp',
+    url: 'gmlart.cn/models'
   },
   {
     name: 'MCP',
     description: '模型上下文协议',
-    image: '/images/buidai-5.webp'
+    image: '/images/buidai-5.webp',
+    url: 'gmlart.cn/mcp'
   },
   {
     name: 'DIY中心',
     description: '可视化界面构建',
-    image: '/images/buidai-6.webp'
+    image: '/images/buidai-6.webp',
+    url: 'gmlart.cn/diy'
   },
   {
     name: '会员订阅',
     description: '灵活的计费方案',
-    image: '/images/buidai-7.webp'
+    image: '/images/buidai-7.webp',
+    url: 'gmlart.cn/billing'
   }
 ]
 
@@ -346,8 +359,8 @@ const features: FeatureItem[] = [
 // 状态管理
 // ==========================================
 
-/** 当前激活的标签索引 */
-const activeTab = ref(0)
+/** 当前激活的标签索引 - 使用 shallowRef 提升性能 */
+const activeTab = shallowRef(0)
 
 /** 自动播放计时器 */
 let autoPlayTimer: ReturnType<typeof setInterval> | null = null
@@ -355,22 +368,17 @@ let autoPlayTimer: ReturnType<typeof setInterval> | null = null
 /** 触摸滑动相关状态 */
 let touchStartX = 0
 let touchEndX = 0
+let touchStartY = 0
 const minSwipeDistance = 50
+
+/** 是否正在拖拽中 */
+const isDragging = ref(false)
 
 /**
  * 当前标签的模拟URL
  */
 const currentTabUrl = computed(() => {
-  const urls = [
-    'gmlart.cn/agents',
-    'gmlart.cn/knowledge',
-    'gmlart.cn/apps',
-    'gmlart.cn/models',
-    'gmlart.cn/mcp',
-    'gmlart.cn/diy',
-    'gmlart.cn/billing'
-  ]
-  return urls[activeTab.value] || 'gmlart.cn'
+  return tabs[activeTab.value]?.url || 'gmlart.cn'
 })
 
 // ==========================================
@@ -387,6 +395,8 @@ const switchTab = (index: number): void => {
   }
   activeTab.value = index
   resetAutoPlay()
+  // 预加载相邻图片
+  preloadAdjacentImages()
 }
 
 /**
@@ -406,11 +416,50 @@ const prevTab = (): void => {
 }
 
 /**
+ * 处理鼠标进入事件 - 暂停自动播放
+ * @param index - 目标标签索引
+ */
+const handleMouseEnter = (index: number): void => {
+  stopAutoPlay()
+  activeTab.value = index
+}
+
+/**
+ * 处理鼠标离开事件 - 恢复自动播放
+ */
+const handleMouseLeave = (): void => {
+  startAutoPlay()
+}
+
+/**
  * 处理触摸开始事件
  * @param event - 触摸事件对象
  */
 const handleTouchStart = (event: TouchEvent): void => {
   touchStartX = event.touches[0]?.clientX ?? 0
+  touchStartY = event.touches[0]?.clientY ?? 0
+  isDragging.value = true
+  stopAutoPlay()
+}
+
+/**
+ * 处理触摸移动事件
+ * @param event - 触摸事件对象
+ */
+const handleTouchMove = (event: TouchEvent): void => {
+  if (!isDragging.value) {
+    return
+  }
+  
+  const currentX = event.touches[0]?.clientX ?? 0
+  const currentY = event.touches[0]?.clientY ?? 0
+  const deltaX = Math.abs(currentX - touchStartX)
+  const deltaY = Math.abs(currentY - touchStartY)
+  
+  // 如果水平滑动距离大于垂直滑动，阻止默认行为（防止页面滚动）
+  if (deltaX > deltaY && deltaX > 10) {
+    event.preventDefault()
+  }
 }
 
 /**
@@ -419,7 +468,20 @@ const handleTouchStart = (event: TouchEvent): void => {
  */
 const handleTouchEnd = (event: TouchEvent): void => {
   touchEndX = event.changedTouches[0]?.clientX ?? 0
+  isDragging.value = false
   handleSwipe()
+  startAutoPlay()
+}
+
+/**
+ * 处理触摸取消事件
+ */
+const handleTouchCancel = (): void => {
+  touchStartX = 0
+  touchEndX = 0
+  touchStartY = 0
+  isDragging.value = false
+  startAutoPlay()
 }
 
 /**
@@ -437,6 +499,55 @@ const handleSwipe = (): void => {
       nextTab()
     }
   }
+}
+
+/**
+ * 处理键盘导航事件
+ * @param event - 键盘事件对象
+ */
+const handleKeydown = (event: KeyboardEvent): void => {
+  if (event.key === 'ArrowLeft') {
+    event.preventDefault()
+    prevTab()
+  } else if (event.key === 'ArrowRight') {
+    event.preventDefault()
+    nextTab()
+  }
+}
+
+/**
+ * 处理页面可见性变化
+ */
+const handleVisibilityChange = (): void => {
+  if (document.hidden) {
+    stopAutoPlay()
+  } else {
+    startAutoPlay()
+  }
+}
+
+/**
+ * 预加载相邻图片
+ */
+const preloadAdjacentImages = (): void => {
+  const prevIndex = (activeTab.value - 1 + tabs.length) % tabs.length
+  const nextIndex = (activeTab.value + 1) % tabs.length
+  
+  ;[prevIndex, nextIndex].forEach(index => {
+    if (tabs[index]?.image) {
+      const img = new Image()
+      img.src = tabs[index].image
+    }
+  })
+}
+
+/**
+ * 处理图片加载错误
+ */
+const handleImageError = (event: Event): void => {
+  const img = event.target as HTMLImageElement
+  // 可以设置一个默认的占位图
+  img.src = '/images/placeholder.webp'
 }
 
 /**
@@ -473,10 +584,20 @@ const resetAutoPlay = (): void => {
 
 onMounted(() => {
   startAutoPlay()
+  // 预加载第一张和相邻图片
+  preloadAdjacentImages()
+  // 添加键盘事件监听
+  window.addEventListener('keydown', handleKeydown)
+  // 添加页面可见性监听
+  document.addEventListener('visibilitychange', handleVisibilityChange)
 })
 
 onUnmounted(() => {
   stopAutoPlay()
+  // 移除键盘事件监听
+  window.removeEventListener('keydown', handleKeydown)
+  // 移除页面可见性监听
+  document.removeEventListener('visibilitychange', handleVisibilityChange)
 })
 </script>
 

@@ -15,8 +15,14 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <!-- 左侧展示卡片 -->
         <div class="md:col-span-2 lg:col-span-2 lg:row-span-3 bg-neutral-50 rounded-2xl overflow-hidden flex flex-col border border-neutral-300">
-          <!-- 图片区域 -->
-          <div class="relative w-full bg-white p-4">
+          <!-- 图片区域 - 添加触摸事件支持 -->
+          <div 
+            class="relative w-full bg-white p-4 touch-pan-y"
+            @touchstart="handleTouchStart"
+            @touchmove="handleTouchMove"
+            @touchend="handleTouchEnd"
+            @touchcancel="handleTouchCancel"
+          >
             <div class="relative w-full overflow-hidden rounded-xl border border-neutral-300" style="aspect-ratio: 16/5.5;">
               <!-- 预加载下一张图片 -->
               <img
@@ -25,7 +31,7 @@
                 :src="system.demoImage"
                 :alt="system.name"
                 class="absolute inset-0 w-full h-full object-cover opacity-0 pointer-events-none"
-                loading="eager"
+                loading="lazy"
               />
               <!-- 当前显示图片 -->
               <img
@@ -34,6 +40,7 @@
                 loading="eager"
                 class="absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-out rounded-xl"
                 :class="isTransitioning ? 'opacity-0 scale-105' : 'opacity-100 scale-100'"
+                @error="handleImageError"
               />
             </div>
           </div>
@@ -58,12 +65,11 @@
             </div>
           </div>
           
-          <!-- 进度条 - 使用 CSS 动画替代 JS 计算 -->
+          <!-- 进度条 - 使用 JS 计算实现更精确的控制 -->
           <div class="h-1 bg-neutral-200 relative overflow-hidden">
             <div 
-              class="h-full bg-gradient-to-r from-indigo-500 to-indigo-600 absolute left-0 top-0"
-              :class="{ 'progress-bar': !isPaused && !isTransitioning }"
-              :style="{ width: isPaused || isTransitioning ? `${progress}%` : '100%' }"
+              class="h-full bg-gradient-to-r from-indigo-500 to-indigo-600 absolute left-0 top-0 transition-none"
+              :style="progressBarStyle"
             />
           </div>
         </div>
@@ -103,7 +109,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
+import { computed, onMounted, onUnmounted, shallowRef } from 'vue'
 import type { Component } from 'vue'
 import {
   Palette, Bot, MessageCircleCode, Lightbulb, BookOpenText,
@@ -148,12 +154,18 @@ const defaultSystems: AIApplicationSystem[] = [
   { id: 12, name: 'AI医疗咨询系统', description: '提供权威健康知识科普、症状问询与风险分级、就医建议', icon: HeartPulse, demoImage: '/images/Modelbackground.png' }
 ]
 
-// 状态
-const systemsList = computed(() => props.systems.length > 0 ? props.systems : defaultSystems)
-const activeIndex = ref(0)
-const progress = ref(0)
-const isTransitioning = ref(false)
-const isPaused = ref(false)
+// 状态 - 使用 shallowRef 提升性能
+const systemsList = computed(() => props.systems?.length ? props.systems : defaultSystems)
+const activeIndex = shallowRef(0)
+const progress = shallowRef(0)
+const isTransitioning = shallowRef(false)
+const isPaused = shallowRef(false)
+
+// 触摸滑动相关状态
+let touchStartX = 0
+let touchStartY = 0
+let touchEndX = 0
+const minSwipeDistance = 50
 
 let autoPlayTimer: ReturnType<typeof setTimeout> | null = null
 let progressStartTime = 0
@@ -161,6 +173,12 @@ let progressRafId: number | null = null
 
 // 计算属性
 const currentSystem = computed(() => systemsList.value[activeIndex.value])
+
+// 进度条样式 - 统一使用 JS 控制
+const progressBarStyle = computed(() => ({
+  width: `${progress.value}%`,
+  transition: isPaused.value || isTransitioning.value ? 'none' : 'width 100ms linear'
+}))
 
 // 方法
 const selectSystem = (index: number) => {
@@ -256,22 +274,125 @@ const resetAutoPlay = () => {
   startAutoPlay()
 }
 
-// 监听 activeIndex 变化，自动重置自动播放
-watch(activeIndex, () => {
-  resetAutoPlay()
-})
+// 预加载图片 - 优先加载当前和相邻图片
+const preloadImages = (priorityIndices: number[]) => {
+  priorityIndices.forEach(index => {
+    const system = systemsList.value[index]
+    if (system?.demoImage) {
+      const img = new Image()
+      // 静默处理加载结果，避免控制台输出
+      img.src = system.demoImage
+    }
+  })
+}
+
+// 处理触摸开始事件
+const handleTouchStart = (event: TouchEvent): void => {
+  touchStartX = event.touches[0]?.clientX ?? 0
+  touchStartY = event.touches[0]?.clientY ?? 0
+  pauseAutoPlay()
+}
+
+// 处理触摸移动事件
+const handleTouchMove = (event: TouchEvent): void => {
+  const currentX = event.touches[0]?.clientX ?? 0
+  const currentY = event.touches[0]?.clientY ?? 0
+  const deltaX = Math.abs(currentX - touchStartX)
+  const deltaY = Math.abs(currentY - touchStartY)
+  
+  // 如果水平滑动距离大于垂直滑动，阻止默认行为
+  if (deltaX > deltaY && deltaX > 10) {
+    event.preventDefault()
+  }
+}
+
+// 处理触摸结束事件
+const handleTouchEnd = (event: TouchEvent): void => {
+  touchEndX = event.changedTouches[0]?.clientX ?? 0
+  handleSwipe()
+  resumeAutoPlay()
+}
+
+// 处理触摸取消事件
+const handleTouchCancel = (): void => {
+  touchStartX = 0
+  touchEndX = 0
+  touchStartY = 0
+  resumeAutoPlay()
+}
+
+// 处理滑动逻辑
+const handleSwipe = (): void => {
+  const swipeDistance = touchEndX - touchStartX
+  
+  if (Math.abs(swipeDistance) > minSwipeDistance) {
+    if (swipeDistance > 0) {
+      // 向右滑动，切换到上一个
+      const prevIndex = (activeIndex.value - 1 + systemsList.value.length) % systemsList.value.length
+      selectSystem(prevIndex)
+    } else {
+      // 向左滑动，切换到下一个
+      const nextIndex = (activeIndex.value + 1) % systemsList.value.length
+      selectSystem(nextIndex)
+    }
+  }
+}
+
+// 处理键盘导航事件
+const handleKeydown = (event: KeyboardEvent): void => {
+  if (event.key === 'ArrowLeft') {
+    event.preventDefault()
+    const prevIndex = (activeIndex.value - 1 + systemsList.value.length) % systemsList.value.length
+    selectSystem(prevIndex)
+  } else if (event.key === 'ArrowRight') {
+    event.preventDefault()
+    const nextIndex = (activeIndex.value + 1) % systemsList.value.length
+    selectSystem(nextIndex)
+  }
+}
+
+// 处理页面可见性变化
+const handleVisibilityChange = (): void => {
+  if (document.hidden) {
+    pauseAutoPlay()
+  } else {
+    resumeAutoPlay()
+  }
+}
+
+// 处理图片加载错误
+const handleImageError = (event: Event): void => {
+  const img = event.target as HTMLImageElement
+  img.src = '/images/placeholder.jpg'
+}
 
 onMounted(() => {
-  // 预加载所有图片
-  systemsList.value.forEach(system => {
-    const img = new Image()
-    img.src = system.demoImage
-  })
+  // 优先加载当前和下一张图片
+  const current = activeIndex.value
+  const next = (current + 1) % systemsList.value.length
+  preloadImages([current, next])
+  
+  // 延迟加载其他图片
+  setTimeout(() => {
+    const others = systemsList.value
+      .map((_, i) => i)
+      .filter(i => i !== current && i !== next)
+    preloadImages(others)
+  }, 2000)
+  
+  // 添加事件监听
+  window.addEventListener('keydown', handleKeydown)
+  document.addEventListener('visibilitychange', handleVisibilityChange)
   
   startAutoPlay()
 })
 
-onUnmounted(() => stopAutoPlay())
+onUnmounted(() => {
+  stopAutoPlay()
+  // 移除事件监听
+  window.removeEventListener('keydown', handleKeydown)
+  document.removeEventListener('visibilitychange', handleVisibilityChange)
+})
 </script>
 
 <style scoped>
@@ -283,25 +404,9 @@ onUnmounted(() => stopAutoPlay())
   overflow: hidden;
 }
 
-/* CSS 进度条动画 */
-.progress-bar {
-  animation: progress linear;
-  animation-duration: v-bind('`${autoPlayInterval}ms`');
-}
-
-@keyframes progress {
-  from {
-    width: 0%;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-/* 优化滚动性能 */
-@media (prefers-reduced-motion: no-preference) {
-  .transition-all {
-    will-change: transform, opacity;
-  }
+/* 触摸优化 */
+.touch-pan-y {
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
 }
 </style>

@@ -42,26 +42,23 @@
           </slot>
 
           <slot name="links" :class="props.ui.links">
-            <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-2 md:pt-4">
-              <UButton
-                size="xl"
-                color="primary"
-                label="开始使用"
-                to="https://www.gmlart.cn"
+            <div class="mt-6 sm:mt-8 lg:mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2 sm:gap-3 w-full sm:w-auto px-3 sm:px-0">
+              <a
+                href="https://www.gmlart.cn"
                 target="_blank"
-                icon="i-heroicons-rocket-launch"
-                class="w-full sm:w-auto rounded-full px-8 py-3.5 text-lg justify-center"
-              />
-              <UButton
-                size="xl"
-                variant="solid"
-                color="neutral"
-                label="立即创造"
-                to="https://www.gmlart.cn"
+                class="w-full sm:w-auto px-5 sm:px-6 lg:px-8 py-2.5 sm:py-3 rounded-full bg-primary text-white text-xs sm:text-sm font-semibold hover:bg-primary/90 active:scale-95 transition-all flex items-center justify-center gap-1.5 sm:gap-2 touch-manipulation min-h-[40px] sm:min-h-[44px]"
+              >
+                <span class="iconify i-heroicons:rocket-launch shrink-0 size-4 sm:size-5" aria-hidden="true"></span>
+                开始使用
+              </a>
+              <a
+                href="https://www.gmlart.cn"
                 target="_blank"
-                icon="i-heroicons-sparkles"
-                class="w-full sm:w-auto rounded-full px-8 py-3.5 text-lg justify-center"
-              />
+                class="w-full sm:w-auto px-5 sm:px-6 lg:px-8 py-2.5 sm:py-3 rounded-full bg-white border border-neutral-200 text-neutral-700 text-xs sm:text-sm font-semibold hover:bg-neutral-50 hover:border-neutral-300 active:scale-95 transition-all flex items-center justify-center gap-1.5 sm:gap-2 touch-manipulation min-h-[40px] sm:min-h-[44px]"
+              >
+                <span class="iconify i-heroicons:sparkles shrink-0 size-4 sm:size-5" aria-hidden="true"></span>
+                立即创造
+              </a>
             </div>
 
             <!-- Falling Text 动画组件 -->

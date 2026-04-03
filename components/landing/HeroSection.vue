@@ -48,7 +48,7 @@
                 target="_blank"
                 class="w-full sm:w-auto px-5 sm:px-6 lg:px-8 py-2.5 sm:py-3 rounded-full bg-primary text-white text-xs sm:text-sm font-semibold hover:bg-primary/90 active:scale-95 transition-all flex items-center justify-center gap-1.5 sm:gap-2 touch-manipulation min-h-[40px] sm:min-h-[44px]"
               >
-                <span class="iconify i-heroicons:rocket-launch shrink-0 size-4 sm:size-5" aria-hidden="true"></span>
+                <UIcon name="i-heroicons-rocket-launch" class="shrink-0 size-4 sm:size-5" aria-hidden="true" />
                 开始使用
               </a>
               <a
@@ -56,7 +56,7 @@
                 target="_blank"
                 class="w-full sm:w-auto px-5 sm:px-6 lg:px-8 py-2.5 sm:py-3 rounded-full bg-white border border-neutral-200 text-neutral-700 text-xs sm:text-sm font-semibold hover:bg-neutral-50 hover:border-neutral-300 active:scale-95 transition-all flex items-center justify-center gap-1.5 sm:gap-2 touch-manipulation min-h-[40px] sm:min-h-[44px]"
               >
-                <span class="iconify i-heroicons:sparkles shrink-0 size-4 sm:size-5" aria-hidden="true"></span>
+                <UIcon name="i-heroicons-sparkles" class="shrink-0 size-4 sm:size-5" aria-hidden="true" />
                 立即创造
               </a>
             </div>

@@ -574,25 +574,27 @@ useHead({
     <!-- 背景装饰 -->
     <div class="absolute top-0 left-0 w-full h-[400px] md:h-[500px] bg-[url('/agent.svg')] pointer-events-none mask-[linear-gradient(to_bottom,white,transparent)] z-0"/>
 
-    <!-- 移动端底部标签栏 - 切换产品分类 -->
-    <nav class="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-neutral-200 safe-area-pb">
-      <div class="flex items-center justify-around px-2 py-2">
-        <button
-          v-for="category in categories"
-          :key="category.id"
-          class="flex flex-col items-center gap-1 px-3 py-2 rounded-md transition-colors min-w-[72px] max-w-[100px]"
-          :class="selectedCategoryId === category.id
-            ? 'text-indigo-600 bg-indigo-50/50'
-            : 'text-neutral-500 hover:text-neutral-700 hover:bg-neutral-50'"
-          @click="selectedCategoryId = category.id; scrollToCategory(category.id)"
-        >
-          <component
-            :is="category.icon"
-            class="w-6 h-6 flex-shrink-0"
-            :class="selectedCategoryId === category.id ? 'text-indigo-600' : 'text-neutral-400'"
-          />
-          <span class="text-[11px] font-medium truncate w-full text-center leading-tight">{{ category.name }}</span>
-        </button>
+    <!-- 移动端底部标签栏 - 切换产品分类 (悬浮胶囊风) -->
+    <nav class="lg:hidden fixed bottom-0 left-0 right-0 z-50 pointer-events-none">
+      <div class="px-4 pb-[calc(16px+env(safe-area-inset-bottom,0px))] pt-12 bg-gradient-to-t from-white/90 via-white/50 to-transparent flex justify-center">
+        <div class="flex items-center p-1.5 bg-white/95 backdrop-blur-xl shadow-[0_8px_32px_-4px_rgba(0,0,0,0.15)] border border-neutral-200/50 rounded-full w-full max-w-[340px] pointer-events-auto">
+          <button
+            v-for="category in categories"
+            :key="category.id"
+            class="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-full transition-all duration-300 ease-out"
+            :class="selectedCategoryId === category.id
+              ? 'text-white bg-indigo-600 shadow-md shadow-indigo-500/20'
+              : 'text-neutral-500 hover:text-neutral-900 hover:bg-neutral-100/80'"
+            @click="selectedCategoryId = category.id; scrollToCategory(category.id)"
+          >
+            <component
+              :is="category.icon"
+              class="w-5 h-5 flex-shrink-0 transition-transform duration-300"
+              :class="selectedCategoryId === category.id ? 'scale-110' : ''"
+            />
+            <span class="text-sm font-semibold tracking-wide">{{ category.name }}</span>
+          </button>
+        </div>
       </div>
     </nav>
 
@@ -626,10 +628,10 @@ useHead({
             <button
               v-for="product in currentCategoryProducts"
               :key="product.id"
-              class="flex-shrink-0 flex items-center gap-2 px-3 sm:px-4 py-2 rounded-none text-xs sm:text-sm font-medium transition-colors whitespace-nowrap"
+              class="flex-shrink-0 flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-md text-sm sm:text-base font-medium transition-colors whitespace-nowrap border"
               :class="selectedProduct?.id === product.id
-                ? 'bg-indigo-500 text-white'
-                : 'bg-white text-neutral-600 border border-neutral-200'"
+                ? 'bg-indigo-500 text-white border-indigo-500 shadow-sm'
+                : 'bg-white text-neutral-600 border-neutral-200 shadow-sm'"
               @click="selectProduct(product, selectedCategoryId)"
             >
               <component :is="product.icon" class="w-4 h-4 flex-shrink-0" />

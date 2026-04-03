@@ -1,5 +1,6 @@
 <template>
   <header
+    ref="headerRef"
     class="sticky top-0 inset-x-0 z-[100] transition-all duration-300 border-b"
     :class="headerClasses"
   >
@@ -93,7 +94,7 @@
       <div
         v-show="mobileMenuOpen"
         class="md:hidden fixed inset-0 bg-black/25 backdrop-blur-sm z-40"
-        style="top: 72px;"
+        :style="mobileMaskStyle"
         @click="mobileMenuOpen = false"
       />
     </Transition>
@@ -110,7 +111,7 @@
       <div
         v-show="mobileMenuOpen"
         id="mobile-menu-panel"
-        class="md:hidden fixed inset-x-0 top-[72px] border-t border-gray-200/80 bg-white/95 backdrop-blur-md shadow-2xl overflow-y-auto z-50"
+        class="md:hidden fixed inset-x-0 border-t border-gray-200/80 bg-white/95 backdrop-blur-md shadow-2xl overflow-y-auto z-50"
         :style="mobileMenuStyle"
       >
         <div class="p-4 space-y-3">
@@ -237,6 +238,18 @@ const mobileMenuOpen = ref(false)
 const isScrolled = ref(false)
 const activeSubmenu = ref<string | null>(null)
 
+const headerRef = ref<HTMLElement | null>(null)
+const menuTop = ref(72)
+const menuHeight = ref('calc(100svh - 72px)')
+
+const updateMenuPosition = () => {
+  if (headerRef.value) {
+    const rect = headerRef.value.getBoundingClientRect()
+    menuTop.value = rect.bottom
+    menuHeight.value = `calc(100svh - ${rect.bottom}px)`
+  }
+}
+
 /**
  * 打开子菜单
  * @param label - 子菜单标题
@@ -356,9 +369,17 @@ const navigationMenuUi = computed(() => ({
  * 使用 svh 单位处理 iOS 工具栏变化
  */
 const mobileMenuStyle = computed(() => ({
-  height: 'calc(100svh - 72px)',
-  maxHeight: 'calc(100svh - 72px)',
+  top: `${menuTop.value}px`,
+  height: menuHeight.value,
+  maxHeight: menuHeight.value,
   paddingBottom: 'env(safe-area-inset-bottom)'
+}))
+
+/**
+ * 移动端菜单遮罩样式
+ */
+const mobileMaskStyle = computed(() => ({
+  top: `${menuTop.value}px`
 }))
 
 /**
@@ -539,6 +560,7 @@ const unlockBodyScroll = () => {
  */
 watch(mobileMenuOpen, (open) => {
   if (open) {
+    updateMenuPosition()
     lockBodyScroll()
   } else {
     unlockBodyScroll()

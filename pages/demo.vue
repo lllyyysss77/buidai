@@ -95,7 +95,7 @@ const categories: ProductCategory[] = [
 
       {
         id: 'knowledge-base',
-        title: '企业全能AI知识库',
+        title: '企业全能AI',
         subtitle: '智能文档问答系统',
         description: '能够自动解析文档、构建向量索引的智能知识库，为企业提供精准的问答服务。支持多种文档格式，实现企业知识的高效管理与检索。',
         icon: BookOpenIcon,
@@ -112,7 +112,7 @@ const categories: ProductCategory[] = [
       },
       {
         id: 'digital-human-saas',
-        title: '超级IP数字人SaaS系统',
+        title: '超级IP数字人',
         subtitle: 'PHP源码版',
         description: '为企业主、个人博主打造短视频IP的数字人源码系统，支持真人声音+形象克隆，一键合成。',
         icon: UserIcon,
@@ -121,14 +121,14 @@ const categories: ProductCategory[] = [
         tags: ['PHP源码', '数字人', 'SaaS系统'],
         features: ['真人声音克隆', '形象克隆', '一键合成', 'SaaS架构', '源码交付'],
         platforms: [
-          { title: '演示前台', icon: ComputerDesktopIcon, url: 'https://digital.buidai.com', account: '自行注册', password: '自行注册' },
-          { title: '体验后台', icon: Cog6ToothIcon, url: 'https://digital.buidai.com/admin', account: 'admin', password: '123456' },
-          { title: '移动端', icon: DevicePhoneMobileIcon, url: 'https://digital.buidai.com/mobile', account: '自行注册', password: '自行注册' }
+          { title: '演示前台', icon: ComputerDesktopIcon, url: 'https://v.cnai.art/', account: '自行注册', password: '自行注册' },
+          { title: '体验后台', icon: Cog6ToothIcon, url: 'https://demo.cnai.art/admin/', account: 'admin', password: '123456' },
+          { title: '移动端', icon: DevicePhoneMobileIcon, url: 'https://v.cnai.art/mobile/', account: '自行注册', password: '自行注册' }
         ]
       },
       {
         id: 'yichuang-ai',
-        title: '艺创AI聊天绘画系统',
+        title: 'AI聊天绘画',
         subtitle: 'PHP源码版',
         description: '实现了AI对话+AI绘画的融合使用。系统功能包括：AI智能对话、AI创作模型、AI绘画、分销推广。',
         icon: PhotoIcon,
@@ -137,14 +137,14 @@ const categories: ProductCategory[] = [
         tags: ['PHP源码', 'AI对话', 'AI绘画'],
         features: ['AI智能对话', 'AI绘画', '创作模型', '分销推广', '源码交付'],
         platforms: [
-          { title: '演示前台', icon: ComputerDesktopIcon, url: 'https://ai.buidai.com', account: '自行注册', password: '自行注册' },
-          { title: '体验后台', icon: Cog6ToothIcon, url: 'https://ai.buidai.com/admin', account: 'admin', password: '123456' },
-          { title: '移动端', icon: DevicePhoneMobileIcon, url: 'https://ai.buidai.com/mobile', account: '自行注册', password: '自行注册' }
+          { title: '演示前台', icon: ComputerDesktopIcon, url: 'https://cnai.art/', account: '自行注册', password: '自行注册' },
+          { title: '体验后台', icon: Cog6ToothIcon, url: 'https://chat-demo.chatmoney.cn/admin/', account: 'admin', password: '123456' },
+          { title: '移动端', icon: DevicePhoneMobileIcon, url: 'https://cnai.art/mobile', account: '自行注册', password: '自行注册' }
         ]
       },
       {
         id: 'yichuang-paper',
-        title: '艺创AI论文写作系统',
+        title: '艺创AI论文写作',
         subtitle: 'PHP源码版',
         description: '10分钟可生成几万字长文的系统。只需要输入主题关键词，AI即可快速为您生成主题大纲。',
         icon: DocumentTextIcon,
@@ -153,9 +153,9 @@ const categories: ProductCategory[] = [
         tags: ['PHP源码', '论文写作', 'AI生成'],
         features: ['快速生成', '主题大纲', '长文写作', 'AI辅助', '源码交付'],
         platforms: [
-          { title: '演示前台', icon: ComputerDesktopIcon, url: 'https://paper.buidai.com', account: '自行注册', password: '自行注册' },
-          { title: '体验后台', icon: Cog6ToothIcon, url: 'https://paper.buidai.com/admin', account: 'admin', password: '123456' },
-          { title: '移动端', icon: DevicePhoneMobileIcon, url: 'https://paper.buidai.com/mobile', account: '自行注册', password: '自行注册' }
+          { title: '演示前台', icon: ComputerDesktopIcon, url: 'https://paper.gmlart.cn', account: '自行注册', password: '自行注册' },
+          { title: '体验后台', icon: Cog6ToothIcon, url: 'https://paper.gmlart.cn/admin/', account: 'admin', password: '123456' },
+          { title: '移动端', icon: DevicePhoneMobileIcon, url: 'https://paper.gmlart.cn/mobile', account: '自行注册', password: '自行注册' }
         ]
       },
       {
@@ -197,17 +197,17 @@ const categories: ProductCategory[] = [
         ]
       },
       {
-        id: 'sora2',
-        title: 'Sora2短剧视频创作',
+        id: 'Image',
+        title: '图像创作',
         subtitle: 'AI智能生成工具',
-        description: 'Sora2短剧视频创作是一款聚焦高效优质短剧创作的AI智能生成工具，它能深度理解用户输入的文字提示词，将创意转化为精彩视频。',
+        description: '图像创作是一个综合型的AI绘画应用，对接 gpt-image-2、即梦、可灵等多家主流 AI 绘画模型。支持多参考图融合创作，自由自定义图片尺寸与分辨率；内置 AI 提示词扩写、同款生成、再次生成等实用能力，一键高清下载作品，零基础轻松创作插画、头像、壁纸等多元创意画作。',
         icon: FilmIcon,
         image: '/plugin/Sora2短剧视频创作.png',
         status: 'online',
         tags: ['短剧创作', 'AI视频', '文生视频'],
         features: ['文字生成视频', '短剧创作', '创意转化', '高效生成', '优质输出'],
         platforms: [
-          { title: '联系客服', icon: ChatBubbleLeftRightIcon, url: 'https://buidai.com/contact', account: '联系客服', password: '联系客服' }
+          { title: '联系客服', icon: ChatBubbleLeftRightIcon, url: 'https://www.gmlart.cn/', account: '联系客服', password: '联系客服' }
         ]
       },
       {
@@ -221,8 +221,8 @@ const categories: ProductCategory[] = [
         tags: ['Gemini 3 Pro', '角色一致', '文生图'],
         features: ['预置模版', '开箱即用', '角色一致性', '文生图', '图生图'],
         platforms: [
-          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://banana.cnai.art', account: '自行注册', password: '自行注册' },
-          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://banana.cnai.art/admin', account: 'admin', password: '123456' }
+          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://www.gmlart.cn', account: '自行注册', password: '自行注册' },
+          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://www.gmlart.cn', account: 'admin', password: '123456' }
         ]
       },
       {
@@ -236,9 +236,9 @@ const categories: ProductCategory[] = [
         tags: ['文生图', '图生图', '多分辨率'],
         features: ['文生图', '图生图', '多种分辨率', '批量生成', '灵感广场'],
         platforms: [
-          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://draw.cnai.art', account: '自行注册', password: '自行注册' },
-          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://draw.cnai.art/admin', account: 'admin', password: '123456' },
-          { title: 'H5演示', icon: DevicePhoneMobileIcon, url: 'https://draw.cnai.art/mobile', account: '自行注册', password: '自行注册' }
+          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://www.gmlart.cn', account: '自行注册', password: '自行注册' },
+          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://www.gmlart.cn/', account: 'admin', password: '123456' },
+          { title: 'H5演示', icon: DevicePhoneMobileIcon, url: 'https://www.gmlart.cn/', account: '自行注册', password: '自行注册' }
         ]
       },
       {
@@ -252,8 +252,8 @@ const categories: ProductCategory[] = [
         tags: ['文生视频', '图生视频', '多分辨率'],
         features: ['文生视频', '图生视频', '多种分辨率', '视频下载', '灵感广场'],
         platforms: [
-          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://video.cnai.art', account: '自行注册', password: '自行注册' },
-          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://video.cnai.art/admin', account: 'admin', password: '123456' }
+          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://www.gmlart.cn', account: '自行注册', password: '自行注册' },
+          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://www.gmlart.cn/', account: 'admin', password: '123456' }
         ]
       },
       {
@@ -267,9 +267,9 @@ const categories: ProductCategory[] = [
         tags: ['数字人', '无人直播', '短视频'],
         features: ['7x24小时直播', '数字人带货', '低成本', '高回报', '超级主播'],
         platforms: [
-          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://human.cnai.art', account: '自行注册', password: '自行注册' },
-          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://human.cnai.art/admin', account: 'admin', password: '123456' },
-          { title: 'H5演示', icon: DevicePhoneMobileIcon, url: 'https://human.cnai.art/mobile', account: '自行注册', password: '自行注册' }
+          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://www.gmlart.cn', account: '自行注册', password: '自行注册' },
+          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://www.gmlart.cn/', account: 'admin', password: '123456' },
+          { title: 'H5演示', icon: DevicePhoneMobileIcon, url: 'https://www.gmlart.cn/', account: '自行注册', password: '自行注册' }
         ]
       },
       {
@@ -283,8 +283,8 @@ const categories: ProductCategory[] = [
         tags: ['批量剪辑', '智能转场', '热门素材'],
         features: ['智能抓取', '自动混剪', '热门素材', '快速生成', '爆款视频'],
         platforms: [
-          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://clip.cnai.art', account: '自行注册', password: '自行注册' },
-          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://clip.cnai.art/admin', account: 'admin', password: '123456' }
+          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://www.gmlart.cn', account: '自行注册', password: '自行注册' },
+          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://www.gmlart.cn/', account: 'admin', password: '123456' }
         ]
       },
       {
@@ -298,8 +298,8 @@ const categories: ProductCategory[] = [
         tags: ['剧本创作', '角色设定', 'AI扩写'],
         features: ['无限量剧本', '角色设定', '章节拖拽', 'AI扩写润色', '大纲管理'],
         platforms: [
-          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://drama.cnai.art', account: '自行注册', password: '自行注册' },
-          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://drama.cnai.art/admin', account: 'admin', password: '123456' }
+          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://www.gmlart.cn', account: '自行注册', password: '自行注册' },
+          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://www.gmlart.cn/', account: 'admin', password: '123456' }
         ]
       },
       {
@@ -313,8 +313,8 @@ const categories: ProductCategory[] = [
         tags: ['智能生成', '模板图表', '智能配色'],
         features: ['智能生成', '模板图表', '智能配色', '字体搭配', '动画效果'],
         platforms: [
-          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://ppt.cnai.art', account: '自行注册', password: '自行注册' },
-          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://ppt.cnai.art/admin', account: 'admin', password: '123456' }
+          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://www.gmlart.cn', account: '自行注册', password: '自行注册' },
+          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://www.gmlart.cn/', account: 'admin', password: '123456' }
         ]
       },
       {
@@ -328,8 +328,8 @@ const categories: ProductCategory[] = [
         tags: ['智能问答', '简历模板', 'AI分析'],
         features: ['智能问答', '简历模板', '在线编辑', '模块管理', 'AI分析'],
         platforms: [
-          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://resume.cnai.art', account: '自行注册', password: '自行注册' },
-          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://resume.cnai.art/admin', account: 'admin', password: '123456' }
+          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://www.gmlart.cn', account: '自行注册', password: '自行注册' },
+          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://www.gmlart.cn/', account: 'admin', password: '123456' }
         ]
       },
       {
@@ -343,8 +343,8 @@ const categories: ProductCategory[] = [
         tags: ['文案生成', 'AI配图', '标签推荐'],
         features: ['一键提取', '智能仿写', '爆款文案', '流量密码', '快速产出'],
         platforms: [
-          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://xhs.cnai.art', account: '自行注册', password: '自行注册' },
-          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://xhs.cnai.art/admin', account: 'admin', password: '123456' }
+          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://www.gmlart.cn', account: '自行注册', password: '自行注册' },
+          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://www.gmlart.cn/', account: 'admin', password: '123456' }
         ]
       },
       {
@@ -358,8 +358,8 @@ const categories: ProductCategory[] = [
         tags: ['文本生成', '哼唱生成', '乐谱生成'],
         features: ['文本生成', '哼唱生成', '乐谱生成', '多种输出', '商用授权'],
         platforms: [
-          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://music.cnai.art', account: '自行注册', password: '自行注册' },
-          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://music.cnai.art/admin', account: 'admin', password: '123456' }
+          { title: 'PC演示', icon: ComputerDesktopIcon, url: 'https://www.gmlart.cn', account: '自行注册', password: '自行注册' },
+          { title: '管理后台', icon: Cog6ToothIcon, url: 'https://www.gmlart.cn/', account: 'admin', password: '123456' }
         ]
       }
     ]

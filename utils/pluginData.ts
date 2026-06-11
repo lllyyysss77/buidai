@@ -69,10 +69,10 @@ export const apps: AppData[] = [
   },
     {
     id: 1,
-    name: 'Sora2短剧视频创作',
-    description: 'Sora2短剧视频创作是一款聚焦高效优质短剧创作的AI智能生成工具，它能深度理解用户输入的文字提示词，将创意转化为精彩视频。',
+    name: 'image-2图片创作',
+    description: 'image-2图片创作是一款聚焦高效优质图片创作的AI智能生成工具，它能深度理解用户输入的文字提示词，将创意转化为精彩视频。',
     icon: VideoIcon,
-    image: '/plugin/Sora2短剧视频创作.png',
+    image: '/plugin/img2.png',
     category: 'video',
     originalPrice: 1398.00,
     discountPrice: 1398.00,

@@ -848,7 +848,7 @@ const scenarios: Scenario[] = [
     iconBg: 'bg-amber-50 text-amber-600',
     cardGradientClass: 'bg-linear-to-br from-amber-50 to-white',
     headerColor: 'linear-gradient(90deg, #F59E0B 0%, #FBBF24 100%)',
-    image: '/product/videoclip-1.png',
+    image: '/plugin/video-mix.png',
     index: '06'
   },
   {

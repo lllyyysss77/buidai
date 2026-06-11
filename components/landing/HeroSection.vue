@@ -1,23 +1,43 @@
 <template>
   <section class="relative min-h-[80dvh] flex items-center overflow-hidden bg-white text-black pt-24 pb-16 md:py-24">
-    <!-- 静态渐变背景 -->
+    <!-- 现代化企业级背景 -->
     <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-      <div class="absolute inset-0 bg-linear-to-br from-white via-primary-50/40 to-cyan-50/50" />
-      <div class="absolute top-[-10%] left-[-5%] h-[420px] w-[420px] rounded-full bg-primary/12 blur-[120px]" />
-      <div class="absolute right-[-8%] top-[12%] h-[360px] w-[360px] rounded-full bg-cyan-400/10 blur-[120px]" />
-      <div class="absolute bottom-[-12%] left-[25%] h-[300px] w-[300px] rounded-full bg-violet-400/10 blur-[100px]" />
+      <!-- 基础渐变层 -->
+      <div class="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30" />
+      
+      <!-- 网格纹理背景 -->
+      <div class="absolute inset-0 opacity-[0.03]" 
+           style="background-image: linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px); background-size: 60px 60px;" />
+      
+      <!-- 主光晕 - 左上 -->
+      <div class="absolute -top-[20%] -left-[10%] w-[800px] h-[800px] rounded-full bg-gradient-to-br from-blue-600/8 to-cyan-400/5 blur-[100px]" />
+      
+      <!-- 次光晕 - 右下 -->
+      <div class="absolute -bottom-[20%] -right-[10%] w-[600px] h-[600px] rounded-full bg-gradient-to-tl from-indigo-600/8 to-purple-400/5 blur-[100px]" />
+      
+      <!-- 装饰性几何图形 - 右上角 -->
+      <div class="absolute top-[15%] right-[5%] w-[400px] h-[400px] border border-blue-200/20 rounded-full" />
+      <div class="absolute top-[20%] right-[10%] w-[300px] h-[300px] border border-indigo-200/15 rounded-full" />
+      
+      <!-- 装饰性几何图形 - 左下角 -->
+      <div class="absolute bottom-[10%] left-[8%] w-[200px] h-[200px] border border-slate-200/20 rotate-45" />
+      
+      <!-- 动态光点 -->
+      <div class="absolute top-[30%] left-[20%] w-2 h-2 bg-blue-400/30 rounded-full animate-pulse" />
+      <div class="absolute top-[60%] right-[25%] w-1.5 h-1.5 bg-indigo-400/30 rounded-full animate-pulse" style="animation-delay: 1s;" />
+      <div class="absolute bottom-[30%] left-[40%] w-1 h-1 bg-cyan-400/30 rounded-full animate-pulse" style="animation-delay: 2s;" />
     </div>
     <div class="container mx-auto container-padding relative z-10 w-full" :class="props.ui.container">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         <div class="relative space-y-6 md:space-y-8 text-center lg:text-left" :class="props.ui.content">
           <!-- 装饰背景 -->
           <div class="absolute inset-0 -z-10 overflow-visible pointer-events-none select-none">
-            <!-- 1. 顶部聚焦光束 (增强可见度) -->
-            <div class="absolute top-0 left-1/2 lg:left-0 -translate-x-1/2 lg:-translate-x-1/4 -translate-y-1/3 w-[600px] h-[600px] bg-ui-primary/30 rounded-full blur-[80px] mix-blend-multiply"/>
-
-            <!-- 2. 抽象几何点缀 (增强可见度) -->
-            <div class="absolute top-20 right-10 w-32 h-32 bg-linear-to-br from-blue-400/50 to-transparent rounded-full blur-2xl animate-pulse"/>
-            <div class="absolute bottom-40 left-10 w-24 h-24 bg-linear-to-tr from-purple-400/40 to-transparent rounded-full blur-xl animate-float animation-delay-2000"/>
+            <!-- 左侧柔和光晕 -->
+            <div class="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-r from-blue-500/5 to-transparent rounded-full blur-[60px]"/>
+            
+            <!-- 微妙的几何装饰 -->
+            <div class="absolute top-10 right-20 w-16 h-16 border border-blue-200/20 rounded-lg rotate-12"/>
+            <div class="absolute bottom-20 left-10 w-12 h-12 border border-indigo-200/15 rounded-full"/>
           </div>
 
           <div class="flex justify-center lg:justify-start">

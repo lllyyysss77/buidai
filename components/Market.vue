@@ -1,5 +1,5 @@
 <template>
-  <section class="py-12 md:py-16 bg-gradient-to-b from-white to-neutral-50/50">
+  <section class="py-12 md:py-16 bg-linear-to-b from-white to-neutral-50/50">
     <div class="container mx-auto px-4">
       <!-- 标题区域 -->
       <div class="text-center mb-8 md:mb-10">
@@ -20,7 +20,7 @@
           :style="{ animationDelay: `${index * 50}ms` }"
         >
           <!-- 卡片图片区域 -->
-          <div class="aspect-video bg-gradient-to-br from-neutral-50 to-neutral-100 relative p-2 rounded-t-2xl overflow-hidden">
+          <div class="aspect-video bg-linear-to-br from-neutral-50 to-neutral-100 relative p-2 rounded-t-2xl overflow-hidden">
             <img
               :src="app.image"
               :alt="app.name"
@@ -36,7 +36,7 @@
             </div>
             <!-- 源码版标签 -->
             <div v-if="app.category === 'independent'" class="absolute top-2.5 right-2.5">
-              <span class="px-2 py-0.5 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-full text-[10px] font-medium text-white shadow-lg">
+              <span class="px-2 py-0.5 bg-linear-to-r from-indigo-500 to-indigo-600 rounded-full text-[10px] font-medium text-white shadow-lg">
                 源码版
               </span>
             </div>

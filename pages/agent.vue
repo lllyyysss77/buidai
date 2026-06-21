@@ -207,7 +207,7 @@
                       class="w-full h-full object-cover"
                     />
                     <!-- 视频遮罩 -->
-                    <div class="absolute inset-0 bg-gradient-to-tr from-neutral-500/5 to-transparent pointer-events-none" />
+                    <div class="absolute inset-0 bg-linear-to-tr from-neutral-500/5 to-transparent pointer-events-none" />
                   </div>
                 </div>
               </div>
@@ -351,7 +351,7 @@
                   <div class="flex flex-col gap-3">
                     <!-- 获取优惠码按钮 -->
                     <button
-                      class="group relative inline-flex items-center justify-center px-5 py-3 text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-700 hover:to-indigo-600 rounded-xl transition-all duration-200 hover:-translate-y-0.5"
+                      class="group relative inline-flex items-center justify-center px-5 py-3 text-sm font-semibold text-white bg-linear-to-r from-indigo-600 to-indigo-500 hover:from-indigo-700 hover:to-indigo-600 rounded-xl transition-all duration-200 hover:-translate-y-0.5"
                       @click="openQrModal('coupon')"
                     >
                       <TicketIcon class="relative mr-2 h-4 w-4 transition-transform duration-200 group-hover:scale-110" />
@@ -762,181 +762,15 @@ onMounted(() => {
 </script>
 
 <style scoped>
-/* ============================================
-   打字机光标闪烁动画
-   ============================================ */
+/* 打字机光标闪烁动画 */
 @keyframes blink {
-  0%, 50% {
-    opacity: 1;
-  }
-  51%, 100% {
-    opacity: 0;
-  }
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 
 .animate-blink {
   animation: blink 0.8s infinite;
 }
 
-/**
- * 网格边框容器
- * 使用 CSS Grid 构建三行布局：顶部边框、内容区、底部边框
- */
-.grid-border-container {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: 1fr;
-  width: 100%;
-}
-
-/**
- * 网格边框包裹层
- * 相对定位容器，用于放置左右装饰边框
- */
-.grid-border-wrapper {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-/**
- * 横向贯穿分隔线
- * 双横线之间填充斜向网格纹理
- * 用于标题下方和底部摘要上方
- */
-.grid-border-divider {
-  height: 1rem;
-  border-top: 1px solid rgba(229, 229, 229, 0.7);
-  border-bottom: 1px solid rgba(229, 229, 229, 0.7);
-  background-color: white;
-  background-image: repeating-linear-gradient(
-    315deg,
-    color-mix(in oklab, rgb(3, 7, 18) 5%, transparent) 0,
-    color-mix(in oklab, rgb(3, 7, 18) 5%, transparent) 1px,
-    transparent 0,
-    transparent 50%
-  );
-  background-size: 10px 10px;
-  background-attachment: fixed;
-  width: 100%;
-  flex-shrink: 0;
-}
-
-/**
- * 左右装饰边框基础样式
- * 绝对定位在内容区两侧
- */
-.grid-border-side {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: calc((100% - 1536px) / 2);
-  min-width: 0;
-  background-color: white;
-}
-
-/**
- * 左侧装饰边框
- */
-.grid-border-side-left {
-  left: 0;
-}
-
-/**
- * 左侧装饰边框的伪元素
- * 创建双竖线效果，中间填充网格纹理
- */
-.grid-border-side-left::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 1rem;
-  background-color: white;
-  background-image: repeating-linear-gradient(
-    315deg,
-    color-mix(in oklab, rgb(3, 7, 18) 5%, transparent) 0,
-    color-mix(in oklab, rgb(3, 7, 18) 5%, transparent) 1px,
-    transparent 0,
-    transparent 50%
-  );
-  background-size: 10px 10px;
-  background-attachment: fixed;
-  border-left: 1px solid rgba(229, 229, 229, 0.7);
-  border-right: 1px solid rgba(229, 229, 229, 0.7);
-}
-
-/**
- * 右侧装饰边框
- */
-.grid-border-side-right {
-  right: 0;
-}
-
-/**
- * 右侧装饰边框的伪元素
- * 创建双竖线效果，中间填充网格纹理
- */
-.grid-border-side-right::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 1rem;
-  background-color: white;
-  background-image: repeating-linear-gradient(
-    315deg,
-    color-mix(in oklab, rgb(3, 7, 18) 5%, transparent) 0,
-    color-mix(in oklab, rgb(3, 7, 18) 5%, transparent) 1px,
-    transparent 0,
-    transparent 50%
-  );
-  background-size: 10px 10px;
-  background-attachment: fixed;
-  border-left: 1px solid rgba(229, 229, 229, 0.7);
-  border-right: 1px solid rgba(229, 229, 229, 0.7);
-}
-
-/**
- * 内容区容器
- * 限制最大宽度并居中显示
- */
-.grid-border-content {
-  position: relative;
-  z-index: 1;
-  max-width: 1536px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-/**
- * 顶部和底部边框行
- */
-.grid-border-row {
-  min-height: 4rem;
-  border-top: 1px solid rgba(229, 229, 229, 0.7);
-  border-bottom: 1px solid rgba(229, 229, 229, 0.7);
-  background-color: white;
-}
-
-/**
- * 底部摘要区域
- * 居中对齐的品牌信息展示
- */
-.content-footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-  padding: 1.5rem 0;
-}
-
-@media (min-width: 640px) {
-  .content-footer {
-    padding: 2rem 0;
-  }
-}
+/* 网格边框系统已提取到 assets/css/grid-border.css */
 </style>

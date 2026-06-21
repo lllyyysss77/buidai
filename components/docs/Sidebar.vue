@@ -131,7 +131,6 @@ interface NavigationItem {
   path: string
   icon?: string
   children?: NavigationItem[]
-  [key: string]: unknown
 }
 
 const props = defineProps({

@@ -3,17 +3,17 @@
     <!-- 现代化企业级背景 -->
     <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
       <!-- 基础渐变层 -->
-      <div class="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30" />
+      <div class="absolute inset-0 bg-linear-to-br from-slate-50 via-white to-blue-50/30" />
       
       <!-- 网格纹理背景 -->
       <div class="absolute inset-0 opacity-[0.03]" 
            style="background-image: linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px); background-size: 60px 60px;" />
       
       <!-- 主光晕 - 左上 -->
-      <div class="absolute -top-[20%] -left-[10%] w-[800px] h-[800px] rounded-full bg-gradient-to-br from-blue-600/8 to-cyan-400/5 blur-[100px]" />
+      <div class="absolute -top-[20%] -left-[10%] w-[800px] h-[800px] rounded-full bg-linear-to-br from-blue-600/8 to-cyan-400/5 blur-[100px]" />
       
       <!-- 次光晕 - 右下 -->
-      <div class="absolute -bottom-[20%] -right-[10%] w-[600px] h-[600px] rounded-full bg-gradient-to-tl from-indigo-600/8 to-purple-400/5 blur-[100px]" />
+      <div class="absolute -bottom-[20%] -right-[10%] w-[600px] h-[600px] rounded-full bg-linear-to-tl from-indigo-600/8 to-purple-400/5 blur-[100px]" />
       
       <!-- 装饰性几何图形 - 右上角 -->
       <div class="absolute top-[15%] right-[5%] w-[400px] h-[400px] border border-blue-200/20 rounded-full" />
@@ -33,7 +33,7 @@
           <!-- 装饰背景 -->
           <div class="absolute inset-0 -z-10 overflow-visible pointer-events-none select-none">
             <!-- 左侧柔和光晕 -->
-            <div class="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-r from-blue-500/5 to-transparent rounded-full blur-[60px]"/>
+            <div class="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-linear-to-r from-blue-500/5 to-transparent rounded-full blur-[60px]"/>
             
             <!-- 微妙的几何装饰 -->
             <div class="absolute top-10 right-20 w-16 h-16 border border-blue-200/20 rounded-lg rotate-12"/>

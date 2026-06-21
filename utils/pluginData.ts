@@ -171,7 +171,7 @@ export const apps: AppData[] = [
     name: '电商换装',
     description: '电商主图智能生成，模特替换，场景合成，提升点击率。无需专业摄影，也能制作出高质量的商品展示图。',
     icon: ShoppingBagIcon,
-    image: '/plugin/电商换装.png',
+    image: '/plugin/fashion-ai.png',
     category: 'video',
     originalPrice: 1398.00,
     discountPrice: 1398.00,

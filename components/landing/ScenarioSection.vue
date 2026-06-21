@@ -73,7 +73,7 @@ const scenarios: ScenarioItem[] = [
     desc: '智言万象 项目代码完全公开，支持私有化部署到企业服务器。同时支持自定义首页、登录界面、加载动画的 Logo，打造专属品牌形象。',
     icon: 'i-heroicons-code-bracket-square',
     colSpan: 'lg:col-span-3',
-    gradientClass: 'bg-gradient-to-br from-blue-100/90 via-white to-blue-50/50 border-blue-200/60',
+    gradientClass: 'bg-linear-to-br from-blue-100/90 via-white to-blue-50/50 border-blue-200/60',
     iconBgClass: 'bg-blue-100',
     iconColorClass: 'text-blue-600',
     tagClass: 'bg-blue-100/80 text-blue-700 border border-blue-200/50'
@@ -84,7 +84,7 @@ const scenarios: ScenarioItem[] = [
     desc: '智言万象 支持导入 Dify、扣子（Coze）等第三方工作流，打破平台局限，让你的 AI Agent 能力得到充分施展。',
     icon: 'i-heroicons-cpu-chip',
     colSpan: 'lg:col-span-3',
-    gradientClass: 'bg-gradient-to-br from-violet-100/90 via-white to-violet-50/50 border-violet-200/60',
+    gradientClass: 'bg-linear-to-br from-violet-100/90 via-white to-violet-50/50 border-violet-200/60',
     iconBgClass: 'bg-violet-100',
     iconColorClass: 'text-violet-600',
     tagClass: 'bg-violet-100/80 text-violet-700 border border-violet-200/50'
@@ -95,7 +95,7 @@ const scenarios: ScenarioItem[] = [
     desc: '根据业务需求灵活配置角色权限，为不同部门分配编辑与阅读权限，高效实现数据隔离与安全协作。',
     icon: 'i-heroicons-building-office-2',
     colSpan: 'lg:col-span-2',
-    gradientClass: 'bg-gradient-to-br from-slate-100/90 via-white to-slate-50/50 border-slate-200/60',
+    gradientClass: 'bg-linear-to-br from-slate-100/90 via-white to-slate-50/50 border-slate-200/60',
     iconBgClass: 'bg-slate-100',
     iconColorClass: 'text-slate-600',
     tagClass: 'bg-slate-100/80 text-slate-700 border border-slate-200/50'
@@ -106,7 +106,7 @@ const scenarios: ScenarioItem[] = [
     desc: '支持语音、图像、视频等多种模态交互，打破单一文本限制，为用户提供身临其境的 AI 使用体验。',
     icon: 'i-heroicons-chat-bubble-bottom-center-text',
     colSpan: 'lg:col-span-2',
-    gradientClass: 'bg-gradient-to-br from-sky-100/90 via-white to-sky-50/50 border-sky-200/60',
+    gradientClass: 'bg-linear-to-br from-sky-100/90 via-white to-sky-50/50 border-sky-200/60',
     iconBgClass: 'bg-sky-100',
     iconColorClass: 'text-sky-600',
     tagClass: 'bg-sky-100/80 text-sky-700 border border-sky-200/50'
@@ -117,7 +117,7 @@ const scenarios: ScenarioItem[] = [
     desc: '全方位监控应用运行指标，提供可视化的数据报表与分析看板，助力企业基于数据优化业务决策。',
     icon: 'i-heroicons-chart-bar',
     colSpan: 'lg:col-span-2',
-    gradientClass: 'bg-gradient-to-br from-zinc-100/90 via-white to-zinc-50/50 border-zinc-200/60',
+    gradientClass: 'bg-linear-to-br from-zinc-100/90 via-white to-zinc-50/50 border-zinc-200/60',
     iconBgClass: 'bg-zinc-100',
     iconColorClass: 'text-zinc-600',
     tagClass: 'bg-zinc-100/80 text-zinc-700 border border-zinc-200/50'

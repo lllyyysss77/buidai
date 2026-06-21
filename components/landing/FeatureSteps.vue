@@ -71,7 +71,7 @@
                   />
                 </Transition>
 
-                <div class="absolute inset-x-0 bottom-0 z-30 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 sm:p-5">
+                <div class="absolute inset-x-0 bottom-0 z-30 bg-linear-to-t from-black/90 via-black/50 to-transparent p-4 sm:p-5">
                   <div class="flex items-end justify-between gap-4">
                     <div class="min-w-0 flex-1">
                       <div class="flex items-center gap-2 mb-1.5">
@@ -127,7 +127,7 @@
                     :class="[
                       'w-full rounded-full transition-all duration-500 ease-out',
                       activeCard === index
-                        ? 'h-full bg-gradient-to-b from-indigo-400 to-indigo-600'
+                        ? 'h-full bg-linear-to-b from-indigo-400 to-indigo-600'
                         : 'h-0 bg-neutral-300'
                     ]"
                   />
@@ -376,187 +376,18 @@ onUnmounted(() => {
 
 <style scoped>
 /**
- * 网格边框容器
- * 使用 CSS Grid 构建三行布局：顶部边框、内容区、底部边框
- */
-.grid-border-container {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: 1fr;
-  width: 100%;
-}
-
-/**
- * 网格边框包裹层
- * 相对定位容器，用于放置左右装饰边框
- */
-.grid-border-wrapper {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-/**
- * 横向贯穿分隔线
- * 双横线之间填充斜向网格纹理
- * 用于标题下方和底部摘要上方
- */
-.grid-border-divider {
-  height: 1rem;
-  border-top: 1px solid rgba(229, 229, 229, 0.7);
-  border-bottom: 1px solid rgba(229, 229, 229, 0.7);
-  background-color: white;
-  background-image: repeating-linear-gradient(
-    315deg,
-    color-mix(in oklab, rgb(3, 7, 18) 5%, transparent) 0,
-    color-mix(in oklab, rgb(3, 7, 18) 5%, transparent) 1px,
-    transparent 0,
-    transparent 50%
-  );
-  background-size: 10px 10px;
-  background-attachment: fixed;
-  width: 100%;
-  flex-shrink: 0;
-}
-
-/**
- * 左右装饰边框基础样式
- * 绝对定位在内容区两侧
- */
-.grid-border-side {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: calc((100% - 1536px) / 2);
-  min-width: 0;
-  background-color: white;
-}
-
-/**
- * 左侧装饰边框
- */
-.grid-border-side-left {
-  left: 0;
-}
-
-/**
- * 左侧装饰边框的伪元素
- * 创建双竖线效果，中间填充网格纹理
- */
-.grid-border-side-left::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 1rem;
-  background-color: white;
-  background-image: repeating-linear-gradient(
-    315deg,
-    color-mix(in oklab, rgb(3, 7, 18) 5%, transparent) 0,
-    color-mix(in oklab, rgb(3, 7, 18) 5%, transparent) 1px,
-    transparent 0,
-    transparent 50%
-  );
-  background-size: 10px 10px;
-  background-attachment: fixed;
-  border-left: 1px solid rgba(229, 229, 229, 0.7);
-  border-right: 1px solid rgba(229, 229, 229, 0.7);
-}
-
-/**
- * 右侧装饰边框
- */
-.grid-border-side-right {
-  right: 0;
-}
-
-/**
- * 右侧装饰边框的伪元素
- * 创建双竖线效果，中间填充网格纹理
- */
-.grid-border-side-right::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 1rem;
-  background-color: white;
-  background-image: repeating-linear-gradient(
-    315deg,
-    color-mix(in oklab, rgb(3, 7, 18) 5%, transparent) 0,
-    color-mix(in oklab, rgb(3, 7, 18) 5%, transparent) 1px,
-    transparent 0,
-    transparent 50%
-  );
-  background-size: 10px 10px;
-  background-attachment: fixed;
-  border-left: 1px solid rgba(229, 229, 229, 0.7);
-  border-right: 1px solid rgba(229, 229, 229, 0.7);
-}
-
-/**
- * 内容区容器
- * 限制最大宽度并居中显示
- */
-.grid-border-content {
-  position: relative;
-  z-index: 1;
-  max-width: 1536px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-/**
- * 顶部和底部边框行
- */
-.grid-border-row {
-  min-height: 4rem;
-  border-bottom: 1px solid rgba(229, 229, 229, 0.7);
-  background-color: white;
-}
-
-/**
- * 底部摘要区域
- * 居中对齐的品牌信息展示
- */
-.content-footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-  padding: 1.5rem 0;
-}
-
-@media (min-width: 640px) {
-  .content-footer {
-    padding: 2rem 0;
-  }
-}
-
-/**
- * 图片切换动画 - 进入和离开状态
+ * 图片切换动画
  */
 .slide-in-enter-active,
 .slide-in-leave-active {
   transition: all 0.3s ease;
 }
 
-/**
- * 图片切换动画 - 进入起始状态
- * 从右侧滑入并淡入
- */
 .slide-in-enter-from {
   opacity: 0;
   transform: translateX(20px);
 }
 
-/**
- * 图片切换动画 - 离开结束状态
- * 向左侧滑出并淡出
- */
 .slide-in-leave-to {
   opacity: 0;
   transform: translateX(-20px);
@@ -564,16 +395,11 @@ onUnmounted(() => {
 
 /**
  * 进度条动画
- * 动画时长与自动轮播间隔保持一致（4.5秒）
  */
 .feature-progress {
   animation: progress 4.5s linear;
 }
 
-/**
- * 进度条关键帧动画
- * 从 0% 宽度增长到 100%
- */
 @keyframes progress {
   from { width: 0%; }
   to { width: 100%; }

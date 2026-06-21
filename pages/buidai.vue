@@ -5,21 +5,21 @@
       <!-- 静态渐变背景 -->
       <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div class="absolute inset-0 bg-linear-to-br from-white via-[#f3f0ff] to-cyan-50/60" />
-        <div class="absolute top-[-12%] left-[-6%] h-[420px] w-[420px] rounded-full bg-[#6E58FF]/10 blur-[120px]" />
+        <div class="absolute top-[-12%] left-[-6%] h-[420px] w-[420px] rounded-full bg-[var(--brand-primary)]/10 blur-[120px]" />
         <div class="absolute right-[-10%] top-[10%] h-[360px] w-[360px] rounded-full bg-cyan-400/10 blur-[120px]" />
         <div class="absolute bottom-[-14%] left-[28%] h-[300px] w-[300px] rounded-full bg-violet-400/10 blur-[100px]" />
       </div>
       
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <!-- NEW 标签 -->
-        <div class="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-[#6E58FF] text-white text-[11px] sm:text-xs font-medium mb-4 sm:mb-6 max-w-[calc(100%-2rem)]">
-          <span class="bg-white text-[#6E58FF] px-1.5 py-0.5 rounded text-[9px] sm:text-[10px] font-bold shrink-0">NEW</span>
+        <div class="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-[var(--brand-primary)] text-white text-[11px] sm:text-xs font-medium mb-4 sm:mb-6 max-w-[calc(100%-2rem)]">
+          <span class="bg-white text-[var(--brand-primary)] px-1.5 py-0.5 rounded text-[9px] sm:text-[10px] font-bold shrink-0">NEW</span>
           <span class="truncate">智言AI 应用市场上线，探索无限可能</span>
         </div>
 
         <!-- 主标题 -->
         <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight mb-4 sm:mb-5 text-neutral-900 leading-[1.15] sm:leading-tight px-2 sm:px-0">
-          一站式企业级<span class="text-[#6E58FF] inline-block">AI应用搭建系统</span>
+          一站式企业级<span class="text-[var(--brand-primary)] inline-block">AI应用搭建系统</span>
         </h1>
 
         <!-- 副标题 -->
@@ -29,7 +29,7 @@
 
         <!-- 按钮组 -->
         <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 mb-5 sm:mb-6 px-4 sm:px-0">
-          <a href="https://www.buidai.com/" target="_blank" class="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 rounded-full bg-[#6E58FF] text-white text-sm sm:text-base font-semibold hover:bg-[#5d47e6] active:scale-95 transition-all flex items-center justify-center gap-2 whitespace-nowrap">
+          <a href="https://www.buidai.com/" target="_blank" class="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 rounded-full bg-[var(--brand-primary)] text-white text-sm sm:text-base font-semibold hover:bg-[var(--brand-primary-dark)] active:scale-95 transition-all flex items-center justify-center gap-2 whitespace-nowrap">
             快速开始
           </a>
           <a href="https://doc.buidai.com/" target="_blank" class="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 rounded-full bg-neutral-900 text-white text-sm sm:text-base font-semibold hover:bg-neutral-800 active:scale-95 transition-all flex items-center justify-center gap-2 whitespace-nowrap">
@@ -244,8 +244,8 @@
             解决方案
           </span>
           
-          <h2 class="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-[#0F0F12] mb-3 sm:mb-4 tracking-tight">
-            AI 赋能企业<span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-600">通用场景</span>
+          <h2 class="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-[var(--brand-text)] mb-3 sm:mb-4 tracking-tight">
+            AI 赋能企业<span class="text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-blue-600">通用场景</span>
           </h2>
           
           <!-- 描述文案 -->

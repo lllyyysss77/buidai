@@ -5,7 +5,7 @@
       <div class="text-center mb-6 sm:mb-10 lg:mb-16">
         <h2 class="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-bold text-neutral-900 mb-2 sm:mb-4 tracking-tight leading-tight">
           <span class="block">搭建私有 AI 应用系统</span>
-          <span class="text-[#6E58FF] block mt-1 sm:mt-2">无需从零开发</span>
+          <span class="text-[var(--brand-primary)] block mt-1 sm:mt-2">无需从零开发</span>
         </h2>
         <p class="text-sm sm:text-base lg:text-xl text-neutral-500 max-w-3xl mx-auto px-2 sm:px-4 leading-relaxed">
           专注集成 AI 应用落地所需的全场景功能，万千工具，自由组合
@@ -18,10 +18,10 @@
           <button
             v-for="(tab, index) in tabs"
             :key="index"
-            class="flex-shrink-0 flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6E58FF]/30 touch-manipulation"
+            class="flex-shrink-0 flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]/30 touch-manipulation"
             :class="activeTab === index 
-              ? 'bg-[#6E58FF] text-white shadow-md' 
-              : 'bg-white border border-neutral-200 text-neutral-600 hover:border-[#6E58FF]/30'"
+              ? 'bg-[var(--brand-primary)] text-white shadow-md' 
+              : 'bg-white border border-neutral-200 text-neutral-600 hover:border-[var(--brand-primary)]/30'"
             @click="switchTab(index)"
           >
             <span class="text-[10px] sm:text-xs opacity-70">{{ String(index + 1).padStart(2, '0') }}</span>
@@ -31,10 +31,10 @@
       </div>
 
       <!-- Bento Grid 主容器 -->
-      <div class="relative rounded-lg sm:rounded-xl lg:rounded-3xl border border-neutral-200/60 flex flex-col lg:flex-row bg-gradient-to-br from-white via-[#f8f7ff] to-[#f0edff] overflow-hidden lg:min-h-[600px]">
+      <div class="relative rounded-lg sm:rounded-xl lg:rounded-3xl border border-neutral-200/60 flex flex-col lg:flex-row bg-linear-to-br from-white via-[#f8f7ff] to-[#f0edff] overflow-hidden lg:min-h-[600px]">
         
         <!-- 桌面端：左侧功能导航列表 -->
-        <div class="hidden lg:flex lg:w-[320px] xl:w-[380px] flex-col border-r border-neutral-200/60 bg-gradient-to-b from-neutral-50/80 to-neutral-100/50 p-4 xl:p-5 flex-shrink-0">
+        <div class="hidden lg:flex lg:w-[320px] xl:w-[380px] flex-col border-r border-neutral-200/60 bg-linear-to-b from-neutral-50/80 to-neutral-100/50 p-4 xl:p-5 flex-shrink-0">
           <div class="space-y-1.5 flex-1 overflow-y-auto custom-scrollbar min-h-0">
             <button
               v-for="(tab, index) in tabs"
@@ -47,7 +47,7 @@
             >
               <!-- 激活指示条 -->
               <div
-                class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-[#6E58FF] rounded-r-full transition-all duration-300"
+                class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-[var(--brand-primary)] rounded-r-full transition-all duration-300"
                 :class="activeTab === index ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"
               />
 
@@ -55,7 +55,7 @@
                 <!-- 序号图标 -->
                 <div
                   class="w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-200 shrink-0 text-sm font-semibold"
-                  :class="activeTab === index ? 'bg-[#6E58FF] text-white' : 'bg-white border border-neutral-200 text-neutral-400 group-hover:text-[#6E58FF] group-hover:border-[#6E58FF]/30'"
+                  :class="activeTab === index ? 'bg-[var(--brand-primary)] text-white' : 'bg-white border border-neutral-200 text-neutral-400 group-hover:text-[var(--brand-primary)] group-hover:border-[var(--brand-primary)]/30'"
                 >
                   {{ String(index + 1).padStart(2, '0') }}
                 </div>
@@ -87,7 +87,7 @@
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class="text-[#6E58FF] transition-all duration-200 opacity-0 -translate-x-1"
+                  class="text-[var(--brand-primary)] transition-all duration-200 opacity-0 -translate-x-1"
                   :class="activeTab === index ? 'opacity-100 translate-x-0' : ''"
                 >
                   <path d="m9 18 6-6-6-6"/>
@@ -100,14 +100,14 @@
           <div class="mt-4 pt-4 border-t border-neutral-200/60">
             <div class="flex items-center justify-between text-xs text-neutral-400 mb-2">
               <span class="flex items-center gap-1.5">
-                <span class="h-1.5 w-1.5 rounded-full bg-[#6E58FF] animate-pulse" />
+                <span class="h-1.5 w-1.5 rounded-full bg-[var(--brand-primary)] animate-pulse" />
                 自动轮播
               </span>
               <span>{{ activeTab + 1 }} / {{ tabs.length }}</span>
             </div>
             <div class="h-1 w-full rounded-full bg-neutral-200 overflow-hidden">
               <div 
-                class="h-full rounded-full bg-[#6E58FF] transition-all duration-500 ease-out"
+                class="h-full rounded-full bg-[var(--brand-primary)] transition-all duration-500 ease-out"
                 :style="{ width: `${((activeTab + 1) / tabs.length) * 100}%` }"
               />
             </div>
@@ -117,7 +117,7 @@
         <!-- 右侧：截图展示 (浏览器窗口样式) -->
         <div class="flex-1 relative flex flex-col bg-neutral-50/30 min-w-0 lg:min-h-[540px]">
           <!-- 背景光晕装饰 -->
-          <div class="absolute -top-20 -right-20 w-96 h-96 bg-[#6E58FF]/5 rounded-full blur-3xl pointer-events-none"/>
+          <div class="absolute -top-20 -right-20 w-96 h-96 bg-[var(--brand-primary)]/5 rounded-full blur-3xl pointer-events-none"/>
           <div class="absolute -bottom-20 -left-20 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none"/>
 
           <!-- 顶部浏览器栏装饰 -->
@@ -138,7 +138,7 @@
 
           <!-- 图片切换区域 - 移动端优化高度 -->
           <div 
-            class="relative flex-1 p-1.5 sm:p-4 lg:p-8 xl:p-10 flex items-center justify-center bg-gradient-to-br from-white via-white to-neutral-50/50 min-h-[160px] sm:min-h-[240px] lg:min-h-0 overflow-hidden touch-pan-y"
+            class="relative flex-1 p-1.5 sm:p-4 lg:p-8 xl:p-10 flex items-center justify-center bg-linear-to-br from-white via-white to-neutral-50/50 min-h-[160px] sm:min-h-[240px] lg:min-h-0 overflow-hidden touch-pan-y"
             @touchstart="handleTouchStart"
             @touchmove="handleTouchMove"
             @touchend="handleTouchEnd"
@@ -165,7 +165,7 @@
                 <!-- 浮动功能标签 -->
                 <div class="absolute bottom-1 left-1 sm:bottom-4 sm:left-4 lg:bottom-6 lg:left-6">
                   <div class="flex items-center gap-1 sm:gap-1.5 px-1.5 sm:px-2 lg:px-3 py-0.5 sm:py-1 rounded-full bg-white/95 backdrop-blur-sm border border-neutral-200/60 shadow-sm">
-                    <span class="h-1 sm:h-1.5 lg:h-2 w-1 sm:w-1.5 lg:w-2 rounded-full bg-[#6E58FF] animate-pulse flex-shrink-0" />
+                    <span class="h-1 sm:h-1.5 lg:h-2 w-1 sm:w-1.5 lg:w-2 rounded-full bg-[var(--brand-primary)] animate-pulse flex-shrink-0" />
                     <span class="text-[9px] sm:text-[10px] lg:text-xs font-medium text-neutral-700 truncate max-w-[80px] sm:max-w-none">{{ tabs[activeTab]?.name }}</span>
                   </div>
                 </div>
@@ -174,7 +174,7 @@
 
             <!-- 左右切换按钮 (桌面端显示，移动端隐藏) -->
             <button
-              class="hidden sm:flex absolute left-3 lg:left-4 top-1/2 -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-white border border-neutral-200 text-neutral-500 shadow-sm transition-all duration-200 hover:bg-neutral-50 hover:text-neutral-900 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6E58FF]/30"
+              class="hidden sm:flex absolute left-3 lg:left-4 top-1/2 -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-white border border-neutral-200 text-neutral-500 shadow-sm transition-all duration-200 hover:bg-neutral-50 hover:text-neutral-900 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]/30"
               @click="prevTab"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -182,7 +182,7 @@
               </svg>
             </button>
             <button
-              class="hidden sm:flex absolute right-3 lg:right-4 top-1/2 -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-white border border-neutral-200 text-neutral-500 shadow-sm transition-all duration-200 hover:bg-neutral-50 hover:text-neutral-900 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6E58FF]/30"
+              class="hidden sm:flex absolute right-3 lg:right-4 top-1/2 -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-white border border-neutral-200 text-neutral-500 shadow-sm transition-all duration-200 hover:bg-neutral-50 hover:text-neutral-900 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]/30"
               @click="nextTab"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -207,8 +207,8 @@
             <button
               v-for="(_, index) in tabs"
               :key="index"
-              class="h-0.5 sm:h-1 lg:h-1.5 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6E58FF]/30 touch-manipulation"
-              :class="activeTab === index ? 'w-2 sm:w-4 lg:w-6 bg-[#6E58FF]' : 'w-0.5 sm:w-1 lg:w-1.5 bg-neutral-300 hover:bg-neutral-400'"
+              class="h-0.5 sm:h-1 lg:h-1.5 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]/30 touch-manipulation"
+              :class="activeTab === index ? 'w-2 sm:w-4 lg:w-6 bg-[var(--brand-primary)]' : 'w-0.5 sm:w-1 lg:w-1.5 bg-neutral-300 hover:bg-neutral-400'"
               @click="switchTab(index)"
             />
           </div>
@@ -223,7 +223,7 @@
           class="group bg-white rounded-lg sm:rounded-xl lg:rounded-2xl border border-neutral-200/60 p-3 sm:p-4 lg:p-5 transition-all duration-200 hover:border-neutral-300"
         >
           <div class="flex items-start gap-2.5 sm:gap-3 lg:gap-4">
-            <div class="flex h-8 w-8 sm:h-9 sm:w-9 lg:h-10 lg:w-10 shrink-0 items-center justify-center rounded-md sm:rounded-lg lg:rounded-xl bg-[#6E58FF]/10 text-[#6E58FF] transition-all duration-200 group-hover:bg-[#6E58FF] group-hover:text-white">
+            <div class="flex h-8 w-8 sm:h-9 sm:w-9 lg:h-10 lg:w-10 shrink-0 items-center justify-center rounded-md sm:rounded-lg lg:rounded-xl bg-[var(--brand-primary)]/10 text-[var(--brand-primary)] transition-all duration-200 group-hover:bg-[var(--brand-primary)] group-hover:text-white">
               <component :is="feature.icon" class="h-3.5 w-3.5 sm:h-4 sm:w-4 lg:h-5 lg:w-5" />
             </div>
             <div class="min-w-0 flex-1">
@@ -239,7 +239,7 @@
         <a 
           href="https://www.buidai.com/" 
           target="_blank" 
-          class="w-full sm:w-auto px-5 sm:px-6 lg:px-8 py-2.5 sm:py-3 rounded-full bg-[#6E58FF] text-white text-xs sm:text-sm font-semibold hover:bg-[#5d47e6] active:scale-95 transition-all flex items-center justify-center gap-1.5 sm:gap-2 touch-manipulation min-h-[40px] sm:min-h-[44px]"
+          class="w-full sm:w-auto px-5 sm:px-6 lg:px-8 py-2.5 sm:py-3 rounded-full bg-[var(--brand-primary)] text-white text-xs sm:text-sm font-semibold hover:bg-[var(--brand-primary-dark)] active:scale-95 transition-all flex items-center justify-center gap-1.5 sm:gap-2 touch-manipulation min-h-[40px] sm:min-h-[44px]"
         >
           快速开始
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200">

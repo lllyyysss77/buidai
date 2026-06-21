@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-white text-[#0F0F12] font-sans selection:bg-blue-100 relative">
+  <div class="min-h-screen bg-white text-[var(--brand-text)] font-sans selection:bg-blue-100 relative">
     <!-- 背景装饰：左上角网格 -->
     <div class="absolute top-0 left-0 w-full h-[600px] bg-[url('/grid.svg')] pointer-events-none mask-[linear-gradient(to_bottom,white,transparent)] z-0"/>
 
@@ -13,9 +13,9 @@
         </div>
 
         <h1 class="text-4xl md:text-5xl lg:text-[56px] font-bold tracking-tight leading-[1.15] mb-6">
-          赋能企业，<span class="text-[#6E58FF]">构建智能未来</span>
+          赋能企业，<span class="text-[var(--brand-primary)]">构建智能未来</span>
         </h1>
-        <p class="text-lg text-[#5A5E6A] max-w-3xl mx-auto leading-relaxed">
+        <p class="text-lg text-[var(--brand-muted)] max-w-3xl mx-auto leading-relaxed">
           智言万象 致力于提供企业级 AI 基础设施，让每一个组织都能安全、高效地驾驭人工智能的力量。
         </p>
       </div>
@@ -29,12 +29,12 @@
           <div class="lg:w-1/2 space-y-8">
             <div>
               <h2 class="text-3xl md:text-4xl font-bold mb-6">我们的使命</h2>
-              <div class="space-y-6 text-lg text-[#5A5E6A] leading-relaxed">
+              <div class="space-y-6 text-lg text-[var(--brand-muted)] leading-relaxed">
                 <p>
                   在数字化转型的浪潮中，人工智能已成为企业发展的核心驱动力。然而，高昂的技术门槛和复杂的部署流程往往让许多企业望而却步。
                 </p>
                 <p>
-                  智言万象 的成立初衷很简单：<strong class="text-[#0F0F12]">降低 AI 应用门槛</strong>。我们通过标准化的基础设施和模块化的开发工具，帮助企业快速构建、部署和管理 AI 应用，将精力集中在业务创新而非底层技术上。
+                  智言万象 的成立初衷很简单：<strong class="text-[var(--brand-text)]">降低 AI 应用门槛</strong>。我们通过标准化的基础设施和模块化的开发工具，帮助企业快速构建、部署和管理 AI 应用，将精力集中在业务创新而非底层技术上。
                 </p>
               </div>
             </div>
@@ -42,11 +42,11 @@
             <!-- Stats -->
             <div class="grid grid-cols-2 gap-6">
               <div class="p-6 bg-[#F9FAFB] rounded-2xl border border-gray-100 hover:border-blue-100 transition-colors">
-                <div class="text-3xl font-bold text-[#6E58FF] mb-1">100+</div>
+                <div class="text-3xl font-bold text-[var(--brand-primary)] mb-1">100+</div>
                 <div class="text-sm text-gray-500 font-medium">服务企业</div>
               </div>
               <div class="p-6 bg-[#F9FAFB] rounded-2xl border border-gray-100 hover:border-blue-100 transition-colors">
-                <div class="text-3xl font-bold text-[#6E58FF] mb-1">99.9%</div>
+                <div class="text-3xl font-bold text-[var(--brand-primary)] mb-1">99.9%</div>
                 <div class="text-sm text-gray-500 font-medium">系统可用性</div>
               </div>
             </div>
@@ -75,7 +75,7 @@
         <div class="grid md:grid-cols-3 gap-8">
           <!-- Value 1 -->
           <div class="bg-white rounded-2xl p-8 border border-neutral-100 hover:shadow-md transition-all duration-300 group">
-            <div class="w-14 h-14 bg-neutral-50 rounded-xl flex items-center justify-center text-[#6E58FF] mb-6 group-hover:bg-[#6E58FF] group-hover:text-white transition-colors">
+            <div class="w-14 h-14 bg-neutral-50 rounded-xl flex items-center justify-center text-[var(--brand-primary)] mb-6 group-hover:bg-[var(--brand-primary)] group-hover:text-white transition-colors">
               <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
             </div>
             <h3 class="text-xl font-bold text-neutral-900 mb-4">安全可控</h3>
@@ -86,7 +86,7 @@
 
           <!-- Value 2 -->
           <div class="bg-white rounded-2xl p-8 border border-neutral-100 hover:shadow-md transition-all duration-300 group">
-            <div class="w-14 h-14 bg-neutral-50 rounded-xl flex items-center justify-center text-[#6E58FF] mb-6 group-hover:bg-[#6E58FF] group-hover:text-white transition-colors">
+            <div class="w-14 h-14 bg-neutral-50 rounded-xl flex items-center justify-center text-[var(--brand-primary)] mb-6 group-hover:bg-[var(--brand-primary)] group-hover:text-white transition-colors">
               <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
             </div>
             <h3 class="text-xl font-bold text-neutral-900 mb-4">务实创新</h3>
@@ -97,7 +97,7 @@
 
           <!-- Value 3 -->
           <div class="bg-white rounded-2xl p-8 border border-neutral-100 hover:shadow-md transition-all duration-300 group">
-            <div class="w-14 h-14 bg-neutral-50 rounded-xl flex items-center justify-center text-[#6E58FF] mb-6 group-hover:bg-[#6E58FF] group-hover:text-white transition-colors">
+            <div class="w-14 h-14 bg-neutral-50 rounded-xl flex items-center justify-center text-[var(--brand-primary)] mb-6 group-hover:bg-[var(--brand-primary)] group-hover:text-white transition-colors">
               <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
             </div>
             <h3 class="text-xl font-bold text-neutral-900 mb-4">开放生态</h3>
@@ -136,7 +136,7 @@
           <div class="lg:w-2/3 grid grid-cols-2 gap-x-6 gap-y-8 sm:gap-x-12 sm:gap-y-10">
             <!-- 服务项 1 -->
             <div class="space-y-4 group">
-              <div class="w-12 h-12 rounded-xl bg-neutral-50 flex items-center justify-center text-[#6E58FF] group-hover:bg-[#6E58FF] group-hover:text-white transition-colors duration-300">
+              <div class="w-12 h-12 rounded-xl bg-neutral-50 flex items-center justify-center text-[var(--brand-primary)] group-hover:bg-[var(--brand-primary)] group-hover:text-white transition-colors duration-300">
                 <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
               </div>
               <div>
@@ -147,7 +147,7 @@
 
             <!-- 服务项 2 -->
             <div class="space-y-4 group">
-              <div class="w-12 h-12 rounded-xl bg-neutral-50 flex items-center justify-center text-[#6E58FF] group-hover:bg-[#6E58FF] group-hover:text-white transition-colors duration-300">
+              <div class="w-12 h-12 rounded-xl bg-neutral-50 flex items-center justify-center text-[var(--brand-primary)] group-hover:bg-[var(--brand-primary)] group-hover:text-white transition-colors duration-300">
                 <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
               </div>
               <div>
@@ -158,7 +158,7 @@
 
             <!-- 服务项 3 -->
             <div class="space-y-4 group">
-              <div class="w-12 h-12 rounded-xl bg-neutral-50 flex items-center justify-center text-[#6E58FF] group-hover:bg-[#6E58FF] group-hover:text-white transition-colors duration-300">
+              <div class="w-12 h-12 rounded-xl bg-neutral-50 flex items-center justify-center text-[var(--brand-primary)] group-hover:bg-[var(--brand-primary)] group-hover:text-white transition-colors duration-300">
                 <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
               </div>
               <div>
@@ -169,7 +169,7 @@
 
             <!-- 服务项 4 -->
             <div class="space-y-4 group">
-              <div class="w-12 h-12 rounded-xl bg-neutral-50 flex items-center justify-center text-[#6E58FF] group-hover:bg-[#6E58FF] group-hover:text-white transition-colors duration-300">
+              <div class="w-12 h-12 rounded-xl bg-neutral-50 flex items-center justify-center text-[var(--brand-primary)] group-hover:bg-[var(--brand-primary)] group-hover:text-white transition-colors duration-300">
                 <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
               </div>
               <div>
@@ -180,7 +180,7 @@
 
              <!-- 服务项 5 -->
             <div class="space-y-4 group">
-              <div class="w-12 h-12 rounded-xl bg-neutral-50 flex items-center justify-center text-[#6E58FF] group-hover:bg-[#6E58FF] group-hover:text-white transition-colors duration-300">
+              <div class="w-12 h-12 rounded-xl bg-neutral-50 flex items-center justify-center text-[var(--brand-primary)] group-hover:bg-[var(--brand-primary)] group-hover:text-white transition-colors duration-300">
                 <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
               </div>
               <div>
@@ -191,7 +191,7 @@
 
              <!-- 服务项 6 -->
             <div class="space-y-4 group">
-              <div class="w-12 h-12 rounded-xl bg-neutral-50 flex items-center justify-center text-[#6E58FF] group-hover:bg-[#6E58FF] group-hover:text-white transition-colors duration-300">
+              <div class="w-12 h-12 rounded-xl bg-neutral-50 flex items-center justify-center text-[var(--brand-primary)] group-hover:bg-[var(--brand-primary)] group-hover:text-white transition-colors duration-300">
                 <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
               </div>
               <div>

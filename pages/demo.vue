@@ -576,7 +576,7 @@ useHead({
 
     <!-- 移动端底部标签栏 - 切换产品分类 (悬浮胶囊风) -->
     <nav class="lg:hidden fixed bottom-0 left-0 right-0 z-50 pointer-events-none">
-      <div class="px-4 pb-[calc(16px+env(safe-area-inset-bottom,0px))] pt-12 bg-gradient-to-t from-white/90 via-white/50 to-transparent flex justify-center">
+      <div class="px-4 pb-[calc(16px+env(safe-area-inset-bottom,0px))] pt-12 bg-linear-to-t from-white/90 via-white/50 to-transparent flex justify-center">
         <div class="flex items-center p-1.5 bg-white/95 backdrop-blur-xl shadow-[0_8px_32px_-4px_rgba(0,0,0,0.15)] border border-neutral-200/50 rounded-full w-full max-w-[340px] pointer-events-auto">
           <button
             v-for="category in categories"
@@ -612,12 +612,12 @@ useHead({
           </div>
 
           <!-- 标题 -->
-          <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0F0F12] tracking-tight leading-[1.2] mb-4">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--brand-text)] tracking-tight leading-[1.2] mb-4">
             在线 <span class="text-indigo-500">体验</span> AI 产品
           </h1>
 
           <!-- 副标题 -->
-          <p class="text-base sm:text-lg text-[#5A5E6A] max-w-2xl mx-auto leading-relaxed">
+          <p class="text-base sm:text-lg text-[var(--brand-muted)] max-w-2xl mx-auto leading-relaxed">
             探索智言AI全系产品，涵盖智能对话、AI绘画、视频生成、数字人等多个领域，即刻开启您的AI之旅
           </p>
         </div>
@@ -746,7 +746,7 @@ useHead({
                   @error="handleImageError"
                 />
                 <!-- 遮罩层 -->
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/40" />
+                <div class="absolute inset-0 bg-linear-to-t from-black/60 via-black/30 to-black/40" />
 
                 <div class="relative z-10 text-center px-3 sm:px-4">
                   <div

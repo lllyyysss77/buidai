@@ -68,7 +68,7 @@
           <!-- 进度条 - 使用 JS 计算实现更精确的控制 -->
           <div class="h-1 bg-neutral-200 relative overflow-hidden">
             <div 
-              class="h-full bg-gradient-to-r from-indigo-500 to-indigo-600 absolute left-0 top-0 transition-none"
+              class="h-full bg-linear-to-r from-indigo-500 to-indigo-600 absolute left-0 top-0 transition-none"
               :style="progressBarStyle"
             />
           </div>
@@ -90,7 +90,7 @@
             <div 
               class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300"
               :class="activeIndex === index 
-                ? 'bg-gradient-to-br from-indigo-500 to-indigo-600 text-white shadow-md' 
+                ? 'bg-linear-to-br from-indigo-500 to-indigo-600 text-white shadow-md' 
                 : 'bg-neutral-100 text-neutral-500'"
             >
               <component :is="system.icon" class="w-5 h-5"/>

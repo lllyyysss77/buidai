@@ -45,7 +45,7 @@
             <!-- 头部：图标与名称 -->
             <div class="flex items-center gap-3">
               <!-- 图标容器 - 参考设计的圆润风格 -->
-              <div class="shrink-0 w-11 h-11 rounded-lg bg-gradient-to-br from-indigo-50/80 to-violet-50/50 border border-indigo-200/60 flex items-center justify-center text-indigo-600 group-hover:text-violet-600 group-hover:border-violet-300/70 group-hover:from-violet-100/60 group-hover:to-indigo-50/50 transition-all duration-300">
+              <div class="shrink-0 w-11 h-11 rounded-lg bg-linear-to-br from-indigo-50/80 to-violet-50/50 border border-indigo-200/60 flex items-center justify-center text-indigo-600 group-hover:text-violet-600 group-hover:border-violet-300/70 group-hover:from-violet-100/60 group-hover:to-indigo-50/50 transition-all duration-300">
                 <!-- eslint-disable-next-line vue/no-v-html -->
                 <div class="w-5 h-5" v-html="card.icon" />
               </div>
@@ -106,7 +106,7 @@
       <!-- 查看更多按钮 -->
       <div v-if="hasMoreCards" class="mt-4 py-6 flex items-center justify-center">
         <button
-          class="group flex h-11 items-center justify-center gap-2 rounded-xl border border-indigo-200 bg-white px-6 text-sm font-medium transition-all duration-300 hover:border-indigo-400 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-indigo-100/50 text-slate-700 hover:text-indigo-600"
+          class="group flex h-11 items-center justify-center gap-2 rounded-xl border border-indigo-200 bg-white px-6 text-sm font-medium transition-all duration-300 hover:border-indigo-400 hover:bg-linear-to-r hover:from-indigo-50 hover:to-indigo-100/50 text-slate-700 hover:text-indigo-600"
           @click="toggleExpand"
         >
             <span>{{ isExpanded ? '收起' : '查看更多' }}</span>

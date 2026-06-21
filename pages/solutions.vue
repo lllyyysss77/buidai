@@ -1,36 +1,36 @@
 <template>
-  <div class="min-h-screen bg-[#F3F4F6] font-sans selection:bg-[#6E58FF] selection:text-white">
+  <div class="min-h-screen bg-[#F3F4F6] font-sans selection:bg-[var(--brand-primary)] selection:text-white">
     <!-- 1. 顶部 Hero 区域 -->
     <section class="relative pt-24 pb-12 md:pt-32 md:pb-16 overflow-hidden text-center">
       <div class="relative z-10 container mx-auto px-4 flex flex-col items-center">
         <!-- 徽章 -->
         <div class="mb-6 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur border border-gray-200 shadow-sm">
            <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#6E58FF] opacity-75"/>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-[#6E58FF]"/>
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--brand-primary)] opacity-75"/>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-[var(--brand-primary)]"/>
           </span>
           <span class="text-xs font-medium text-gray-600">智言AI旗下 AI 平台</span>
         </div>
 
         <!-- 标题 -->
-        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-[#0F0F12] tracking-tight leading-[1.2] md:leading-[1.15] mb-6">
-          智言AI你的 <span class="text-[#6E58FF] block sm:inline">AI 办公空间</span>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-[var(--brand-text)] tracking-tight leading-[1.2] md:leading-[1.15] mb-6">
+          智言AI你的 <span class="text-[var(--brand-primary)] block sm:inline">AI 办公空间</span>
         </h1>
 
         <!-- 副标题 -->
-        <p class="text-base sm:text-lg text-[#5A5E6A] max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed px-2">
+        <p class="text-base sm:text-lg text-[var(--brand-muted)] max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed px-2">
           智言AI旗下新一代 AI 办公平台，让创作与协作更高效
         </p>
 
         <!-- 行动号召按钮 -->
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 md:mb-24 w-full sm:w-auto px-4 sm:px-0">
-          <a href="https://www.gmlart.cn" target="_blank" class="w-full sm:w-auto group relative px-8 py-3.5 rounded-full bg-linear-to-r from-[#6E58FF] to-[#7A42FF] text-white font-semibold text-[15px] shadow-[0_8px_20px_-4px_rgba(110,88,255,0.4)] hover:shadow-[0_12px_24px_-6px_rgba(110,88,255,0.5)] active:scale-95 transition-all duration-300 touch-manipulation flex items-center justify-center">
+          <a href="https://www.gmlart.cn" target="_blank" class="w-full sm:w-auto group relative px-8 py-3.5 rounded-full bg-linear-to-r from-[var(--brand-primary)] to-[#7A42FF] text-white font-semibold text-[15px] shadow-[0_8px_20px_-4px_rgba(110,88,255,0.4)] hover:shadow-[0_12px_24px_-6px_rgba(110,88,255,0.5)] active:scale-95 transition-all duration-300 touch-manipulation flex items-center justify-center">
             立即体验
             <span class="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity"/>
           </a>
 
           <div class="relative group w-full sm:w-auto">
-            <button class="w-full sm:w-auto justify-center px-8 py-3.5 rounded-full bg-white border border-[#E5E6F0] text-[#1D2129] font-medium text-[15px] hover:border-[#6E58FF] hover:text-[#6E58FF] hover:bg-[#F9F8FF] active:scale-95 transition-all duration-300 flex items-center gap-2 touch-manipulation">
+            <button class="w-full sm:w-auto justify-center px-8 py-3.5 rounded-full bg-white border border-[#E5E6F0] text-[#1D2129] font-medium text-[15px] hover:border-[var(--brand-primary)] hover:text-[var(--brand-primary)] hover:bg-[#F9F8FF] active:scale-95 transition-all duration-300 flex items-center gap-2 touch-manipulation">
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 16L12 3M12 16L7 11M12 16L17 11M6 21H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               下载客户端
             </button>
@@ -66,7 +66,7 @@
              <!-- 左侧卡片（内层） -->
              <div class="absolute left-1/2 -translate-x-full md:-translate-x-[110%] bottom-0 w-[180px] h-[200px] md:w-[320px] md:h-[340px] bg-[#1E1E2E] rounded-2xl shadow-xl z-20 transform -rotate-6 hover:rotate-[-8deg] transition-transform duration-500 overflow-hidden border border-gray-800">
                  <div class="p-4 md:p-6 h-full flex flex-col text-white">
-                    <div class="text-2xl md:text-4xl font-bold tracking-tighter text-[#6E58FF] mb-1 md:mb-2">CODE</div>
+                    <div class="text-2xl md:text-4xl font-bold tracking-tighter text-[var(--brand-primary)] mb-1 md:mb-2">CODE</div>
                     <div class="text-sm md:text-xl font-light opacity-80">EVENT 2025</div>
                     <div class="mt-auto h-px w-full bg-gray-700"/>
                  </div>
@@ -100,7 +100,7 @@
                  </div>
              </div>
              <!-- 右侧卡片（外层） -->
-             <div class="hidden lg:block absolute left-1/2 translate-x-[80%] bottom-4 w-[220px] md:w-[300px] h-[240px] md:h-[320px] bg-[#0F0F12] rounded-2xl shadow-lg z-10 transform rotate-12 hover:rotate-14 transition-transform duration-500 border border-gray-800 overflow-hidden">
+             <div class="hidden lg:block absolute left-1/2 translate-x-[80%] bottom-4 w-[220px] md:w-[300px] h-[240px] md:h-[320px] bg-[var(--brand-text)] rounded-2xl shadow-lg z-10 transform rotate-12 hover:rotate-14 transition-transform duration-500 border border-gray-800 overflow-hidden">
                  <div class="p-5 h-full flex flex-col">
                     <div class="flex items-center justify-between mb-6">
                        <div class="w-8 h-8 rounded-lg bg-gray-800"/>
@@ -110,7 +110,7 @@
                        <div class="w-1/5 h-[40%] bg-purple-900/50 rounded-t"/>
                        <div class="w-1/5 h-[70%] bg-purple-800/50 rounded-t"/>
                        <div class="w-1/5 h-[50%] bg-purple-700/50 rounded-t"/>
-                       <div class="w-1/5 h-[90%] bg-[#6E58FF] rounded-t shadow-[0_0_15px_rgba(110,88,255,0.5)]"/>
+                       <div class="w-1/5 h-[90%] bg-[var(--brand-primary)] rounded-t shadow-[0_0_15px_rgba(110,88,255,0.5)]"/>
                     </div>
                  </div>
              </div>
@@ -124,7 +124,7 @@
       <div class="container mx-auto px-4">
         <!-- 部分标题 -->
         <div class="text-center mb-12">
-          <h2 class="text-2xl md:text-3xl font-bold text-[#0F0F12] mb-8 leading-tight">全能 AI 办公助手，<br class="md:hidden" />释放你的创作生产力</h2>
+          <h2 class="text-2xl md:text-3xl font-bold text-[var(--brand-text)] mb-8 leading-tight">全能 AI 办公助手，<br class="md:hidden" />释放你的创作生产力</h2>
 
           <!-- 选项卡 -->
           <div class="inline-flex items-center p-1.5 bg-[#F5F6FA] rounded-full overflow-x-auto max-w-full touch-manipulation no-scrollbar">
@@ -134,8 +134,8 @@
               :class="[
                 'px-4 md:px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap shrink-0',
                 currentTab === tab
-                  ? 'bg-white text-[#6E58FF] shadow-sm'
-                  : 'text-[#5A5E6A] hover:text-[#0F0F12]'
+                  ? 'bg-white text-[var(--brand-primary)] shadow-sm'
+                  : 'text-[var(--brand-muted)] hover:text-[var(--brand-text)]'
               ]"
               @click="currentTab = tab"
             >
@@ -146,19 +146,19 @@
 
         <!-- 网格布局 -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div v-for="(item, index) in filteredFeatures" :key="index" class="group relative bg-[#F9FAFB] rounded-2xl overflow-hidden border border-[#EAECF2] hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:border-[#6E58FF]/30 active:scale-[0.99] transition-all duration-300 h-[260px] md:h-[280px] cursor-pointer touch-manipulation">
-             <div class="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-medium text-[#0F0F12] shadow-sm border border-gray-100">
+          <div v-for="(item, index) in filteredFeatures" :key="index" class="group relative bg-[#F9FAFB] rounded-2xl overflow-hidden border border-[#EAECF2] hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:border-[var(--brand-primary)]/30 active:scale-[0.99] transition-all duration-300 h-[260px] md:h-[280px] cursor-pointer touch-manipulation">
+             <div class="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-medium text-[var(--brand-text)] shadow-sm border border-gray-100">
                 {{ item.tag }}
              </div>
              <div class="h-full w-full flex flex-col">
                 <!-- 卡片视觉内容 -->
                 <div class="flex-1 relative overflow-hidden flex items-center justify-center p-6" :class="item.bgClass">
-                   <UIcon :name="item.iconClass" class="w-12 h-12 text-[#6E58FF] opacity-70" />
+                   <UIcon :name="item.iconClass" class="w-12 h-12 text-[var(--brand-primary)] opacity-70" />
                 </div>
                 <!-- 卡片底部信息 -->
                 <div class="h-16 bg-white border-t border-gray-100 px-5 flex items-center justify-between">
-                   <span class="font-bold text-[#0F0F12]">{{ item.title }}</span>
-                   <span class="w-8 h-8 rounded-full bg-[#F5F6FA] flex items-center justify-center group-hover:bg-[#6E58FF] group-hover:text-white transition-colors">
+                   <span class="font-bold text-[var(--brand-text)]">{{ item.title }}</span>
+                   <span class="w-8 h-8 rounded-full bg-[#F5F6FA] flex items-center justify-center group-hover:bg-[var(--brand-primary)] group-hover:text-white transition-colors">
                       <ArrowRightIcon class="w-4 h-4" />
                    </span>
                 </div>
@@ -192,7 +192,7 @@
                   <!-- PPT Visual -->
                   <div v-if="card.visual === 'ppt'" class="absolute right-4 bottom-4 md:right-10 md:bottom-8 transform rotate-[-5deg] transition-transform duration-500 group-hover:rotate-0 group-hover:scale-105 will-change-transform">
                       <div class="bg-white/90 backdrop-blur rounded-xl p-4 shadow-lg w-32 md:w-48 border border-white/50">
-                          <div class="text-[#6E58FF] font-serif italic text-2xl md:text-3xl text-center">Portfolio</div>
+                          <div class="text-[var(--brand-primary)] font-serif italic text-2xl md:text-3xl text-center">Portfolio</div>
                       </div>
                   </div>
 
@@ -218,13 +218,13 @@
                   <!-- Excel Visual -->
                   <div v-if="card.visual === 'excel'" class="absolute inset-0 flex items-center justify-center pointer-events-none">
                       <svg class="w-full h-full opacity-50" viewBox="0 0 200 100" preserveAspectRatio="none">
-                          <path d="M0,80 Q50,90 100,50 T200,20" fill="none" stroke="#6E58FF" stroke-width="1.5" stroke-dasharray="4 4" />
-                          <path d="M0,80 Q50,90 100,50 T200,20" fill="none" stroke="#6E58FF" stroke-width="1.5" class="opacity-30 translate-y-2" />
+                          <path d="M0,80 Q50,90 100,50 T200,20" fill="none" stroke="var(--brand-primary)" stroke-width="1.5" stroke-dasharray="4 4" />
+                          <path d="M0,80 Q50,90 100,50 T200,20" fill="none" stroke="var(--brand-primary)" stroke-width="1.5" class="opacity-30 translate-y-2" />
                       </svg>
-                      <div class="absolute right-10 top-1/2 text-7xl font-serif italic text-[#6E58FF]/20 transition-transform duration-500 group-hover:scale-110 will-change-transform">fx</div>
-                      <div class="absolute left-0 right-0 top-1/2 h-px bg-[#6E58FF]/20 border-t border-dashed border-[#6E58FF]"/>
-                      <div class="absolute top-0 bottom-0 left-2/3 w-px bg-[#6E58FF]/20 border-l border-dashed border-[#6E58FF]"/>
-                      <div class="absolute left-2/3 top-1/2 w-3 h-3 border-2 border-[#6E58FF] bg-white rounded-full -translate-x-1.5 -translate-y-1.5 z-10"/>
+                      <div class="absolute right-10 top-1/2 text-7xl font-serif italic text-[var(--brand-primary)]/20 transition-transform duration-500 group-hover:scale-110 will-change-transform">fx</div>
+                      <div class="absolute left-0 right-0 top-1/2 h-px bg-[var(--brand-primary)]/20 border-t border-dashed border-[var(--brand-primary)]"/>
+                      <div class="absolute top-0 bottom-0 left-2/3 w-px bg-[var(--brand-primary)]/20 border-l border-dashed border-[var(--brand-primary)]"/>
+                      <div class="absolute left-2/3 top-1/2 w-3 h-3 border-2 border-[var(--brand-primary)] bg-white rounded-full -translate-x-1.5 -translate-y-1.5 z-10"/>
                   </div>
 
                   <!-- Code Visual (Minimalist) -->
@@ -266,7 +266,7 @@
                          </svg>
                     </div>
                     <div class="absolute left-6 md:left-8 bottom-20 flex gap-2">
-                        <div class="w-4 h-4 rounded-full bg-[#6E58FF]"/>
+                        <div class="w-4 h-4 rounded-full bg-[var(--brand-primary)]"/>
                         <div class="w-4 h-4 rounded-full bg-[#D946EF]"/>
                         <div class="w-4 h-4 rounded-full bg-white border border-gray-200"/>
                     </div>
@@ -289,9 +289,9 @@
 
           <!-- 左侧内容 -->
           <div class="lg:w-1/3 flex flex-col justify-start items-start text-left pt-0 md:pt-4">
-            <h2 class="text-2xl md:text-4xl font-bold text-[#0F0F12] mb-4">快速入门</h2>
-            <p class="text-base md:text-lg text-[#5A5E6A] mb-6 md:mb-8">AI 职场神队友，告别无效加班！</p>
-            <button class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#6E58FF] text-white font-medium hover:bg-[#5A43FF] active:scale-95 transition-all shadow-md">
+            <h2 class="text-2xl md:text-4xl font-bold text-[var(--brand-text)] mb-4">快速入门</h2>
+            <p class="text-base md:text-lg text-[var(--brand-muted)] mb-6 md:mb-8">AI 职场神队友，告别无效加班！</p>
+            <button class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--brand-primary)] text-white font-medium hover:bg-[#5A43FF] active:scale-95 transition-all shadow-md">
               探索更多
               <ArrowRightIcon class="w-4 h-4" />
             </button>
@@ -303,10 +303,10 @@
                 <div class="inline-flex items-center justify-center border border-transparent py-0.5 font-medium w-fit whitespace-nowrap shrink-0 px-4 rounded-full bg-[#B5BFFF4D] text-[14px] md:text-[16px] text-[#333333]">
                    {{ card.badge }}
                 </div>
-                <p class="text-base md:text-lg font-medium text-[#0F0F12] leading-relaxed flex-1">
+                <p class="text-base md:text-lg font-medium text-[var(--brand-text)] leading-relaxed flex-1">
                    {{ card.desc }}
                 </p>
-                <button class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 group-hover:bg-[#6E58FF] group-hover:border-[#6E58FF] group-hover:text-white transition-all">
+                <button class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 group-hover:bg-[var(--brand-primary)] group-hover:border-[var(--brand-primary)] group-hover:text-white transition-all">
                    <ArrowRightIcon class="w-5 h-5 md:w-6 md:h-6" />
                 </button>
              </div>
@@ -320,23 +320,23 @@
     <section class="py-12 md:py-20 bg-white">
       <div class="container mx-auto px-4">
         <div class="text-center mb-10 md:mb-16">
-           <h2 class="text-2xl md:text-3xl font-bold text-[#0F0F12]">0门槛，一站式 AI 办公空间</h2>
+           <h2 class="text-2xl md:text-3xl font-bold text-[var(--brand-text)]">0门槛，一站式 AI 办公空间</h2>
         </div>
 
         <div class="space-y-12 md:space-y-24">
            <!-- 特性 1：左文右图 -->
            <div class="flex flex-col lg:flex-row items-center gap-8 md:gap-12 lg:gap-20">
               <div class="lg:w-1/2 space-y-6 order-2 lg:order-1">
-                 <div class="inline-flex items-center gap-2 text-[#6E58FF] bg-[#F4F0FF] px-3 py-1 rounded-full text-xs font-bold">
+                 <div class="inline-flex items-center gap-2 text-[var(--brand-primary)] bg-[#F4F0FF] px-3 py-1 rounded-full text-xs font-bold">
                     <SparklesIcon class="w-4 h-4" />
                     AI 辅助写作
                  </div>
-                 <h3 class="text-2xl md:text-3xl font-bold text-[#0F0F12] leading-tight">和子文档 — <br class="hidden md:block"/>让创作如虎添翼</h3>
-                 <p class="text-base md:text-lg text-[#5A5E6A] leading-relaxed">
+                 <h3 class="text-2xl md:text-3xl font-bold text-[var(--brand-text)] leading-tight">和子文档 — <br class="hidden md:block"/>让创作如虎添翼</h3>
+                 <p class="text-base md:text-lg text-[var(--brand-muted)] leading-relaxed">
                     内置强大的 AI 写作助手，支持文章续写、润色、翻译及摘要生成。无论是工作报告还是创意文案，都能一键搞定。
                  </p>
                  <div class="flex gap-4 pt-2 md:pt-4">
-                    <button class="px-6 py-2.5 bg-[#6E58FF] text-white rounded-full text-sm font-semibold hover:bg-[#5A43FF] active:scale-95 transition-all shadow-lg shadow-[#6E58FF]/20">
+                    <button class="px-6 py-2.5 bg-[var(--brand-primary)] text-white rounded-full text-sm font-semibold hover:bg-[#5A43FF] active:scale-95 transition-all shadow-lg shadow-[var(--brand-primary)]/20">
                        创建文档
                     </button>
                     <button class="px-6 py-2.5 bg-white border border-gray-200 text-gray-700 rounded-full text-sm font-semibold hover:bg-gray-50 active:scale-95 transition-all">
@@ -355,15 +355,15 @@
            <!-- 特性 2：右文左图 -->
            <div class="flex flex-col lg:flex-row-reverse items-center gap-8 md:gap-12 lg:gap-20">
               <div class="lg:w-1/2 space-y-6 order-2 lg:order-1">
-                 <div class="inline-flex items-center gap-2 text-[#6E58FF] bg-[#F4F0FF] px-3 py-1 rounded-full text-xs font-bold">
+                 <div class="inline-flex items-center gap-2 text-[var(--brand-primary)] bg-[#F4F0FF] px-3 py-1 rounded-full text-xs font-bold">
                     <PhotoIcon class="w-4 h-4" />
                     智能图像处理
                  </div>
-                 <h3 class="text-2xl md:text-3xl font-bold text-[#0F0F12] leading-tight">一键生图，<br class="hidden md:block"/>创意不再受限</h3>
-                 <p class="text-base md:text-lg text-[#5A5E6A] leading-relaxed">
+                 <h3 class="text-2xl md:text-3xl font-bold text-[var(--brand-text)] leading-tight">一键生图，<br class="hidden md:block"/>创意不再受限</h3>
+                 <p class="text-base md:text-lg text-[var(--brand-muted)] leading-relaxed">
                     输入文字描述即可生成高质量图片，支持多种艺术风格。更有智能修图功能，无损放大、去背景、画质增强一气呵成。
                  </p>
-                 <button class="px-6 py-2.5 bg-[#6E58FF] text-white rounded-full text-sm font-semibold hover:bg-[#5A43FF] active:scale-95 transition-all shadow-lg shadow-[#6E58FF]/20">
+                 <button class="px-6 py-2.5 bg-[var(--brand-primary)] text-white rounded-full text-sm font-semibold hover:bg-[#5A43FF] active:scale-95 transition-all shadow-lg shadow-[var(--brand-primary)]/20">
                     立即体验
                  </button>
               </div>
@@ -384,7 +384,7 @@
           <div class="flex flex-col lg:flex-row gap-8 md:gap-12 lg:gap-24 items-start">
             <!-- 左侧：标题 -->
             <div class="lg:w-1/3 w-full">
-              <h1 class="text-2xl md:text-4xl font-bold text-[#0F0F12] mb-4">常见问题</h1>
+              <h1 class="text-2xl md:text-4xl font-bold text-[var(--brand-text)] mb-4">常见问题</h1>
               <p class="text-neutral-500 text-sm md:text-base mb-6">关于智言AI的常见疑问解答</p>
               <div class="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3">
                 <button class="px-6 py-2.5 rounded-full bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 active:scale-95 transition-all flex items-center justify-center gap-2 touch-manipulation" @click="openQrModal('coupon')">
@@ -402,7 +402,7 @@
             <div class="lg:w-2/3 w-full space-y-4">
                <div v-for="(faq, i) in faqs" :key="i" class="bg-white rounded-2xl transition-all duration-300 overflow-hidden border border-transparent hover:border-gray-200">
                   <button class="w-full flex items-start justify-between p-6 text-left active:bg-gray-50 transition-colors touch-manipulation min-h-[60px]" @click="faq.open = !faq.open">
-                     <span class="text-base md:text-lg font-medium text-[#0F0F12] pr-8">{{ faq.question }}</span>
+                     <span class="text-base md:text-lg font-medium text-[var(--brand-text)] pr-8">{{ faq.question }}</span>
                      <ChevronDownIcon class="w-5 h-5 text-gray-400 shrink-0 mt-1 transition-transform duration-300" :class="{ 'rotate-180': faq.open }" />
                   </button>
                   <div
@@ -410,7 +410,7 @@
                     :class="faq.open ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
                   >
                     <div class="overflow-hidden">
-                      <div class="px-6 pb-6 text-sm md:text-[15px] text-[#5A5E6A] leading-relaxed">
+                      <div class="px-6 pb-6 text-sm md:text-[15px] text-[var(--brand-muted)] leading-relaxed">
                          {{ faq.answer }}
                       </div>
                     </div>
@@ -434,7 +434,7 @@
                智言AI你的 AI 办公空间
              </h2>
              <div class="flex flex-col sm:flex-row items-center gap-4 md:gap-5 w-full sm:w-auto">
-                <button class="w-full sm:w-auto px-8 py-4 rounded-full bg-[#6E58FF] text-white font-bold text-[16px] hover:bg-[#5A43FF] active:scale-95 transition-all shadow-xl">
+                <button class="w-full sm:w-auto px-8 py-4 rounded-full bg-[var(--brand-primary)] text-white font-bold text-[16px] hover:bg-[#5A43FF] active:scale-95 transition-all shadow-xl">
                    立即体验
                 </button>
                 <button
@@ -560,7 +560,7 @@ const solutionRows: SolutionRow[] = [
         title: '十分钟，\n做拿得出手的PPT',
         actionText: '使用 AI PPT',
         widthClass: 'md:w-[59%]',
-        bgClass: 'bg-linear-to-br from-[#6E58FF] to-[#8B7FFF]',
+        bgClass: 'bg-linear-to-br from-[var(--brand-primary)] to-[#8B7FFF]',
         textClass: 'text-white',
         visual: 'ppt'
       },
@@ -589,7 +589,7 @@ const solutionRows: SolutionRow[] = [
         actionText: '使用 AI EXCEL',
         widthClass: 'md:flex-1',
         bgClass: 'bg-linear-to-r from-[#E0E7FF] to-[#Dbeafe]',
-        textClass: 'text-[#6E58FF]',
+        textClass: 'text-[var(--brand-primary)]',
         visual: 'excel'
       }
     ]
@@ -622,56 +622,56 @@ const solutionRows: SolutionRow[] = [
  */
 const allFeatures: FeatureItem[] = [
   // AI 视觉创作
-  { title: 'Sora2视频', tag: 'Video', category: 'AI 视觉创作', bgClass: 'bg-gradient-to-br from-blue-50 to-purple-50', iconClass: 'i-lucide-video' },
-  { title: '香蕉绘画Nanobanana', tag: 'AI Art', category: 'AI 视觉创作', bgClass: 'bg-gradient-to-br from-purple-50 to-pink-50', iconClass: 'i-lucide-palette' },
-  { title: 'AI视频', tag: 'Video', category: 'AI 视觉创作', bgClass: 'bg-gradient-to-br from-blue-50 to-indigo-50', iconClass: 'i-lucide-clapperboard' },
-  { title: 'AI绘画', tag: 'AI Art', category: 'AI 视觉创作', bgClass: 'bg-gradient-to-br from-pink-50 to-purple-50', iconClass: 'i-lucide-image' },
-  { title: '艺术二维码', tag: 'QR Code', category: 'AI 视觉创作', bgClass: 'bg-gradient-to-br from-indigo-50 to-blue-50', iconClass: 'i-lucide-qr-code' },
-  { title: '豆包文生图', tag: 'AI Image', category: 'AI 视觉创作', bgClass: 'bg-gradient-to-br from-purple-50 to-blue-50', iconClass: 'i-lucide-image-plus' },
-  { title: 'AI改图', tag: 'Edit', category: 'AI 视觉创作', bgClass: 'bg-gradient-to-br from-blue-50 to-indigo-50', iconClass: 'i-lucide-pencil' },
-  { title: 'AI配音工具', tag: 'Voice', category: 'AI 视觉创作', bgClass: 'bg-gradient-to-br from-indigo-50 to-purple-50', iconClass: 'i-lucide-mic' },
+  { title: 'Sora2视频', tag: 'Video', category: 'AI 视觉创作', bgClass: 'bg-linear-to-br from-blue-50 to-purple-50', iconClass: 'i-lucide-video' },
+  { title: '香蕉绘画Nanobanana', tag: 'AI Art', category: 'AI 视觉创作', bgClass: 'bg-linear-to-br from-purple-50 to-pink-50', iconClass: 'i-lucide-palette' },
+  { title: 'AI视频', tag: 'Video', category: 'AI 视觉创作', bgClass: 'bg-linear-to-br from-blue-50 to-indigo-50', iconClass: 'i-lucide-clapperboard' },
+  { title: 'AI绘画', tag: 'AI Art', category: 'AI 视觉创作', bgClass: 'bg-linear-to-br from-pink-50 to-purple-50', iconClass: 'i-lucide-image' },
+  { title: '艺术二维码', tag: 'QR Code', category: 'AI 视觉创作', bgClass: 'bg-linear-to-br from-indigo-50 to-blue-50', iconClass: 'i-lucide-qr-code' },
+  { title: '豆包文生图', tag: 'AI Image', category: 'AI 视觉创作', bgClass: 'bg-linear-to-br from-purple-50 to-blue-50', iconClass: 'i-lucide-image-plus' },
+  { title: 'AI改图', tag: 'Edit', category: 'AI 视觉创作', bgClass: 'bg-linear-to-br from-blue-50 to-indigo-50', iconClass: 'i-lucide-pencil' },
+  { title: 'AI配音工具', tag: 'Voice', category: 'AI 视觉创作', bgClass: 'bg-linear-to-br from-indigo-50 to-purple-50', iconClass: 'i-lucide-mic' },
   // 智能对话 Agent
-  { title: '智能体', tag: 'Agent', category: '智能对话 Agent', bgClass: 'bg-gradient-to-br from-purple-50 to-indigo-50', iconClass: 'i-lucide-bot' },
-  { title: 'AI对话', tag: 'Chat', category: '智能对话 Agent', bgClass: 'bg-gradient-to-br from-blue-50 to-purple-50', iconClass: 'i-lucide-message-circle' },
-  { title: '对话html预览', tag: 'Preview', category: '智能对话 Agent', bgClass: 'bg-gradient-to-br from-indigo-50 to-blue-50', iconClass: 'i-lucide-code' },
-  { title: '对话上传文件', tag: 'Upload', category: '智能对话 Agent', bgClass: 'bg-gradient-to-br from-purple-50 to-blue-50', iconClass: 'i-lucide-upload' },
-  { title: '智能体DSL', tag: 'DSL', category: '智能对话 Agent', bgClass: 'bg-gradient-to-br from-blue-50 to-indigo-50', iconClass: 'i-lucide-workflow' },
-  { title: '对话文案AI补全', tag: 'Completion', category: '智能对话 Agent', bgClass: 'bg-gradient-to-br from-indigo-50 to-purple-50', iconClass: 'i-lucide-sparkles' },
-  { title: '语音播报', tag: 'TTS', category: '智能对话 Agent', bgClass: 'bg-gradient-to-br from-purple-50 to-pink-50', iconClass: 'i-lucide-volume-2' },
-  { title: '分享对话', tag: 'Share', category: '智能对话 Agent', bgClass: 'bg-gradient-to-br from-pink-50 to-purple-50', iconClass: 'i-lucide-share-2' },
+  { title: '智能体', tag: 'Agent', category: '智能对话 Agent', bgClass: 'bg-linear-to-br from-purple-50 to-indigo-50', iconClass: 'i-lucide-bot' },
+  { title: 'AI对话', tag: 'Chat', category: '智能对话 Agent', bgClass: 'bg-linear-to-br from-blue-50 to-purple-50', iconClass: 'i-lucide-message-circle' },
+  { title: '对话html预览', tag: 'Preview', category: '智能对话 Agent', bgClass: 'bg-linear-to-br from-indigo-50 to-blue-50', iconClass: 'i-lucide-code' },
+  { title: '对话上传文件', tag: 'Upload', category: '智能对话 Agent', bgClass: 'bg-linear-to-br from-purple-50 to-blue-50', iconClass: 'i-lucide-upload' },
+  { title: '智能体DSL', tag: 'DSL', category: '智能对话 Agent', bgClass: 'bg-linear-to-br from-blue-50 to-indigo-50', iconClass: 'i-lucide-workflow' },
+  { title: '对话文案AI补全', tag: 'Completion', category: '智能对话 Agent', bgClass: 'bg-linear-to-br from-indigo-50 to-purple-50', iconClass: 'i-lucide-sparkles' },
+  { title: '语音播报', tag: 'TTS', category: '智能对话 Agent', bgClass: 'bg-linear-to-br from-purple-50 to-pink-50', iconClass: 'i-lucide-volume-2' },
+  { title: '分享对话', tag: 'Share', category: '智能对话 Agent', bgClass: 'bg-linear-to-br from-pink-50 to-purple-50', iconClass: 'i-lucide-share-2' },
   // 知识库与文档
-  { title: '知识库', tag: 'Knowledge', category: '知识库与文档', bgClass: 'bg-gradient-to-br from-blue-50 to-purple-50', iconClass: 'i-lucide-book-open' },
-  { title: '文件导入导出', tag: 'Import', category: '知识库与文档', bgClass: 'bg-gradient-to-br from-indigo-50 to-blue-50', iconClass: 'i-lucide-import' },
-  { title: '问答对导入', tag: 'QA', category: '知识库与文档', bgClass: 'bg-gradient-to-br from-purple-50 to-blue-50', iconClass: 'i-lucide-help-circle' },
-  { title: '拆分问答对', tag: 'Split', category: '知识库与文档', bgClass: 'bg-gradient-to-br from-blue-50 to-indigo-50', iconClass: 'i-lucide-scissors' },
-  { title: '文档问答', tag: 'Doc QA', category: '知识库与文档', bgClass: 'bg-gradient-to-br from-indigo-50 to-purple-50', iconClass: 'i-lucide-file-question' },
-  { title: 'PDF解析工具', tag: 'PDF', category: '知识库与文档', bgClass: 'bg-gradient-to-br from-purple-50 to-pink-50', iconClass: 'i-lucide-file-text' },
-  { title: '文件生成', tag: 'Generate', category: '知识库与文档', bgClass: 'bg-gradient-to-br from-pink-50 to-purple-50', iconClass: 'i-lucide-file-plus' },
+  { title: '知识库', tag: 'Knowledge', category: '知识库与文档', bgClass: 'bg-linear-to-br from-blue-50 to-purple-50', iconClass: 'i-lucide-book-open' },
+  { title: '文件导入导出', tag: 'Import', category: '知识库与文档', bgClass: 'bg-linear-to-br from-indigo-50 to-blue-50', iconClass: 'i-lucide-import' },
+  { title: '问答对导入', tag: 'QA', category: '知识库与文档', bgClass: 'bg-linear-to-br from-purple-50 to-blue-50', iconClass: 'i-lucide-help-circle' },
+  { title: '拆分问答对', tag: 'Split', category: '知识库与文档', bgClass: 'bg-linear-to-br from-blue-50 to-indigo-50', iconClass: 'i-lucide-scissors' },
+  { title: '文档问答', tag: 'Doc QA', category: '知识库与文档', bgClass: 'bg-linear-to-br from-indigo-50 to-purple-50', iconClass: 'i-lucide-file-question' },
+  { title: 'PDF解析工具', tag: 'PDF', category: '知识库与文档', bgClass: 'bg-linear-to-br from-purple-50 to-pink-50', iconClass: 'i-lucide-file-text' },
+  { title: '文件生成', tag: 'Generate', category: '知识库与文档', bgClass: 'bg-linear-to-br from-pink-50 to-purple-50', iconClass: 'i-lucide-file-plus' },
   // 模型与数据能力
-  { title: 'MCP', tag: 'MCP', category: '模型与数据能力', bgClass: 'bg-gradient-to-br from-blue-50 to-purple-50', iconClass: 'i-lucide-cpu' },
-  { title: '模型管理', tag: 'Model', category: '模型与数据能力', bgClass: 'bg-gradient-to-br from-indigo-50 to-blue-50', iconClass: 'i-lucide-boxes' },
-  { title: '大模型视觉识别', tag: 'Vision', category: '模型与数据能力', bgClass: 'bg-gradient-to-br from-purple-50 to-blue-50', iconClass: 'i-lucide-eye' },
-  { title: '网页解析', tag: 'Parse', category: '模型与数据能力', bgClass: 'bg-gradient-to-br from-blue-50 to-indigo-50', iconClass: 'i-lucide-globe' },
-  { title: '图文解析', tag: 'Image Parse', category: '模型与数据能力', bgClass: 'bg-gradient-to-br from-indigo-50 to-purple-50', iconClass: 'i-lucide-scan' },
-  { title: '网页速读', tag: 'Read', category: '模型与数据能力', bgClass: 'bg-gradient-to-br from-purple-50 to-pink-50', iconClass: 'i-lucide-book-marked' },
-  { title: '内容总结', tag: 'Summary', category: '模型与数据能力', bgClass: 'bg-gradient-to-br from-pink-50 to-purple-50', iconClass: 'i-lucide-list' },
-  { title: '图表生成', tag: 'Chart', category: '模型与数据能力', bgClass: 'bg-gradient-to-br from-purple-50 to-blue-50', iconClass: 'i-lucide-bar-chart-3' },
+  { title: 'MCP', tag: 'MCP', category: '模型与数据能力', bgClass: 'bg-linear-to-br from-blue-50 to-purple-50', iconClass: 'i-lucide-cpu' },
+  { title: '模型管理', tag: 'Model', category: '模型与数据能力', bgClass: 'bg-linear-to-br from-indigo-50 to-blue-50', iconClass: 'i-lucide-boxes' },
+  { title: '大模型视觉识别', tag: 'Vision', category: '模型与数据能力', bgClass: 'bg-linear-to-br from-purple-50 to-blue-50', iconClass: 'i-lucide-eye' },
+  { title: '网页解析', tag: 'Parse', category: '模型与数据能力', bgClass: 'bg-linear-to-br from-blue-50 to-indigo-50', iconClass: 'i-lucide-globe' },
+  { title: '图文解析', tag: 'Image Parse', category: '模型与数据能力', bgClass: 'bg-linear-to-br from-indigo-50 to-purple-50', iconClass: 'i-lucide-scan' },
+  { title: '网页速读', tag: 'Read', category: '模型与数据能力', bgClass: 'bg-linear-to-br from-purple-50 to-pink-50', iconClass: 'i-lucide-book-marked' },
+  { title: '内容总结', tag: 'Summary', category: '模型与数据能力', bgClass: 'bg-linear-to-br from-pink-50 to-purple-50', iconClass: 'i-lucide-list' },
+  { title: '图表生成', tag: 'Chart', category: '模型与数据能力', bgClass: 'bg-linear-to-br from-purple-50 to-blue-50', iconClass: 'i-lucide-bar-chart-3' },
   // 营销与应用集成
-  { title: '发布至微信公众号', tag: 'WeChat', category: '营销与应用集成', bgClass: 'bg-gradient-to-br from-blue-50 to-indigo-50', iconClass: 'i-lucide-send' },
-  { title: '发布至朋友圈海报', tag: 'WeChat', category: '营销与应用集成', bgClass: 'bg-gradient-to-br from-indigo-50 to-purple-50', iconClass: 'i-lucide-layout-template' },
-  { title: '发布至企业微信', tag: 'WeCom', category: '营销与应用集成', bgClass: 'bg-gradient-to-br from-purple-50 to-pink-50', iconClass: 'i-lucide-building-2' },
-  { title: '发布至影刀RPA', tag: 'RPA', category: '营销与应用集成', bgClass: 'bg-gradient-to-br from-pink-50 to-purple-50', iconClass: 'i-lucide-bot' },
-  { title: '思维导图', tag: 'Mind Map', category: '营销与应用集成', bgClass: 'bg-gradient-to-br from-purple-50 to-blue-50', iconClass: 'i-lucide-git-fork' },
-  { title: 'GEO排名', tag: 'GEO', category: '营销与应用集成', bgClass: 'bg-gradient-to-br from-blue-50 to-indigo-50', iconClass: 'i-lucide-map-pin' },
-  { title: '优化工具', tag: 'Optimize', category: '营销与应用集成', bgClass: 'bg-gradient-to-br from-indigo-50 to-purple-50', iconClass: 'i-lucide-settings' },
-  { title: 'AI PPT', tag: 'PPT', category: '营销与应用集成', bgClass: 'bg-gradient-to-br from-purple-50 to-pink-50', iconClass: 'i-lucide-presentation' },
-  { title: '爆款文章生成', tag: 'Article', category: '营销与应用集成', bgClass: 'bg-gradient-to-br from-pink-50 to-purple-50', iconClass: 'i-lucide-newspaper' },
+  { title: '发布至微信公众号', tag: 'WeChat', category: '营销与应用集成', bgClass: 'bg-linear-to-br from-blue-50 to-indigo-50', iconClass: 'i-lucide-send' },
+  { title: '发布至朋友圈海报', tag: 'WeChat', category: '营销与应用集成', bgClass: 'bg-linear-to-br from-indigo-50 to-purple-50', iconClass: 'i-lucide-layout-template' },
+  { title: '发布至企业微信', tag: 'WeCom', category: '营销与应用集成', bgClass: 'bg-linear-to-br from-purple-50 to-pink-50', iconClass: 'i-lucide-building-2' },
+  { title: '发布至影刀RPA', tag: 'RPA', category: '营销与应用集成', bgClass: 'bg-linear-to-br from-pink-50 to-purple-50', iconClass: 'i-lucide-bot' },
+  { title: '思维导图', tag: 'Mind Map', category: '营销与应用集成', bgClass: 'bg-linear-to-br from-purple-50 to-blue-50', iconClass: 'i-lucide-git-fork' },
+  { title: 'GEO排名', tag: 'GEO', category: '营销与应用集成', bgClass: 'bg-linear-to-br from-blue-50 to-indigo-50', iconClass: 'i-lucide-map-pin' },
+  { title: '优化工具', tag: 'Optimize', category: '营销与应用集成', bgClass: 'bg-linear-to-br from-indigo-50 to-purple-50', iconClass: 'i-lucide-settings' },
+  { title: 'AI PPT', tag: 'PPT', category: '营销与应用集成', bgClass: 'bg-linear-to-br from-purple-50 to-pink-50', iconClass: 'i-lucide-presentation' },
+  { title: '爆款文章生成', tag: 'Article', category: '营销与应用集成', bgClass: 'bg-linear-to-br from-pink-50 to-purple-50', iconClass: 'i-lucide-newspaper' },
   // 其他功能
-  { title: '上传文件', tag: 'Upload', category: '其他功能', bgClass: 'bg-gradient-to-br from-blue-50 to-purple-50', iconClass: 'i-lucide-cloud-upload' },
-  { title: '手机号登录', tag: 'Login', category: '其他功能', bgClass: 'bg-gradient-to-br from-indigo-50 to-blue-50', iconClass: 'i-lucide-smartphone' },
-  { title: '图像识别', tag: 'Image', category: '其他功能', bgClass: 'bg-gradient-to-br from-purple-50 to-blue-50', iconClass: 'i-lucide-scan-eye' },
-  { title: '快递查询', tag: 'Express', category: '其他功能', bgClass: 'bg-gradient-to-br from-blue-50 to-indigo-50', iconClass: 'i-lucide-package' },
-  { title: '天气查询', tag: 'Weather', category: '其他功能', bgClass: 'bg-gradient-to-br from-indigo-50 to-purple-50', iconClass: 'i-lucide-cloud-sun' }
+  { title: '上传文件', tag: 'Upload', category: '其他功能', bgClass: 'bg-linear-to-br from-blue-50 to-purple-50', iconClass: 'i-lucide-cloud-upload' },
+  { title: '手机号登录', tag: 'Login', category: '其他功能', bgClass: 'bg-linear-to-br from-indigo-50 to-blue-50', iconClass: 'i-lucide-smartphone' },
+  { title: '图像识别', tag: 'Image', category: '其他功能', bgClass: 'bg-linear-to-br from-purple-50 to-blue-50', iconClass: 'i-lucide-scan-eye' },
+  { title: '快递查询', tag: 'Express', category: '其他功能', bgClass: 'bg-linear-to-br from-blue-50 to-indigo-50', iconClass: 'i-lucide-package' },
+  { title: '天气查询', tag: 'Weather', category: '其他功能', bgClass: 'bg-linear-to-br from-indigo-50 to-purple-50', iconClass: 'i-lucide-cloud-sun' }
 ]
 
 /**
@@ -717,9 +717,9 @@ const faqs = ref<FaqItem[]>([
 
 /* 潜在复用变量 */
 :root {
-  --primary: #6E58FF;
+  --primary: var(--brand-primary);
   --primary-hover: #5A43FF;
-  --text-main: #0F0F12;
+  --text-main: var(--brand-text);
   --bg-page: #F3F4F6;
 }
 

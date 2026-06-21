@@ -152,5 +152,5 @@ export default defineNuxtConfig({
   },
 
   // 全局 CSS 文件
-  css: ['~/assets/css/main.css']
+  css: ['~/assets/css/main.css', '~/assets/css/grid-border.css']
 })

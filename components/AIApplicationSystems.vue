@@ -1,106 +1,46 @@
 <template>
-  <!-- AI应用系统展示组件 -->
   <section class="bg-neutral-50">
-    <!-- 主内容区域 -->
     <div class="container mx-auto px-4 py-14 md:py-20">
-      <!-- 标题 -->
-      <div class="mb-10">
-        <h2 class="text-2xl font-bold text-neutral-900 md:text-3xl">
-          使用智言AI可以<span class="text-indigo-600">积木式轻松搭建</span>如下AI应用系统
-        </h2>
-        <p class="mt-3 text-neutral-500">智言AI同样致力于在AI时代打造备受青睐的、可快速搭建AI应用系统的开源解决方案</p>
+      <!-- 标题区域 -->
+      <div class="mb-12">
+        <h2 class="text-2xl font-bold text-neutral-900 md:text-3xl">应用中心</h2>
+        <p class="mt-3 text-neutral-500">租户已上架的能力与应用，含语音 TTS 等多 API 端点</p>
       </div>
 
-      <!-- Bento Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-        <!-- 左侧展示卡片 -->
-        <div class="md:col-span-2 lg:col-span-2 lg:row-span-3 bg-white rounded-xl overflow-hidden flex flex-col border border-neutral-200">
-          <!-- 图片区域 - 添加触摸事件支持 -->
-          <div 
-            class="relative w-full bg-neutral-50 p-3 touch-pan-y"
-            @touchstart="handleTouchStart"
-            @touchmove="handleTouchMove"
-            @touchend="handleTouchEnd"
-            @touchcancel="handleTouchCancel"
-          >
-            <div class="relative w-full overflow-hidden rounded-lg" style="aspect-ratio: 16/5.5;">
-              <!-- 预加载下一张图片 -->
-              <img
-                v-for="system in systemsList"
-                :key="`preload-${system.id}`"
-                :src="system.demoImage"
-                :alt="system.name"
-                class="absolute inset-0 w-full h-full object-cover opacity-0 pointer-events-none"
-                loading="lazy"
-              />
-              <!-- 当前显示图片 -->
-              <img
-                :src="currentSystem?.demoImage || '/images/CtaSection.jpg'"
-                :alt="currentSystem?.name"
-                loading="eager"
-                class="absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-out rounded-lg"
-                :class="isTransitioning ? 'opacity-0 scale-[1.02]' : 'opacity-100 scale-100'"
-                @error="handleImageError"
-              />
-            </div>
-          </div>
-          
-          <!-- 信息栏 -->
-          <div class="px-4 py-2.5 flex items-center justify-between bg-white">
-            <h3 class="font-medium text-sm text-neutral-800">{{ currentSystem?.name }}</h3>
-            <!-- 圆点指示器 -->
-            <div class="flex items-center gap-1.5">
-              <button
-                v-for="(system, idx) in systemsList"
-                :key="`dot-${system.id}`"
-                class="rounded-full transition-all duration-300"
-                :class="activeIndex === idx
-                  ? 'bg-indigo-500 w-4 h-1.5'
-                  : 'bg-neutral-300 hover:bg-neutral-400 w-1.5 h-1.5'"
-                :aria-label="`切换到 ${system.name}`"
-                @click="selectSystem(idx)"
-                @mouseenter="pauseAutoPlay"
-                @mouseleave="resumeAutoPlay"
-              />
-            </div>
-          </div>
-          
-          <!-- 进度条 -->
-          <div class="h-0.5 bg-neutral-100 relative overflow-hidden">
-            <div 
-              class="h-full bg-indigo-500 absolute left-0 top-0 transition-none"
-              :style="progressBarStyle"
-            />
-          </div>
-        </div>
-
-        <!-- 右侧列表 -->
+      <!-- 应用卡片网格 -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         <div
-          v-for="(system, index) in systemsList"
-          :key="system.id"
-          class="px-3.5 py-4 rounded-xl cursor-pointer transition-all duration-200 flex flex-col justify-center border"
-          :class="activeIndex === index 
-            ? 'border-indigo-200 bg-indigo-50/50' 
-            : 'border-neutral-200 hover:border-indigo-200 bg-white'"
-          @click="selectSystem(index)"
-          @mouseenter="pauseAutoPlay"
-          @mouseleave="resumeAutoPlay"
+          v-for="app in appList"
+          :key="app.id"
+          class="group bg-white rounded-xl border border-neutral-200 p-5 transition-all duration-200 hover:border-indigo-200 hover:shadow-sm"
         >
-          <div class="flex items-start gap-3">
-            <div 
-              class="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-all duration-200"
-              :class="activeIndex === index 
-                ? 'bg-indigo-500 text-white' 
-                : 'bg-neutral-100 text-neutral-400'"
+          <!-- 图标 + 名称 -->
+          <div class="flex items-start gap-3 mb-3">
+            <div
+              class="w-10 h-10 rounded-lg flex items-center justify-center text-white text-lg font-bold shrink-0"
+              :style="{ background: iconGradient(app.icon) }"
             >
-              <component :is="system.icon" class="w-4.5 h-4.5"/>
+              {{ app.icon }}
             </div>
-            <div class="flex-1 min-w-0">
-              <h4 class="font-medium text-sm leading-tight transition-colors duration-200" :class="activeIndex === index ? 'text-indigo-600' : 'text-neutral-800'">
-                {{ system.name }}
-              </h4>
-              <p class="text-xs text-neutral-500 line-clamp-2 mt-1 leading-relaxed">{{ system.description }}</p>
+            <div class="min-w-0 flex-1">
+              <h3 class="font-semibold text-neutral-900 truncate">{{ app.name }}</h3>
+              <p class="text-xs text-neutral-400 truncate mt-0.5 font-mono">{{ app.key }}</p>
             </div>
+          </div>
+
+          <!-- 描述 -->
+          <p class="text-sm text-neutral-600 leading-relaxed line-clamp-3 mb-4">
+            {{ app.description }}
+          </p>
+
+          <!-- 底部对齐占位 -->
+          <div class="mb-4" />
+
+          <!-- 操作按钮 -->
+          <div class="flex items-center gap-3 pt-3 border-t border-neutral-100">
+            <a href="#" class="text-sm font-medium text-indigo-600 hover:text-indigo-700 transition-colors">应用价格</a>
+            <span class="text-neutral-300">|</span>
+            <a href="#" class="text-sm text-neutral-500 hover:text-neutral-700 transition-colors">查看文档</a>
           </div>
         </div>
       </div>
@@ -109,309 +49,64 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, shallowRef } from 'vue'
-import type { Component } from 'vue'
-import {
-  Palette, Bot, MessageCircleCode, Lightbulb, BookOpenText,
-  School, ChevronsLeftRightEllipsis, BadgeCheck, ShoppingCart,
-  Map, FileText, HeartPulse
-} from 'lucide-vue-next'
-
-// 类型定义
-export interface AIApplicationSystem {
-  id: number | string
+interface AppItem {
+  id: string
+  icon: string
   name: string
+  key: string
   description: string
-  icon: Component
-  demoImage: string
+  apiCount?: number
 }
 
-interface Props {
-  systems?: AIApplicationSystem[]
-  autoPlayInterval?: number
-  autoPlay?: boolean
-}
-
-const props = withDefaults(defineProps<Props>(), {
-  systems: () => [],
-  autoPlayInterval: 4000,
-  autoPlay: true
-})
-
-// 默认数据
-const defaultSystems: AIApplicationSystem[] = [
-  { id: 1, name: 'AI聊天绘画系统', description: '可快速搭建集成全球所有顶级大语言模型并且兼容主流AIGC图片模型，具备智能对话，图片生成，用户管理，算力计费，会员订阅等模块的AI应用系统', icon: Palette, demoImage: '/images/Modelbackground.png' },
-  { id: 2, name: '企业智能体系统', description: '可快速搭建企业级智能体，支持业务流程自动化、数据分析汇总、决策辅助，可对接企业现有系统，扩展权限分级管理，提升企业运营效率的AI应用系统', icon: Bot, demoImage: '/images/Modelbackground.png' },
-  { id: 3, name: '企业AI客服系统', description: '可快速搭建集成多轮对话模型，支持7*24小时智能知识库应答、常见问题解答，可扩展工单流转与客户画像管理能力，降低企业客服运营成本的AI应用系统', icon: MessageCircleCode, demoImage: '/images/buidai-1.webp' },
-  { id: 4, name: 'AI漫剧创意系统', description: '可快速搭建支持剧本智能创作、角色形象生成、漫剧素材库管理，适配分镜设计与台词优化，显著降低漫剧创作门槛，适配个人创作者与工作室的AI应用系统', icon: Lightbulb, demoImage: '/images/buidai-2.webp' },
-  { id: 5, name: 'AI论文学术系统', description: '可快速搭建提供文献检索、论文框架构建、查重辅助与格式校对功能，集成学术大模型答疑和参考文献管理，助力科研人员提升论文撰写效率的AI应用系统', icon: BookOpenText, demoImage: '/images/buidai-3.webp' },
-  { id: 6, name: 'AI校园助手系统', description: '可快速搭建包含校园信息查询、选课咨询、成绩查询、校园导航等AI智能体功能，提升校园管理与服务效率的AI应用系统', icon: School, demoImage: '/images/buidai-4.webp' },
-  { id: 7, name: '智能体在线实训系统', description: '支持智能体开发实训、大模型对话操练、知识库内容清洗', icon: ChevronsLeftRightEllipsis, demoImage: '/images/buidai-4.webp' },
-  { id: 8, name: 'AI工业质检辅助系统', description: '集成高精度图像识别模型，支持多品类产品缺陷检测', icon: BadgeCheck, demoImage: '/images/buidai-5.webp' },
-  { id: 9, name: 'AI电商素材系统', description: '支持商品文案智能生成、主图/详情图多风格AIGC创作', icon: ShoppingCart, demoImage: '/images/buidai-6.webp' },
-  { id: 10, name: 'AI文旅导览系统', description: '提供多语言数字人语音导览、景点深度讲解、行程规划', icon: Map, demoImage: '/images/buidai-7.webp' },
-  { id: 11, name: 'AI法律文书系统', description: '支持多类型文书起草、法律条文检索、合规性审核', icon: FileText, demoImage: '/images/Modelbackground.png' },
-  { id: 12, name: 'AI医疗咨询系统', description: '提供权威健康知识科普、症状问询与风险分级、就医建议', icon: HeartPulse, demoImage: '/images/Modelbackground.png' }
+const appList: AppItem[] = [
+  { id: 'person_replacement', icon: '人', name: '人物替换', key: 'person_replacement', description: '人物替换，基于参考图片和输入视频生成替换后的视频结果。' },
+  { id: 'action_transfer', icon: '动', name: '动作迁移', key: 'action_transfer', description: '动作迁移，基于参考图片和输入视频生成动作迁移后的视频结果。' },
+  { id: 'happy_horse', icon: 'H', name: 'Happy Horse', key: 'happy_horse', description: 'Happy Horse（HappyHorse-1.0 系列）面向文生/图生高质量短视频，采用统一多模态建模，可一阶段生成声画、支持多语言对白与多镜头场景衔接。计费按目标分辨率与生成秒数对应的参数档位计点。本能力为内测邀请制，正式调用前需完成内测申请。', apiCount: 3 },
+  { id: 'seedance2_pro', icon: 'S', name: 'Seedance 2.0 Pro', key: 'seedance2_pro', description: '高质量视频生成应用，支持文本提示、参考图片、参考音频、比例与时长控制，可选择 pro 或 fast 提交模式。' },
+  { id: 'smart_clip', icon: '智', name: '智能剪辑', key: 'smart_clip', description: '智能剪辑应用，支持模板查询、真人口播混剪、素材混剪和新闻体视频制作。', apiCount: 5 },
+  { id: 'image_human', icon: '全', name: '全驱动数字人', key: 'image_human', description: '全驱动数字人，基于图片和参考音频生成自然稳定的数字人视频。' },
+  { id: 'wan', icon: 'W', name: 'Wan 视频生成', key: 'wan', description: 'Wan 模型族视频生成应用。版本通过 model 参数选择，支持文生视频、角色参考生视频与视频编辑。' },
+  { id: 'seedance', icon: 'S', name: 'Seedance 2.0', key: 'seedance', description: '基于火山方舟 Seedance 2.0 的多模态视频生成应用。支持文本/图片/视频/音频任意组合输入，可输出 480p/720p/1080p 分辨率、4~15 秒时长的视频，并可选生成同步音频。按 token 计费，按分辨率和是否含视频输入分档。', apiCount: 7 },
+  { id: 'lipsync', icon: '数', name: '数字人对口型', key: 'lipsync', description: '数字人对口型（Lipsync），任务由平台弹性部署调度。' },
+  { id: 'dressing_diffusion', icon: 'A', name: 'AI换装', key: 'dressing_diffusion', description: '智能图片换装，上传模特图和服装图，AI 自动完成试穿效果生成。支持上衣、下装、全身换装。模型可在后台 extra_config 中切换。' },
+  { id: 'mmaudio', icon: 'M', name: 'MMaudio', key: 'mmaudio', description: '视频配音 / MMaudio，任务由平台弹性部署调度。' },
+  { id: 'flashvsr', icon: 'F', name: 'FlashVSR', key: 'flashvsr', description: '视频超分辨率（FlashVSR），任务由平台弹性部署调度。' },
+  { id: 'seedsvc', icon: 'S', name: 'SeedSVC', key: 'seedsvc', description: '音色转换 / 翻唱（SeedSVC），任务由平台弹性部署调度。' },
+  { id: 'indextts', icon: 'I', name: 'IndexTTS', key: 'indextts', description: '弹性 GPU 语音合成（IndexTTS），任务由平台弹性部署调度。' },
+  { id: 'watermark_removal', icon: '水', name: '水印消除', key: 'watermark_removal', description: '支持抖音、快手、小红书等主流短视频平台，输入分享链接即可获取无水印视频地址。', apiCount: 8 },
+  { id: 'voice_tts', icon: '语', name: '语音TTS', key: 'voice_tts', description: '语音克隆、文字转语音（同步/异步）、语音识别等多端点 AI 语音能力', apiCount: 6 },
 ]
 
-// 状态 - 使用 shallowRef 提升性能
-const systemsList = computed(() => props.systems?.length ? props.systems : defaultSystems)
-const activeIndex = shallowRef(0)
-const progress = shallowRef(0)
-const isTransitioning = shallowRef(false)
-const isPaused = shallowRef(false)
+const gradients = [
+  'linear-gradient(135deg, #6366f1, #8b5cf6)',
+  'linear-gradient(135deg, #8b5cf6, #d946ef)',
+  'linear-gradient(135deg, #3b82f6, #06b6d4)',
+  'linear-gradient(135deg, #10b981, #34d399)',
+  'linear-gradient(135deg, #f59e0b, #f97316)',
+  'linear-gradient(135deg, #ef4444, #f97316)',
+  'linear-gradient(135deg, #6366f1, #3b82f6)',
+  'linear-gradient(135deg, #8b5cf6, #a855f7)',
+]
 
-// 触摸滑动相关状态
-let touchStartX = 0
-let touchStartY = 0
-let touchEndX = 0
-const minSwipeDistance = 50
-
-let autoPlayTimer: ReturnType<typeof setTimeout> | null = null
-let progressStartTime = 0
-let progressRafId: number | null = null
-
-// 计算属性
-const currentSystem = computed(() => systemsList.value[activeIndex.value])
-
-// 进度条样式 - 统一使用 JS 控制
-const progressBarStyle = computed(() => ({
-  width: `${progress.value}%`,
-  transition: isPaused.value || isTransitioning.value ? 'none' : 'width 100ms linear'
-}))
-
-// 方法
-const selectSystem = (index: number) => {
-  if (index < 0 || index >= systemsList.value.length || index === activeIndex.value) {
-    return
-  }
-
-  isTransitioning.value = true
-  progress.value = 0
-
-  // 使用 requestAnimationFrame 确保动画流畅
-  requestAnimationFrame(() => {
-    activeIndex.value = index
-
-    // 等待过渡动画完成
-    setTimeout(() => {
-      isTransitioning.value = false
-      resetAutoPlay()
-    }, 500)
-  })
-}
-
-const pauseAutoPlay = () => { 
-  isPaused.value = true 
-  cancelProgressAnimation()
-}
-
-const resumeAutoPlay = () => { 
-  isPaused.value = false
-  resetAutoPlay()
-}
-
-// 使用 requestAnimationFrame 替代 setInterval 实现更流畅的进度条
-const startProgressAnimation = () => {
-  if (!props.autoPlay) {
-    return
-  }
-
-  progressStartTime = performance.now()
-  const duration = props.autoPlayInterval
-
-  const animate = (currentTime: number) => {
-    if (isPaused.value || isTransitioning.value) {
-      progressRafId = requestAnimationFrame(animate)
-      return
+const iconGradient = (() => {
+  const cache = new Map<string, string>()
+  let idx = 0
+  return (icon: string): string => {
+    if (!cache.has(icon)) {
+      cache.set(icon, gradients[idx % gradients.length]!)
+      idx++
     }
-
-    const elapsed = currentTime - progressStartTime
-    progress.value = Math.min((elapsed / duration) * 100, 100)
-
-    if (elapsed < duration) {
-      progressRafId = requestAnimationFrame(animate)
-    }
+    return cache.get(icon)!
   }
-
-  progressRafId = requestAnimationFrame(animate)
-}
-
-const cancelProgressAnimation = () => {
-  if (progressRafId) {
-    cancelAnimationFrame(progressRafId)
-    progressRafId = null
-  }
-}
-
-// 自动播放 - 使用单个定时器管理
-const startAutoPlay = () => {
-  if (!props.autoPlay) {
-    return
-  }
-
-  startProgressAnimation()
-
-  autoPlayTimer = setTimeout(() => {
-    if (!isPaused.value) {
-      const nextIndex = (activeIndex.value + 1) % systemsList.value.length
-      selectSystem(nextIndex)
-    }
-  }, props.autoPlayInterval)
-}
-
-const stopAutoPlay = () => {
-  cancelProgressAnimation()
-  if (autoPlayTimer) {
-    clearTimeout(autoPlayTimer)
-    autoPlayTimer = null
-  }
-}
-
-const resetAutoPlay = () => {
-  stopAutoPlay()
-  progress.value = 0
-  startAutoPlay()
-}
-
-// 预加载图片 - 优先加载当前和相邻图片
-const preloadImages = (priorityIndices: number[]) => {
-  priorityIndices.forEach(index => {
-    const system = systemsList.value[index]
-    if (system?.demoImage) {
-      const img = new Image()
-      // 静默处理加载结果，避免控制台输出
-      img.src = system.demoImage
-    }
-  })
-}
-
-// 处理触摸开始事件
-const handleTouchStart = (event: TouchEvent): void => {
-  touchStartX = event.touches[0]?.clientX ?? 0
-  touchStartY = event.touches[0]?.clientY ?? 0
-  pauseAutoPlay()
-}
-
-// 处理触摸移动事件
-const handleTouchMove = (event: TouchEvent): void => {
-  const currentX = event.touches[0]?.clientX ?? 0
-  const currentY = event.touches[0]?.clientY ?? 0
-  const deltaX = Math.abs(currentX - touchStartX)
-  const deltaY = Math.abs(currentY - touchStartY)
-  
-  // 如果水平滑动距离大于垂直滑动，阻止默认行为
-  if (deltaX > deltaY && deltaX > 10) {
-    event.preventDefault()
-  }
-}
-
-// 处理触摸结束事件
-const handleTouchEnd = (event: TouchEvent): void => {
-  touchEndX = event.changedTouches[0]?.clientX ?? 0
-  handleSwipe()
-  resumeAutoPlay()
-}
-
-// 处理触摸取消事件
-const handleTouchCancel = (): void => {
-  touchStartX = 0
-  touchEndX = 0
-  touchStartY = 0
-  resumeAutoPlay()
-}
-
-// 处理滑动逻辑
-const handleSwipe = (): void => {
-  const swipeDistance = touchEndX - touchStartX
-  
-  if (Math.abs(swipeDistance) > minSwipeDistance) {
-    if (swipeDistance > 0) {
-      // 向右滑动，切换到上一个
-      const prevIndex = (activeIndex.value - 1 + systemsList.value.length) % systemsList.value.length
-      selectSystem(prevIndex)
-    } else {
-      // 向左滑动，切换到下一个
-      const nextIndex = (activeIndex.value + 1) % systemsList.value.length
-      selectSystem(nextIndex)
-    }
-  }
-}
-
-// 处理键盘导航事件
-const handleKeydown = (event: KeyboardEvent): void => {
-  if (event.key === 'ArrowLeft') {
-    event.preventDefault()
-    const prevIndex = (activeIndex.value - 1 + systemsList.value.length) % systemsList.value.length
-    selectSystem(prevIndex)
-  } else if (event.key === 'ArrowRight') {
-    event.preventDefault()
-    const nextIndex = (activeIndex.value + 1) % systemsList.value.length
-    selectSystem(nextIndex)
-  }
-}
-
-// 处理页面可见性变化
-const handleVisibilityChange = (): void => {
-  if (document.hidden) {
-    pauseAutoPlay()
-  } else {
-    resumeAutoPlay()
-  }
-}
-
-// 处理图片加载错误
-const handleImageError = (event: Event): void => {
-  const img = event.target as HTMLImageElement
-  img.src = '/images/placeholder.webp'
-}
-
-onMounted(() => {
-  // 优先加载当前和下一张图片
-  const current = activeIndex.value
-  const next = (current + 1) % systemsList.value.length
-  preloadImages([current, next])
-  
-  // 延迟加载其他图片
-  setTimeout(() => {
-    const others = systemsList.value
-      .map((_, i) => i)
-      .filter(i => i !== current && i !== next)
-    preloadImages(others)
-  }, 2000)
-  
-  // 添加事件监听
-  window.addEventListener('keydown', handleKeydown)
-  document.addEventListener('visibilitychange', handleVisibilityChange)
-  
-  startAutoPlay()
-})
-
-onUnmounted(() => {
-  stopAutoPlay()
-  // 移除事件监听
-  window.removeEventListener('keydown', handleKeydown)
-  document.removeEventListener('visibilitychange', handleVisibilityChange)
-})
+})()
 </script>
 
 <style scoped>
-.line-clamp-2 {
+.line-clamp-3 {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-}
-
-/* 触摸优化 */
-.touch-pan-y {
-  touch-action: pan-y;
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* 圆点指示器基础尺寸 */
-:deep(button[class*='rounded-full']) {
-  min-width: 6px;
 }
 </style>
